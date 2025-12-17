@@ -9,31 +9,31 @@ interface LogoProps {
   className?: string
 }
 
-const sizeClasses: Record<LogoSize, { container: string; sihl: string; hack: string }> = {
+const sizeClasses: Record<LogoSize, { sihl: string; hack: string; leading: string }> = {
   sm: {
-    container: 'gap-0.5',
     sihl: 'text-lg',
     hack: 'text-lg',
+    leading: 'leading-[0.85]',
   },
   md: {
-    container: 'gap-0.5',
     sihl: 'text-2xl',
     hack: 'text-2xl',
+    leading: 'leading-[0.85]',
   },
   lg: {
-    container: 'gap-1',
     sihl: 'text-4xl',
     hack: 'text-4xl',
+    leading: 'leading-[0.85]',
   },
   xl: {
-    container: 'gap-1',
     sihl: 'text-5xl sm:text-6xl',
     hack: 'text-5xl sm:text-6xl',
+    leading: 'leading-[0.85]',
   },
   hero: {
-    container: 'gap-1',
     sihl: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
     hack: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
+    leading: 'leading-[0.85]',
   },
 }
 
@@ -41,7 +41,8 @@ export function Logo({ size = 'md', hackColor = 'black', className }: LogoProps)
   const sizes = sizeClasses[size]
 
   return (
-    <span className={cn('inline-flex items-baseline', sizes.container, className)}>
+    <span className={cn('inline-flex flex-col', sizes.leading, className)}>
+      {/* sihl on first row */}
       <span
         className={cn(
           'font-display font-bold text-sihl-red',
@@ -51,13 +52,17 @@ export function Logo({ size = 'md', hackColor = 'black', className }: LogoProps)
       >
         sihl
       </span>
+      {/* hack on second row, indented to align h with h in sihl */}
       <span
         className={cn(
           'font-bold tracking-tight',
           hackColor === 'white' ? 'text-white' : 'text-brand-black',
           sizes.hack
         )}
-        style={{ fontFamily: 'var(--font-futuristic)' }}
+        style={{
+          fontFamily: 'var(--font-futuristic)',
+          marginLeft: '0.5em',
+        }}
       >
         hack
       </span>
