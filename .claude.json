@@ -1,0 +1,19 @@
+{
+  "projectName": "sihlhack",
+  "description": "Switzerland's first participant-oriented hackathon - digitalizing Sihl Valley industrial heritage",
+  "agents": {
+    "enabled": true,
+    "discussionRequired": true
+  },
+  "commands": {
+    "architect": ".claude/commands/architect.md",
+    "frontend": ".claude/commands/frontend.md",
+    "backend": ".claude/commands/backend.md",
+    "payment": ".claude/commands/payment.md",
+    "reviewer": ".claude/commands/reviewer.md",
+    "deployer": ".claude/commands/deployer.md",
+    "discuss": ".claude/commands/discuss.md",
+    "status": ".claude/commands/status.md",
+    "build": ".claude/commands/build.md"
+  }
+}

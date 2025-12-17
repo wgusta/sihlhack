@@ -1,0 +1,99 @@
+{
+  "project": "sihlhack",
+  "version": "1.0.0",
+  "agents": {
+    "architect": {
+      "name": "Architect",
+      "command": "/architect",
+      "responsibilities": [
+        "system-design",
+        "schema-changes",
+        "api-contracts",
+        "technical-decisions"
+      ],
+      "canApprove": ["schema", "architecture"],
+      "mustConsult": ["backend", "frontend"]
+    },
+    "frontend": {
+      "name": "Frontend",
+      "command": "/frontend",
+      "responsibilities": [
+        "ui-components",
+        "pages",
+        "styling",
+        "effects",
+        "accessibility"
+      ],
+      "canApprove": ["ui", "design"],
+      "mustConsult": ["architect"]
+    },
+    "backend": {
+      "name": "Backend",
+      "command": "/backend",
+      "responsibilities": [
+        "api-routes",
+        "database-queries",
+        "authentication",
+        "validation"
+      ],
+      "canApprove": ["api", "database"],
+      "mustConsult": ["architect", "payment"]
+    },
+    "payment": {
+      "name": "Payment",
+      "command": "/payment",
+      "responsibilities": [
+        "stripe-integration",
+        "fund-tracking",
+        "refunds",
+        "financial-logic"
+      ],
+      "canApprove": ["payment-flow"],
+      "mustConsult": ["backend", "reviewer"]
+    },
+    "reviewer": {
+      "name": "Reviewer",
+      "command": "/reviewer",
+      "responsibilities": [
+        "code-review",
+        "security-audit",
+        "bug-detection",
+        "deployment-approval"
+      ],
+      "canApprove": ["deployment"],
+      "canBlock": true
+    },
+    "deployer": {
+      "name": "Deployer",
+      "command": "/deployer",
+      "responsibilities": [
+        "deployment",
+        "verification",
+        "rollback"
+      ],
+      "requiresApproval": ["reviewer"],
+      "requiresResolved": ["all-discussions"]
+    }
+  },
+  "workflow": {
+    "discussionRequired": true,
+    "discussionPath": ".claude/discussions",
+    "approvalRequired": true,
+    "approver": "reviewer",
+    "phases": [
+      "init",
+      "foundation",
+      "auth",
+      "payment",
+      "features",
+      "admin",
+      "review",
+      "deploy"
+    ]
+  },
+  "rules": {
+    "noDeployWithOpenDiscussions": true,
+    "securityReviewRequired": ["auth", "payment", "admin"],
+    "architectApprovalFor": ["schema", "api-contracts"]
+  }
+}
