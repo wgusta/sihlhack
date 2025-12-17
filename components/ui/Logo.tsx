@@ -126,18 +126,24 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           <span className="invisible">{'sihl'.slice(sihlText.length)}</span>
         )}
       </span>
-      {/* hack on second row, indented to align h with h in sihl */}
-      <span
-        className={cn(
-          'font-bold tracking-tight',
-          hackColor === 'white' ? 'text-white' : 'text-brand-black',
-          sizes.hack
-        )}
-        style={{
-          fontFamily: 'var(--font-mono)',
-          marginLeft: '0.48em',
-        }}
-      >
+      {/* hack on second row, with invisible "si" spacer for exact h-alignment */}
+      <span className="flex items-baseline">
+        {/* Invisible spacer matching "si" width in Playfair Display */}
+        <span
+          className={cn('invisible font-display font-bold', sizes.sihl)}
+          style={{ fontFamily: 'var(--font-display)' }}
+          aria-hidden="true"
+        >
+          si
+        </span>
+        <span
+          className={cn(
+            'font-bold tracking-tight',
+            hackColor === 'white' ? 'text-white' : 'text-brand-black',
+            sizes.hack
+          )}
+          style={{ fontFamily: 'var(--font-mono)' }}
+        >
         {/* Blinking cursor before hack */}
         {showCursor && phase === 'waiting' && (
           <span
@@ -164,6 +170,7 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
             {phase === 'waiting' ? 'hack' : 'hack'.slice(hackText.length)}
           </span>
         )}
+        </span>
       </span>
     </span>
   )
