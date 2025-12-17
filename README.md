@@ -6,14 +6,15 @@ Switzerland's first participant-oriented hackathon focused on digitalizing histo
 
 | Document | Description |
 |----------|-------------|
+| [STRATEGY.md](./STRATEGY.md) | **Authoritative strategy: vision, principles, Swiss compliance** |
 | [CONCEPT.md](./CONCEPT.md) | The vision, heritage, and participant model |
 | [TECHNICAL-REQUIREMENTS.md](./TECHNICAL-REQUIREMENTS.md) | Tech stack, database schema, APIs |
-| [PAYMENT-SYSTEM.md](./PAYMENT-SYSTEM.md) | Stripe integration, escrow, automatic refunds |
+| [PAYMENT-SYSTEM.md](./PAYMENT-SYSTEM.md) | Stripe integration, fund holding, automatic refunds |
 | [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) | Colors, typography, historic transformation effects |
 | [SITE-STRUCTURE.md](./SITE-STRUCTURE.md) | Pages, routes, navigation |
 | [IMPLEMENTATION-ROADMAP.md](./IMPLEMENTATION-ROADMAP.md) | Phases and file breakdown |
 | [BUILD-PROMPT.md](./BUILD-PROMPT.md) | AI prompt for building the project |
-| [METRICS-AND-RISKS.md](./METRICS-AND-RISKS.md) | Success criteria and risk mitigation |
+| [METRICS-AND-RISKS.md](./METRICS-AND-RISKS.md) | Success criteria, risks, and Swiss legal requirements |
 
 ## Executive Summary
 

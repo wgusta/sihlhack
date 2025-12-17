@@ -107,36 +107,95 @@
 4. Update access controls if needed
 5. Document incident and resolution
 
-## Legal & Compliance
+## Legal & Compliance (Swiss)
 
-### Swiss Data Protection (DSG/GDPR)
+**Note:** This is planning documentation, not legal advice. Engage Swiss lawyer and accountant before launch.
+
+### Legal Entity
+
+| Option | Pros | Cons |
+|--------|------|------|
+| **Verein** | Lower setup costs, member-based, simpler | Less formal liability protection |
+| **GmbH** | Clear liability separation, professional | Higher costs, more admin |
+
+Decision required before collecting payments.
+
+### Data Protection (nFADP/DSG)
+
+Switzerland's new Federal Act on Data Protection (effective Sept 2023) applies:
 
 | Requirement | Implementation |
 |-------------|----------------|
-| Consent for data processing | Checkbox on registration form |
+| Consent for processing | Checkbox on registration form |
+| Privacy policy | `/privacy` page in German |
+| Purpose limitation | State specific purposes, no scope creep |
+| Data minimization | Only collect necessary fields |
 | Right to access | Export feature in dashboard |
 | Right to deletion | Account deletion request flow |
 | Data portability | JSON/CSV export option |
-| Data minimization | Only collect necessary fields |
-| Storage location | Supabase EU region |
+| Cross-border transfers | Document Vercel (US), Stripe (US) as processors |
+| DPAs | Data Processing Agreements with Vercel, Stripe, Resend |
+| Breach notification | Plan for FDPIC notification within 72 hours if breach |
 
-### Financial Regulations
+### Historical Data and Copyright
+
+| Risk | Mitigation |
+|------|------------|
+| Photos still protected | Written permission from data partners |
+| Personal data in archives | Redaction requirements in data partner agreement |
+| Trademark concerns | Rights warranty from data partner |
+| Unclear provenance | Company warrants authority to share |
+
+### Payment Regulations
 
 | Requirement | Implementation |
 |-------------|----------------|
+| No "escrow" claims | Plain language: "funds held until confirmation" |
 | Clear pricing | Fee displayed before checkout |
 | Refund policy | Clearly stated on registration page |
 | Transaction records | All payments logged in database |
 | Receipt generation | Stripe provides receipts |
+| 90-day constraint | Event within 90 days of registration open |
 
-### Terms of Service
+### VAT (MWST)
 
-Must include:
-- Event cancellation conditions
-- Refund timeline and process
-- Intellectual property of submissions
+| Item | Consideration |
+|------|---------------|
+| Registration threshold | CHF 100k annual revenue triggers mandatory registration |
+| Fee classification | Event ticket vs. membership vs. service affects rate |
+| Invoicing | Must provide VAT-compliant invoices if registered |
+
+Engage Swiss accountant to assess before launch.
+
+### Event Liability
+
+| Requirement | Implementation |
+|-------------|----------------|
+| Event insurance | Haftpflichtversicherung (liability) |
+| House rules | Posted at venue, enforced |
+| Code of conduct | `/code-of-conduct` with enforcement process |
+| Health and safety | Emergency contacts, first aid, venue safety plan |
+| Photo/video consent | Opt-in consent for attendees |
+
+### Required Documents Before Launch
+
+| Document | Location | Status |
+|----------|----------|--------|
+| Terms of Participation | `/terms` | TODO |
+| Privacy Policy (German) | `/privacy` | TODO |
+| Code of Conduct | `/code-of-conduct` | TODO |
+| Data Partner Agreement | Internal template | TODO |
+| Judging Rubric | `/judging` or internal | TODO |
+
+### Terms of Service Must Include
+
+- Event cancellation conditions and refund process
+- Refund timeline (automatic if threshold not met)
+- Intellectual property: teams own their work
 - Liability limitations
-- Dispute resolution (Swiss law)
+- Dispute resolution (Swiss law, Zurich courts)
+- Prize distribution process and timeline
+- Participant conduct expectations
 
 ## Monitoring & Alerts
 

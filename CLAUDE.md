@@ -4,6 +4,27 @@
 
 sihlhack.ch is Switzerland's first participant-oriented hackathon focused on digitalizing historical industrial records from the Sihl Valley.
 
+## Core Model (Non-Negotiable)
+
+**Read STRATEGY.md for the full authoritative strategy.**
+
+The model is inverted from traditional hackathons:
+
+```
+Traditional:  Companies pay → Companies decide → Participants execute
+sihlhack:     Participants pay → Participants decide → Participants execute
+```
+
+Key principles that must not be diluted:
+- Participants fund the event (registration fees)
+- Participants propose and vote on projects
+- 70% of funds go to prize pool, 30% to operations
+- Companies contribute historical data only, never money or influence
+- All finances are public in real time
+- Automatic refunds if minimum threshold not met
+
+**Reject any changes that move toward traditional corporate hackathon dynamics.**
+
 ## Tech Stack
 
 - Next.js 16 with App Router
@@ -83,6 +104,29 @@ Status: [open|resolved|blocked]
 - Proper accessibility: focus states, ARIA labels
 - No passwords anywhere: magic links only
 - Public fund transparency at all times
+
+## Swiss Compliance Requirements
+
+Before collecting real payments, ensure:
+
+**Legal:**
+- Legal entity established (Verein or GmbH)
+- Event liability insurance (Haftpflicht)
+
+**Privacy (DSG):**
+- Privacy policy at `/privacy` in German
+- Data Processing Agreements with Vercel, Stripe, Resend
+- No PII in logs or public displays
+
+**Payments:**
+- Avoid "escrow" language (we are not licensed)
+- Respect Stripe 90-day payout constraint
+- VAT (MWST) assessment with accountant
+
+**Content:**
+- Terms of participation at `/terms`
+- Code of conduct at `/code-of-conduct`
+- Historical data access agreements with companies
 
 ## Key Files
 
