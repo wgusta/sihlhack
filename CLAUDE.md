@@ -93,6 +93,11 @@ Status: [open|resolved|blocked]
 - Always use active voice (Aktiv), never passive (Passiv)
 - Write directly with action-oriented verbs
 
+### Swiss Number Formatting
+- Currency: always `CHF` prefix, e.g., `CHF 150`
+- Thousands separator: apostrophe, not comma: `11'000` not `11,000`
+- Examples: `CHF 4'500`, `CHF 105'000`, `CHF 1'234.50`
+
 ### Punctuation
 - Avoid em dashes, en dashes, hyphens in prose
 - Use commas, colons, semicolons instead
