@@ -30,7 +30,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
               <span className="font-display text-2xl font-bold">
-                sihl<span className="text-deep-pink">hack</span>
+                sihl<span className="text-sihl-red">hack</span>
               </span>
             </Link>
             <p className="mt-4 text-sm font-mono text-gray-400">
@@ -42,7 +42,7 @@ export function Footer() {
                 href="https://sihliconvalley.ch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-teal hover:underline"
+                className="text-industrial-gold hover:underline"
               >
                 sihliconvalley.ch
               </a>
@@ -116,7 +116,7 @@ export function Footer() {
             <div className="flex items-center gap-4">
               <span className="text-xs font-mono text-gray-500">
                 Finanzen öffentlich einsehbar unter{' '}
-                <Link href="/funds" className="text-teal hover:underline">
+                <Link href="/funds" className="text-industrial-gold hover:underline">
                   /funds
                 </Link>
               </span>

@@ -59,7 +59,7 @@ export function HeroSection() {
 
           {/* Title */}
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white animate-slide-up">
-            sihl<span className="text-deep-pink">hack</span>
+            sihl<span className="text-sihl-red">hack</span>
           </h1>
 
           {/* Description */}

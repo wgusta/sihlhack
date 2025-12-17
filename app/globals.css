@@ -3,10 +3,9 @@
 
 /* Custom theme configuration for Tailwind v4 */
 @theme {
-  /* Inherited from sihliconvalley.ch */
-  --color-deep-pink: #D9366B;
-  --color-teal: #2A7C82;
-  --color-sun-red: #E62F2D;
+  /* Primary brand colors */
+  --color-sihl-red: #E62F2D;
+  --color-industrial-gold: #B5A642;
   --color-brand-black: #1A1A1A;
   --color-brand-white: #FFFFFF;
   --color-off-white: #F5F3E8;
@@ -18,6 +17,10 @@
   --color-insight-cyan: #4ECDC4;
   --color-fund-green: #22C55E;
   --color-refund-amber: #F59E0B;
+
+  /* Legacy aliases for compatibility */
+  --color-deep-pink: #E62F2D;
+  --color-teal: #B5A642;
 
   /* Font families */
   --font-display: 'Playfair Display', serif;
@@ -125,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .fund-progress-bar {
   height: 100%;
-  background: linear-gradient(to right, var(--color-teal), var(--color-insight-cyan));
+  background: linear-gradient(to right, var(--color-sihl-red), var(--color-industrial-gold));
   transition: all 1000ms ease-out;
 }
 
@@ -147,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, var(--color-deep-pink), var(--color-teal));
+  background-image: linear-gradient(to right, var(--color-sihl-red), var(--color-industrial-gold));
 }
 
 /* Historic border style */
@@ -166,5 +169,5 @@ h1, h2, h3, h4, h5, h6 {
 /* Focus ring for accessibility */
 .focus-ring:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--color-off-white), 0 0 0 4px var(--color-deep-pink);
+  box-shadow: 0 0 0 2px var(--color-off-white), 0 0 0 4px var(--color-sihl-red);
 }

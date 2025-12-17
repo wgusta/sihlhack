@@ -22,8 +22,8 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-display text-2xl font-bold text-brand-black group-hover:text-deep-pink transition-colors">
-                sihl<span className="text-deep-pink">hack</span>
+              <span className="font-display text-2xl font-bold text-brand-black group-hover:text-sihl-red transition-colors">
+                sihl<span className="text-sihl-red">hack</span>
               </span>
             </Link>
           </div>

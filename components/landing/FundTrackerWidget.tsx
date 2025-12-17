@@ -120,10 +120,10 @@ export function FundTrackerWidget() {
                 {formatCHF(funds.prizePoolChf)}
               </span>
             </div>
-            <div className="p-4 bg-teal/10 rounded-lg border border-teal/30">
+            <div className="p-4 bg-industrial-gold/10 rounded-lg border border-industrial-gold/30">
               <div className="flex items-center gap-2 mb-1">
-                <span className="w-3 h-3 rounded-full bg-teal" />
-                <span className="text-sm font-mono text-teal">30% Betrieb</span>
+                <span className="w-3 h-3 rounded-full bg-industrial-gold" />
+                <span className="text-sm font-mono text-industrial-gold">30% Betrieb</span>
               </div>
               <span className="text-xl font-display font-bold text-brand-black mono-data">
                 {formatCHF(funds.operationsChf)}
@@ -135,7 +135,7 @@ export function FundTrackerWidget() {
           <div className="text-center">
             <Link
               href="/funds"
-              className="inline-flex items-center gap-2 text-teal font-mono text-sm hover:underline"
+              className="inline-flex items-center gap-2 text-sihl-red font-mono text-sm hover:underline"
             >
               Vollständige Transaktionsübersicht ansehen
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

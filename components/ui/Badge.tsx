@@ -10,7 +10,7 @@ export function Badge({ className, variant = 'default', children, ...props }: Ba
     success: 'bg-fund-green/10 text-fund-green border-fund-green',
     warning: 'bg-refund-amber/10 text-refund-amber border-refund-amber',
     danger: 'bg-sun-red/10 text-sun-red border-sun-red',
-    info: 'bg-insight-cyan/10 text-teal border-teal',
+    info: 'bg-insight-cyan/10 text-industrial-gold border-industrial-gold',
   }
 
   return (

@@ -69,7 +69,7 @@ export function EventTimeline() {
                   <span className={cn(
                     'inline-block px-3 py-1 rounded-full text-xs font-mono mb-2',
                     event.status === 'current'
-                      ? 'bg-deep-pink text-white'
+                      ? 'bg-sihl-red text-white'
                       : 'bg-historic-cream text-historic-sepia'
                   )}>
                     {event.date}
@@ -87,7 +87,7 @@ export function EventTimeline() {
                   <div className={cn(
                     'w-4 h-4 rounded-full border-4',
                     event.status === 'current'
-                      ? 'bg-deep-pink border-deep-pink/30'
+                      ? 'bg-sihl-red border-sihl-red/30'
                       : 'bg-white border-historic-sepia/30'
                   )} />
                 </div>

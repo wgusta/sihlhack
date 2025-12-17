@@ -19,10 +19,10 @@ export function ButtonLink({
   const baseStyles = 'inline-flex items-center justify-center font-mono font-medium transition-all duration-200 focus-ring'
 
   const variants = {
-    primary: 'bg-deep-pink text-white hover:bg-deep-pink/90 active:scale-[0.98] shadow-historic',
-    secondary: 'bg-teal text-white hover:bg-teal/90 active:scale-[0.98] border-2 border-teal',
+    primary: 'bg-sihl-red text-white hover:bg-sihl-red/90 active:scale-[0.98] shadow-historic',
+    secondary: 'bg-industrial-gold text-white hover:bg-industrial-gold/90 active:scale-[0.98] border-2 border-industrial-gold',
     ghost: 'bg-transparent text-brand-black hover:bg-historic-cream border-2 border-historic-sepia',
-    danger: 'bg-sun-red text-white hover:bg-sun-red/90 active:scale-[0.98]',
+    danger: 'bg-sihl-red text-white hover:bg-sihl-red/90 active:scale-[0.98]',
   }
 
   const sizes = {

@@ -4,7 +4,7 @@ export function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background with paper texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-deep-pink to-teal paper-texture" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sihl-red to-industrial-gold paper-texture" />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -47,7 +47,7 @@ export function CTASection() {
               href="/register"
               variant="secondary"
               size="lg"
-              className="bg-white text-deep-pink hover:bg-white/90 border-0"
+              className="bg-white text-sihl-red hover:bg-white/90 border-0"
             >
               Jetzt anmelden
             </ButtonLink>

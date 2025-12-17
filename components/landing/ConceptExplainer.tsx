@@ -68,7 +68,7 @@ export function ConceptExplainer() {
         {/* The inverted model */}
         <div className="bg-brand-black rounded-2xl p-8 md:p-12">
           <div className="text-center mb-12">
-            <span className="accent-text text-deep-pink text-lg">Umgekehrtes Modell</span>
+            <span className="accent-text text-sihl-red text-lg">Umgekehrtes Modell</span>
             <h3 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
               Warum teilnehmerorientiert?
             </h3>
@@ -77,8 +77,8 @@ export function ConceptExplainer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-teal/20 flex items-center justify-center">
-                  <span className="text-teal font-display text-xl font-bold">{index + 1}</span>
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-industrial-gold/20 flex items-center justify-center">
+                  <span className="text-industrial-gold font-display text-xl font-bold">{index + 1}</span>
                 </div>
                 <h4 className="font-display text-xl font-semibold text-white mb-2">
                   {benefit.title}

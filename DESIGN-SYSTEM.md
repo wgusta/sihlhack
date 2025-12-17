@@ -6,13 +6,12 @@ SihlHack is a sub-brand of sihliconvalley.ch. The design system extends the pare
 
 ## Color Palette
 
-### Inherited from sihliconvalley.ch
+### Primary Brand Colors
 
 ```css
 :root {
-  --deep-pink: #D9366B;
-  --teal: #2A7C82;
-  --sun-red: #E62F2D;
+  --sihl-red: #E62F2D;        /* Primary accent: matches sihliconvalley.ch sun-red */
+  --industrial-gold: #B5A642; /* Secondary accent: industrial brass */
   --brand-black: #1A1A1A;
   --brand-white: #FFFFFF;
   --off-white: #F5F3E8;
@@ -57,10 +56,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Inherited
-        'deep-pink': '#D9366B',
-        'teal': '#2A7C82',
-        'sun-red': '#E62F2D',
+        // Primary brand colors
+        'sihl-red': '#E62F2D',
+        'industrial-gold': '#B5A642',
         'brand-black': '#1A1A1A',
         'brand-white': '#FFFFFF',
         'off-white': '#F5F3E8',
@@ -343,7 +341,7 @@ export function HistoricCard({
 
       {/* Metadata */}
       <div className="p-4 bg-white">
-        <h3 className="font-stylish text-lg text-brand-black mb-1 group-hover:text-deep-pink transition-colors">
+        <h3 className="font-stylish text-lg text-brand-black mb-1 group-hover:text-sihl-red transition-colors">
           {title}
         </h3>
         <p className="font-terminal text-sm text-historic-sepia">
@@ -514,7 +512,7 @@ export function ProposalCard({
       <div className={`h-1 ${
         status === 'completed' ? 'bg-fund-green' :
         status === 'in_progress' ? 'bg-insight-cyan' :
-        status === 'accepted' ? 'bg-teal' :
+        status === 'accepted' ? 'bg-industrial-gold' :
         'bg-historic-sepia'
       }`} />
 
@@ -543,7 +541,7 @@ export function ProposalCard({
         {/* Vote section */}
         <div className="flex items-center justify-between pt-4 border-t border-off-white">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-terminal font-bold text-deep-pink">
+            <span className="text-2xl font-terminal font-bold text-sihl-red">
               {voteCount}
             </span>
             <span className="text-sm text-historic-sepia">votes</span>
@@ -556,7 +554,7 @@ export function ProposalCard({
               hasVoted
                 ? 'bg-fund-green text-white cursor-default'
                 : canVote
-                ? 'bg-deep-pink text-white hover:bg-deep-pink/90 active:scale-95'
+                ? 'bg-sihl-red text-white hover:bg-sihl-red/90 active:scale-95'
                 : 'bg-historic-cream text-historic-sepia cursor-not-allowed'
             }`}
           >
