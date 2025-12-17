@@ -87,16 +87,16 @@ export function HeroSection() {
           {/* Stats preview */}
           <div className="flex flex-wrap items-center justify-center gap-8 pt-8 pb-20 sm:pb-0 text-white/80 font-mono text-sm animate-fade-in">
             <div className="text-center">
-              <span className="block text-2xl font-bold text-insight-cyan">CHF 150</span>
+              <span className="block text-2xl font-bold text-insight-cyan">CHF 480</span>
               <span className="text-xs text-gray-400">Teilnahmegebühr</span>
             </div>
             <div className="text-center">
-              <span className="block text-2xl font-bold text-fund-green">70%</span>
-              <span className="text-xs text-gray-400">→ Preisgeld</span>
+              <span className="block text-2xl font-bold text-fund-green">100%</span>
+              <span className="text-xs text-gray-400">Überschuss → Preisgeld</span>
             </div>
             <div className="text-center">
-              <span className="block text-2xl font-bold text-refund-amber">100%</span>
-              <span className="text-xs text-gray-400">Rückerstattung möglich</span>
+              <span className="block text-2xl font-bold text-refund-amber">50/30/20</span>
+              <span className="text-xs text-gray-400">Preisverteilung</span>
             </div>
           </div>
         </div>

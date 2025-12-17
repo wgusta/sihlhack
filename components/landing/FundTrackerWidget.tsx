@@ -44,8 +44,10 @@ export function FundTrackerWidget() {
     )
   }
 
-  const progress = (funds.participantCount / funds.minParticipants) * 100
-  const isThresholdMet = funds.participantCount >= funds.minParticipants
+  // Progress to break-even
+  const breakEvenProgress = funds.breakEvenParticipants > 0
+    ? (funds.participantCount / funds.breakEvenParticipants) * 100
+    : 0
 
   return (
     <section className="py-16 bg-historic-cream">
@@ -64,16 +66,22 @@ export function FundTrackerWidget() {
             <Badge variant={
               funds.eventStatus === 'confirmed' ? 'success' :
               funds.eventStatus === 'cancelled' ? 'danger' :
-              isThresholdMet ? 'success' : 'warning'
+              funds.isBreakEvenReached ? 'success' : 'warning'
             }>
               {funds.eventStatus === 'confirmed' ? 'Event bestätigt' :
                funds.eventStatus === 'cancelled' ? 'Event abgesagt' :
-               isThresholdMet ? 'Mindestzahl erreicht' : 'Sammeln läuft'}
+               funds.isBreakEvenReached ? 'Break-even erreicht' : 'Sammeln läuft'}
             </Badge>
           </div>
 
           {/* Main stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="text-center p-6 bg-off-white rounded-xl">
+              <span className="block text-4xl font-display font-bold text-brand-black">
+                {funds.participantCount}
+              </span>
+              <span className="text-sm font-mono text-historic-sepia">Teilnehmende</span>
+            </div>
             <div className="text-center p-6 bg-off-white rounded-xl">
               <span className="block text-4xl font-display font-bold text-brand-black mono-data">
                 {formatCHF(funds.totalCollectedChf)}
@@ -81,53 +89,73 @@ export function FundTrackerWidget() {
               <span className="text-sm font-mono text-historic-sepia">Gesammelt</span>
             </div>
             <div className="text-center p-6 bg-off-white rounded-xl">
-              <span className="block text-4xl font-display font-bold text-brand-black">
-                {funds.participantCount}
-                <span className="text-lg text-historic-sepia">/{funds.minParticipants}</span>
+              <span className="block text-4xl font-display font-bold text-fund-green mono-data">
+                {formatCHF(funds.prizePoolChf)}
               </span>
-              <span className="text-sm font-mono text-historic-sepia">Teilnehmende</span>
-            </div>
-            <div className="text-center p-6 bg-off-white rounded-xl">
-              <span className="block text-4xl font-display font-bold text-brand-black">
-                {funds.daysUntilDeadline}
-              </span>
-              <span className="text-sm font-mono text-historic-sepia">Tage bis Deadline</span>
+              <span className="text-sm font-mono text-historic-sepia">Preisgeld-Pot</span>
             </div>
           </div>
 
-          {/* Progress bar */}
+          {/* Break-even progress */}
           <div className="mb-8">
             <div className="flex justify-between text-sm font-mono text-historic-sepia mb-2">
-              <span>Fortschritt zum Mindestziel</span>
-              <span>{Math.min(progress, 100).toFixed(0)}%</span>
+              <span>
+                Fortschritt zum Break-even ({funds.breakEvenParticipants} Teilnehmende)
+              </span>
+              <span>{Math.min(breakEvenProgress, 100).toFixed(0)}%</span>
             </div>
             <div className="fund-progress">
               <div
-                className="fund-progress-bar"
-                style={{ width: `${Math.min(progress, 100)}%` }}
+                className={`fund-progress-bar ${funds.isBreakEvenReached ? 'bg-fund-green' : ''}`}
+                style={{ width: `${Math.min(breakEvenProgress, 100)}%` }}
               />
             </div>
+            {funds.isBreakEvenReached && (
+              <p className="text-fund-green font-mono text-sm mt-2">
+                Break-even erreicht. Jede weitere Anmeldung erhöht das Preisgeld.
+              </p>
+            )}
           </div>
 
-          {/* Allocation breakdown */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="p-4 bg-fund-green/10 rounded-lg border border-fund-green/30">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-3 h-3 rounded-full bg-fund-green" />
-                <span className="text-sm font-mono text-fund-green">70% Preisgeld</span>
+          {/* Prize distribution */}
+          {funds.prizePoolChf > 0 && (
+            <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="p-4 bg-fund-green/10 rounded-lg border border-fund-green/30 text-center">
+                <span className="block text-xs font-mono text-fund-green mb-1">1. Platz (50%)</span>
+                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                  {formatCHF(funds.prizeFirstChf)}
+                </span>
               </div>
-              <span className="text-xl font-display font-bold text-brand-black mono-data">
-                {formatCHF(funds.prizePoolChf)}
-              </span>
+              <div className="p-4 bg-industrial-gold/10 rounded-lg border border-industrial-gold/30 text-center">
+                <span className="block text-xs font-mono text-industrial-gold mb-1">2. Platz (30%)</span>
+                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                  {formatCHF(funds.prizeSecondChf)}
+                </span>
+              </div>
+              <div className="p-4 bg-insight-cyan/10 rounded-lg border border-insight-cyan/30 text-center">
+                <span className="block text-xs font-mono text-insight-cyan mb-1">3. Platz (20%)</span>
+                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                  {formatCHF(funds.prizeThirdChf)}
+                </span>
+              </div>
             </div>
-            <div className="p-4 bg-industrial-gold/10 rounded-lg border border-industrial-gold/30">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-3 h-3 rounded-full bg-industrial-gold" />
-                <span className="text-sm font-mono text-industrial-gold">30% Betrieb</span>
+          )}
+
+          {/* Budget breakdown teaser */}
+          <div className="p-4 bg-off-white rounded-lg mb-8">
+            <div className="flex justify-between items-center">
+              <div>
+                <span className="text-sm font-mono text-historic-sepia">Geplantes Budget:</span>
+                <span className="ml-2 font-display font-bold text-brand-black mono-data">
+                  {formatCHF(funds.totalBudgetChf)}
+                </span>
               </div>
-              <span className="text-xl font-display font-bold text-brand-black mono-data">
-                {formatCHF(funds.operationsChf)}
-              </span>
+              <div className="text-right">
+                <span className="text-sm font-mono text-historic-sepia">Überschuss:</span>
+                <span className="ml-2 font-display font-bold text-fund-green mono-data">
+                  {formatCHF(funds.surplusChf)}
+                </span>
+              </div>
             </div>
           </div>
 
@@ -137,7 +165,7 @@ export function FundTrackerWidget() {
               href="/funds"
               className="inline-flex items-center gap-2 text-sihl-red font-mono text-sm hover:underline"
             >
-              Vollständige Transaktionsübersicht ansehen
+              Vollständiges Budget und Transaktionen ansehen
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

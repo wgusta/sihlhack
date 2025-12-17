@@ -27,10 +27,23 @@ export const payments = pgTable('payments', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
 })
 
-// Fund allocations table
+// Budget positions table for break-even calculation
+export const budgetPositions = pgTable('budget_positions', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  category: text('category').notNull(), // 'venue' | 'catering' | 'equipment' | 'marketing' | 'prizes' | 'other'
+  amountChf: integer('amount_chf').notNull(), // In centimes
+  isFixed: boolean('is_fixed').default(true).notNull(), // Fixed cost vs per-participant
+  description: text('description'),
+  sortOrder: integer('sort_order').default(0).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Fund allocations table (legacy, kept for compatibility)
 export const fundAllocations = pgTable('fund_allocations', {
   id: uuid('id').defaultRandom().primaryKey(),
-  category: text('category').notNull().unique(), // 'prize_pool' | 'operations' - unique per category
+  category: text('category').notNull().unique(),
   amountChf: integer('amount_chf').notNull(),
   percentage: integer('percentage').notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
@@ -102,17 +115,16 @@ export const eventConfig = pgTable('event_config', {
   refundDeadline: timestamp('refund_deadline').notNull(),
   minParticipants: integer('min_participants').default(30).notNull(),
   maxParticipants: integer('max_participants').default(100).notNull(),
-  registrationFeeChf: integer('registration_fee_chf').default(15000).notNull(), // 150 CHF in centimes
-  prizePoolPercentage: integer('prize_pool_percentage').default(70).notNull(),
-  operationsPercentage: integer('operations_percentage').default(30).notNull(),
+  registrationFeeChf: integer('registration_fee_chf').default(48000).notNull(), // 480 CHF in centimes
+  // Prize distribution: remaining budget after costs goes to winners
+  prizeFirst: integer('prize_first').default(50).notNull(), // 50% to 1st place
+  prizeSecond: integer('prize_second').default(30).notNull(), // 30% to 2nd place
+  prizeThird: integer('prize_third').default(20).notNull(), // 20% to 3rd place
   registrationOpen: boolean('registration_open').default(true).notNull(),
   proposalsOpen: boolean('proposals_open').default(true).notNull(),
   eventStatus: text('event_status').default('monitoring').notNull(), // 'monitoring' | 'confirmed' | 'cancelled'
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
-}, (table) => [
-  // Ensure prize + operations = 100
-  check('percentages_sum_100', sql`${table.prizePoolPercentage} + ${table.operationsPercentage} = 100`),
-])
+})
 
 // Type exports for use in application
 export type Participant = typeof participants.$inferSelect
@@ -135,3 +147,6 @@ export type HistoricalData = typeof historicalData.$inferSelect
 export type NewHistoricalData = typeof historicalData.$inferInsert
 
 export type EventConfig = typeof eventConfig.$inferSelect
+
+export type BudgetPosition = typeof budgetPositions.$inferSelect
+export type NewBudgetPosition = typeof budgetPositions.$inferInsert

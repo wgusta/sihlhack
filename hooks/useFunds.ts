@@ -2,18 +2,47 @@
 
 import useSWR from 'swr'
 
+export interface BudgetItem {
+  name: string
+  category: string
+  amountChf: number
+  isFixed: boolean
+  description: string | null
+}
+
 export interface FundData {
+  // Revenue
   totalCollectedChf: number
-  prizePoolChf: number
-  operationsChf: number
+  registrationFeeChf: number
   participantCount: number
+
+  // Budget & Break-even
+  totalBudgetChf: number
+  breakEvenParticipants: number
+  isBreakEvenReached: boolean
+  surplusChf: number
+
+  // Prize Pool
+  prizePoolChf: number
+  prizeFirst: number
+  prizeSecond: number
+  prizeThird: number
+  prizeFirstChf: number
+  prizeSecondChf: number
+  prizeThirdChf: number
+
+  // Budget breakdown
+  budgetItems: BudgetItem[]
+
+  // Event info
   minParticipants: number
   maxParticipants: number
   daysUntilDeadline: number
   daysUntilRefundDeadline: number
   eventStatus: 'monitoring' | 'confirmed' | 'cancelled'
   registrationOpen: boolean
-  registrationFeeChf: number
+
+  // Transactions
   recentTransactions: {
     index: number
     amountChf: number

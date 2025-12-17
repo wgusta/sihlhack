@@ -17,27 +17,27 @@ const sizeClasses: Record<LogoSize, { sihl: string; hack: string; leading: strin
   sm: {
     sihl: 'text-lg',
     hack: 'text-lg',
-    leading: 'leading-[0.55]',
+    leading: 'leading-[0.45]',
   },
   md: {
     sihl: 'text-2xl',
     hack: 'text-2xl',
-    leading: 'leading-[0.55]',
+    leading: 'leading-[0.45]',
   },
   lg: {
     sihl: 'text-4xl',
     hack: 'text-4xl',
-    leading: 'leading-[0.55]',
+    leading: 'leading-[0.45]',
   },
   xl: {
     sihl: 'text-5xl sm:text-6xl',
     hack: 'text-5xl sm:text-6xl',
-    leading: 'leading-[0.55]',
+    leading: 'leading-[0.45]',
   },
   hero: {
     sihl: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
     hack: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
-    leading: 'leading-[0.55]',
+    leading: 'leading-[0.45]',
   },
 }
 
@@ -150,46 +150,45 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           </span>
         )}
       </span>
-      {/* hack on second row, with invisible "si" spacer for exact h-alignment */}
-      <span className="flex items-baseline">
-        {/* Invisible spacer matching "si" width in Playfair Display */}
-        <span
-          className={cn('invisible font-display font-bold', sizes.sihl)}
-          style={{ fontFamily: 'var(--font-display)' }}
-          aria-hidden="true"
-        >
-          si
-        </span>
-        <span
-          className={cn(
-            'font-bold tracking-tight',
-            hackColor === 'white' ? 'text-white' : 'text-brand-black',
-            sizes.hack
-          )}
-          style={{ fontFamily: 'var(--font-mono)' }}
-        >
-        {/* hack text with cursor while typing and after done */}
-        {(phase === 'hack' || phase === 'done') && (
-          <>
-            {hackText}
-            <span
-              className={cn(
-                'transition-opacity duration-100',
-                phase === 'done' && !cursorBlink ? 'opacity-0' : 'opacity-100'
-              )}
-            >
-              _
-            </span>
-          </>
-        )}
-        {/* Invisible placeholder to maintain width during hack typing */}
-        {animated && phase === 'hack' && (
-          <span className="invisible">
-            {'hack'.slice(hackText.length)}
+      {/* hack on second row - only show during hack/done phases */}
+      {(!animated || phase === 'hack' || phase === 'done') && (
+        <span className="flex items-baseline">
+          {/* Invisible spacer matching "si" width in Playfair Display */}
+          <span
+            className={cn('invisible font-display font-bold', sizes.sihl)}
+            style={{ fontFamily: 'var(--font-display)' }}
+            aria-hidden="true"
+          >
+            si
           </span>
-        )}
+          <span
+            className={cn(
+              'font-bold tracking-tight',
+              hackColor === 'white' ? 'text-white' : 'text-brand-black',
+              sizes.hack
+            )}
+            style={{ fontFamily: 'var(--font-mono)' }}
+          >
+            {hackText}
+            {animated && (
+              <span
+                className={cn(
+                  'transition-opacity duration-100',
+                  phase === 'done' && !cursorBlink ? 'opacity-0' : 'opacity-100'
+                )}
+              >
+                _
+              </span>
+            )}
+            {/* Invisible placeholder to maintain width during hack typing */}
+            {animated && phase === 'hack' && (
+              <span className="invisible">
+                {'hack'.slice(hackText.length)}
+              </span>
+            )}
+          </span>
         </span>
-      </span>
+      )}
     </span>
   )
 }

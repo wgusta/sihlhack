@@ -8,7 +8,7 @@ import { StepIndicator } from './StepIndicator'
 import { TermsCheckbox } from './TermsCheckbox'
 import { formatCHF } from '@/lib/utils'
 
-const REGISTRATION_FEE = 15000 // CHF 150 in centimes
+const REGISTRATION_FEE = 48000 // CHF 480 in centimes
 
 const steps = [
   { id: 1, name: 'Kontakt' },
@@ -201,7 +201,7 @@ export function RegistrationForm() {
                 </span>
               </div>
               <p className="text-xs font-mono text-historic-sepia mt-2">
-                70% fliessen ins Preisgeld, 30% decken Betriebskosten.
+                Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (50/30/20) ausgeschüttet.
                 Vollständige Rückerstattung bei Absage.
               </p>
             </div>

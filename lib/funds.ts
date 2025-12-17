@@ -1,24 +1,51 @@
-import { db, payments, participants, eventConfig } from './db'
-import { eq, sql, count } from 'drizzle-orm'
+import { db, payments, participants, eventConfig, budgetPositions } from './db'
+import { eq, sql, count, sum } from 'drizzle-orm'
+
+export interface BudgetItem {
+  name: string
+  category: string
+  amountChf: number
+  isFixed: boolean
+  description: string | null
+}
 
 export interface FundStatus {
+  // Revenue
   totalCollectedChf: number
-  prizePoolChf: number
-  operationsChf: number
+  registrationFeeChf: number
   participantCount: number
+
+  // Budget & Break-even
+  totalBudgetChf: number
+  breakEvenParticipants: number
+  isBreakEvenReached: boolean
+  surplusChf: number // Amount above break-even (goes to prize pool)
+
+  // Prize Pool
+  prizePoolChf: number
+  prizeFirst: number // Percentage
+  prizeSecond: number
+  prizeThird: number
+  prizeFirstChf: number
+  prizeSecondChf: number
+  prizeThirdChf: number
+
+  // Budget breakdown
+  budgetItems: BudgetItem[]
+
+  // Event info
   minParticipants: number
   maxParticipants: number
   daysUntilDeadline: number
   daysUntilRefundDeadline: number
   eventStatus: 'monitoring' | 'confirmed' | 'cancelled'
   registrationOpen: boolean
-  registrationFeeChf: number
 }
 
 const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
 
 /**
- * Get current fund status for public display
+ * Get current fund status with break-even calculation
  */
 export async function getFundStatus(): Promise<FundStatus> {
   // Get event configuration
@@ -32,28 +59,56 @@ export async function getFundStatus(): Promise<FundStatus> {
     throw new Error('Event configuration not found')
   }
 
-  // Get total collected from completed payments
+  // Get budget positions
+  const budgetItems = await db
+    .select({
+      name: budgetPositions.name,
+      category: budgetPositions.category,
+      amountChf: budgetPositions.amountChf,
+      isFixed: budgetPositions.isFixed,
+      description: budgetPositions.description,
+    })
+    .from(budgetPositions)
+    .orderBy(budgetPositions.sortOrder)
+
+  // Calculate total budget (sum of all budget positions)
+  const totalBudgetChf = budgetItems.reduce((sum, item) => sum + item.amountChf, 0)
+
+  // Get total collected from completed payments (not refunded)
   const [totals] = await db
     .select({
-      total: sql<number>`COALESCE(SUM(${payments.amountChf}), 0)`,
+      total: sql<number>`COALESCE(SUM(CASE WHEN ${payments.refundedAt} IS NULL THEN ${payments.amountChf} ELSE 0 END), 0)`,
     })
     .from(payments)
     .where(eq(payments.status, 'completed'))
 
-  // Get participant count (paid registrations)
+  // Get participant count (registered = paid)
   const [countResult] = await db
     .select({
       count: count(),
     })
     .from(participants)
-    .where(eq(participants.registrationStatus, 'paid'))
+    .where(eq(participants.registrationStatus, 'registered'))
 
   const totalCollectedChf = Number(totals?.total || 0)
   const participantCount = Number(countResult?.count || 0)
 
-  // Calculate allocations
-  const prizePoolChf = Math.floor(totalCollectedChf * (config.prizePoolPercentage / 100))
-  const operationsChf = totalCollectedChf - prizePoolChf
+  // Calculate break-even point
+  const breakEvenParticipants = config.registrationFeeChf > 0
+    ? Math.ceil(totalBudgetChf / config.registrationFeeChf)
+    : 0
+
+  // Check if break-even is reached
+  const isBreakEvenReached = totalCollectedChf >= totalBudgetChf
+
+  // Calculate surplus (goes to prize pool)
+  const surplusChf = Math.max(0, totalCollectedChf - totalBudgetChf)
+  const prizePoolChf = surplusChf
+
+  // Calculate individual prizes
+  const prizeFirstChf = Math.floor(prizePoolChf * (config.prizeFirst / 100))
+  const prizeSecondChf = Math.floor(prizePoolChf * (config.prizeSecond / 100))
+  const prizeThirdChf = prizePoolChf - prizeFirstChf - prizeSecondChf // Remainder to third
 
   // Calculate days until deadlines
   const now = new Date()
@@ -68,17 +123,36 @@ export async function getFundStatus(): Promise<FundStatus> {
   )
 
   return {
+    // Revenue
     totalCollectedChf,
-    prizePoolChf,
-    operationsChf,
+    registrationFeeChf: config.registrationFeeChf,
     participantCount,
+
+    // Budget & Break-even
+    totalBudgetChf,
+    breakEvenParticipants,
+    isBreakEvenReached,
+    surplusChf,
+
+    // Prize Pool
+    prizePoolChf,
+    prizeFirst: config.prizeFirst,
+    prizeSecond: config.prizeSecond,
+    prizeThird: config.prizeThird,
+    prizeFirstChf,
+    prizeSecondChf,
+    prizeThirdChf,
+
+    // Budget breakdown
+    budgetItems,
+
+    // Event info
     minParticipants: config.minParticipants,
     maxParticipants: config.maxParticipants,
     daysUntilDeadline: Math.max(0, daysUntilDeadline),
     daysUntilRefundDeadline: Math.max(0, daysUntilRefundDeadline),
     eventStatus: config.eventStatus as FundStatus['eventStatus'],
     registrationOpen: config.registrationOpen,
-    registrationFeeChf: config.registrationFeeChf,
   }
 }
 

@@ -7,33 +7,52 @@ import { createCheckoutSession } from '@/lib/stripe'
 const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
 
 const checkoutSchema = z.object({
-  participantId: z.string().uuid(),
+  email: z.string().email(),
+  name: z.string().min(1),
+  company: z.string().optional(),
 })
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { participantId } = checkoutSchema.parse(body)
+    const { email, name, company } = checkoutSchema.parse(body)
 
-    // Get participant
-    const [participant] = await db
+    // Check if participant already exists
+    const [existingParticipant] = await db
       .select()
       .from(participants)
-      .where(eq(participants.id, participantId))
+      .where(eq(participants.email, email))
       .limit(1)
 
-    if (!participant) {
+    if (existingParticipant?.registrationStatus === 'paid') {
       return NextResponse.json(
-        { error: 'Participant not found' },
-        { status: 404 }
+        { error: 'Diese E-Mail ist bereits registriert' },
+        { status: 400 }
       )
     }
 
-    if (participant.registrationStatus === 'paid') {
-      return NextResponse.json(
-        { error: 'Already registered' },
-        { status: 400 }
-      )
+    // Create or update participant
+    let participantId: string
+
+    if (existingParticipant) {
+      participantId = existingParticipant.id
+      // Update name/company if changed
+      await db
+        .update(participants)
+        .set({ name, company: company || null, updatedAt: new Date() })
+        .where(eq(participants.id, participantId))
+    } else {
+      // Create new participant
+      const [newParticipant] = await db
+        .insert(participants)
+        .values({
+          email,
+          name,
+          company: company || null,
+          registrationStatus: 'pending',
+        })
+        .returning({ id: participants.id })
+      participantId = newParticipant.id
     }
 
     // Get event config for fee
@@ -62,7 +81,7 @@ export async function POST(request: NextRequest) {
     // Create Stripe checkout session
     const session = await createCheckoutSession({
       participantId,
-      participantEmail: participant.email,
+      participantEmail: email,
       amountChf: config.registrationFeeChf,
       successUrl: `${baseUrl}/register/success?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: `${baseUrl}/register?cancelled=true`,
