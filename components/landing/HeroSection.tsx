@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
-import { cn } from '@/lib/utils'
+import { cn, formatCHF } from '@/lib/utils'
+import { useFunds } from '@/hooks/useFunds'
 
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
+  const { funds, isLoading } = useFunds()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,10 +28,16 @@ export function HeroSection() {
     return () => observer.disconnect()
   }, [])
 
+  // Calculate progress percentage
+  const progressPercent = funds
+    ? Math.min(100, (funds.participantCount / funds.breakEvenParticipants) * 100)
+    : 0
+  const isActivated = funds ? funds.participantCount >= funds.breakEvenParticipants : false
+
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-brand-black"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-brand-black"
     >
       {/* Background image with historic reveal effect */}
       <div className={cn('historic-reveal absolute inset-0', isRevealed && 'revealed')}>
@@ -44,7 +52,7 @@ export function HeroSection() {
           }}
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/70 to-brand-black/40" />
       </div>
 
       {/* Scanline effect */}
@@ -52,52 +60,132 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8 pt-16 sm:pt-0">
+        <div className="space-y-6 pt-16 sm:pt-0">
           {/* Subtitle */}
           <p className="font-mono text-sm sm:text-base text-industrial-gold tracking-widest uppercase animate-fade-in">
-            Der erste teilnehmerorientierte Hackathon der Schweiz
+            Schweizer Hackathon · 100% Teilnehmerfinanziert
           </p>
 
-          {/* Title */}
+          {/* Logo */}
           <h1>
             <Logo size="hero" hackColor="white" animated />
           </h1>
 
-          {/* Description */}
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 font-mono animate-fade-in">
-            Historische Industriedaten aus dem Sihltal digitalisieren.
-            Vergessenes Wissen entdecken. Neue Erkenntnisse gewinnen.
-          </p>
+          {/* Main Headline - Historical Data + Modern AI */}
+          <div className="max-w-4xl mx-auto animate-fade-in">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+              <span className="text-historic-cream">Historische Industriedaten</span>
+              {' '}treffen auf{' '}
+              <span className="text-insight-cyan">moderne KI</span>
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-300 font-mono">
+              Trainiere ML-Modelle auf echten Archivdokumenten aus dem Sihltal.
+              OCR, Computer Vision, NLP: löse Probleme, die noch niemand gelöst hat.
+            </p>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════════
+              LIVE POT TRACKER - The key conversion element
+              ═══════════════════════════════════════════════════════════════ */}
+          <div className="max-w-2xl mx-auto mt-8 animate-fade-in">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              {/* Pot Tracker Header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <div className={cn(
+                    "w-3 h-3 rounded-full",
+                    isActivated ? "bg-fund-green animate-pulse" : "bg-refund-amber animate-pulse"
+                  )} />
+                  <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
+                    Live Preisgeld-Tracker
+                  </span>
+                </div>
+                {!isLoading && funds && (
+                  <span className="font-mono text-xs text-gray-500">
+                    Aktualisiert in Echtzeit
+                  </span>
+                )}
+              </div>
+
+              {/* Current Prize Pool - Big Number */}
+              <div className="text-center mb-6">
+                {isLoading ? (
+                  <div className="h-16 bg-white/10 rounded animate-pulse" />
+                ) : (
+                  <>
+                    <div className="font-mono text-5xl sm:text-6xl font-bold text-fund-green tabular-nums">
+                      {formatCHF(funds?.prizePoolChf || 0)}
+                    </div>
+                    <p className="text-sm font-mono text-gray-400 mt-2">
+                      Aktueller Preisgeld-Pool
+                    </p>
+                  </>
+                )}
+              </div>
+
+              {/* Progress Bar toward Activation */}
+              <div className="mb-4">
+                <div className="flex justify-between text-xs font-mono text-gray-400 mb-2">
+                  <span>{funds?.participantCount || 0} Teilnehmende</span>
+                  <span>Ziel: {funds?.breakEvenParticipants || 20} für Aktivierung</span>
+                </div>
+                <div className="h-3 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className={cn(
+                      "h-full rounded-full transition-all duration-1000 ease-out",
+                      isActivated
+                        ? "bg-gradient-to-r from-fund-green to-insight-cyan"
+                        : "bg-gradient-to-r from-refund-amber to-industrial-gold"
+                    )}
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Status Message */}
+              <div className={cn(
+                "text-center py-2 px-4 rounded-lg font-mono text-sm",
+                isActivated
+                  ? "bg-fund-green/20 text-fund-green"
+                  : "bg-refund-amber/20 text-refund-amber"
+              )}>
+                {isActivated ? (
+                  <>✓ Event aktiviert! Jede weitere Anmeldung erhöht den Pool.</>
+                ) : (
+                  <>🔒 Noch {(funds?.breakEvenParticipants || 20) - (funds?.participantCount || 0)} Anmeldungen bis zur Aktivierung</>
+                )}
+              </div>
+
+              {/* Risk-Free Guarantee */}
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="text-center font-mono text-xs text-gray-400">
+                  <span className="text-fund-green">✓ 100% Risikofrei:</span>{' '}
+                  Volle Rückerstattung, falls das Aktivierungsziel nicht erreicht wird.
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 animate-fade-in">
-            <ButtonLink href="/register" variant="primary" size="lg">
-              Jetzt anmelden
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in">
+            <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px]">
+              Platz sichern · CHF 480
             </ButtonLink>
             <ButtonLink
-              href="/about"
+              href="#how-it-works"
               variant="ghost"
               size="lg"
               className="text-white border-white/30 hover:bg-white/10"
             >
-              Mehr erfahren
+              So funktioniert&apos;s
             </ButtonLink>
           </div>
 
-          {/* Stats preview */}
-          <div className="flex flex-wrap items-center justify-center gap-8 pt-8 pb-20 sm:pb-0 text-white/80 font-mono text-sm animate-fade-in">
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-insight-cyan">CHF 480</span>
-              <span className="text-xs text-gray-400">Teilnahmegebühr</span>
-            </div>
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-fund-green">100%</span>
-              <span className="text-xs text-gray-400">Überschuss → Preisgeld</span>
-            </div>
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-refund-amber">50/30/20</span>
-              <span className="text-xs text-gray-400">Preisverteilung</span>
-            </div>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-gray-400 font-mono text-xs animate-fade-in">
+            <span>🏛️ Schweizer Daten</span>
+            <span>🔐 Stripe Zahlungen</span>
+            <span>📊 Finanzen öffentlich</span>
           </div>
         </div>
       </div>
