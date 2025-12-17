@@ -1,12 +1,14 @@
-import { pgTable, uuid, text, timestamp, integer, boolean } from 'drizzle-orm/pg-core'
+import { pgTable, uuid, text, timestamp, integer, boolean, unique, check } from 'drizzle-orm/pg-core'
+import { sql } from 'drizzle-orm'
 
 // Participants table
 export const participants = pgTable('participants', {
   id: uuid('id').defaultRandom().primaryKey(),
   email: text('email').notNull().unique(),
-  name: text('name').notNull(),
+  name: text('name'), // Optional: collected after magic link verification
   company: text('company'),
-  magicLinkToken: text('magic_link_token'),
+  // Magic link token is stored as SHA-256 hash for security
+  magicLinkTokenHash: text('magic_link_token_hash'),
   magicLinkExpiresAt: timestamp('magic_link_expires_at'),
   stripeCustomerId: text('stripe_customer_id'),
   registrationStatus: text('registration_status').default('pending').notNull(),
@@ -28,7 +30,7 @@ export const payments = pgTable('payments', {
 // Fund allocations table
 export const fundAllocations = pgTable('fund_allocations', {
   id: uuid('id').defaultRandom().primaryKey(),
-  category: text('category').notNull(), // 'prize_pool' | 'operations'
+  category: text('category').notNull().unique(), // 'prize_pool' | 'operations' - unique per category
   amountChf: integer('amount_chf').notNull(),
   percentage: integer('percentage').notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
@@ -49,13 +51,15 @@ export const projectProposals = pgTable('project_proposals', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
 
-// Proposal votes table
+// Proposal votes table - one vote per participant per proposal
 export const proposalVotes = pgTable('proposal_votes', {
   id: uuid('id').defaultRandom().primaryKey(),
   proposalId: uuid('proposal_id').references(() => projectProposals.id).notNull(),
   participantId: uuid('participant_id').references(() => participants.id).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-})
+}, (table) => [
+  unique('unique_vote_per_participant').on(table.proposalId, table.participantId),
+])
 
 // Companies table
 export const companies = pgTable('companies', {
@@ -88,9 +92,10 @@ export const historicalData = pgTable('historical_data', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
 })
 
-// Event configuration table (single row)
+// Event configuration table (single row with fixed ID)
 export const eventConfig = pgTable('event_config', {
-  id: uuid('id').defaultRandom().primaryKey(),
+  // Fixed ID for single-row pattern: always use this UUID
+  id: uuid('id').default(sql`'00000000-0000-0000-0000-000000000001'::uuid`).primaryKey(),
   eventName: text('event_name').default('sihlhack').notNull(),
   eventDate: timestamp('event_date').notNull(),
   registrationDeadline: timestamp('registration_deadline').notNull(),
@@ -104,7 +109,10 @@ export const eventConfig = pgTable('event_config', {
   proposalsOpen: boolean('proposals_open').default(true).notNull(),
   eventStatus: text('event_status').default('monitoring').notNull(), // 'monitoring' | 'confirmed' | 'cancelled'
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
-})
+}, (table) => [
+  // Ensure prize + operations = 100
+  check('percentages_sum_100', sql`${table.prizePoolPercentage} + ${table.operationsPercentage} = 100`),
+])
 
 // Type exports for use in application
 export type Participant = typeof participants.$inferSelect

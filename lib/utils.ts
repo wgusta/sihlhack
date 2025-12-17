@@ -54,19 +54,7 @@ export function daysUntil(deadline: Date | string): number {
   return Math.ceil(diff / (1000 * 60 * 60 * 24))
 }
 
-/**
- * Generate a random token for magic links
- */
-export function generateToken(length: number = 32): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  let result = ''
-  const randomValues = new Uint8Array(length)
-  crypto.getRandomValues(randomValues)
-  for (let i = 0; i < length; i++) {
-    result += chars[randomValues[i] % chars.length]
-  }
-  return result
-}
+// Note: For secure token generation, use generateSecureToken from lib/auth.ts
 
 /**
  * Truncate text with ellipsis
