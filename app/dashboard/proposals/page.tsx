@@ -1,0 +1,132 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useSession } from '@/hooks/useSession'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Badge } from '@/components/ui/Badge'
+import type { ProjectProposal } from '@/types/proposal'
+
+export default function MyProposalsPage() {
+  const { user } = useSession()
+  const [proposals, setProposals] = useState<ProjectProposal[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProposals = async () => {
+      try {
+        const res = await fetch('/api/proposals?mine=true')
+        if (res.ok) {
+          const data = await res.json()
+          setProposals(data.proposals)
+        }
+      } catch (error) {
+        console.error('Failed to fetch proposals:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    if (user) {
+      fetchProposals()
+    }
+  }, [user])
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'submitted':
+        return <Badge variant="info">Eingereicht</Badge>
+      case 'accepted':
+        return <Badge variant="success">Akzeptiert</Badge>
+      case 'in_progress':
+        return <Badge variant="warning">In Bearbeitung</Badge>
+      case 'completed':
+        return <Badge variant="success">Abgeschlossen</Badge>
+      default:
+        return <Badge>Entwurf</Badge>
+    }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="space-y-4">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-32 bg-historic-cream rounded-lg animate-pulse" />
+        ))}
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-display text-2xl font-bold text-brand-black">
+            Meine Projekte
+          </h1>
+          <p className="mt-1 text-historic-sepia font-mono text-sm">
+            Verwalte deine Projektvorschläge
+          </p>
+        </div>
+        <ButtonLink href="/proposals/new" variant="primary">
+          Neues Projekt
+        </ButtonLink>
+      </div>
+
+      {proposals.length === 0 ? (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <div className="w-16 h-16 mx-auto bg-historic-cream rounded-full flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-historic-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 className="font-display text-lg font-semibold text-brand-black">
+              Noch keine Projekte
+            </h3>
+            <p className="mt-2 text-sm font-mono text-historic-sepia max-w-sm mx-auto">
+              Du hast noch keine Projektvorschläge eingereicht. Teile deine Idee mit der Community!
+            </p>
+            <ButtonLink href="/proposals/new" variant="primary" className="mt-6">
+              Erstes Projekt vorschlagen
+            </ButtonLink>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="space-y-4">
+          {proposals.map((proposal) => (
+            <Card key={proposal.id} className="hover:shadow-lg transition-shadow">
+              <CardContent className="py-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Link
+                        href={`/proposals/${proposal.id}`}
+                        className="font-display text-lg font-semibold text-brand-black hover:text-sihl-red transition-colors truncate"
+                      >
+                        {proposal.title}
+                      </Link>
+                      {getStatusBadge(proposal.status)}
+                    </div>
+                    <p className="text-sm font-mono text-historic-sepia line-clamp-2">
+                      {proposal.description}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 text-right">
+                    <div className="text-2xl font-display font-bold text-sihl-red">
+                      {proposal.voteCount}
+                    </div>
+                    <div className="text-xs font-mono text-historic-sepia">
+                      Stimmen
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

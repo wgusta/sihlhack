@@ -27,11 +27,11 @@ export async function sendMagicLinkEmail(email: string, magicLink: string): Prom
     html: `
       <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
         <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
-          sihl<span style="color: #D9366B;">hack</span>
+          sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <p>Klicke auf den folgenden Link, um dich anzumelden:</p>
         <p style="margin: 24px 0;">
-          <a href="${magicLink}" style="background: #D9366B; color: white; padding: 12px 24px; text-decoration: none; display: inline-block;">
+          <a href="${magicLink}" style="background: #E62F2D; color: white; padding: 12px 24px; text-decoration: none; display: inline-block;">
             Jetzt anmelden
           </a>
         </p>
@@ -62,17 +62,17 @@ export async function sendRegistrationConfirmationEmail(
     html: `
       <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
         <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
-          sihl<span style="color: #D9366B;">hack</span>
+          sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <p>Hallo${name ? ` ${name}` : ''},</p>
         <p>Deine Anmeldung für sihlhack wurde erfolgreich abgeschlossen.</p>
-        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #2A7C82;">
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #B5A642;">
           <p style="margin: 0;"><strong>Betrag:</strong> ${formatCHF(amountChf)}</p>
           <p style="margin: 8px 0 0 0;"><strong>Status:</strong> Bezahlt</p>
         </div>
         <p>
           Du kannst den aktuellen Stand des Fonds und die Teilnehmerzahl jederzeit unter
-          <a href="https://sihlhack.ch/funds" style="color: #2A7C82;">sihlhack.ch/funds</a> einsehen.
+          <a href="https://sihlhack.ch/funds" style="color: #B5A642;">sihlhack.ch/funds</a> einsehen.
         </p>
         <p style="color: #8B7355; font-size: 14px;">
           Falls die Mindestteilnehmerzahl bis zur Deadline nicht erreicht wird,
@@ -99,7 +99,7 @@ export async function sendRefundEmail(
     html: `
       <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
         <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
-          sihl<span style="color: #D9366B;">hack</span>
+          sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <p>Hallo${name ? ` ${name}` : ''},</p>
         <p>
@@ -115,7 +115,7 @@ export async function sendRefundEmail(
         </p>
         <p>
           Alle Details zur Transparenz findest du unter
-          <a href="https://sihlhack.ch/funds" style="color: #2A7C82;">sihlhack.ch/funds</a>.
+          <a href="https://sihlhack.ch/funds" style="color: #B5A642;">sihlhack.ch/funds</a>.
         </p>
       </div>
     `,
@@ -134,7 +134,7 @@ export async function sendEventConfirmedEmail(email: string, name: string | null
     html: `
       <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
         <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
-          sihl<span style="color: #D9366B;">hack</span>
+          sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <p>Hallo${name ? ` ${name}` : ''},</p>
         <p style="font-size: 18px; color: #22C55E;">
@@ -150,7 +150,7 @@ export async function sendEventConfirmedEmail(email: string, name: string | null
         </div>
         <p>
           Schau dir die aktuellen Projektvorschläge an und stimme für deine Favoriten:
-          <a href="https://sihlhack.ch/proposals" style="color: #2A7C82;">sihlhack.ch/proposals</a>
+          <a href="https://sihlhack.ch/proposals" style="color: #B5A642;">sihlhack.ch/proposals</a>
         </p>
       </div>
     `,
@@ -169,7 +169,7 @@ export async function sendEventCancelledEmail(email: string, name: string | null
     html: `
       <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
         <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
-          sihl<span style="color: #D9366B;">hack</span>
+          sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <p>Hallo${name ? ` ${name}` : ''},</p>
         <p>
@@ -182,6 +182,76 @@ export async function sendEventCancelledEmail(email: string, name: string | null
         </p>
         <p>
           Wir danken dir für dein Interesse und hoffen, dich bei einer zukünftigen Veranstaltung zu sehen.
+        </p>
+      </div>
+    `,
+  })
+}
+
+/**
+ * Send proposal submitted confirmation email
+ */
+export async function sendProposalSubmittedEmail(
+  email: string,
+  name: string | null,
+  proposalTitle: string
+): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: 'Dein sihlhack Projekt wurde eingereicht',
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span>
+        </h1>
+        <p>Hallo${name ? ` ${name}` : ''},</p>
+        <p>Dein Projektvorschlag wurde erfolgreich eingereicht!</p>
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #B5A642;">
+          <p style="margin: 0; font-weight: bold;">${proposalTitle}</p>
+        </div>
+        <p>
+          Andere Teilnehmende können jetzt für dein Projekt stimmen.
+          Du erhältst eine Benachrichtigung, wenn dein Projekt Stimmen erhält.
+        </p>
+        <p>
+          Schau dir auch andere Projektvorschläge an:
+          <a href="https://sihlhack.ch/proposals" style="color: #B5A642;">sihlhack.ch/proposals</a>
+        </p>
+      </div>
+    `,
+  })
+}
+
+/**
+ * Send vote received notification email
+ */
+export async function sendVoteReceivedEmail(
+  email: string,
+  name: string | null,
+  proposalTitle: string,
+  voteCount: number
+): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: `Neue Stimme für "${proposalTitle}"`,
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span>
+        </h1>
+        <p>Hallo${name ? ` ${name}` : ''},</p>
+        <p>Dein Projekt hat eine neue Stimme erhalten!</p>
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #22C55E;">
+          <p style="margin: 0;"><strong>${proposalTitle}</strong></p>
+          <p style="margin: 8px 0 0 0; font-size: 24px; color: #E62F2D; font-weight: bold;">${voteCount} Stimmen</p>
+        </div>
+        <p>
+          Sieh dir die aktuelle Rangliste an:
+          <a href="https://sihlhack.ch/proposals" style="color: #B5A642;">sihlhack.ch/proposals</a>
         </p>
       </div>
     `,
