@@ -6,7 +6,7 @@ const footerLinks = {
     { name: 'Konzept', href: '/about' },
     { name: 'Projekte', href: '/proposals' },
     { name: 'Daten', href: '/data-catalog' },
-    { name: 'Fonds', href: '/funds' },
+    { name: 'Team', href: '/team' },
   ],
   legal: [
     { name: 'Impressum', href: '/impressum' },
@@ -112,14 +112,9 @@ export function Footer() {
             <p className="text-xs font-mono text-gray-500">
               © {currentYear} sihlhack. Alle Rechte vorbehalten.
             </p>
-            <div className="flex items-center gap-4">
-              <span className="text-xs font-mono text-gray-500">
-                Finanzen öffentlich einsehbar unter{' '}
-                <Link href="/funds" className="text-industrial-gold hover:underline">
-                  /funds
-                </Link>
-              </span>
-            </div>
+            <p className="text-xs font-mono text-gray-500">
+              Alle Finanzen öffentlich und transparent.
+            </p>
           </div>
         </div>
       </div>
