@@ -134,7 +134,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium text-gray-600">
-              Prize Pool (70%)
+              Prize Pool (Überschuss)
             </CardTitle>
           </CardHeader>
           <CardContent>

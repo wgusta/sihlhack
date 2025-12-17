@@ -25,19 +25,19 @@ export function CTASection() {
           {/* Description */}
           <p className="mt-6 text-lg text-white/80 font-mono">
             Werde Teil des ersten teilnehmerorientierten Hackathons der Schweiz.
-            150 CHF Teilnahmegebühr, volle Rückerstattung falls Event nicht stattfindet.
+            Volle Rückerstattung, falls das Aktivierungsziel nicht erreicht wird.
           </p>
 
           {/* Pricing highlight */}
-          <div className="mt-8 inline-flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-            <div className="text-left">
-              <span className="block text-2xl font-display font-bold text-white">150 CHF</span>
+          <div className="mt-8 inline-flex flex-col sm:flex-row items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl sm:rounded-full px-6 py-4 sm:py-3">
+            <div className="text-center sm:text-left">
+              <span className="block text-3xl font-display font-bold text-white">CHF 480</span>
               <span className="text-xs text-white/70 font-mono">Teilnahmegebühr</span>
             </div>
-            <div className="w-px h-12 bg-white/30" />
-            <div className="text-left">
-              <span className="block text-2xl font-display font-bold text-white">105 CHF</span>
-              <span className="text-xs text-white/70 font-mono">→ Preisgeld (70%)</span>
+            <div className="hidden sm:block w-px h-12 bg-white/30" />
+            <div className="text-center sm:text-left">
+              <span className="block text-sm font-mono text-white/90">100% Überschuss</span>
+              <span className="text-xs text-white/70 font-mono">→ Preisgeld</span>
             </div>
           </div>
 
@@ -47,22 +47,22 @@ export function CTASection() {
               href="/register"
               variant="secondary"
               size="lg"
-              className="bg-white text-sihl-red hover:bg-white/90 border-0"
+              className="bg-white text-sihl-red hover:bg-white/90 border-0 w-full sm:w-auto"
             >
               Jetzt anmelden
             </ButtonLink>
             <ButtonLink
-              href="/funds"
+              href="/about"
               variant="ghost"
               size="lg"
-              className="text-white border-white/30 hover:bg-white/10"
+              className="text-white border-white/30 hover:bg-white/10 w-full sm:w-auto"
             >
-              Fonds ansehen
+              Mehr erfahren
             </ButtonLink>
           </div>
 
           {/* Trust badges */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-white/60 font-mono text-sm">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/60 font-mono text-xs sm:text-sm">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />

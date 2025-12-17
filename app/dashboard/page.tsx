@@ -133,7 +133,7 @@ export default function DashboardPage() {
               <h3 className="font-display font-semibold text-brand-black">So funktioniert sihlhack</h3>
               <p className="mt-1 text-sm font-mono text-historic-sepia">
                 Teilnehmende schlagen Projekte vor und stimmen darüber ab, welche umgesetzt werden.
-                70% der Teilnahmegebühren fliessen ins Preisgeld.
+                Der gesamte Überschuss nach Betriebskosten fliesst ins Preisgeld.
                 Falls die Mindestteilnehmerzahl nicht erreicht wird, erfolgt eine vollständige Rückerstattung.
               </p>
               <Link href="/about" className="inline-block mt-2 text-sm font-mono text-sihl-red hover:underline">

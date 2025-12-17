@@ -25,7 +25,7 @@ const benefits = [
   },
   {
     title: 'Transparente Finanzen',
-    description: '70% der Gebühren fliessen ins Preisgeld. 30% decken Betriebskosten. Alles öffentlich einsehbar.',
+    description: 'Der gesamte Überschuss nach Betriebskosten fliesst ins Preisgeld. Alles öffentlich einsehbar.',
   },
   {
     title: 'Garantierte Rückerstattung',

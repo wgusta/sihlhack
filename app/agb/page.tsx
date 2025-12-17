@@ -32,7 +32,7 @@ export default function AGBPage() {
                 2. Teilnahmegebühr und Zahlungsbedingungen
               </h2>
               <p className="text-historic-sepia">
-                Die Teilnahmegebühr beträgt CHF 480.00 pro Person. Die Zahlung erfolgt über Stripe und ist bei der Anmeldung fällig. 70% der Gebühren fliessen in den Preisgeldpool, 30% decken Betriebskosten.
+                Die Teilnahmegebühr beträgt CHF 480.00 pro Person. Die Zahlung erfolgt über Stripe und ist bei der Anmeldung fällig. Der gesamte Überschuss nach Deckung der Betriebskosten fliesst in den Preisgeldpool.
               </p>
             </section>
 

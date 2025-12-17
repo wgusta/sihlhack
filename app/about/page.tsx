@@ -109,7 +109,7 @@ export default function AboutPage() {
                 {
                   step: '1',
                   title: 'Anmelden und bezahlen',
-                  description: 'Sichere dir deinen Platz mit der Teilnahmegebühr von CHF 150. 70% fliessen direkt ins Preisgeld.',
+                  description: 'Sichere dir deinen Platz mit der Teilnahmegebühr von CHF 480. Der gesamte Überschuss fliesst ins Preisgeld.',
                 },
                 {
                   step: '2',
