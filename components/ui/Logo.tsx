@@ -57,7 +57,7 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
     const sihlWord = 'sihl'
     const hackWord = 'hack'
 
-    // Phase 1: Type "sihl" with typewriter effect
+    // Phase 1: Type "sihl" with slow typewriter effect
     if (phase === 'sihl') {
       let charIndex = 0
       const typeInterval = setInterval(() => {
@@ -69,7 +69,7 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           setShowCursor(true)
           setPhase('waiting')
         }
-      }, 150) // Typewriter speed for sihl
+      }, 350) // Slow typewriter speed for sihl
 
       return () => clearInterval(typeInterval)
     }
@@ -92,7 +92,7 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
       }
     }
 
-    // Phase 3: Type "hack" with terminal effect
+    // Phase 3: Type "hack" with fast terminal effect
     if (phase === 'hack') {
       let charIndex = 0
       const typeInterval = setInterval(() => {
@@ -101,12 +101,20 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           charIndex++
         } else {
           clearInterval(typeInterval)
-          setShowCursor(false)
           setPhase('done')
         }
-      }, 100) // Faster typing for hack (terminal style)
+      }, 80) // Fast typing for hack (terminal style)
 
       return () => clearInterval(typeInterval)
+    }
+
+    // Phase 4: Keep cursor blinking after done
+    if (phase === 'done') {
+      const blinkInterval = setInterval(() => {
+        setCursorBlink(prev => !prev)
+      }, 530)
+
+      return () => clearInterval(blinkInterval)
     }
   }, [animated, phase])
 
@@ -160,13 +168,18 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           )}
           style={{ fontFamily: 'var(--font-mono)' }}
         >
-        {/* hack text with cursor while typing */}
+        {/* hack text with cursor while typing and after done */}
         {(phase === 'hack' || phase === 'done') && (
           <>
             {hackText}
-            {phase === 'hack' && (
-              <span className="animate-pulse">_</span>
-            )}
+            <span
+              className={cn(
+                'transition-opacity duration-100',
+                phase === 'done' && !cursorBlink ? 'opacity-0' : 'opacity-100'
+              )}
+            >
+              _
+            </span>
           </>
         )}
         {/* Invisible placeholder to maintain width during hack typing */}
