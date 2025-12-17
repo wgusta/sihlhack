@@ -59,8 +59,8 @@ export function HeroSection() {
           </p>
 
           {/* Title */}
-          <h1 className="animate-slide-up">
-            <Logo size="hero" hackColor="white" />
+          <h1>
+            <Logo size="hero" hackColor="white" animated />
           </h1>
 
           {/* Description */}
