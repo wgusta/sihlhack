@@ -52,7 +52,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8">
+        <div className="space-y-8 pt-16 sm:pt-0">
           {/* Subtitle */}
           <p className="font-mono text-sm sm:text-base text-insight-cyan tracking-widest uppercase animate-fade-in">
             Der erste teilnehmerorientierte Hackathon der Schweiz
