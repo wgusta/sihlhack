@@ -1,0 +1,86 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
+import { db, participants, eventConfig } from '@/lib/db'
+import { eq } from 'drizzle-orm'
+import { createCheckoutSession } from '@/lib/stripe'
+
+const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
+
+const checkoutSchema = z.object({
+  participantId: z.string().uuid(),
+})
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json()
+    const { participantId } = checkoutSchema.parse(body)
+
+    // Get participant
+    const [participant] = await db
+      .select()
+      .from(participants)
+      .where(eq(participants.id, participantId))
+      .limit(1)
+
+    if (!participant) {
+      return NextResponse.json(
+        { error: 'Participant not found' },
+        { status: 404 }
+      )
+    }
+
+    if (participant.registrationStatus === 'paid') {
+      return NextResponse.json(
+        { error: 'Already registered' },
+        { status: 400 }
+      )
+    }
+
+    // Get event config for fee
+    const [config] = await db
+      .select()
+      .from(eventConfig)
+      .where(eq(eventConfig.id, EVENT_CONFIG_ID))
+      .limit(1)
+
+    if (!config) {
+      return NextResponse.json(
+        { error: 'Event configuration not found' },
+        { status: 500 }
+      )
+    }
+
+    if (!config.registrationOpen) {
+      return NextResponse.json(
+        { error: 'Registration is closed' },
+        { status: 400 }
+      )
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
+    // Create Stripe checkout session
+    const session = await createCheckoutSession({
+      participantId,
+      participantEmail: participant.email,
+      amountChf: config.registrationFeeChf,
+      successUrl: `${baseUrl}/register/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `${baseUrl}/register?cancelled=true`,
+    })
+
+    return NextResponse.json({ url: session.url })
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid request', details: error.issues },
+        { status: 400 }
+      )
+    }
+
+    console.error('Checkout error:', error)
+    return NextResponse.json(
+      { error: 'Failed to create checkout session' },
+      { status: 500 }
+    )
+  }
+}
