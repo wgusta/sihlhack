@@ -31,6 +31,14 @@ export default function TeamPage() {
             <Card className="overflow-hidden">
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row">
+                  {/* Photo */}
+                  <div className="md:w-64 flex-shrink-0">
+                    <img
+                      src="/team/guney-usta.jpg"
+                      alt="Güney Usta"
+                      className="w-full h-64 md:h-full object-cover object-top"
+                    />
+                  </div>
                   <div className="flex-1 p-6 md:p-8">
                     <span className="text-xs font-mono text-sihl-red uppercase tracking-wide">
                       Organisator
