@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Konzept', href: '/about' },
   { name: 'Projekte', href: '/proposals' },
   { name: 'Daten', href: '/data-catalog' },
+  { name: 'Team', href: '/team' },
 ]
 
 export function Header() {
