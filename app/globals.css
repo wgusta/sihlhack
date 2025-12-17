@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Permanent+Marker&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* Custom theme configuration for Tailwind v4 */
+@theme {
+  /* Inherited from sihliconvalley.ch */
+  --color-deep-pink: #D9366B;
+  --color-teal: #2A7C82;
+  --color-sun-red: #E62F2D;
+  --color-brand-black: #1A1A1A;
+  --color-brand-white: #FFFFFF;
+  --color-off-white: #F5F3E8;
+
+  /* Extended for historic theme */
+  --color-historic-sepia: #8B7355;
+  --color-historic-cream: #F5F0E1;
+  --color-industrial-rust: #8B4513;
+  --color-insight-cyan: #4ECDC4;
+  --color-fund-green: #22C55E;
+  --color-refund-amber: #F59E0B;
+
+  /* Font families */
+  --font-display: 'Playfair Display', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-accent: 'Permanent Marker', cursive;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-in-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-develop: develop 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes develop {
+  0% { filter: grayscale(100%) sepia(20%) contrast(1.1); }
+  100% { filter: grayscale(0%) sepia(0%) contrast(1); }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-off-white);
+  color: var(--color-brand-black);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Component styles */
+
+/* Historic photo reveal effect */
+.historic-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.historic-reveal img {
+  filter: grayscale(100%) sepia(20%) contrast(1.1);
+  transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.historic-reveal:hover img,
+.historic-reveal.revealed img {
+  filter: grayscale(0%) sepia(0%) contrast(1);
+}
+
+/* Paper texture overlay */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: url('/textures/paper-grain.png');
+  mix-blend-mode: multiply;
+}
+
+/* Scanline effect for vintage feel */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.03) 1px,
+    rgba(0, 0, 0, 0.03) 2px
+  );
+}
+
+/* Fund tracker progress bar */
+.fund-progress {
+  position: relative;
+  height: 1rem;
+  background-color: var(--color-historic-cream);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.fund-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-teal), var(--color-insight-cyan));
+  transition: all 1000ms ease-out;
+}
+
+/* Accent text style */
+.accent-text {
+  font-family: var(--font-accent);
+}
+
+/* Monospace data display */
+.mono-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Utility styles */
+
+/* Text gradient utility */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-deep-pink), var(--color-teal));
+}
+
+/* Historic border style */
+.border-historic {
+  border-width: 2px;
+  border-color: var(--color-historic-sepia);
+}
+
+/* Card shadow with vintage feel */
+.shadow-historic {
+  box-shadow:
+    4px 4px 0 0 var(--color-historic-sepia),
+    8px 8px 0 0 rgba(139, 115, 85, 0.3);
+}
+
+/* Focus ring for accessibility */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-off-white), 0 0 0 4px var(--color-deep-pink);
+}

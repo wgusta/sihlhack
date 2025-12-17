@@ -1,0 +1,62 @@
+{
+  "name": "sihlhack",
+  "version": "1.0.0",
+  "description": "Switzerland's first participant-oriented hackathon focused on digitalizing historical industrial records from the Sihl Valley.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wgusta/sihlhack.git"
+  },
+  "keywords": [
+    "hackathon",
+    "sihl-valley",
+    "historical-data",
+    "digitalization"
+  ],
+  "author": "sihlhack team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wgusta/sihlhack/issues"
+  },
+  "homepage": "https://github.com/wgusta/sihlhack#readme",
+  "dependencies": {
+    "@stripe/stripe-js": "^8.6.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@vercel/blob": "^2.0.0",
+    "@vercel/postgres": "^0.10.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "drizzle-orm": "^0.45.1",
+    "next": "^16.0.10",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "resend": "^6.6.0",
+    "stripe": "^20.1.0",
+    "swr": "^2.3.8",
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "drizzle-kit": "^0.31.8",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.0.10",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}
