@@ -85,9 +85,9 @@ export function HeroSection() {
           </div>
 
           {/* Stats preview */}
-          <div className="flex flex-wrap items-center justify-center gap-8 pt-8 text-white/80 font-mono text-sm animate-fade-in">
+          <div className="flex flex-wrap items-center justify-center gap-8 pt-8 pb-20 sm:pb-0 text-white/80 font-mono text-sm animate-fade-in">
             <div className="text-center">
-              <span className="block text-2xl font-bold text-insight-cyan">150 CHF</span>
+              <span className="block text-2xl font-bold text-insight-cyan">CHF 150</span>
               <span className="text-xs text-gray-400">Teilnahmegebühr</span>
             </div>
             <div className="text-center">
