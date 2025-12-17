@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { formatCHF } from '@/lib/utils'
 import { Badge } from '@/components/ui/Badge'
 import { useFunds } from '@/hooks/useFunds'
@@ -16,10 +15,10 @@ export function FundTrackerWidget() {
           <div className="bg-white rounded-2xl shadow-historic p-8 md:p-12">
             <div className="animate-pulse">
               <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
-              <div className="grid grid-cols-3 gap-8 mb-8">
-                <div className="h-24 bg-gray-200 rounded" />
-                <div className="h-24 bg-gray-200 rounded" />
-                <div className="h-24 bg-gray-200 rounded" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8">
+                <div className="h-20 md:h-24 bg-gray-200 rounded" />
+                <div className="h-20 md:h-24 bg-gray-200 rounded" />
+                <div className="h-20 md:h-24 bg-gray-200 rounded" />
               </div>
               <div className="h-4 bg-gray-200 rounded w-full" />
             </div>
@@ -75,21 +74,21 @@ export function FundTrackerWidget() {
           </div>
 
           {/* Main stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="text-center p-6 bg-off-white rounded-xl">
-              <span className="block text-4xl font-display font-bold text-brand-black">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8">
+            <div className="text-center p-4 md:p-6 bg-off-white rounded-xl">
+              <span className="block text-2xl md:text-4xl font-mono font-bold text-brand-black tabular-nums">
                 {funds.participantCount}
               </span>
               <span className="text-sm font-mono text-historic-sepia">Teilnehmende</span>
             </div>
-            <div className="text-center p-6 bg-off-white rounded-xl">
-              <span className="block text-4xl font-display font-bold text-brand-black mono-data">
+            <div className="text-center p-4 md:p-6 bg-off-white rounded-xl">
+              <span className="block text-2xl md:text-4xl font-mono font-bold text-brand-black tabular-nums">
                 {formatCHF(funds.totalCollectedChf)}
               </span>
               <span className="text-sm font-mono text-historic-sepia">Gesammelt</span>
             </div>
-            <div className="text-center p-6 bg-off-white rounded-xl">
-              <span className="block text-4xl font-display font-bold text-fund-green mono-data">
+            <div className="text-center p-4 md:p-6 bg-off-white rounded-xl">
+              <span className="block text-2xl md:text-4xl font-mono font-bold text-fund-green tabular-nums">
                 {formatCHF(funds.prizePoolChf)}
               </span>
               <span className="text-sm font-mono text-historic-sepia">Preisgeld-Pot</span>
@@ -119,22 +118,22 @@ export function FundTrackerWidget() {
 
           {/* Prize distribution */}
           {funds.prizePoolChf > 0 && (
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="p-4 bg-fund-green/10 rounded-lg border border-fund-green/30 text-center">
+            <div className="grid grid-cols-3 gap-2 md:gap-4 mb-8">
+              <div className="p-2 md:p-4 bg-fund-green/10 rounded-lg border border-fund-green/30 text-center">
                 <span className="block text-xs font-mono text-fund-green mb-1">1. Platz (50%)</span>
-                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                <span className="text-sm md:text-xl font-mono font-bold text-brand-black tabular-nums">
                   {formatCHF(funds.prizeFirstChf)}
                 </span>
               </div>
-              <div className="p-4 bg-industrial-gold/10 rounded-lg border border-industrial-gold/30 text-center">
+              <div className="p-2 md:p-4 bg-industrial-gold/10 rounded-lg border border-industrial-gold/30 text-center">
                 <span className="block text-xs font-mono text-industrial-gold mb-1">2. Platz (30%)</span>
-                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                <span className="text-sm md:text-xl font-mono font-bold text-brand-black tabular-nums">
                   {formatCHF(funds.prizeSecondChf)}
                 </span>
               </div>
-              <div className="p-4 bg-insight-cyan/10 rounded-lg border border-insight-cyan/30 text-center">
+              <div className="p-2 md:p-4 bg-insight-cyan/10 rounded-lg border border-insight-cyan/30 text-center">
                 <span className="block text-xs font-mono text-insight-cyan mb-1">3. Platz (20%)</span>
-                <span className="text-xl font-display font-bold text-brand-black mono-data">
+                <span className="text-sm md:text-xl font-mono font-bold text-brand-black tabular-nums">
                   {formatCHF(funds.prizeThirdChf)}
                 </span>
               </div>
@@ -143,33 +142,27 @@ export function FundTrackerWidget() {
 
           {/* Budget breakdown teaser */}
           <div className="p-4 bg-off-white rounded-lg mb-8">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 md:gap-0">
               <div>
                 <span className="text-sm font-mono text-historic-sepia">Geplantes Budget:</span>
-                <span className="ml-2 font-display font-bold text-brand-black mono-data">
+                <span className="ml-2 font-mono font-bold text-brand-black tabular-nums">
                   {formatCHF(funds.totalBudgetChf)}
                 </span>
               </div>
-              <div className="text-right">
+              <div className="md:text-right">
                 <span className="text-sm font-mono text-historic-sepia">Überschuss:</span>
-                <span className="ml-2 font-display font-bold text-fund-green mono-data">
+                <span className="ml-2 font-mono font-bold text-fund-green tabular-nums">
                   {formatCHF(funds.surplusChf)}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Link to full tracker */}
+          {/* Transparency note */}
           <div className="text-center">
-            <Link
-              href="/funds"
-              className="inline-flex items-center gap-2 text-sihl-red font-mono text-sm hover:underline"
-            >
-              Vollständiges Budget und Transaktionen ansehen
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <p className="text-sm font-mono text-historic-sepia">
+              Alle Finanzen sind öffentlich und transparent.
+            </p>
           </div>
         </div>
       </div>

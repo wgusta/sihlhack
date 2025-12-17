@@ -10,7 +10,6 @@ const navigation = [
   { name: 'Konzept', href: '/about' },
   { name: 'Projekte', href: '/proposals' },
   { name: 'Daten', href: '/data-catalog' },
-  { name: 'Fonds', href: '/funds' },
 ]
 
 export function Header() {

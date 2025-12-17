@@ -190,6 +190,82 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Organizer */}
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="accent-text text-sihl-red text-lg">Organisator</span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Über mich
+              </h2>
+            </div>
+
+            <Card className="overflow-hidden">
+              <CardContent className="p-0">
+                <div className="flex flex-col md:flex-row">
+                  <div className="flex-1 p-6 md:p-8">
+                    <h3 className="font-display text-2xl font-bold text-brand-black">
+                      Güney Usta
+                    </h3>
+                    <p className="text-sm font-mono text-historic-sepia mt-1">
+                      Process Engineer · Technical Project Leader · Baden, AG
+                    </p>
+
+                    <p className="mt-4 text-historic-sepia font-mono text-sm">
+                      Ich optimiere Geschäftsprozesse durch CRM Application Ownership und technische Beratung.
+                      Als Process Engineer überbrücke ich Business Anforderungen und technische Umsetzung.
+                    </p>
+
+                    <p className="mt-3 text-historic-sepia font-mono text-sm">
+                      Aktuell vertiefe ich mein Wissen im <strong className="text-brand-black">MSc Applied Information & Data Science</strong> an der HSLU,
+                      mit Fokus auf KI Integration und ML basierte Datenanalyse.
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
+                        9+ Jahre Projekterfahrung
+                      </span>
+                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
+                        DE · EN · FR
+                      </span>
+                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
+                        IREB zertifiziert
+                      </span>
+                    </div>
+
+                    <div className="mt-6 flex gap-4">
+                      <a
+                        href="https://linkedin.com/in/gueneyusta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-mono text-sihl-red hover:underline"
+                      >
+                        LinkedIn
+                      </a>
+                      <a
+                        href="https://www.sihliconvalley.ch"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-mono text-sihl-red hover:underline"
+                      >
+                        sihliconvalley.ch
+                      </a>
+                      <a
+                        href="https://github.com/wgusta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-mono text-sihl-red hover:underline"
+                      >
+                        GitHub
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-16 bg-sihl-red">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
