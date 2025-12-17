@@ -17,27 +17,27 @@ const sizeClasses: Record<LogoSize, { sihl: string; hack: string; leading: strin
   sm: {
     sihl: 'text-lg',
     hack: 'text-lg',
-    leading: 'leading-[0.7]',
+    leading: 'leading-[0.55]',
   },
   md: {
     sihl: 'text-2xl',
     hack: 'text-2xl',
-    leading: 'leading-[0.7]',
+    leading: 'leading-[0.55]',
   },
   lg: {
     sihl: 'text-4xl',
     hack: 'text-4xl',
-    leading: 'leading-[0.7]',
+    leading: 'leading-[0.55]',
   },
   xl: {
     sihl: 'text-5xl sm:text-6xl',
     hack: 'text-5xl sm:text-6xl',
-    leading: 'leading-[0.7]',
+    leading: 'leading-[0.55]',
   },
   hero: {
     sihl: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
     hack: 'text-5xl sm:text-6xl md:text-7xl lg:text-8xl',
-    leading: 'leading-[0.7]',
+    leading: 'leading-[0.55]',
   },
 }
 
