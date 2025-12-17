@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 
 export function HeroSection() {
@@ -58,8 +59,8 @@ export function HeroSection() {
           </p>
 
           {/* Title */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white animate-slide-up">
-            sihl<span className="text-sihl-red">hack</span>
+          <h1 className="animate-slide-up">
+            <Logo size="hero" hackColor="white" />
           </h1>
 
           {/* Description */}

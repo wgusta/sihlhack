@@ -126,9 +126,51 @@ const permanentMarker = Permanent_Marker({
 
 | Font | Class | Use For |
 |------|-------|---------|
-| Playfair Display | `font-stylish` | Headlines, titles, historic quotes |
-| IBM Plex Mono | `font-terminal` | Data, numbers, code, technical info |
-| Permanent Marker | `font-erratic` | Accent text, call-outs, warnings |
+| Playfair Display | `font-stylish` / `font-display` | Headlines, titles, historic quotes |
+| IBM Plex Mono | `font-terminal` / `font-mono` | Data, numbers, code, technical info |
+| Permanent Marker | `font-erratic` / `font-accent` | Accent text, call-outs, warnings |
+| Orbitron | `font-futuristic` | Logo "hack" text, futuristic elements |
+
+## Logo
+
+### Brand Mark
+
+The sihlhack logo combines historical and futuristic typography:
+
+- **"sihl"**: Playfair Display (serif), sihl-red (#E62F2D)
+- **"hack"**: Orbitron (futuristic sans-serif), white or black depending on background
+
+### Logo Component Usage
+
+```tsx
+import { Logo } from '@/components/ui/Logo'
+
+// Light background (header, cards)
+<Logo size="md" hackColor="black" />
+
+// Dark background (footer, hero, dark sections)
+<Logo size="md" hackColor="white" />
+
+// Hero section (large)
+<Logo size="hero" hackColor="white" />
+```
+
+### Available Sizes
+
+| Size | Use Case |
+|------|----------|
+| `sm` | Small inline references |
+| `md` | Navigation, footer |
+| `lg` | Section headers |
+| `xl` | Page titles |
+| `hero` | Hero sections, landing pages |
+
+### Important Rules
+
+1. **Never** use the same color for both "sihl" and "hack"
+2. **Always** use sihl-red for "sihl"
+3. **Always** use contrasting color (white/black) for "hack" based on background
+4. **Never** mix fonts: sihl is always serif, hack is always futuristic sans-serif
 
 ## Visual Transformation Effect
 

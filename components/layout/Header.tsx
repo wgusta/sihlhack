@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Logo } from '@/components/ui/Logo'
 
 const navigation = [
   { name: 'Konzept', href: '/about' },
@@ -22,9 +23,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-display text-2xl font-bold text-brand-black group-hover:text-sihl-red transition-colors">
-                sihl<span className="text-sihl-red">hack</span>
-              </span>
+              <Logo size="md" hackColor="black" />
             </Link>
           </div>
 

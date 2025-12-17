@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Logo } from '@/components/ui/Logo'
 
 const footerLinks = {
   main: [
@@ -29,9 +30,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="font-display text-2xl font-bold">
-                sihl<span className="text-sihl-red">hack</span>
-              </span>
+              <Logo size="md" hackColor="white" />
             </Link>
             <p className="mt-4 text-sm font-mono text-gray-400">
               Der erste teilnehmerorientierte Hackathon der Schweiz. Historische Industriedaten aus dem Sihltal digitalisieren.
