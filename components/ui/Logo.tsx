@@ -113,17 +113,33 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
   return (
     <span className={cn('inline-flex flex-col', sizes.leading, className)}>
       {/* sihl on first row */}
-      <span
-        className={cn(
-          'font-display font-bold text-sihl-red',
-          sizes.sihl
-        )}
-        style={{ fontFamily: 'var(--font-display)' }}
-      >
-        {sihlText}
-        {/* Invisible placeholder to maintain width */}
-        {animated && phase === 'sihl' && (
-          <span className="invisible">{'sihl'.slice(sihlText.length)}</span>
+      <span className="flex items-baseline">
+        <span
+          className={cn(
+            'font-display font-bold text-sihl-red',
+            sizes.sihl
+          )}
+          style={{ fontFamily: 'var(--font-display)' }}
+        >
+          {sihlText}
+          {/* Invisible placeholder to maintain width */}
+          {animated && phase === 'sihl' && (
+            <span className="invisible">{'sihl'.slice(sihlText.length)}</span>
+          )}
+        </span>
+        {/* Blinking cursor after sihl during waiting phase */}
+        {animated && showCursor && phase === 'waiting' && (
+          <span
+            className={cn(
+              'font-mono font-bold transition-opacity duration-100',
+              hackColor === 'white' ? 'text-white' : 'text-brand-black',
+              sizes.hack,
+              cursorBlink ? 'opacity-100' : 'opacity-0'
+            )}
+            style={{ fontFamily: 'var(--font-mono)' }}
+          >
+            _
+          </span>
         )}
       </span>
       {/* hack on second row, with invisible "si" spacer for exact h-alignment */}
@@ -144,17 +160,6 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
           )}
           style={{ fontFamily: 'var(--font-mono)' }}
         >
-        {/* Blinking cursor before hack */}
-        {showCursor && phase === 'waiting' && (
-          <span
-            className={cn(
-              'transition-opacity duration-100',
-              cursorBlink ? 'opacity-100' : 'opacity-0'
-            )}
-          >
-            _
-          </span>
-        )}
         {/* hack text with cursor while typing */}
         {(phase === 'hack' || phase === 'done') && (
           <>
@@ -164,10 +169,10 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
             )}
           </>
         )}
-        {/* Invisible placeholder to maintain width */}
-        {animated && (phase === 'waiting' || phase === 'hack') && (
+        {/* Invisible placeholder to maintain width during hack typing */}
+        {animated && phase === 'hack' && (
           <span className="invisible">
-            {phase === 'waiting' ? 'hack' : 'hack'.slice(hackText.length)}
+            {'hack'.slice(hackText.length)}
           </span>
         )}
         </span>
