@@ -183,7 +183,7 @@ export function HeroSection() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 pb-16 animate-fade-in">
             <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px]">
               Platz sichern · CHF 480
             </ButtonLink>
@@ -195,14 +195,6 @@ export function HeroSection() {
             >
               So funktioniert&apos;s
             </ButtonLink>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-8 pb-16 text-gray-400 font-mono text-xs animate-fade-in">
-            <span>🏛️ Schweizer Daten</span>
-            <span>💻 Local AI First</span>
-            <span>🔐 Stripe Zahlungen</span>
-            <span>📊 Finanzen öffentlich</span>
           </div>
         </div>
       </div>
