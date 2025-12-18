@@ -235,6 +235,161 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Data Privacy and AI Processing */}
+        <section id="datenschutz" className="py-16 bg-white">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+                Datenschutz & KI-Verarbeitung
+              </span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Local-First AI Ansatz
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Historische Dokumente sind sensibel. Wir verarbeiten sie mit Respekt und klaren Regeln.
+              </p>
+            </div>
+
+            {/* Three-tier approach */}
+            <div className="space-y-8 mb-12">
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-fund-green/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">💻</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-brand-black">
+                        Stufe 1: Lokale Verarbeitung (Standard)
+                      </CardTitle>
+                      <p className="text-sm font-mono text-historic-sepia mt-2">
+                        Alle Daten werden primär mit lokalen KI-Modellen verarbeitet.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>Offline-fähige LLMs:</strong> Llama, Mistral und andere Open-Source-Modelle laufen direkt auf unserer Infrastruktur</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>Keine externen Server:</strong> Daten verlassen die Hackathon-Infrastruktur nicht</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>OCR & Computer Vision:</strong> Tesseract, PaddleOCR und lokale CV-Modelle für Dokumentenextraktion</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>Datenbanken lokal:</strong> Alle strukturierten Daten bleiben im Event-Netzwerk</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-refund-amber/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">☁️</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-brand-black">
+                        Stufe 2: Cloud-KI (Nur mit Zustimmung)
+                      </CardTitle>
+                      <p className="text-sm font-mono text-historic-sepia mt-2">
+                        Falls lokale Modelle nicht ausreichen, nutzen wir Cloud-KI.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
+                    <div className="flex items-start gap-2">
+                      <span className="text-refund-amber mt-0.5">!</span>
+                      <span><strong>Voraussetzung:</strong> Schriftliche Einwilligung der Datenbereitsteller erforderlich</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-refund-amber mt-0.5">!</span>
+                      <span><strong>Transparenz:</strong> Welche Daten, welches Modell (Anthropic Claude, OpenAI GPT, Google Gemini), wann und warum</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-refund-amber mt-0.5">!</span>
+                      <span><strong>Dokumentation:</strong> Jede Cloud-Verarbeitung wird protokolliert und ist nachvollziehbar</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-refund-amber mt-0.5">!</span>
+                      <span><strong>Keine Speicherung:</strong> Provider dürfen Daten nicht für Training verwenden (Zero Data Retention)</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card variant="historic" className="border-2 border-sihl-red">
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-sihl-red/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">🔒</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-sihl-red">
+                        Stufe 3: Geschützte Daten (Keine Cloud-Verarbeitung)
+                      </CardTitle>
+                      <p className="text-sm font-mono text-brand-black mt-2">
+                        Besonders sensible Dokumente bleiben vollständig offline.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm font-mono text-brand-black">
+                    <div className="flex items-start gap-2">
+                      <span className="text-sihl-red mt-0.5">✗</span>
+                      <span><strong>Kein Cloud-Zugriff:</strong> Personenbezogene Daten, Lohndokumente, interne Geschäftsunterlagen</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-sihl-red mt-0.5">✗</span>
+                      <span><strong>Nur lokale Modelle:</strong> Verarbeitung ausschließlich mit eigener Infrastruktur</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-sihl-red mt-0.5">✗</span>
+                      <span><strong>Pseudonymisierung:</strong> Namen und persönliche Angaben werden vor Verarbeitung entfernt</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-sihl-red mt-0.5">✗</span>
+                      <span><strong>Luftspalt-Prinzip:</strong> Diese Systeme haben keine Internetverbindung</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Why this matters */}
+            <div className="bg-brand-black rounded-2xl p-8">
+              <h3 className="font-display text-xl font-bold text-white mb-4">
+                Warum dieser Ansatz?
+              </h3>
+              <div className="space-y-3 font-mono text-sm text-gray-300">
+                <p>
+                  <strong className="text-white">Respekt vor historischen Quellen:</strong> Archive enthalten oft sensible Informationen über Menschen, Geschäftsgeheimnisse und kulturelles Erbe. Diese Daten verdienen besonderen Schutz.
+                </p>
+                <p>
+                  <strong className="text-white">Kontrolle für Datenbereitsteller:</strong> Unternehmen behalten die Kontrolle. Sie entscheiden, ob und wann Cloud-KI eingesetzt wird.
+                </p>
+                <p>
+                  <strong className="text-white">Technische Machbarkeit:</strong> Moderne Open-Source-LLMs sind leistungsfähig genug für die meisten Aufgaben. Cloud-KI ist die Ausnahme, nicht die Regel.
+                </p>
+                <p>
+                  <strong className="text-white">Vertrauen schaffen:</strong> Transparenz über KI-Nutzung schafft Vertrauen bei Datenbereitstellern und ermöglicht überhaupt erst den Zugang zu wertvollen Archiven.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section id="faq" className="py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">

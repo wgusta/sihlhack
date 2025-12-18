@@ -198,6 +198,7 @@ export function HeroSection() {
           {/* Trust Indicators */}
           <div className="flex flex-wrap items-center justify-center gap-6 pt-8 pb-16 text-gray-400 font-mono text-xs animate-fade-in">
             <span>🏛️ Schweizer Daten</span>
+            <span>💻 Local AI First</span>
             <span>🔐 Stripe Zahlungen</span>
             <span>📊 Finanzen öffentlich</span>
           </div>
