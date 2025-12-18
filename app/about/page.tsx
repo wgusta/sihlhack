@@ -390,6 +390,186 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Open Source and Public Access */}
+        <section id="open-source" className="py-16 bg-off-white">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+                Open Source & Öffentlicher Zugang
+              </span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Wissen gehört allen
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Alle Prozesse, Tools und strukturierten Daten werden öffentlich zugänglich gemacht.
+              </p>
+            </div>
+
+            {/* What will be open source */}
+            <div className="space-y-8 mb-12">
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-fund-green/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">📖</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-brand-black">
+                        Open Source Pipelines
+                      </CardTitle>
+                      <p className="text-sm font-mono text-historic-sepia mt-2">
+                        Alle entwickelten Werkzeuge und Verarbeitungsprozesse werden veröffentlicht.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>OCR-Pipelines:</strong> Code für Texterkennung aus historischen Dokumenten (Tesseract, PaddleOCR Konfigurationen)</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>Strukturierungsskripte:</strong> Tools zum Umwandeln von Rohdaten in maschinenlesbare Formate (JSON, CSV, SQL)</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>ML-Modelle:</strong> Trainierte Modelle für Dokumentenklassifizierung und Mustererkennung</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-fund-green mt-0.5">✓</span>
+                      <span><strong>Dokumentation:</strong> Schritt-für-Schritt Anleitungen für andere Archive und Projekte</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <p className="text-xs font-mono text-historic-sepia">
+                      Lizenz: <span className="text-brand-black font-semibold">MIT oder Apache 2.0</span> - Jeder kann den Code nutzen, anpassen und weitergeben.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-insight-cyan/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">🗄️</span>
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-brand-black">
+                        Strukturierte Datasets
+                      </CardTitle>
+                      <p className="text-sm font-mono text-historic-sepia mt-2">
+                        Die aufbereiteten historischen Daten werden öffentlich verfügbar gemacht.
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
+                    <div className="flex items-start gap-2">
+                      <span className="text-insight-cyan mt-0.5">✓</span>
+                      <span><strong>Maschinenlesbare Formate:</strong> CSV, JSON, Parquet für einfache Weiterverarbeitung</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-insight-cyan mt-0.5">✓</span>
+                      <span><strong>Metadaten:</strong> Vollständige Dokumentation zu Herkunft, Verarbeitungsschritten und Qualität</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-insight-cyan mt-0.5">✓</span>
+                      <span><strong>API-Zugang:</strong> Programmatischer Zugriff für Forschende und Entwickler</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-insight-cyan mt-0.5">✓</span>
+                      <span><strong>Versionierung:</strong> Nachvollziehbare Updates und Verbesserungen über Zeit</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Why Open Source */}
+            <div className="bg-brand-black rounded-2xl p-8 mb-8">
+              <h3 className="font-display text-xl font-bold text-white mb-4">
+                Warum Open Source?
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-sm text-gray-300">
+                <div>
+                  <h4 className="text-white font-semibold mb-2">🔬 Wissenschaftliche Integrität</h4>
+                  <p className="text-xs">
+                    Forschung muss reproduzierbar sein. Offener Code ermöglicht Überprüfung, Kritik und Verbesserung durch die Community.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-2">🌍 Maximaler Impact</h4>
+                  <p className="text-xs">
+                    Andere Archive können dieselben Tools nutzen. Zürich digitalisiert das Sihltal, Basel könnte mit demselben Code das Baselbiet erfassen.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-2">💡 Kollektive Verbesserung</h4>
+                  <p className="text-xs">
+                    Hunderte Entwickler könnten die Pipelines verbessern. Ein besserer OCR-Algorithmus hilft allen zukünftigen Projekten.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-2">🏛️ Kulturerbe als Gemeingut</h4>
+                  <p className="text-xs">
+                    Historische Daten gehören der Gesellschaft. Sie hinter verschlossenen APIs zu verstecken widerspricht dem Wesen von Kulturerbe.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Library Partnerships */}
+            <div className="bg-gradient-to-br from-historic-cream to-off-white rounded-2xl p-8 border-2 border-historic-sepia/20">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-sihl-red/10 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">🏛️</span>
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-brand-black">
+                    Partnerschaften mit öffentlichen Bibliotheken
+                  </h3>
+                  <p className="text-sm font-mono text-historic-sepia mt-2">
+                    Strukturierte Daten brauchen nachhaltige Infrastruktur.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4 font-mono text-sm text-brand-black">
+                <p>
+                  Wir streben Partnerschaften mit <strong>Schweizer Kantonsbibliotheken</strong> und dem <strong>Schweizerischen Bundesarchiv</strong> an, um die aufbereiteten Datasets langfristig zu hosten:
+                </p>
+                <div className="pl-4 space-y-3">
+                  <div className="flex items-start gap-2">
+                    <span className="text-sihl-red">•</span>
+                    <span><strong>Zentralbibliothek Zürich:</strong> Könnte die Sihltal-Datasets als Teil ihrer Regionalsammlung hosten</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-sihl-red">•</span>
+                    <span><strong>ETH-Bibliothek:</strong> Potentieller Partner für technische und wissenschaftliche Datensätze</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-sihl-red">•</span>
+                    <span><strong>Schweizerisches Bundesarchiv:</strong> Für Daten mit nationaler Relevanz</span>
+                  </div>
+                </div>
+                <p className="pt-4 border-t border-historic-sepia/20">
+                  <strong>Warum Bibliotheken?</strong> Sie garantieren dauerhafte Verfügbarkeit, professionelle Archivierung und neutralen Zugang. Ein Startup kann pleitegehen, eine öffentliche Bibliothek bleibt.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-historic-sepia/20">
+                <p className="font-mono text-xs text-historic-sepia">
+                  <strong className="text-brand-black">Status:</strong> Gespräche in Planung. Falls du Kontakte zu Bibliotheken oder Archiven hast, melde dich bei uns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section id="faq" className="py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
