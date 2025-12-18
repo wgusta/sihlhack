@@ -65,26 +65,18 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-12 pt-16 sm:pt-0">
+        <div className="space-y-12 pt-24 sm:pt-20">
           {/* Subtitle */}
           <div className="space-y-3 animate-fade-in">
-            <p className="font-mono text-sm sm:text-base text-industrial-gold tracking-widest uppercase">
-              Schweizer Hackathon · 100% Teilnehmerfinanziert
-            </p>
-            <p className="font-mono text-xs sm:text-sm text-gray-400">
+            <p className="font-mono text-sm sm:text-base text-gray-300">
               Der erste teilnehmerinnen-fokussierte Hackathon der Schweiz
             </p>
           </div>
 
           {/* Logo */}
-          <h1 className="mb-16">
+          <h1>
             <Logo size="hero" hackColor="white" animated />
           </h1>
-
-          {/* Animation Container - Space reserved for future animation */}
-          <div className="min-h-[120px] sm:min-h-[160px] flex items-center justify-center">
-            {/* Animation will be added here later */}
-          </div>
 
           {/* Main Headline - Historical Data + Modern AI */}
           <div className="max-w-4xl mx-auto animate-fade-in mt-12">
