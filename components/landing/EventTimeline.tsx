@@ -8,21 +8,21 @@ const timelineEvents = [
     status: 'current',
   },
   {
-    date: 'In 30 Tagen',
+    date: 'Wird bekannt gegeben',
     title: 'Anmeldeschluss',
     description: 'Letzte Chance zur Anmeldung. Danach startet die Abstimmung.',
     status: 'upcoming',
   },
   {
-    date: 'In 45 Tagen',
+    date: 'Wird bekannt gegeben',
     title: 'Rückerstattungs-Deadline',
     description: 'Falls Mindestzahl nicht erreicht: automatische Rückerstattung aller Gebühren.',
     status: 'upcoming',
   },
   {
-    date: 'In 60 Tagen',
+    date: 'Ende August/Anfang September 2025',
     title: 'Hackathon-Wochenende',
-    description: '48 Stunden intensives Arbeiten an euren Projekten mit historischen Daten.',
+    description: '48 Stunden intensives Arbeiten an euren Projekten mit historischen Daten. Ort wird noch bekannt gegeben.',
     status: 'upcoming',
   },
   {

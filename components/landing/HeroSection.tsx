@@ -7,8 +7,9 @@ import { cn, formatCHF } from '@/lib/utils'
 import { useFunds } from '@/hooks/useFunds'
 import { CountdownTimer } from './CountdownTimer'
 
-// Registration deadline - update this date
-const REGISTRATION_DEADLINE = new Date('2025-09-01T23:59:59')
+// Registration deadline - TBD (end of August/beginning of September 2025)
+// Using placeholder date for countdown display
+const REGISTRATION_DEADLINE = new Date('2025-08-31T23:59:59')
 
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
