@@ -47,30 +47,21 @@ export default function TeamPage() {
                       Güney Usta
                     </h2>
                     <p className="text-sm font-mono text-historic-sepia mt-1">
-                      Process Engineer · Technical Project Leader
+                      Builder, AI-Integrator and Tinkerer
                     </p>
 
                     <p className="mt-4 text-historic-sepia font-mono text-sm">
-                      Ich optimiere Geschäftsprozesse durch CRM Application Ownership und technische Beratung.
-                      Als Process Engineer überbrücke ich Business Anforderungen und technische Umsetzung.
+                      Ich baue gerne Dinge. Und ich mag altes Zeug.
+                    </p>
+
+                    <p className="mt-3 text-historic-sepia font-mono text-sm">
+                      Als ich ein Firmenarchiv besuchte, das kurz davor war, in einem Container zu landen, wusste ich: Dieses Wissen und diese Expertise muss gerettet werden. Daraus entstand die Idee für sihlhack.
                     </p>
 
                     <p className="mt-3 text-historic-sepia font-mono text-sm">
                       Aktuell vertiefe ich mein Wissen im <strong className="text-brand-black">MSc Applied Information & Data Science</strong> an der HSLU,
-                      mit Fokus auf KI Integration und ML basierte Datenanalyse.
+                      mit Fokus auf KI Integration und ML basierte Datenanalyse. Perfektes Timing, um historische Archive mit moderner Technologie zu retten.
                     </p>
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
-                        9+ Jahre Projekterfahrung
-                      </span>
-                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
-                        DE · EN · FR
-                      </span>
-                      <span className="px-3 py-1 bg-off-white rounded-full text-xs font-mono text-historic-sepia">
-                        IREB zertifiziert
-                      </span>
-                    </div>
 
                     <div className="mt-6 flex gap-4">
                       <a

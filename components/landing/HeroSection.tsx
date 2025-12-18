@@ -5,6 +5,10 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 import { cn, formatCHF } from '@/lib/utils'
 import { useFunds } from '@/hooks/useFunds'
+import { CountdownTimer } from './CountdownTimer'
+
+// Registration deadline - update this date
+const REGISTRATION_DEADLINE = new Date('2025-09-01T23:59:59')
 
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -60,25 +64,35 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-6 pt-16 sm:pt-0">
+        <div className="space-y-12 pt-16 sm:pt-0">
           {/* Subtitle */}
-          <p className="font-mono text-sm sm:text-base text-industrial-gold tracking-widest uppercase animate-fade-in">
-            Schweizer Hackathon · 100% Teilnehmerfinanziert
-          </p>
+          <div className="space-y-3 animate-fade-in">
+            <p className="font-mono text-sm sm:text-base text-industrial-gold tracking-widest uppercase">
+              Schweizer Hackathon · 100% Teilnehmerfinanziert
+            </p>
+            <p className="font-mono text-xs sm:text-sm text-gray-400">
+              Der erste teilnehmerinnen-fokussierte Hackathon der Schweiz
+            </p>
+          </div>
 
           {/* Logo */}
-          <h1>
+          <h1 className="mb-16">
             <Logo size="hero" hackColor="white" animated />
           </h1>
 
+          {/* Animation Container - Space reserved for future animation */}
+          <div className="min-h-[120px] sm:min-h-[160px] flex items-center justify-center">
+            {/* Animation will be added here later */}
+          </div>
+
           {/* Main Headline - Historical Data + Modern AI */}
-          <div className="max-w-4xl mx-auto animate-fade-in">
+          <div className="max-w-4xl mx-auto animate-fade-in mt-12">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               <span className="text-historic-cream">Historische Industriedaten</span>
               {' '}treffen auf{' '}
               <span className="text-insight-cyan">moderne KI</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-300 font-mono">
+            <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono">
               Trainiere ML-Modelle auf echten Archivdokumenten aus dem Sihltal.
               OCR, Computer Vision, NLP: löse Probleme, die noch niemand gelöst hat.
             </p>
@@ -87,8 +101,8 @@ export function HeroSection() {
           {/* ═══════════════════════════════════════════════════════════════
               LIVE POT TRACKER - The key conversion element
               ═══════════════════════════════════════════════════════════════ */}
-          <div className="max-w-2xl mx-auto mt-8 animate-fade-in">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+          <div className="max-w-2xl mx-auto mt-16 animate-fade-in">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
               {/* Pot Tracker Header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
@@ -126,7 +140,7 @@ export function HeroSection() {
               {/* Progress Bar toward Activation */}
               <div className="mb-4">
                 <div className="flex justify-between text-xs font-mono text-gray-400 mb-2">
-                  <span>{funds?.participantCount || 0} Teilnehmende</span>
+                  <span>{funds?.participantCount || 0} Teilnehmerinnen und Teilnehmer</span>
                   <span>Ziel: {funds?.breakEvenParticipants || 20} für Aktivierung</span>
                 </div>
                 <div className="h-3 bg-white/10 rounded-full overflow-hidden">
@@ -164,10 +178,17 @@ export function HeroSection() {
                 </p>
               </div>
             </div>
+
+            {/* Countdown Timer */}
+            <CountdownTimer
+              targetDate={REGISTRATION_DEADLINE}
+              label="Anmeldeschluss"
+              className="mt-8"
+            />
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 animate-fade-in">
             <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px]">
               Platz sichern · CHF 480
             </ButtonLink>
@@ -182,7 +203,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-gray-400 font-mono text-xs animate-fade-in">
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-8 pb-16 text-gray-400 font-mono text-xs animate-fade-in">
             <span>🏛️ Schweizer Daten</span>
             <span>🔐 Stripe Zahlungen</span>
             <span>📊 Finanzen öffentlich</span>

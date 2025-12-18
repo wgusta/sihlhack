@@ -14,13 +14,13 @@ const concepts = [
   {
     icon: '💡',
     title: 'Neue Erkenntnisse',
-    description: 'Teilnehmende entwickeln Projekte, die historische Muster aufdecken und neue Paradigmen für die Zukunft ableiten.',
+    description: 'Teilnehmerinnen und Teilnehmer entwickeln Projekte, die historische Muster aufdecken und neue Paradigmen für die Zukunft ableiten.',
   },
 ]
 
 const benefits = [
   {
-    title: 'Teilnehmer entscheiden',
+    title: 'Teilnehmerinnen und Teilnehmer entscheiden',
     description: 'Ihr stimmt ab, welche Projekte umgesetzt werden. Kein vorgegebenes Thema, keine Sponsoren-Agenda.',
   },
   {
@@ -29,7 +29,7 @@ const benefits = [
   },
   {
     title: 'Garantierte Rückerstattung',
-    description: 'Falls zu wenige Teilnehmende: automatische Rückerstattung aller Gebühren. Kein Risiko für euch.',
+    description: 'Falls zu wenige Teilnehmerinnen und Teilnehmer: automatische Rückerstattung aller Gebühren. Kein Risiko für euch.',
   },
 ]
 
@@ -44,7 +44,7 @@ export function ConceptExplainer() {
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
             Ein Hackathon, der Geschichte und Zukunft verbindet.
-            Organisiert von Teilnehmenden, für Teilnehmende.
+            Organisiert von Teilnehmerinnen und Teilnehmern, für Teilnehmerinnen und Teilnehmer.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export function ConceptExplainer() {
           <div className="text-center mb-12">
             <span className="accent-text text-sihl-red text-lg">Umgekehrtes Modell</span>
             <h3 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
-              Warum teilnehmerorientiert?
+              Warum teilnehmerinnen-fokussiert?
             </h3>
           </div>
 

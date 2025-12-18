@@ -7,11 +7,23 @@ export const participants = pgTable('participants', {
   email: text('email').notNull().unique(),
   name: text('name'), // Optional: collected after magic link verification
   company: text('company'),
+  // Role-based hackathon fields
+  primaryRole: text('primary_role'), // ml-engineer, data-engineer, frontend-dev, etc.
+  secondaryRole: text('secondary_role'),
+  skills: text('skills').array(), // Array of skill tags
+  lookingForTeam: boolean('looking_for_team').default(true),
+  bio: text('bio'), // Short self-description for team matching
+  linkedinUrl: text('linkedin_url'),
+  githubUrl: text('github_url'),
   // Magic link token is stored as SHA-256 hash for security
   magicLinkTokenHash: text('magic_link_token_hash'),
   magicLinkExpiresAt: timestamp('magic_link_expires_at'),
   stripeCustomerId: text('stripe_customer_id'),
   registrationStatus: text('registration_status').default('pending').notNull(),
+  // Email preferences
+  notifyOnTeamMatch: boolean('notify_on_team_match').default(true),
+  notifyOnProposals: boolean('notify_on_proposals').default(true),
+  notifyOnUpdates: boolean('notify_on_updates').default(true),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
@@ -126,6 +138,17 @@ export const eventConfig = pgTable('event_config', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
 
+// Email subscribers (for people not yet ready to register)
+export const emailSubscribers = pgTable('email_subscribers', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  email: text('email').notNull().unique(),
+  interests: text('interests').array(), // What they're interested in
+  source: text('source').default('website'), // Where they signed up
+  verified: boolean('verified').default(false),
+  unsubscribedAt: timestamp('unsubscribed_at'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+})
+
 // Type exports for use in application
 export type Participant = typeof participants.$inferSelect
 export type NewParticipant = typeof participants.$inferInsert
@@ -150,3 +173,6 @@ export type EventConfig = typeof eventConfig.$inferSelect
 
 export type BudgetPosition = typeof budgetPositions.$inferSelect
 export type NewBudgetPosition = typeof budgetPositions.$inferInsert
+
+export type EmailSubscriber = typeof emailSubscribers.$inferSelect
+export type NewEmailSubscriber = typeof emailSubscribers.$inferInsert

@@ -7,19 +7,36 @@ import { Input } from '@/components/ui/Input'
 import { StepIndicator } from './StepIndicator'
 import { TermsCheckbox } from './TermsCheckbox'
 import { formatCHF } from '@/lib/utils'
+import { HACKATHON_ROLES, SKILL_TAGS } from '@/lib/roles'
+import { cn } from '@/lib/utils'
 
 const REGISTRATION_FEE = 48000 // CHF 480 in centimes
 
 const steps = [
   { id: 1, name: 'Kontakt' },
-  { id: 2, name: 'Bestätigen' },
-  { id: 3, name: 'Bezahlen' },
+  { id: 2, name: 'Rolle' },
+  { id: 3, name: 'Bestätigen' },
+  { id: 4, name: 'Bezahlen' },
+]
+
+// Popular skills for quick selection
+const POPULAR_SKILLS = [
+  'Python', 'JavaScript', 'Machine Learning', 'Data Analysis',
+  'React', 'SQL', 'Computer Vision', 'NLP', 'Project Management',
+  'UX Research', 'German', 'Swiss History'
 ]
 
 interface FormData {
   email: string
   name: string
   company: string
+  primaryRole: string
+  secondaryRole: string
+  skills: string[]
+  lookingForTeam: boolean
+  bio: string
+  linkedinUrl: string
+  githubUrl: string
   acceptedTerms: boolean
 }
 
@@ -33,6 +50,13 @@ export function RegistrationForm() {
     email: '',
     name: '',
     company: '',
+    primaryRole: '',
+    secondaryRole: '',
+    skills: [],
+    lookingForTeam: true,
+    bio: '',
+    linkedinUrl: '',
+    githubUrl: '',
     acceptedTerms: false,
   })
 
@@ -58,6 +82,17 @@ export function RegistrationForm() {
   const validateStep2 = (): boolean => {
     const newErrors: Partial<Record<keyof FormData, string>> = {}
 
+    if (!formData.primaryRole) {
+      newErrors.primaryRole = 'Wähle deine Hauptrolle'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const validateStep3 = (): boolean => {
+    const newErrors: Partial<Record<keyof FormData, string>> = {}
+
     if (!formData.acceptedTerms) {
       newErrors.acceptedTerms = 'Du musst die Bedingungen akzeptieren'
     }
@@ -70,8 +105,19 @@ export function RegistrationForm() {
     if (currentStep === 1 && validateStep1()) {
       setCurrentStep(2)
     } else if (currentStep === 2 && validateStep2()) {
+      setCurrentStep(3)
+    } else if (currentStep === 3 && validateStep3()) {
       handleCheckout()
     }
+  }
+
+  const toggleSkill = (skill: string) => {
+    setFormData(prev => ({
+      ...prev,
+      skills: prev.skills.includes(skill)
+        ? prev.skills.filter(s => s !== skill)
+        : [...prev.skills, skill].slice(0, 10) // Max 10 skills
+    }))
   }
 
   const handleBack = () => {
@@ -92,6 +138,13 @@ export function RegistrationForm() {
           email: formData.email,
           name: formData.name,
           company: formData.company || undefined,
+          primaryRole: formData.primaryRole,
+          secondaryRole: formData.secondaryRole || undefined,
+          skills: formData.skills,
+          lookingForTeam: formData.lookingForTeam,
+          bio: formData.bio || undefined,
+          linkedinUrl: formData.linkedinUrl || undefined,
+          githubUrl: formData.githubUrl || undefined,
         }),
       })
 
@@ -171,6 +224,164 @@ export function RegistrationForm() {
 
       {currentStep === 2 && (
         <div className="space-y-6">
+          {/* Primary Role Selection */}
+          <div>
+            <label className="block text-sm font-mono font-medium text-brand-black mb-3">
+              Deine Hauptrolle *
+            </label>
+            {errors.primaryRole && (
+              <p className="text-sm text-sihl-red mb-2">{errors.primaryRole}</p>
+            )}
+            <div className="grid grid-cols-2 gap-2">
+              {HACKATHON_ROLES.map((role) => (
+                <button
+                  key={role.id}
+                  type="button"
+                  onClick={() => setFormData({ ...formData, primaryRole: role.id })}
+                  className={cn(
+                    "p-3 rounded-lg border-2 text-left transition-all",
+                    formData.primaryRole === role.id
+                      ? "border-sihl-red bg-sihl-red/5"
+                      : "border-gray-200 hover:border-gray-300"
+                  )}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">{role.icon}</span>
+                    <span className="font-mono text-sm font-medium text-brand-black">
+                      {role.nameDE}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Secondary Role (Optional) */}
+          <div>
+            <label className="block text-sm font-mono font-medium text-brand-black mb-2">
+              Sekundäre Rolle <span className="text-historic-sepia">(optional)</span>
+            </label>
+            <select
+              value={formData.secondaryRole}
+              onChange={(e) => setFormData({ ...formData, secondaryRole: e.target.value })}
+              className="w-full p-3 border border-gray-200 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-sihl-red/50"
+            >
+              <option value="">Keine sekundäre Rolle</option>
+              {HACKATHON_ROLES.filter(r => r.id !== formData.primaryRole).map((role) => (
+                <option key={role.id} value={role.id}>
+                  {role.icon} {role.nameDE}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Skills Selection */}
+          <div>
+            <label className="block text-sm font-mono font-medium text-brand-black mb-2">
+              Deine Skills <span className="text-historic-sepia">(max. 10)</span>
+            </label>
+            <div className="flex flex-wrap gap-2 mb-3">
+              {POPULAR_SKILLS.map((skill) => (
+                <button
+                  key={skill}
+                  type="button"
+                  onClick={() => toggleSkill(skill)}
+                  className={cn(
+                    "px-3 py-1 rounded-full text-xs font-mono transition-all",
+                    formData.skills.includes(skill)
+                      ? "bg-sihl-red text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  )}
+                >
+                  {skill}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs font-mono text-historic-sepia">
+              {formData.skills.length}/10 ausgewählt
+            </p>
+          </div>
+
+          {/* Team Status */}
+          <div className="bg-historic-cream rounded-lg p-4">
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={formData.lookingForTeam}
+                onChange={(e) => setFormData({ ...formData, lookingForTeam: e.target.checked })}
+                className="mt-1 w-4 h-4 accent-sihl-red"
+              />
+              <div>
+                <span className="font-mono text-sm font-medium text-brand-black">
+                  Ich suche ein Team
+                </span>
+                <p className="text-xs font-mono text-historic-sepia mt-1">
+                  Wir helfen dir, passende Teammitglieder mit komplementären Rollen zu finden.
+                </p>
+              </div>
+            </label>
+          </div>
+
+          {/* Bio (Optional) */}
+          <div>
+            <label htmlFor="bio" className="block text-sm font-mono font-medium text-brand-black mb-1">
+              Kurze Vorstellung <span className="text-historic-sepia">(optional)</span>
+            </label>
+            <textarea
+              id="bio"
+              value={formData.bio}
+              onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
+              placeholder="Erzähle anderen Teilnehmenden kurz von dir..."
+              rows={3}
+              maxLength={280}
+              className="w-full p-3 border border-gray-200 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-sihl-red/50 resize-none"
+            />
+            <p className="text-xs font-mono text-historic-sepia mt-1">
+              {formData.bio.length}/280 Zeichen
+            </p>
+          </div>
+
+          {/* Social Links (Optional) */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="linkedin" className="block text-sm font-mono font-medium text-brand-black mb-1">
+                LinkedIn <span className="text-historic-sepia">(optional)</span>
+              </label>
+              <Input
+                id="linkedin"
+                type="url"
+                value={formData.linkedinUrl}
+                onChange={(e) => setFormData({ ...formData, linkedinUrl: e.target.value })}
+                placeholder="linkedin.com/in/..."
+              />
+            </div>
+            <div>
+              <label htmlFor="github" className="block text-sm font-mono font-medium text-brand-black mb-1">
+                GitHub <span className="text-historic-sepia">(optional)</span>
+              </label>
+              <Input
+                id="github"
+                type="url"
+                value={formData.githubUrl}
+                onChange={(e) => setFormData({ ...formData, githubUrl: e.target.value })}
+                placeholder="github.com/..."
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-4">
+            <Button type="button" variant="ghost" className="flex-1" onClick={handleBack}>
+              Zurück
+            </Button>
+            <Button type="button" variant="primary" className="flex-1" onClick={handleNext}>
+              Weiter
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {currentStep === 3 && (
+        <div className="space-y-6">
           <div className="bg-historic-cream rounded-lg p-6 space-y-4">
             <h3 className="font-display text-lg font-semibold text-brand-black">
               Zusammenfassung
@@ -191,6 +402,40 @@ export function RegistrationForm() {
                   <span className="text-brand-black">{formData.company}</span>
                 </div>
               )}
+              <div className="flex justify-between items-center">
+                <span className="text-historic-sepia">Hauptrolle</span>
+                <span className="text-brand-black flex items-center gap-1">
+                  {HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.icon}
+                  {HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.nameDE}
+                </span>
+              </div>
+              {formData.secondaryRole && (
+                <div className="flex justify-between items-center">
+                  <span className="text-historic-sepia">Sekundär</span>
+                  <span className="text-brand-black flex items-center gap-1">
+                    {HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.icon}
+                    {HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.nameDE}
+                  </span>
+                </div>
+              )}
+              {formData.skills.length > 0 && (
+                <div className="pt-2">
+                  <span className="text-historic-sepia block mb-2">Skills</span>
+                  <div className="flex flex-wrap gap-1">
+                    {formData.skills.map(skill => (
+                      <span key={skill} className="px-2 py-0.5 bg-gray-100 rounded text-xs">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div className="flex justify-between pt-2">
+                <span className="text-historic-sepia">Team-Status</span>
+                <span className="text-brand-black">
+                  {formData.lookingForTeam ? '🔍 Sucht Team' : '✓ Hat Team'}
+                </span>
+              </div>
             </div>
 
             <div className="border-t border-historic-sepia/20 pt-4">

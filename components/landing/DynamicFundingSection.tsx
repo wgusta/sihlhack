@@ -90,7 +90,7 @@ export function DynamicFundingSection() {
             </div>
             <ul className="space-y-4">
               {[
-                { icon: '👥', text: 'Teilnehmer zahlen, Teilnehmer entscheiden' },
+                { icon: '👥', text: 'Teilnehmerinnen und Teilnehmer zahlen und entscheiden' },
                 { icon: '💡', text: 'Community wählt die Projekte' },
                 { icon: '📊', text: '100% transparente Finanzen' },
                 { icon: '💰', text: '100% Überschuss → Preisgeld' },
@@ -120,7 +120,7 @@ export function DynamicFundingSection() {
             {/* Slider */}
             <div className="p-6 border-b border-gray-100">
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-sm text-historic-sepia">Teilnehmende</span>
+                <span className="font-mono text-sm text-historic-sepia">Teilnehmerinnen und Teilnehmer</span>
                 <span className="font-mono text-2xl font-bold text-brand-black">{participants}</span>
               </div>
               <input

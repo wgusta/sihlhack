@@ -2,10 +2,11 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION } from '@/lib/roles'
 
 export const metadata = {
-  title: 'Über sihlhack | Das Konzept',
-  description: 'Erfahre mehr über sihlhack, den ersten teilnehmerorientierten Hackathon der Schweiz.',
+  title: 'Das Konzept | sihlhack',
+  description: 'Erfahre mehr über sihlhack, den ersten teilnehmerorientierten, rollenbasierten Hackathon der Schweiz.',
 }
 
 export default function AboutPage() {
@@ -17,13 +18,102 @@ export default function AboutPage() {
         {/* Hero */}
         <section className="bg-brand-black text-white py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-display text-4xl sm:text-5xl font-bold">
+            <span className="font-mono text-sm text-insight-cyan uppercase tracking-widest">
+              Rollenbasierter Hackathon
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl font-bold mt-4">
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              sihlhack ist der erste teilnehmerorientierte Hackathon der Schweiz.
-              Historische Industriedaten aus dem Sihltal digitalisieren, analysieren und neue Erkenntnisse gewinnen.
+              sihlhack ist der erste teilnehmerorientierte, rollenbasierte Hackathon der Schweiz.
+              Jede Rolle zählt. Jedes Teammitglied trägt zum Erfolg bei.
             </p>
+          </div>
+        </section>
+
+        {/* Role-Based Hackathon Section */}
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+                Nicht nur für Coder
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
+                Jede Rolle zählt
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Erfolgreiche Teams bestehen aus verschiedenen Expertisen.
+                Historiker arbeiten mit ML-Engineers, Designer mit Data Scientists.
+              </p>
+            </div>
+
+            {/* Roles Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+              {HACKATHON_ROLES.map((role) => (
+                <div
+                  key={role.id}
+                  className="p-4 rounded-xl border border-gray-200 hover:border-sihl-red/50 hover:shadow-lg transition-all group"
+                >
+                  <div className="text-3xl mb-3">{role.icon}</div>
+                  <h3 className="font-display font-semibold text-brand-black group-hover:text-sihl-red transition-colors">
+                    {role.nameDE}
+                  </h3>
+                  <p className="text-sm font-mono text-historic-sepia mt-2">
+                    {role.descriptionDE}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {role.skills.slice(0, 3).map((skill) => (
+                      <span
+                        key={skill}
+                        className="text-[10px] font-mono px-2 py-0.5 bg-gray-100 text-gray-600 rounded"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Ideal Team Composition */}
+            <div className="bg-brand-black rounded-2xl p-6 sm:p-8">
+              <h3 className="font-display text-xl font-bold text-white text-center mb-6">
+                Ideale Teamzusammensetzung (4–6 Personen)
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {IDEAL_TEAM_COMPOSITION.map((item) => {
+                  const role = HACKATHON_ROLES.find(r => r.id === item.role)
+                  if (!role) return null
+                  return (
+                    <div
+                      key={item.role}
+                      className={`p-3 rounded-lg text-center ${
+                        item.priority === 'essential'
+                          ? 'bg-fund-green/20 border border-fund-green/30'
+                          : item.priority === 'recommended'
+                          ? 'bg-industrial-gold/20 border border-industrial-gold/30'
+                          : 'bg-white/10 border border-white/20'
+                      }`}
+                    >
+                      <div className="text-2xl mb-1">{role.icon}</div>
+                      <div className="font-mono text-xs text-white">{role.nameDE}</div>
+                      <div className="font-mono text-xs text-gray-400 mt-1">{item.count}×</div>
+                      <div className={`text-[10px] font-mono mt-1 ${
+                        item.priority === 'essential' ? 'text-fund-green' :
+                        item.priority === 'recommended' ? 'text-industrial-gold' :
+                        'text-gray-500'
+                      }`}>
+                        {item.priority === 'essential' ? 'Essentiell' :
+                         item.priority === 'recommended' ? 'Empfohlen' : 'Optional'}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              <p className="text-center text-gray-400 font-mono text-xs mt-6">
+                Kein vollständiges Team? Wir helfen dir, passende Teammitglieder zu finden.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -31,7 +121,7 @@ export default function AboutPage() {
         <section className="py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="accent-text text-sihl-red text-lg">Umgekehrtes Modell</span>
+              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">Umgekehrtes Modell</span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
                 Warum anders?
               </h2>
@@ -60,7 +150,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-sihl-red">✗</span>
-                      <span>Teilnehmende führen vorgegebene Aufgaben aus</span>
+                      <span>Nur Programmierer willkommen</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -88,7 +178,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-fund-green">✓</span>
-                      <span>Teilnehmende schlagen vor und stimmen ab</span>
+                      <span>Alle Rollen gleichwertig und essentiell</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -108,23 +198,23 @@ export default function AboutPage() {
               {[
                 {
                   step: '1',
-                  title: 'Anmelden und bezahlen',
-                  description: 'Sichere dir deinen Platz mit der Teilnahmegebühr von CHF 480. Der gesamte Überschuss fliesst ins Preisgeld.',
+                  title: 'Anmelden mit deiner Rolle',
+                  description: 'Wähle deine Hauptrolle und Skills bei der Anmeldung. So finden wir passende Teammitglieder für dich.',
                 },
                 {
                   step: '2',
-                  title: 'Projekte vorschlagen',
-                  description: 'Reiche deine Projektidee ein. Welche historischen Daten möchtest du analysieren? Welche Erkenntnisse erwartest du?',
+                  title: 'Team finden oder bilden',
+                  description: 'Bringe dein Team mit oder nutze unser Matching-System. Wir helfen, diverse Teams mit allen nötigen Rollen zusammenzustellen.',
                 },
                 {
                   step: '3',
-                  title: 'Abstimmen',
-                  description: 'Alle Teilnehmenden stimmen für ihre Lieblingsprojekte. Die beliebtesten werden am Event umgesetzt.',
+                  title: 'Projekte vorschlagen und abstimmen',
+                  description: 'Reiche Projektideen ein und stimme für deine Favoriten. Die beliebtesten Projekte werden am Event bearbeitet.',
                 },
                 {
                   step: '4',
                   title: 'Hacken und gewinnen',
-                  description: 'Am Event arbeitest du in Teams an den gewählten Projekten. Die besten Lösungen teilen sich das Preisgeld.',
+                  description: 'Am Event arbeitet ihr als Team an eurem Projekt. Die besten Lösungen teilen sich den gesamten Preisgeld-Pool.',
                 },
               ].map((item, index) => (
                 <div key={index} className="flex gap-6">
@@ -155,24 +245,28 @@ export default function AboutPage() {
             <div className="space-y-6">
               {[
                 {
+                  q: 'Brauche ich Programmierkenntnisse?',
+                  a: 'Nein. sihlhack ist rollenbasiert. Wir brauchen Historiker, Designer, Projektmanager genauso wie Entwickler. Wähle bei der Anmeldung deine Rolle und finde ein Team, das deine Stärken braucht.',
+                },
+                {
+                  q: 'Was ist, wenn ich kein Team habe?',
+                  a: 'Kein Problem. Bei der Anmeldung gibst du an, dass du ein Team suchst. Wir zeigen dir andere Teilnehmende mit komplementären Rollen und Skills. Vor dem Event helfen wir aktiv beim Team-Matching.',
+                },
+                {
                   q: 'Was passiert, wenn nicht genug Teilnehmende zusammenkommen?',
                   a: 'Falls die Mindestteilnehmerzahl bis zur Deadline nicht erreicht wird, erhältst du automatisch eine vollständige Rückerstattung deiner Gebühr. Kein Risiko für dich.',
                 },
                 {
                   q: 'Wer bestimmt, welche Projekte umgesetzt werden?',
-                  a: 'Du und alle anderen Teilnehmenden! Jeder kann Projekte vorschlagen und für Favoriten stimmen. Die Projekte mit den meisten Stimmen werden am Event bearbeitet.',
+                  a: 'Du und alle anderen Teilnehmenden. Jeder kann Projekte vorschlagen und für Favoriten stimmen. Die Projekte mit den meisten Stimmen werden am Event bearbeitet.',
                 },
                 {
                   q: 'Woher kommen die historischen Daten?',
-                  a: 'Unternehmen aus dem Sihltal stellen historische Dokumente, Fotografien, Geschäftsbücher und Baupläne zur Verfügung. Diese werden nicht bezahlt und haben keinen Einfluss auf Projekte.',
+                  a: 'Unternehmen aus dem Sihltal stellen historische Dokumente, Fotografien, Geschäftsbücher und Baupläne zur Verfügung. Sie werden nicht bezahlt und haben keinen Einfluss auf Projekte.',
                 },
                 {
                   q: 'Wie werden die Gewinner bestimmt?',
-                  a: 'Eine Jury bewertet die Projektresultate nach Kriterien wie Innovation, technische Umsetzung und Erkenntnisgewinn. Die Bewertungskriterien werden vor dem Event veröffentlicht.',
-                },
-                {
-                  q: 'Brauche ich Programmierkenntnisse?',
-                  a: 'Nicht zwingend. Teams brauchen verschiedene Fähigkeiten: Datenanalyse, Design, Geschichtswissen, Projektmanagement. Finde ein Team, das deine Stärken ergänzt.',
+                  a: 'Eine Jury bewertet die Projektresultate nach Kriterien wie Innovation, technische Umsetzung und Erkenntnisgewinn. Die Kriterien werden vor dem Event veröffentlicht.',
                 },
               ].map((item, index) => (
                 <Card key={index}>
@@ -194,10 +288,10 @@ export default function AboutPage() {
         <section className="py-16 bg-sihl-red">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-3xl font-bold text-white">
-              Bereit mitzumachen?
+              Welche Rolle spielst du?
             </h2>
             <p className="mt-4 text-white/80 font-mono max-w-xl mx-auto">
-              Werde Teil der Community und gestalte den ersten teilnehmerorientierten Hackathon der Schweiz mit.
+              Wähle deine Rolle und werde Teil des ersten teilnehmerorientierten Hackathons der Schweiz.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">

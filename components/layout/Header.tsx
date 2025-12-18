@@ -43,7 +43,7 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <ButtonLink href="/register" variant="primary" size="sm">
-              Anmelden
+              Platz sichern
             </ButtonLink>
           </div>
 
@@ -91,7 +91,7 @@ export function Header() {
             ))}
             <div className="pt-2 px-3">
               <ButtonLink href="/register" variant="primary" size="md" className="w-full justify-center">
-                Anmelden
+                Platz sichern
               </ButtonLink>
             </div>
           </div>
