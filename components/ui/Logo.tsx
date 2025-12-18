@@ -135,23 +135,9 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
             <span className="invisible">{'sihl'.slice(sihlText.length)}</span>
           )}
         </span>
-        {/* Blinking cursor after sihl during waiting phase */}
-        {animated && showCursor && phase === 'waiting' && (
-          <span
-            className={cn(
-              'font-mono font-bold transition-opacity duration-100',
-              hackColor === 'white' ? 'text-white' : 'text-brand-black',
-              sizes.hack,
-              cursorBlink ? 'opacity-100' : 'opacity-0'
-            )}
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            _
-          </span>
-        )}
       </span>
-      {/* hack on second row - only show during hack/done phases */}
-      {(!animated || phase === 'hack' || phase === 'done') && (
+      {/* hack on second row - show during waiting/hack/done phases */}
+      {(!animated || phase === 'waiting' || phase === 'hack' || phase === 'done') && (
         <span className="flex items-baseline">
           {/* Invisible spacer matching "si" width in Playfair Display */}
           <span
@@ -170,11 +156,16 @@ export function Logo({ size = 'md', hackColor = 'black', className, animated = f
             style={{ fontFamily: 'var(--font-mono)' }}
           >
             {hackText}
-            {animated && (
+            {/* Cursor appears on second line during waiting and after */}
+            {animated && (phase === 'waiting' || phase === 'hack' || phase === 'done') && (
               <span
                 className={cn(
                   'transition-opacity duration-100',
-                  phase === 'done' && !cursorBlink ? 'opacity-0' : 'opacity-100'
+                  phase === 'waiting' && cursorBlink ? 'opacity-100' :
+                  phase === 'waiting' && !cursorBlink ? 'opacity-0' :
+                  phase === 'hack' ? 'opacity-100' :
+                  phase === 'done' && cursorBlink ? 'opacity-100' :
+                  'opacity-0'
                 )}
               >
                 _

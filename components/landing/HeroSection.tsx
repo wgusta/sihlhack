@@ -73,13 +73,15 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Logo */}
-          <h1>
-            <Logo size="hero" hackColor="white" animated />
-          </h1>
+          {/* Logo with reserved space for animation */}
+          <div className="min-h-[140px] sm:min-h-[180px] md:min-h-[220px] lg:min-h-[260px] flex items-center justify-center">
+            <h1>
+              <Logo size="hero" hackColor="white" animated />
+            </h1>
+          </div>
 
           {/* Main Headline - Historical Data + Modern AI */}
-          <div className="max-w-4xl mx-auto animate-fade-in mt-12">
+          <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               <span className="text-historic-cream">Historische Industriedaten</span>
               {' '}treffen auf{' '}
