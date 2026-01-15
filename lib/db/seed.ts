@@ -28,8 +28,8 @@ async function seed() {
     eventDate,
     registrationDeadline,
     refundDeadline,
-    minParticipants: 30,
-    maxParticipants: 100,
+    minParticipants: 50,
+    maxParticipants: 180,
     registrationFeeChf: 12000, // CHF 120
     prizeFirst: 50, // 50% to 1st place
     prizeSecond: 30, // 30% to 2nd place
@@ -107,7 +107,8 @@ async function seed() {
   console.log('')
   console.log('Budget total: CHF 3\'800')
   console.log('Ticket price: CHF 120')
-  console.log('Break-even: ~32 participants')
+  console.log('Max participants: 180')
+  console.log('Potential revenue: CHF 21\'600')
 }
 
 seed().catch(console.error)
