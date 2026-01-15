@@ -8,8 +8,7 @@ import { Logo } from '@/components/ui/Logo'
 
 const navigation = [
   { name: 'Konzept', href: '/about' },
-  { name: 'Projekte', href: '/proposals' },
-  { name: 'Daten', href: '/data-catalog' },
+  { name: 'Challenges', href: '/challenges' },
   { name: 'Team', href: '/team' },
 ]
 

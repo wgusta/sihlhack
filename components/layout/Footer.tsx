@@ -4,8 +4,7 @@ import { Logo } from '@/components/ui/Logo'
 const footerLinks = {
   main: [
     { name: 'Konzept', href: '/about' },
-    { name: 'Projekte', href: '/proposals' },
-    { name: 'Daten', href: '/data-catalog' },
+    { name: 'Challenges', href: '/challenges' },
     { name: 'Team', href: '/team' },
   ],
   legal: [
@@ -33,7 +32,7 @@ export function Footer() {
               <Logo size="md" hackColor="white" />
             </Link>
             <p className="mt-4 text-sm font-mono text-gray-400">
-              Der erste teilnehmerorientierte Hackathon der Schweiz. Historische Industriedaten aus dem Sihltal digitalisieren.
+              Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
             </p>
             <p className="mt-4 text-xs font-mono text-gray-500">
               Ein Projekt von{' '}
