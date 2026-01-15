@@ -5,24 +5,28 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
-    q: 'Brauche ich Programmierkenntnisse?',
-    a: 'Nein. sihlhack ist rollenbasiert. Wir brauchen Historiker, Designer, Projektmanager genauso wie Entwickler. Wähle bei der Anmeldung deine Rolle und finde ein Team, das deine Stärken braucht.',
+    q: 'Brauche ich Hardware-Erfahrung?',
+    a: 'Nein. Wir brauchen alle Skills: Software-Entwickler für Grid-OS und APIs, Designer für die Benutzeroberfläche, Ingenieure für thermische Berechnungen, und Projektmanager für die Dokumentation. Wähle bei der Anmeldung deine Rolle.',
   },
   {
-    q: 'Was ist, wenn ich kein Team habe?',
-    a: 'Kein Problem. Bei der Anmeldung gibst du an, dass du ein Team suchst. Wir zeigen dir andere Teilnehmende mit komplementären Rollen und Skills. Vor dem Event helfen wir aktiv beim Team-Matching.',
+    q: 'Was ist eine LEG (Lokale Elektrizitätsgemeinschaft)?',
+    a: 'Eine LEG ist ein Zusammenschluss von Nachbarn, die gemeinsam Solarstrom produzieren und nutzen. Seit 2023 in der Schweiz gesetzlich möglich. Unsere Hardware wird in einer echten LEG installiert.',
   },
   {
-    q: 'Was passiert bei zu wenigen Anmeldungen?',
-    a: 'Falls die Mindestteilnehmerzahl bis zur Deadline nicht erreicht wird, erhältst du automatisch eine vollständige Rückerstattung deiner Gebühr. Kein Risiko für dich.',
+    q: 'Was passiert mit dem Code nach dem Hackathon?',
+    a: 'Alles wird unter einer Open Source Lizenz (Apache 2.0 oder MIT) veröffentlicht. Du behältst alle Rechte an deinen Beiträgen. Das Ziel ist, dass andere LEGs die Lösung nachbauen können.',
   },
   {
-    q: 'Woher kommen die historischen Daten?',
-    a: 'Unternehmen aus dem Sihltal stellen historische Dokumente, Fotografien, Geschäftsbücher und Baupläne zur Verfügung. Sie werden nicht bezahlt und haben keinen Einfluss auf Projekte.',
+    q: 'Wie funktioniert "Immersion Cooling"?',
+    a: 'Server werden in spezielles Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Das Ergebnis: Lautlose Server, keine Staubprobleme, und 60°C warmes Wasser für die Heizung.',
   },
   {
-    q: 'Wie wird das Preisgeld verteilt?',
-    a: 'Der gesamte Überschuss nach Betriebskosten fliesst ins Preisgeld: 50% für den 1. Platz, 30% für den 2. Platz, 20% für den 3. Platz. Eine Jury bewertet nach vorab kommunizierten Kriterien.',
+    q: 'Wer finanziert das?',
+    a: 'Der Hackathon selbst ist kostenlos. Die Hardware für den Prototyp wird von Sihlicon Labs gesponsert. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen und eingesparte Heizkosten.',
+  },
+  {
+    q: 'Kann ich remote teilnehmen?',
+    a: 'Der Hardware-Teil findet vor Ort statt (man muss Server anfassen können). Software-Teams können hybrid arbeiten. Wir empfehlen aber, zumindest für das finale Testing vor Ort zu sein.',
   },
 ]
 
@@ -34,7 +38,7 @@ export function FAQSection() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+          <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
             Fragen?
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
@@ -97,7 +101,7 @@ export function FAQSection() {
         <div className="mt-8 text-center">
           <p className="font-mono text-sm text-historic-sepia">
             Weitere Fragen? Schreib uns an{' '}
-            <a href="mailto:hello@sihlhack.ch" className="text-sihl-red hover:underline">
+            <a href="mailto:hello@sihlhack.ch" className="text-thermal-orange hover:underline">
               hello@sihlhack.ch
             </a>
           </p>

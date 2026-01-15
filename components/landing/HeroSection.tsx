@@ -3,18 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
-import { cn, formatCHF } from '@/lib/utils'
-import { useFunds } from '@/hooks/useFunds'
-import { CountdownTimer } from './CountdownTimer'
+import { cn } from '@/lib/utils'
 
-// Registration deadline - TBD (end of August/beginning of September 2025)
-// Using placeholder date for countdown display
-const REGISTRATION_DEADLINE = new Date('2025-08-31T23:59:59')
+// Event date - Sihlhack Build Weekend
+const EVENT_DATE = new Date('2025-09-20T09:00:00')
 
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
-  const { funds, isLoading } = useFunds()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,43 +29,37 @@ export function HeroSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Calculate progress percentage
-  const progressPercent = funds
-    ? Math.min(100, (funds.participantCount / funds.breakEvenParticipants) * 100)
-    : 0
-  const isActivated = funds ? funds.participantCount >= funds.breakEvenParticipants : false
-
   return (
     <section
       ref={heroRef}
       className="relative min-h-[100vh] flex items-center justify-center overflow-hidden bg-brand-black"
     >
-      {/* Background image with historic reveal effect */}
-      <div className={cn('historic-reveal absolute inset-0', isRevealed && 'revealed')}>
+      {/* Thermal gradient background effect */}
+      <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 thermal-gradient opacity-20"
+          style={{ filter: 'blur(100px)' }}
+        />
+        {/* Grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `url('/images/hero-factory.jpg')`,
-            filter: isRevealed
-              ? 'grayscale(0%) sepia(0%) contrast(1)'
-              : 'grayscale(100%) sepia(20%) contrast(1.1)',
-            transition: 'filter 2s cubic-bezier(0.4, 0, 0.2, 1)',
+            backgroundImage: `
+              linear-gradient(rgba(255,107,53,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,107,53,0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
           }}
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/70 to-brand-black/40" />
       </div>
-
-      {/* Scanline effect */}
-      <div className="scanlines absolute inset-0 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-12 pt-24 sm:pt-20">
-          {/* Subtitle */}
+          {/* Tagline */}
           <div className="space-y-3 animate-fade-in">
-            <p className="font-mono text-sm sm:text-base text-gray-300">
-              Der erste teilnehmerinnen-fokussierte Hackathon der Schweiz
+            <p className="font-mono text-sm sm:text-base text-thermal-orange uppercase tracking-widest">
+              Open Source Hardware Hackathon
             </p>
           </div>
 
@@ -80,120 +70,104 @@ export function HeroSection() {
             </h1>
           </div>
 
-          {/* Main Headline - Historical Data + Modern AI */}
+          {/* Main Headline - Build the Engine */}
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-              <span className="text-historic-cream">Historische Industriedaten</span>
-              {' '}treffen auf{' '}
-              <span className="text-insight-cyan">moderne KI</span>
+              <span className="text-thermal-orange">Baue die Infrastruktur</span>
+              {' '}für Schweizer{' '}
+              <span className="text-compute-blue">Energieunabhängigkeit</span>
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono">
-              Trainiere ML-Modelle auf echten Archivdokumenten aus dem Sihltal.
-              OCR, Computer Vision, NLP: löse Probleme, die noch niemand gelöst hat.
+            <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
+              Designe den "Perfect Node": Server, die heizen. Batterien, die stabilisieren.
+              Software, die das Netz balanciert. Open Source. Made in Switzerland.
             </p>
           </div>
 
           {/* ═══════════════════════════════════════════════════════════════
-              LIVE POT TRACKER - The key conversion element
+              THE CHALLENGE - What we're building
               ═══════════════════════════════════════════════════════════════ */}
-          <div className="max-w-2xl mx-auto mt-16 animate-fade-in">
+          <div className="max-w-4xl mx-auto mt-16 animate-fade-in">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              {/* Pot Tracker Header */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <div className={cn(
-                    "w-3 h-3 rounded-full",
-                    isActivated ? "bg-fund-green animate-pulse" : "bg-refund-amber animate-pulse"
-                  )} />
-                  <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
-                    Live Preisgeld-Tracker
-                  </span>
-                </div>
-                {!isLoading && funds && (
-                  <span className="font-mono text-xs text-gray-500">
-                    Aktualisiert in Echtzeit
-                  </span>
-                )}
+              {/* Challenge Header */}
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-3 h-3 rounded-full bg-thermal-orange animate-pulse" />
+                <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
+                  Die Challenge
+                </span>
               </div>
 
-              {/* Current Prize Pool - Big Number */}
-              <div className="text-center mb-6">
-                {isLoading ? (
-                  <div className="h-16 bg-white/10 rounded animate-pulse" />
-                ) : (
-                  <>
-                    <div className="font-mono text-5xl sm:text-6xl font-bold text-fund-green tabular-nums">
-                      {formatCHF(funds?.prizePoolChf || 0)}
-                    </div>
-                    <p className="text-sm font-mono text-gray-400 mt-2">
-                      Aktueller Preisgeld-Pool
-                    </p>
-                  </>
-                )}
-              </div>
-
-              {/* Progress Bar toward Activation */}
-              <div className="mb-4">
-                <div className="flex justify-between text-xs font-mono text-gray-400 mb-2">
-                  <span>{funds?.participantCount || 0} Teilnehmerinnen und Teilnehmer</span>
-                  <span>Ziel: {funds?.breakEvenParticipants || 20} für Aktivierung</span>
+              {/* Three Pillars */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {/* Hardware */}
+                <div className="text-center p-4 rounded-xl bg-white/5">
+                  <div className="text-4xl mb-3">🔧</div>
+                  <h3 className="font-mono text-thermal-orange font-semibold mb-2">Hardware</h3>
+                  <p className="text-sm text-gray-400 font-mono">
+                    Immersion Cooling. Thermische Integration. Das "Sihlicon Core" Modul.
+                  </p>
                 </div>
-                <div className="h-3 bg-white/10 rounded-full overflow-hidden">
-                  <div
-                    className={cn(
-                      "h-full rounded-full transition-all duration-1000 ease-out",
-                      isActivated
-                        ? "bg-gradient-to-r from-fund-green to-insight-cyan"
-                        : "bg-gradient-to-r from-refund-amber to-industrial-gold"
-                    )}
-                    style={{ width: `${progressPercent}%` }}
-                  />
+
+                {/* Software */}
+                <div className="text-center p-4 rounded-xl bg-white/5">
+                  <div className="text-4xl mb-3">💻</div>
+                  <h3 className="font-mono text-compute-blue font-semibold mb-2">Software</h3>
+                  <p className="text-sm text-gray-400 font-mono">
+                    Grid-OS. Solar-Watcher. Compute-Scheduler. Dezentraler Marktplatz.
+                  </p>
+                </div>
+
+                {/* Integration */}
+                <div className="text-center p-4 rounded-xl bg-white/5">
+                  <div className="text-4xl mb-3">⚡</div>
+                  <h3 className="font-mono text-grid-green font-semibold mb-2">Integration</h3>
+                  <p className="text-sm text-gray-400 font-mono">
+                    LEG-Anbindung. Swissgrid API. Virtual Power Plant Protokolle.
+                  </p>
                 </div>
               </div>
 
-              {/* Status Message */}
-              <div className={cn(
-                "text-center py-2 px-4 rounded-lg font-mono text-sm",
-                isActivated
-                  ? "bg-fund-green/20 text-fund-green"
-                  : "bg-refund-amber/20 text-refund-amber"
-              )}>
-                {isActivated ? (
-                  <>✓ Event aktiviert! Jede weitere Anmeldung erhöht den Pool.</>
-                ) : (
-                  <>🔒 Noch {(funds?.breakEvenParticipants || 20) - (funds?.participantCount || 0)} Anmeldungen bis zur Aktivierung</>
-                )}
-              </div>
-
-              {/* Risk-Free Guarantee */}
-              <div className="mt-4 pt-4 border-t border-white/10">
-                <p className="text-center font-mono text-xs text-gray-400">
-                  <span className="text-fund-green">✓ 100% Risikofrei:</span>{' '}
-                  Volle Rückerstattung, falls das Aktivierungsziel nicht erreicht wird.
+              {/* The Prize */}
+              <div className="border-t border-white/10 pt-6">
+                <p className="text-center font-mono text-sm text-gray-300">
+                  <span className="text-fund-green font-semibold">Das Ziel:</span>{' '}
+                  Ein funktionierender Prototyp, der in einer echten Schweizer LEG deployed wird.
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* Countdown Timer */}
-            <CountdownTimer
-              targetDate={REGISTRATION_DEADLINE}
-              label="Anmeldeschluss"
-              className="mt-8"
-            />
+          {/* Key Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto animate-fade-in">
+            <div className="text-center">
+              <div className="font-mono text-3xl font-bold text-thermal-orange">48h</div>
+              <div className="font-mono text-xs text-gray-400">Build-Weekend</div>
+            </div>
+            <div className="text-center">
+              <div className="font-mono text-3xl font-bold text-compute-blue">100%</div>
+              <div className="font-mono text-xs text-gray-400">Open Source</div>
+            </div>
+            <div className="text-center">
+              <div className="font-mono text-3xl font-bold text-grid-green">CHF 0</div>
+              <div className="font-mono text-xs text-gray-400">Teilnahme</div>
+            </div>
+            <div className="text-center">
+              <div className="font-mono text-3xl font-bold text-solar-yellow">1</div>
+              <div className="font-mono text-xs text-gray-400">Echter Deploy</div>
+            </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 pb-16 animate-fade-in">
-            <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px]">
-              Platz sichern · CHF 480
+            <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px] bg-thermal-orange hover:bg-thermal-orange/90">
+              Mitmachen
             </ButtonLink>
             <ButtonLink
-              href="#how-it-works"
+              href="#why-it-matters"
               variant="ghost"
               size="lg"
               className="text-white border-white/30 hover:bg-white/10"
             >
-              So funktioniert&apos;s
+              Warum das wichtig ist
             </ButtonLink>
           </div>
         </div>

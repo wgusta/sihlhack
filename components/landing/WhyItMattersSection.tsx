@@ -2,93 +2,93 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export function WhyItMattersSection() {
   return (
-    <section className="py-24 bg-off-white">
+    <section id="why-it-matters" className="py-24 bg-off-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+          <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
             Warum das wichtig ist
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
-            Ja und? Was bringt das?
+            Das Problem mit der Cloud
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
-            Gute Frage. Hier sind zwei verdammt gute Gründe.
+            Die Schweiz exportiert Strom und importiert Compute. Das muss sich ändern.
           </p>
         </div>
 
-        {/* Two Reasons Grid */}
+        {/* Two Problems Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Reason 1: Save Knowledge */}
+          {/* Problem 1: Wasted Energy */}
           <div className="bg-white rounded-2xl p-8 shadow-historic">
             <div className="text-5xl mb-6">🔥</div>
             <h3 className="font-display text-2xl font-bold text-brand-black mb-4">
-              Wissen retten, bevor es verloren geht
+              Solarstrom wird verschenkt
             </h3>
             <div className="space-y-4 font-mono text-sm text-historic-sepia">
               <p>
-                <strong className="text-brand-black">Archive sind gefährdet.</strong> Keller überfluten. Firmen fusionieren. Dokumente verschwinden.
+                <strong className="text-brand-black">Schweizer Solardächer produzieren zu viel Strom zur Mittagszeit.</strong> Statt ihn sinnvoll zu nutzen, wird er für 4-8 Rappen ins Netz gedrückt.
               </p>
               <p>
-                In diesen Archiven stecken <span className="text-sihl-red">100 Jahre Schweizer Ingenieurskunst</span>:
-                Wie man mit weniger Ressourcen mehr produziert. Wie man Teams ohne digitale Tools organisiert.
-                Wie man Probleme löst, die heute niemand mehr kennt.
+                Gleichzeitig zahlen wir <span className="text-sihl-red">Milliarden an US-Cloud-Anbieter</span>, die unsere Daten in fremden Ländern speichern und verarbeiten.
               </p>
               <p>
-                <strong className="text-brand-black">Dieses Wissen verschwindet nicht, weil es unwichtig ist.</strong> Es verschwindet,
-                weil niemand die Zeit hat, es zu digitalisieren.
+                <strong className="text-brand-black">Die Energie ist da. Die Nachfrage ist da.</strong> Es fehlt nur die Infrastruktur, die beides verbindet.
               </p>
-              <p className="text-sihl-red">
-                Bis jetzt.
+              <p className="text-thermal-orange font-semibold">
+                Das bauen wir.
               </p>
             </div>
           </div>
 
-          {/* Reason 2: Structured Data for AI */}
+          {/* Problem 2: Wasted Heat */}
           <div className="bg-brand-black rounded-2xl p-8 shadow-historic">
-            <div className="text-5xl mb-6">🤖</div>
+            <div className="text-5xl mb-6">❄️</div>
             <h3 className="font-display text-2xl font-bold text-white mb-4">
-              KI braucht strukturierte Daten
+              Server heizen die Luft statt Häuser
             </h3>
             <div className="space-y-4 font-mono text-sm text-gray-300">
               <p>
-                <strong className="text-insight-cyan">Unstrukturierte Dokumente sind nutzlos für ML-Modelle.</strong> Ein Foto eines Lohnbuchs kann kein Algorithmus lesen. Ein verblasstes Geschäftsbrief trainiert kein LLM.
+                <strong className="text-compute-blue">Jedes Rechenzentrum ist eine Heizung.</strong> 100% der Elektrizität wird zu Wärme. Diese Wärme wird mit Klimaanlagen nach draussen gepumpt.
               </p>
               <p>
-                Erst wenn aus <span className="text-historic-cream">Papier strukturierte Daten</span> werden,
-                kann KI Muster erkennen: Wie haben sich Löhne entwickelt? Welche Berufe verschwanden?
-                Welche Geschäftsmodelle funktionierten?
+                In der Schweiz heizen wir mit Gas und Öl, während nebenan Server kühlen,
+                die <span className="text-thermal-orange">60°C warmes Wasser</span> produzieren könnten.
               </p>
               <p>
-                <strong className="text-insight-cyan">Das ist keine Spielerei.</strong> Das sind echte historische Daten,
-                die neue Antworten auf alte Fragen liefern können.
+                <strong className="text-compute-blue">Das ist physikalischer Wahnsinn.</strong> Server gehören dorthin, wo ihre Wärme gebraucht wird: In Wohngebäude, Gewächshäuser, Schwimmbäder.
               </p>
-              <p className="text-fund-green">
-                Und du kannst damit arbeiten.
+              <p className="text-grid-green font-semibold">
+                Das designen wir.
               </p>
             </div>
           </div>
         </div>
 
-        {/* The Combination */}
+        {/* The Solution */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-sihl-red to-industrial-gold rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-r from-thermal-orange to-compute-blue rounded-2xl p-8 text-center">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
-              Wir kombinieren beides
+              Der "Digital Hearth": Compute + Heat + Grid
             </h3>
             <p className="font-mono text-sm sm:text-base text-white/90 mb-6 max-w-2xl mx-auto">
-              sihlhack digitalisiert gefährdete Archive <strong>und</strong> verwandelt sie in strukturierte Datasets.
-              Historische Relevanz trifft auf technische Verwertbarkeit.
+              Ein modulares System, das Solarüberschuss in Rechenleistung verwandelt,
+              die Abwärme nutzt und das Stromnetz stabilisiert. Open Source. Lokal produziert.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <div className="flex items-center gap-2 text-white font-mono text-sm">
-                <span className="text-2xl">📚</span>
-                <span>Kulturerbe bewahren</span>
+                <span className="text-2xl">☀️</span>
+                <span>Solar zu Compute</span>
               </div>
-              <span className="text-white/50 hidden sm:inline">+</span>
+              <span className="text-white/50 hidden sm:inline">→</span>
               <div className="flex items-center gap-2 text-white font-mono text-sm">
-                <span className="text-2xl">🧠</span>
-                <span>Mit AI verwertbar machen</span>
+                <span className="text-2xl">🔥</span>
+                <span>Compute zu Wärme</span>
+              </div>
+              <span className="text-white/50 hidden sm:inline">→</span>
+              <div className="flex items-center gap-2 text-white font-mono text-sm">
+                <span className="text-2xl">🏠</span>
+                <span>Wärme für Gebäude</span>
               </div>
             </div>
           </div>
@@ -97,10 +97,10 @@ export function WhyItMattersSection() {
         {/* CTA */}
         <div className="mt-12 text-center">
           <p className="font-mono text-sm text-historic-sepia mb-6">
-            Klingt gut? Dann sei dabei.
+            Klingt verrückt? Andere machen es schon: Stockholm Data Parks, Nerdalize, QArnot.
           </p>
-          <ButtonLink href="/register" variant="primary" size="lg">
-            Platz sichern · CHF 480
+          <ButtonLink href="/register" variant="primary" size="lg" className="bg-thermal-orange hover:bg-thermal-orange/90">
+            Am Hackathon teilnehmen
           </ButtonLink>
         </div>
       </div>

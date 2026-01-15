@@ -4,8 +4,20 @@ import { EmailCapture } from './EmailCapture'
 export function CTASection() {
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background with paper texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sihl-red to-industrial-gold paper-texture" />
+      {/* Background with thermal gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-thermal-orange via-sihl-red to-compute-blue" />
+
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      />
 
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -14,31 +26,37 @@ export function CTASection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           {/* Accent */}
-          <span className="accent-text text-brand-black text-lg">
-            Bereit für das Abenteuer?
+          <span className="accent-text text-white/90 text-lg">
+            Bereit, etwas zu bauen?
           </span>
 
           {/* Title */}
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-brand-black">
-            Geschichte trifft Innovation
+          <h2 className="mt-4 font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+            Die Schweizer Energiezukunft braucht dich
           </h2>
 
           {/* Description */}
-          <p className="mt-6 text-lg text-brand-black font-mono">
-            Werde Teil des ersten teilnehmerinnen-fokussierten Hackathons der Schweiz.
-            Volle Rückerstattung, falls das Aktivierungsziel nicht erreicht wird.
+          <p className="mt-6 text-lg text-white/90 font-mono">
+            48 Stunden. Open Source. Ein echter Prototyp.
+            Kein Preisgeld, kein Bullshit: Wir bauen Hardware, die in einer echten LEG läuft.
           </p>
 
-          {/* Pricing highlight */}
-          <div className="mt-8 inline-flex flex-col sm:flex-row items-center gap-4 bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-full px-6 py-4 sm:py-3">
-            <div className="text-center sm:text-left">
-              <span className="block text-3xl font-display font-bold text-brand-black">CHF 480</span>
-              <span className="text-xs text-historic-sepia font-mono">Teilnahmegebühr</span>
+          {/* What you'll build */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="text-3xl mb-2">🔧</div>
+              <div className="font-mono text-sm text-white">Sihlicon Core Modul</div>
+              <div className="font-mono text-xs text-white/70">Immersion-gekühlte Server</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-historic-sepia/30" />
-            <div className="text-center sm:text-left">
-              <span className="block text-sm font-mono text-brand-black">100% Überschuss</span>
-              <span className="text-xs text-historic-sepia font-mono">→ Preisgeld</span>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="text-3xl mb-2">💻</div>
+              <div className="font-mono text-sm text-white">Grid-OS Software</div>
+              <div className="font-mono text-xs text-white/70">Solar-Watcher + Scheduler</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="text-3xl mb-2">📊</div>
+              <div className="font-mono text-sm text-white">Monitoring Dashboard</div>
+              <div className="font-mono text-xs text-white/70">Echtzeit Energie + Compute</div>
             </div>
           </div>
 
@@ -48,39 +66,39 @@ export function CTASection() {
               href="/register"
               variant="secondary"
               size="lg"
-              className="bg-brand-black text-white hover:bg-brand-black/90 border-0 w-full sm:w-auto"
+              className="bg-white text-brand-black hover:bg-white/90 border-0 w-full sm:w-auto"
             >
               Jetzt anmelden
             </ButtonLink>
             <ButtonLink
-              href="/about"
+              href="https://github.com/sihlicon"
               variant="ghost"
               size="lg"
-              className="text-brand-black border-brand-black/30 hover:bg-white/20 w-full sm:w-auto"
+              className="text-white border-white/30 hover:bg-white/20 w-full sm:w-auto"
             >
-              Mehr erfahren
+              GitHub Repository
             </ButtonLink>
           </div>
 
           {/* Trust badges */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-brand-black/70 font-mono text-xs sm:text-sm">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/80 font-mono text-xs sm:text-sm">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              <span className="text-brand-black">Sichere Zahlung via Stripe</span>
+              <span>100% Open Source</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-brand-black">Transparente Finanzen</span>
+              <span>Kostenlose Teilnahme</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-brand-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              <span className="text-brand-black">Garantierte Rückerstattung</span>
+              <span>Echter Production Deploy</span>
             </div>
           </div>
         </div>
