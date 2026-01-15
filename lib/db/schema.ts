@@ -127,7 +127,7 @@ export const eventConfig = pgTable('event_config', {
   refundDeadline: timestamp('refund_deadline').notNull(),
   minParticipants: integer('min_participants').default(30).notNull(),
   maxParticipants: integer('max_participants').default(100).notNull(),
-  registrationFeeChf: integer('registration_fee_chf').default(48000).notNull(), // 480 CHF in centimes
+  registrationFeeChf: integer('registration_fee_chf').default(12000).notNull(), // 120 CHF in centimes
   // Prize distribution: remaining budget after costs goes to winners
   prizeFirst: integer('prize_first').default(50).notNull(), // 50% to 1st place
   prizeSecond: integer('prize_second').default(30).notNull(), // 30% to 2nd place

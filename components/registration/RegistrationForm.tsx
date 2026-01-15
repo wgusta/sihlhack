@@ -10,7 +10,7 @@ import { formatCHF } from '@/lib/utils'
 import { HACKATHON_ROLES, SKILL_TAGS } from '@/lib/roles'
 import { cn } from '@/lib/utils'
 
-const REGISTRATION_FEE = 48000 // CHF 480 in centimes
+const REGISTRATION_FEE = 12000 // CHF 120 in centimes
 
 const steps = [
   { id: 1, name: 'Kontakt' },
@@ -21,9 +21,9 @@ const steps = [
 
 // Popular skills for quick selection
 const POPULAR_SKILLS = [
-  'Python', 'JavaScript', 'Machine Learning', 'Data Analysis',
-  'React', 'SQL', 'Computer Vision', 'NLP', 'Project Management',
-  'UX Research', 'German', 'Swiss History'
+  'Python', 'Rust', 'TypeScript', 'React',
+  'Thermodynamik', 'CAD/3D-Druck', 'Elektronik', 'Löten',
+  'Docker', 'Linux', 'Solar-API', 'Energierecht'
 ]
 
 interface FormData {

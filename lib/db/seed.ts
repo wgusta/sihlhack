@@ -30,7 +30,7 @@ async function seed() {
     refundDeadline,
     minParticipants: 30,
     maxParticipants: 100,
-    registrationFeeChf: 48000, // CHF 480
+    registrationFeeChf: 12000, // CHF 120
     prizeFirst: 50, // 50% to 1st place
     prizeSecond: 30, // 30% to 2nd place
     prizeThird: 20, // 20% to 3rd place
@@ -54,44 +54,44 @@ async function seed() {
 
   console.log('Event config created/updated')
 
-  // Initialize budget positions
+  // Initialize budget positions for lean community hackathon
   const budgetItems = [
     {
       name: 'Location',
       category: 'venue',
-      amountChf: 500000, // CHF 5'000
+      amountChf: 100000, // CHF 1'000 (community space/university)
       isFixed: true,
-      description: 'Veranstaltungsort für 2 Tage',
+      description: 'Community Space / Uni für 2 Tage',
       sortOrder: 1,
     },
     {
       name: 'Catering',
       category: 'catering',
-      amountChf: 400000, // CHF 4'000
+      amountChf: 150000, // CHF 1'500
       isFixed: true,
-      description: 'Verpflegung für alle Teilnehmenden',
+      description: 'Einfache Verpflegung für alle',
       sortOrder: 2,
     },
     {
-      name: 'Technik & Equipment',
+      name: 'Hardware & Material',
       category: 'equipment',
-      amountChf: 300000, // CHF 3'000
+      amountChf: 80000, // CHF 800 (additional components, most sponsored)
       isFixed: true,
-      description: 'Beamer, Bildschirme, Strom, Internet',
+      description: 'Zusätzliche Komponenten, Kabel, Verbrauchsmaterial',
       sortOrder: 3,
     },
     {
-      name: 'Marketing & Kommunikation',
+      name: 'Marketing & Druck',
       category: 'marketing',
-      amountChf: 200000, // CHF 2'000
+      amountChf: 20000, // CHF 200
       isFixed: true,
-      description: 'Website, Werbung, Material',
+      description: 'Flyer, Badges, Dokumentation',
       sortOrder: 4,
     },
     {
-      name: 'Diverses & Reserve',
+      name: 'Reserve',
       category: 'other',
-      amountChf: 100000, // CHF 1'000
+      amountChf: 30000, // CHF 300
       isFixed: true,
       description: 'Unvorhergesehenes',
       sortOrder: 5,
@@ -105,8 +105,8 @@ async function seed() {
   console.log('Budget positions initialized')
   console.log('Seed complete!')
   console.log('')
-  console.log('Budget total: CHF 15\'000')
-  console.log('Ticket price: CHF 480')
+  console.log('Budget total: CHF 3\'800')
+  console.log('Ticket price: CHF 120')
   console.log('Break-even: ~32 participants')
 }
 

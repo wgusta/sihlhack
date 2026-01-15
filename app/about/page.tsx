@@ -2,11 +2,11 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION } from '@/lib/roles'
+import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION, HACKATHON_CHALLENGES } from '@/lib/roles'
 
 export const metadata = {
   title: 'Das Konzept | sihlhack',
-  description: 'Erfahre mehr über sihlhack, den ersten teilnehmerorientierten, rollenbasierten Hackathon der Schweiz.',
+  description: 'Erfahre mehr über sihlhack: Der Hackathon für dezentrale Energieinfrastruktur in der Schweiz.',
 }
 
 export default function AboutPage() {
@@ -18,16 +18,156 @@ export default function AboutPage() {
         {/* Hero */}
         <section className="bg-brand-black text-white py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <span className="font-mono text-sm text-insight-cyan uppercase tracking-widest">
-              Rollenbasierter Hackathon
+            <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+              Digital Hearth Infrastructure
             </span>
             <h1 className="font-display text-4xl sm:text-5xl font-bold mt-4">
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              sihlhack ist der erste teilnehmerorientierte, rollenbasierte Hackathon der Schweiz.
-              Jede Rolle zählt. Jedes Teammitglied trägt zum Erfolg bei.
+              sihlhack entwickelt Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
+              Server die heizen. Solar das rechnet. LEGs die profitieren.
             </p>
+          </div>
+        </section>
+
+        {/* The Vision */}
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Die Vision
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
+                Digital Hearth
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                100% der Elektrizität in einem Server wird zu Wärme. Warum diese Wärme verschwenden?
+              </p>
+            </div>
+
+            {/* Problem → Solution */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <Card className="border-red-500/30 bg-red-900/5">
+                <CardHeader>
+                  <CardTitle className="text-lg text-red-500 flex items-center gap-2">
+                    <span>🔥</span> Das Problem
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm font-mono text-historic-sepia">
+                    <li>• Datacenter verschwenden Abwärme</li>
+                    <li>• Häuser verbrennen fossile Energie</li>
+                    <li>• Solarstrom wird zu Spitzenzeiten verschenkt</li>
+                    <li>• Compute-Power ist zentral und teuer</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <div className="flex items-center justify-center">
+                <div className="text-4xl text-thermal-orange">→</div>
+              </div>
+
+              <Card className="border-grid-green/30 bg-grid-green/5">
+                <CardHeader>
+                  <CardTitle className="text-lg text-grid-green flex items-center gap-2">
+                    <span>🏠</span> Die Lösung
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm font-mono text-historic-sepia">
+                    <li>• Server heizen Gebäude (99% Effizienz)</li>
+                    <li>• Solarüberschuss powert Compute</li>
+                    <li>• LEGs profitieren von Wärme + Compute</li>
+                    <li>• Dezentrale, resiliente Infrastruktur</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Physics */}
+            <div className="bg-gradient-to-r from-thermal-orange/20 to-compute-blue/20 rounded-2xl p-8 border border-white/10">
+              <h3 className="font-display text-xl font-bold text-brand-black text-center mb-6">
+                Die Physik dahinter
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                  <div className="font-mono text-3xl font-bold text-solar-yellow">100%</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">der Elektrizität wird zu Wärme</div>
+                </div>
+                <div>
+                  <div className="font-mono text-3xl font-bold text-thermal-orange">60°C</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">Wassertemperatur aus Immersion</div>
+                </div>
+                <div>
+                  <div className="font-mono text-3xl font-bold text-compute-blue">99%</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">Wärmerückgewinnung möglich</div>
+                </div>
+                <div>
+                  <div className="font-mono text-3xl font-bold text-grid-green">0 dB</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">Keine Lüfter, kein Lärm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Hackathon Challenges */}
+        <section className="py-16 bg-brand-black">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Was wir bauen
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
+                Die Challenges
+              </h2>
+              <p className="mt-4 text-gray-400 font-mono max-w-2xl mx-auto">
+                Fünf parallele Tracks, ein gemeinsames Ziel: Der komplette Sihlicon Stack.
+              </p>
+            </div>
+
+            {/* Challenges Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {HACKATHON_CHALLENGES.map((challenge) => (
+                <div
+                  key={challenge.id}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-all"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-3xl">{challenge.icon}</span>
+                    <div>
+                      <h3 className="font-mono text-lg font-semibold text-white">
+                        {challenge.nameDE}
+                      </h3>
+                      <span className="font-mono text-xs text-thermal-orange">
+                        {challenge.track}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm font-mono text-gray-400 mb-4">
+                    {challenge.descriptionDE}
+                  </p>
+                  <div className="space-y-1">
+                    {challenge.deliverables.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs font-mono text-gray-500">
+                        <span className="w-1 h-1 rounded-full bg-grid-green" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <span className={`text-xs font-mono px-2 py-1 rounded ${
+                      challenge.difficulty === 'advanced'
+                        ? 'bg-thermal-orange/20 text-thermal-orange'
+                        : 'bg-compute-blue/20 text-compute-blue'
+                    }`}>
+                      {challenge.difficulty === 'advanced' ? 'Fortgeschritten' : 'Mittel'}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -35,15 +175,15 @@ export default function AboutPage() {
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
                 Nicht nur für Coder
               </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
                 Jede Rolle zählt
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Erfolgreiche Teams bestehen aus verschiedenen Expertisen.
-                Historiker arbeiten mit ML-Engineers, Designer mit Data Scientists.
+                Erfolgreiche Teams brauchen verschiedene Expertisen.
+                Hardware-Hacker arbeiten mit Grid-Devs, Rechtsexperten mit Designern.
               </p>
             </div>
 
@@ -52,10 +192,10 @@ export default function AboutPage() {
               {HACKATHON_ROLES.map((role) => (
                 <div
                   key={role.id}
-                  className="p-4 rounded-xl border border-gray-200 hover:border-sihl-red/50 hover:shadow-lg transition-all group"
+                  className="p-4 rounded-xl border border-gray-200 hover:border-thermal-orange/50 hover:shadow-lg transition-all group"
                 >
                   <div className="text-3xl mb-3">{role.icon}</div>
-                  <h3 className="font-display font-semibold text-brand-black group-hover:text-sihl-red transition-colors">
+                  <h3 className="font-display font-semibold text-brand-black group-hover:text-thermal-orange transition-colors">
                     {role.nameDE}
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia mt-2">
@@ -89,9 +229,9 @@ export default function AboutPage() {
                       key={item.role}
                       className={`p-3 rounded-lg text-center ${
                         item.priority === 'essential'
-                          ? 'bg-fund-green/20 border border-fund-green/30'
+                          ? 'bg-grid-green/20 border border-grid-green/30'
                           : item.priority === 'recommended'
-                          ? 'bg-industrial-gold/20 border border-industrial-gold/30'
+                          ? 'bg-thermal-orange/20 border border-thermal-orange/30'
                           : 'bg-white/10 border border-white/20'
                       }`}
                     >
@@ -99,8 +239,8 @@ export default function AboutPage() {
                       <div className="font-mono text-xs text-white">{role.nameDE}</div>
                       <div className="font-mono text-xs text-gray-400 mt-1">{item.count}×</div>
                       <div className={`text-[10px] font-mono mt-1 ${
-                        item.priority === 'essential' ? 'text-fund-green' :
-                        item.priority === 'recommended' ? 'text-industrial-gold' :
+                        item.priority === 'essential' ? 'text-grid-green' :
+                        item.priority === 'recommended' ? 'text-thermal-orange' :
                         'text-gray-500'
                       }`}>
                         {item.priority === 'essential' ? 'Essentiell' :
@@ -117,461 +257,173 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Inverted model */}
-        <section className="py-16">
+        {/* LEG Legal Framework */}
+        <section className="py-16 bg-off-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">Umgekehrtes Modell</span>
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Rechtlicher Rahmen
+              </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Warum anders?
+                LEG-Gründung als Challenge
               </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Das Schweizer StromVG Art. 18 ermöglicht Lokale Elektrizitätsgemeinschaften.
+                Wir entwickeln die Templates für die Gründung.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg text-historic-sepia">
-                    Traditionelle Hackathons
+                  <CardTitle className="text-lg text-brand-black flex items-center gap-2">
+                    <span>⚖️</span> Was eine LEG ist
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-sm font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
-                      <span className="text-sihl-red">✗</span>
-                      <span>Unternehmen bezahlen und bestimmen die Themen</span>
+                      <span className="text-grid-green">✓</span>
+                      <span>Zusammenschluss zum Eigenverbrauch (ZEV) auf Steroiden</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-sihl-red">✗</span>
-                      <span>Projekte dienen primär den Sponsoren</span>
+                      <span className="text-grid-green">✓</span>
+                      <span>Kann das öffentliche Netz nutzen (StromVG Art. 18)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-sihl-red">✗</span>
-                      <span>Intransparente Budgets und Preisgelder</span>
+                      <span className="text-grid-green">✓</span>
+                      <span>Typisch als Genossenschaft organisiert</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-sihl-red">✗</span>
-                      <span>Nur Programmierer willkommen</span>
+                      <span className="text-grid-green">✓</span>
+                      <span>Perfekt für Quartiere und Mehrfamilienhäuser</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
-              <Card variant="historic" className="border-2 border-sihl-red">
+              <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg text-sihl-red">
-                    sihlhack
+                  <CardTitle className="text-lg text-brand-black flex items-center gap-2">
+                    <span>📋</span> Was wir entwickeln
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-sm font-mono text-brand-black">
+                  <ul className="space-y-3 text-sm font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
-                      <span className="text-fund-green">✓</span>
-                      <span>Teilnehmende finanzieren und entscheiden</span>
+                      <span className="text-thermal-orange">→</span>
+                      <span>Musterstatuten für AG und ZH</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-fund-green">✓</span>
-                      <span>Projekte entstehen aus der Community</span>
+                      <span className="text-thermal-orange">→</span>
+                      <span>Teilnehmerverträge (Producer/Consumer)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-fund-green">✓</span>
-                      <span>100% transparente Finanzen in Echtzeit</span>
+                      <span className="text-thermal-orange">→</span>
+                      <span>Behörden-Checklisten und Formulare</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-fund-green">✓</span>
-                      <span>Alle Rollen gleichwertig und essentiell</span>
+                      <span className="text-thermal-orange">→</span>
+                      <span>FAQ für zukünftige LEG-Gründer</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </section>
 
-        {/* How it works */}
-        <section className="py-16 bg-white">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-3xl font-bold text-brand-black text-center mb-12">
-              So funktioniert es
-            </h2>
-
-            <div className="space-y-8">
-              {[
-                {
-                  step: '1',
-                  title: 'Anmelden mit deiner Rolle',
-                  description: 'Wähle deine Hauptrolle und Skills bei der Anmeldung. So finden wir passende Teammitglieder für dich.',
-                },
-                {
-                  step: '2',
-                  title: 'Team finden oder bilden',
-                  description: 'Bringe dein Team mit oder nutze unser Matching-System. Wir helfen, diverse Teams mit allen nötigen Rollen zusammenzustellen.',
-                },
-                {
-                  step: '3',
-                  title: 'Projekte vorschlagen und abstimmen',
-                  description: 'Reiche Projektideen ein und stimme für deine Favoriten. Die beliebtesten Projekte werden am Event bearbeitet.',
-                },
-                {
-                  step: '4',
-                  title: 'Hacken und gewinnen',
-                  description: 'Am Event arbeitet ihr als Team an eurem Projekt. Die besten Lösungen teilen sich den gesamten Preisgeld-Pool.',
-                },
-              ].map((item, index) => (
-                <div key={index} className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-sihl-red rounded-full flex items-center justify-center">
-                    <span className="font-display text-xl font-bold text-white">{item.step}</span>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-brand-black">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-historic-sepia font-mono">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Data Privacy and AI Processing */}
-        <section id="datenschutz" className="py-16 bg-white">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
-                Datenschutz & KI-Verarbeitung
-              </span>
-              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Local-First AI Ansatz
-              </h2>
-              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Historische Dokumente sind sensibel. Wir verarbeiten sie mit Respekt und klaren Regeln.
-              </p>
-            </div>
-
-            {/* Three-tier approach */}
-            <div className="space-y-8 mb-12">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-fund-green/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">💻</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-brand-black">
-                        Stufe 1: Lokale Verarbeitung (Standard)
-                      </CardTitle>
-                      <p className="text-sm font-mono text-historic-sepia mt-2">
-                        Alle Daten werden primär mit lokalen KI-Modellen verarbeitet.
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>Offline-fähige LLMs:</strong> Llama, Mistral und andere Open-Source-Modelle laufen direkt auf unserer Infrastruktur</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>Keine externen Server:</strong> Daten verlassen die Hackathon-Infrastruktur nicht</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>OCR & Computer Vision:</strong> Tesseract, PaddleOCR und lokale CV-Modelle für Dokumentenextraktion</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>Datenbanken lokal:</strong> Alle strukturierten Daten bleiben im Event-Netzwerk</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-refund-amber/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">☁️</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-brand-black">
-                        Stufe 2: Cloud-KI (Nur mit Zustimmung)
-                      </CardTitle>
-                      <p className="text-sm font-mono text-historic-sepia mt-2">
-                        Falls lokale Modelle nicht ausreichen, nutzen wir Cloud-KI.
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
-                    <div className="flex items-start gap-2">
-                      <span className="text-refund-amber mt-0.5">!</span>
-                      <span><strong>Voraussetzung:</strong> Schriftliche Einwilligung der Datenbereitsteller erforderlich</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-refund-amber mt-0.5">!</span>
-                      <span><strong>Transparenz:</strong> Welche Daten, welches Modell (Anthropic Claude, OpenAI GPT, Google Gemini), wann und warum</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-refund-amber mt-0.5">!</span>
-                      <span><strong>Dokumentation:</strong> Jede Cloud-Verarbeitung wird protokolliert und ist nachvollziehbar</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-refund-amber mt-0.5">!</span>
-                      <span><strong>Keine Speicherung:</strong> Provider dürfen Daten nicht für Training verwenden (Zero Data Retention)</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card variant="historic" className="border-2 border-sihl-red">
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-sihl-red/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">🔒</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-sihl-red">
-                        Stufe 3: Geschützte Daten (Keine Cloud-Verarbeitung)
-                      </CardTitle>
-                      <p className="text-sm font-mono text-brand-black mt-2">
-                        Besonders sensible Dokumente bleiben vollständig offline.
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 text-sm font-mono text-brand-black">
-                    <div className="flex items-start gap-2">
-                      <span className="text-sihl-red mt-0.5">✗</span>
-                      <span><strong>Kein Cloud-Zugriff:</strong> Personenbezogene Daten, Lohndokumente, interne Geschäftsunterlagen</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-sihl-red mt-0.5">✗</span>
-                      <span><strong>Nur lokale Modelle:</strong> Verarbeitung ausschließlich mit eigener Infrastruktur</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-sihl-red mt-0.5">✗</span>
-                      <span><strong>Pseudonymisierung:</strong> Namen und persönliche Angaben werden vor Verarbeitung entfernt</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-sihl-red mt-0.5">✗</span>
-                      <span><strong>Luftspalt-Prinzip:</strong> Diese Systeme haben keine Internetverbindung</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Why this matters */}
             <div className="bg-brand-black rounded-2xl p-8">
               <h3 className="font-display text-xl font-bold text-white mb-4">
-                Warum dieser Ansatz?
+                Warum LEG + Compute?
               </h3>
               <div className="space-y-3 font-mono text-sm text-gray-300">
                 <p>
-                  <strong className="text-white">Respekt vor historischen Quellen:</strong> Archive enthalten oft sensible Informationen über Menschen, Geschäftsgeheimnisse und kulturelles Erbe. Diese Daten verdienen besonderen Schutz.
+                  <strong className="text-white">Doppelte Monetarisierung:</strong> Die LEG verkauft nicht nur Strom, sondern auch Compute-Zeit und Wärme. Drei Revenue-Streams statt einem.
                 </p>
                 <p>
-                  <strong className="text-white">Kontrolle für Datenbereitsteller:</strong> Unternehmen behalten die Kontrolle. Sie entscheiden, ob und wann Cloud-KI eingesetzt wird.
+                  <strong className="text-white">Netzstabilität:</strong> Server können bei Überproduktion hochfahren und bei Engpässen drosseln. Perfekt für SDL-Integration mit Swissgrid.
                 </p>
                 <p>
-                  <strong className="text-white">Technische Machbarkeit:</strong> Moderne Open-Source-LLMs sind leistungsfähig genug für die meisten Aufgaben. Cloud-KI ist die Ausnahme, nicht die Regel.
-                </p>
-                <p>
-                  <strong className="text-white">Vertrauen schaffen:</strong> Transparenz über KI-Nutzung schafft Vertrauen bei Datenbereitstellern und ermöglicht überhaupt erst den Zugang zu wertvollen Archiven.
+                  <strong className="text-white">Lokale Wertschöpfung:</strong> Die Abwärme heizt Gebäude in der Nachbarschaft. Geld bleibt in der Gemeinschaft.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Open Source and Public Access */}
-        <section id="open-source" className="py-16 bg-off-white">
+        {/* Open Source */}
+        <section className="py-16 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
-                Open Source & Öffentlicher Zugang
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Alles Open Source
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Wissen gehört allen
+                Replizierbar by Design
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Alle Prozesse, Tools und strukturierten Daten werden öffentlich zugänglich gemacht.
+                Jedes Teil des Sihlicon Stack wird unter Apache 2.0 veröffentlicht.
+                Hardware-Schematics, Software, Dokumentation.
               </p>
             </div>
 
-            {/* What will be open source */}
-            <div className="space-y-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card>
                 <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-fund-green/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">📖</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-brand-black">
-                        Open Source Pipelines
-                      </CardTitle>
-                      <p className="text-sm font-mono text-historic-sepia mt-2">
-                        Alle entwickelten Werkzeuge und Verarbeitungsprozesse werden veröffentlicht.
-                      </p>
-                    </div>
-                  </div>
+                  <div className="text-3xl mb-2">🔧</div>
+                  <CardTitle className="text-lg text-brand-black">Hardware</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>OCR-Pipelines:</strong> Code für Texterkennung aus historischen Dokumenten (Tesseract, PaddleOCR Konfigurationen)</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>Strukturierungsskripte:</strong> Tools zum Umwandeln von Rohdaten in maschinenlesbare Formate (JSON, CSV, SQL)</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>ML-Modelle:</strong> Trainierte Modelle für Dokumentenklassifizierung und Mustererkennung</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-fund-green mt-0.5">✓</span>
-                      <span><strong>Dokumentation:</strong> Schritt-für-Schritt Anleitungen für andere Archive und Projekte</span>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <p className="text-xs font-mono text-historic-sepia">
-                      Lizenz: <span className="text-brand-black font-semibold">MIT oder Apache 2.0</span> - Jeder kann den Code nutzen, anpassen und weitergeben.
-                    </p>
-                  </div>
+                  <ul className="space-y-2 text-sm font-mono text-historic-sepia">
+                    <li>• CAD-Dateien für Immersionstank</li>
+                    <li>• Stücklisten (BOM) mit Bezugsquellen</li>
+                    <li>• Bauanleitungen Schritt für Schritt</li>
+                    <li>• Temperatur-Monitoring-Schaltpläne</li>
+                  </ul>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-insight-cyan/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">🗄️</span>
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl text-brand-black">
-                        Strukturierte Datasets
-                      </CardTitle>
-                      <p className="text-sm font-mono text-historic-sepia mt-2">
-                        Die aufbereiteten historischen Daten werden öffentlich verfügbar gemacht.
-                      </p>
-                    </div>
-                  </div>
+                  <div className="text-3xl mb-2">💻</div>
+                  <CardTitle className="text-lg text-brand-black">Software</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3 text-sm font-mono text-historic-sepia">
-                    <div className="flex items-start gap-2">
-                      <span className="text-insight-cyan mt-0.5">✓</span>
-                      <span><strong>Maschinenlesbare Formate:</strong> CSV, JSON, Parquet für einfache Weiterverarbeitung</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-insight-cyan mt-0.5">✓</span>
-                      <span><strong>Metadaten:</strong> Vollständige Dokumentation zu Herkunft, Verarbeitungsschritten und Qualität</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-insight-cyan mt-0.5">✓</span>
-                      <span><strong>API-Zugang:</strong> Programmatischer Zugriff für Forschende und Entwickler</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-insight-cyan mt-0.5">✓</span>
-                      <span><strong>Versionierung:</strong> Nachvollziehbare Updates und Verbesserungen über Zeit</span>
-                    </div>
-                  </div>
+                  <ul className="space-y-2 text-sm font-mono text-historic-sepia">
+                    <li>• Grid-OS Scheduling-Algorithmen</li>
+                    <li>• Solar Inverter API-Integration</li>
+                    <li>• Dashboard-Komponenten</li>
+                    <li>• Docker Compose für Deployment</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="text-3xl mb-2">📖</div>
+                  <CardTitle className="text-lg text-brand-black">Dokumentation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm font-mono text-historic-sepia">
+                    <li>• LEG-Gründungsvorlagen</li>
+                    <li>• Thermische Berechnungen</li>
+                    <li>• API-Dokumentation</li>
+                    <li>• Troubleshooting Guides</li>
+                  </ul>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Why Open Source */}
-            <div className="bg-brand-black rounded-2xl p-8 mb-8">
-              <h3 className="font-display text-xl font-bold text-white mb-4">
-                Warum Open Source?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-sm text-gray-300">
-                <div>
-                  <h4 className="text-white font-semibold mb-2">🔬 Wissenschaftliche Integrität</h4>
-                  <p className="text-xs">
-                    Forschung muss reproduzierbar sein. Offener Code ermöglicht Überprüfung, Kritik und Verbesserung durch die Community.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-2">🌍 Maximaler Impact</h4>
-                  <p className="text-xs">
-                    Andere Archive können dieselben Tools nutzen. Zürich digitalisiert das Sihltal, Basel könnte mit demselben Code das Baselbiet erfassen.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-2">💡 Kollektive Verbesserung</h4>
-                  <p className="text-xs">
-                    Hunderte Entwickler könnten die Pipelines verbessern. Ein besserer OCR-Algorithmus hilft allen zukünftigen Projekten.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-2">🏛️ Kulturerbe als Gemeingut</h4>
-                  <p className="text-xs">
-                    Historische Daten gehören der Gesellschaft. Sie hinter verschlossenen APIs zu verstecken widerspricht dem Wesen von Kulturerbe.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Library Partnerships */}
-            <div className="bg-gradient-to-br from-historic-cream to-off-white rounded-2xl p-8 border-2 border-historic-sepia/20">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-sihl-red/10 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">🏛️</span>
-                </div>
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-brand-black">
-                    Partnerschaften mit öffentlichen Bibliotheken
-                  </h3>
-                  <p className="text-sm font-mono text-historic-sepia mt-2">
-                    Strukturierte Daten brauchen nachhaltige Infrastruktur.
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 font-mono text-sm text-brand-black">
-                <p>
-                  Wir streben Partnerschaften mit <strong>Schweizer Kantonsbibliotheken</strong> und dem <strong>Schweizerischen Bundesarchiv</strong> an, um die aufbereiteten Datasets langfristig zu hosten:
-                </p>
-                <div className="pl-4 space-y-3">
-                  <div className="flex items-start gap-2">
-                    <span className="text-sihl-red">•</span>
-                    <span><strong>Zentralbibliothek Zürich:</strong> Könnte die Sihltal-Datasets als Teil ihrer Regionalsammlung hosten</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-sihl-red">•</span>
-                    <span><strong>ETH-Bibliothek:</strong> Potentieller Partner für technische und wissenschaftliche Datensätze</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-sihl-red">•</span>
-                    <span><strong>Schweizerisches Bundesarchiv:</strong> Für Daten mit nationaler Relevanz</span>
-                  </div>
-                </div>
-                <p className="pt-4 border-t border-historic-sepia/20">
-                  <strong>Warum Bibliotheken?</strong> Sie garantieren dauerhafte Verfügbarkeit, professionelle Archivierung und neutralen Zugang. Ein Startup kann pleitegehen, eine öffentliche Bibliothek bleibt.
-                </p>
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-historic-sepia/20">
-                <p className="font-mono text-xs text-historic-sepia">
-                  <strong className="text-brand-black">Status:</strong> Gespräche in Planung. Falls du Kontakte zu Bibliotheken oder Archiven hast, melde dich bei uns.
-                </p>
-              </div>
+            <div className="mt-8 text-center">
+              <p className="font-mono text-sm text-historic-sepia">
+                Lizenz: <span className="text-brand-black font-semibold">Apache 2.0</span> ·
+                Jeder kann den Stack nutzen, anpassen und weitergeben.
+              </p>
             </div>
           </div>
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="py-16">
+        <section id="faq" className="py-16 bg-off-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-display text-3xl font-bold text-brand-black text-center mb-12">
               Häufige Fragen
@@ -581,27 +433,27 @@ export default function AboutPage() {
               {[
                 {
                   q: 'Brauche ich Programmierkenntnisse?',
-                  a: 'Nein. sihlhack ist rollenbasiert. Wir brauchen Historiker, Designer, Projektmanager genauso wie Entwickler. Wähle bei der Anmeldung deine Rolle und finde ein Team, das deine Stärken braucht.',
+                  a: 'Nicht unbedingt. Wir brauchen Hardware-Engineers, Rechtsexperten, Designer genauso wie Software-Devs. Wähle bei der Anmeldung deine Rolle.',
                 },
                 {
-                  q: 'Was ist, wenn ich kein Team habe?',
-                  a: 'Kein Problem. Bei der Anmeldung gibst du an, dass du ein Team suchst. Wir zeigen dir andere Teilnehmende mit komplementären Rollen und Skills. Vor dem Event helfen wir aktiv beim Team-Matching.',
+                  q: 'Was passiert mit dem Prototyp nach dem Hackathon?',
+                  a: 'Der beste Prototyp wird in einer echten LEG (Baden, AG) deployed. Das ist kein Demo, sondern echte Infrastruktur die weiterläuft.',
                 },
                 {
-                  q: 'Was passiert, wenn nicht genug Teilnehmende zusammenkommen?',
-                  a: 'Falls die Mindestteilnehmerzahl bis zur Deadline nicht erreicht wird, erhältst du automatisch eine vollständige Rückerstattung deiner Gebühr. Kein Risiko für dich.',
+                  q: 'Wer stellt die Hardware?',
+                  a: 'Unsere Partner (Sihlicon Labs, AfB Schweiz) stellen Server, GPUs und Immersion-Cooling-Equipment. Du bringst nur Laptop und Skills mit.',
                 },
                 {
-                  q: 'Wer bestimmt, welche Projekte umgesetzt werden?',
-                  a: 'Du und alle anderen Teilnehmenden. Jeder kann Projekte vorschlagen und für Favoriten stimmen. Die Projekte mit den meisten Stimmen werden am Event bearbeitet.',
+                  q: 'Was kostet die Teilnahme?',
+                  a: 'CHF 120 pro Person. Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (50/30/20) ausgeschüttet. Vollständige Rückerstattung bei Absage.',
                 },
                 {
-                  q: 'Woher kommen die historischen Daten?',
-                  a: 'Unternehmen aus dem Sihltal stellen historische Dokumente, Fotografien, Geschäftsbücher und Baupläne zur Verfügung. Sie werden nicht bezahlt und haben keinen Einfluss auf Projekte.',
+                  q: 'Was ist eine LEG?',
+                  a: 'Eine Lokale Elektrizitätsgemeinschaft ist ein rechtlicher Zusammenschluss nach StromVG Art. 18. Ähnlich wie ein ZEV, aber kann das öffentliche Netz nutzen.',
                 },
                 {
-                  q: 'Wie werden die Gewinner bestimmt?',
-                  a: 'Eine Jury bewertet die Projektresultate nach Kriterien wie Innovation, technische Umsetzung und Erkenntnisgewinn. Die Kriterien werden vor dem Event veröffentlicht.',
+                  q: 'Muss ich beim Hackathon übernachten?',
+                  a: 'Nein, es ist ein Tages-Event (Fr Abend bis So Nachmittag). Du kannst pendeln oder wir helfen bei der Organisation von Unterkünften.',
                 },
               ].map((item, index) => (
                 <Card key={index}>
@@ -620,25 +472,25 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-sihl-red">
+        <section className="py-16 bg-gradient-to-r from-thermal-orange to-compute-blue">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-3xl font-bold text-white">
-              Welche Rolle spielst du?
+              Bau mit uns die dezentrale Energiezukunft
             </h2>
-            <p className="mt-4 text-white/80 font-mono max-w-xl mx-auto">
-              Wähle deine Rolle und werde Teil des ersten teilnehmerorientierten Hackathons der Schweiz.
+            <p className="mt-4 text-white/90 font-mono max-w-xl mx-auto">
+              Hardware-Hacker, Software-Devs, Thermodynamik-Nerds, Rechtsexperten: Wir brauchen euch alle.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">
                 Jetzt anmelden
               </ButtonLink>
               <ButtonLink
-                href="/proposals"
+                href="https://github.com/sihlicon"
                 variant="ghost"
                 size="lg"
                 className="text-white border-white/30 hover:bg-white/10"
               >
-                Projekte ansehen
+                GitHub ansehen
               </ButtonLink>
             </div>
           </div>
