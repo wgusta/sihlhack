@@ -53,7 +53,7 @@ export function WhyItMattersSection() {
               </p>
               <p>
                 In der Schweiz heizen wir mit Gas und Öl, während nebenan Server kühlen,
-                die <span className="text-thermal-orange">60°C warmes Wasser</span> produzieren könnten.
+                die <span className="text-thermal-orange">45-50°C warmes Wasser</span> produzieren könnten.
               </p>
               <p>
                 <strong className="text-compute-blue">Das ist physikalischer Wahnsinn.</strong> Server gehören dorthin, wo ihre Wärme gebraucht wird: In Wohngebäude, Gewächshäuser, Schwimmbäder.

@@ -144,8 +144,8 @@ export function DataRevealSection() {
                 <div className="font-mono text-xs text-gray-400 mt-1">der Elektrizität wird zu Wärme</div>
               </div>
               <div>
-                <div className="font-mono text-3xl font-bold text-thermal-orange">60°C</div>
-                <div className="font-mono text-xs text-gray-400 mt-1">Wassertemperatur aus Immersion</div>
+                <div className="font-mono text-3xl font-bold text-thermal-orange">45°C</div>
+                <div className="font-mono text-xs text-gray-400 mt-1">Warmwasser (Demo-Scale)</div>
               </div>
               <div>
                 <div className="font-mono text-3xl font-bold text-compute-blue">99%</div>

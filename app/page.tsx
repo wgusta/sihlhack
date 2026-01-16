@@ -66,7 +66,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
                 <h3 className="font-display font-bold text-thermal-orange text-xl mb-2">Heat Export</h3>
-                <p className="font-mono text-sm text-historic-sepia">Bereitstellung von 60°C Warmwasser für Heizung und Brauchwasser.</p>
+                <p className="font-mono text-sm text-historic-sepia">Bereitstellung von 45°C Warmwasser für Heizung und Brauchwasser (Demo-Scale).</p>
               </div>
             </div>
           </div>

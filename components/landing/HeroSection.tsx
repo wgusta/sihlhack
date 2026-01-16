@@ -5,7 +5,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 
-// Event date - Sihlhack Build Weekend
+// Event date - Sihlhack 3-Day Competition
 const EVENT_DATE = new Date('2025-09-20T09:00:00')
 
 export function HeroSection() {
@@ -130,7 +130,7 @@ export function HeroSection() {
               <div className="border-t border-white/10 pt-6">
                 <p className="text-center font-mono text-sm text-gray-300">
                   <span className="text-fund-green font-semibold">Das Ziel:</span>{' '}
-                  Ein funktionierender Prototyp, der in einer echten Schweizer LEG deployed wird.
+                  Demo-Scale Prototypen mit messbarem Energie-Flow. Beste Lösungen gewinnen Preisgeld.
                 </p>
               </div>
             </div>
@@ -139,20 +139,20 @@ export function HeroSection() {
           {/* Key Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto animate-fade-in">
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-thermal-orange">48h</div>
-              <div className="font-mono text-xs text-gray-400">Build-Weekend</div>
+              <div className="font-mono text-3xl font-bold text-thermal-orange">3</div>
+              <div className="font-mono text-xs text-gray-400">Tage</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-compute-blue">100%</div>
-              <div className="font-mono text-xs text-gray-400">Open Source</div>
+              <div className="font-mono text-3xl font-bold text-compute-blue">150+</div>
+              <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-grid-green">CHF 0</div>
+              <div className="font-mono text-3xl font-bold text-grid-green">CHF 150</div>
               <div className="font-mono text-xs text-gray-400">Teilnahme</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-solar-yellow">1</div>
-              <div className="font-mono text-xs text-gray-400">Echter Deploy</div>
+              <div className="font-mono text-3xl font-bold text-solar-yellow">30-36</div>
+              <div className="font-mono text-xs text-gray-400">Teams</div>
             </div>
           </div>
 
