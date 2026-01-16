@@ -66,14 +66,13 @@ export default function ChallengesPage() {
         <section className="bg-brand-black text-white py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-              Competition-Style Hackathon
+              Wähle dein Paket. Bau die Lösung.
             </span>
             <h1 className="font-display text-4xl sm:text-5xl font-bold mt-4">
-              Die Pakete
+              Die Challenges
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              3 Pflicht-Pakete, 2 Optional-Pakete. 30-36 Teams arbeiten parallel.
-              Beste Lösung pro Paket gewinnt.
+              3 Pflicht-Pakete. 30-36 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
             </p>
             
             {/* Stats */}
@@ -181,6 +180,133 @@ export default function ChallengesPage() {
         <div id="pre-challenge">
           <PreChallengeSection />
         </div>
+
+        {/* Thermal Architecture Challenge */}
+        <section className="py-16 bg-off-white">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Die Wärme-Frage
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
+                Drei Pfade. Euer Team entscheidet.
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Kein Pfad ist &quot;richtig&quot;. Nur Trade-offs. Ihr evaluiert und wählt.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Path A: Oil Immersion */}
+              <div className="bg-white rounded-2xl border-2 border-thermal-orange/30 p-6 hover:border-thermal-orange transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wide text-thermal-orange">Pfad A</span>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Der Öltank</h3>
+                    <p className="font-mono text-xs text-historic-sepia">Immersion Cooling</p>
+                  </div>
+                  <span className="text-3xl">🛢️</span>
+                </div>
+                <p className="font-mono text-sm text-historic-sepia mb-4 leading-relaxed">
+                  Server baden in dielektrischem Öl. Lautlos, effizient, fast 100% Wärmeabfuhr. 
+                  Aber: Öl muss gehandhabt werden. Brandschutz ist real. Wartung ist komplex.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                  <div>
+                    <p className="font-semibold text-grid-green mb-1">Pro</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> 99% Wärmeabfuhr</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Lautlos</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> GPU-Lebensdauer</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sihl-red mb-1">Contra</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Öl-Handling</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Brandschutz</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Komplexe Wartung</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Path B: Water Loop */}
+              <div className="bg-white rounded-2xl border-2 border-compute-blue/30 p-6 hover:border-compute-blue transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wide text-compute-blue">Pfad B</span>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Die Wasserschleife</h3>
+                    <p className="font-mono text-xs text-historic-sepia">Direct-to-Chip</p>
+                  </div>
+                  <span className="text-3xl">💧</span>
+                </div>
+                <p className="font-mono text-sm text-historic-sepia mb-4 leading-relaxed">
+                  Direct-to-Chip Kühlung mit Standard-Komponenten. Bewährt, verfügbar, reparierbar. 
+                  Aber: Nur 60-70% Wärmeabfuhr. Nicht so elegant.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                  <div>
+                    <p className="font-semibold text-grid-green mb-1">Pro</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Bewährte Technik</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Standard-Teile</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Einfache Reparatur</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sihl-red mb-1">Contra</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> 60-70% Capture</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Leckage-Risiko</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Pumpen-Geräusch</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Path C: Heat Pump */}
+              <div className="bg-white rounded-2xl border-2 border-grid-green/30 p-6 hover:border-grid-green transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-wide text-grid-green">Pfad C</span>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Der Boost</h3>
+                    <p className="font-mono text-xs text-historic-sepia">Heat Pump Integration</p>
+                  </div>
+                  <span className="text-3xl">♨️</span>
+                </div>
+                <p className="font-mono text-sm text-historic-sepia mb-4 leading-relaxed">
+                  Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben — 
+                  genug für Radiatoren. Aber: Komplexität und COP-Trade-offs.
+                </p>
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                  <div>
+                    <p className="font-semibold text-grid-green mb-1">Pro</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> 70°C+ Output</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Radiator-tauglich</li>
+                      <li className="flex items-start gap-1"><span className="text-grid-green">+</span> Höchste Nutzung</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sihl-red mb-1">Contra</p>
+                    <ul className="space-y-1 text-historic-sepia">
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Komplexität</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> Strom für Pumpe</li>
+                      <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> COP-Verluste</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-brand-black rounded-xl p-6 text-center">
+              <p className="font-mono text-sm text-gray-300">
+                Profis vor Ort — damit ihr euch auf die Lösung konzentrieren könnt.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Mandatory Packages Detail */}
         <section className="py-16 bg-white">

@@ -7,8 +7,8 @@ export const HACKATHON_ROLES = [
     name: 'Hardware Engineer',
     nameDE: 'Hardware-Ingenieur',
     icon: '🔧',
-    description: 'Designs and builds the immersion cooling system, thermal integration, and physical infrastructure.',
-    descriptionDE: 'Entwickelt Immersionskühlung, thermische Anbindung und physische Infrastruktur des Sihlicon Core.',
+    description: 'Evaluates thermal architectures (Immersion, Water Loop, Heat Pump) and builds the chosen solution.',
+    descriptionDE: 'Evaluiert thermische Architekturen (Öl-Immersion, Wasser-Loop, Wärmepumpe) und baut die gewählte Lösung.',
     skills: ['Thermodynamik', 'CAD/3D-Design', 'Fluidmechanik', 'Elektronik', 'Löten'],
     color: 'thermal-orange',
     tracks: {

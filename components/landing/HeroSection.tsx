@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
-import { cn } from '@/lib/utils'
 
 // Event date - Sihlhack 3-Day Competition
 const EVENT_DATE = new Date('2025-09-20T09:00:00')
@@ -59,7 +58,7 @@ export function HeroSection() {
           {/* Tagline */}
           <div className="space-y-3 animate-fade-in">
             <p className="font-mono text-sm sm:text-base text-thermal-orange uppercase tracking-widest">
-              3-Tage Competition · Dezentrale Energieinfrastruktur · Open Source
+              3 Tage · Echte Probleme · Keine PowerPoint-Lösungen
             </p>
           </div>
 
@@ -73,90 +72,135 @@ export function HeroSection() {
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-              Aus überschüssigem Solarstrom wird
-              <span className="text-thermal-orange"> Wärme und Rechenleistung.</span>
+              Der Hackathon, bei dem am Ende
+              <span className="text-thermal-orange"> etwas Warmes</span> rauskommt.
               <br />
-              Direkt im Quartier.
+              <span className="text-gray-400 text-xl sm:text-2xl md:text-3xl">Buchstäblich.</span>
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              Hands‑on Hackathon für reale Energie‑ und Infrastruktur‑Lösungen.
+              Batterie + Server + Wärme — kombiniert zu etwas, das Silicon Valley noch nicht auf dem Schirm hat. Du baust es.
             </p>
           </div>
 
-          {/* "Für wen" Section */}
-          <div className="max-w-4xl mx-auto mt-16 animate-fade-in">
+          {/* "Was du lösen wirst" Section */}
+          <div className="max-w-4xl mx-auto mt-12 animate-fade-in">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+              <div className="text-center mb-8">
+                <span className="font-mono text-sm text-thermal-orange uppercase tracking-wide">
+                  Drei offene Fragen. Du findest die Antworten.
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                {/* Die Zeit-Frage */}
+                <div className="p-5 rounded-xl bg-white/5 border border-solar-yellow/20">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">⏰</span>
+                    <h3 className="font-mono text-solar-yellow font-semibold">Zeit-Shift</h3>
+                  </div>
+                  <p className="text-sm text-gray-300 font-mono mb-3">
+                    Sonne scheint tagsüber. Dusche läuft morgens.
+                  </p>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Batterien als Puffer?</li>
+                    <li>• Deferred Compute?</li>
+                    <li>• Deine Lösung.</li>
+                  </ul>
+                </div>
+                
+                {/* Die Wärme-Frage */}
+                <div className="p-5 rounded-xl bg-white/5 border border-thermal-orange/20">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">🔥</span>
+                    <h3 className="font-mono text-thermal-orange font-semibold">Wärme-Pfad</h3>
+                  </div>
+                  <p className="text-sm text-gray-300 font-mono mb-3">
+                    Drei Optionen. Kein richtiger Pfad. Nur Trade-offs.
+                  </p>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Öl-Immersion — sexy, komplex</li>
+                    <li>• Wasser-Loop — boring, funktioniert</li>
+                    <li>• Wärmepumpe — clever, teuer</li>
+                  </ul>
+                </div>
+                
+                {/* Die Resilienz-Frage */}
+                <div className="p-5 rounded-xl bg-white/5 border border-compute-blue/20">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-2xl">🔌</span>
+                    <h3 className="font-mono text-compute-blue font-semibold">Resilienz-Logik</h3>
+                  </div>
+                  <p className="text-sm text-gray-300 font-mono mb-3">
+                    Netz fällt aus. Was macht dein Server?
+                  </p>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Weiterrechnen?</li>
+                    <li>• Nachbarschaft versorgen?</li>
+                    <li>• Du baust die Logik.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* "Für wen" Section */}
+          <div className="max-w-4xl mx-auto mt-12 animate-fade-in">
+            <div className="bg-gradient-to-r from-thermal-orange/10 to-compute-blue/10 border border-white/10 rounded-2xl p-8">
               <div className="text-center mb-6">
                 <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
-                  Für Menschen, die
+                  Für Leute, die lieber bauen als reden
                 </span>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Hardware-Tüftler */}
-                <div className="text-center p-4 rounded-xl bg-white/5">
-                  <div className="text-4xl mb-3">🔧</div>
-                  <h3 className="font-mono text-thermal-orange font-semibold mb-2">
-                    Hardware-Tüftler
-                  </h3>
-                  <p className="text-sm text-gray-400 font-mono">
-                    Du baust gerne mit den Händen. Immersion Cooling, Thermik, Sensoren – 
-                    das ist dein Ding. Du willst sehen, wie Wärme tatsächlich aus dem Tank kommt.
-                  </p>
+                <div className="text-left p-4 rounded-xl bg-white/5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">🔧</span>
+                    <h3 className="font-mono text-thermal-orange font-semibold">Hardware</h3>
+                  </div>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Thermodynamik ist dein Spielplatz</li>
+                    <li>• Du baust, was funktioniert</li>
+                    <li>• Löten, CAD, Pumpen — dein Ding</li>
+                  </ul>
                 </div>
                 
                 {/* Software-Builder */}
-                <div className="text-center p-4 rounded-xl bg-white/5">
-                  <div className="text-4xl mb-3">💻</div>
-                  <h3 className="font-mono text-compute-blue font-semibold mb-2">
-                    Software-Builder
-                  </h3>
-                  <p className="text-sm text-gray-400 font-mono">
-                    Du schreibst Code, der etwas bewegt. Grid-OS, APIs, Scheduling – 
-                    du willst Systeme bauen, die das Stromnetz stabilisieren.
-                  </p>
+                <div className="text-left p-4 rounded-xl bg-white/5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">💻</span>
+                    <h3 className="font-mono text-compute-blue font-semibold">Software</h3>
+                  </div>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Code, der Strom verteilt</li>
+                    <li>• Grid-OS wartet auf dich</li>
+                    <li>• APIs, Scheduler, Dashboards</li>
+                  </ul>
                 </div>
                 
                 {/* Energie-Visionäre */}
-                <div className="text-center p-4 rounded-xl bg-white/5">
-                  <div className="text-4xl mb-3">⚡</div>
-                  <h3 className="font-mono text-grid-green font-semibold mb-2">
-                    Energie-Visionäre
-                  </h3>
-                  <p className="text-sm text-gray-400 font-mono">
-                    Du denkst in{' '}
-                    <a href="/leg" className="text-sihl-red hover:underline">LEGs</a>
-                    {' '}und dezentraler Infrastruktur. Du willst beweisen, 
-                    dass lokale Energieautonomie funktioniert.
-                  </p>
+                <div className="text-left p-4 rounded-xl bg-white/5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">⚡</span>
+                    <h3 className="font-mono text-grid-green font-semibold">Energie</h3>
+                  </div>
+                  <ul className="text-xs text-gray-400 font-mono space-y-1">
+                    <li>• Lokal, dezentral, demokratisch</li>
+                    <li>• <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> sind für dich Zukunft</li>
+                    <li>• Solar, Netz, Autonomie</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* "Was wir bauen" Section */}
-          <div className="max-w-3xl mx-auto mt-12 animate-fade-in">
-            <div className="bg-gradient-to-r from-thermal-orange/20 to-compute-blue/20 border border-white/10 rounded-xl p-6">
-              <p className="text-center font-mono text-base text-white mb-4">
-                <strong>Wir bauen Demo-Scale Prototypen, die beweisen:</strong>
-                <br />
-                Solar → Compute → Wärme funktioniert.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-                <div className="text-center">
-                  <div className="text-2xl mb-2">📦</div>
-                  <p className="font-mono text-xs text-gray-300">End-to-End Demo-Kit</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl mb-2">🛡️</div>
-                  <p className="font-mono text-xs text-gray-300">Hardware Safety</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl mb-2">⚙️</div>
-                  <p className="font-mono text-xs text-gray-300">Grid-OS Controller</p>
-                </div>
-              </div>
-            </div>
+          {/* Ownership Message */}
+          <div className="max-w-2xl mx-auto animate-fade-in">
+            <p className="font-mono text-sm text-gray-400 text-center">
+              <span className="text-white">Dein Code. Deine Rechte.</span> Apache 2.0 = Du kannst morgen eine Firma gründen 
+              und mit uns konkurrieren. Go for it.
+            </p>
           </div>
 
           {/* Key Stats */}
@@ -185,12 +229,12 @@ export function HeroSection() {
               Platz sichern
             </ButtonLink>
             <ButtonLink
-              href="#why-it-matters"
+              href="/challenges"
               variant="ghost"
               size="lg"
               className="text-white border-white/30 hover:bg-white/10"
             >
-              Warum das wichtig ist
+              Die Challenges ansehen
             </ButtonLink>
           </div>
         </div>

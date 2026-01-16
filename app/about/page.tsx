@@ -63,7 +63,8 @@ export default function AboutPage() {
                 Sihlicon Hub
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                100% der Elektrizität in einem Server wird zu Wärme. Warum diese Wärme verschwenden?
+                Silicon Valley baut Rechenzentren, die Flüsse erhitzen. Wir bauen Server, die Häuser heizen. 
+                Der Unterschied? Wir machen Kühlung zum Feature, nicht zum Problem.
               </p>
             </div>
 
@@ -451,11 +452,11 @@ export default function AboutPage() {
                 Alles Open Source
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Replizierbar by Design
+                Dein Code. Deine Entscheidung.
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Jedes Teil des Sihlicon Stack wird unter Apache 2.0 veröffentlicht.
-                Hardware-Schematics, Software, Dokumentation.
+                Apache 2.0 bedeutet: Du behältst alle Rechte. Du kannst morgen eine Firma gründen, 
+                die mit dem Code konkurriert, den du hier schreibst. Wir ermutigen das. Je mehr Forks, desto besser.
               </p>
             </div>
 
@@ -508,8 +509,7 @@ export default function AboutPage() {
 
             <div className="mt-8 text-center">
               <p className="font-mono text-sm text-historic-sepia">
-                Lizenz: <span className="text-brand-black font-semibold">Apache 2.0</span> ·
-                Jeder kann den Stack nutzen, anpassen und weitergeben.
+                Sihlhack ist ein Event, kein Unternehmen. Das Budget ist öffentlich. Der Preisgeld-Pool ist transparent. So läuft das hier.
               </p>
             </div>
           </div>

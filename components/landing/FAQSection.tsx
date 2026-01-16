@@ -5,52 +5,60 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
-    q: 'Was kostet die Teilnahme?',
-    a: 'CHF 150 pro Person für 3 Tage (Freitag bis Sonntag). Das Budget: 50% Preisgeld-Pool, 25% Hardware/Material, 20% Venue/Catering, 5% Reserve. Vollständige Rückerstattung bei Absage des Events.',
-  },
-  {
     q: 'Was ist ein Sihlicon Hub?',
-    a: 'Ein Sihlicon Hub ist ein dezentrales Compute-System: Server, die in dielektrischem Öl gekühlt werden (Immersion Cooling). Die Abwärme wird für Warmwasser und Raumheizung genutzt – 99% Wärmerückgewinnung. Betrieben wird das System mit lokalem Solarstrom.',
+    a: 'Server + Batterie + Wärme in einem System. Ihr kombiniert Dinge, die normalerweise getrennt leben. Der thermische Pfad? Noch offen — das ist eure Challenge.',
   },
   {
-    q: 'Was sind die Pflicht-Pakete?',
-    a: 'Es gibt 3 Pflicht-Pakete: (1) End-to-End Demo-Kit – messbarer Energie-Flow mit Ein-Knopf-Demo, (2) Hardware Safety & Thermal Baseline – BOM, Safety Case, thermische Charakterisierung, (3) Grid-OS Controller – Scheduler mit Solar-Budget und API. Jedes Team wählt ein Paket als Hauptfokus.',
+    q: 'Ist Öl-Immersion die einzige Option?',
+    a: 'Nein. Drei Pfade stehen offen: Öl-Immersion (elegant, komplex), Wasser-Loop (erprobt, solide), Wärmepumpe (ambitioniert). Euer Team entscheidet. Ihr bekommt Constraints, ihr findet den Weg.',
   },
   {
-    q: 'Wie funktioniert der Wettbewerb?',
-    a: '30-36 Teams à 5 Personen arbeiten parallel an den gleichen Paketen. Mehrere Teams können am gleichen Paket arbeiten – die beste Lösung pro Paket gewinnt. Preisgeld: 35% für Demo-Kit, 35% für Safety, 20% für Grid-OS, 10% für Best Integration.',
+    q: 'Wie löst man den Solar/Wärme-Mismatch?',
+    a: 'Ihr löst ihn. Optionen: Batterien puffern Tag→Nacht. Deferred Compute verschiebt Jobs. Beides zusammen? Noch besser. Die perfekte Balance? Baut ihr vielleicht.',
   },
   {
-    q: 'Was ist die Pre-Challenge?',
-    a: 'Die Historic Archive Pre-Challenge läuft 2-4 Wochen vor dem Event online. Ziel: Standort-Scouting und historische Energie-Baupläne aus dem Sihltal sammeln. Die besten Einreichungen bekommen Bonuspunkte für das Hauptevent.',
+    q: 'Warum Batterien?',
+    a: 'Server ohne Batterie = nur Server. Mit Batterie = Community-Backup. Netz down? Compute pausiert, Quartier wird versorgt. Kreislauf: Server bezahlt Batterie, Batterie liefert Resilienz.',
   },
   {
-    q: 'Wie werden Teams gebildet?',
-    a: 'Teams organisieren sich selbst oder werden bei der Anmeldung gebildet. Jedes Paket hat empfohlene Rollen: z.B. Demo-Kit braucht Hardware-Ing., Sensor/Data Engineer, Backend-Dev. Wir helfen beim Matching.',
+    q: 'Was kostet das?',
+    a: 'CHF 150 / Person für 3 Tage. Budget ist öffentlich: 50% Preisgeld, 25% Hardware, 20% Venue, 5% Reserve. Vollständige Rückerstattung bei Event-Absage.',
+  },
+  {
+    q: 'Wem gehört der Code?',
+    a: 'Dir. Apache 2.0 = alle Rechte bei dir. Du kannst morgen eine Firma gründen und konkurrieren. Mach das. Je mehr Forks, desto besser.',
+  },
+  {
+    q: 'Was ist anders an diesem Hackathon?',
+    a: 'Keine vorgegebene Lösung. Ihr bekommt Constraints, ihr findet den Pfad. Echte Ingenieurs-Entscheidungen. Am Ende funktioniert was Physisches — oder nicht. Das ist der Test.',
+  },
+  {
+    q: 'Was sind die Pakete?',
+    a: 'Drei Pakete: Demo-Kit (Energie-Flow beweisen), Hardware Safety (niemand kriegt Stromschlag), Grid-OS (wann rechnen, wann heizen). Jedes Team wählt Fokus. Mehrere Teams pro Paket. Beste Lösung gewinnt.',
+  },
+  {
+    q: 'Wie bilden sich Teams?',
+    a: 'Selbstorganisiert oder über Matching bei Anmeldung. Skills mischen: Hardware + Sensor + Backend + Energie. Chemie müsst ihr selbst finden.',
   },
   {
     q: 'Was ist eine LEG?',
-    a: 'Eine Lokale Elektrizitätsgemeinschaft (LEG) nach StromVG Art. 18 ist ein Zusammenschluss von Produzenten und Konsumenten, die gemeinsam Energie produzieren und teilen. Ähnlich wie ein ZEV, aber mit der Möglichkeit, das öffentliche Netz zu nutzen.',
+    a: 'Lokale Elektrizitätsgemeinschaft nach Schweizer Recht. Nachbarn produzieren und teilen Strom gemeinsam. Rechtliche Grundlage existiert. Technische Infrastruktur? Baut ihr.',
   },
   {
     q: 'Brauche ich Hardware-Erfahrung?',
-    a: 'Nein. Wir haben 11 verschiedene Rollen: Hardware-Ingenieur, Elektro-Ingenieur, Sensor/Data Engineer, Energie-Experte, Grid-OS Dev, Backend-Dev, Frontend-Dev, Designer, LEG-Rechtsexperte, Projektleiter und Generalist. Wähle bei der Anmeldung deine Rolle.',
+    a: 'Nicht unbedingt. Rollen: Hardware, Elektro, Software, Design, sogar Recht. Wähle deine Stärke bei der Anmeldung.',
+  },
+  {
+    q: 'Was passiert nach dem Hackathon?',
+    a: 'Verein übernimmt Governance. Du kannst Mitglied werden, Roadmap mitgestalten, PRs einreichen. Ziel: Das wird größer als alle Einzelnen. Bessere Version gebaut? Perfekt. Open Source.',
   },
   {
     q: 'Was passiert am Sonntag?',
-    a: 'Demo-Day: Alle Teams präsentieren ihre Ergebnisse. Wir schliessen den Prototyp an ein echtes Solarmodul an und testen das System unter realen Bedingungen. Jury bewertet nach den Paket-Kriterien. Preisgeld wird verteilt.',
+    a: 'Demo-Day. Alle Teams präsentieren. Prototyp geht ans echte Solarmodul. Kommt Wärme raus? Jury bewertet. Preisgeld verteilt. Bier danach.',
   },
   {
-    q: 'Wie funktioniert Immersion Cooling?',
-    a: 'Server werden komplett in dielektrisches Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Ergebnis: Lautlose Server, keine Staubprobleme, und 40-50°C warmes Wasser für Heizung und Warmwasser.',
-  },
-  {
-    q: 'Was passiert mit meinem Code?',
-    a: 'Alles wird unter Apache 2.0 veröffentlicht. Du behältst alle Urheberrechte an deinen Beiträgen und kannst deinen Code auch für andere Projekte nutzen (Dual Licensing). Das Ziel ist, dass andere LEGs die Lösung nachbauen können.',
-  },
-  {
-    q: 'Kann ich remote teilnehmen?',
-    a: 'Der Hardware-Teil findet vor Ort statt – man muss den Prototyp anfassen können. Software-Teams können hybrid arbeiten. Für den Demo-Day am Sonntag empfehlen wir, vor Ort zu sein.',
+    q: 'Kann ich remote mitmachen?',
+    a: 'Hardware-Teil = vor Ort (muss man anfassen). Software = hybrid möglich. Demo-Day Sonntag = vor Ort empfohlen. Nichts schlägt das Gefühl, wenn der Prototyp warm wird.',
   },
 ]
 
@@ -63,11 +71,14 @@ export function FAQSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-            Fragen?
+            Die harten Fragen
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
-            Häufige Fragen
+            Was du wissen willst
           </h2>
+          <p className="mt-4 text-historic-sepia font-mono text-sm max-w-xl mx-auto">
+            Keine Marketing-Antworten. Nur das, was stimmt.
+          </p>
         </div>
 
         {/* FAQ Accordion */}
@@ -124,7 +135,7 @@ export function FAQSection() {
         {/* More Questions CTA */}
         <div className="mt-8 text-center">
           <p className="font-mono text-sm text-historic-sepia">
-            Weitere Fragen? Schreib uns an{' '}
+            Noch mehr Fragen? Schreib uns an{' '}
             <a href="mailto:hello@sihlhack.ch" className="text-thermal-orange hover:underline">
               hello@sihlhack.ch
             </a>

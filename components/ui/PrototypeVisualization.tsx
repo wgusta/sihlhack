@@ -95,50 +95,51 @@ export function PrototypeVisualization() {
           <text x="220" y="180" textAnchor="middle" className="font-mono text-[12px] fill-solar-yellow font-bold">Solarmodul</text>
           <text x="220" y="194" textAnchor="middle" className="font-mono text-[10px] fill-gray-400">150W Peak</text>
 
-          {/* === 3. HOUSES === */}
-          {/* House 1 (Left) */}
+          {/* === 3. BATTERY (NEW) === */}
+          <g id="battery">
+            <rect x="40" y="95" width="60" height="65" rx="6" fill="#22C55E" fillOpacity="0.1" stroke="#22C55E" strokeWidth="2.5" />
+            {/* Battery terminal */}
+            <rect x="55" y="88" width="30" height="7" rx="2" fill="#22C55E" />
+            {/* Battery level bars */}
+            <rect x="50" y="125" width="40" height="8" rx="2" fill="#22C55E" fillOpacity="0.8" />
+            <rect x="50" y="112" width="40" height="8" rx="2" fill="#22C55E" fillOpacity="0.6" className="animate-pulse" />
+            <rect x="50" y="99" width="40" height="8" rx="2" fill="#22C55E" fillOpacity="0.3" />
+          </g>
+          {/* Battery Label */}
+          <text x="70" y="180" textAnchor="middle" className="font-mono text-[12px] fill-grid-green font-bold">Batterie</text>
+          <text x="70" y="194" textAnchor="middle" className="font-mono text-[10px] fill-gray-400">2 kWh</text>
+
+          {/* Flow: Solar → Battery */}
+          <path
+            d="M160 128 L100 128"
+            stroke="#FBBF24"
+            strokeWidth="3"
+            strokeDasharray="6 5"
+            className="animate-[dash_2s_linear_infinite]"
+            filter="url(#glow)"
+          />
+
+          {/* Flow: Battery → Core */}
+          <path
+            d="M70 160 L70 210 L150 240"
+            stroke="#22C55E"
+            strokeWidth="3"
+            strokeDasharray="6 5"
+            className="animate-[dash_2s_linear_infinite]"
+            filter="url(#glow)"
+          />
+
+          {/* === 4. HOUSES === */}
+          {/* House 1 (moved down-left) */}
           <g id="house-1">
-            <path d="M20 185 L65 160 L110 185 L110 250 L20 250 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2.5" />
-            <path d="M20 185 L65 160 L110 185" fill="none" stroke="#10B981" strokeWidth="2.5" />
+            <path d="M450 185 L495 160 L540 185 L540 250 L450 250 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2.5" />
+            <path d="M450 185 L495 160 L540 185" fill="none" stroke="#10B981" strokeWidth="2.5" />
             {/* Window */}
-            <rect x="50" y="205" width="24" height="24" rx="3" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
+            <rect x="480" y="205" width="24" height="24" rx="3" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
           </g>
-          <text x="65" y="275" textAnchor="middle" className="font-mono text-[12px] fill-grid-green font-bold">Haus 1</text>
+          <text x="495" y="275" textAnchor="middle" className="font-mono text-[12px] fill-grid-green font-bold">Gebäude</text>
 
-          {/* House 2 (Right of center) */}
-          <g id="house-2">
-            <path d="M330 185 L375 160 L420 185 L420 250 L330 250 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2.5" />
-            <path d="M330 185 L375 160 L420 185" fill="none" stroke="#10B981" strokeWidth="2.5" />
-            {/* Window */}
-            <rect x="360" y="205" width="24" height="24" rx="3" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
-          </g>
-          <text x="375" y="275" textAnchor="middle" className="font-mono text-[12px] fill-grid-green font-bold">Haus 2</text>
-
-          {/* === 4. ELECTRICITY FLOWS === */}
-          {/* Flow: Solar → House 1 */}
-          <path
-            d="M160 130 L110 180"
-            stroke="#FBBF24"
-            strokeWidth="3"
-            strokeDasharray="6 5"
-            className="animate-[dash_2s_linear_infinite]"
-            filter="url(#glow)"
-          />
-          {/* Label for House 1 electricity */}
-          <text x="120" y="145" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Strom</text>
-
-          {/* Flow: Solar → House 2 */}
-          <path
-            d="M280 130 L330 180"
-            stroke="#FBBF24"
-            strokeWidth="3"
-            strokeDasharray="6 5"
-            className="animate-[dash_2s_linear_infinite]"
-            filter="url(#glow)"
-          />
-          {/* Label for House 2 electricity */}
-          <text x="320" y="145" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Strom</text>
-
+          {/* === 5. ELECTRICITY FLOWS === */}
           {/* Flow: Solar → Sihlicon Hub Core */}
           <path
             d="M220 160 L220 230"
@@ -188,30 +189,19 @@ export function PrototypeVisualization() {
           <text x="220" y="365" textAnchor="middle" className="font-mono text-[13px] fill-brand-black font-bold">Sihlicon Hub Core</text>
           <text x="220" y="380" textAnchor="middle" className="font-mono text-[10px] fill-gray-500">Immersionskühlung · 20L Tank</text>
 
-          {/* === 6. HEAT RETURN FLOWS === */}
-          {/* Heat → House 1 (Warmwasser) - NO BOX */}
+          {/* === 7. HEAT RETURN FLOWS === */}
+          {/* Heat → Gebäude */}
           <path
-            d="M165 345 L85 255"
+            d="M290 290 L450 220"
             stroke="#FF6B35"
             strokeWidth="4"
             strokeDasharray="8 5"
             className="animate-[dash_1.5s_linear_infinite]"
             filter="url(#glow)"
           />
-          {/* Label for Warmwasser - PLAIN TEXT */}
-          <text x="105" y="310" textAnchor="middle" className="font-mono text-[12px] fill-thermal-orange font-bold">Warmwasser</text>
-
-          {/* Heat → House 2 (Raumheizung) - NO BOX */}
-          <path
-            d="M275 345 L355 255"
-            stroke="#FF6B35"
-            strokeWidth="4"
-            strokeDasharray="8 5"
-            className="animate-[dash_1.5s_linear_infinite]"
-            filter="url(#glow)"
-          />
-          {/* Label for Raumheizung - PLAIN TEXT */}
-          <text x="335" y="310" textAnchor="middle" className="font-mono text-[12px] fill-thermal-orange font-bold">Raumheizung</text>
+          {/* Label for Heat */}
+          <text x="380" y="240" textAnchor="middle" className="font-mono text-[12px] fill-thermal-orange font-bold">Wärme</text>
+          <text x="380" y="254" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange">45-60°C</text>
 
           {/* === 7. COMPUTE / AI OUTPUT === */}
           <g id="compute-section">
@@ -267,9 +257,9 @@ export function PrototypeVisualization() {
             </g>
           </g>
 
-          {/* === 8. LEGEND BOX === */}
-          <g transform="translate(480, 50)">
-            <rect x="0" y="0" width="180" height="100" rx="10" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
+          {/* === 9. LEGEND BOX === */}
+          <g transform="translate(520, 40)">
+            <rect x="0" y="0" width="180" height="120" rx="10" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
             <text x="90" y="22" textAnchor="middle" className="font-mono text-[11px] fill-brand-black font-bold">ENERGIEFLUSS</text>
             
             {/* Legend items */}
@@ -277,11 +267,15 @@ export function PrototypeVisualization() {
               <line x1="0" y1="0" x2="28" y2="0" stroke="#FBBF24" strokeWidth="3" strokeDasharray="4 3" />
               <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Solarstrom</text>
             </g>
-            <g transform="translate(16, 62)">
-              <line x1="0" y1="0" x2="28" y2="0" stroke="#FF6B35" strokeWidth="3" strokeDasharray="4 3" />
-              <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Abwärme (45°C)</text>
+            <g transform="translate(16, 60)">
+              <line x1="0" y1="0" x2="28" y2="0" stroke="#22C55E" strokeWidth="3" strokeDasharray="4 3" />
+              <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Batterie → Core</text>
             </g>
-            <g transform="translate(16, 82)">
+            <g transform="translate(16, 78)">
+              <line x1="0" y1="0" x2="28" y2="0" stroke="#FF6B35" strokeWidth="3" strokeDasharray="4 3" />
+              <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Abwärme (45-60°C)</text>
+            </g>
+            <g transform="translate(16, 96)">
               <line x1="0" y1="0" x2="28" y2="0" stroke="#A855F7" strokeWidth="3" strokeDasharray="4 3" />
               <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Rechenleistung</text>
             </g>
@@ -290,30 +284,36 @@ export function PrototypeVisualization() {
 
         {/* Stats overlay - Bottom - Desktop */}
         <div className="mt-4 flex justify-between items-end">
-          <div className="flex items-center gap-4">
-            <div className="bg-solar-yellow/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-solar-yellow/20">
+          <div className="flex items-center gap-3 flex-wrap">
+            <div className="bg-solar-yellow/10 backdrop-blur-sm px-3 py-2 rounded-xl border border-solar-yellow/20">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-solar-yellow animate-pulse" />
-                <span className="font-mono text-[11px] text-brand-black font-semibold">P_solar: 150W</span>
+                <span className="font-mono text-[10px] text-brand-black font-semibold">P_solar: 150W</span>
               </div>
             </div>
-            <div className="bg-compute-blue/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-compute-blue/20">
+            <div className="bg-grid-green/10 backdrop-blur-sm px-3 py-2 rounded-xl border border-grid-green/20">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-grid-green animate-pulse" />
+                <span className="font-mono text-[10px] text-brand-black font-semibold">Batterie: 2 kWh</span>
+              </div>
+            </div>
+            <div className="bg-compute-blue/10 backdrop-blur-sm px-3 py-2 rounded-xl border border-compute-blue/20">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-compute-blue" />
-                <span className="font-mono text-[11px] text-brand-black font-semibold">P_compute: 140W</span>
+                <span className="font-mono text-[10px] text-brand-black font-semibold">P_compute: 140W</span>
               </div>
             </div>
-            <div className="bg-thermal-orange/10 backdrop-blur-sm px-4 py-2 rounded-xl border border-thermal-orange/20">
+            <div className="bg-thermal-orange/10 backdrop-blur-sm px-3 py-2 rounded-xl border border-thermal-orange/20">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-thermal-orange" />
-                <span className="font-mono text-[11px] text-brand-black font-semibold">ΔT: +25°C</span>
+                <span className="font-mono text-[10px] text-brand-black font-semibold">ΔT: +25°C</span>
               </div>
             </div>
           </div>
           
           <div className="text-right">
             <span className="font-accent text-lg text-thermal-orange font-semibold">Sihlicon Hub Demo</span>
-            <span className="font-mono text-[10px] text-historic-sepia block mt-1">Ein-Knopf-Demo · Mini-ITX</span>
+            <span className="font-mono text-[10px] text-historic-sepia block mt-1">Solar → Batterie → Compute → Wärme</span>
           </div>
         </div>
       </div>
@@ -379,54 +379,53 @@ export function PrototypeVisualization() {
 
           {/* === 2. SOLAR PANEL - Mobile === */}
           <g id="solar-panel-mobile">
-            <rect x="100" y="60" width="100" height="50" rx="5" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
-            <path d="M100 80 L200 80 M100 100 L200 100" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M133 60 L133 110 M166 60 L166 110" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+            <rect x="100" y="60" width="100" height="45" rx="5" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
+            <path d="M100 78 L200 78 M100 95 L200 95" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M133 60 L133 105 M166 60 L166 105" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
           </g>
-          <text x="150" y="125" textAnchor="middle" className="font-mono text-[12px] fill-solar-yellow font-bold">Solarmodul (150W)</text>
+          <text x="150" y="120" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Solar (150W)</text>
 
-          {/* Solar → Down arrow */}
+          {/* === 3. BATTERY - Mobile === */}
+          <g id="battery-mobile">
+            <rect x="35" y="140" width="50" height="45" rx="5" fill="#22C55E" fillOpacity="0.1" stroke="#22C55E" strokeWidth="2" />
+            {/* Battery terminal */}
+            <rect x="48" y="135" width="24" height="5" rx="2" fill="#22C55E" />
+            {/* Battery level bars */}
+            <rect x="42" y="160" width="36" height="7" rx="2" fill="#22C55E" fillOpacity="0.8" />
+            <rect x="42" y="150" width="36" height="7" rx="2" fill="#22C55E" fillOpacity="0.5" className="animate-pulse" />
+          </g>
+          <text x="60" y="200" textAnchor="middle" className="font-mono text-[9px] fill-grid-green font-bold">Batterie</text>
+
+          {/* Solar → Battery */}
           <path
-            d="M150 130 L150 160"
+            d="M100 85 L85 85 L85 140"
             stroke="#FBBF24"
-            strokeWidth="3"
-            strokeDasharray="5 4"
+            strokeWidth="2"
+            strokeDasharray="4 3"
             className="animate-[dash_1.5s_linear_infinite]"
           />
-          <text x="175" y="150" className="font-mono text-[10px] fill-solar-yellow font-bold">Strom</text>
 
-          {/* === 3. HOUSES ROW - Mobile === */}
-          <g id="houses-mobile">
-            {/* House 1 */}
-            <g transform="translate(50, 175)">
-              <path d="M0 25 L30 5 L60 25 L60 65 L0 65 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2" />
-              <path d="M0 25 L30 5 L60 25" fill="none" stroke="#10B981" strokeWidth="2" />
-              <text x="30" y="80" textAnchor="middle" className="font-mono text-[10px] fill-grid-green font-bold">Haus 1</text>
-            </g>
-            {/* House 2 */}
-            <g transform="translate(190, 175)">
-              <path d="M0 25 L30 5 L60 25 L60 65 L0 65 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2" />
-              <path d="M0 25 L30 5 L60 25" fill="none" stroke="#10B981" strokeWidth="2" />
-              <text x="30" y="80" textAnchor="middle" className="font-mono text-[10px] fill-grid-green font-bold">Haus 2</text>
+          {/* === 4. HOUSE/BUILDING - Mobile === */}
+          <g id="house-mobile">
+            <g transform="translate(215, 140)">
+              <path d="M0 25 L35 5 L70 25 L70 65 L0 65 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2" />
+              <path d="M0 25 L35 5 L70 25" fill="none" stroke="#10B981" strokeWidth="2" />
             </g>
           </g>
+          <text x="250" y="220" textAnchor="middle" className="font-mono text-[9px] fill-grid-green font-bold">Gebäude</text>
 
-          {/* Strom labels - plain text */}
-          <text x="80" y="185" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Strom ↓</text>
-          <text x="220" y="185" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Strom ↓</text>
-
-          {/* === 4. SIHLICON HUB CORE - Mobile (Centered) === */}
-          <g id="core-mobile" transform="translate(75, 270)">
-            <rect x="0" y="0" width="150" height="80" rx="8" fill="#1A1A1A" />
-            <rect x="8" y="12" width="134" height="56" rx="4" fill="url(#waterGradientMobile)" fillOpacity="0.35" />
+          {/* === 5. SIHLICON HUB CORE - Mobile (Centered) === */}
+          <g id="core-mobile" transform="translate(75, 235)">
+            <rect x="0" y="0" width="150" height="70" rx="8" fill="#1A1A1A" />
+            <rect x="8" y="10" width="134" height="50" rx="4" fill="url(#waterGradientMobile)" fillOpacity="0.35" />
             {/* Server blades */}
             {[25, 50, 75, 100, 125].map((x, i) => (
               <rect
                 key={i}
                 x={x - 6}
-                y="18"
+                y="16"
                 width="12"
-                height="44"
+                height="38"
                 rx="2"
                 fill="#3B82F6"
                 fillOpacity="0.75"
@@ -435,54 +434,63 @@ export function PrototypeVisualization() {
               />
             ))}
           </g>
-          <text x="150" y="365" textAnchor="middle" className="font-mono text-[12px] fill-brand-black font-bold">Sihlicon Hub Core</text>
-          <text x="150" y="378" textAnchor="middle" className="font-mono text-[9px] fill-gray-500">Immersionskühlung</text>
+          <text x="150" y="320" textAnchor="middle" className="font-mono text-[11px] fill-brand-black font-bold">Sihlicon Hub Core</text>
+          <text x="150" y="333" textAnchor="middle" className="font-mono text-[8px] fill-gray-500">Thermische Kühlung</text>
 
-          {/* === 5. HEAT RETURN - Mobile - PLAIN TEXT === */}
+          {/* Battery → Core */}
+          <path
+            d="M60 185 L60 270 L75 270"
+            stroke="#22C55E"
+            strokeWidth="2"
+            strokeDasharray="4 3"
+            className="animate-[dash_1.5s_linear_infinite]"
+          />
+
+          {/* Solar → Core */}
+          <path
+            d="M150 120 L150 235"
+            stroke="#FBBF24"
+            strokeWidth="2"
+            strokeDasharray="4 3"
+            className="animate-[dash_1.5s_linear_infinite]"
+          />
+
+          {/* === 6. HEAT RETURN - Mobile === */}
           <g id="heat-return-mobile">
-            {/* Arrow up to houses */}
+            {/* Arrow to building */}
             <path
-              d="M100 270 L80 255"
+              d="M225 270 L250 205"
               stroke="#FF6B35"
               strokeWidth="3"
-              strokeDasharray="5 4"
-              className="animate-[dash_1.5s_linear_infinite]"
-            />
-            <path
-              d="M200 270 L220 255"
-              stroke="#FF6B35"
-              strokeWidth="3"
-              strokeDasharray="5 4"
+              strokeDasharray="4 3"
               className="animate-[dash_1.5s_linear_infinite]"
             />
           </g>
-          <text x="65" y="268" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Warmwasser ↑</text>
-          <text x="235" y="268" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Heizung ↑</text>
+          <text x="260" y="248" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Wärme ↑</text>
 
-          {/* === 6. COMPUTE OUTPUT - Mobile (Bottom) === */}
+          {/* === 7. COMPUTE OUTPUT - Mobile (Bottom) === */}
           <g id="compute-mobile">
             <path
-              d="M150 350 L150 390"
+              d="M150 305 L150 345"
               stroke="#A855F7"
               strokeWidth="3"
-              strokeDasharray="5 4"
+              strokeDasharray="4 3"
               className="animate-[dash_2s_linear_infinite]"
             />
-            <polygon points="150,398 145,388 155,388" fill="#A855F7" />
             
             {/* AI Boxes - Side by side */}
-            <g transform="translate(30, 405)">
+            <g transform="translate(30, 355)">
               <rect x="0" y="0" width="110" height="35" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
               <text x="55" y="15" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Training</text>
               <text x="55" y="27" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">GPU Workloads</text>
             </g>
-            <g transform="translate(160, 405)">
+            <g transform="translate(160, 355)">
               <rect x="0" y="0" width="110" height="35" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
               <text x="55" y="15" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Inference</text>
               <text x="55" y="27" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">Low Latency</text>
             </g>
           </g>
-          <text x="150" y="400" textAnchor="middle" className="font-mono text-[10px] fill-purple-500 font-bold">Rechenleistung ↓</text>
+          <text x="150" y="350" textAnchor="middle" className="font-mono text-[9px] fill-purple-500 font-bold">Rechenleistung ↓</text>
         </svg>
 
         {/* Mobile Legend - Below SVG */}
@@ -490,38 +498,47 @@ export function PrototypeVisualization() {
           <div className="text-center mb-2">
             <span className="font-mono text-[10px] text-brand-black font-bold">ENERGIEFLUSS</span>
           </div>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-0.5 bg-solar-yellow" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FBBF24 0, #FBBF24 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[9px] text-gray-600">Solarstrom</span>
+          <div className="flex justify-center gap-3 flex-wrap">
+            <div className="flex items-center gap-1">
+              <div className="w-5 h-0.5 bg-solar-yellow" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FBBF24 0, #FBBF24 4px, transparent 4px, transparent 7px)' }} />
+              <span className="font-mono text-[8px] text-gray-600">Solar</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-0.5 bg-thermal-orange" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FF6B35 0, #FF6B35 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[9px] text-gray-600">Abwärme</span>
+            <div className="flex items-center gap-1">
+              <div className="w-5 h-0.5 bg-grid-green" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #22C55E 0, #22C55E 4px, transparent 4px, transparent 7px)' }} />
+              <span className="font-mono text-[8px] text-gray-600">Batterie</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-0.5 bg-purple-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0, #A855F7 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[9px] text-gray-600">Compute</span>
+            <div className="flex items-center gap-1">
+              <div className="w-5 h-0.5 bg-thermal-orange" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FF6B35 0, #FF6B35 4px, transparent 4px, transparent 7px)' }} />
+              <span className="font-mono text-[8px] text-gray-600">Wärme</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-5 h-0.5 bg-purple-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0, #A855F7 4px, transparent 4px, transparent 7px)' }} />
+              <span className="font-mono text-[8px] text-gray-600">Compute</span>
             </div>
           </div>
         </div>
 
         {/* Mobile Stats - Below */}
-        <div className="mt-3 grid grid-cols-3 gap-2">
+        <div className="mt-3 grid grid-cols-4 gap-2">
           <div className="bg-solar-yellow/10 rounded-lg p-2 text-center">
             <div className="w-2 h-2 rounded-full bg-solar-yellow mx-auto mb-1 animate-pulse" />
-            <span className="font-mono text-[9px] text-brand-black font-semibold block">150W</span>
-            <span className="font-mono text-[7px] text-gray-500">Solar</span>
+            <span className="font-mono text-[8px] text-brand-black font-semibold block">150W</span>
+            <span className="font-mono text-[6px] text-gray-500">Solar</span>
+          </div>
+          <div className="bg-grid-green/10 rounded-lg p-2 text-center">
+            <div className="w-2 h-2 rounded-full bg-grid-green mx-auto mb-1 animate-pulse" />
+            <span className="font-mono text-[8px] text-brand-black font-semibold block">2 kWh</span>
+            <span className="font-mono text-[6px] text-gray-500">Batterie</span>
           </div>
           <div className="bg-compute-blue/10 rounded-lg p-2 text-center">
             <div className="w-2 h-2 rounded-full bg-compute-blue mx-auto mb-1" />
-            <span className="font-mono text-[9px] text-brand-black font-semibold block">140W</span>
-            <span className="font-mono text-[7px] text-gray-500">Compute</span>
+            <span className="font-mono text-[8px] text-brand-black font-semibold block">140W</span>
+            <span className="font-mono text-[6px] text-gray-500">Compute</span>
           </div>
           <div className="bg-thermal-orange/10 rounded-lg p-2 text-center">
             <div className="w-2 h-2 rounded-full bg-thermal-orange mx-auto mb-1" />
-            <span className="font-mono text-[9px] text-brand-black font-semibold block">+25°C</span>
-            <span className="font-mono text-[7px] text-gray-500">ΔT</span>
+            <span className="font-mono text-[8px] text-brand-black font-semibold block">+25°C</span>
+            <span className="font-mono text-[6px] text-gray-500">ΔT</span>
           </div>
         </div>
 
