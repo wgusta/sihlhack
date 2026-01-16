@@ -58,33 +58,32 @@ export default function TeamPage() {
 
                     <div className="mt-6 space-y-4 text-historic-sepia font-mono text-sm leading-relaxed">
                       <p>
-                        <strong className="text-brand-black">Der Moment, der alles änderte:</strong> Ich sass 
-                        an einem Hackathon in Zürich, umgeben von brillanten Entwicklern. Wir hackten 48 Stunden 
-                        durch – und am Ende? Unsere Projekte verschwanden in einer Sponsor-Schublade. 
+                        Der Moment, der alles änderte: Ich sass an einem Hackathon in Zürich, umgeben von brillanten Entwicklern. 
+                        Wir hackten 48 Stunden durch – und am Ende? Unsere Projekte verschwanden in einer Sponsor-Schublade. 
                         Die Energie war unglaublich, aber das System war kaputt.
                       </p>
 
                       <p>
-                        Wenige Wochen später stand ich in einem Firmenarchiv im Sihltal. Geschäftsbücher aus 
-                        den 1890ern, Fotografien, technische Zeichnungen – kurz davor, entsorgt zu werden. 
+                        Wenige Wochen später stand ich in einem Firmenarchiv im Sihltal. Geschäftsbücher aus den 1890ern, 
+                        Fotografien, technische Zeichnungen – kurz davor, entsorgt zu werden. 
                         <strong className="text-brand-black"> Diese zwei Erlebnisse haben mich nicht mehr losgelassen.</strong>
                       </p>
 
                       <p>
-                        Was, wenn wir dezentrale Infrastruktur bauen, die mit überschüssigem Solarstrom läuft 
-                        und gleichzeitig Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört – 
-                        ohne Corporate-Agenda, mit echtem Stake am Ergebnis?
+                        Was, wenn wir dezentrale Infrastruktur bauen, die mit überschüssigem Solarstrom läuft und gleichzeitig 
+                        Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört – ohne Corporate-Agenda, mit echtem 
+                        Stake am Ergebnis?
                       </p>
 
                       <p>
-                        Mein <strong className="text-brand-black">MSc in Applied Information & Data Science</strong> an 
-                        der HSLU gibt mir die Tools, um diese Vision umzusetzen. KI-Integration, ML-basierte 
-                        Datenanalyse, moderne OCR-Methoden – alles, was wir brauchen, um historische Archive 
-                        zu erschliessen und dezentrale Systeme intelligent zu steuern.
+                        Mein <strong className="text-brand-black">MSc in Applied Information & Data Science</strong> an der HSLU 
+                        gibt mir die Tools, um diese Vision umzusetzen. KI-Integration, ML-basierte Datenanalyse, moderne 
+                        OCR-Methoden – alles, was wir brauchen, um historische Archive zu erschliessen und dezentrale 
+                        Systeme intelligent zu steuern.
                       </p>
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-4">
+                    <div className="mt-6">
                       <a
                         href="https://linkedin.com/in/gueneyusta"
                         target="_blank"
@@ -92,22 +91,6 @@ export default function TeamPage() {
                         className="text-sm font-mono text-thermal-orange hover:text-sihl-red transition-colors"
                       >
                         LinkedIn →
-                      </a>
-                      <a
-                        href="https://www.sihliconvalley.ch"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-mono text-thermal-orange hover:text-sihl-red transition-colors"
-                      >
-                        sihliconvalley.ch →
-                      </a>
-                      <a
-                        href="https://github.com/wgusta"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-mono text-thermal-orange hover:text-sihl-red transition-colors"
-                      >
-                        GitHub →
                       </a>
                     </div>
                   </div>
