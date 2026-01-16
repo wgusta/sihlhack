@@ -40,6 +40,36 @@ Als Bonus-Challenge für Teams mit historischem Interesse oder Data-Science-Back
   outcome: 'Erschlossenes Industrieerbe mit modernen Analyse-Möglichkeiten',
 }
 
+// Team Red: Security Challenge - DANGER ZONE
+const TEAM_RED = {
+  id: 'team-red',
+  name: 'Team Red',
+  nameDE: 'Team Red: Hacke unser System',
+  icon: '💀',
+  track: 'DANGER ZONE',
+  longDescription: `An vielen Hackathons wird nicht mehr gehackt. Bei uns schon.
+
+Während die anderen Teams bauen, bist du der Gegner. Dein Job: Finde Schwachstellen, bevor es jemand anderes tut. Teste Hardware, Software, APIs und Netzwerk auf Herz und Nieren.
+
+Ethisches Hacking im kontrollierten Umfeld. Du greifst nur an, was wir dir freigeben. Aber innerhalb dieser Grenzen: Keine Gnade.`,
+  technicalDetails: [
+    'Penetration Testing der Grid-OS API',
+    'Hardware Security Assessment (Sihlicon Core)',
+    'Network Traffic Analysis',
+    'Social Engineering Simulation',
+    'Fuzzing und Input Validation Tests',
+    'Authentication & Authorization Bypass Attempts',
+  ],
+  deliverables: [
+    'Security Audit Report',
+    'Proof-of-Concept Exploits',
+    'Vulnerability Disclosure Documentation',
+    'Remediation Recommendations',
+  ],
+  skills: ['Pentesting', 'Kali Linux', 'Burp Suite', 'Wireshark', 'Python', 'Reverse Engineering'],
+  outcome: 'Gehärtetes System und Security-Dokumentation für Production',
+}
+
 // Extended challenge details for the dedicated page
 const challengeDetails = {
   'sihlicon-core': {
@@ -165,8 +195,8 @@ export default function ChallengesPage() {
                 </a>
               ))}
             </div>
-            {/* Side-Quest Link */}
-            <div className="flex justify-center">
+            {/* Side-Quest & Team Red Links */}
+            <div className="flex justify-center gap-4 flex-wrap">
               <a
                 href="#historic-archive"
                 className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all text-center group"
@@ -177,6 +207,26 @@ export default function ChallengesPage() {
                 </div>
                 <div className="font-accent text-xs text-historic-sepia/70 mt-1">
                   Side-Quest
+                </div>
+              </a>
+              
+              {/* Team Red - Danger Zone styling */}
+              <a
+                href="#team-red"
+                className="p-4 rounded-none border-2 border-red-500/50 hover:border-red-500 hover:bg-red-500/10 transition-all text-center group relative overflow-hidden"
+                style={{ transform: 'skewX(-2deg)' }}
+              >
+                <div className="absolute inset-0 opacity-20" style={{
+                  background: 'repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(255,0,0,0.1) 5px, rgba(255,0,0,0.1) 10px)',
+                }} />
+                <div className="relative">
+                  <div className="text-3xl mb-2">{TEAM_RED.icon}</div>
+                  <div className="font-mono text-sm font-semibold text-red-500 group-hover:text-red-400 transition-colors">
+                    Team Red
+                  </div>
+                  <div className="font-mono text-[10px] text-red-500/70 mt-1 uppercase tracking-wider animate-pulse">
+                    ⚠ Danger Zone
+                  </div>
                 </div>
               </a>
             </div>
@@ -406,6 +456,148 @@ export default function ChallengesPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Team Red: DANGER ZONE */}
+        <section id="team-red" className="py-16 bg-brand-black scroll-mt-24 relative overflow-hidden">
+          {/* Animated scan lines */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute inset-0" style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,0,0,0.1) 2px, rgba(255,0,0,0.1) 4px)',
+              animation: 'scan 8s linear infinite',
+            }} />
+          </div>
+          
+          {/* Warning stripes top */}
+          <div className="absolute top-0 left-0 right-0 h-3 bg-repeating-linear-gradient" style={{
+            background: 'repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #1a1a1a 10px, #1a1a1a 20px)',
+          }} />
+          
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative">
+            {/* Glitchy header */}
+            <div className="text-center mb-8 relative">
+              <div className="inline-block relative">
+                <span 
+                  className="font-mono text-xs text-red-500 uppercase tracking-[0.5em] animate-pulse"
+                  style={{ textShadow: '0 0 10px rgba(255,0,0,0.8)' }}
+                >
+                  ⚠ DANGER ZONE ⚠
+                </span>
+              </div>
+              
+              <h2 
+                className="font-futuristic text-4xl sm:text-5xl font-bold text-red-500 mt-4 relative"
+                style={{ 
+                  textShadow: '2px 2px 0 #ff0000, -2px -2px 0 #00ffff, 0 0 20px rgba(255,0,0,0.5)',
+                }}
+              >
+                <span className="relative inline-block" style={{ transform: 'skewX(-5deg)' }}>
+                  {TEAM_RED.icon} TEAM RED
+                </span>
+              </h2>
+              
+              <p className="font-mono text-lg text-red-400 mt-2" style={{ transform: 'skewX(-2deg)' }}>
+                Hacke unser System
+              </p>
+            </div>
+
+            {/* Main card with chaotic styling */}
+            <div 
+              className="relative border-2 border-red-500/50 rounded-none p-6 md:p-8"
+              style={{
+                background: 'linear-gradient(135deg, rgba(139,0,0,0.3) 0%, rgba(26,26,26,0.9) 50%, rgba(139,0,0,0.2) 100%)',
+                boxShadow: '0 0 30px rgba(255,0,0,0.3), inset 0 0 30px rgba(255,0,0,0.1)',
+                transform: 'skewY(-0.5deg)',
+              }}
+            >
+              {/* Decorative corner brackets */}
+              <div className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-red-500" />
+              <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-red-500" />
+              <div className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-red-500" />
+              <div className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-red-500" />
+
+              {/* Terminal-style intro */}
+              <div className="mb-6 p-4 bg-black/50 border border-red-500/30 font-mono text-sm">
+                <div className="text-green-500 mb-2">
+                  <span className="text-red-500">root@sihlhack</span>:<span className="text-blue-400">~</span># cat /challenges/team-red.txt
+                </div>
+                <p className="text-gray-300 whitespace-pre-line leading-relaxed">
+                  {TEAM_RED.longDescription}
+                </p>
+                <div className="text-green-500 mt-2 animate-pulse">█</div>
+              </div>
+
+              {/* Two column grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                {/* Attack Vectors */}
+                <div className="border border-red-500/30 bg-black/30 p-4">
+                  <h3 className="font-mono text-sm text-red-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="animate-pulse">▶</span> ATTACK VECTORS
+                  </h3>
+                  <ul className="space-y-2">
+                    {TEAM_RED.technicalDetails.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
+                        <span className="text-red-500 font-bold">[{String(i+1).padStart(2, '0')}]</span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Deliverables */}
+                <div className="border border-red-500/30 bg-black/30 p-4">
+                  <h3 className="font-mono text-sm text-red-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="animate-pulse">▶</span> DELIVERABLES
+                  </h3>
+                  <ul className="space-y-2 mb-4">
+                    {TEAM_RED.deliverables.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
+                        <span className="text-green-500">[✓]</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-3 border-t border-red-500/20">
+                    <p className="text-xs font-mono text-gray-500">
+                      <span className="text-red-400">OUTPUT:</span> {TEAM_RED.outcome}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Skills bar */}
+              <div className="border-t border-red-500/30 pt-4">
+                <div className="flex flex-wrap gap-2">
+                  {TEAM_RED.skills.map((skill, i) => (
+                    <span 
+                      key={i} 
+                      className="px-2 py-1 bg-red-500/20 border border-red-500/40 text-red-400 text-xs font-mono"
+                      style={{ transform: `rotate(${(i % 3 - 1) * 1}deg)` }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Warning message */}
+              <div className="mt-6 p-3 border border-yellow-500/50 bg-yellow-500/10 text-center" style={{ transform: 'skewX(-1deg)' }}>
+                <p className="font-mono text-xs text-yellow-400 uppercase tracking-wider">
+                  ⚠ Nur mit expliziter Genehmigung · Responsible Disclosure Required ⚠
+                </p>
+              </div>
+            </div>
+
+            {/* Glitchy decorative elements */}
+            <div className="absolute -right-4 top-1/4 font-mono text-6xl text-red-500/10 font-bold" style={{ transform: 'rotate(90deg)' }}>
+              BREACH
+            </div>
+          </div>
+          
+          {/* Warning stripes bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-3" style={{
+            background: 'repeating-linear-gradient(-45deg, #ff0000, #ff0000 10px, #1a1a1a 10px, #1a1a1a 20px)',
+          }} />
         </section>
 
         {/* How Teams Work */}
