@@ -66,101 +66,88 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Problem → Solution - Enhanced */}
+            {/* Problem → Solution - Fixed */}
             <div className="relative mb-12">
-              {/* Before/After Labels */}
-              <div className="flex justify-between mb-4 px-4">
-                <span className="font-mono text-xs text-red-500 uppercase tracking-widest font-bold">VORHER</span>
-                <span className="font-mono text-xs text-grid-green uppercase tracking-widest font-bold">NACHHER</span>
+              {/* Before/After Labels - Larger */}
+              <div className="flex justify-between mb-6 px-2">
+                <span className="font-mono text-sm text-red-600 uppercase tracking-widest font-bold">VORHER</span>
+                <span className="font-mono text-sm text-grid-green uppercase tracking-widest font-bold">NACHHER</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative">
-                {/* Problem Card - Enhanced */}
-                <Card className="border-2 border-red-500 bg-gradient-to-br from-red-50 to-red-100/50 shadow-lg relative overflow-hidden">
-                  {/* Warning pattern overlay */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-[0.03]">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <path d="M50 10 L90 90 L10 90 Z" fill="red" />
-                      <text x="50" y="65" textAnchor="middle" fontSize="30" fill="red">!</text>
-                    </svg>
-                  </div>
-                  
-                  <CardHeader className="relative z-10 pb-2">
-                    <CardTitle className="text-xl text-red-600 flex items-center gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative">
+                {/* Problem Card - Better contrast */}
+                <Card className="border-2 border-red-500 bg-gradient-to-br from-red-50 to-red-100 shadow-lg relative">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl text-red-700 flex items-center gap-3">
                       <span className="text-3xl">🔥</span> Das Problem
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="relative z-10 pt-0">
-                    <ul className="space-y-3 text-sm font-mono">
-                      <li className="flex items-start gap-3 text-red-700">
-                        <span className="text-red-500 mt-0.5 text-lg">✗</span>
-                        <span>Datacenter verschwenden <strong>Abwärme</strong></span>
+                  <CardContent className="pt-0">
+                    <ul className="space-y-4 text-sm font-mono">
+                      <li className="flex items-start gap-3 text-red-800">
+                        <span className="text-red-600 mt-0.5 text-xl font-bold">✗</span>
+                        <span className="leading-relaxed">Datacenter verschwenden <strong className="text-red-900">Abwärme</strong></span>
                       </li>
-                      <li className="flex items-start gap-3 text-red-700">
-                        <span className="text-red-500 mt-0.5 text-lg">✗</span>
-                        <span>Häuser verbrennen <strong>fossile Energie</strong></span>
+                      <li className="flex items-start gap-3 text-red-800">
+                        <span className="text-red-600 mt-0.5 text-xl font-bold">✗</span>
+                        <span className="leading-relaxed">Häuser verbrennen <strong className="text-red-900">fossile Energie</strong></span>
                       </li>
-                      <li className="flex items-start gap-3 text-red-700">
-                        <span className="text-red-500 mt-0.5 text-lg">✗</span>
-                        <span>Solarstrom wird zu Spitzenzeiten <strong>verschenkt</strong></span>
+                      <li className="flex items-start gap-3 text-red-800">
+                        <span className="text-red-600 mt-0.5 text-xl font-bold">✗</span>
+                        <span className="leading-relaxed"><strong className="text-red-900">Solarstrom</strong> wird zu Spitzenzeiten <strong className="text-red-900">verschenkt</strong></span>
                       </li>
-                      <li className="flex items-start gap-3 text-red-700">
-                        <span className="text-red-500 mt-0.5 text-lg">✗</span>
-                        <span>Compute-Power ist <strong>zentral und teuer</strong></span>
+                      <li className="flex items-start gap-3 text-red-800">
+                        <span className="text-red-600 mt-0.5 text-xl font-bold">✗</span>
+                        <span className="leading-relaxed">Compute-Power ist <strong className="text-red-900">zentral und teuer</strong></span>
                       </li>
                     </ul>
                   </CardContent>
                 </Card>
 
-                {/* Animated Arrow - Desktop */}
-                <div className="hidden md:flex items-center justify-center absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                {/* Animated Arrow - Desktop - Larger and more prominent */}
+                <div className="hidden md:flex flex-col items-center justify-center absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="bg-white rounded-full p-5 shadow-2xl border-3 border-thermal-orange">
+                    <div className="text-5xl text-thermal-orange animate-pulse">→</div>
+                  </div>
+                  <div className="mt-3 whitespace-nowrap">
+                    <span className="font-mono text-sm text-thermal-orange uppercase tracking-wider font-bold bg-white/90 px-3 py-1 rounded-full border border-thermal-orange/30">Sihlicon Hub</span>
+                  </div>
+                </div>
+
+                {/* Mobile Arrow - Better placement */}
+                <div className="md:hidden flex flex-col items-center justify-center my-6">
                   <div className="bg-white rounded-full p-4 shadow-xl border-2 border-thermal-orange">
-                    <div className="text-4xl text-thermal-orange animate-pulse">→</div>
+                    <div className="text-4xl text-thermal-orange transform rotate-90">→</div>
                   </div>
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                    <span className="font-mono text-xs text-thermal-orange uppercase tracking-wider font-bold">Sihlicon Hub</span>
-                  </div>
-                </div>
-
-                {/* Mobile Arrow */}
-                <div className="md:hidden flex items-center justify-center">
-                  <div className="bg-white rounded-full p-3 shadow-lg border-2 border-thermal-orange">
-                    <div className="text-3xl text-thermal-orange transform rotate-90">→</div>
+                  <div className="mt-3">
+                    <span className="font-mono text-sm text-thermal-orange uppercase tracking-wider font-bold bg-white/90 px-3 py-1 rounded-full border border-thermal-orange/30">Sihlicon Hub</span>
                   </div>
                 </div>
 
-                {/* Solution Card - Enhanced */}
-                <Card className="border-2 border-grid-green bg-gradient-to-br from-green-50 to-green-100/50 shadow-lg relative overflow-hidden">
-                  {/* Success pattern overlay */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-[0.03]">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <circle cx="50" cy="50" r="40" fill="green" />
-                      <path d="M30 50 L45 65 L70 35" stroke="white" strokeWidth="8" fill="none" />
-                    </svg>
-                  </div>
-                  
-                  <CardHeader className="relative z-10 pb-2">
-                    <CardTitle className="text-xl text-grid-green flex items-center gap-3">
+                {/* Solution Card - Better contrast, 1:1 mapping with problems */}
+                <Card className="border-2 border-grid-green bg-gradient-to-br from-green-50 to-green-100 shadow-lg relative">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl text-green-700 flex items-center gap-3">
                       <span className="text-3xl">🏠</span> Die Lösung
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="relative z-10 pt-0">
-                    <ul className="space-y-3 text-sm font-mono">
-                      <li className="flex items-start gap-3 text-green-700">
-                        <span className="text-grid-green mt-0.5 text-lg">✓</span>
-                        <span>Server heizen Gebäude <span className="font-bold text-grid-green bg-grid-green/10 px-1 rounded">(99% Effizienz)</span></span>
+                  <CardContent className="pt-0">
+                    <ul className="space-y-4 text-sm font-mono">
+                      <li className="flex items-start gap-3 text-green-800">
+                        <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
+                        <span className="leading-relaxed">Server heizen Gebäude <strong className="text-green-900">(99% Effizienz)</strong></span>
                       </li>
-                      <li className="flex items-start gap-3 text-green-700">
-                        <span className="text-grid-green mt-0.5 text-lg">✓</span>
-                        <span><strong>Solarüberschuss</strong> powert Compute</span>
+                      <li className="flex items-start gap-3 text-green-800">
+                        <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
+                        <span className="leading-relaxed"><strong className="text-green-900">Solarüberschuss</strong> powert Compute</span>
                       </li>
-                      <li className="flex items-start gap-3 text-green-700">
-                        <span className="text-grid-green mt-0.5 text-lg">✓</span>
-                        <span>LEGs profitieren von <strong>Wärme + Compute</strong></span>
+                      <li className="flex items-start gap-3 text-green-800">
+                        <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
+                        <span className="leading-relaxed">LEGs profitieren von <strong className="text-green-900">Wärme + Compute</strong></span>
                       </li>
-                      <li className="flex items-start gap-3 text-green-700">
-                        <span className="text-grid-green mt-0.5 text-lg">✓</span>
-                        <span><strong>Dezentrale</strong>, resiliente Infrastruktur</span>
+                      <li className="flex items-start gap-3 text-green-800">
+                        <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
+                        <span className="leading-relaxed"><strong className="text-green-900">Dezentrale</strong>, resiliente Infrastruktur</span>
                       </li>
                     </ul>
                   </CardContent>
