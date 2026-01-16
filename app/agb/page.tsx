@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'AGB | sihlhack',
-  description: 'Allgemeine Geschäftsbedingungen für die Teilnahme an sihlhack.',
+  description: 'Allgemeine Geschäftsbedingungen für die Teilnahme an sihlhack - Der erste teilnehmerorientierte Hackathon der Schweiz.',
 }
 
 export default function AGBPage() {
@@ -23,7 +23,7 @@ export default function AGBPage() {
                 1. Geltungsbereich
               </h2>
               <p className="text-historic-sepia">
-                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Teilnahme am sihlhack, dem ersten teilnehmerorientierten Hackathon der Schweiz. Mit der Anmeldung akzeptieren Teilnehmende diese Bedingungen.
+                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Teilnahme am sihlhack, dem ersten teilnehmerorientierten Hackathon der Schweiz. Ziel des Hackathons ist die Digitalisierung historischer Industriedaten aus dem Sihltal und die Entwicklung von Open-Source-Lösungen für die dezentrale Energiezukunft. Mit der Anmeldung akzeptieren Teilnehmende diese Bedingungen.
               </p>
             </section>
 
@@ -76,7 +76,10 @@ export default function AGBPage() {
                 6. Geistiges Eigentum
               </h2>
               <p className="text-historic-sepia">
-                Die während des Hackathons erstellten Projekte verbleiben im Eigentum der jeweiligen Teams. Teilnehmende gewähren dem Veranstalter das Recht, Projektergebnisse zu Dokumentations- und Werbezwecken zu verwenden.
+                Alle während des Hackathons erstellten Projekte (Software, Hardware-Designs, Dokumentation) werden unter der Apache 2.0 Open-Source-Lizenz veröffentlicht. Teilnehmende behalten alle Urheberrechte an ihren Beiträgen und stimmen der Veröffentlichung unter dieser Lizenz zu. Die Projekte verbleiben im geistigen Eigentum der jeweiligen Teams, werden aber der Öffentlichkeit zur freien Nutzung, Anpassung und Weiterentwicklung zur Verfügung gestellt.
+              </p>
+              <p className="text-historic-sepia mt-4">
+                Teilnehmende gewähren dem Veranstalter das Recht, Projektergebnisse zu Dokumentations- und Werbezwecken zu verwenden.
               </p>
             </section>
 

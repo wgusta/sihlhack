@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'Datenschutz | sihlhack',
-  description: 'Datenschutzerklärung von sihlhack.',
+  description: 'Datenschutzerklärung von sihlhack - Der erste teilnehmerorientierte Hackathon der Schweiz.',
 }
 
 export default function DatenschutzPage() {

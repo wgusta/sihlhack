@@ -32,7 +32,7 @@ export function Footer() {
               <Logo size="md" hackColor="white" />
             </Link>
             <p className="mt-4 text-sm font-mono text-gray-400">
-              Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
+              Der erste teilnehmerorientierte Hackathon der Schweiz. Historische Industriedaten aus dem Sihltal digitalisieren.
             </p>
             <p className="mt-4 text-xs font-mono text-gray-500">
               Ein Projekt von{' '}

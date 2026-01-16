@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
   title: 'Impressum | sihlhack',
-  description: 'Impressum und Kontaktinformationen von sihlhack.',
+  description: 'Impressum und Kontaktinformationen von sihlhack - Der erste teilnehmerorientierte Hackathon der Schweiz.',
 }
 
 export default function ImpressumPage() {
