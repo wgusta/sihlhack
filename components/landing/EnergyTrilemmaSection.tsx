@@ -75,7 +75,7 @@ export function EnergyTrilemmaSection() {
             </h3>
             
             {/* SVG Triangle Container */}
-            <div className="relative w-full" style={{ aspectRatio: '1', maxWidth: '600px', margin: '0 auto' }}>
+            <div className="relative w-full" style={{ aspectRatio: '1', maxWidth: '400px', margin: '0 auto' }}>
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full"

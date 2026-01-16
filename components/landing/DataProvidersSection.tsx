@@ -72,14 +72,6 @@ export function DataProvidersSection() {
             Der Stack, den wir bauen
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="font-mono text-xs text-thermal-orange uppercase tracking-[0.2em] mb-4">
-                Entwicklung & Prototyping
-              </span>
-              <h3 className="font-display text-3xl sm:text-4xl font-bold text-white mb-8">
-                Der Stack, den wir bauen
-              </h3>
-              
             <div className="text-center p-4">
               <div className="text-4xl mb-3">🖥️</div>
               <h4 className="font-mono text-thermal-orange font-semibold mb-2">Sihlicon Core</h4>
