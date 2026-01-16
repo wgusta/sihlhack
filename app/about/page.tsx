@@ -31,6 +31,66 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Origin Story */}
+        <section className="py-16 bg-white border-b">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Wie alles begann
+              </span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Die Idee, die nicht loslässt
+              </h2>
+            </div>
+
+            <div className="prose prose-lg max-w-none">
+              <blockquote className="border-l-4 border-thermal-orange pl-6 py-2 my-8 bg-off-white/50 rounded-r-lg">
+                <p className="font-display text-xl italic text-brand-black">
+                  &ldquo;Ich sass an meinem ersten Hackathon und dachte: Das ist es. Diese Energie, diese Kreativität, 
+                  wenn Leute zusammenkommen und einfach bauen. Aber irgendetwas fehlte.&rdquo;
+                </p>
+                <footer className="font-mono text-sm text-historic-sepia mt-2">
+                  — Güney Usta, Gründer sihlhack
+                </footer>
+              </blockquote>
+
+              <p className="font-mono text-historic-sepia leading-relaxed">
+                Es war 2023, als ich bei einem Corporate-Hackathon sass. Talentierte Entwickler, 
+                interessante Challenges – aber am Ende arbeiteten wir alle an Problemen, die ein 
+                Sponsor definiert hatte. Die besten Ideen? Verschwanden in Schubladen. Die Teilnehmer? 
+                Gingen nach Hause ohne echten Stake am Ergebnis.
+              </p>
+
+              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
+                Gleichzeitig beschäftigte mich etwas anderes: Ich hatte ein altes Firmenarchiv besucht, 
+                das kurz davor war, in einem Container zu landen. Geschäftsbücher aus den 1890ern, 
+                Fotografien von Fabrikarbeitern, technische Zeichnungen von Maschinen. 
+                <strong className="text-brand-black"> Das Wissen einer ganzen Industrieepoche, undigitalisiert und bald vergessen.</strong>
+              </p>
+
+              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
+                Dann kam der Moment, der alles verband: Was, wenn wir dezentrale Compute-Infrastruktur bauen – 
+                Server, die mit Solarstrom laufen und Gebäude heizen? Und was, wenn wir diese Rechenleistung nutzen, 
+                um historische Archive zu digitalisieren? <strong className="text-brand-black">Die Zukunft bauen, 
+                um die Vergangenheit zu retten.</strong>
+              </p>
+
+              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
+                sihlhack ist ein Experiment: Ein Hackathon, bei dem Teilnehmer zahlen – und dadurch echten Stake haben. 
+                Wo das Preisgeld von uns allen kommt, nicht von Sponsoren mit Agenda. Wo wir Hardware bauen, 
+                die tatsächlich deployed wird. Und wo eine historische Side-Quest an das Sihltal erinnert, 
+                das einst die Wiege der Zürcher Industrialisierung war.
+              </p>
+            </div>
+
+            <div className="mt-8 text-center">
+              <ButtonLink href="/team" variant="ghost" size="sm">
+                Mehr über das Team →
+              </ButtonLink>
+            </div>
+          </div>
+        </section>
+
         {/* The Vision */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

@@ -6,7 +6,38 @@ import { HACKATHON_CHALLENGES, HACKATHON_ROLES } from '@/lib/roles'
 
 export const metadata = {
   title: 'Challenges | sihlhack',
-  description: 'Die fünf Hackathon-Challenges: Sihlicon Core, Grid-OS, LEG Toolkit, Energy Dashboard und System Integration.',
+  description: 'Die fünf Hackathon-Challenges plus Side-Quest: Sihlicon Core, Grid-OS, LEG Toolkit, Energy Dashboard, System Integration und historische Archive.',
+}
+
+// Side-Quest: Historic Archive Digitalization
+const SIDE_QUEST = {
+  id: 'historic-archive',
+  name: 'Historische Archive',
+  nameDE: 'Historische Archive',
+  icon: '📜',
+  track: 'Side-Quest',
+  description: 'Digitize and analyze historical industrial archives from the Sihl Valley using modern AI methods.',
+  descriptionDE: 'Digitalisiere und analysiere historische Industriearchive aus dem Sihltal mit modernen KI-Methoden.',
+  longDescription: `Das Sihltal war die Wiege der Zürcher Industrialisierung. Von Textilmühlen bis zu Maschinenfabriken führten Unternehmen akribische Aufzeichnungen: Geschäftsbücher, Fotografien, technische Zeichnungen, Mitarbeiterakten, Produktionsdaten.
+
+Vieles davon schlummert in Archiven – undigitalisiert und unerforscht. Hier liegt verborgenes Wissen: Produktionsstrategien aus einer Ära der Ressourcenknappheit, Organisationsstrukturen, technische Innovationen ihrer Zeit voraus.
+
+Als Bonus-Challenge für Teams mit historischem Interesse oder Data-Science-Background.`,
+  technicalDetails: [
+    'OCR-Verarbeitung handschriftlicher und getippter Dokumente',
+    'Bilderkennung für Objekte, Personen, Maschinen',
+    'Strukturierung in abfragbare Formate',
+    'Pattern Discovery mit ML-Algorithmen',
+    'Cross-Referenzierung über mehrere Firmenarchive',
+  ],
+  deliverables: [
+    'Digitalisierte Dokument-Sammlung',
+    'Strukturierte Datenbank',
+    'Visualisierung historischer Muster',
+    'Dokumentation der Methodik',
+  ],
+  skills: ['Python', 'OCR/Tesseract', 'Computer Vision', 'Data Science', 'Historisches Interesse'],
+  outcome: 'Erschlossenes Industrieerbe mit modernen Analyse-Möglichkeiten',
 }
 
 // Extended challenge details for the dedicated page
@@ -117,7 +148,7 @@ export default function ChallengesPage() {
         {/* Overview */}
         <section className="py-12 bg-white border-b">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
               {HACKATHON_CHALLENGES.map((challenge) => (
                 <a
                   key={challenge.id}
@@ -133,6 +164,21 @@ export default function ChallengesPage() {
                   </div>
                 </a>
               ))}
+            </div>
+            {/* Side-Quest Link */}
+            <div className="flex justify-center">
+              <a
+                href="#historic-archive"
+                className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all text-center group"
+              >
+                <div className="text-3xl mb-2">{SIDE_QUEST.icon}</div>
+                <div className="font-mono text-sm font-semibold text-historic-sepia group-hover:text-brand-black transition-colors">
+                  {SIDE_QUEST.nameDE}
+                </div>
+                <div className="font-accent text-xs text-historic-sepia/70 mt-1">
+                  Side-Quest
+                </div>
+              </a>
             </div>
           </div>
         </section>
@@ -256,6 +302,109 @@ export default function ChallengesPage() {
                 </div>
               )
             })}
+          </div>
+        </section>
+
+        {/* Side-Quest: Historic Archive */}
+        <section id="historic-archive" className="py-16 bg-historic-cream/50 scroll-mt-24">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            {/* Vintage Paper Card */}
+            <div className="relative">
+              {/* Decorative corner flourishes */}
+              <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-historic-sepia/40" />
+              <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-historic-sepia/40" />
+              <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-historic-sepia/40" />
+              <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-historic-sepia/40" />
+
+              <div 
+                className="relative bg-gradient-to-br from-historic-cream via-[#F8F4E8] to-historic-cream border-2 border-historic-sepia/30 rounded-sm p-8 md:p-12"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                  backgroundBlendMode: 'overlay',
+                }}
+              >
+                {/* Side-Quest Badge */}
+                <div className="flex justify-center mb-6">
+                  <div className="relative">
+                    <span className="font-accent text-lg text-historic-sepia tracking-wider">
+                      ~~~ SIDE-QUEST ~~~
+                    </span>
+                  </div>
+                </div>
+
+                {/* Header */}
+                <div className="text-center mb-8">
+                  <span className="text-5xl mb-4 block">{SIDE_QUEST.icon}</span>
+                  <h2 className="font-display text-3xl font-bold text-historic-sepia">
+                    {SIDE_QUEST.nameDE}
+                  </h2>
+                  <p className="font-mono text-sm text-historic-sepia/70 mt-2 italic">
+                    Bonus-Challenge für Geschichts- und Data-Science-Enthusiasten
+                  </p>
+                </div>
+
+                {/* Description */}
+                <div className="prose prose-sm max-w-none mb-8">
+                  <p className="text-historic-sepia font-mono whitespace-pre-line text-center max-w-2xl mx-auto leading-relaxed">
+                    {SIDE_QUEST.longDescription}
+                  </p>
+                </div>
+
+                {/* Two Column Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  {/* Technical Details */}
+                  <div className="bg-white/50 border border-historic-sepia/20 rounded p-6">
+                    <h3 className="font-display text-lg font-semibold text-historic-sepia mb-4 flex items-center gap-2">
+                      <span>🔍</span> KI-Methoden
+                    </h3>
+                    <ul className="space-y-2">
+                      {SIDE_QUEST.technicalDetails.map((detail, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-historic-sepia">
+                          <span className="w-1.5 h-1.5 rounded-full bg-historic-sepia mt-2 flex-shrink-0" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Deliverables */}
+                  <div className="bg-white/50 border border-historic-sepia/20 rounded p-6">
+                    <h3 className="font-display text-lg font-semibold text-historic-sepia mb-4 flex items-center gap-2">
+                      <span>📦</span> Deliverables
+                    </h3>
+                    <ul className="space-y-2 mb-4">
+                      {SIDE_QUEST.deliverables.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-historic-sepia">
+                          <span className="text-historic-sepia">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="pt-4 border-t border-historic-sepia/20">
+                      <p className="text-xs font-mono text-historic-sepia">
+                        <strong>Outcome:</strong> {SIDE_QUEST.outcome}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Skills */}
+                <div className="text-center">
+                  <p className="font-mono text-xs text-historic-sepia/70">
+                    Skills: {SIDE_QUEST.skills.join(' · ')}
+                  </p>
+                </div>
+
+                {/* Decorative stamp */}
+                <div className="absolute bottom-4 right-4 opacity-20">
+                  <div className="w-16 h-16 border-2 border-historic-sepia rounded-full flex items-center justify-center rotate-12">
+                    <span className="font-mono text-[8px] text-historic-sepia text-center leading-tight">
+                      SIHLTAL<br/>ARCHIV
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
