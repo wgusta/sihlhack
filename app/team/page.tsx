@@ -58,18 +58,6 @@ export default function TeamPage() {
 
                     <div className="mt-6 space-y-4 text-historic-sepia font-mono text-sm leading-relaxed">
                       <p>
-                        Der Moment, der alles änderte: Ich sass an einem Hackathon in Zürich, umgeben von brillanten Entwicklern. 
-                        Wir hackten 48 Stunden durch – und am Ende? Unsere Projekte verschwanden in einer Sponsor-Schublade. 
-                        Die Energie war unglaublich, aber das System war kaputt.
-                      </p>
-
-                      <p>
-                        Wenige Wochen später stand ich in einem Firmenarchiv im Sihltal. Geschäftsbücher aus den 1890ern, 
-                        Fotografien, technische Zeichnungen – kurz davor, entsorgt zu werden. 
-                        <strong className="text-brand-black"> Diese zwei Erlebnisse haben mich nicht mehr losgelassen.</strong>
-                      </p>
-
-                      <p>
                         Was, wenn wir dezentrale Infrastruktur bauen, die mit überschüssigem Solarstrom läuft und gleichzeitig 
                         Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört – ohne Corporate-Agenda, mit echtem 
                         Stake am Ergebnis?
