@@ -5,28 +5,44 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
+    q: 'Was ist der Digital Hearth?',
+    a: 'Der Digital Hearth ist ein dezentrales Compute-System: Server, die in dielektrischem Öl gekühlt werden (Immersion Cooling). Die Abwärme wird für Warmwasser und Raumheizung genutzt – 99% Wärmerückgewinnung. Betrieben wird das System mit lokalem Solarstrom.',
+  },
+  {
+    q: 'Was bedeutet "teilnehmerorientiert"?',
+    a: 'Bei sihlhack gehört der Hackathon den Teilnehmern, nicht den Sponsoren. Es gibt keine vorgegebene Corporate-Agenda. Alle Ergebnisse werden unter Apache 2.0 Open Source veröffentlicht. Du behältst deine Rechte und kannst deine Arbeit auch kommerziell nutzen.',
+  },
+  {
+    q: 'Was ist eine LEG?',
+    a: 'Eine Lokale Elektrizitätsgemeinschaft (LEG) nach StromVG Art. 18 ist ein Zusammenschluss von Produzenten und Konsumenten, die gemeinsam Energie produzieren und teilen. Ähnlich wie ein ZEV, aber mit der Möglichkeit, das öffentliche Netz zu nutzen.',
+  },
+  {
     q: 'Brauche ich Hardware-Erfahrung?',
-    a: 'Nein. Wir brauchen alle Skills: Software-Entwickler für Grid-OS und APIs, Designer für die Benutzeroberfläche, Ingenieure für thermische Berechnungen, und Projektmanager für die Dokumentation. Wähle bei der Anmeldung deine Rolle.',
+    a: 'Nein. Wir haben 5 verschiedene Challenges: Sihlicon Core (Hardware), Grid-OS (Software), LEG Toolkit (Legal), Energy Dashboard (Frontend) und System Integration. Wähle bei der Anmeldung deine Rolle – von Entwickler bis Designer bis Projektmanager.',
   },
   {
-    q: 'Was ist eine LEG (Lokale Elektrizitätsgemeinschaft)?',
-    a: 'Eine LEG ist ein Zusammenschluss von Nachbarn, die gemeinsam Solarstrom produzieren und nutzen. Seit 2023 in der Schweiz gesetzlich möglich. Unsere Hardware wird in einer echten LEG installiert.',
+    q: 'Was passiert am Sonntag?',
+    a: 'Am Sonntag schliessen wir den Prototyp an ein echtes Solarmodul an und testen das System unter realen Bedingungen. Das ist der Höhepunkt des Hackathons – vom Konzept zum funktionierenden System.',
   },
   {
-    q: 'Was passiert mit dem Code nach dem Hackathon?',
-    a: 'Alles wird unter einer Open Source Lizenz (Apache 2.0 oder MIT) veröffentlicht. Du behältst alle Rechte an deinen Beiträgen. Das Ziel ist, dass andere LEGs die Lösung nachbauen können.',
+    q: 'Wie funktioniert Immersion Cooling?',
+    a: 'Server werden komplett in dielektrisches Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Ergebnis: Lautlose Server, keine Staubprobleme, und 60°C warmes Wasser für Heizung und Warmwasser.',
   },
   {
-    q: 'Wie funktioniert "Immersion Cooling"?',
-    a: 'Server werden in spezielles Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Das Ergebnis: Lautlose Server, keine Staubprobleme, und 60°C warmes Wasser für die Heizung.',
+    q: 'Was passiert mit meinem Code?',
+    a: 'Alles wird unter Apache 2.0 veröffentlicht. Du behältst alle Urheberrechte an deinen Beiträgen und kannst deinen Code auch für andere Projekte nutzen (Dual Licensing). Das Ziel ist, dass andere LEGs die Lösung nachbauen können.',
   },
   {
-    q: 'Wer finanziert das?',
-    a: 'Der Hackathon selbst ist kostenlos. Wir suchen aktuell noch Sponsoren für die Hardware des Prototyps. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen und eingesparte Heizkosten.',
+    q: 'Wer finanziert den Hackathon?',
+    a: 'Wir suchen aktuell Hardware-Sponsoren für Server, GPUs und Immersion-Cooling-Equipment. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen (Rechenleistung verkaufen) und eingesparte Heizkosten.',
   },
   {
     q: 'Kann ich remote teilnehmen?',
-    a: 'Der Hardware-Teil findet vor Ort statt (man muss Server anfassen können). Software-Teams können hybrid arbeiten. Wir empfehlen aber, zumindest für das finale Testing vor Ort zu sein.',
+    a: 'Der Hardware-Teil findet vor Ort statt – man muss den Prototyp anfassen können. Software-Teams können hybrid arbeiten. Für den Solar-Test am Sonntag empfehlen wir, vor Ort zu sein.',
+  },
+  {
+    q: 'Was ist das Energie-Trilemma?',
+    a: 'LEGs stehen vor drei Zielen, die sich klassisch widersprechen: Maximale Solarproduktion, Netzstabilität und Gemeinschaftsautonomie. Der Digital Hearth löst dieses Trilemma, indem er Solarüberschuss direkt in Rechenleistung umwandelt und die Abwärme nutzt.',
   },
 ]
 
