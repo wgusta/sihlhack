@@ -1,7 +1,5 @@
 'use client'
 
-import { PrototypeVisual } from './PrototypeVisual'
-
 // Partner types for the hackathon
 const deploymentPartners = [
   {
@@ -69,14 +67,11 @@ export function DataProvidersSection() {
         </div>
 
         {/* What you'll build */}
-        <div className="mt-16 bg-brand-black rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Visual Side */}
-            <div className="bg-gradient-to-br from-brand-black via-[#111] to-brand-black border-r border-white/5">
-              <PrototypeVisual />
-            </div>
-            
-            {/* Content Side */}
+        <div className="mt-16 bg-brand-black rounded-2xl p-8">
+          <h3 className="font-display text-2xl font-bold text-white text-center mb-8">
+            Der Stack, den wir bauen
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <span className="font-mono text-xs text-thermal-orange uppercase tracking-[0.2em] mb-4">
                 Entwicklung & Prototyping
@@ -85,43 +80,26 @@ export function DataProvidersSection() {
                 Der Stack, den wir bauen
               </h3>
               
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-thermal-orange/10 border border-thermal-orange/20 flex items-center justify-center text-2xl">
-                    🖥️
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-white mb-1">Sihlicon Core</h4>
-                    <p className="text-sm text-gray-400 font-mono">
-                      Immersionsgekühlte Server-Module in dielektrischem Öl. 100% Wärmerückgewinnung bei 60°C Vorlauf.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-compute-blue/10 border border-compute-blue/20 flex items-center justify-center text-2xl">
-                    ⚡
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-white mb-1">Grid-OS</h4>
-                    <p className="text-sm text-gray-400 font-mono">
-                      Die Software-Schicht für dezentrale Compute-Ökonomie. Balanciert Solarertrag, CPU-Last und Wärmebedarf.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-grid-green/10 border border-grid-green/20 flex items-center justify-center text-2xl">
-                    📊
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl font-bold text-white mb-1">Dashboard</h4>
-                    <p className="text-sm text-gray-400 font-mono">
-                      Echtzeit-Monitoring für LEGs. Visualisiert Energieflüsse, Erlöse und thermische Effizienz.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="text-center p-4">
+              <div className="text-4xl mb-3">🖥️</div>
+              <h4 className="font-mono text-thermal-orange font-semibold mb-2">Sihlicon Core</h4>
+              <p className="text-sm text-gray-400 font-mono">
+                Immersionsgekühlte Server-Module mit Wärme-Auskopplung
+              </p>
+            </div>
+            <div className="text-center p-4">
+              <div className="text-4xl mb-3">⚡</div>
+              <h4 className="font-mono text-compute-blue font-semibold mb-2">Grid-OS</h4>
+              <p className="text-sm text-gray-400 font-mono">
+                Intelligente Laststeuerung basierend auf Solarertrag und Netzstatus
+              </p>
+            </div>
+            <div className="text-center p-4">
+              <div className="text-4xl mb-3">📊</div>
+              <h4 className="font-mono text-grid-green font-semibold mb-2">Dashboard</h4>
+              <p className="text-sm text-gray-400 font-mono">
+                Echtzeit-Monitoring für Energie, Wärme und Compute-Auslastung
+              </p>
             </div>
           </div>
         </div>

@@ -1,7 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 export function PrototypeVisualization() {
   return (
     <div className="relative w-full max-w-2xl mx-auto aspect-video bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-8">
@@ -27,13 +25,13 @@ export function PrototypeVisualization() {
           <text x="60" y="30" textAnchor="middle" className="font-mono text-[8px] fill-solar-yellow font-bold uppercase">Solar Input</text>
           
           {/* Energy Flow */}
-          <motion.path
+          <path
             d="M90 60 L140 60"
             stroke="#FBBF24"
             strokeWidth="2"
             strokeDasharray="4 4"
-            animate={{ strokeDashoffset: [0, -20] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="animate-[dash_2s_linear_infinite]"
+            style={{ strokeDashoffset: 0 }}
           />
         </g>
 
@@ -47,7 +45,7 @@ export function PrototypeVisualization() {
           
           {/* Server Blades */}
           {[160, 180, 200, 220, 240].map((x, i) => (
-            <motion.rect
+            <rect
               key={i}
               x={x - 5}
               y="70"
@@ -55,24 +53,29 @@ export function PrototypeVisualization() {
               height="75"
               rx="2"
               fill="#3B82F6"
-              animate={{ fillOpacity: [0.4, 0.8, 0.4] }}
-              transition={{ duration: 2, delay: i * 0.3, repeat: Infinity }}
+              fillOpacity="0.6"
+              className="animate-pulse"
+              style={{ animationDelay: `${i * 0.3}s` }}
             />
           ))}
           
           {/* Bubbles / Flow animation */}
-          {[...Array(10)].map((_, i) => (
-            <motion.circle
-              key={i}
-              cx={150 + Math.random() * 100}
-              cy={140}
-              r="1.5"
-              fill="white"
-              fillOpacity="0.4"
-              animate={{ y: [-10, -60], opacity: [0, 1, 0] }}
-              transition={{ duration: 2 + Math.random(), delay: Math.random() * 2, repeat: Infinity }}
-            />
-          ))}
+          {[...Array(10)].map((_, i) => {
+            const delay = i * 0.2
+            const duration = 2 + (i % 3) * 0.5
+            return (
+              <circle
+                key={i}
+                cx={150 + (i * 10)}
+                cy={140}
+                r="1.5"
+                fill="white"
+                fillOpacity="0.4"
+                className="animate-bounce"
+                style={{ animationDelay: `${delay}s`, animationDuration: `${duration}s` }}
+              />
+            )
+          })}
 
           <text x="200" y="175" textAnchor="middle" className="font-mono text-[10px] fill-brand-black font-bold uppercase">Sihlicon Core</text>
           <text x="200" y="185" textAnchor="middle" className="font-mono text-[7px] fill-historic-sepia">Immersion Cooling Prototype</text>
@@ -81,13 +84,13 @@ export function PrototypeVisualization() {
         {/* 3. Heat Output Section */}
         <g id="heat-output">
           {/* Heat Flow Pipe */}
-          <motion.path
+          <path
             d="M260 100 L310 100"
             stroke="#FF6B35"
             strokeWidth="3"
             strokeDasharray="6 4"
-            animate={{ strokeDashoffset: [0, -20] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            className="animate-[dash_1.5s_linear_infinite]"
+            style={{ strokeDashoffset: 0 }}
           />
           
           {/* Building / Radiator */}
@@ -100,13 +103,13 @@ export function PrototypeVisualization() {
 
         {/* 4. Data / Cloud Section */}
         <g id="data-flow">
-          <motion.path
+          <path
             d="M200 40 L200 10"
             stroke="#10B981"
             strokeWidth="2"
             strokeDasharray="4 4"
-            animate={{ strokeDashoffset: [0, 20] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="animate-[dash_2s_linear_infinite]"
+            style={{ strokeDashoffset: 0 }}
           />
           <text x="200" y="5" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold uppercase">Compute Jobs</text>
         </g>
