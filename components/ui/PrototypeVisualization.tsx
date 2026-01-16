@@ -2,17 +2,17 @@
 
 export function PrototypeVisualization() {
   return (
-    <div className="relative w-full max-w-3xl mx-auto bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-6">
+    <div className="relative w-full max-w-4xl mx-auto bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-8">
       <svg
-        viewBox="0 0 500 300"
+        viewBox="0 0 600 340"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
-        {/* Background Grid */}
+        {/* Background Grid - More subtle */}
         <defs>
-          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#f0f0f0" strokeWidth="0.5" />
+          <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+            <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f5f5f5" strokeWidth="0.5" />
           </pattern>
           {/* Sun gradient */}
           <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
@@ -25,19 +25,27 @@ export function PrototypeVisualization() {
             <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
           </linearGradient>
+          {/* Glow filters */}
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
-        <rect width="500" height="300" fill="url(#grid)" />
+        <rect width="600" height="340" fill="url(#grid)" />
 
-        {/* 1. SUN - Shifted further Left (cx=130) */}
+        {/* === 1. SUN === */}
         <g id="sun">
-          <circle cx="130" cy="30" r="18" fill="url(#sunGradient)" />
-          <circle cx="130" cy="30" r="12" fill="#FBBF24" />
+          <circle cx="180" cy="35" r="22" fill="url(#sunGradient)" />
+          <circle cx="180" cy="35" r="14" fill="#FBBF24" />
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
             const rad = (angle * Math.PI) / 180
-            const x1 = 130 + Math.cos(rad) * 15
-            const y1 = 30 + Math.sin(rad) * 15
-            const x2 = 130 + Math.cos(rad) * 22
-            const y2 = 30 + Math.sin(rad) * 22
+            const x1 = 180 + Math.cos(rad) * 18
+            const y1 = 35 + Math.sin(rad) * 18
+            const x2 = 180 + Math.cos(rad) * 26
+            const y2 = 35 + Math.sin(rad) * 26
             return (
               <line
                 key={i}
@@ -46,207 +54,268 @@ export function PrototypeVisualization() {
                 x2={x2}
                 y2={y2}
                 stroke="#FBBF24"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 className="animate-pulse"
                 style={{ animationDelay: `${i * 0.1}s` }}
               />
             )
           })}
+          {/* Sun rays down */}
           <path
-            d="M130 48 L130 70"
+            d="M180 57 L180 75"
             stroke="#FBBF24"
             strokeWidth="2"
-            strokeDasharray="3 3"
+            strokeDasharray="4 3"
             className="animate-[dash_1s_linear_infinite]"
-            strokeOpacity="0.6"
+            strokeOpacity="0.7"
           />
         </g>
 
-        {/* 2. Solar Panel Section - Shifted Left (x=95) */}
-        <g id="solar-input">
-          <rect x="95" y="75" width="70" height="45" rx="4" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
-          <path d="M95 92 L165 92 M95 109 L165 109" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-          <path d="M118 75 L118 120 M142 75 L162 120" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-          <rect x="100" y="80" width="15" height="8" rx="1" fill="white" fillOpacity="0.3" />
-          <text x="130" y="135" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Solarmodul</text>
+        {/* === 2. SOLAR PANEL === */}
+        <g id="solar-panel">
+          <rect x="130" y="80" width="100" height="55" rx="5" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2.5" />
+          <path d="M130 102 L230 102 M130 124 L230 124" stroke="#FBBF24" strokeWidth="1.5" strokeOpacity="0.4" />
+          <path d="M163 80 L163 135 M197 80 L197 135" stroke="#FBBF24" strokeWidth="1.5" strokeOpacity="0.4" />
+          <rect x="137" y="87" width="20" height="10" rx="2" fill="white" fillOpacity="0.4" />
         </g>
+        {/* Solar Panel Label - OUTSIDE */}
+        <text x="180" y="152" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Solarmodul</text>
+        <text x="180" y="164" textAnchor="middle" className="font-mono text-[9px] fill-gray-400">150W Peak</text>
 
-        {/* 3. Two Houses - Left and Right of Main Column */}
-        {/* House 1 (Far Left) */}
+        {/* === 3. HOUSES === */}
+        {/* House 1 (Left) */}
         <g id="house-1">
-          <path d="M10 140 L35 125 L60 140 L60 180 L10 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
-          <path d="M10 140 L35 125 L60 140" fill="none" stroke="#10B981" strokeWidth="2" />
-          <text x="35" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 1</text>
+          <path d="M20 160 L55 140 L90 160 L90 210 L20 210 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2.5" />
+          <path d="M20 160 L55 140 L90 160" fill="none" stroke="#10B981" strokeWidth="2.5" />
+          {/* Window */}
+          <rect x="45" y="175" width="20" height="20" rx="2" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
         </g>
+        <text x="55" y="230" textAnchor="middle" className="font-mono text-[11px] fill-grid-green font-bold">Haus 1</text>
 
-        {/* House 2 (Right of Column) */}
+        {/* House 2 (Right of center) */}
         <g id="house-2">
-          <path d="M200 140 L225 125 L250 140 L250 180 L200 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
-          <path d="M200 140 L225 125 L250 140" fill="none" stroke="#10B981" strokeWidth="2" />
-          <text x="225" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 2</text>
+          <path d="M270 160 L305 140 L340 160 L340 210 L270 210 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2.5" />
+          <path d="M270 160 L305 140 L340 160" fill="none" stroke="#10B981" strokeWidth="2.5" />
+          {/* Window */}
+          <rect x="295" y="175" width="20" height="20" rx="2" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
+        </g>
+        <text x="305" y="230" textAnchor="middle" className="font-mono text-[11px] fill-grid-green font-bold">Haus 2</text>
+
+        {/* === 4. ELECTRICITY FLOWS === */}
+        {/* Flow: Solar → House 1 */}
+        <path
+          d="M130 110 L90 155"
+          stroke="#FBBF24"
+          strokeWidth="3"
+          strokeDasharray="6 5"
+          className="animate-[dash_2s_linear_infinite]"
+          filter="url(#glow)"
+        />
+        {/* Label for House 1 electricity */}
+        <g transform="translate(95, 125)">
+          <rect x="-20" y="-8" width="40" height="16" rx="4" fill="white" fillOpacity="0.9" />
+          <text x="0" y="4" textAnchor="middle" className="font-mono text-[10px] fill-solar-yellow font-bold">Strom</text>
         </g>
 
-        {/* 4. Solar Flow: Solar Panel → Houses */}
-        {/* Flow to House 1 - Stops at border */}
+        {/* Flow: Solar → House 2 */}
         <path
-          d="M95 97 L55 135"
+          d="M230 110 L270 155"
           stroke="#FBBF24"
-          strokeWidth="2.5"
-          strokeDasharray="5 4"
+          strokeWidth="3"
+          strokeDasharray="6 5"
           className="animate-[dash_2s_linear_infinite]"
+          filter="url(#glow)"
         />
-        <text x="80" y="120" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        {/* Label for House 2 electricity */}
+        <g transform="translate(265, 125)">
+          <rect x="-20" y="-8" width="40" height="16" rx="4" fill="white" fillOpacity="0.9" />
+          <text x="0" y="4" textAnchor="middle" className="font-mono text-[10px] fill-solar-yellow font-bold">Strom</text>
+        </g>
 
-        {/* Flow to House 2 - Stops at border */}
+        {/* Flow: Solar → Immersion Tank (Rest) */}
         <path
-          d="M165 97 L205 135"
+          d="M180 135 L180 195"
           stroke="#FBBF24"
-          strokeWidth="2.5"
-          strokeDasharray="5 4"
+          strokeWidth="3"
+          strokeDasharray="6 5"
           className="animate-[dash_2s_linear_infinite]"
+          filter="url(#glow)"
         />
-        <text x="190" y="120" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        {/* Label for rest electricity */}
+        <g transform="translate(180, 175)">
+          <rect x="-35" y="-8" width="70" height="16" rx="4" fill="white" fillOpacity="0.9" />
+          <text x="0" y="4" textAnchor="middle" className="font-mono text-[10px] fill-solar-yellow font-bold">Rest-Strom</text>
+        </g>
 
-        {/* 5. Rest of Solar Flow: Solar Panel → Immersion Tank */}
-        <path
-          d="M130 120 L130 180"
-          stroke="#FBBF24"
-          strokeWidth="2.5"
-          strokeDasharray="5 4"
-          className="animate-[dash_2s_linear_infinite]"
-        />
-        <text x="145" y="150" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Rest-Strom</text>
-
-        {/* 6. The Sihlicon Core (Immersion Tank) - Shifted Left (x=80) */}
+        {/* === 5. SIHLICON HUB CORE (Immersion Tank) === */}
         <g id="sihlicon-core">
-          <rect x="80" y="180" width="100" height="80" rx="8" fill="#1A1A1A" />
-          <rect x="86" y="195" width="88" height="60" rx="4" fill="url(#waterGradient)" fillOpacity="0.3" />
-          {[95, 110, 125, 140, 155].map((x, i) => (
+          <rect x="120" y="200" width="120" height="95" rx="10" fill="#1A1A1A" />
+          <rect x="128" y="218" width="104" height="65" rx="6" fill="url(#waterGradient)" fillOpacity="0.35" />
+          {/* Server blades */}
+          {[142, 162, 182, 202, 222].map((x, i) => (
             <rect
               key={i}
-              x={x - 4}
-              y="205"
-              width="8"
+              x={x - 6}
+              y="228"
+              width="12"
               height="50"
-              rx="1"
+              rx="2"
               fill="#3B82F6"
-              fillOpacity="0.7"
+              fillOpacity="0.75"
               className="animate-pulse"
-              style={{ animationDelay: `${i * 0.3}s` }}
+              style={{ animationDelay: `${i * 0.25}s` }}
             />
           ))}
-          {[...Array(8)].map((_, i) => {
-            const delay = i * 0.15
-            const duration = 1.5 + (i % 4) * 0.4
-            return (
-              <circle
-                key={i}
-                cx={90 + (i * 10)}
-                cy={235}
-                r="2"
-                fill="white"
-                fillOpacity="0.5"
-                className="animate-bounce"
-                style={{ animationDelay: `${delay}s`, animationDuration: `${duration}s` }}
-              />
-            )
-          })}
-          <text x="130" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Hub Core</text>
-          <text x="130" y="285" textAnchor="middle" className="font-mono text-[7px] fill-gray-400 font-bold">Immersionskühlung</text>
+          {/* Bubbles */}
+          {[...Array(6)].map((_, i) => (
+            <circle
+              key={i}
+              cx={135 + (i * 16)}
+              cy={255}
+              r="2.5"
+              fill="white"
+              fillOpacity="0.6"
+              className="animate-bounce"
+              style={{ animationDelay: `${i * 0.12}s`, animationDuration: `${1.5 + (i % 3) * 0.3}s` }}
+            />
+          ))}
+        </g>
+        {/* Core Labels - OUTSIDE */}
+        <text x="180" y="310" textAnchor="middle" className="font-mono text-[12px] fill-brand-black font-bold">Sihlicon Hub Core</text>
+        <text x="180" y="324" textAnchor="middle" className="font-mono text-[9px] fill-gray-500">Immersionskühlung · 20L Tank</text>
+
+        {/* === 6. HEAT RETURN FLOWS === */}
+        {/* Heat → House 1 (Warmwasser) */}
+        <path
+          d="M135 295 L70 210"
+          stroke="#FF6B35"
+          strokeWidth="4"
+          strokeDasharray="8 5"
+          className="animate-[dash_1.5s_linear_infinite]"
+          filter="url(#glow)"
+        />
+        {/* Label for Warmwasser */}
+        <g transform="translate(85, 260)">
+          <rect x="-40" y="-10" width="80" height="20" rx="6" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
+          <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange font-bold">Warmwasser</text>
         </g>
 
-        {/* 7. Heat Return: Immersion Tank → Houses - Starts from BOTTOM edge */}
-        {/* Heat Flow to House 1 - Warmwasser */}
+        {/* Heat → House 2 (Raumheizung) */}
         <path
-          d="M100 260 L35 180"
+          d="M225 295 L290 210"
           stroke="#FF6B35"
-          strokeWidth="3"
-          strokeDasharray="6 4"
+          strokeWidth="4"
+          strokeDasharray="8 5"
           className="animate-[dash_1.5s_linear_infinite]"
+          filter="url(#glow)"
         />
-        <text x="52" y="225" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
+        {/* Label for Raumheizung */}
+        <g transform="translate(275, 260)">
+          <rect x="-45" y="-10" width="90" height="20" rx="6" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
+          <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange font-bold">Raumheizung</text>
+        </g>
 
-        {/* Heat Flow to House 2 - Raumheizung */}
-        <path
-          d="M160 260 L225 180"
-          stroke="#FF6B35"
-          strokeWidth="3"
-          strokeDasharray="6 4"
-          className="animate-[dash_1.5s_linear_infinite]"
-        />
-        <text x="207" y="225" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
-
-        {/* 8. Compute / AI Section - To the right of Immersion Tank (PURPLE) */}
-        <g id="compute-flow">
-          {/* Data flow right from Core and branching */}
+        {/* === 7. COMPUTE / AI OUTPUT === */}
+        <g id="compute-section">
+          {/* Main compute flow line */}
           <path
-            d="M180 220 L340 220"
+            d="M240 248 L400 248"
             stroke="#A855F7"
-            strokeWidth="2.5"
-            strokeDasharray="5 4"
+            strokeWidth="3"
+            strokeDasharray="6 5"
             className="animate-[dash_2s_linear_infinite]"
+            filter="url(#glow)"
           />
-          {/* Branch to Training */}
+          
+          {/* Branch to AI-Training */}
           <path
-            d="M340 220 L360 190"
+            d="M400 248 L430 200"
             stroke="#A855F7"
-            strokeWidth="2.5"
-            strokeDasharray="5 4"
-            className="animate-[dash_2s_linear_infinite]"
-          />
-          {/* Branch to Inference */}
-          <path
-            d="M340 220 L360 240"
-            stroke="#A855F7"
-            strokeWidth="2.5"
-            strokeDasharray="5 4"
+            strokeWidth="3"
+            strokeDasharray="6 5"
             className="animate-[dash_2s_linear_infinite]"
           />
           
-          {/* Rechenleistung label on the line */}
-          <text x="260" y="210" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">Rechenleistung</text>
-          
-          {/* AI-Training - Stacked on the right */}
-          <g transform="translate(360, 190)">
-            <text x="45" y="10" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">AI-Training</text>
-            {/* Neural network icon */}
-            <circle cx="45" cy="-5" r="6" fill="none" stroke="#A855F7" strokeWidth="1.5" />
-            <path d="M42 -8 L48 -2 M48 -8 L42 -2" stroke="#A855F7" strokeWidth="1" />
-            <circle cx="45" cy="-5" r="3" fill="#A855F7" fillOpacity="0.3" />
+          {/* Branch to AI-Inference */}
+          <path
+            d="M400 248 L430 290"
+            stroke="#A855F7"
+            strokeWidth="3"
+            strokeDasharray="6 5"
+            className="animate-[dash_2s_linear_infinite]"
+          />
+
+          {/* Rechenleistung Label - on background */}
+          <g transform="translate(320, 235)">
+            <rect x="-55" y="-10" width="110" height="20" rx="6" fill="white" fillOpacity="0.95" stroke="#A855F7" strokeWidth="1.5" />
+            <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">Rechenleistung</text>
           </g>
           
-          {/* AI-Inference - Stacked on the right */}
-          <g transform="translate(360, 240)">
-            <text x="45" y="10" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">AI-Inference</text>
-            {/* Lightning/bolt icon */}
-            <path d="M45 -11 L42 -5 L45 -5 L48 1 L45 -5 L42 -5" stroke="#A855F7" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          {/* AI-Training Box */}
+          <g transform="translate(430, 180)">
+            <rect x="0" y="0" width="130" height="45" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            {/* Neural network icon */}
+            <circle cx="25" cy="22" r="10" fill="none" stroke="#A855F7" strokeWidth="2" />
+            <path d="M20 17 L30 27 M30 17 L20 27" stroke="#A855F7" strokeWidth="1.5" />
+            <circle cx="25" cy="22" r="5" fill="#A855F7" fillOpacity="0.3" />
+            <text x="75" y="20" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Training</text>
+            <text x="75" y="34" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">GPU Workloads</text>
+          </g>
+          
+          {/* AI-Inference Box */}
+          <g transform="translate(430, 270)">
+            <rect x="0" y="0" width="130" height="45" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            {/* Lightning icon */}
+            <path d="M25 8 L20 22 L27 22 L22 36" stroke="#A855F7" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <text x="75" y="20" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Inference</text>
+            <text x="75" y="34" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">Low Latency</text>
+          </g>
+        </g>
+
+        {/* === 8. LEGEND BOX === */}
+        <g transform="translate(380, 60)">
+          <rect x="0" y="0" width="180" height="90" rx="10" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
+          <text x="90" y="20" textAnchor="middle" className="font-mono text-[10px] fill-brand-black font-bold">ENERGIEFLUSS</text>
+          
+          {/* Legend items */}
+          <g transform="translate(15, 35)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#FBBF24" strokeWidth="3" strokeDasharray="4 3" />
+            <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Solarstrom</text>
+          </g>
+          <g transform="translate(15, 52)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#FF6B35" strokeWidth="3" strokeDasharray="4 3" />
+            <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Abwärme (45°C)</text>
+          </g>
+          <g transform="translate(15, 69)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#A855F7" strokeWidth="3" strokeDasharray="4 3" />
+            <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Rechenleistung</text>
           </g>
         </g>
       </svg>
 
-      {/* Legend / Stats overlay */}
-      <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end pointer-events-none">
-        <div className="bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-gray-100 shadow-sm">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-solar-yellow animate-pulse" />
-              <span className="font-mono text-[9px] text-brand-black">P_solar: 150W</span>
+      {/* Stats overlay - Bottom */}
+      <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none">
+        <div className="bg-white/95 backdrop-blur-sm p-3 rounded-xl border border-gray-100 shadow-md">
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-solar-yellow animate-pulse" />
+              <span className="font-mono text-[10px] text-brand-black font-semibold">P_solar: 150W</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-compute-blue" />
-              <span className="font-mono text-[9px] text-brand-black">P_compute: 140W</span>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-compute-blue" />
+              <span className="font-mono text-[10px] text-brand-black font-semibold">P_compute: 140W</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-thermal-orange" />
-              <span className="font-mono text-[9px] text-brand-black">ΔT: +25°C</span>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-thermal-orange" />
+              <span className="font-mono text-[10px] text-brand-black font-semibold">ΔT: +25°C</span>
             </div>
           </div>
         </div>
         
-        <div className="text-right">
-          <span className="font-accent text-sm text-thermal-orange">Sihlicon Hub Demo</span>
-          <span className="font-mono text-[8px] text-historic-sepia block">20L Tank · Mini-ITX</span>
+        <div className="text-right bg-white/95 backdrop-blur-sm p-3 rounded-xl border border-gray-100 shadow-md">
+          <span className="font-accent text-base text-thermal-orange font-semibold">Sihlicon Hub Demo</span>
+          <span className="font-mono text-[9px] text-historic-sepia block mt-1">Ein-Knopf-Demo · Mini-ITX</span>
         </div>
       </div>
     </div>
