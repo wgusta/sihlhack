@@ -1,4 +1,4 @@
-// Hackathon roles definition for Digital Hearth Infrastructure Hackathon
+// Hackathon roles definition for Sihlicon Hub Infrastructure Hackathon
 // Each role is essential for building the complete Sihlicon Stack
 
 export const HACKATHON_ROLES = [
@@ -113,7 +113,7 @@ export const SKILL_TAGS = [
 
 export type SkillTag = typeof SKILL_TAGS[number]
 
-// Team composition recommendation for Digital Hearth hackathon
+// Team composition recommendation for Sihlicon Hub hackathon
 export const IDEAL_TEAM_COMPOSITION = [
   { role: 'hardware-engineer', count: '1-2', priority: 'essential' },
   { role: 'grid-os-dev', count: '1-2', priority: 'essential' },

@@ -69,7 +69,7 @@ export function WhyItMattersSection() {
         <div className="mt-16 max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-thermal-orange to-compute-blue rounded-2xl p-8 text-center">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
-              Der "Digital Hearth": Compute + Heat + Grid
+              Der Sihlicon Hub: Compute + Heat + Grid
             </h3>
             <p className="font-mono text-sm sm:text-base text-white/90 mb-6 max-w-2xl mx-auto">
               Ein modulares System, das Solarüberschuss in Rechenleistung verwandelt,

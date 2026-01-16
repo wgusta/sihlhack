@@ -269,7 +269,7 @@ export function PrototypeVisualization() {
         </div>
         
         <div className="text-right">
-          <span className="font-accent text-lg text-thermal-orange rotate-[-5deg] block">Digital Hearth v1.0</span>
+          <span className="font-accent text-lg text-thermal-orange rotate-[-5deg] block">Sihlicon Hub v1.0</span>
         </div>
       </div>
     </div>

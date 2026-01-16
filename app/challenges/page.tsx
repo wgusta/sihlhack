@@ -93,7 +93,7 @@ const SIDE_QUEST = {
   longDescription: `Das Sihltal war die Wiege der Zürcher Industrialisierung. Historische Archive enthalten wertvolles Wissen: Energie-Baupläne, Standortdaten, Verfahren zur dezentralen Energieversorgung.
 
 Deine Mission: Durchsuche historische Firmenarchive und öffentliche Aufzeichnungen nach:
-• Energie-Bauplänen und Verfahren, die für Digital Hearth relevant sind
+• Energie-Bauplänen und Verfahren, die für Sihlicon Hubs relevant sind
 • Standorten ungenutzter Gebäude, Areale oder Territorien
 • Historischen Energieinfrastrukturen, die reaktiviert werden könnten
 
@@ -183,7 +183,7 @@ function DifficultyRating({ rating }: { rating: number }) {
 // Extended challenge details for the dedicated page
 const challengeDetails = {
   'sihlicon-core': {
-    longDescription: `Das Herzstück des Digital Hearth Systems: Ein immersionsgekühlter Server, der in dielektrischem Öl läuft.
+    longDescription: `Das Herzstück des Sihlicon Hub Systems: Ein immersionsgekühlter Server, der in dielektrischem Öl läuft.
     Die Abwärme wird über einen Wärmetauscher an einen Wasserkreislauf abgegeben und kann direkt für Heizung oder Warmwasser genutzt werden.
 
     Das Ziel ist ein kompaktes, leises Modul das in einem Keller oder Technikraum installiert werden kann.`,

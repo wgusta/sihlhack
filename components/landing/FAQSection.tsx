@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
-    q: 'Was ist der Digital Hearth?',
-    a: 'Der Digital Hearth ist ein dezentrales Compute-System: Server, die in dielektrischem Öl gekühlt werden (Immersion Cooling). Die Abwärme wird für Warmwasser und Raumheizung genutzt – 99% Wärmerückgewinnung. Betrieben wird das System mit lokalem Solarstrom.',
+    q: 'Was ist ein Sihlicon Hub?',
+    a: 'Ein Sihlicon Hub ist ein dezentrales Compute-System: Server, die in dielektrischem Öl gekühlt werden (Immersion Cooling). Die Abwärme wird für Warmwasser und Raumheizung genutzt – 99% Wärmerückgewinnung. Betrieben wird das System mit lokalem Solarstrom.',
   },
   {
     q: 'Was bedeutet "teilnehmerorientiert"?',
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: 'Was ist das Energie-Trilemma?',
-    a: 'LEGs stehen vor drei Zielen, die sich klassisch widersprechen: Maximale Solarproduktion, Netzstabilität und Gemeinschaftsautonomie. Der Digital Hearth löst dieses Trilemma, indem er Solarüberschuss direkt in Rechenleistung umwandelt und die Abwärme nutzt.',
+    a: 'LEGs stehen vor drei Zielen, die sich klassisch widersprechen: Maximale Solarproduktion, Netzstabilität und Gemeinschaftsautonomie. Der Sihlicon Hub löst dieses Trilemma, indem er Solarüberschuss direkt in Rechenleistung umwandelt und die Abwärme nutzt.',
   },
 ]
 

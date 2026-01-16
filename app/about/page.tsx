@@ -19,7 +19,7 @@ export default function AboutPage() {
         <section className="bg-brand-black text-white py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-              Digital Hearth Infrastructure
+              Sihlicon Hub Infrastructure
             </span>
             <h1 className="font-display text-4xl sm:text-5xl font-bold mt-4">
               Das Konzept
@@ -39,7 +39,7 @@ export default function AboutPage() {
                 Die Vision
               </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
-                Digital Hearth
+                Sihlicon Hub
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
                 100% der Elektrizität in einem Server wird zu Wärme. Warum diese Wärme verschwenden?

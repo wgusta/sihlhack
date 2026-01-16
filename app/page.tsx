@@ -46,7 +46,7 @@ export default function HomePage() {
                 Vom Konzept zum Prototyp
               </span>
               <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
-                Der Digital Hearth v1.0
+                Der Sihlicon Hub v1.0
               </h2>
               <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
                 Hardware, die heizt. Software, die steuert. Ein komplettes System für die Energiewende.

@@ -43,7 +43,7 @@ export function EnergyTrilemmaSection() {
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
             Lokale Elektrizitätsgemeinschaften (LEGs) stehen vor einem fundamentalen Zielkonflikt.
-            Digital Hearth löst ihn.
+            Der Sihlicon Hub löst ihn.
           </p>
         </div>
 
@@ -346,11 +346,11 @@ export function EnergyTrilemmaSection() {
           </div>
         </div>
 
-        {/* Solution: How Digital Hearth Addresses This */}
+        {/* Solution: How Sihlicon Hub Addresses This */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-grid-green to-compute-blue rounded-2xl p-8 md:p-12 text-center">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
-              Wie Digital Hearth das Trilemma löst
+              Wie der Sihlicon Hub das Trilemma löst
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
@@ -383,7 +383,7 @@ export function EnergyTrilemmaSection() {
             </div>
             <p className="font-mono text-sm text-white/90 max-w-2xl mx-auto mb-6">
               <strong className="text-white">Alle drei Ziele gleichzeitig:</strong> Mehr Solarproduktion 
-              ohne Netzüberlastung, bei maximaler Gemeinschaftsautonomie. Das ist der Digital Hearth.
+              ohne Netzüberlastung, bei maximaler Gemeinschaftsautonomie. Das ist der Sihlicon Hub.
             </p>
             <ButtonLink
               href="/about"
