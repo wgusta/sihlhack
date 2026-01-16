@@ -7,7 +7,7 @@ const protectedRoutes = ['/dashboard', '/admin']
 // Routes that require company authentication
 const companyRoutes = ['/company/dashboard', '/company/nda']
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Check for protected participant routes
@@ -33,7 +33,7 @@ export function middleware(request: NextRequest) {
 
     // Note: We cannot validate the session here without making a DB call.
     // The actual session validation happens in the API routes and page components.
-    // This middleware just checks for the presence of a session cookie.
+    // This proxy just checks for the presence of a session cookie.
   }
 
   if (isCompanyRoute) {
