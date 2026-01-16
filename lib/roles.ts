@@ -11,6 +11,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Entwickelt Immersionskühlung, thermische Anbindung und physische Infrastruktur des Sihlicon Core.',
     skills: ['Thermodynamik', 'CAD/3D-Design', 'Fluidmechanik', 'Elektronik', 'Löten'],
     color: 'thermal-orange',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Maschinenbau-Studium', 'Mechatronik-Lehre', 'Thermodynamik-Kenntnisse', 'Ingenieurwesen'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['CAD-Software (Fusion 360, FreeCAD)', '3D-Druck-Erfahrung', 'Löten & Elektronik-Basics', 'DIY-Projekte'],
+      },
+    },
   },
   {
     id: 'electrical-engineer',
@@ -21,6 +31,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Entwickelt sichere Elektrosysteme, Stromverteilung und Sicherheitsverriegelungen (RCD/GFCI, Not-Aus).',
     skills: ['Elektrotechnik', 'RCD/GFCI', 'Niederspannung', 'Safety Systems', 'Schaltpläne'],
     color: 'sihl-red',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Elektrotechnik-Studium', 'Elektriker-Lehre', 'Sicherheitstechnik-Kenntnisse'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Arduino/Raspberry Pi Erfahrung', 'Schaltpläne lesen können', 'Sicherheitsbewusstsein', 'Interesse an Elektrotechnik'],
+      },
+    },
   },
   {
     id: 'sensor-data-engineer',
@@ -31,6 +51,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Integriert Sensoren (Temp, Flow, Power), baut Daten-Pipelines und Logging-Infrastruktur.',
     skills: ['Messtechnik', 'InfluxDB/TimescaleDB', 'Grafana', 'Python', 'Raspberry Pi', 'I2C/SPI'],
     color: 'compute-blue',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Informatik-Studium', 'Data Engineering-Beruf', 'Messtechnik-Kenntnisse'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Python-Grundkenntnisse', 'Raspberry Pi/Arduino Erfahrung', 'Datenbanken (SQL)', 'Interesse an Sensoren'],
+      },
+    },
   },
   {
     id: 'energy-expert',
@@ -41,6 +71,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Tiefes Wissen über Solarsysteme, Lastprofile, Inverter-APIs und Energieprotokolle (technisch, nicht rechtlich).',
     skills: ['Solar-APIs', 'Fronius/SMA', 'Lastprofile', 'Modbus', 'Energy Protocols', 'PV-Simulation'],
     color: 'solar-yellow',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Energietechnik-Studium', 'Solar-Installateur', 'Energieberater'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Eigene PV-Anlage', 'Interesse an Solartechnik', 'API-Erfahrung', 'Energie-Enthusiasmus'],
+      },
+    },
   },
   {
     id: 'grid-os-dev',
@@ -51,6 +91,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Entwickelt die Laststeuerung: Solar-Watcher, Compute-Scheduler und Swissgrid-Integration.',
     skills: ['Python', 'Rust/Go', 'Real-time Systems', 'APIs', 'Energy Protocols'],
     color: 'compute-blue',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Informatik-Studium', 'Software-Engineering-Beruf', 'System-Programmierung'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Python-Kenntnisse', 'API-Erfahrung', 'Interesse an Energie-Systemen', 'Algorithmen-Denken'],
+      },
+    },
   },
   {
     id: 'backend-dev',
@@ -61,6 +111,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Erstellt APIs, Datenbank-Architektur und Compute-Marktplatz Backend.',
     skills: ['Node.js/Python', 'REST/GraphQL', 'PostgreSQL', 'Docker', 'MQTT'],
     color: 'fund-green',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Informatik-Studium', 'Backend-Entwickler', 'Software-Engineering'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Programmieren (Python/Node.js)', 'API-Erfahrung', 'Datenbanken (SQL)', 'Docker-Basics'],
+      },
+    },
   },
   {
     id: 'frontend-dev',
@@ -71,6 +131,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Entwickelt das Monitoring-Dashboard mit Echtzeit-Energiefluss und Compute-Visualisierung.',
     skills: ['React/Vue', 'TypeScript', 'D3.js', 'WebSockets', 'Data Viz'],
     color: 'sihl-red',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Informatik-Studium', 'Frontend-Entwickler', 'Web-Development'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['React/Vue Kenntnisse', 'JavaScript/TypeScript', 'Data Visualization Interesse', 'Web-APIs'],
+      },
+    },
   },
   {
     id: 'designer',
@@ -81,6 +151,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Gestaltet intuitive Interfaces für Energie- und Compute-Daten, erstellt Hardware-Dokumentation.',
     skills: ['Figma', 'Technical Illustration', 'User Research', 'Documentation'],
     color: 'historic-sepia',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Design-Studium', 'UX/UI Designer', 'Grafik-Designer'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Figma/Sketch Kenntnisse', 'Interesse an Data Visualization', 'Dokumentations-Erfahrung', 'Technisches Verständnis'],
+      },
+    },
   },
   {
     id: 'leg-specialist',
@@ -91,6 +171,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Navigiert Schweizer Energierecht (StromVG), erstellt LEG-Gründungsdokumente und Vertragsvorlagen.',
     skills: ['Energierecht', 'Vertragsrecht', 'StromVG/EnG', 'Genossenschaftsrecht', 'Compliance'],
     color: 'industrial-gold',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Jura-Studium', 'Rechtsexperte', 'Energierecht-Kenntnisse'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Interesse an Energierecht', 'Vertrags-Erfahrung', 'Genossenschafts-Kenntnisse', 'Compliance-Bewusstsein'],
+      },
+    },
   },
   {
     id: 'pm',
@@ -101,6 +191,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Koordiniert Teams, managt Zeitplan und stellt Integration aller Komponenten sicher.',
     skills: ['Agile/Scrum', 'Technical Writing', 'Coordination', 'Presentation'],
     color: 'refund-amber',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Projektmanagement-Studium', 'Projektleiter', 'Scrum Master'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Organisations-Talent', 'Kommunikations-Skills', 'Agile-Methoden', 'Technisches Interesse'],
+      },
+    },
   },
   {
     id: 'generalist',
@@ -111,6 +211,16 @@ export const HACKATHON_ROLES = [
     descriptionDE: 'Flexibler Beitragender für Hardware, Software oder Dokumentation.',
     skills: ['Adaptable', 'Quick Learner', 'Problem Solving', 'DIY Maker'],
     color: 'brand-black',
+    tracks: {
+      basis: {
+        title: 'Ausbildung/Beruf als Basis',
+        items: ['Interdisziplinäres Studium', 'Maker/Hobbyist', 'Technik-Enthusiast'],
+      },
+      quereinsteiger: {
+        title: 'Systeme/Tools/Wissen für Quereinsteiger',
+        items: ['Lernbereitschaft', 'DIY-Erfahrung', 'Problemlösungs-Skills', 'Flexibilität'],
+      },
+    },
   },
 ] as const
 

@@ -59,7 +59,7 @@ export function HeroSection() {
           {/* Tagline */}
           <div className="space-y-3 animate-fade-in">
             <p className="font-mono text-sm sm:text-base text-thermal-orange uppercase tracking-widest">
-              Open Source Hardware Hackathon
+              3-Tage Competition · Dezentrale Energieinfrastruktur · Open Source
             </p>
           </div>
 
@@ -70,68 +70,93 @@ export function HeroSection() {
             </h1>
           </div>
 
-          {/* Main Headline - Build the Engine */}
+          {/* Main Headline */}
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-              <span className="text-thermal-orange">Baue die Infrastruktur</span>
-              {' '}für Schweizer{' '}
-              <span className="text-compute-blue">Energieunabhängigkeit</span>
+              Baue den Sihlicon Hub
+              <br />
+              <span className="text-thermal-orange">Demo-Scale Prototypen</span>
+              {' '}für dezentrale Energieinfrastruktur
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              Baue den "Perfect Node": Server, die heizen. Batterien, die stabilisieren.
-              Software, die das Netz balanciert. Open Source. Made in Switzerland.
+              3 Tage. 3 Pflicht-Pakete. 30-36 Teams.
+              <br />
+              Baue funktionierende Prototypen, die Solarstrom in Compute und Wärme verwandeln.
+              <br />
+              <span className="text-thermal-orange">Open Source. Made in Switzerland.</span>
             </p>
           </div>
 
-          {/* ═══════════════════════════════════════════════════════════════
-              THE CHALLENGE - What we're building
-              ═══════════════════════════════════════════════════════════════ */}
+          {/* "Für wen" Section */}
           <div className="max-w-4xl mx-auto mt-16 animate-fade-in">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              {/* Challenge Header */}
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="w-3 h-3 rounded-full bg-thermal-orange animate-pulse" />
+              <div className="text-center mb-6">
                 <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
-                  Die Challenge
+                  Für Menschen, die
                 </span>
               </div>
-
-              {/* Three Pillars */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                {/* Hardware */}
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Hardware-Tüftler */}
                 <div className="text-center p-4 rounded-xl bg-white/5">
                   <div className="text-4xl mb-3">🔧</div>
-                  <h3 className="font-mono text-thermal-orange font-semibold mb-2">Hardware</h3>
+                  <h3 className="font-mono text-thermal-orange font-semibold mb-2">
+                    Hardware-Tüftler
+                  </h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    Immersionskühlung. Thermische Integration. Das "Sihlicon Core" Modul.
+                    Du baust gerne mit den Händen. Immersion Cooling, Thermik, Sensoren – 
+                    das ist dein Ding. Du willst sehen, wie Wärme tatsächlich aus dem Tank kommt.
                   </p>
                 </div>
-
-                {/* Software */}
+                
+                {/* Software-Builder */}
                 <div className="text-center p-4 rounded-xl bg-white/5">
                   <div className="text-4xl mb-3">💻</div>
-                  <h3 className="font-mono text-compute-blue font-semibold mb-2">Software</h3>
+                  <h3 className="font-mono text-compute-blue font-semibold mb-2">
+                    Software-Builder
+                  </h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    Grid-OS. Solar-Watcher. Compute-Scheduler. Dezentraler Marktplatz.
+                    Du schreibst Code, der etwas bewegt. Grid-OS, APIs, Scheduling – 
+                    du willst Systeme bauen, die das Stromnetz stabilisieren.
                   </p>
                 </div>
-
-                {/* Integration */}
+                
+                {/* Energie-Visionäre */}
                 <div className="text-center p-4 rounded-xl bg-white/5">
                   <div className="text-4xl mb-3">⚡</div>
-                  <h3 className="font-mono text-grid-green font-semibold mb-2">Integration</h3>
+                  <h3 className="font-mono text-grid-green font-semibold mb-2">
+                    Energie-Visionäre
+                  </h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    LEG-Anbindung. Swissgrid-API. Virtual Power Plant Protokolle.
+                    Du denkst in LEGs und dezentraler Infrastruktur. Du willst beweisen, 
+                    dass lokale Energieautonomie funktioniert.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* The Prize */}
-              <div className="border-t border-white/10 pt-6">
-                <p className="text-center font-mono text-sm text-gray-300">
-                  <span className="text-fund-green font-semibold">Das Ziel:</span>{' '}
-                  Demo-Scale Prototypen mit messbarem Energie-Flow. Beste Lösungen gewinnen Preisgeld.
-                </p>
+          {/* "Was wir bauen" Section */}
+          <div className="max-w-3xl mx-auto mt-12 animate-fade-in">
+            <div className="bg-gradient-to-r from-thermal-orange/20 to-compute-blue/20 border border-white/10 rounded-xl p-6">
+              <p className="text-center font-mono text-base text-white mb-4">
+                <strong>Wir bauen Demo-Scale Prototypen, die beweisen:</strong>
+                <br />
+                Solar → Compute → Wärme funktioniert.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                <div className="text-center">
+                  <div className="text-2xl mb-2">📦</div>
+                  <p className="font-mono text-xs text-gray-300">End-to-End Demo-Kit</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl mb-2">🛡️</div>
+                  <p className="font-mono text-xs text-gray-300">Hardware Safety</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl mb-2">⚙️</div>
+                  <p className="font-mono text-xs text-gray-300">Grid-OS Controller</p>
+                </div>
               </div>
             </div>
           </div>

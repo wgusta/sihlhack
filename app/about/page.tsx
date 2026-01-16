@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
@@ -5,12 +8,8 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
 import { PostEventPathSection } from '@/components/landing/PostEventPathSection'
 
-export const metadata = {
-  title: 'Das Konzept | sihlhack',
-  description: 'Competition-Style Hackathon: 150+ Teilnehmer, 30-36 Teams, 3 Pflicht-Pakete. Dezentrale Energieinfrastruktur für die Schweiz.',
-}
-
 export default function AboutPage() {
+  const [expandedRole, setExpandedRole] = useState<string | null>(null)
   return (
     <div className="min-h-screen bg-off-white flex flex-col">
       <Header />
@@ -210,34 +209,99 @@ export default function AboutPage() {
                 Erfolgreiche Teams brauchen verschiedene Expertisen.
                 Hardware-Hacker arbeiten mit Grid-Devs, Rechtsexperten mit Designern.
               </p>
+              <p className="mt-2 text-sm text-historic-sepia font-mono max-w-2xl mx-auto">
+                Auch ohne qualifizierte Kenntnisse können Teilnehmerinnen sich für eine Rolle anmelden – 
+                <strong className="text-brand-black"> klick auf die Karte</strong> um herauszufinden, was es benötigt.
+              </p>
             </div>
 
             {/* Roles Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-              {HACKATHON_ROLES.map((role) => (
-                <div
-                  key={role.id}
-                  className="p-4 rounded-xl border border-gray-200 hover:border-thermal-orange/50 hover:shadow-lg transition-all group"
-                >
-                  <div className="text-3xl mb-3">{role.icon}</div>
-                  <h3 className="font-display font-semibold text-brand-black group-hover:text-thermal-orange transition-colors">
-                    {role.nameDE}
-                  </h3>
-                  <p className="text-sm font-mono text-historic-sepia mt-2">
-                    {role.descriptionDE}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {role.skills.slice(0, 3).map((skill) => (
-                      <span
-                        key={skill}
-                        className="text-[10px] font-mono px-2 py-0.5 bg-gray-100 text-gray-600 rounded"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+              {HACKATHON_ROLES.map((role) => {
+                const isExpanded = expandedRole === role.id
+                return (
+                  <div
+                    key={role.id}
+                    onClick={() => setExpandedRole(isExpanded ? null : role.id)}
+                    className={`p-4 rounded-xl border transition-all duration-300 group cursor-pointer relative ${
+                      isExpanded
+                        ? 'border-thermal-orange bg-thermal-orange/5 shadow-lg'
+                        : 'border-gray-200 hover:border-thermal-orange/50 hover:shadow-lg'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="text-3xl">{role.icon}</div>
+                      <div className={`text-xs font-mono text-gray-400 transition-all duration-300 ${
+                        isExpanded ? 'rotate-180 text-thermal-orange' : 'group-hover:text-thermal-orange'
+                      }`}>
+                        ▼
+                      </div>
+                    </div>
+                    <h3 className={`font-display font-semibold transition-colors duration-200 ${
+                      isExpanded ? 'text-thermal-orange' : 'text-brand-black group-hover:text-thermal-orange'
+                    }`}>
+                      {role.nameDE}
+                    </h3>
+                    <p className="text-sm font-mono text-historic-sepia mt-2">
+                      {role.descriptionDE}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-1">
+                      {role.skills.slice(0, 3).map((skill) => (
+                        <span
+                          key={skill}
+                          className="text-[10px] font-mono px-2 py-0.5 bg-gray-100 text-gray-600 rounded"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Subtle hint when not expanded */}
+                    {!isExpanded && (
+                      <div className="mt-3 text-[10px] font-mono text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Klick für Details →
+                      </div>
+                    )}
+
+                    {/* Expanded Content */}
+                    {isExpanded && role.tracks && (
+                      <div className="mt-4 pt-4 border-t border-gray-200 space-y-4 animate-fade-in">
+                        {/* Track 1: Basis */}
+                        <div>
+                          <h4 className="font-mono text-xs font-bold text-brand-black mb-2 flex items-center gap-2">
+                            <span className="text-thermal-orange">→</span>
+                            {role.tracks.basis.title}
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {role.tracks.basis.items.map((item, i) => (
+                              <li key={i} className="text-xs font-mono text-historic-sepia flex items-start gap-2">
+                                <span className="text-thermal-orange mt-0.5 flex-shrink-0">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        {/* Track 2: Quereinsteiger */}
+                        <div>
+                          <h4 className="font-mono text-xs font-bold text-brand-black mb-2 flex items-center gap-2">
+                            <span className="text-compute-blue">→</span>
+                            {role.tracks.quereinsteiger.title}
+                          </h4>
+                          <ul className="space-y-1.5">
+                            {role.tracks.quereinsteiger.items.map((item, i) => (
+                              <li key={i} className="text-xs font-mono text-historic-sepia flex items-start gap-2">
+                                <span className="text-compute-blue mt-0.5 flex-shrink-0">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Package-Based Team Composition */}
