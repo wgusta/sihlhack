@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
+import { PostEventPathSection } from '@/components/landing/PostEventPathSection'
 
 export const metadata = {
   title: 'Das Konzept | sihlhack',
@@ -554,6 +555,9 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Post-Event Paths */}
+        <PostEventPathSection />
+
         {/* FAQ */}
         <section id="faq" className="py-16 bg-off-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -569,7 +573,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was passiert mit dem Prototyp nach dem Hackathon?',
-                  a: 'Der beste Prototyp wird in einer echten LEG (Baden, AG) deployed. Das ist kein Demo, sondern echte Infrastruktur die weiterläuft.',
+                  a: 'Nach dem Event gibt es mehrere Wege: (1) Follow-up Hackathon für 1:1 Prototypen, (2) Association & Open Source Governance, (3) LEG DIY-Bauanleitungen, (4) Unternehmen können als zertifizierte Partner Service anbieten. Alle Wege bleiben Open Source und community-getrieben.',
                 },
                 {
                   q: 'Wer stellt die Hardware?',
