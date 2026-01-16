@@ -101,13 +101,21 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Pre-Challenge Link */}
+            {/* Pre-Challenge Link - Snack-Hackathon */}
             <div className="flex justify-center mb-6">
               <a
                 href="#pre-challenge"
-                className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all"
+                className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
               >
-                <div className="flex items-center gap-3">
+                {/* Snack-Hackathon Label */}
+                <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
+                  🍿 Snack-Hackathon
+                </div>
+                {/* Optional Badge */}
+                <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
+                  OPTIONAL
+                </div>
+                <div className="flex items-center gap-3 pt-2">
                   <span className="text-3xl">{PRE_CHALLENGE.icon}</span>
                   <div>
                     <div className="font-mono text-sm font-semibold text-historic-sepia">Pre-Challenge</div>

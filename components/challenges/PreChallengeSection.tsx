@@ -8,14 +8,34 @@ export function PreChallengeSection() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
+          {/* Badges */}
+          <div className="flex justify-center gap-3 mb-4">
+            <span className="inline-block bg-gray-200 text-gray-600 text-xs font-mono px-3 py-1 rounded-full">
+              OPTIONAL
+            </span>
+            <span className="inline-block bg-historic-sepia text-white text-xs font-mono px-3 py-1 rounded-full">
+              🍿 Snack-Hackathon
+            </span>
+          </div>
+          
           <span className="font-accent text-lg text-historic-sepia tracking-wider">
             ~~~ PRE-CHALLENGE ~~~
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-4">
-            {PRE_CHALLENGE.icon} {PRE_CHALLENGE.nameDE}
-          </h2>
+          
+          {/* Title with Icon */}
+          <div className="relative inline-block mt-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black">
+              {PRE_CHALLENGE.icon} {PRE_CHALLENGE.nameDE}
+            </h2>
+          </div>
+          
           <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
             {PRE_CHALLENGE.description}
+          </p>
+          
+          {/* Optional Clarification */}
+          <p className="mt-2 text-sm text-historic-sepia/70 font-mono">
+            Keine Voraussetzung für den Hackathon – aber ein netter Appetizer 🍿
           </p>
         </div>
 

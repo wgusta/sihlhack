@@ -320,10 +320,12 @@ export const PRE_CHALLENGE = {
   id: 'historic-archive',
   name: 'Historic Archive',
   nameDE: 'Historisches Archiv',
+  subtitle: 'Snack-Hackathon',
   icon: '📜',
   format: 'online',
   duration: '2-4 Wochen vor Event',
-  description: 'Asynchrone Online-Recherche: Standort-Scouting und historische Energie-Baupläne sammeln.',
+  type: 'optional' as const,
+  description: 'Optionale asynchrone Online-Recherche: Standort-Scouting und historische Energie-Baupläne sammeln.',
   deliverables: [
     'Dokumentierte Fundstücke (Karte, Quellen)',
     'Relevante historische Dokumente',
