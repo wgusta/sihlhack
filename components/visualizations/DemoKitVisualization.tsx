@@ -27,7 +27,7 @@ export function DemoKitVisualization() {
           End-to-End Demo-Kit
         </text>
         <text x="250" y="40" textAnchor="middle" className="font-mono text-[8px] fill-historic-sepia">
-          Messbarer Energie-Flow mit reproduzierbarer One-Button Demo
+          Messbarer Energie-Flow mit reproduzierbarer Ein-Knopf-Demo
         </text>
 
         {/* Flow: Solar → Compute → Heat → Water */}
@@ -169,7 +169,7 @@ export function DemoKitVisualization() {
         {/* One-Button Demo */}
         <g id="demo-button">
           <rect x="30" y="260" width="140" height="40" rx="8" fill="#10B981" />
-          <text x="55" y="284" className="font-mono text-[12px] fill-white font-bold">▶️ One-Button Demo</text>
+          <text x="55" y="284" className="font-mono text-[12px] fill-white font-bold">▶️ Ein-Knopf-Demo</text>
           
           {/* Status */}
           <rect x="190" y="260" width="120" height="40" rx="8" fill="#1A1A1A" stroke="#10B981" strokeWidth="2" />

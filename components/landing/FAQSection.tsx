@@ -14,10 +14,10 @@ const faqs = [
   },
   {
     q: 'Was sind die Pflicht-Pakete?',
-    a: 'Es gibt 3 Pflicht-Pakete: (1) End-to-End Demo-Kit – messbarer Energie-Flow mit One-Button-Demo, (2) Hardware Safety & Thermal Baseline – BOM, Safety Case, thermische Charakterisierung, (3) Grid-OS Controller – Scheduler mit Solar-Budget und API. Jedes Team wählt ein Paket als Hauptfokus.',
+    a: 'Es gibt 3 Pflicht-Pakete: (1) End-to-End Demo-Kit – messbarer Energie-Flow mit Ein-Knopf-Demo, (2) Hardware Safety & Thermal Baseline – BOM, Safety Case, thermische Charakterisierung, (3) Grid-OS Controller – Scheduler mit Solar-Budget und API. Jedes Team wählt ein Paket als Hauptfokus.',
   },
   {
-    q: 'Wie funktioniert die Competition?',
+    q: 'Wie funktioniert der Wettbewerb?',
     a: '30-36 Teams à 5 Personen arbeiten parallel an den gleichen Paketen. Mehrere Teams können am gleichen Paket arbeiten – die beste Lösung pro Paket gewinnt. Preisgeld: 35% für Demo-Kit, 35% für Safety, 20% für Grid-OS, 10% für Best Integration.',
   },
   {

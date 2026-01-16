@@ -17,7 +17,7 @@ const timelineEvents = [
   },
   {
     date: 'Wird bekannt gegeben',
-    title: 'Anmeldeschluss & Team-Matching',
+    title: 'Anmeldeschluss & Team-Findung',
     description: 'Letzte Chance zur Anmeldung. Danach werden Teams gebildet (5 Personen pro Team).',
     status: 'upcoming' as const,
     icon: '👥',
@@ -32,7 +32,7 @@ const timelineEvents = [
   {
     date: 'Freitag Abend',
     title: 'Tag 1: Kickoff & Briefing',
-    description: 'Check-in, Hardware-Intro, Team-Setup. Die Basis-Hardware ist vorgebaut — ihr erweitert und optimiert.',
+    description: 'Check-in, Hardware-Einführung, Team-Aufbau. Die Basis-Hardware ist vorgebaut — ihr erweitert und optimiert.',
     status: 'upcoming' as const,
     icon: '🚀',
   },
@@ -66,7 +66,7 @@ export function EventTimeline() {
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-            3-Tage Competition
+            3-Tage Wettbewerb
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-2">
             Der Fahrplan

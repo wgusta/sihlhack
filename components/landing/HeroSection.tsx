@@ -78,7 +78,7 @@ export function HeroSection() {
               <span className="text-compute-blue">Energieunabhängigkeit</span>
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              Designe den "Perfect Node": Server, die heizen. Batterien, die stabilisieren.
+              Baue den "Perfect Node": Server, die heizen. Batterien, die stabilisieren.
               Software, die das Netz balanciert. Open Source. Made in Switzerland.
             </p>
           </div>
@@ -103,7 +103,7 @@ export function HeroSection() {
                   <div className="text-4xl mb-3">🔧</div>
                   <h3 className="font-mono text-thermal-orange font-semibold mb-2">Hardware</h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    Immersion Cooling. Thermische Integration. Das "Sihlicon Core" Modul.
+                    Immersionskühlung. Thermische Integration. Das "Sihlicon Core" Modul.
                   </p>
                 </div>
 
@@ -121,7 +121,7 @@ export function HeroSection() {
                   <div className="text-4xl mb-3">⚡</div>
                   <h3 className="font-mono text-grid-green font-semibold mb-2">Integration</h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    LEG-Anbindung. Swissgrid API. Virtual Power Plant Protokolle.
+                    LEG-Anbindung. Swissgrid-API. Virtual Power Plant Protokolle.
                   </p>
                 </div>
               </div>

@@ -11,10 +11,10 @@ const techPillars = [
     color: 'thermal-orange',
     description: 'Immersionsgekühlte Server-Module',
     features: [
-      'Dielectric Oil Cooling',
-      'Heat Exchanger Integration',
-      'Modular Rack Design',
-      'Silent Operation (<30dB)',
+      'Dielektrisches Öl-Kühlung',
+      'Wärmetauscher-Integration',
+      'Modulares Rack-Design',
+      'Geräuschlose Operation (<30dB)',
     ],
   },
   {
@@ -24,10 +24,10 @@ const techPillars = [
     color: 'compute-blue',
     description: 'Intelligente Laststeuerung',
     features: [
-      'Solar Inverter API',
-      'Load Scheduling',
-      'Thermal Management',
-      'Swissgrid Integration',
+      'Solar-Wechselrichter API',
+      'Lastplanung',
+      'Thermisches Management',
+      'Swissgrid-Integration',
     ],
   },
   {
@@ -37,10 +37,10 @@ const techPillars = [
     color: 'grid-green',
     description: 'Echtzeit-Monitoring',
     features: [
-      'Energy Flow Visualization',
-      'Thermal Output Metrics',
-      'Compute Job Queue',
-      'Revenue Tracking',
+      'Energiefluss-Visualisierung',
+      'Thermische Ausgangs-Metriken',
+      'Compute-Job-Warteschlange',
+      'Einnahmen-Tracking',
     ],
   },
 ]

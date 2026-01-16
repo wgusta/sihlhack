@@ -57,15 +57,15 @@ export default function HomePage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                <h3 className="font-display font-bold text-solar-yellow text-xl mb-2">Solar Power</h3>
+                <h3 className="font-display font-bold text-solar-yellow text-xl mb-2">Solarstrom</h3>
                 <p className="font-mono text-sm text-historic-sepia">Direkte Nutzung von Solar-Überschuss ohne Netzbelastung.</p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                <h3 className="font-display font-bold text-compute-blue text-xl mb-2">Immersion Tank</h3>
+                <h3 className="font-display font-bold text-compute-blue text-xl mb-2">Immersionstank</h3>
                 <p className="font-mono text-sm text-historic-sepia">Geräuschlose Kühlung in dielektrischem Öl mit 99% Wärmerückgewinnung.</p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                <h3 className="font-display font-bold text-thermal-orange text-xl mb-2">Heat Export</h3>
+                <h3 className="font-display font-bold text-thermal-orange text-xl mb-2">Wärmeauskopplung</h3>
                 <p className="font-mono text-sm text-historic-sepia">Bereitstellung von 45°C Warmwasser für Heizung und Brauchwasser (Demo-Scale).</p>
               </div>
             </div>
