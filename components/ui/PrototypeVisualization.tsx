@@ -298,19 +298,23 @@ export function PrototypeVisualization() {
 
         {/* Stats overlay - Bottom - Desktop */}
         <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end pointer-events-none">
-          <div className="bg-white/95 backdrop-blur-sm p-3 rounded-xl border border-gray-100 shadow-md">
-            <div className="flex items-center gap-5">
+          <div className="relative">
+            <div className="absolute -top-4 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full border border-gray-100 shadow-md">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-solar-yellow animate-pulse" />
                 <span className="font-mono text-[10px] text-brand-black font-semibold">P_solar: 150W</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-compute-blue" />
-                <span className="font-mono text-[10px] text-brand-black font-semibold">P_compute: 140W</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-thermal-orange" />
-                <span className="font-mono text-[10px] text-brand-black font-semibold">ΔT: +25°C</span>
+            </div>
+            <div className="bg-white/95 backdrop-blur-sm p-3 rounded-xl border border-gray-100 shadow-md">
+              <div className="flex items-center gap-5">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-compute-blue" />
+                  <span className="font-mono text-[10px] text-brand-black font-semibold">P_compute: 140W</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-thermal-orange" />
+                  <span className="font-mono text-[10px] text-brand-black font-semibold">ΔT: +25°C</span>
+                </div>
               </div>
             </div>
           </div>
