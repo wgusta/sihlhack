@@ -123,7 +123,7 @@ export function PostEventPathSection() {
                   Unternehmen: Service & Installation
                 </h3>
                 <p className="font-mono text-sm text-gray-300 mb-4 leading-relaxed">
-                  Unternehmen können Sihlicon Hubs für LEGs bauen und installieren – 
+                  Unternehmen können Sihlicon Hubs für LEGs bauen und installieren, 
                   unter strikten Open Source Richtlinien. Kein Vendor Lock-in, 
                   vollständige Transparenz, Community-zertifizierte Partner.
                 </p>

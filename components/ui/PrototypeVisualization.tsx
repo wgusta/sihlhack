@@ -9,7 +9,7 @@ export function PrototypeVisualization() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <span className="bg-solar-yellow/20 text-solar-yellow px-3 py-1 rounded-full font-mono text-xs font-bold border border-solar-yellow/30">
-              v1 – Demo Scale
+              v1: Demo Scale
             </span>
             <span className="text-gray-400 font-mono text-xs">150W · 20L Tank · Proof of Concept</span>
           </div>
@@ -323,7 +323,7 @@ export function PrototypeVisualization() {
         {/* V1 Badge - Mobile */}
         <div className="flex items-center gap-2 mb-3">
           <span className="bg-solar-yellow/20 text-solar-yellow px-2 py-0.5 rounded-full font-mono text-[10px] font-bold border border-solar-yellow/30">
-            v1 – Demo Scale
+            v1: Demo Scale
           </span>
           <span className="text-gray-400 font-mono text-[9px]">150W · 20L</span>
         </div>
@@ -553,7 +553,7 @@ export function PrototypeVisualization() {
       <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <span className="bg-grid-green/20 text-grid-green px-3 py-1 rounded-full font-mono text-xs font-bold border border-grid-green/30">
-            v2 – Production Scale
+            v2: Production Scale
           </span>
           <span className="text-gray-500 font-mono text-xs">Coming Next</span>
         </div>
@@ -573,7 +573,7 @@ export function PrototypeVisualization() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-solar-yellow font-bold">☀</span>
-                <span className="text-gray-700"><strong>5–20 kW</strong> solar capacity per building unit</span>
+                <span className="text-gray-700"><strong>5 bis 20 kW</strong> solar capacity per building unit</span>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-compute-blue font-bold">⬢</span>
@@ -594,7 +594,7 @@ export function PrototypeVisualization() {
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">150W</span>
                   <span className="text-gray-300 mx-2">→</span>
-                  <span className="text-grid-green font-bold">5–20 kW</span>
+                  <span className="text-grid-green font-bold">5-20 kW</span>
                 </span>
               </div>
               <div className="flex justify-between items-center">
@@ -602,7 +602,7 @@ export function PrototypeVisualization() {
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">20L</span>
                   <span className="text-gray-300 mx-2">→</span>
-                  <span className="text-grid-green font-bold">200–500L</span>
+                  <span className="text-grid-green font-bold">200-500L</span>
                 </span>
               </div>
               <div className="flex justify-between items-center">
@@ -627,7 +627,7 @@ export function PrototypeVisualization() {
         
         <p className="text-gray-500 text-xs mt-6 font-mono">
           The hackathon builds v1 as a measurable closed-loop proof. The extrapolation to v2 demonstrates 
-          commercial viability—same physics, larger scale, real economic returns from compute revenue + energy savings.
+          commercial viability: same physics, larger scale, real economic returns from compute revenue and energy savings.
         </p>
       </div>
     </div>

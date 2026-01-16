@@ -25,7 +25,7 @@ const timelineEvents = [
   {
     date: 'Freitag Abend',
     title: 'Tag 1: Kickoff & Briefing',
-    description: 'Check-in, Hardware-Einführung, Team-Aufbau. Die Basis-Hardware ist vorgebaut — ihr erweitert und optimiert.',
+    description: 'Check-in, Hardware-Einführung, Team-Aufbau. Die Basis-Hardware ist vorgebaut; ihr erweitert und optimiert.',
     status: 'upcoming' as const,
     icon: '🚀',
   },

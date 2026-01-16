@@ -13,7 +13,7 @@ export function EndgameSection() {
             Was ist das mögliche ENDGAME?
           </h2>
           <p className="mt-4 text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-            Sihlthal als Node in einem dezentralen, solar-betriebenen AI-Netzwerk — 
+            Sihlthal als Node in einem dezentralen, solar-betriebenen AI-Netzwerk: 
             klein genug für Schweizer Präzision, gross genug um Silicon Valley zu ärgern.
           </p>
         </div>
@@ -30,12 +30,12 @@ export function EndgameSection() {
                 <p className="font-mono text-sm text-gray-300 leading-relaxed">
                   Das Ziel ist nicht, ein weiteres Silicon Valley zu werden. Das Ziel ist, ein Netzwerk aus 
                   <strong className="text-solar-yellow"> hunderten bis tausenden dezentralen I-Nodes</strong> aufzubauen, 
-                  die unter Schweizer Recht operieren — mit lokaler Energie, maximaler Datensouveränität, 
-                  und der Präzision, die nur kleine, fokussierte Teams liefern können.
+                  die unter Schweizer Recht operieren: lokale Energie, maximale Datensouveränität, 
+                  und die Präzision, die nur kleine, fokussierte Teams liefern können.
                 </p>
                 <p className="font-mono text-sm text-gray-300 leading-relaxed mt-4">
                   Wo Big Tech Milliarden in zentralisierte Rechenzentren pumpt, setzen wir auf 
-                  <strong className="text-grid-green"> Hybrid Edge-Cloud Architektur</strong> — 
+                  <strong className="text-grid-green"> Hybrid Edge-Cloud Architektur</strong>. 
                   Studien zeigen: bis zu <strong className="text-white">75% weniger Energieverbrauch</strong>, 
                   <strong className="text-white">80% niedrigere Kosten</strong>.
                 </p>
@@ -124,7 +124,7 @@ export function EndgameSection() {
             <div className="bg-white/5 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full font-mono text-xs font-bold">
-                  v1 – Proof of Concept
+                  v1: Proof of Concept
                 </span>
               </div>
               <h4 className="font-display text-xl font-bold text-white mb-4">Heute: Demo Scale</h4>
@@ -152,7 +152,7 @@ export function EndgameSection() {
             <div className="bg-gradient-to-br from-grid-green/20 to-compute-blue/20 border border-grid-green/50 rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
                 <span className="bg-grid-green text-brand-black px-3 py-1 rounded-full font-mono text-xs font-bold">
-                  v2 – Production Scale
+                  v2: Production Scale
                 </span>
               </div>
               <h4 className="font-display text-xl font-bold text-white mb-4">ENDGAME: Wirtschaftlich Tragfähig</h4>
@@ -292,29 +292,25 @@ export function EndgameSection() {
               <li className="flex items-start gap-3">
                 <span className="text-sihl-red mt-0.5">✗</span>
                 <span>
-                  <strong className="text-white">Kein Ersatz für Training großer Modelle</strong> — 
-                  GPT-5 Training braucht zentrale Mega-Cluster. Das ist nicht unser Spiel.
+                  <strong className="text-white">Kein Ersatz für Training großer Modelle.</strong> GPT-5 Training braucht zentrale Mega-Cluster. Das ist nicht unser Spiel.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-sihl-red mt-0.5">✗</span>
                 <span>
-                  <strong className="text-white">Kein schneller ROI</strong> — 
-                  CHF 50-200M Investment, Break-even in 3-5 Jahren. Das braucht Geduld.
+                  <strong className="text-white">Kein schneller ROI.</strong> CHF 50-200M Investment, Break-even in 3-5 Jahren. Das braucht Geduld.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-sihl-red mt-0.5">✗</span>
                 <span>
-                  <strong className="text-white">Hardware-Abhängigkeit bleibt</strong> — 
-                  Schweiz ist Tier 2 bei US Chip-Exportkontrollen. GPU-Zugang ist ein Risiko.
+                  <strong className="text-white">Hardware-Abhängigkeit bleibt.</strong> Schweiz ist Tier 2 bei US Chip-Exportkontrollen. GPU-Zugang ist ein Risiko.
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-sihl-red mt-0.5">✗</span>
                 <span>
-                  <strong className="text-white">Energie ist endlich</strong> — 
-                  Bis 2030 könnten Rechenzentren 10-15% des Schweizer Stroms verbrauchen.
+                  <strong className="text-white">Energie ist endlich.</strong> Bis 2030 könnten Rechenzentren 10-15% des Schweizer Stroms verbrauchen.
                 </span>
               </li>
             </ul>
@@ -328,7 +324,7 @@ export function EndgameSection() {
               Das ENDGAME ist kein Traum. Es ist ein Plan.
             </h3>
             <p className="font-mono text-sm text-gray-300 leading-relaxed mb-6">
-              Wenn v1 funktioniert — messbar, reproduzierbar, open source — dann folgt v2. 
+              Wenn v1 funktioniert, messbar, reproduzierbar, open source, dann folgt v2. 
               Nicht als Kopie von Silicon Valley, sondern als <strong className="text-solar-yellow">Schweizer Spike</strong>: 
               klein, präzise, souverän. Genug Substanz um mitzuspielen. 
               Genug Differenzierung um zu stören.

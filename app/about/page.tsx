@@ -201,7 +201,7 @@ export default function AboutPage() {
                 Hardware-Hacker arbeiten mit Grid-Devs, Rechtsexperten mit Designern.
               </p>
               <p className="mt-2 text-sm text-historic-sepia font-mono max-w-2xl mx-auto">
-                Auch ohne qualifizierte Kenntnisse können Teilnehmerinnen sich für eine Rolle anmelden – 
+                Auch ohne qualifizierte Kenntnisse können Teilnehmerinnen sich für eine Rolle anmelden. 
                 <strong className="text-brand-black"> klick auf die Karte</strong> um herauszufinden, was es benötigt.
               </p>
             </div>
@@ -546,7 +546,7 @@ export default function AboutPage() {
                     Du als Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
                   </p>
                   <p>
-                    Durch die Veröffentlichung unter <strong className="text-thermal-orange">Apache 2.0</strong> erteilst du eine <strong className="text-white">nicht-exklusive, weltweite, gebührenfreie Lizenz</strong> – 
+                    Durch die Veröffentlichung unter <strong className="text-thermal-orange">Apache 2.0</strong> erteilst du eine <strong className="text-white">nicht-exklusive, weltweite, gebührenfreie Lizenz</strong>: 
                     du gibst also Nutzungsrechte weiter, ohne deine eigenen Rechte zu verlieren.
                   </p>
                   <p className="pt-2 border-t border-white/10 text-xs text-gray-400">
@@ -623,7 +623,7 @@ export default function AboutPage() {
                     <strong className="text-white">Gerichtsstand:</strong> Bei Streitigkeiten ist das Gericht am Sitz des Veranstalters zuständig (Zürich/Aargau).
                   </p>
                   <p>
-                    <strong className="text-white">Haftungsausschluss:</strong> Software wird "AS IS" bereitgestellt (Art. 100 OR – Wegbedingung der Haftung).
+                    <strong className="text-white">Haftungsausschluss:</strong> Software wird "AS IS" bereitgestellt (Art. 100 OR, Wegbedingung der Haftung).
                     Dies ist in der Schweiz rechtlich zulässig, sofern keine Absicht oder grobe Fahrlässigkeit vorliegt.
                   </p>
                   <p>
@@ -728,13 +728,13 @@ export default function AboutPage() {
                   q: 'Was passiert, wenn mein Code später in einem kommerziellen Produkt verwendet wird?',
                   a: (
                     <>
-                      Apache 2.0 erlaubt kommerzielle Nutzung – das ist gewollt. <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.
+                      Apache 2.0 erlaubt kommerzielle Nutzung, das ist gewollt. <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.
                     </>
                   ),
                 },
                 {
                   q: 'Hafte ich, wenn mein Code einen Fehler hat und etwas kaputt geht?',
-                  a: 'Nein. Die Apache 2.0 Lizenz enthält einen Haftungsausschluss ("AS IS" - Software wird ohne Gewährleistung bereitgestellt), der nach Schweizer Recht (Art. 100 OR) rechtlich wirksam ist. Du haftest nur bei Vorsatz oder grober Fahrlässigkeit.',
+                  a: 'Nein. Die Apache 2.0 Lizenz enthält einen Haftungsausschluss ("AS IS", also ohne Gewährleistung), der nach Schweizer Recht (Art. 100 OR) rechtlich wirksam ist. Du haftest nur bei Vorsatz oder grober Fahrlässigkeit.',
                 },
                 {
                   q: 'Kann ich meinen Code später unter einer anderen Lizenz verwenden?',

@@ -5,7 +5,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 
 export const metadata = {
   title: 'Team | sihlhack',
-  description: 'Das Team hinter sihlhack – Menschen die glauben, dass Hackathons anders funktionieren können.',
+  description: 'Das Team hinter sihlhack: Menschen die glauben, dass Hackathons anders funktionieren können.',
 }
 
 export default function TeamPage() {
@@ -59,14 +59,14 @@ export default function TeamPage() {
                     <div className="mt-6 space-y-4 text-historic-sepia font-mono text-sm leading-relaxed">
                       <p>
                         Was, wenn wir dezentrale Infrastruktur bauen, die mit überschüssigem Solarstrom läuft und gleichzeitig 
-                        Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört – ohne Corporate-Agenda, mit echtem 
+                        Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört, ohne Corporate-Agenda, mit echtem 
                         Stake am Ergebnis?
                       </p>
 
                       <p>
                         Mein <strong className="text-brand-black">MSc in Applied Information & Data Science</strong> an der HSLU 
                         gibt mir die Tools, um diese Vision umzusetzen. KI-Integration, ML-basierte Datenanalyse, moderne 
-                        OCR-Methoden – alles, was wir brauchen, um historische Archive zu erschliessen und dezentrale 
+                        OCR-Methoden, alles, was wir brauchen, um historische Archive zu erschliessen und dezentrale 
                         Systeme intelligent zu steuern.
                       </p>
                     </div>
@@ -149,7 +149,7 @@ export default function TeamPage() {
                 Wir suchen Mitstreiter
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-xl mx-auto">
-                sihlhack ist mehr als ein Event – es ist eine Bewegung. Wir suchen Menschen, 
+                sihlhack ist mehr als ein Event. Es ist eine Bewegung. Wir suchen Menschen, 
                 die an dezentrale Infrastruktur und partizipative Innovation glauben.
               </p>
             </div>
@@ -176,7 +176,7 @@ export default function TeamPage() {
                     <span>🤝</span> Partner
                   </h3>
                   <p className="font-mono text-sm text-historic-sepia mb-4">
-                    Makerspaces, Universitäten, Energieversorger, Archive – wir suchen Partner, 
+                    Makerspaces, Universitäten, Energieversorger, Archive: wir suchen Partner, 
                     die unsere Vision teilen.
                   </p>
                   <p className="font-mono text-xs text-historic-sepia/70">

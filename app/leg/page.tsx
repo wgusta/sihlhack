@@ -26,7 +26,7 @@ export default function LEGPage() {
               Lokale Elektrizitäts&shy;gemeinschaften
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed font-mono">
-              Was das Gesetz verspricht, was technisch möglich ist – und wo die eigentlichen Hürden liegen.
+              Was das Gesetz verspricht, was technisch möglich ist, und wo die eigentlichen Hürden liegen.
             </p>
           </div>
         </section>
@@ -40,7 +40,7 @@ export default function LEGPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm font-mono leading-relaxed">
-                  <strong className="text-brand-black">Seit 1. Januar 2018</strong> ermöglicht das revidierte Energiegesetz (EnG) der Schweiz sogenannte <strong>Lokale Elektrizitätsgemeinschaften (LEG)</strong> – auch Eigenverbrauchsgemeinschaften (EVG) oder Zusammenschlüsse zum Eigenverbrauch (ZEV) genannt.
+                  <strong className="text-brand-black">Seit 1. Januar 2018</strong> ermöglicht das revidierte Energiegesetz (EnG) der Schweiz sogenannte <strong>Lokale Elektrizitätsgemeinschaften (LEG)</strong>, auch Eigenverbrauchsgemeinschaften (EVG) oder Zusammenschlüsse zum Eigenverbrauch (ZEV) genannt.
                 </p>
                 <p className="text-sm font-mono leading-relaxed">
                   <strong className="text-thermal-orange">Das Versprechen:</strong> Mehrere Haushalte oder Gebäude auf einem Areal teilen selbst produzierten Strom (meist Solar) und senken ihre Netzkosten durch lokalen Verbrauch.
@@ -161,7 +161,7 @@ export default function LEGPage() {
 
             <div className="mt-8 p-6 bg-white rounded-lg border-2 border-brand-black">
               <p className="text-sm font-mono text-brand-black">
-                <strong>Die Wahrheit:</strong> Es gibt <em>kein</em> Gleichgewicht, das alle drei Ziele gleichzeitig erfüllt. LEGs müssen priorisieren – und diese Priorisierung wird oft vom Netzbetreiber vorgegeben, nicht von der Gemeinschaft selbst.
+                <strong>Die Wahrheit:</strong> Es gibt <em>kein</em> Gleichgewicht, das alle drei Ziele gleichzeitig erfüllt. LEGs müssen priorisieren, und diese Priorisierung wird oft vom Netzbetreiber vorgegeben, nicht von der Gemeinschaft selbst.
               </p>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function LEGPage() {
                     <li>Wie wird "Eigenverbrauch" definiert, wenn Speicher involviert sind?</li>
                     <li>Dürfen LEGs Strom <em>untereinander</em> handeln, oder nur "verbrauchen"?</li>
                   </ul>
-                  <p className="pt-3 text-sihl-red"><strong>Konsequenz:</strong> Netzbetreiber interpretieren Regelungen <em>restriktiv</em> – im Zweifel gegen die LEG.</p>
+                  <p className="pt-3 text-sihl-red"><strong>Konsequenz:</strong> Netzbetreiber interpretieren Regelungen <em>restriktiv</em>, im Zweifel gegen die LEG.</p>
                 </CardContent>
               </Card>
 
@@ -208,7 +208,7 @@ export default function LEGPage() {
                   <CardTitle className="text-xl text-compute-blue">3. Soziale Koordination</CardTitle>
                 </CardHeader>
                 <CardContent className="font-mono text-sm space-y-3">
-                  <p><strong>Problem:</strong> LEGs sind <em>keine rein technischen Systeme</em> – sie sind soziale Organisationen.</p>
+                  <p><strong>Problem:</strong> LEGs sind <em>keine rein technischen Systeme</em>. Sie sind soziale Organisationen.</p>
                   <ul className="list-disc list-inside space-y-2 ml-4 text-xs">
                     <li><strong>Governance:</strong> Wer entscheidet über Investitionen? (Mehrheitsprinzip? Veto-Rechte?)</li>
                     <li><strong>Fairness:</strong> Wie werden Kosten/Nutzen verteilt? (Pro-Kopf? Nach Verbrauch? Nach Dachfläche?)</li>
@@ -230,7 +230,7 @@ export default function LEGPage() {
                     <li>Einspeiseverträge und Netznutzungstarife</li>
                     <li>Technische Anforderungen (Schutzkonzepte, Leistungsbegrenzung)</li>
                   </ul>
-                  <p className="pt-3"><strong>Konflikt:</strong> Netzbetreiber verdienen an <em>Netznutzungsgebühren</em> – LEGs reduzieren diese Einnahmen.</p>
+                  <p className="pt-3"><strong>Konflikt:</strong> Netzbetreiber verdienen an <em>Netznutzungsgebühren</em>. LEGs reduzieren diese Einnahmen.</p>
                   <p className="text-grid-green"><strong>Konsequenz:</strong> Netzbetreiber haben einen <em>strukturellen Anreiz</em>, LEGs restriktiv zu behandeln.</p>
                 </CardContent>
               </Card>
@@ -287,7 +287,7 @@ export default function LEGPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <span className="text-sihl-red text-xl">✗</span>
-                    <span><strong>Peer-to-Peer Energie-Marktplätze:</strong> Das EnG erlaubt keinen freien Handel zwischen LEG-Mitgliedern – nur kollektiven Eigenverbrauch.</span>
+                    <span><strong>Peer-to-Peer Energie-Marktplätze:</strong> Das EnG erlaubt keinen freien Handel zwischen LEG-Mitgliedern, nur kollektiven Eigenverbrauch.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-sihl-red text-xl">✗</span>
@@ -378,7 +378,7 @@ export default function LEGPage() {
                   <li><strong>Amortisation:</strong> 5–8 Jahre bei CHF 15'000–25'000 Investition</li>
                 </ul>
                 <p className="pt-3 text-brand-black">
-                  <strong>Wichtig:</strong> Sihlicon Hubs lösen <em>nicht</em> die regulatorischen oder sozialen LEG-Probleme – sie lösen nur das <em>technische</em> Lastausgleichsproblem.
+                  <strong>Wichtig:</strong> Sihlicon Hubs lösen <em>nicht</em> die regulatorischen oder sozialen LEG-Probleme. Sie lösen nur das <em>technische</em> Lastausgleichsproblem.
                 </p>
               </CardContent>
             </Card>
@@ -408,7 +408,7 @@ export default function LEGPage() {
                   <CardTitle className="text-lg">Für neue LEG-Gründungen</CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm font-mono space-y-2">
-                  <p><strong>1. Governance klären:</strong> <em>Vor</em> technischer Planung – wer entscheidet was?</p>
+                  <p><strong>1. Governance klären:</strong> <em>Vor</em> technischer Planung: wer entscheidet was?</p>
                   <p><strong>2. Netzbetreiber frühzeitig einbinden:</strong> Vorabklärung zu Anschlussbedingungen</p>
                   <p><strong>3. Professionelle Begleitung:</strong> Energieberater mit LEG-Erfahrung beauftragen</p>
                   <p><strong>4. Skalierbarkeit einplanen:</strong> System so bauen, dass Erweiterung möglich ist</p>
@@ -440,11 +440,11 @@ export default function LEGPage() {
               <CardContent className="space-y-6">
                 <div className="font-mono text-sm leading-relaxed space-y-4">
                   <p>
-                    <strong className="text-thermal-orange">LEGs funktionieren</strong> – aber sie sind <em>kein Selbstläufer</em>.
+                    <strong className="text-thermal-orange">LEGs funktionieren</strong>, aber sie sind <em>kein Selbstläufer</em>.
                   </p>
                   
                   <p>
-                    Das Schweizer Energiegesetz hat die <strong>rechtliche Basis</strong> geschaffen. Die Technologie (Solar, Speicher, Smart Meters) ist <strong>ausgereift</strong>. Die Wirtschaftlichkeit ist <strong>gegeben</strong> – zumindest für mittlere bis grosse Installationen.
+                    Das Schweizer Energiegesetz hat die <strong>rechtliche Basis</strong> geschaffen. Die Technologie (Solar, Speicher, Smart Meters) ist <strong>ausgereift</strong>. Die Wirtschaftlichkeit ist <strong>gegeben</strong>, zumindest für mittlere bis grosse Installationen.
                   </p>
 
                   <p className="text-brand-black">
@@ -488,7 +488,7 @@ export default function LEGPage() {
                   </div>
 
                   <p className="pt-6 text-lg text-brand-black font-bold">
-                    LEGs sind kein Hype – sie sind eine <em>reale</em>, <em>funktionierende</em> Technologie. Aber ihr Potenzial wird nur dann entfaltet, wenn wir die nicht-technischen Barrieren genauso ernst nehmen wie die technischen.
+                    LEGs sind kein Hype. Sie sind eine <em>reale</em>, <em>funktionierende</em> Technologie. Aber ihr Potenzial wird nur dann entfaltet, wenn wir die nicht-technischen Barrieren genauso ernst nehmen wie die technischen.
                   </p>
                 </div>
               </CardContent>

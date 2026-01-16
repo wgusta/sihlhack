@@ -57,7 +57,7 @@ export function EnergyTrilemmaSection() {
       id: 'heatpump',
       name: 'Der Boost',
       subtitle: 'Heat Pump Integration',
-      description: 'Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben — genug für Radiatoren. Aber: Komplexität. COP-Trade-offs. Stromverbrauch der Pumpe. Für Teams, die ambitioniert denken.',
+      description: 'Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben, genug für Radiatoren. Aber: Komplexität. COP-Trade-offs. Stromverbrauch der Pumpe. Für Teams, die ambitioniert denken.',
       pros: ['70°C+ Output', 'Radiator-tauglich', 'Höchste Nutzung'],
       cons: ['Komplexität', 'Strom für Pumpe', 'COP-Verluste'],
       color: 'grid-green',

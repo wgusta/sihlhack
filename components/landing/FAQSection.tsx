@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 const faqs = [
   {
     q: 'Was ist ein Sihlicon Hub?',
-    a: 'Server + Batterie + Wärme in einem System. Ihr kombiniert Dinge, die normalerweise getrennt leben. Der thermische Pfad? Noch offen — das ist eure Challenge.',
+    a: 'Server + Batterie + Wärme in einem System. Ihr kombiniert Dinge, die normalerweise getrennt leben. Der thermische Pfad? Noch offen; das ist eure Challenge.',
   },
   {
     q: 'Ist Öl-Immersion die einzige Option?',
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: 'Was ist anders an diesem Hackathon?',
-    a: 'Keine vorgegebene Lösung. Ihr bekommt Constraints, ihr findet den Pfad. Echte Ingenieurs-Entscheidungen. Am Ende funktioniert was Physisches — oder nicht. Das ist der Test.',
+    a: 'Keine vorgegebene Lösung. Ihr bekommt Constraints, ihr findet den Pfad. Echte Ingenieurs-Entscheidungen. Am Ende funktioniert was Physisches, oder nicht. Das ist der Test.',
   },
   {
     q: 'Was sind die Pakete?',

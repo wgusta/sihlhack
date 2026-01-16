@@ -276,7 +276,7 @@ export default function ChallengesPage() {
                   <span className="text-3xl">♨️</span>
                 </div>
                 <p className="font-mono text-sm text-historic-sepia mb-4 leading-relaxed">
-                  Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben — 
+                  Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben, 
                   genug für Radiatoren. Aber: Komplexität und COP-Trade-offs.
                 </p>
                 <div className="grid grid-cols-2 gap-4 text-xs font-mono">
@@ -302,7 +302,7 @@ export default function ChallengesPage() {
 
             <div className="mt-8 bg-brand-black rounded-xl p-6 text-center">
               <p className="font-mono text-sm text-gray-300">
-                Profis vor Ort — damit ihr euch auf die Lösung konzentrieren könnt.
+                Profis vor Ort, damit ihr euch auf die Lösung konzentrieren könnt.
               </p>
             </div>
           </div>
@@ -320,7 +320,7 @@ export default function ChallengesPage() {
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
                 Jedes Team wählt ein Pflicht-Paket als Hauptfokus.
-                Mehrere Teams arbeiten parallel am gleichen Paket — beste Lösung gewinnt.
+                Mehrere Teams arbeiten parallel am gleichen Paket. Beste Lösung gewinnt.
               </p>
             </div>
 
@@ -492,7 +492,7 @@ export default function ChallengesPage() {
                 <p className="text-gray-300 font-mono text-sm max-w-2xl mx-auto mb-6">
                   Team Red ist die <strong className="text-red-400">einzige Challenge mit Selektionsverfahren</strong>. 
                   Wir suchen erfahrene Security-Researcher mit nachweisbarer Expertise. 
-                  Die reguläre Hackathon-Anmeldung gilt hier nicht – bewirb dich separat.
+                  Die reguläre Hackathon-Anmeldung gilt hier nicht. Bewirb dich separat.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -622,7 +622,7 @@ export default function ChallengesPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">
-                Platz sichern — CHF 150
+                Platz sichern: CHF 150
               </ButtonLink>
               <ButtonLink
                 href="/about"

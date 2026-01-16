@@ -78,7 +78,7 @@ export function HeroSection() {
               <span className="text-gray-400 text-xl sm:text-2xl md:text-3xl">Buchstäblich.</span>
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              Batterie + Server + Wärme — kombiniert zu etwas, das Silicon Valley noch nicht auf dem Schirm hat. Du baust es.
+              Batterie + Server + Wärme: kombiniert zu etwas, das Silicon Valley noch nicht auf dem Schirm hat. Du baust es.
             </p>
           </div>
 
@@ -118,9 +118,9 @@ export function HeroSection() {
                     Drei Optionen. Kein richtiger Pfad. Nur Trade-offs.
                   </p>
                   <ul className="text-xs text-gray-400 font-mono space-y-1">
-                    <li>• Öl-Immersion — sexy, komplex</li>
-                    <li>• Wasser-Loop — boring, funktioniert</li>
-                    <li>• Wärmepumpe — clever, teuer</li>
+                    <li>• Öl-Immersion: sexy, komplex</li>
+                    <li>• Wasser-Loop: boring, funktioniert</li>
+                    <li>• Wärmepumpe: clever, teuer</li>
                   </ul>
                 </div>
                 
@@ -162,7 +162,7 @@ export function HeroSection() {
                   <ul className="text-xs text-gray-400 font-mono space-y-1">
                     <li>• Thermodynamik ist dein Spielplatz</li>
                     <li>• Du baust, was funktioniert</li>
-                    <li>• Löten, CAD, Pumpen — dein Ding</li>
+                    <li>• Löten, CAD, Pumpen: dein Ding</li>
                   </ul>
                 </div>
                 
