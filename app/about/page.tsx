@@ -2,7 +2,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION, HACKATHON_CHALLENGES } from '@/lib/roles'
+import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION } from '@/lib/roles'
 
 export const metadata = {
   title: 'Das Konzept | sihlhack',
@@ -28,66 +28,6 @@ export default function AboutPage() {
               sihlhack entwickelt Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
               Server die heizen. Solar das rechnet. LEGs die profitieren.
             </p>
-          </div>
-        </section>
-
-        {/* Origin Story */}
-        <section className="py-16 bg-white border-b">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-                Wie alles begann
-              </span>
-              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Die Idee, die nicht loslässt
-              </h2>
-            </div>
-
-            <div className="prose prose-lg max-w-none">
-              <blockquote className="border-l-4 border-thermal-orange pl-6 py-2 my-8 bg-off-white/50 rounded-r-lg">
-                <p className="font-display text-xl italic text-brand-black">
-                  &ldquo;Ich sass an meinem ersten Hackathon und dachte: Das ist es. Diese Energie, diese Kreativität, 
-                  wenn Leute zusammenkommen und einfach bauen. Aber irgendetwas fehlte.&rdquo;
-                </p>
-                <footer className="font-mono text-sm text-historic-sepia mt-2">
-                  — Güney Usta, Gründer sihlhack
-                </footer>
-              </blockquote>
-
-              <p className="font-mono text-historic-sepia leading-relaxed">
-                Es war 2023, als ich bei einem Corporate-Hackathon sass. Talentierte Entwickler, 
-                interessante Challenges – aber am Ende arbeiteten wir alle an Problemen, die ein 
-                Sponsor definiert hatte. Die besten Ideen? Verschwanden in Schubladen. Die Teilnehmer? 
-                Gingen nach Hause ohne echten Stake am Ergebnis.
-              </p>
-
-              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
-                Gleichzeitig beschäftigte mich etwas anderes: Ich hatte ein altes Firmenarchiv besucht, 
-                das kurz davor war, in einem Container zu landen. Geschäftsbücher aus den 1890ern, 
-                Fotografien von Fabrikarbeitern, technische Zeichnungen von Maschinen. 
-                <strong className="text-brand-black"> Das Wissen einer ganzen Industrieepoche, undigitalisiert und bald vergessen.</strong>
-              </p>
-
-              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
-                Dann kam der Moment, der alles verband: Was, wenn wir dezentrale Compute-Infrastruktur bauen – 
-                Server, die mit Solarstrom laufen und Gebäude heizen? Und was, wenn wir diese Rechenleistung nutzen, 
-                um historische Archive zu digitalisieren? <strong className="text-brand-black">Die Zukunft bauen, 
-                um die Vergangenheit zu retten.</strong>
-              </p>
-
-              <p className="font-mono text-historic-sepia leading-relaxed mt-4">
-                sihlhack ist ein Experiment: Ein Hackathon, bei dem Teilnehmer zahlen – und dadurch echten Stake haben. 
-                Wo das Preisgeld von uns allen kommt, nicht von Sponsoren mit Agenda. Wo wir Hardware bauen, 
-                die tatsächlich deployed wird. Und wo eine historische Side-Quest an das Sihltal erinnert, 
-                das einst die Wiege der Zürcher Industrialisierung war.
-              </p>
-            </div>
-
-            <div className="mt-8 text-center">
-              <ButtonLink href="/team" variant="ghost" size="sm">
-                Mehr über das Team →
-              </ButtonLink>
-            </div>
           </div>
         </section>
 
@@ -168,65 +108,6 @@ export default function AboutPage() {
                   <div className="font-mono text-xs text-historic-sepia mt-1">Keine Lüfter, kein Lärm</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Hackathon Challenges */}
-        <section className="py-16 bg-brand-black">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-                Was wir bauen
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">
-                Die Challenges
-              </h2>
-              <p className="mt-4 text-gray-400 font-mono max-w-2xl mx-auto">
-                Fünf parallele Tracks, ein gemeinsames Ziel: Der komplette Sihlicon Stack.
-              </p>
-            </div>
-
-            {/* Challenges Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {HACKATHON_CHALLENGES.map((challenge) => (
-                <div
-                  key={challenge.id}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">{challenge.icon}</span>
-                    <div>
-                      <h3 className="font-mono text-lg font-semibold text-white">
-                        {challenge.nameDE}
-                      </h3>
-                      <span className="font-mono text-xs text-thermal-orange">
-                        {challenge.track}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-sm font-mono text-gray-400 mb-4">
-                    {challenge.descriptionDE}
-                  </p>
-                  <div className="space-y-1">
-                    {challenge.deliverables.map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs font-mono text-gray-500">
-                        <span className="w-1 h-1 rounded-full bg-grid-green" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-white/10">
-                    <span className={`text-xs font-mono px-2 py-1 rounded ${
-                      challenge.difficulty === 'advanced'
-                        ? 'bg-thermal-orange/20 text-thermal-orange'
-                        : 'bg-compute-blue/20 text-compute-blue'
-                    }`}>
-                      {challenge.difficulty === 'advanced' ? 'Fortgeschritten' : 'Mittel'}
-                    </span>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -313,6 +194,12 @@ export default function AboutPage() {
               <p className="text-center text-gray-400 font-mono text-xs mt-6">
                 Kein vollständiges Team? Wir helfen dir, passende Teammitglieder zu finden.
               </p>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <ButtonLink href="/challenges" variant="primary" size="sm">
+                Alle Challenges ansehen →
+              </ButtonLink>
             </div>
           </div>
         </section>
