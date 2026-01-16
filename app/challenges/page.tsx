@@ -16,28 +16,32 @@ const SIDE_QUEST = {
   nameDE: 'Historische Archive',
   icon: '📜',
   track: 'Side-Quest',
-  description: 'Digitize and analyze historical industrial archives from the Sihl Valley using modern AI methods.',
-  descriptionDE: 'Digitalisiere und analysiere historische Industriearchive aus dem Sihltal mit modernen KI-Methoden.',
-  longDescription: `Das Sihltal war die Wiege der Zürcher Industrialisierung. Von Textilmühlen bis zu Maschinenfabriken führten Unternehmen akribische Aufzeichnungen: Geschäftsbücher, Fotografien, technische Zeichnungen, Mitarbeiterakten, Produktionsdaten.
+  description: 'Find energy blueprints and scout locations for Sihlicon hub deployment using historical archives and public records.',
+  descriptionDE: 'Finde Energie-Baupläne und erkunde Standorte für Sihlicon Hubs in historischen Archiven und öffentlichen Aufzeichnungen.',
+  longDescription: `Das Sihltal war die Wiege der Zürcher Industrialisierung. Historische Archive enthalten wertvolles Wissen: Energie-Baupläne, Standortdaten, Verfahren zur dezentralen Energieversorgung.
 
-Vieles davon schlummert in Archiven – undigitalisiert und unerforscht. Hier liegt verborgenes Wissen: Produktionsstrategien aus einer Ära der Ressourcenknappheit, Organisationsstrukturen, technische Innovationen ihrer Zeit voraus.
+Deine Mission: Durchsuche historische Firmenarchive und öffentliche Aufzeichnungen nach:
+• Energie-Bauplänen und Verfahren, die für Digital Hearth relevant sind
+• Standorten ungenutzter Gebäude, Areale oder Territorien
+• Historischen Energieinfrastrukturen, die reaktiviert werden könnten
 
-Als Bonus-Challenge für Teams mit historischem Interesse oder Data-Science-Background.`,
+Das Ziel: Eine Karte potenzieller Sihlicon Hub-Standorte und eine Sammlung historischer Energieverfahren, die uns beim Deployment helfen.`,
   technicalDetails: [
-    'OCR-Verarbeitung handschriftlicher und getippter Dokumente',
-    'Bilderkennung für Objekte, Personen, Maschinen',
-    'Strukturierung in abfragbare Formate',
-    'Pattern Discovery mit ML-Algorithmen',
-    'Cross-Referenzierung über mehrere Firmenarchive',
+    'OCR-Verarbeitung historischer Baupläne und Dokumente',
+    'Geodaten-Extraktion aus Archivmaterialien',
+    'Cross-Referenzierung mit öffentlichen Grundbuchdaten',
+    'Identifikation ungenutzter Gebäude/Areale',
+    'Analyse historischer Energieinfrastruktur',
+    'Kartierung potenzieller Standorte',
   ],
   deliverables: [
-    'Digitalisierte Dokument-Sammlung',
-    'Strukturierte Datenbank',
-    'Visualisierung historischer Muster',
-    'Dokumentation der Methodik',
+    'Karte potenzieller Sihlicon Hub-Standorte',
+    'Sammlung relevanter Energie-Baupläne',
+    'Dokumentation historischer Verfahren',
+    'Standort-Analyse mit Priorisierung',
   ],
-  skills: ['Python', 'OCR/Tesseract', 'Computer Vision', 'Data Science', 'Historisches Interesse'],
-  outcome: 'Erschlossenes Industrieerbe mit modernen Analyse-Möglichkeiten',
+  skills: ['Python', 'OCR/Tesseract', 'Geodatenanalyse', 'GIS', 'Data Science', 'Archivforschung'],
+  outcome: 'Praktische Standortvorschläge und historisches Wissen für Sihlicon Hub Deployment',
 }
 
 // Team Red: Security Challenge - DANGER ZONE
@@ -389,7 +393,7 @@ export default function ChallengesPage() {
                     {SIDE_QUEST.nameDE}
                   </h2>
                   <p className="font-mono text-sm text-historic-sepia/70 mt-2 italic">
-                    Bonus-Challenge für Geschichts- und Data-Science-Enthusiasten
+                    Standort-Scouting und Energie-Baupläne aus historischen Quellen
                   </p>
                 </div>
 
@@ -405,7 +409,7 @@ export default function ChallengesPage() {
                   {/* Technical Details */}
                   <div className="bg-white/50 border border-historic-sepia/20 rounded p-6">
                     <h3 className="font-display text-lg font-semibold text-historic-sepia mb-4 flex items-center gap-2">
-                      <span>🔍</span> KI-Methoden
+                      <span>🔍</span> Methoden & Tools
                     </h3>
                     <ul className="space-y-2">
                       {SIDE_QUEST.technicalDetails.map((detail, i) => (
