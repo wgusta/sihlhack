@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
 import { PostEventPathSection } from '@/components/landing/PostEventPathSection'
+import { EndgameSection } from '@/components/landing/EndgameSection'
 
 export default function AboutPage() {
   const [expandedRole, setExpandedRole] = useState<string | null>(null)
@@ -69,12 +70,12 @@ export default function AboutPage() {
             {/* Problem → Solution - Fixed */}
             <div className="relative mb-12">
               {/* Before/After Labels - Larger */}
-              <div className="flex justify-between mb-6 px-2">
+              <div className="flex justify-between mb-6 px-2 md:px-16">
                 <span className="font-mono text-sm text-red-600 uppercase tracking-widest font-bold">VORHER</span>
                 <span className="font-mono text-sm text-grid-green uppercase tracking-widest font-bold">NACHHER</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 relative">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-32 relative">
                 {/* Problem Card - Better contrast */}
                 <Card className="border-2 border-red-500 bg-gradient-to-br from-red-50 to-red-100 shadow-lg relative">
                   <CardHeader className="pb-3">
@@ -673,6 +674,9 @@ export default function AboutPage() {
 
         {/* Post-Event Paths */}
         <PostEventPathSection />
+
+        {/* ENDGAME Vision */}
+        <EndgameSection />
 
         {/* FAQ */}
         <section id="faq" className="py-16 bg-off-white">

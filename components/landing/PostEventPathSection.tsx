@@ -152,43 +152,6 @@ export function PostEventPathSection() {
           </div>
         </div>
 
-        {/* Connection Flow */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-            <h3 className="font-display text-xl font-bold text-white text-center mb-6">
-              Wie die Wege zusammenkommen
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-              <div className="p-4">
-                <div className="text-2xl mb-2">🎯</div>
-                <div className="font-mono text-xs text-gray-400">Demo-Scale</div>
-                <div className="font-mono text-sm text-white font-bold mt-1">sihlhack 2025</div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="text-thermal-orange text-2xl">→</div>
-              </div>
-              <div className="p-4">
-                <div className="text-2xl mb-2">🚀</div>
-                <div className="font-mono text-xs text-gray-400">1:1 Prototypen</div>
-                <div className="font-mono text-sm text-white font-bold mt-1">Follow-up Hackathon</div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="text-thermal-orange text-2xl">→</div>
-              </div>
-              <div className="p-4">
-                <div className="text-2xl mb-2">🏠</div>
-                <div className="font-mono text-xs text-gray-400">Deployment</div>
-                <div className="font-mono text-sm text-white font-bold mt-1">LEG DIY oder Service</div>
-              </div>
-            </div>
-            <div className="mt-6 text-center">
-              <p className="font-mono text-sm text-gray-400">
-                Alle Wege führen zu Open Source, Community-Governance und dezentraler Energiezukunft.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="mt-12 text-center">
           <p className="font-mono text-sm text-gray-400 mb-6">

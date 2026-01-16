@@ -31,9 +31,6 @@ export function Footer() {
             <Link href="/" className="inline-block">
               <Logo size="md" hackColor="white" />
             </Link>
-            <p className="mt-4 text-sm font-mono text-gray-400">
-              Der erste teilnehmerorientierte Hackathon der Schweiz. Historische Industriedaten aus dem Sihltal digitalisieren.
-            </p>
             <p className="mt-4 text-xs font-mono text-gray-500">
               Ein Projekt von{' '}
               <a
