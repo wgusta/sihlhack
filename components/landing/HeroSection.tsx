@@ -73,17 +73,13 @@ export function HeroSection() {
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-              Baue den Sihlicon Hub
+              Aus überschüssigem Solarstrom wird
+              <span className="text-thermal-orange"> Wärme und Rechenleistung.</span>
               <br />
-              <span className="text-thermal-orange">Demo-Scale Prototypen</span>
-              {' '}für dezentrale Energieinfrastruktur
+              Direkt im Quartier.
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              3 Tage. 3 Pflicht-Pakete. 30-36 Teams.
-              <br />
-              Baue funktionierende Prototypen, die Solarstrom in Compute und Wärme verwandeln.
-              <br />
-              <span className="text-thermal-orange">Open Source. Made in Switzerland.</span>
+              Hands‑on Hackathon für reale Energie‑ und Infrastruktur‑Lösungen.
             </p>
           </div>
 
