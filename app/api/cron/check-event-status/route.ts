@@ -8,7 +8,17 @@ import { checkEventStatusAndProcessRefunds } from '@/lib/refunds'
 export async function GET(request: NextRequest) {
   // Verify cron secret to prevent unauthorized access
   const authHeader = request.headers.get('authorization')
-  const cronSecret = process.env.CRON_SECRET?.trim()
+  // Defensive: trim whitespace from CRON_SECRET to handle Vercel env var issues
+  const cronSecret = process.env.CRON_SECRET?.trim() || null
+
+  // If CRON_SECRET is set but empty after trim, reject
+  if (process.env.CRON_SECRET !== undefined && !cronSecret) {
+    console.error('CRON_SECRET is set but empty or only whitespace')
+    return NextResponse.json(
+      { error: 'Server configuration error' },
+      { status: 500 }
+    )
+  }
 
   if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
     return NextResponse.json(
