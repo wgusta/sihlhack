@@ -257,6 +257,14 @@ export const SKILL_TAGS = [
 
 export type SkillTag = typeof SKILL_TAGS[number]
 
+// Resource type for open-source tools
+export type PackageResource = {
+  name: string
+  url: string
+  license: string
+  description: string
+}
+
 // Hackathon Packages - the deliverable packages teams compete on
 export const HACKATHON_PACKAGES = [
   {
@@ -284,6 +292,32 @@ export const HACKATHON_PACKAGES = [
     recommendedRoles: ['grid-os-dev', 'pm'],
     color: 'thermal-orange',
     prizeShare: 35,
+    resources: [
+      {
+        name: 'Prometheus',
+        url: 'https://github.com/prometheus/prometheus',
+        license: 'Apache-2.0',
+        description: 'Metriken-Sammlung fuer P_solar, P_compute, Temperaturen',
+      },
+      {
+        name: 'VictoriaMetrics',
+        url: 'https://github.com/VictoriaMetrics/VictoriaMetrics',
+        license: 'Apache-2.0',
+        description: 'Time-Series DB fuer Sensor-Zeitreihen',
+      },
+      {
+        name: 'Home Assistant',
+        url: 'https://github.com/home-assistant/core',
+        license: 'Apache-2.0',
+        description: 'IoT-Plattform mit Inverter-APIs (Fronius, SMA)',
+      },
+      {
+        name: 'Mosquitto',
+        url: 'https://github.com/eclipse-mosquitto/mosquitto',
+        license: 'EPL-2.0',
+        description: 'MQTT-Broker fuer Sensor-Kommunikation',
+      },
+    ],
   },
   {
     id: 'hardware-safety',
@@ -310,6 +344,26 @@ export const HACKATHON_PACKAGES = [
     recommendedRoles: ['designer', 'pm'],
     color: 'sihl-red',
     prizeShare: 35,
+    resources: [
+      {
+        name: 'LibreSolar BMS',
+        url: 'https://github.com/LibreSolar/bms-firmware',
+        license: 'Apache-2.0',
+        description: 'Battery Management System Firmware',
+      },
+      {
+        name: 'LibreSolar Charge Controller',
+        url: 'https://github.com/LibreSolar/charge-controller-firmware',
+        license: 'Apache-2.0',
+        description: 'MPPT Solar Charge Controller mit Schematics',
+      },
+      {
+        name: 'Zephyr RTOS',
+        url: 'https://github.com/zephyrproject-rtos/zephyr',
+        license: 'Apache-2.0',
+        description: 'Echtzeit-OS fuer Safety-kritische Embedded-Systeme',
+      },
+    ],
   },
   {
     id: 'grid-os',
@@ -336,6 +390,44 @@ export const HACKATHON_PACKAGES = [
     recommendedRoles: ['sensor-data-engineer', 'pm'],
     color: 'compute-blue',
     prizeShare: 20,
+    resources: [
+      {
+        name: 'Node-RED',
+        url: 'https://github.com/node-red/node-red',
+        license: 'Apache-2.0',
+        description: 'Flow-basierte Programmierung fuer Regeln und Automationen',
+      },
+      {
+        name: 'NATS',
+        url: 'https://github.com/nats-io/nats-server',
+        license: 'Apache-2.0',
+        description: 'High-Performance Messaging zwischen Komponenten',
+      },
+      {
+        name: 'Ollama',
+        url: 'https://github.com/ollama/ollama',
+        license: 'MIT',
+        description: 'Lokale LLM-Inferenz fuer intelligentes Scheduling',
+      },
+      {
+        name: 'llama.cpp',
+        url: 'https://github.com/ggml-org/llama.cpp',
+        license: 'MIT',
+        description: 'LLM-Inferenz auf CPU ohne GPU-Abhaengigkeit',
+      },
+      {
+        name: 'Chronos-T5',
+        url: 'https://huggingface.co/amazon/chronos-t5-small',
+        license: 'Apache-2.0',
+        description: 'Time-Series Forecasting fuer Solar-Vorhersage',
+      },
+      {
+        name: 'k3s',
+        url: 'https://github.com/k3s-io/k3s',
+        license: 'Apache-2.0',
+        description: 'Lightweight Kubernetes fuer Edge-Deployment',
+      },
+    ],
   },
   {
     id: 'dashboard',
@@ -360,6 +452,20 @@ export const HACKATHON_PACKAGES = [
     recommendedRoles: ['designer'],
     color: 'grid-green',
     prizeShare: 5,
+    resources: [
+      {
+        name: 'OpenTelemetry Collector',
+        url: 'https://github.com/open-telemetry/opentelemetry-collector',
+        license: 'Apache-2.0',
+        description: 'Telemetrie-Pipeline fuer Metriken/Logs/Traces',
+      },
+      {
+        name: 'Prometheus',
+        url: 'https://github.com/prometheus/prometheus',
+        license: 'Apache-2.0',
+        description: 'Metriken-Backend mit PromQL-Abfragen',
+      },
+    ],
   },
   {
     id: 'leg-starter',

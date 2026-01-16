@@ -1,6 +1,7 @@
 'use client'
 
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
+import { ResourceSubmissionForm } from './ResourceSubmissionForm'
 
 type Package = typeof HACKATHON_PACKAGES[number]
 
@@ -102,6 +103,46 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
           ))}
         </div>
       </div>
+
+      {/* Empfohlene Open-Source Tools */}
+      {'resources' in pkg && pkg.resources && (pkg.resources as unknown as Array<{name: string; url: string; license: string; description: string}>).length > 0 && (
+        <div className="p-6 border-t border-gray-100 bg-white/30">
+          <h4 className="font-display font-semibold text-brand-black mb-4 flex items-center gap-2">
+            <span>🔧</span> Empfohlene Open-Source Tools
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {(pkg.resources as unknown as Array<{name: string; url: string; license: string; description: string}>).map((resource, i) => (
+              <a
+                key={i}
+                href={resource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 rounded-lg bg-white border border-gray-200 hover:border-thermal-orange/50 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-start justify-between mb-1">
+                  <span className="font-mono text-sm font-semibold text-brand-black group-hover:text-thermal-orange transition-colors">
+                    {resource.name}
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 bg-grid-green/10 text-grid-green rounded-full">
+                    {resource.license}
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-historic-sepia leading-relaxed">
+                  {resource.description}
+                </p>
+                <span className="text-[10px] font-mono text-thermal-orange opacity-0 group-hover:opacity-100 transition-opacity mt-1 block">
+                  GitHub →
+                </span>
+              </a>
+            ))}
+          </div>
+          
+          {/* Resource Submission Form */}
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <ResourceSubmissionForm packageId={pkg.id} packageName={pkg.nameDE} />
+          </div>
+        </div>
+      )}
 
       {/* Team Composition */}
       {teamComposition && (

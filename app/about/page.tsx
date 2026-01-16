@@ -209,52 +209,24 @@ export default function AboutPage() {
 
             {/* Main content */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-              {/* Escher Portrait + Story */}
+              {/* Escher Story */}
               <div className="space-y-6">
-                {/* Team Member Style Card */}
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <div className="flex flex-col sm:flex-row gap-6 items-start">
-                    {/* Portrait */}
-                    <div className="flex-shrink-0">
-                      <div className="relative">
-                        <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden border-2 border-thermal-orange/50 shadow-lg shadow-thermal-orange/20">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img 
-                            src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Alfred_Escher_photo.jpg" 
-                            alt="Alfred Escher Portrait"
-                            className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
-                          />
-                        </div>
-                        {/* Role Badge */}
-                        <div className="absolute -bottom-2 -right-2 bg-thermal-orange text-white text-[10px] font-mono px-2 py-1 rounded-full shadow-lg">
-                          Gründervater
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Info */}
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-thermal-orange mb-1">
-                        Alfred Escher
-                      </h3>
-                      <p className="font-mono text-xs text-gray-400 mb-3">1819–1882 · Zürich</p>
-                      <p className="font-mono text-sm text-gray-300 leading-relaxed">
-                        Ein Mann. Er baute den Gotthardtunnel, gründete die Vorläufer von Credit Suisse und ETH Zürich, 
-                        und legte das Fundament für die moderne Schweiz.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-6 pt-4 border-t border-white/10">
-                    <p className="font-mono text-sm text-gray-300 leading-relaxed mb-3">
-                      Mitte des 19. Jahrhunderts drohte die Schweiz, vom europäischen Eisenbahnnetz abgehängt zu werden. 
-                      Escher erkannte das Risiko und warf sich mit aller Kraft in den Aufbau der Schweizer Infrastruktur.
-                    </p>
-                    <p className="font-mono text-sm text-gray-300 leading-relaxed">
-                      Das Ergebnis: Die Schweiz wurde zum Transit-Land für Güterverkehr, zum Finanzplatz, 
-                      zum Bildungs- und Forschungszentrum. Ein einziger Visionär veränderte alles.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-xl font-bold text-thermal-orange mb-4">
+                    Alfred Escher (1819–1882)
+                  </h3>
+                  <p className="font-mono text-sm text-gray-300 leading-relaxed mb-4">
+                    Ein Mann. Er baute den Gotthardtunnel, gründete die Vorläufer von Credit Suisse und ETH Zürich, 
+                    und legte das Fundament für die moderne Schweiz.
+                  </p>
+                  <p className="font-mono text-sm text-gray-300 leading-relaxed mb-4">
+                    Mitte des 19. Jahrhunderts drohte die Schweiz, vom europäischen Eisenbahnnetz abgehängt zu werden. 
+                    Escher erkannte das Risiko und warf sich mit aller Kraft in den Aufbau der Schweizer Infrastruktur.
+                  </p>
+                  <p className="font-mono text-sm text-gray-300 leading-relaxed">
+                    Das Ergebnis: Die Schweiz wurde zum Transit-Land für Güterverkehr, zum Finanzplatz, 
+                    zum Bildungs- und Forschungszentrum. Ein einziger Visionär veränderte alles.
+                  </p>
                 </div>
                 
                 <div className="flex flex-wrap gap-3 text-xs font-mono">

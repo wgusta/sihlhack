@@ -257,3 +257,50 @@ export async function sendVoteReceivedEmail(
     `,
   })
 }
+
+/**
+ * Send resource submission email to hello@sihlhack.ch
+ */
+export async function sendResourceSubmissionEmail(data: {
+  packageId: string
+  packageName: string
+  repoName: string
+  repoUrl: string
+  license?: string
+  description?: string
+  submitterName?: string
+  submitterEmail?: string
+}): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: 'hello@sihlhack.ch',
+    subject: `[sihlhack] Neuer Repo-Vorschlag: ${data.repoName}`,
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span>
+        </h1>
+        <h2 style="color: #1A1A1A; margin-top: 24px;">Neuer Open-Source-Repo-Vorschlag</h2>
+        
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #FF6B35;">
+          <p style="margin: 0 0 8px 0;"><strong>Challenge:</strong> ${data.packageName} (${data.packageId})</p>
+          <p style="margin: 0 0 8px 0;"><strong>Repo-Name:</strong> ${data.repoName}</p>
+          <p style="margin: 0 0 8px 0;"><strong>URL:</strong> <a href="${data.repoUrl}" style="color: #B5A642;">${data.repoUrl}</a></p>
+          ${data.license ? `<p style="margin: 0 0 8px 0;"><strong>Lizenz:</strong> ${data.license}</p>` : ''}
+          ${data.description ? `<p style="margin: 8px 0 0 0;"><strong>Beschreibung:</strong><br>${data.description}</p>` : ''}
+        </div>
+
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #8B7355;">
+          <p style="margin: 0 0 8px 0;"><strong>Eingereicht von:</strong></p>
+          ${data.submitterName ? `<p style="margin: 0 0 8px 0;">Name: ${data.submitterName}</p>` : ''}
+          ${data.submitterEmail ? `<p style="margin: 0;">E-Mail: <a href="mailto:${data.submitterEmail}" style="color: #B5A642;">${data.submitterEmail}</a></p>` : ''}
+        </div>
+
+        <p style="color: #8B7355; font-size: 12px; margin-top: 24px;">
+          Diese E-Mail wurde automatisch vom sihlhack-Website-Formular generiert.
+        </p>
+      </div>
+    `,
+  })
+}

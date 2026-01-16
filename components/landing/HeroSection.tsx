@@ -72,13 +72,16 @@ export function HeroSection() {
           {/* Main Headline */}
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
-              Der Hackathon, bei dem am Ende
-              <span className="text-thermal-orange"> etwas Warmes</span> rauskommt.
+              Server, die Häuser heizen. Batterien, die das Quartier versorgen.
               <br />
-              <span className="text-gray-400 text-xl sm:text-2xl md:text-3xl">Buchstäblich.</span>
+              <span className="text-thermal-orange">Aus Sonnenlicht wird Rechenleistung.</span>
+              <br />
+              Aus Rechenleistung wird Wärme. Aus Wärme wird Zukunft.
             </h2>
             <p className="mt-6 text-base sm:text-lg text-gray-300 font-mono max-w-3xl mx-auto">
-              Batterie + Server + Wärme: kombiniert zu etwas, das Silicon Valley noch nicht auf dem Schirm hat. Du baust es.
+              Drei Tage. Ein System. Unendlich viele Möglichkeiten.
+              <br />
+              Batterie + Server + Wärme: kombiniert zu etwas, das noch niemand gebaut hat. Du baust es.
             </p>
           </div>
 
