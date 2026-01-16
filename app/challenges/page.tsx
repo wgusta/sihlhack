@@ -19,6 +19,10 @@ function HistoricArchiveInsert() {
           <p className="font-mono text-sm text-historic-sepia mt-2 italic">
             Standort-Scouting und Energie-Baupläne aus historischen Quellen
           </p>
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <span className="font-mono text-xs text-historic-sepia">Schwierigkeit:</span>
+            <DifficultyRating rating={challengeDifficultyRatings['historic-archive']} />
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -140,6 +144,40 @@ Ethisches Hacking im kontrollierten Umfeld. Du greifst nur an, was wir dir freig
   ],
   skills: ['Pentesting', 'Kali Linux', 'Burp Suite', 'Wireshark', 'Python', 'Reverse Engineering'],
   outcome: 'Gehärtetes System und Security-Dokumentation für Production',
+}
+
+// Difficulty ratings (1-5) for each challenge
+const challengeDifficultyRatings: Record<string, number> = {
+  'sihlicon-core': 5,
+  'grid-os': 5,
+  'leg-toolkit': 3,
+  'dashboard': 3,
+  'integration': 5,
+  'historic-archive': 2,
+  'team-red': 5,
+}
+
+// Difficulty Rating Component
+function DifficultyRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {[1, 2, 3, 4, 5].map((level) => (
+        <span
+          key={level}
+          className={`text-lg ${
+            level <= rating
+              ? 'text-thermal-orange'
+              : 'text-gray-300'
+          }`}
+        >
+          ⚡
+        </span>
+      ))}
+      <span className="ml-2 font-mono text-xs text-historic-sepia">
+        {rating}/5
+      </span>
+    </div>
+  )
 }
 
 // Extended challenge details for the dedicated page
@@ -264,6 +302,9 @@ export default function ChallengesPage() {
                   <div className="font-mono text-xs text-historic-sepia mt-1">
                     {challenge.track}
                   </div>
+                  <div className="mt-2 flex items-center justify-center">
+                    <DifficultyRating rating={challengeDifficultyRatings[challenge.id] || 3} />
+                  </div>
                 </a>
               ))}
             </div>
@@ -328,8 +369,8 @@ export default function ChallengesPage() {
                     }`}>
                       {challenge.icon}
                     </div>
-                    <div>
-                      <div className="flex items-center gap-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <h2 className="font-display text-2xl font-bold text-brand-black">
                           {challenge.nameDE}
                         </h2>
@@ -341,9 +382,15 @@ export default function ChallengesPage() {
                           {challenge.difficulty === 'advanced' ? 'Fortgeschritten' : 'Mittel'}
                         </span>
                       </div>
-                      <p className="font-mono text-sm text-thermal-orange mt-1">
-                        Track: {challenge.track}
-                      </p>
+                      <div className="flex items-center gap-4 mt-2 flex-wrap">
+                        <p className="font-mono text-sm text-thermal-orange">
+                          Track: {challenge.track}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono text-xs text-historic-sepia">Schwierigkeit:</span>
+                          <DifficultyRating rating={challengeDifficultyRatings[challenge.id] || 3} />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -466,6 +513,10 @@ export default function ChallengesPage() {
                   <p className="font-mono text-sm text-historic-sepia mt-2 italic">
                     Standort-Scouting und Energie-Baupläne aus historischen Quellen
                   </p>
+                  <div className="flex items-center justify-center gap-2 mt-3">
+                    <span className="font-mono text-xs text-historic-sepia">Schwierigkeit:</span>
+                    <DifficultyRating rating={challengeDifficultyRatings['historic-archive']} />
+                  </div>
                 </div>
 
                 {/* Description */}
@@ -574,6 +625,27 @@ export default function ChallengesPage() {
               <p className="font-mono text-lg text-red-400 mt-2" style={{ transform: 'skewX(-2deg)' }}>
                 Hacke unser System
               </p>
+              <div className="flex items-center justify-center gap-2 mt-3" style={{ transform: 'skewX(-1deg)' }}>
+                <span className="font-mono text-xs text-red-400/70">Schwierigkeit:</span>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((level) => (
+                    <span
+                      key={level}
+                      className={`text-lg ${
+                        level <= challengeDifficultyRatings['team-red']
+                          ? 'text-red-500'
+                          : 'text-red-900/30'
+                      }`}
+                      style={{ textShadow: level <= challengeDifficultyRatings['team-red'] ? '0 0 5px rgba(255,0,0,0.5)' : 'none' }}
+                    >
+                      ⚡
+                    </span>
+                  ))}
+                  <span className="ml-2 font-mono text-xs text-red-400/70">
+                    {challengeDifficultyRatings['team-red']}/5
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Main card with chaotic styling */}
