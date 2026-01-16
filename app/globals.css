@@ -75,6 +75,12 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
 /* Thermal gradient effect */
 .thermal-gradient {
   background: linear-gradient(135deg, var(--color-sihl-red), var(--color-thermal-orange), var(--color-heat-amber));
