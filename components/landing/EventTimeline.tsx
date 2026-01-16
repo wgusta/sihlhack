@@ -22,7 +22,13 @@ const timelineEvents = [
   {
     date: 'Ende August/Anfang September 2025',
     title: 'Hackathon-Wochenende',
-    description: '48 Stunden intensives Arbeiten an euren Projekten mit historischen Daten. Ort wird noch bekannt gegeben.',
+    description: '48 Stunden intensives Arbeiten an euren Projekten. Ort wird noch bekannt gegeben.',
+    status: 'upcoming',
+  },
+  {
+    date: 'Sonntag',
+    title: 'Solar-Test & Integration',
+    description: 'Wir schliessen den Prototyp an ein reales Solar-Modul an und testen das System unter realen Bedingungen.',
     status: 'upcoming',
   },
   {
