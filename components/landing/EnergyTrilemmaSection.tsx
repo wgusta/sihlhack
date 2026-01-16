@@ -1,0 +1,401 @@
+'use client'
+
+import { useState } from 'react'
+import { ButtonLink } from '@/components/ui/ButtonLink'
+
+export function EnergyTrilemmaSection() {
+  const [hoveredVertex, setHoveredVertex] = useState<string | null>(null)
+
+  const vertices = {
+    solar: {
+      label: 'Max Solar Production',
+      labelDE: 'Maximale Solarproduktion',
+      description: 'Mehr erneuerbare Energie ermöglichen, maximale Nutzung von Solardächern',
+      color: 'solar-yellow',
+      position: { x: 50, y: 10 }, // Top
+    },
+    grid: {
+      label: 'Grid Cost & Overload Risk',
+      labelDE: 'Netzkosten & Überlastungsrisiko',
+      description: 'Kosten für Netzstabilität, Risiko der Netzüberlastung bei zu viel Solar',
+      color: 'thermal-orange',
+      position: { x: 15, y: 85 }, // Bottom left
+    },
+    autonomy: {
+      label: 'Community Autonomy',
+      labelDE: 'Autonomie der Gemeinschaft',
+      description: 'Selbstversorgung und Unabhängigkeit von grossen Energieversorgern',
+      color: 'compute-blue',
+      position: { x: 85, y: 85 }, // Bottom right
+    },
+  }
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+            Das Energie-Trilemma
+          </span>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
+            LEGs und die drei Ziele
+          </h2>
+          <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
+            Lokale Elektrizitätsgemeinschaften (LEGs) stehen vor einem fundamentalen Zielkonflikt.
+            Digital Hearth löst ihn.
+          </p>
+        </div>
+
+        {/* LEG Explanation */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="bg-off-white rounded-2xl p-8 border border-gray-200">
+            <h3 className="font-display text-2xl font-bold text-brand-black mb-4">
+              Was ist eine LEG?
+            </h3>
+            <div className="space-y-4 font-mono text-sm text-historic-sepia">
+              <p>
+                Eine <strong className="text-brand-black">Lokale Elektrizitätsgemeinschaft (LEG)</strong> nach 
+                StromVG Art. 18 ist ein Zusammenschluss von Produzenten und Konsumenten, die lokal Energie 
+                teilen. Ähnlich wie ein ZEV, aber mit der Möglichkeit, das öffentliche Netz zu nutzen.
+              </p>
+              <p>
+                LEGs ermöglichen Quartieren und Gemeinden, ihre eigene Energie zu produzieren, zu speichern 
+                und zu handeln – unabhängig von grossen Versorgern.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Triangle Visualization */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="relative bg-off-white rounded-2xl p-8 md:p-12 border border-gray-200">
+            <h3 className="font-display text-2xl font-bold text-brand-black mb-8 text-center">
+              Das Energie-Trilemma
+            </h3>
+            
+            {/* SVG Triangle Container */}
+            <div className="relative w-full" style={{ aspectRatio: '1', maxWidth: '600px', margin: '0 auto' }}>
+              <svg
+                viewBox="0 0 100 100"
+                className="w-full h-full"
+                style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
+              >
+                {/* Triangle background */}
+                <polygon
+                  points="50,10 15,85 85,85"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  className="text-gray-300"
+                />
+
+                {/* Connection lines (tension) */}
+                {hoveredVertex && (
+                  <>
+                    {hoveredVertex === 'solar' && (
+                      <>
+                        <line
+                          x1="50"
+                          y1="10"
+                          x2="15"
+                          y2="85"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-thermal-orange/50"
+                        />
+                        <line
+                          x1="50"
+                          y1="10"
+                          x2="85"
+                          y2="85"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-compute-blue/50"
+                        />
+                      </>
+                    )}
+                    {hoveredVertex === 'grid' && (
+                      <>
+                        <line
+                          x1="15"
+                          y1="85"
+                          x2="50"
+                          y2="10"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-solar-yellow/50"
+                        />
+                        <line
+                          x1="15"
+                          y1="85"
+                          x2="85"
+                          y2="85"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-compute-blue/50"
+                        />
+                      </>
+                    )}
+                    {hoveredVertex === 'autonomy' && (
+                      <>
+                        <line
+                          x1="85"
+                          y1="85"
+                          x2="50"
+                          y2="10"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-solar-yellow/50"
+                        />
+                        <line
+                          x1="85"
+                          y1="85"
+                          x2="15"
+                          y2="85"
+                          stroke="currentColor"
+                          strokeWidth="0.3"
+                          strokeDasharray="2,2"
+                          className="text-thermal-orange/50"
+                        />
+                      </>
+                    )}
+                  </>
+                )}
+
+                {/* Vertex 1: Solar (Top) */}
+                <g
+                  onMouseEnter={() => setHoveredVertex('solar')}
+                  onMouseLeave={() => setHoveredVertex(null)}
+                  className="cursor-pointer transition-all"
+                >
+                  <circle
+                    cx="50"
+                    cy="10"
+                    r="4"
+                    fill="#FBBF24"
+                    className={hoveredVertex === 'solar' ? 'opacity-100' : 'opacity-80'}
+                  />
+                  <text
+                    x="50"
+                    y="5"
+                    textAnchor="middle"
+                    className="font-mono text-xs"
+                    fill="#FBBF24"
+                    style={{ fontSize: '3px' }}
+                  >
+                    ⚡
+                  </text>
+                  <foreignObject
+                    x="35"
+                    y="0"
+                    width="30"
+                    height="8"
+                    className="pointer-events-none"
+                  >
+                    <div className="text-center">
+                      <div className="font-mono text-[2.5px] font-semibold text-solar-yellow whitespace-nowrap">
+                        {vertices.solar.labelDE}
+                      </div>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                {/* Vertex 2: Grid (Bottom Left) */}
+                <g
+                  onMouseEnter={() => setHoveredVertex('grid')}
+                  onMouseLeave={() => setHoveredVertex(null)}
+                  className="cursor-pointer transition-all"
+                >
+                  <circle
+                    cx="15"
+                    cy="85"
+                    r="4"
+                    fill="#FF6B35"
+                    className={hoveredVertex === 'grid' ? 'opacity-100' : 'opacity-80'}
+                  />
+                  <text
+                    x="15"
+                    y="88"
+                    textAnchor="middle"
+                    className="font-mono text-xs"
+                    fill="#FF6B35"
+                    style={{ fontSize: '3px' }}
+                  >
+                    ⚠
+                  </text>
+                  <foreignObject
+                    x="0"
+                    y="92"
+                    width="30"
+                    height="8"
+                    className="pointer-events-none"
+                  >
+                    <div className="text-center">
+                      <div className="font-mono text-[2.5px] font-semibold text-thermal-orange whitespace-nowrap">
+                        {vertices.grid.labelDE}
+                      </div>
+                    </div>
+                  </foreignObject>
+                </g>
+
+                {/* Vertex 3: Autonomy (Bottom Right) */}
+                <g
+                  onMouseEnter={() => setHoveredVertex('autonomy')}
+                  onMouseLeave={() => setHoveredVertex(null)}
+                  className="cursor-pointer transition-all"
+                >
+                  <circle
+                    cx="85"
+                    cy="85"
+                    r="4"
+                    fill="#3B82F6"
+                    className={hoveredVertex === 'autonomy' ? 'opacity-100' : 'opacity-80'}
+                  />
+                  <text
+                    x="85"
+                    y="88"
+                    textAnchor="middle"
+                    className="font-mono text-xs"
+                    fill="#3B82F6"
+                    style={{ fontSize: '3px' }}
+                  >
+                    🏠
+                  </text>
+                  <foreignObject
+                    x="70"
+                    y="92"
+                    width="30"
+                    height="8"
+                    className="pointer-events-none"
+                  >
+                    <div className="text-center">
+                      <div className="font-mono text-[2.5px] font-semibold text-compute-blue whitespace-nowrap">
+                        {vertices.autonomy.labelDE}
+                      </div>
+                    </div>
+                  </foreignObject>
+                </g>
+              </svg>
+            </div>
+
+            {/* Description Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {/* Solar */}
+              <div
+                className={`p-4 rounded-lg border-2 transition-all ${
+                  hoveredVertex === 'solar'
+                    ? 'border-solar-yellow bg-solar-yellow/10'
+                    : 'border-gray-200 bg-white'
+                }`}
+                onMouseEnter={() => setHoveredVertex('solar')}
+                onMouseLeave={() => setHoveredVertex(null)}
+              >
+                <div className="text-2xl mb-2">⚡</div>
+                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
+                  {vertices.solar.labelDE}
+                </h4>
+                <p className="font-mono text-xs text-historic-sepia">
+                  {vertices.solar.description}
+                </p>
+              </div>
+
+              {/* Grid */}
+              <div
+                className={`p-4 rounded-lg border-2 transition-all ${
+                  hoveredVertex === 'grid'
+                    ? 'border-thermal-orange bg-thermal-orange/10'
+                    : 'border-gray-200 bg-white'
+                }`}
+                onMouseEnter={() => setHoveredVertex('grid')}
+                onMouseLeave={() => setHoveredVertex(null)}
+              >
+                <div className="text-2xl mb-2">⚠</div>
+                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
+                  {vertices.grid.labelDE}
+                </h4>
+                <p className="font-mono text-xs text-historic-sepia">
+                  {vertices.grid.description}
+                </p>
+              </div>
+
+              {/* Autonomy */}
+              <div
+                className={`p-4 rounded-lg border-2 transition-all ${
+                  hoveredVertex === 'autonomy'
+                    ? 'border-compute-blue bg-compute-blue/10'
+                    : 'border-gray-200 bg-white'
+                }`}
+                onMouseEnter={() => setHoveredVertex('autonomy')}
+                onMouseLeave={() => setHoveredVertex(null)}
+              >
+                <div className="text-2xl mb-2">🏠</div>
+                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
+                  {vertices.autonomy.labelDE}
+                </h4>
+                <p className="font-mono text-xs text-historic-sepia">
+                  {vertices.autonomy.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Solution: How Digital Hearth Addresses This */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-grid-green to-compute-blue rounded-2xl p-8 md:p-12 text-center">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
+              Wie Digital Hearth das Trilemma löst
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-3xl mb-2">⚡</div>
+                <h4 className="font-mono text-sm font-semibold text-white mb-2">
+                  Mehr Solar nutzen
+                </h4>
+                <p className="font-mono text-xs text-white/90">
+                  Compute-Last nutzt Solarüberschuss direkt, statt ihn ins Netz zu drücken
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-3xl mb-2">⚖️</div>
+                <h4 className="font-mono text-sm font-semibold text-white mb-2">
+                  Netz stabilisieren
+                </h4>
+                <p className="font-mono text-xs text-white/90">
+                  Server können bei Überproduktion hochfahren, bei Engpässen drosseln
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                <div className="text-3xl mb-2">🏠</div>
+                <h4 className="font-mono text-sm font-semibold text-white mb-2">
+                  Autonomie stärken
+                </h4>
+                <p className="font-mono text-xs text-white/90">
+                  LEGs werden unabhängiger durch eigene Compute-Infrastruktur
+                </p>
+              </div>
+            </div>
+            <p className="font-mono text-sm text-white/90 max-w-2xl mx-auto mb-6">
+              <strong className="text-white">Alle drei Ziele gleichzeitig:</strong> Mehr Solarproduktion 
+              ohne Netzüberlastung, bei maximaler Gemeinschaftsautonomie. Das ist der Digital Hearth.
+            </p>
+            <ButtonLink
+              href="/about"
+              variant="secondary"
+              size="lg"
+              className="bg-white text-brand-black hover:bg-white/90"
+            >
+              Mehr über LEGs erfahren
+            </ButtonLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -4,6 +4,7 @@ import { HeroSection } from '@/components/landing/HeroSection'
 import { DataRevealSection } from '@/components/landing/DataRevealSection'
 import { WhyItMattersSection } from '@/components/landing/WhyItMattersSection'
 import { PrivacySection } from '@/components/landing/PrivacySection'
+import { EnergyTrilemmaSection } from '@/components/landing/EnergyTrilemmaSection'
 import { DynamicFundingSection } from '@/components/landing/DynamicFundingSection'
 import { DataProvidersSection } from '@/components/landing/DataProvidersSection'
 import { FAQSection } from '@/components/landing/FAQSection'
@@ -31,27 +32,32 @@ export default function HomePage() {
           <PrivacySection />
         </div>
 
-        {/* 5. Data Providers: Who contributes historical data */}
+        {/* 5. Energy Trilemma & LEGs */}
+        <div className="py-12 sm:py-16">
+          <EnergyTrilemmaSection />
+        </div>
+
+        {/* 6. Data Providers: Who contributes historical data */}
         <div className="py-12 sm:py-16">
           <DataProvidersSection />
         </div>
 
-        {/* 6. Transparency: Calculator widget + Community vs Corporate */}
+        {/* 7. Transparency: Calculator widget + Community vs Corporate */}
         <div className="py-12 sm:py-16">
           <DynamicFundingSection />
         </div>
 
-        {/* 7. FAQ: Common questions accordion */}
+        {/* 8. FAQ: Common questions accordion */}
         <div className="py-12 sm:py-16">
           <FAQSection />
         </div>
 
-        {/* 8. Timeline: When things happen */}
+        {/* 9. Timeline: When things happen */}
         <div className="py-12 sm:py-16">
           <EventTimeline />
         </div>
 
-        {/* 9. Final CTA */}
+        {/* 10. Final CTA */}
         <div className="py-12 sm:py-16">
           <CTASection />
         </div>
