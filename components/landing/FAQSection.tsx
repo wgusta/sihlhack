@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'Wer finanziert das?',
-    a: 'Der Hackathon selbst ist kostenlos. Die Hardware für den Prototyp wird von Sihlicon Labs gesponsert. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen und eingesparte Heizkosten.',
+    a: 'Der Hackathon selbst ist kostenlos. Wir suchen aktuell noch Sponsoren für die Hardware des Prototyps. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen und eingesparte Heizkosten.',
   },
   {
     q: 'Kann ich remote teilnehmen?',

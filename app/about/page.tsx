@@ -388,7 +388,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Wer stellt die Hardware?',
-                  a: 'Unsere Partner (Sihlicon Labs, AfB Schweiz) stellen Server, GPUs und Immersion-Cooling-Equipment. Du bringst nur Laptop und Skills mit.',
+                  a: 'Wir suchen aktuell noch Sponsoren für Hardware (Server, GPUs, Immersion-Cooling-Equipment). Du bringst nur Laptop und Skills mit.',
                 },
                 {
                   q: 'Was kostet die Teilnahme?',

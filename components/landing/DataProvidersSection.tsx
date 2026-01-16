@@ -12,15 +12,6 @@ const deploymentPartners = [
     description: 'Erste Lokale Elektrizitätsgemeinschaft die einen Sihlicon Hub installiert.',
   },
   {
-    id: 'sihlicon-labs',
-    name: 'Sihlicon Labs',
-    type: 'Hardware Sponsor',
-    location: 'Sihltal',
-    contribution: 'Hardware + Mentoring',
-    logo: '🔧',
-    description: 'Stellt Server, GPUs und Immersion-Cooling-Equipment für den Prototypen.',
-  },
-  {
     id: 'hslu',
     name: 'HSLU Informatik',
     type: 'Akademischer Partner',
@@ -28,15 +19,6 @@ const deploymentPartners = [
     contribution: 'Expertise + Testing',
     logo: '🎓',
     description: 'Unterstützung bei thermischen Berechnungen und Lastprofil-Analyse.',
-  },
-  {
-    id: 'afb',
-    name: 'AfB Schweiz',
-    type: 'Hardware Partner',
-    location: 'Effretikon',
-    contribution: 'Refurbished Server',
-    logo: '♻️',
-    description: 'Liefert aufbereitete Enterprise-Server für den nachhaltigen Compute-Stack.',
   },
 ]
 
@@ -54,12 +36,12 @@ export function DataProvidersSection() {
           </h2>
           <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
             Diese Organisationen machen den Hackathon möglich.
-            Hardware, Standorte, Expertise.
+            Standorte, Expertise, und Partner.
           </p>
         </div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-2xl mx-auto">
           {deploymentPartners.map((partner) => (
             <div
               key={partner.id}
@@ -114,14 +96,14 @@ export function DataProvidersSection() {
           </div>
         </div>
 
-        {/* Call for Partners */}
+        {/* Call for Sponsors */}
         <div className="mt-16 bg-gradient-to-r from-thermal-orange to-compute-blue rounded-2xl p-8 text-center">
           <h3 className="font-display text-2xl font-bold text-white">
-            Du willst Partner werden?
+            Wir suchen Sponsoren
           </h3>
           <p className="mt-3 font-mono text-white/90 max-w-xl mx-auto">
-            Du hast Hardware, einen Standort, oder Expertise die helfen kann?
-            Melde dich bei uns.
+            Wir suchen Hardware-Sponsoren für Server, GPUs und Immersion-Cooling-Equipment.
+            Du hast Hardware, einen Standort, oder Expertise die helfen kann? Melde dich bei uns.
           </p>
           <a
             href="mailto:partner@sihlhack.ch"
