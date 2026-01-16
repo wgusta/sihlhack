@@ -32,7 +32,7 @@ export async function sendMagicLinkEmail(email: string, magicLink: string): Prom
         <p>Klicke auf den folgenden Link, um dich anzumelden:</p>
         <p style="margin: 24px 0;">
           <a href="${magicLink}" style="background: #E62F2D; color: white; padding: 12px 24px; text-decoration: none; display: inline-block;">
-            Jetzt anmelden
+            Platz sichern
           </a>
         </p>
         <p style="color: #8B7355; font-size: 14px;">

@@ -184,7 +184,7 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-12 pb-16 animate-fade-in">
             <ButtonLink href="/register" variant="primary" size="lg" className="min-w-[200px] bg-thermal-orange hover:bg-thermal-orange/90">
-              Mitmachen
+              Platz sichern
             </ButtonLink>
             <ButtonLink
               href="#why-it-matters"

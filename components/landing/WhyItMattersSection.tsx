@@ -100,7 +100,7 @@ export function WhyItMattersSection() {
             Klingt verrückt? Andere machen es schon: Stockholm Data Parks, Nerdalize, QArnot.
           </p>
           <ButtonLink href="/register" variant="primary" size="lg" className="bg-thermal-orange hover:bg-thermal-orange/90">
-            Am Hackathon teilnehmen
+            Platz sichern
           </ButtonLink>
         </div>
       </div>

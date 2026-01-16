@@ -124,7 +124,7 @@ export function DynamicFundingSection() {
         {/* CTA */}
         <div className="mt-12 text-center">
           <ButtonLink href="/register" variant="primary" size="lg" className="bg-thermal-orange hover:bg-thermal-orange/90">
-            Jetzt anmelden
+            Platz sichern
           </ButtonLink>
           <p className="mt-4 font-mono text-sm text-historic-sepia">
             Kostenlos. Keine Verpflichtungen. Alle Skill-Levels willkommen.

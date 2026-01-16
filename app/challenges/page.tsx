@@ -496,7 +496,7 @@ export default function ChallengesPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">
-                Jetzt anmelden — CHF 150
+                Platz sichern — CHF 150
               </ButtonLink>
               <ButtonLink
                 href="/about"

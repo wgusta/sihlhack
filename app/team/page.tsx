@@ -210,7 +210,7 @@ export default function TeamPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">
-                Jetzt anmelden
+                Platz sichern
               </ButtonLink>
               <ButtonLink
                 href="/about"

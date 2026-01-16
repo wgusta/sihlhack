@@ -555,7 +555,7 @@ export default function LEGPage() {
                 Die Challenges ansehen
               </ButtonLink>
               <ButtonLink href="/register" variant="ghost" size="lg">
-                Jetzt anmelden
+                Platz sichern
               </ButtonLink>
             </div>
           </div>

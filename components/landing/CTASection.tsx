@@ -68,7 +68,7 @@ export function CTASection() {
               size="lg"
               className="bg-white text-brand-black hover:bg-white/90 border-0 w-full sm:w-auto"
             >
-              Jetzt anmelden
+              Platz sichern
             </ButtonLink>
               <ButtonLink
                 href="https://github.com/sihlicon"
