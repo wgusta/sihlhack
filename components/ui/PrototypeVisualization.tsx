@@ -192,32 +192,31 @@ export function PrototypeVisualization() {
         />
         <text x="327" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
 
-        {/* 8. Compute / Internet Section - Outside shapes, better readable */}
+        {/* 8. Compute / AI Section - Below Immersion Tank */}
         <g id="compute-flow">
-          {/* Data flow up from Core */}
+          {/* Data flow down from Core */}
           <path
-            d="M250 180 L250 50"
+            d="M250 260 L250 290"
             stroke="#10B981"
-            strokeWidth="2"
-            strokeDasharray="4 4"
+            strokeWidth="2.5"
+            strokeDasharray="5 4"
             className="animate-[dash_2s_linear_infinite]"
           />
           
-          {/* Internet and Cloud labels - Outside the shapes */}
-          <text x="150" y="40" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Internet</text>
-          <text x="350" y="40" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Cloud</text>
-          
-          {/* Globe icon - Left */}
-          <circle cx="150" cy="55" r="8" fill="none" stroke="#10B981" strokeWidth="1.5" />
-          <path d="M145 55 L155 55 M150 48 L150 62" stroke="#10B981" strokeWidth="1" />
-          <ellipse cx="150" cy="55" rx="4" ry="8" fill="none" stroke="#10B981" strokeWidth="1" />
-          
-          {/* Server rack icon - Right */}
-          <rect x="342" y="48" width="16" height="14" rx="1" fill="none" stroke="#10B981" strokeWidth="1.5" />
-          <path d="M345 52 L355 52 M345 57 L355 57 M345 62 L355 62" stroke="#10B981" strokeWidth="1" />
-          
           {/* Rechenleistung label on the line */}
-          <text x="250" y="115" textAnchor="middle" className="font-mono text-[7px] fill-grid-green font-bold">Rechenleistung</text>
+          <text x="250" y="280" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Rechenleistung</text>
+          
+          {/* AI-Training - Left of arrow */}
+          <text x="150" y="290" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">AI-Training</text>
+          {/* Neural network icon - Left */}
+          <circle cx="150" cy="275" r="6" fill="none" stroke="#10B981" strokeWidth="1.5" />
+          <path d="M147 272 L153 278 M153 272 L147 278" stroke="#10B981" strokeWidth="1" />
+          <circle cx="150" cy="275" r="3" fill="#10B981" fillOpacity="0.3" />
+          
+          {/* AI-Inference - Right of arrow */}
+          <text x="350" y="290" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">AI-Inference</text>
+          {/* Lightning/bolt icon - Right */}
+          <path d="M350 269 L347 275 L350 275 L353 281 L350 275 L347 275" stroke="#10B981" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
         </g>
       </svg>
 
