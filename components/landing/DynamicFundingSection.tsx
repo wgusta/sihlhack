@@ -54,7 +54,7 @@ export function DynamicFundingSection() {
             <ul className="space-y-4">
               {[
                 { icon: '🔧', text: 'Echte Hardware zum Anfassen' },
-                { icon: '🏠', text: 'Echter Deployment-Standort (LEG)' },
+                { icon: '🏠', text: <>Echter Deployment-Standort (<a href="/leg" className="text-sihl-red hover:underline">LEG</a>)</> },
                 { icon: '📖', text: '100% Open Source, du behältst alles' },
                 { icon: '🚀', text: 'Prototyp läuft nach dem Hackathon weiter' },
               ].map((item, i) => (
@@ -114,8 +114,8 @@ export function DynamicFundingSection() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-grid-green/10 rounded-full">
                 <span className="text-grid-green">✓</span>
                 <span className="font-mono text-sm text-historic-sepia">
-                  <strong>Danach:</strong> Der beste Prototyp wird in einer echten LEG deployed
-                </span>
+                  <strong>Danach:</strong> Der beste Prototyp wird in einer echten <a href="/leg" className="text-sihl-red hover:underline">LEG</a> deployed
+              </span>
               </div>
             </div>
           </div>

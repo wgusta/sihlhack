@@ -39,10 +39,10 @@ export function EnergyTrilemmaSection() {
             Das Energie-Trilemma
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
-            LEGs und die drei Ziele
+            <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> und die drei Ziele
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
-            Lokale Elektrizitätsgemeinschaften (LEGs) stehen vor einem fundamentalen Zielkonflikt.
+            <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaften (LEGs)</a> stehen vor einem fundamentalen Zielkonflikt.
             Der Sihlicon Hub löst ihn.
           </p>
         </div>
@@ -51,16 +51,19 @@ export function EnergyTrilemmaSection() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-off-white rounded-2xl p-8 border border-gray-200">
             <h3 className="font-display text-2xl font-bold text-brand-black mb-4">
-              Was ist eine LEG?
+              Was ist eine <a href="/leg" className="text-sihl-red hover:underline">LEG</a>?
             </h3>
             <div className="space-y-4 font-mono text-sm text-historic-sepia">
               <p>
-                Eine <strong className="text-brand-black">Lokale Elektrizitätsgemeinschaft (LEG)</strong> nach 
-                StromVG Art. 18 ist ein Zusammenschluss von Produzenten und Konsumenten, die lokal Energie 
+                Eine{' '}
+                <a href="/leg" className="text-sihl-red hover:underline">
+                  <strong className="text-brand-black">Lokale Elektrizitätsgemeinschaft (LEG)</strong>
+                </a>{' '}
+                nach StromVG Art. 18 ist ein Zusammenschluss von Produzenten und Konsumenten, die lokal Energie 
                 teilen. Ähnlich wie ein ZEV, aber mit der Möglichkeit, das öffentliche Netz zu nutzen.
               </p>
               <p>
-                LEGs ermöglichen Quartieren und Gemeinden, ihre eigene Energie zu produzieren, zu speichern 
+                <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> ermöglichen Quartieren und Gemeinden, ihre eigene Energie zu produzieren, zu speichern 
                 und zu handeln – unabhängig von grossen Versorgern.
               </p>
             </div>
@@ -279,7 +282,7 @@ export function EnergyTrilemmaSection() {
                   Autonomie stärken
                 </h4>
                 <p className="font-mono text-xs text-white/90">
-                  LEGs werden unabhängiger durch eigene Compute-Infrastruktur
+                  <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> werden unabhängiger durch eigene Compute-Infrastruktur
                 </p>
               </div>
             </div>

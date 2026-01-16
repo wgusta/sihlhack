@@ -143,7 +143,9 @@ export default function AboutPage() {
                       </li>
                       <li className="flex items-start gap-3 text-green-800">
                         <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
-                        <span className="leading-relaxed">LEGs profitieren von <strong className="text-green-900">Wärme + Compute</strong></span>
+                        <span className="leading-relaxed">
+                          <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> profitieren von <strong className="text-green-900">Wärme + Compute</strong>
+                        </span>
                       </li>
                       <li className="flex items-start gap-3 text-green-800">
                         <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
@@ -355,10 +357,10 @@ export default function AboutPage() {
                 Rechtlicher Rahmen
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                LEG-Gründung als Challenge
+                <a href="/leg" className="text-sihl-red hover:underline">LEG</a>-Gründung als Challenge
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Das Schweizer StromVG Art. 18 ermöglicht Lokale Elektrizitätsgemeinschaften.
+                Das Schweizer StromVG Art. 18 ermöglicht <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaften</a>.
                 Wir entwickeln die Templates für die Gründung.
               </p>
             </div>
@@ -367,7 +369,7 @@ export default function AboutPage() {
               <Card>
                 <CardHeader>
                   <CardTitle className="text-lg text-brand-black flex items-center gap-2">
-                    <span>⚖️</span> Was eine LEG ist
+                    <span>⚖️</span> Was eine <a href="/leg" className="text-sihl-red hover:underline">LEG</a> ist
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -414,7 +416,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>FAQ für zukünftige LEG-Gründer</span>
+                      <span>FAQ für zukünftige <a href="/leg" className="text-sihl-red hover:underline">LEG</a>-Gründer</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -423,11 +425,11 @@ export default function AboutPage() {
 
             <div className="bg-brand-black rounded-2xl p-8">
               <h3 className="font-display text-xl font-bold text-white mb-4">
-                Warum LEG + Compute?
+                Warum <a href="/leg" className="text-thermal-orange hover:underline">LEG</a> + Compute?
               </h3>
               <div className="space-y-3 font-mono text-sm text-gray-300">
                 <p>
-                  <strong className="text-white">Doppelte Monetarisierung:</strong> Die LEG verkauft nicht nur Strom, sondern auch Compute-Zeit und Wärme. Drei Revenue-Streams statt einem.
+                  <strong className="text-white">Doppelte Monetarisierung:</strong> Die <a href="/leg" className="text-thermal-orange hover:underline">LEG</a> verkauft nicht nur Strom, sondern auch Compute-Zeit und Wärme. Drei Revenue-Streams statt einem.
                 </p>
                 <p>
                   <strong className="text-white">Netzstabilität:</strong> Server können bei Überproduktion hochfahren und bei Engpässen drosseln. Perfekt für SDL-Integration mit Swissgrid.
@@ -494,7 +496,7 @@ export default function AboutPage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 text-sm font-mono text-historic-sepia">
-                    <li>• LEG-Gründungsvorlagen</li>
+                    <li>• <a href="/leg" className="text-sihl-red hover:underline">LEG</a>-Gründungsvorlagen</li>
                     <li>• Thermische Berechnungen</li>
                     <li>• API-Dokumentation</li>
                     <li>• Troubleshooting Guides</li>
@@ -575,7 +577,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-1">✓</span>
-                      <span><strong className="text-white">Commercial Use:</strong> LEGs dürfen damit kommerziell arbeiten</span>
+                      <span><strong className="text-white">Commercial Use:</strong> <a href="/leg" className="text-thermal-orange hover:underline">LEGs</a> dürfen damit kommerziell arbeiten</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-1">✓</span>
@@ -652,7 +654,7 @@ export default function AboutPage() {
                   </div>
                   <div className="space-y-2">
                     <p className="text-grid-green font-semibold">✓ Community profitiert</p>
-                    <p className="text-gray-300 text-xs">Andere LEGs können deine Lösung nachbauen.</p>
+                    <p className="text-gray-300 text-xs">Andere <a href="/leg" className="text-thermal-orange hover:underline">LEGs</a> können deine Lösung nachbauen.</p>
                   </div>
                 </div>
               </div>
@@ -687,7 +689,12 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was passiert mit dem Prototyp nach dem Hackathon?',
-                  a: 'Nach dem Event gibt es mehrere Wege: (1) Follow-up Hackathon für 1:1 Prototypen, (2) Association & Open Source Governance, (3) LEG DIY-Bauanleitungen, (4) Unternehmen können als zertifizierte Partner Service anbieten. Alle Wege bleiben Open Source und community-getrieben.',
+                  a: (
+                    <>
+                      Nach dem Event gibt es mehrere Wege: (1) Follow-up Hackathon für 1:1 Prototypen, (2) Association & Open Source Governance, (3){' '}
+                      <a href="/leg" className="text-sihl-red hover:underline">LEG</a> DIY-Bauanleitungen, (4) Unternehmen können als zertifizierte Partner Service anbieten. Alle Wege bleiben Open Source und community-getrieben.
+                    </>
+                  ),
                 },
                 {
                   q: 'Wer stellt die Hardware?',
@@ -698,8 +705,16 @@ export default function AboutPage() {
                   a: 'CHF 150 pro Person. Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (35/35/20/10 pro Paket) ausgeschüttet. Vollständige Rückerstattung bei Absage.',
                 },
                 {
-                  q: 'Was ist eine LEG?',
-                  a: 'Eine Lokale Elektrizitätsgemeinschaft ist ein rechtlicher Zusammenschluss nach StromVG Art. 18. Ähnlich wie ein ZEV, aber kann das öffentliche Netz nutzen.',
+                  q: (
+                    <>
+                      Was ist eine <a href="/leg" className="text-sihl-red hover:underline">LEG</a>?
+                    </>
+                  ),
+                  a: (
+                    <>
+                      Eine <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaft</a> ist ein rechtlicher Zusammenschluss nach StromVG Art. 18. Ähnlich wie ein ZEV, aber kann das öffentliche Netz nutzen.
+                    </>
+                  ),
                 },
                 {
                   q: 'Muss ich beim Hackathon übernachten?',
@@ -707,7 +722,11 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was passiert, wenn mein Code später in einem kommerziellen Produkt verwendet wird?',
-                  a: 'Apache 2.0 erlaubt kommerzielle Nutzung – das ist gewollt. LEGs dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.',
+                  a: (
+                    <>
+                      Apache 2.0 erlaubt kommerzielle Nutzung – das ist gewollt. <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.
+                    </>
+                  ),
                 },
                 {
                   q: 'Hafte ich, wenn mein Code einen Fehler hat und etwas kaputt geht?',

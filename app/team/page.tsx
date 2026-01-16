@@ -118,7 +118,8 @@ export default function TeamPage() {
                   Echte Hardware
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Wir bauen keine Demos. Der beste Prototyp wird in einer echten LEG deployed. 
+                  Wir bauen keine Demos. Der beste Prototyp wird in einer echten{' '}
+                  <a href="/leg" className="text-sihl-red hover:underline">LEG</a> deployed. 
                   Infrastruktur, die tatsächlich läuft.
                 </p>
               </div>

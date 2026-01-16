@@ -124,7 +124,9 @@ export function HeroSection() {
                     Energie-Visionäre
                   </h3>
                   <p className="text-sm text-gray-400 font-mono">
-                    Du denkst in LEGs und dezentraler Infrastruktur. Du willst beweisen, 
+                    Du denkst in{' '}
+                    <a href="/leg" className="text-sihl-red hover:underline">LEGs</a>
+                    {' '}und dezentraler Infrastruktur. Du willst beweisen, 
                     dass lokale Energieautonomie funktioniert.
                   </p>
                 </div>
