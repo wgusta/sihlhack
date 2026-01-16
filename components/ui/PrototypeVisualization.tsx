@@ -6,7 +6,7 @@ export function PrototypeVisualization() {
       {/* Desktop Version */}
       <div className="hidden md:block bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-6">
         <svg
-          viewBox="0 0 550 320"
+          viewBox="0 0 600 360"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
@@ -36,7 +36,7 @@ export function PrototypeVisualization() {
               </feMerge>
             </filter>
           </defs>
-          <rect width="600" height="340" fill="url(#grid)" />
+          <rect width="600" height="360" fill="url(#grid)" />
 
           {/* === 1. SUN === */}
           <g id="sun">
@@ -222,7 +222,7 @@ export function PrototypeVisualization() {
           <g id="compute-section">
             {/* Main compute flow line - FROM BOTTOM RIGHT OF CORE */}
             <path
-              d="M240 290 L360 290"
+              d="M240 290 L380 290"
               stroke="#A855F7"
               strokeWidth="3.5"
               strokeDasharray="6 5"
@@ -232,7 +232,7 @@ export function PrototypeVisualization() {
             
             {/* Branch to AI-Training */}
             <path
-              d="M360 290 L430 200"
+              d="M380 290 L460 200"
               stroke="#A855F7"
               strokeWidth="3.5"
               strokeDasharray="6 5"
@@ -241,7 +241,7 @@ export function PrototypeVisualization() {
             
             {/* Branch to AI-Inference */}
             <path
-              d="M360 290 L430 280"
+              d="M380 290 L460 280"
               stroke="#A855F7"
               strokeWidth="3.5"
               strokeDasharray="6 5"
@@ -249,13 +249,13 @@ export function PrototypeVisualization() {
             />
 
             {/* Rechenleistung Label - on line at bottom */}
-            <g transform="translate(300, 278)">
+            <g transform="translate(320, 278)">
               <rect x="-50" y="-9" width="100" height="18" rx="5" fill="white" fillOpacity="0.95" stroke="#A855F7" strokeWidth="1.5" />
               <text x="0" y="5" textAnchor="middle" className="font-mono text-[9px] fill-purple-600 font-bold">Rechenleistung</text>
             </g>
             
             {/* AI-Training Box */}
-            <g transform="translate(430, 175)">
+            <g transform="translate(460, 175)">
               <rect x="0" y="0" width="110" height="40" rx="7" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Neural network icon */}
               <circle cx="20" cy="20" r="8" fill="none" stroke="#A855F7" strokeWidth="1.5" />
@@ -266,7 +266,7 @@ export function PrototypeVisualization() {
             </g>
             
             {/* AI-Inference Box */}
-            <g transform="translate(430, 260)">
+            <g transform="translate(460, 260)">
               <rect x="0" y="0" width="110" height="40" rx="7" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Lightning icon */}
               <path d="M20 6 L16 20 L23 20 L19 34" stroke="#A855F7" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
@@ -276,7 +276,7 @@ export function PrototypeVisualization() {
           </g>
 
           {/* === 8. LEGEND BOX === */}
-          <g transform="translate(360, 50)">
+          <g transform="translate(390, 50)">
             <rect x="0" y="0" width="160" height="80" rx="8" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
             <text x="80" y="18" textAnchor="middle" className="font-mono text-[9px] fill-brand-black font-bold">ENERGIEFLUSS</text>
             
