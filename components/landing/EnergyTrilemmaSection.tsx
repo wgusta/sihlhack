@@ -288,7 +288,7 @@ export function EnergyTrilemmaSection() {
               ohne Netzüberlastung, bei maximaler Gemeinschaftsautonomie. Das ist der Sihlicon Hub.
             </p>
             <ButtonLink
-              href="/about"
+              href="/leg"
               variant="secondary"
               size="lg"
               className="bg-white text-brand-black hover:bg-white/90"
