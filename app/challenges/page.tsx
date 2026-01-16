@@ -17,19 +17,43 @@ export const metadata = {
 const mandatoryPackages = HACKATHON_PACKAGES.filter(p => p.type === 'mandatory')
 const optionalPackages = HACKATHON_PACKAGES.filter(p => p.type === 'optional')
 
-// Team Red: Security Challenge
+// Team Red: Security Challenge - SEPARATE GROUP with selection
 const TEAM_RED = {
   id: 'team-red',
   name: 'Team Red',
   nameDE: 'Team Red: Hacke unser System',
   icon: '💀',
-  description: 'Ethisches Hacking: Teste Hardware, Software und APIs auf Schwachstellen.',
-  deliverables: [
-    'Security Audit Report',
-    'Proof-of-Concept Exploits',
-    'Remediation Recommendations',
+  description: 'Ethisches Hacking: Teste Hardware, Software und APIs auf Schwachstellen. Inklusive physischer Sicherheitsanalyse der Hubs.',
+  digitalAttacks: [
+    'API-Schwachstellen (Injection, Auth Bypass)',
+    'Grid-OS Scheduler Exploits',
+    'Dashboard XSS/CSRF',
+    'Netzwerk-Sniffing & MitM',
+    'Firmware-Analyse',
   ],
-  skills: ['Pentesting', 'Kali Linux', 'Burp Suite', 'Python'],
+  physicalAttacks: [
+    'Gehäuse-Manipulation (Tamper Detection)',
+    'USB/Serial Port Angriffe',
+    'Sensor-Spoofing (Temp, Flow)',
+    'Stromversorgung-Manipulation',
+    'Physischer Zugang zu Öl/Kühlkreislauf',
+  ],
+  hardeningMeasures: [
+    'Tamper-evident Seals & Sensoren',
+    'Gehäuse-Verriegelung mit Alarm',
+    'Port-Deaktivierung & Epoxy',
+    'Anomalie-Detection bei Sensoren',
+    'Fail-Safe bei physischer Manipulation',
+  ],
+  deliverables: [
+    'Security Audit Report (Digital + Physical)',
+    'Proof-of-Concept Exploits',
+    'Hardening Recommendations',
+    'Tamper-Detection Konzept',
+  ],
+  skills: ['Pentesting', 'Kali Linux', 'Burp Suite', 'Python', 'Hardware Hacking', 'Lock Picking', 'Electronics'],
+  teamSize: '3-5 Personen',
+  selectionProcess: true,
 }
 
 export default function ChallengesPage() {
@@ -106,22 +130,39 @@ export default function ChallengesPage() {
             </div>
 
             {/* Optional Packages */}
-            <div>
+            <div className="mb-6">
               <h3 className="font-mono text-xs text-gray-500 uppercase tracking-wider text-center mb-4">
                 Optional-Pakete
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {optionalPackages.map((pkg) => (
                   <PackageCardCompact key={pkg.id} pkg={pkg} />
                 ))}
-                {/* Team Red */}
+              </div>
+            </div>
+
+            {/* Team Red - Separate Group */}
+            <div>
+              <h3 className="font-mono text-xs text-red-500 uppercase tracking-wider text-center mb-4">
+                Spezialeinheit · Mit Bewerbung
+              </h3>
+              <div className="flex justify-center">
                 <a
                   href="#team-red"
-                  className="p-4 rounded-xl border-2 border-red-500/30 bg-red-500/5 hover:bg-red-500/10 transition-all text-center"
+                  className="p-4 rounded-xl border-2 border-red-500 bg-red-500/10 hover:bg-red-500/20 transition-all text-center relative overflow-hidden group"
+                  style={{
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.03) 10px, rgba(255,0,0,0.03) 20px)',
+                  }}
                 >
-                  <span className="text-2xl mb-2 block">{TEAM_RED.icon}</span>
-                  <span className="font-mono text-xs font-semibold text-red-500">Team Red</span>
-                  <span className="block font-mono text-[10px] text-red-500/70 mt-1">Security</span>
+                  <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-mono px-2 py-0.5 rounded-bl">
+                    SELEKTION
+                  </div>
+                  <span className="text-3xl mb-2 block">{TEAM_RED.icon}</span>
+                  <span className="font-mono text-sm font-bold text-red-500 block">Team Red</span>
+                  <span className="block font-mono text-[10px] text-red-400 mt-1">Security & Physical Hardening</span>
+                  <span className="block font-mono text-[9px] text-red-500/60 mt-2 group-hover:text-red-500 transition-colors">
+                    Separate Bewerbung →
+                  </span>
                 </a>
               </div>
             </div>
@@ -205,61 +246,153 @@ export default function ChallengesPage() {
           </div>
         </section>
 
-        {/* Team Red: Danger Zone */}
+        {/* Team Red: Danger Zone - SEPARATE GROUP */}
         <section id="team-red" className="py-16 bg-brand-black scroll-mt-24 relative overflow-hidden">
           {/* Warning stripes */}
-          <div className="absolute top-0 left-0 right-0 h-3" style={{
+          <div className="absolute top-0 left-0 right-0 h-4" style={{
             background: 'repeating-linear-gradient(45deg, #ff0000, #ff0000 10px, #1a1a1a 10px, #1a1a1a 20px)',
           }} />
           
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative">
-            <div className="text-center mb-8">
-              <span className="font-mono text-xs text-red-500 uppercase tracking-[0.5em] animate-pulse">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative">
+            {/* Header */}
+            <div className="text-center mb-10">
+              <div className="inline-block bg-red-500 text-white text-xs font-mono px-4 py-1 rounded-full mb-4">
+                🎯 EINZIGE CHALLENGE MIT SELEKTION
+                    </div>
+              <span className="font-mono text-xs text-red-500 uppercase tracking-[0.5em] animate-pulse block">
                 ⚠ DANGER ZONE ⚠
               </span>
-              <h2 className="font-display text-4xl font-bold text-red-500 mt-4">
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-red-500 mt-4">
                 {TEAM_RED.icon} {TEAM_RED.nameDE}
-              </h2>
-              <p className="mt-4 text-gray-400 font-mono max-w-xl mx-auto">
+                        </h2>
+              <p className="mt-4 text-gray-400 font-mono max-w-2xl mx-auto">
                 {TEAM_RED.description}
               </p>
+              <p className="mt-2 text-gray-500 font-mono text-sm">
+                Team-Grösse: {TEAM_RED.teamSize}
+                    </p>
+                  </div>
+
+            {/* Attack Vectors Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Digital Attacks */}
+              <div className="bg-red-500/10 border-2 border-red-500/30 rounded-xl p-6">
+                <h3 className="font-mono text-sm text-red-500 uppercase mb-4 flex items-center gap-2">
+                  <span>💻</span> Digitale Angriffsvektoren
+                </h3>
+                        <ul className="space-y-2">
+                  {TEAM_RED.digitalAttacks.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
+                      <span className="text-red-500">→</span>
+                      {item}
+                            </li>
+                          ))}
+                        </ul>
+              </div>
+
+              {/* Physical Attacks */}
+              <div className="bg-orange-500/10 border-2 border-orange-500/30 rounded-xl p-6">
+                <h3 className="font-mono text-sm text-orange-500 uppercase mb-4 flex items-center gap-2">
+                  <span>🔧</span> Physische Angriffsvektoren
+                </h3>
+                <ul className="space-y-2">
+                  {TEAM_RED.physicalAttacks.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
+                      <span className="text-orange-500">→</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+              </div>
             </div>
 
-            <div className="bg-red-500/10 border-2 border-red-500/30 rounded-xl p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-mono text-sm text-red-500 uppercase mb-4">Deliverables</h3>
-                  <ul className="space-y-2">
-                    {TEAM_RED.deliverables.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
-                        <span className="text-red-500">[✓]</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+            {/* Hardening Measures */}
+            <div className="bg-green-500/10 border-2 border-green-500/30 rounded-xl p-6 mb-8">
+              <h3 className="font-mono text-sm text-green-500 uppercase mb-4 flex items-center gap-2">
+                <span>🛡️</span> Hardening-Massnahmen entwickeln
+              </h3>
+              <p className="text-gray-400 font-mono text-sm mb-4">
+                Nach dem Finden von Schwachstellen: Wie können die Hubs gehärtet werden?
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {TEAM_RED.hardeningMeasures.map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm font-mono text-gray-400 bg-green-500/5 px-3 py-2 rounded-lg">
+                    <span className="text-green-500">✓</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+                  </div>
+
+            {/* Deliverables & Skills */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-mono text-sm text-white uppercase mb-4">📦 Deliverables</h3>
+                <ul className="space-y-2">
+                  {TEAM_RED.deliverables.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm font-mono text-gray-400">
+                      <span className="text-red-500">[✓]</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                        </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-mono text-sm text-white uppercase mb-4">🛠️ Skills</h3>
+                <div className="flex flex-wrap gap-2">
+                  {TEAM_RED.skills.map((skill, i) => (
+                    <span key={i} className="px-2 py-1 bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-mono">
+                      {skill}
+                    </span>
+                      ))}
+                    </div>
+              </div>
+            </div>
+
+            {/* Selection Process & CTA */}
+            <div className="bg-gradient-to-r from-red-500/20 to-orange-500/20 border-2 border-red-500/50 rounded-xl p-6 sm:p-8">
+              <div className="text-center">
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-4">
+                  🎯 Bewerbungsverfahren
+                </h3>
+                <p className="text-gray-300 font-mono text-sm max-w-2xl mx-auto mb-6">
+                  Team Red ist die <strong className="text-red-400">einzige Challenge mit Selektionsverfahren</strong>. 
+                  Wir suchen erfahrene Security-Researcher mit nachweisbarer Expertise. 
+                  Die reguläre Hackathon-Anmeldung gilt hier nicht – bewirb dich separat.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <ButtonLink 
+                    href="/register/team-red" 
+                    variant="primary" 
+                    size="lg"
+                    className="bg-red-500 hover:bg-red-600 border-red-500"
+                  >
+                    💀 Für Team Red bewerben
+                  </ButtonLink>
+                  <span className="text-gray-500 font-mono text-xs">
+                    Bewerbungsschluss: 2 Wochen vor Event
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-mono text-sm text-red-500 uppercase mb-4">Skills</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {TEAM_RED.skills.map((skill, i) => (
-                      <span key={i} className="px-2 py-1 bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-mono">
-                        {skill}
-                      </span>
-                    ))}
+
+                <div className="mt-6 p-4 bg-black/30 rounded-lg inline-block">
+                  <p className="text-gray-400 font-mono text-xs">
+                    Bewerbung beinhaltet: CV/Portfolio · Security-Erfahrung · Motivation · GitHub/CTF-Profile
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               
-              <div className="mt-6 p-3 border border-yellow-500/50 bg-yellow-500/10 text-center">
-                <p className="font-mono text-xs text-yellow-400 uppercase">
-                  ⚠ Nur mit expliziter Genehmigung · Responsible Disclosure Required ⚠
-                </p>
-              </div>
+            {/* Disclaimer */}
+            <div className="mt-8 p-4 border border-yellow-500/50 bg-yellow-500/10 rounded-lg text-center">
+              <p className="font-mono text-xs text-yellow-400 uppercase">
+                ⚠ Nur mit expliziter Genehmigung · Responsible Disclosure Required · NDA wird unterzeichnet ⚠
+              </p>
             </div>
           </div>
 
           {/* Warning stripes bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-3" style={{
+          <div className="absolute bottom-0 left-0 right-0 h-4" style={{
             background: 'repeating-linear-gradient(-45deg, #ff0000, #ff0000 10px, #1a1a1a 10px, #1a1a1a 20px)',
           }} />
         </section>
