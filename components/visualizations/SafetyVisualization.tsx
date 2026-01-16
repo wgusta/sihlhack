@@ -2,13 +2,19 @@
 
 export function SafetyVisualization() {
   return (
-    <div className="relative w-full max-w-3xl mx-auto bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-6">
-      <svg
-        viewBox="0 0 500 320"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-full"
-      >
+    <div className="relative w-full max-w-3xl mx-auto bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden">
+      {/* Mobile hint */}
+      <div className="sm:hidden text-center py-2 bg-gray-50 border-b border-gray-100">
+        <span className="font-mono text-[10px] text-gray-400">← Wischen für mehr Details →</span>
+      </div>
+      
+      <div className="overflow-x-auto p-4 sm:p-6">
+        <svg
+          viewBox="0 0 500 320"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full min-w-[480px]"
+        >
         {/* Background Grid */}
         <defs>
           <pattern id="safetyGrid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -200,12 +206,13 @@ export function SafetyVisualization() {
           <text x="370" y="286" className="font-mono text-[7px] fill-grid-green">✓ Temp-Max konfiguriert</text>
           <text x="370" y="298" className="font-mono text-[7px] fill-grid-green">✓ Öl-Handling dokumentiert</text>
         </g>
-      </svg>
+        </svg>
+      </div>
 
-      {/* Legend */}
-      <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end pointer-events-none">
-        <div className="bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-gray-100 shadow-sm">
-          <div className="flex items-center gap-3">
+      {/* Legend - Outside scrollable area */}
+      <div className="px-4 pb-4 sm:px-6 sm:pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div className="bg-gray-50 p-2 rounded-lg border border-gray-100">
+          <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center gap-1">
               <div className="w-2 h-2 rounded-full bg-grid-green" />
               <span className="font-mono text-[9px] text-brand-black">Safety OK</span>

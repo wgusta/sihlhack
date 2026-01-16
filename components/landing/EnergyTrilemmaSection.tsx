@@ -69,13 +69,13 @@ export function EnergyTrilemmaSection() {
 
         {/* Triangle Visualization */}
         <div className="max-w-4xl mx-auto mb-16">
-          <div className="relative bg-off-white rounded-2xl p-8 md:p-12 border border-gray-200">
-            <h3 className="font-display text-2xl font-bold text-brand-black mb-8 text-center">
+          <div className="relative bg-off-white rounded-2xl p-6 sm:p-8 md:p-12 border border-gray-200">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-brand-black mb-6 sm:mb-8 text-center">
               Das Energie-Trilemma
             </h3>
             
-            {/* SVG Triangle Container */}
-            <div className="relative w-full" style={{ aspectRatio: '1', maxWidth: '400px', margin: '0 auto' }}>
+            {/* Desktop: SVG Triangle */}
+            <div className="hidden sm:block relative w-full" style={{ aspectRatio: '1', maxWidth: '350px', margin: '0 auto' }}>
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full"
@@ -95,74 +95,20 @@ export function EnergyTrilemmaSection() {
                   <>
                     {hoveredVertex === 'solar' && (
                       <>
-                        <line
-                          x1="50"
-                          y1="10"
-                          x2="15"
-                          y2="85"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-thermal-orange/50"
-                        />
-                        <line
-                          x1="50"
-                          y1="10"
-                          x2="85"
-                          y2="85"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-compute-blue/50"
-                        />
+                        <line x1="50" y1="10" x2="15" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
+                        <line x1="50" y1="10" x2="85" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
                       </>
                     )}
                     {hoveredVertex === 'grid' && (
                       <>
-                        <line
-                          x1="15"
-                          y1="85"
-                          x2="50"
-                          y2="10"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-solar-yellow/50"
-                        />
-                        <line
-                          x1="15"
-                          y1="85"
-                          x2="85"
-                          y2="85"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-compute-blue/50"
-                        />
+                        <line x1="15" y1="85" x2="50" y2="10" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
+                        <line x1="15" y1="85" x2="85" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
                       </>
                     )}
                     {hoveredVertex === 'autonomy' && (
                       <>
-                        <line
-                          x1="85"
-                          y1="85"
-                          x2="50"
-                          y2="10"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-solar-yellow/50"
-                        />
-                        <line
-                          x1="85"
-                          y1="85"
-                          x2="15"
-                          y2="85"
-                          stroke="currentColor"
-                          strokeWidth="0.3"
-                          strokeDasharray="2,2"
-                          className="text-thermal-orange/50"
-                        />
+                        <line x1="85" y1="85" x2="50" y2="10" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
+                        <line x1="85" y1="85" x2="15" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
                       </>
                     )}
                   </>
@@ -174,36 +120,8 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle
-                    cx="50"
-                    cy="10"
-                    r="4"
-                    fill="#FBBF24"
-                    className={hoveredVertex === 'solar' ? 'opacity-100' : 'opacity-80'}
-                  />
-                  <text
-                    x="50"
-                    y="5"
-                    textAnchor="middle"
-                    className="font-mono text-xs"
-                    fill="#FBBF24"
-                    style={{ fontSize: '3px' }}
-                  >
-                    ⚡
-                  </text>
-                  <foreignObject
-                    x="35"
-                    y="0"
-                    width="30"
-                    height="8"
-                    className="pointer-events-none"
-                  >
-                    <div className="text-center">
-                      <div className="font-mono text-[2.5px] font-semibold text-solar-yellow whitespace-nowrap">
-                        {vertices.solar.labelDE}
-                      </div>
-                    </div>
-                  </foreignObject>
+                  <circle cx="50" cy="10" r="5" fill="#FBBF24" className={hoveredVertex === 'solar' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="50" y="12" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚡</text>
                 </g>
 
                 {/* Vertex 2: Grid (Bottom Left) */}
@@ -212,36 +130,8 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle
-                    cx="15"
-                    cy="85"
-                    r="4"
-                    fill="#FF6B35"
-                    className={hoveredVertex === 'grid' ? 'opacity-100' : 'opacity-80'}
-                  />
-                  <text
-                    x="15"
-                    y="88"
-                    textAnchor="middle"
-                    className="font-mono text-xs"
-                    fill="#FF6B35"
-                    style={{ fontSize: '3px' }}
-                  >
-                    ⚠
-                  </text>
-                  <foreignObject
-                    x="0"
-                    y="92"
-                    width="30"
-                    height="8"
-                    className="pointer-events-none"
-                  >
-                    <div className="text-center">
-                      <div className="font-mono text-[2.5px] font-semibold text-thermal-orange whitespace-nowrap">
-                        {vertices.grid.labelDE}
-                      </div>
-                    </div>
-                  </foreignObject>
+                  <circle cx="15" cy="85" r="5" fill="#FF6B35" className={hoveredVertex === 'grid' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="15" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚠</text>
                 </g>
 
                 {/* Vertex 3: Autonomy (Bottom Right) */}
@@ -250,42 +140,39 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle
-                    cx="85"
-                    cy="85"
-                    r="4"
-                    fill="#3B82F6"
-                    className={hoveredVertex === 'autonomy' ? 'opacity-100' : 'opacity-80'}
-                  />
-                  <text
-                    x="85"
-                    y="88"
-                    textAnchor="middle"
-                    className="font-mono text-xs"
-                    fill="#3B82F6"
-                    style={{ fontSize: '3px' }}
-                  >
-                    🏠
-                  </text>
-                  <foreignObject
-                    x="70"
-                    y="92"
-                    width="30"
-                    height="8"
-                    className="pointer-events-none"
-                  >
-                    <div className="text-center">
-                      <div className="font-mono text-[2.5px] font-semibold text-compute-blue whitespace-nowrap">
-                        {vertices.autonomy.labelDE}
-                      </div>
-                    </div>
-                  </foreignObject>
+                  <circle cx="85" cy="85" r="5" fill="#3B82F6" className={hoveredVertex === 'autonomy' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="85" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>🏠</text>
                 </g>
+
+                {/* Labels outside triangle - Desktop only */}
+                <text x="50" y="2" textAnchor="middle" className="font-mono" fill="#FBBF24" style={{ fontSize: '4px', fontWeight: 'bold' }}>Solar</text>
+                <text x="8" y="95" textAnchor="middle" className="font-mono" fill="#FF6B35" style={{ fontSize: '4px', fontWeight: 'bold' }}>Netz</text>
+                <text x="92" y="95" textAnchor="middle" className="font-mono" fill="#3B82F6" style={{ fontSize: '4px', fontWeight: 'bold' }}>Autonomie</text>
               </svg>
             </div>
 
-            {/* Description Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {/* Mobile: Simplified Triangle */}
+            <div className="sm:hidden flex justify-center mb-6">
+              <div className="relative w-48 h-44">
+                <svg viewBox="0 0 100 90" className="w-full h-full">
+                  {/* Triangle */}
+                  <polygon points="50,5 10,80 90,80" fill="none" stroke="#e5e5e5" strokeWidth="1" />
+                  
+                  {/* Vertices with labels */}
+                  <circle cx="50" cy="5" r="8" fill="#FBBF24" />
+                  <text x="50" y="8" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚡</text>
+                  
+                  <circle cx="10" cy="80" r="8" fill="#FF6B35" />
+                  <text x="10" y="83" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚠</text>
+                  
+                  <circle cx="90" cy="80" r="8" fill="#3B82F6" />
+                  <text x="90" y="83" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>🏠</text>
+                </svg>
+              </div>
+            </div>
+
+            {/* Description Cards - Stack on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-6 sm:mt-12">
               {/* Solar */}
               <div
                 className={`p-4 rounded-lg border-2 transition-all ${
@@ -295,14 +182,19 @@ export function EnergyTrilemmaSection() {
                 }`}
                 onMouseEnter={() => setHoveredVertex('solar')}
                 onMouseLeave={() => setHoveredVertex(null)}
+                onClick={() => setHoveredVertex(hoveredVertex === 'solar' ? null : 'solar')}
               >
-                <div className="text-2xl mb-2">⚡</div>
-                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
-                  {vertices.solar.labelDE}
-                </h4>
-                <p className="font-mono text-xs text-historic-sepia">
-                  {vertices.solar.description}
-                </p>
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="text-2xl sm:mb-2 flex-shrink-0 w-10 h-10 sm:w-auto sm:h-auto bg-solar-yellow/20 sm:bg-transparent rounded-full flex items-center justify-center">⚡</div>
+                  <div>
+                    <h4 className="font-mono text-sm font-semibold text-brand-black sm:mb-2">
+                      {vertices.solar.labelDE}
+                    </h4>
+                    <p className="font-mono text-xs text-historic-sepia">
+                      {vertices.solar.description}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Grid */}
@@ -314,14 +206,19 @@ export function EnergyTrilemmaSection() {
                 }`}
                 onMouseEnter={() => setHoveredVertex('grid')}
                 onMouseLeave={() => setHoveredVertex(null)}
+                onClick={() => setHoveredVertex(hoveredVertex === 'grid' ? null : 'grid')}
               >
-                <div className="text-2xl mb-2">⚠</div>
-                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
-                  {vertices.grid.labelDE}
-                </h4>
-                <p className="font-mono text-xs text-historic-sepia">
-                  {vertices.grid.description}
-                </p>
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="text-2xl sm:mb-2 flex-shrink-0 w-10 h-10 sm:w-auto sm:h-auto bg-thermal-orange/20 sm:bg-transparent rounded-full flex items-center justify-center">⚠</div>
+                  <div>
+                    <h4 className="font-mono text-sm font-semibold text-brand-black sm:mb-2">
+                      {vertices.grid.labelDE}
+                    </h4>
+                    <p className="font-mono text-xs text-historic-sepia">
+                      {vertices.grid.description}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Autonomy */}
@@ -333,14 +230,19 @@ export function EnergyTrilemmaSection() {
                 }`}
                 onMouseEnter={() => setHoveredVertex('autonomy')}
                 onMouseLeave={() => setHoveredVertex(null)}
+                onClick={() => setHoveredVertex(hoveredVertex === 'autonomy' ? null : 'autonomy')}
               >
-                <div className="text-2xl mb-2">🏠</div>
-                <h4 className="font-mono text-sm font-semibold text-brand-black mb-2">
-                  {vertices.autonomy.labelDE}
-                </h4>
-                <p className="font-mono text-xs text-historic-sepia">
-                  {vertices.autonomy.description}
-                </p>
+                <div className="flex items-center gap-3 sm:block">
+                  <div className="text-2xl sm:mb-2 flex-shrink-0 w-10 h-10 sm:w-auto sm:h-auto bg-compute-blue/20 sm:bg-transparent rounded-full flex items-center justify-center">🏠</div>
+                  <div>
+                    <h4 className="font-mono text-sm font-semibold text-brand-black sm:mb-2">
+                      {vertices.autonomy.labelDE}
+                    </h4>
+                    <p className="font-mono text-xs text-historic-sepia">
+                      {vertices.autonomy.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
