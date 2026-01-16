@@ -23,13 +23,6 @@ const timelineEvents = [
     icon: '👥',
   },
   {
-    date: 'Wird bekannt gegeben',
-    title: 'Rückerstattungs-Deadline',
-    description: 'Falls Mindestzahl nicht erreicht: automatische Rückerstattung aller Gebühren.',
-    status: 'upcoming' as const,
-    icon: '💰',
-  },
-  {
     date: 'Freitag Abend',
     title: 'Tag 1: Kickoff & Briefing',
     description: 'Check-in, Hardware-Einführung, Team-Aufbau. Die Basis-Hardware ist vorgebaut — ihr erweitert und optimiert.',
