@@ -369,6 +369,163 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Legal Framework: Open Source under Swiss Law */}
+        <section className="py-16 bg-brand-black text-white">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Rechtliches Framework
+              </span>
+              <h2 className="font-display text-3xl font-bold text-white mt-2">
+                Open Source unter Schweizer Recht
+              </h2>
+              <p className="mt-4 text-gray-300 font-mono max-w-2xl mx-auto">
+                Wie wir sicherstellen, dass das Open-Source-Modell rechtlich sauber funktioniert.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {/* IP Rights */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-thermal-orange mb-4 flex items-center gap-3">
+                  <span>⚖️</span>
+                  Geistiges Eigentum (IP-Rechte)
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    <strong className="text-white">Grundprinzip:</strong> Alle Teilnehmer behalten die vollen Rechte an ihren Beiträgen.
+                  </p>
+                  <p>
+                    Gemäss <strong className="text-white">Art. 2 URG</strong> (Schweizer Urheberrechtsgesetz) entstehen Urheberrechte automatisch bei der Schöpfung eines Werks. 
+                    Du als Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
+                  </p>
+                  <p>
+                    Durch die Veröffentlichung unter <strong className="text-thermal-orange">Apache 2.0</strong> erteilst du eine <strong className="text-white">nicht-exklusive, weltweite, gebührenfreie Lizenz</strong> – 
+                    du gibst also Nutzungsrechte weiter, ohne deine eigenen Rechte zu verlieren.
+                  </p>
+                  <p className="pt-2 border-t border-white/10 text-xs text-gray-400">
+                    ℹ️ Das bedeutet: Du kannst deinen Code später auch für andere Projekte nutzen, verkaufen oder anders lizenzieren.
+                  </p>
+                </div>
+              </div>
+
+              {/* Apache 2.0 License */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-compute-blue mb-4 flex items-center gap-3">
+                  <span>📜</span>
+                  Warum Apache 2.0?
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    Die <strong className="text-white">Apache 2.0 Lizenz</strong> ist eine der meistgenutzten Open-Source-Lizenzen weltweit und wurde speziell für die Schweiz durch 
+                    <strong className="text-white"> Art. 19 URG</strong> (Bearbeitung und Änderung) sowie 
+                    <strong className="text-white"> Art. 62 OR</strong> (Vertragsfreiheit) abgesichert.
+                  </p>
+                  <ul className="space-y-2 pl-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-grid-green mt-1">✓</span>
+                      <span><strong className="text-white">Patent-Grant:</strong> Schützt Nutzer vor Patent-Klagen (wichtig bei Hardware)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-grid-green mt-1">✓</span>
+                      <span><strong className="text-white">Disclaimer of Warranty:</strong> Haftungsausschluss nach Schweizer OR (Art. 100 OR)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-grid-green mt-1">✓</span>
+                      <span><strong className="text-white">Commercial Use:</strong> LEGs dürfen damit kommerziell arbeiten</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-grid-green mt-1">✓</span>
+                      <span><strong className="text-white">Modification:</strong> Jeder darf den Code anpassen und weiterentwickeln</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Contributor Agreement */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-sihl-red mb-4 flex items-center gap-3">
+                  <span>✍️</span>
+                  Contributor Agreement
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    Beim Einreichen deines Codes bestätigst du:
+                  </p>
+                  <ol className="space-y-2 pl-4 list-decimal">
+                    <li><strong className="text-white">Originalität:</strong> Du hast den Code selbst geschrieben oder hast die Rechte daran.</li>
+                    <li><strong className="text-white">Lizenzierung:</strong> Du stimmst der Veröffentlichung unter Apache 2.0 zu.</li>
+                    <li><strong className="text-white">Keine Drittrechte:</strong> Der Code verletzt keine Rechte Dritter (z.B. keine Copy-Paste von proprietärem Code).</li>
+                  </ol>
+                  <p className="pt-2 border-t border-white/10">
+                    Dies entspricht dem Standard-CLA (Contributor License Agreement), wie er auch bei Linux, Kubernetes und anderen Open-Source-Projekten verwendet wird.
+                  </p>
+                </div>
+              </div>
+
+              {/* Swiss Law Compliance */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-industrial-gold mb-4 flex items-center gap-3">
+                  <span>🇨🇭</span>
+                  Schweizer Rechtskonformität
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    <strong className="text-white">Anwendbares Recht:</strong> Alle Vereinbarungen unterliegen Schweizer Recht (Art. 116-120 IPRG).
+                  </p>
+                  <p>
+                    <strong className="text-white">Gerichtsstand:</strong> Bei Streitigkeiten ist das Gericht am Sitz des Veranstalters zuständig (Zürich/Aargau).
+                  </p>
+                  <p>
+                    <strong className="text-white">Haftungsausschluss:</strong> Software wird "AS IS" bereitgestellt (Art. 100 OR – Wegbedingung der Haftung).
+                    Dies ist in der Schweiz rechtlich zulässig, sofern keine Absicht oder grobe Fahrlässigkeit vorliegt.
+                  </p>
+                  <p>
+                    <strong className="text-white">Datenschutz:</strong> Alle personenbezogenen Daten werden gemäss 
+                    <strong className="text-thermal-orange"> DSG (Datenschutzgesetz)</strong> und 
+                    <strong className="text-thermal-orange"> DSGVO</strong> (wo anwendbar) verarbeitet.
+                  </p>
+                </div>
+              </div>
+
+              {/* What This Means for You */}
+              <div className="bg-gradient-to-r from-thermal-orange/20 to-compute-blue/20 border border-thermal-orange/30 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-white mb-4 flex items-center gap-3">
+                  <span>💡</span>
+                  Was das für dich bedeutet
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
+                  <div className="space-y-2">
+                    <p className="text-grid-green font-semibold">✓ Du behältst alle Rechte</p>
+                    <p className="text-gray-300 text-xs">Dein Code gehört dir, auch nach dem Hackathon.</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-grid-green font-semibold">✓ Kommerzielle Nutzung erlaubt</p>
+                    <p className="text-gray-300 text-xs">Du darfst deine Arbeit später verkaufen oder damit Geld verdienen.</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-grid-green font-semibold">✓ Keine Haftung für Fehler</p>
+                    <p className="text-gray-300 text-xs">Rechtlich abgesichert durch Apache 2.0 Disclaimer.</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-grid-green font-semibold">✓ Community profitiert</p>
+                    <p className="text-gray-300 text-xs">Andere LEGs können deine Lösung nachbauen.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="font-mono text-sm text-gray-400">
+                📧 Rechtliche Fragen? Schreib uns an{' '}
+                <a href="mailto:legal@sihlhack.ch" className="text-thermal-orange hover:underline">
+                  legal@sihlhack.ch
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section id="faq" className="py-16 bg-off-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -401,6 +558,22 @@ export default function AboutPage() {
                 {
                   q: 'Muss ich beim Hackathon übernachten?',
                   a: 'Nein, es ist ein Tages-Event (Fr Abend bis So Nachmittag). Du kannst pendeln oder wir helfen bei der Organisation von Unterkünften.',
+                },
+                {
+                  q: 'Was passiert, wenn mein Code später in einem kommerziellen Produkt verwendet wird?',
+                  a: 'Apache 2.0 erlaubt kommerzielle Nutzung – das ist gewollt. LEGs dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.',
+                },
+                {
+                  q: 'Hafte ich, wenn mein Code einen Fehler hat und etwas kaputt geht?',
+                  a: 'Nein. Die Apache 2.0 Lizenz enthält einen Haftungsausschluss ("AS IS" - Software wird ohne Gewährleistung bereitgestellt), der nach Schweizer Recht (Art. 100 OR) rechtlich wirksam ist. Du haftest nur bei Vorsatz oder grober Fahrlässigkeit.',
+                },
+                {
+                  q: 'Kann ich meinen Code später unter einer anderen Lizenz verwenden?',
+                  a: 'Ja! Du behältst alle Urheberrechte. Du kannst denselben Code parallel unter einer anderen Lizenz (z.B. proprietär) für andere Projekte nutzen. Dies nennt sich "Dual Licensing" und ist völlig legal.',
+                },
+                {
+                  q: 'Was ist, wenn ich Code von Stack Overflow oder GitHub kopiere?',
+                  a: 'Du darfst nur Code einreichen, für den du die Rechte hast. Stack Overflow Code ist meist CC BY-SA lizenziert (kompatibel mit Apache 2.0). Bei GitHub-Code: Prüfe die Lizenz. Im Zweifelsfall: Frag uns vorher.',
                 },
               ].map((item, index) => (
                 <Card key={index}>
