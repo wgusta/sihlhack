@@ -4,7 +4,7 @@ export function PrototypeVisualization() {
   return (
     <div className="relative w-full max-w-3xl mx-auto bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-6">
       <svg
-        viewBox="0 0 500 280"
+        viewBox="0 0 500 300"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
@@ -26,19 +26,19 @@ export function PrototypeVisualization() {
             <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
           </linearGradient>
         </defs>
-        <rect width="500" height="280" fill="url(#grid)" />
+        <rect width="500" height="300" fill="url(#grid)" />
 
         {/* 1. SUN - Radiating onto Solar Panel */}
         <g id="sun">
           {/* Sun body */}
-          <circle cx="60" cy="30" r="18" fill="url(#sunGradient)" />
-          <circle cx="60" cy="30" r="12" fill="#FBBF24" />
+          <circle cx="250" cy="30" r="18" fill="url(#sunGradient)" />
+          <circle cx="250" cy="30" r="12" fill="#FBBF24" />
           {/* Sun rays */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
             const rad = (angle * Math.PI) / 180
-            const x1 = 60 + Math.cos(rad) * 15
+            const x1 = 250 + Math.cos(rad) * 15
             const y1 = 30 + Math.sin(rad) * 15
-            const x2 = 60 + Math.cos(rad) * 22
+            const x2 = 250 + Math.cos(rad) * 22
             const y2 = 30 + Math.sin(rad) * 22
             return (
               <line
@@ -57,71 +57,91 @@ export function PrototypeVisualization() {
           })}
           {/* Light beams to solar panel */}
           <path
-            d="M60 48 L60 70"
+            d="M250 48 L250 70"
             stroke="#FBBF24"
             strokeWidth="2"
             strokeDasharray="3 3"
             className="animate-[dash_1s_linear_infinite]"
             strokeOpacity="0.6"
           />
-          <path
-            d="M48 45 L35 70"
-            stroke="#FBBF24"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            className="animate-[dash_1.2s_linear_infinite]"
-            strokeOpacity="0.4"
-          />
-          <path
-            d="M72 45 L85 70"
-            stroke="#FBBF24"
-            strokeWidth="1.5"
-            strokeDasharray="3 3"
-            className="animate-[dash_1.4s_linear_infinite]"
-            strokeOpacity="0.4"
-          />
         </g>
 
-        {/* 2. Solar Panel Section */}
+        {/* 2. Solar Panel Section - Centered */}
         <g id="solar-input">
           {/* Solar Panel */}
-          <rect x="25" y="75" width="70" height="45" rx="4" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
+          <rect x="215" y="75" width="70" height="45" rx="4" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
           {/* Panel grid lines */}
-          <path d="M25 92 L95 92 M25 109 L95 109" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-          <path d="M48 75 L48 120 M72 75 L72 120" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+          <path d="M215 92 L285 92 M215 109 L285 109" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+          <path d="M238 75 L238 120 M262 75 L262 120" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
           {/* Reflection effect */}
-          <rect x="30" y="80" width="15" height="8" rx="1" fill="white" fillOpacity="0.3" />
+          <rect x="220" y="80" width="15" height="8" rx="1" fill="white" fillOpacity="0.3" />
           
-          <text x="60" y="135" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Solarmodul</text>
-          
-          {/* Energy Flow to Core */}
-          <path
-            d="M95 97 L150 97"
-            stroke="#FBBF24"
-            strokeWidth="2.5"
-            strokeDasharray="5 4"
-            className="animate-[dash_2s_linear_infinite]"
-          />
-          <text x="122" y="90" textAnchor="middle" className="font-mono text-[6px] fill-solar-yellow">Strom</text>
+          <text x="250" y="135" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Solarmodul</text>
         </g>
 
-        {/* 3. The Sihlicon Core (Immersion Tank) */}
+        {/* 3. Two Houses - Left and Right of Solar Panel */}
+        {/* House 1 (Left) */}
+        <g id="house-1">
+          <path d="M120 140 L145 125 L170 140 L170 180 L120 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
+          <path d="M120 140 L145 125 L170 140" fill="none" stroke="#10B981" strokeWidth="2" />
+          <text x="145" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 1</text>
+        </g>
+
+        {/* House 2 (Right) */}
+        <g id="house-2">
+          <path d="M330 140 L355 125 L380 140 L380 180 L330 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
+          <path d="M330 140 L355 125 L380 140" fill="none" stroke="#10B981" strokeWidth="2" />
+          <text x="355" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 2</text>
+        </g>
+
+        {/* 4. Solar Flow: Solar Panel → Houses (direct) */}
+        {/* Flow to House 1 */}
+        <path
+          d="M215 97 L145 160"
+          stroke="#FBBF24"
+          strokeWidth="2.5"
+          strokeDasharray="5 4"
+          className="animate-[dash_2s_linear_infinite]"
+        />
+        <text x="180" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+
+        {/* Flow to House 2 */}
+        <path
+          d="M285 97 L355 160"
+          stroke="#FBBF24"
+          strokeWidth="2.5"
+          strokeDasharray="5 4"
+          className="animate-[dash_2s_linear_infinite]"
+        />
+        <text x="320" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+
+        {/* 5. Rest of Solar Flow: Solar Panel → Immersion Tank */}
+        <path
+          d="M250 120 L250 180"
+          stroke="#FBBF24"
+          strokeWidth="2.5"
+          strokeDasharray="5 4"
+          className="animate-[dash_2s_linear_infinite]"
+        />
+        <text x="265" y="150" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Rest-Strom</text>
+
+        {/* 6. The Sihlicon Core (Immersion Tank) - Centered below */}
         <g id="sihlicon-core">
           {/* Tank Outer */}
-          <rect x="150" y="55" width="130" height="130" rx="8" fill="#1A1A1A" />
+          <rect x="200" y="180" width="100" height="80" rx="8" fill="#1A1A1A" />
           
           {/* Liquid Level */}
-          <rect x="156" y="75" width="118" height="100" rx="4" fill="url(#waterGradient)" fillOpacity="0.3" />
+          <rect x="206" y="195" width="88" height="60" rx="4" fill="url(#waterGradient)" fillOpacity="0.3" />
           
           {/* Server Blades */}
-          {[170, 192, 214, 236, 258].map((x, i) => (
+          {[215, 230, 245, 260, 275].map((x, i) => (
             <rect
               key={i}
-              x={x - 6}
-              y="85"
-              width="12"
-              height="80"
-              rx="2"
+              x={x - 4}
+              y="205"
+              width="8"
+              height="50"
+              rx="1"
               fill="#3B82F6"
               fillOpacity="0.7"
               className="animate-pulse"
@@ -130,14 +150,14 @@ export function PrototypeVisualization() {
           ))}
           
           {/* Bubbles / Flow animation */}
-          {[...Array(12)].map((_, i) => {
+          {[...Array(8)].map((_, i) => {
             const delay = i * 0.15
             const duration = 1.5 + (i % 4) * 0.4
             return (
               <circle
                 key={i}
-                cx={160 + (i * 9)}
-                cy={160}
+                cx={210 + (i * 10)}
+                cy={235}
                 r="2"
                 fill="white"
                 fillOpacity="0.5"
@@ -147,111 +167,57 @@ export function PrototypeVisualization() {
             )
           })}
 
-          <text x="215" y="200" textAnchor="middle" className="font-mono text-[11px] fill-white font-bold">Sihlicon Core</text>
-          <text x="215" y="212" textAnchor="middle" className="font-mono text-[7px] fill-gray-400">Immersionskühlung</text>
+          <text x="250" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Core</text>
+          <text x="250" y="285" textAnchor="middle" className="font-mono text-[7px] fill-gray-400">Immersionskühlung</text>
         </g>
 
-        {/* 4. Heat Output Section - Split into Water & Room Heating */}
-        <g id="heat-output">
-          {/* Heat Flow Pipe from Core */}
-          <path
-            d="M280 120 L320 120"
-            stroke="#FF6B35"
-            strokeWidth="3"
-            strokeDasharray="6 4"
-            className="animate-[dash_1.5s_linear_infinite]"
-          />
-          
-          {/* Split point */}
-          <circle cx="320" cy="120" r="5" fill="#FF6B35" />
-          
-          {/* Upper branch - Hot Water */}
-          <path
-            d="M320 120 L320 80 L360 80"
-            stroke="#FF6B35"
-            strokeWidth="2"
-            strokeDasharray="4 3"
-            className="animate-[dash_1.8s_linear_infinite]"
-          />
-          
-          {/* Hot Water Tank */}
-          <g id="hot-water">
-            <rect x="360" y="55" width="50" height="50" rx="6" fill="#FF6B35" fillOpacity="0.1" stroke="#FF6B35" strokeWidth="2" />
-            {/* Water waves inside */}
-            <path d="M365 85 Q372 82 380 85 Q388 88 395 85 Q402 82 405 85" stroke="#3B82F6" strokeWidth="1.5" fill="none" strokeOpacity="0.6" />
-            <path d="M365 92 Q372 89 380 92 Q388 95 395 92 Q402 89 405 92" stroke="#3B82F6" strokeWidth="1.5" fill="none" strokeOpacity="0.4" />
-            {/* Steam/heat lines */}
-            <path d="M375 55 Q378 48 375 42" stroke="#FF6B35" strokeWidth="1" fill="none" strokeOpacity="0.5" className="animate-pulse" />
-            <path d="M385 55 Q388 46 385 38" stroke="#FF6B35" strokeWidth="1" fill="none" strokeOpacity="0.6" className="animate-pulse" style={{ animationDelay: '0.3s' }} />
-            <path d="M395 55 Q398 48 395 42" stroke="#FF6B35" strokeWidth="1" fill="none" strokeOpacity="0.5" className="animate-pulse" style={{ animationDelay: '0.6s' }} />
-            {/* Tap/faucet icon */}
-            <circle cx="385" cy="70" r="8" fill="white" fillOpacity="0.3" />
-            <text x="385" y="73" textAnchor="middle" className="text-[10px]">🚿</text>
-          </g>
-          <text x="385" y="115" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-semibold">Warmwasser</text>
-          <text x="385" y="123" textAnchor="middle" className="font-mono text-[6px] fill-historic-sepia">45°C (Demo)</text>
-          
-          {/* Lower branch - Room Heating */}
-          <path
-            d="M320 120 L320 160 L360 160"
-            stroke="#FF6B35"
-            strokeWidth="2"
-            strokeDasharray="4 3"
-            className="animate-[dash_1.8s_linear_infinite]"
-          />
-          
-          {/* Room/Radiator */}
-          <g id="room-heating">
-            {/* House outline */}
-            <path d="M360 140 L385 125 L410 140 L410 180 L360 180 Z" fill="#FF6B35" fillOpacity="0.1" stroke="#FF6B35" strokeWidth="2" />
-            {/* Roof */}
-            <path d="M360 140 L385 125 L410 140" fill="none" stroke="#FF6B35" strokeWidth="2" />
-            {/* Radiator inside */}
-            <rect x="368" y="155" width="34" height="18" rx="2" fill="none" stroke="#FF6B35" strokeWidth="1.5" />
-            <path d="M375 155 L375 173 M382 155 L382 173 M389 155 L389 173 M396 155 L396 173" stroke="#FF6B35" strokeWidth="1" strokeOpacity="0.6" />
-            {/* Heat waves from radiator */}
-            <path d="M370 150 Q373 145 370 140" stroke="#FF6B35" strokeWidth="0.8" fill="none" strokeOpacity="0.4" className="animate-pulse" />
-            <path d="M385 150 Q388 143 385 136" stroke="#FF6B35" strokeWidth="0.8" fill="none" strokeOpacity="0.5" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
-            <path d="M400 150 Q403 145 400 140" stroke="#FF6B35" strokeWidth="0.8" fill="none" strokeOpacity="0.4" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
-          </g>
-          <text x="385" y="195" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-semibold">Raumheizung</text>
-          <text x="385" y="203" textAnchor="middle" className="font-mono text-[6px] fill-historic-sepia">Fussbodenheizung</text>
-        </g>
+        {/* 7. Heat Return: Immersion Tank → Houses with Labels */}
+        {/* Heat Flow to House 1 - Warmwasser */}
+        <path
+          d="M200 220 L145 180"
+          stroke="#FF6B35"
+          strokeWidth="3"
+          strokeDasharray="6 4"
+          className="animate-[dash_1.5s_linear_infinite]"
+        />
+        <text x="172" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
 
-        {/* 5. Compute / Internet Section */}
+        {/* Heat Flow to House 2 - Raumheizung */}
+        <path
+          d="M300 220 L355 180"
+          stroke="#FF6B35"
+          strokeWidth="3"
+          strokeDasharray="6 4"
+          className="animate-[dash_1.5s_linear_infinite]"
+        />
+        <text x="327" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
+
+        {/* 8. Compute / Internet Section - Outside shapes, better readable */}
         <g id="compute-flow">
           {/* Data flow up from Core */}
           <path
-            d="M215 55 L215 25"
+            d="M250 180 L250 50"
             stroke="#10B981"
             strokeWidth="2"
             strokeDasharray="4 4"
             className="animate-[dash_2s_linear_infinite]"
           />
           
-          {/* Cloud / Internet */}
-          <g id="internet-cloud">
-            {/* Cloud shape */}
-            <ellipse cx="215" cy="15" rx="35" ry="12" fill="#10B981" fillOpacity="0.15" stroke="#10B981" strokeWidth="1.5" />
-            {/* Globe icon inside */}
-            <circle cx="200" cy="15" r="6" fill="none" stroke="#10B981" strokeWidth="1" />
-            <path d="M194 15 L206 15 M200 9 L200 21" stroke="#10B981" strokeWidth="0.5" />
-            <ellipse cx="200" cy="15" rx="3" ry="6" fill="none" stroke="#10B981" strokeWidth="0.5" />
-            {/* Server rack icon */}
-            <rect x="220" y="10" width="12" height="10" rx="1" fill="none" stroke="#10B981" strokeWidth="1" />
-            <path d="M222 13 L230 13 M222 16 L230 16" stroke="#10B981" strokeWidth="0.5" />
-          </g>
+          {/* Internet and Cloud labels - Outside the shapes */}
+          <text x="150" y="40" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Internet</text>
+          <text x="350" y="40" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Cloud</text>
           
-          <text x="170" y="12" textAnchor="middle" className="font-mono text-[7px] fill-grid-green font-bold">Internet</text>
-          <text x="255" y="12" textAnchor="middle" className="font-mono text-[7px] fill-grid-green font-bold">Cloud</text>
+          {/* Globe icon - Left */}
+          <circle cx="150" cy="55" r="8" fill="none" stroke="#10B981" strokeWidth="1.5" />
+          <path d="M145 55 L155 55 M150 48 L150 62" stroke="#10B981" strokeWidth="1" />
+          <ellipse cx="150" cy="55" rx="4" ry="8" fill="none" stroke="#10B981" strokeWidth="1" />
           
-          {/* Bidirectional arrows */}
-          <text x="215" y="38" textAnchor="middle" className="font-mono text-[6px] fill-grid-green">Rechenleistung</text>
-        </g>
-
-        {/* Labels / Flow indicators */}
-        <g id="labels">
-          <text x="305" y="112" textAnchor="middle" className="font-mono text-[6px] fill-thermal-orange">Abwärme</text>
+          {/* Server rack icon - Right */}
+          <rect x="342" y="48" width="16" height="14" rx="1" fill="none" stroke="#10B981" strokeWidth="1.5" />
+          <path d="M345 52 L355 52 M345 57 L355 57 M345 62 L355 62" stroke="#10B981" strokeWidth="1" />
+          
+          {/* Rechenleistung label on the line */}
+          <text x="250" y="115" textAnchor="middle" className="font-mono text-[7px] fill-grid-green font-bold">Rechenleistung</text>
         </g>
       </svg>
 
