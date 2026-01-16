@@ -186,6 +186,172 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Alfred Escher Section - Warum wir das anders machen */}
+        <section className="py-20 bg-brand-black text-white relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-thermal-orange rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-compute-blue rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2" />
+          </div>
+          
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Warum wir das anders machen
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">
+                Früher reichte ein Alfred.
+              </h2>
+              <p className="font-display text-2xl sm:text-3xl text-gray-400 mt-2">
+                Heute müssen wir alle alfredieren.
+              </p>
+            </div>
+
+            {/* Main content */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Escher Portrait + Story */}
+              <div className="space-y-6">
+                {/* Team Member Style Card */}
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                  <div className="flex flex-col sm:flex-row gap-6 items-start">
+                    {/* Portrait */}
+                    <div className="flex-shrink-0">
+                      <div className="relative">
+                        <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden border-2 border-thermal-orange/50 shadow-lg shadow-thermal-orange/20">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img 
+                            src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Alfred_Escher_photo.jpg" 
+                            alt="Alfred Escher Portrait"
+                            className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                          />
+                        </div>
+                        {/* Role Badge */}
+                        <div className="absolute -bottom-2 -right-2 bg-thermal-orange text-white text-[10px] font-mono px-2 py-1 rounded-full shadow-lg">
+                          Gründervater
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Info */}
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-thermal-orange mb-1">
+                        Alfred Escher
+                      </h3>
+                      <p className="font-mono text-xs text-gray-400 mb-3">1819–1882 · Zürich</p>
+                      <p className="font-mono text-sm text-gray-300 leading-relaxed">
+                        Ein Mann. Er baute den Gotthardtunnel, gründete die Vorläufer von Credit Suisse und ETH Zürich, 
+                        und legte das Fundament für die moderne Schweiz.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 pt-4 border-t border-white/10">
+                    <p className="font-mono text-sm text-gray-300 leading-relaxed mb-3">
+                      Mitte des 19. Jahrhunderts drohte die Schweiz, vom europäischen Eisenbahnnetz abgehängt zu werden. 
+                      Escher erkannte das Risiko und warf sich mit aller Kraft in den Aufbau der Schweizer Infrastruktur.
+                    </p>
+                    <p className="font-mono text-sm text-gray-300 leading-relaxed">
+                      Das Ergebnis: Die Schweiz wurde zum Transit-Land für Güterverkehr, zum Finanzplatz, 
+                      zum Bildungs- und Forschungszentrum. Ein einziger Visionär veränderte alles.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-3 text-xs font-mono">
+                  <span className="px-3 py-1.5 bg-thermal-orange/20 border border-thermal-orange/30 rounded-full text-thermal-orange">
+                    🚂 Gotthard-Eisenbahn
+                  </span>
+                  <span className="px-3 py-1.5 bg-compute-blue/20 border border-compute-blue/30 rounded-full text-compute-blue">
+                    🏦 Schweizerische Kreditanstalt
+                  </span>
+                  <span className="px-3 py-1.5 bg-grid-green/20 border border-grid-green/30 rounded-full text-grid-green">
+                    🎓 ETH Zürich
+                  </span>
+                </div>
+              </div>
+
+              {/* Modern Challenge */}
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-thermal-orange/20 to-compute-blue/20 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+                  <h3 className="font-display text-xl font-bold text-white mb-4">
+                    Die Herausforderung von heute
+                  </h3>
+                  <p className="font-mono text-sm text-gray-300 leading-relaxed mb-4">
+                    Heute steht die Schweiz wieder vor einer Weggabelung. Energie-Souveränität, digitale Autonomie, 
+                    dezentrale Infrastruktur: Die Herausforderungen sind zu gross für einen Einzelnen.
+                  </p>
+                  <p className="font-mono text-sm text-gray-300 leading-relaxed mb-4">
+                    Während Silicon Valley die Cloud kontrolliert und China die Chips baut, braucht die Schweiz 
+                    eine neue Generation von Machern: Hardware-Hacker, Grid-Entwickler, Energie-Experten, 
+                    Rechtsexperten, Designer.
+                  </p>
+                  <p className="font-mono text-sm text-white leading-relaxed font-semibold">
+                    Nicht ein Alfred. Hunderte.
+                  </p>
+                </div>
+                
+                <div className="flex flex-wrap gap-3 text-xs font-mono">
+                  <span className="px-3 py-1.5 bg-solar-yellow/20 border border-solar-yellow/30 rounded-full text-solar-yellow">
+                    ☀️ Dezentrale Energie
+                  </span>
+                  <span className="px-3 py-1.5 bg-sihl-red/20 border border-sihl-red/30 rounded-full text-sihl-red">
+                    🖥️ Edge Computing
+                  </span>
+                  <span className="px-3 py-1.5 bg-industrial-gold/20 border border-industrial-gold/30 rounded-full text-industrial-gold">
+                    🏘️ Lokale Gemeinschaften
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quote */}
+            <div className="bg-white/5 backdrop-blur-sm border border-thermal-orange/30 rounded-2xl p-8 mb-12 text-center">
+              <blockquote className="font-display text-xl sm:text-2xl md:text-3xl text-white leading-relaxed">
+                &ldquo;Früher war die Schweiz kleiner. Damals reichte <span className="text-thermal-orange">ein Alfred</span>, 
+                damit wir den Anschluss in Europa nicht verlieren.
+                <br className="hidden sm:block" />
+                Heute müssen wir <span className="text-thermal-orange">alle alfredieren</span>, damit wir nicht abgehängt werden.&rdquo;
+              </blockquote>
+            </div>
+
+            {/* Timeline comparison */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="text-center p-6 bg-white/5 rounded-xl">
+                <div className="font-mono text-4xl font-bold text-gray-500 mb-2">1850</div>
+                <div className="font-mono text-sm text-gray-400 mb-4">Ein Visionär reichte</div>
+                <div className="text-5xl mb-3">🚂</div>
+                <div className="font-mono text-xs text-gray-500">Eisenbahn als Lebensader</div>
+              </div>
+              <div className="text-center p-6 bg-thermal-orange/10 border border-thermal-orange/30 rounded-xl">
+                <div className="font-mono text-4xl font-bold text-thermal-orange mb-2">2025</div>
+                <div className="font-mono text-sm text-gray-300 mb-4">Wir alle müssen anpacken</div>
+                <div className="text-5xl mb-3">⚡</div>
+                <div className="font-mono text-xs text-gray-400">Energie + Compute als neue Infrastruktur</div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center">
+              <p className="font-mono text-sm text-gray-400 mb-6">
+                Nach dem Hackathon wird ein Verein gegründet. Du kannst Mitglied werden oder dich für den Vorstand bewerben.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <ButtonLink href="/register" variant="primary" size="lg">
+                  Beim Hackathon mitmachen
+                </ButtonLink>
+                <ButtonLink 
+                  href="mailto:vorstand@sihlhack.ch" 
+                  variant="ghost" 
+                  size="lg"
+                  className="text-white border-white/30 hover:bg-white/10"
+                >
+                  Interesse am Vorstand? →
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Role-Based Hackathon Section */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

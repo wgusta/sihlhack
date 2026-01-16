@@ -4,6 +4,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PRE_CHALLENGE } from '@/lib/roles'
 import { PackageCard, PackageCardCompact } from '@/components/challenges/PackageCard'
 import { PreChallengeSection } from '@/components/challenges/PreChallengeSection'
+import { GlossaryAccordion } from '@/components/challenges/GlossaryAccordion'
 import { DemoKitVisualization } from '@/components/visualizations/DemoKitVisualization'
 import { SafetyVisualization } from '@/components/visualizations/SafetyVisualization'
 import { GridOSVisualization } from '@/components/visualizations/GridOSVisualization'
@@ -529,6 +530,24 @@ export default function ChallengesPage() {
           <div className="absolute bottom-0 left-0 right-0 h-4" style={{
             background: 'repeating-linear-gradient(-45deg, #ff0000, #ff0000 10px, #1a1a1a 10px, #1a1a1a 20px)',
           }} />
+        </section>
+
+        {/* Glossary Accordion */}
+        <section className="py-16 bg-off-white">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-historic-sepia uppercase tracking-widest">
+                Fachbegriffe
+              </span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Was bedeutet das eigentlich?
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Technische Begriffe, die in den Challenges verwendet werden, kurz erklärt.
+              </p>
+            </div>
+            <GlossaryAccordion />
+          </div>
         </section>
 
         {/* Competition Model */}
