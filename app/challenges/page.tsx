@@ -360,9 +360,9 @@ export default function ChallengesPage() {
         </section>
 
         {/* Side-Quest: Historic Archive */}
-        <section id="historic-archive" className="py-16 bg-historic-cream/50 scroll-mt-24">
+        <section id="historic-archive" className="py-16 bg-white scroll-mt-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            {/* Vintage Paper Card */}
+            {/* Side-Quest Card */}
             <div className="relative">
               {/* Decorative corner flourishes */}
               <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-historic-sepia/40" />
@@ -370,13 +370,7 @@ export default function ChallengesPage() {
               <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-historic-sepia/40" />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-historic-sepia/40" />
 
-              <div 
-                className="relative bg-gradient-to-br from-historic-cream via-[#F8F4E8] to-historic-cream border-2 border-historic-sepia/30 rounded-sm p-8 md:p-12"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                  backgroundBlendMode: 'overlay',
-                }}
-              >
+              <div className="relative bg-white border-2 border-historic-sepia/30 rounded-lg p-8 md:p-12 shadow-lg">
                 {/* Side-Quest Badge */}
                 <div className="flex justify-center mb-6">
                   <div className="relative">
@@ -389,17 +383,17 @@ export default function ChallengesPage() {
                 {/* Header */}
                 <div className="text-center mb-8">
                   <span className="text-5xl mb-4 block">{SIDE_QUEST.icon}</span>
-                  <h2 className="font-display text-3xl font-bold text-historic-sepia">
+                  <h2 className="font-display text-3xl font-bold text-brand-black">
                     {SIDE_QUEST.nameDE}
                   </h2>
-                  <p className="font-mono text-sm text-historic-sepia/70 mt-2 italic">
+                  <p className="font-mono text-sm text-historic-sepia mt-2 italic">
                     Standort-Scouting und Energie-Baupläne aus historischen Quellen
                   </p>
                 </div>
 
                 {/* Description */}
                 <div className="prose prose-sm max-w-none mb-8">
-                  <p className="text-historic-sepia font-mono whitespace-pre-line text-center max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-brand-black font-mono whitespace-pre-line text-center max-w-2xl mx-auto leading-relaxed">
                     {SIDE_QUEST.longDescription}
                   </p>
                 </div>
@@ -407,14 +401,14 @@ export default function ChallengesPage() {
                 {/* Two Column Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   {/* Technical Details */}
-                  <div className="bg-white/50 border border-historic-sepia/20 rounded p-6">
-                    <h3 className="font-display text-lg font-semibold text-historic-sepia mb-4 flex items-center gap-2">
+                  <div className="bg-off-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="font-display text-lg font-semibold text-brand-black mb-4 flex items-center gap-2">
                       <span>🔍</span> Methoden & Tools
                     </h3>
                     <ul className="space-y-2">
                       {SIDE_QUEST.technicalDetails.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-historic-sepia">
-                          <span className="w-1.5 h-1.5 rounded-full bg-historic-sepia mt-2 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-brand-black/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-thermal-orange mt-2 flex-shrink-0" />
                           {detail}
                         </li>
                       ))}
@@ -422,21 +416,21 @@ export default function ChallengesPage() {
                   </div>
 
                   {/* Deliverables */}
-                  <div className="bg-white/50 border border-historic-sepia/20 rounded p-6">
-                    <h3 className="font-display text-lg font-semibold text-historic-sepia mb-4 flex items-center gap-2">
+                  <div className="bg-off-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="font-display text-lg font-semibold text-brand-black mb-4 flex items-center gap-2">
                       <span>📦</span> Deliverables
                     </h3>
                     <ul className="space-y-2 mb-4">
                       {SIDE_QUEST.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-historic-sepia">
-                          <span className="text-historic-sepia">✓</span>
+                        <li key={i} className="flex items-start gap-2 text-sm font-mono text-brand-black/80">
+                          <span className="text-grid-green">✓</span>
                           {item}
                         </li>
                       ))}
                     </ul>
-                    <div className="pt-4 border-t border-historic-sepia/20">
-                      <p className="text-xs font-mono text-historic-sepia">
-                        <strong>Outcome:</strong> {SIDE_QUEST.outcome}
+                    <div className="pt-4 border-t border-gray-200">
+                      <p className="text-xs font-mono text-brand-black/70">
+                        <strong className="text-brand-black">Outcome:</strong> {SIDE_QUEST.outcome}
                       </p>
                     </div>
                   </div>
@@ -444,7 +438,7 @@ export default function ChallengesPage() {
 
                 {/* Skills */}
                 <div className="text-center">
-                  <p className="font-mono text-xs text-historic-sepia/70">
+                  <p className="font-mono text-xs text-brand-black/60">
                     Skills: {SIDE_QUEST.skills.join(' · ')}
                   </p>
                 </div>
