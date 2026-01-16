@@ -4,6 +4,74 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_CHALLENGES, HACKATHON_ROLES } from '@/lib/roles'
 
+// Historic Archive Insert Component (Full Width)
+function HistoricArchiveInsert() {
+  return (
+    <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-off-white py-16 border-y-2 border-historic-sepia/20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <span className="font-accent text-lg text-historic-sepia tracking-wider">
+            ~~~ SIDE-QUEST ~~~
+          </span>
+          <h2 className="font-display text-3xl font-bold text-brand-black mt-4">
+            {SIDE_QUEST.icon} {SIDE_QUEST.nameDE}
+          </h2>
+          <p className="font-mono text-sm text-historic-sepia mt-2 italic">
+            Standort-Scouting und Energie-Baupläne aus historischen Quellen
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <p className="text-brand-black font-mono text-center mb-8 leading-relaxed">
+            {SIDE_QUEST.longDescription}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-4 flex items-center gap-2">
+                <span>🔍</span> Methoden & Tools
+              </h3>
+              <ul className="space-y-2">
+                {SIDE_QUEST.technicalDetails.map((detail, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm font-mono text-brand-black/80">
+                    <span className="w-1.5 h-1.5 rounded-full bg-thermal-orange mt-2 flex-shrink-0" />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-4 flex items-center gap-2">
+                <span>📦</span> Deliverables
+              </h3>
+              <ul className="space-y-2 mb-4">
+                {SIDE_QUEST.deliverables.map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm font-mono text-brand-black/80">
+                    <span className="text-grid-green">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-4 border-t border-gray-200">
+                <p className="text-xs font-mono text-brand-black/70">
+                  <strong className="text-brand-black">Outcome:</strong> {SIDE_QUEST.outcome}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="font-mono text-xs text-brand-black/60">
+              Skills: {SIDE_QUEST.skills.join(' · ')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export const metadata = {
   title: 'Challenges | sihlhack',
   description: 'Die fünf Hackathon-Challenges plus Side-Quest: Sihlicon Core, Grid-OS, LEG Toolkit, Energy Dashboard, System Integration und historische Archive.',
@@ -247,7 +315,8 @@ export default function ChallengesPage() {
               ).filter(Boolean)
 
               return (
-                <div key={challenge.id} id={challenge.id} className="scroll-mt-24">
+                <div key={challenge.id}>
+                  <div id={challenge.id} className="scroll-mt-24">
                   {/* Challenge Header */}
                   <div className="flex items-start gap-4 mb-6">
                     <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl ${
@@ -353,13 +422,21 @@ export default function ChallengesPage() {
                       </p>
                     </div>
                   </div>
+                  </div>
+                  
+                  {/* Insert Historic Archive Section after LEG Toolkit */}
+                  {challenge.id === 'leg-toolkit' && (
+                    <div className="mt-16">
+                      <HistoricArchiveInsert />
+                    </div>
+                  )}
                 </div>
               )
             })}
           </div>
         </section>
 
-        {/* Side-Quest: Historic Archive */}
+        {/* Side-Quest: Historic Archive (Full Section) */}
         <section id="historic-archive" className="py-16 bg-white scroll-mt-24">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             {/* Side-Quest Card */}
