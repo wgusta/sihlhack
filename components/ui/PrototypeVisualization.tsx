@@ -4,9 +4,9 @@ export function PrototypeVisualization() {
   return (
     <div className="relative w-full max-w-4xl mx-auto">
       {/* Desktop Version */}
-      <div className="hidden md:block bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-8">
+      <div className="hidden md:block bg-white rounded-3xl border-2 border-gray-100 shadow-xl overflow-hidden p-6">
         <svg
-          viewBox="0 0 600 340"
+          viewBox="0 0 550 320"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
@@ -82,8 +82,8 @@ export function PrototypeVisualization() {
             <rect x="137" y="87" width="20" height="10" rx="2" fill="white" fillOpacity="0.4" />
           </g>
           {/* Solar Panel Label - OUTSIDE */}
-          <text x="180" y="152" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Solarmodul</text>
-          <text x="180" y="164" textAnchor="middle" className="font-mono text-[9px] fill-gray-400">150W Peak</text>
+          <text x="180" y="152" textAnchor="middle" className="font-mono text-[10px] fill-solar-yellow font-bold">Solarmodul</text>
+          <text x="180" y="163" textAnchor="middle" className="font-mono text-[8px] fill-gray-400">150W Peak</text>
 
           {/* === 3. HOUSES === */}
           {/* House 1 (Left) */}
@@ -93,7 +93,7 @@ export function PrototypeVisualization() {
             {/* Window */}
             <rect x="45" y="175" width="20" height="20" rx="2" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
           </g>
-          <text x="55" y="230" textAnchor="middle" className="font-mono text-[11px] fill-grid-green font-bold">Haus 1</text>
+          <text x="55" y="230" textAnchor="middle" className="font-mono text-[10px] fill-grid-green font-bold">Haus 1</text>
 
           {/* House 2 (Right of center) */}
           <g id="house-2">
@@ -102,7 +102,7 @@ export function PrototypeVisualization() {
             {/* Window */}
             <rect x="295" y="175" width="20" height="20" rx="2" fill="#10B981" fillOpacity="0.2" stroke="#10B981" strokeWidth="1" />
           </g>
-          <text x="305" y="230" textAnchor="middle" className="font-mono text-[11px] fill-grid-green font-bold">Haus 2</text>
+          <text x="305" y="230" textAnchor="middle" className="font-mono text-[10px] fill-grid-green font-bold">Haus 2</text>
 
           {/* === 4. ELECTRICITY FLOWS === */}
           {/* Flow: Solar → House 1 */}
@@ -184,8 +184,8 @@ export function PrototypeVisualization() {
             ))}
           </g>
           {/* Core Labels - OUTSIDE */}
-          <text x="180" y="310" textAnchor="middle" className="font-mono text-[12px] fill-brand-black font-bold">Sihlicon Hub Core</text>
-          <text x="180" y="324" textAnchor="middle" className="font-mono text-[9px] fill-gray-500">Immersionskühlung · 20L Tank</text>
+          <text x="180" y="310" textAnchor="middle" className="font-mono text-[11px] fill-brand-black font-bold">Sihlicon Hub Core</text>
+          <text x="180" y="322" textAnchor="middle" className="font-mono text-[8px] fill-gray-500">Immersionskühlung · 20L Tank</text>
 
           {/* === 6. HEAT RETURN FLOWS === */}
           {/* Heat → House 1 (Warmwasser) */}
@@ -199,8 +199,8 @@ export function PrototypeVisualization() {
           />
           {/* Label for Warmwasser */}
           <g transform="translate(85, 260)">
-            <rect x="-40" y="-10" width="80" height="20" rx="6" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
-            <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange font-bold">Warmwasser</text>
+            <rect x="-38" y="-9" width="76" height="18" rx="5" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
+            <text x="0" y="5" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Warmwasser</text>
           </g>
 
           {/* Heat → House 2 (Raumheizung) */}
@@ -214,17 +214,17 @@ export function PrototypeVisualization() {
           />
           {/* Label for Raumheizung */}
           <g transform="translate(275, 260)">
-            <rect x="-45" y="-10" width="90" height="20" rx="6" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
-            <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange font-bold">Raumheizung</text>
+            <rect x="-42" y="-9" width="84" height="18" rx="5" fill="#FF6B35" fillOpacity="0.15" stroke="#FF6B35" strokeWidth="1" />
+            <text x="0" y="5" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Raumheizung</text>
           </g>
 
           {/* === 7. COMPUTE / AI OUTPUT === */}
           <g id="compute-section">
-            {/* Main compute flow line */}
+            {/* Main compute flow line - FROM BOTTOM RIGHT OF CORE */}
             <path
-              d="M240 248 L400 248"
+              d="M240 290 L360 290"
               stroke="#A855F7"
-              strokeWidth="3"
+              strokeWidth="3.5"
               strokeDasharray="6 5"
               className="animate-[dash_2s_linear_infinite]"
               filter="url(#glow)"
@@ -232,66 +232,66 @@ export function PrototypeVisualization() {
             
             {/* Branch to AI-Training */}
             <path
-              d="M400 248 L430 200"
+              d="M360 290 L430 200"
               stroke="#A855F7"
-              strokeWidth="3"
+              strokeWidth="3.5"
               strokeDasharray="6 5"
               className="animate-[dash_2s_linear_infinite]"
             />
             
             {/* Branch to AI-Inference */}
             <path
-              d="M400 248 L430 290"
+              d="M360 290 L430 280"
               stroke="#A855F7"
-              strokeWidth="3"
+              strokeWidth="3.5"
               strokeDasharray="6 5"
               className="animate-[dash_2s_linear_infinite]"
             />
 
-            {/* Rechenleistung Label - on background */}
-            <g transform="translate(320, 235)">
-              <rect x="-55" y="-10" width="110" height="20" rx="6" fill="white" fillOpacity="0.95" stroke="#A855F7" strokeWidth="1.5" />
-              <text x="0" y="5" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">Rechenleistung</text>
+            {/* Rechenleistung Label - on line at bottom */}
+            <g transform="translate(300, 278)">
+              <rect x="-50" y="-9" width="100" height="18" rx="5" fill="white" fillOpacity="0.95" stroke="#A855F7" strokeWidth="1.5" />
+              <text x="0" y="5" textAnchor="middle" className="font-mono text-[9px] fill-purple-600 font-bold">Rechenleistung</text>
             </g>
             
             {/* AI-Training Box */}
-            <g transform="translate(430, 180)">
-              <rect x="0" y="0" width="130" height="45" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            <g transform="translate(430, 175)">
+              <rect x="0" y="0" width="110" height="40" rx="7" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Neural network icon */}
-              <circle cx="25" cy="22" r="10" fill="none" stroke="#A855F7" strokeWidth="2" />
-              <path d="M20 17 L30 27 M30 17 L20 27" stroke="#A855F7" strokeWidth="1.5" />
-              <circle cx="25" cy="22" r="5" fill="#A855F7" fillOpacity="0.3" />
-              <text x="75" y="20" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Training</text>
-              <text x="75" y="34" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">GPU Workloads</text>
+              <circle cx="20" cy="20" r="8" fill="none" stroke="#A855F7" strokeWidth="1.5" />
+              <path d="M16 16 L24 24 M24 16 L16 24" stroke="#A855F7" strokeWidth="1.2" />
+              <circle cx="20" cy="20" r="4" fill="#A855F7" fillOpacity="0.3" />
+              <text x="65" y="18" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Training</text>
+              <text x="65" y="30" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">GPU Workloads</text>
             </g>
             
             {/* AI-Inference Box */}
-            <g transform="translate(430, 270)">
-              <rect x="0" y="0" width="130" height="45" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            <g transform="translate(430, 260)">
+              <rect x="0" y="0" width="110" height="40" rx="7" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Lightning icon */}
-              <path d="M25 8 L20 22 L27 22 L22 36" stroke="#A855F7" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              <text x="75" y="20" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Inference</text>
-              <text x="75" y="34" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">Low Latency</text>
+              <path d="M20 6 L16 20 L23 20 L19 34" stroke="#A855F7" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="65" y="18" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Inference</text>
+              <text x="65" y="30" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">Low Latency</text>
             </g>
           </g>
 
           {/* === 8. LEGEND BOX === */}
-          <g transform="translate(380, 60)">
-            <rect x="0" y="0" width="180" height="90" rx="10" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
-            <text x="90" y="20" textAnchor="middle" className="font-mono text-[10px] fill-brand-black font-bold">ENERGIEFLUSS</text>
+          <g transform="translate(360, 50)">
+            <rect x="0" y="0" width="160" height="80" rx="8" fill="white" fillOpacity="0.95" stroke="#e5e5e5" strokeWidth="1" />
+            <text x="80" y="18" textAnchor="middle" className="font-mono text-[9px] fill-brand-black font-bold">ENERGIEFLUSS</text>
             
             {/* Legend items */}
-            <g transform="translate(15, 35)">
-              <line x1="0" y1="0" x2="25" y2="0" stroke="#FBBF24" strokeWidth="3" strokeDasharray="4 3" />
-              <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Solarstrom</text>
+            <g transform="translate(12, 32)">
+              <line x1="0" y1="0" x2="22" y2="0" stroke="#FBBF24" strokeWidth="2.5" strokeDasharray="4 3" />
+              <text x="30" y="4" className="font-mono text-[8px] fill-gray-600">Solarstrom</text>
             </g>
-            <g transform="translate(15, 52)">
-              <line x1="0" y1="0" x2="25" y2="0" stroke="#FF6B35" strokeWidth="3" strokeDasharray="4 3" />
-              <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Abwärme (45°C)</text>
+            <g transform="translate(12, 48)">
+              <line x1="0" y1="0" x2="22" y2="0" stroke="#FF6B35" strokeWidth="2.5" strokeDasharray="4 3" />
+              <text x="30" y="4" className="font-mono text-[8px] fill-gray-600">Abwärme (45°C)</text>
             </g>
-            <g transform="translate(15, 69)">
-              <line x1="0" y1="0" x2="25" y2="0" stroke="#A855F7" strokeWidth="3" strokeDasharray="4 3" />
-              <text x="35" y="4" className="font-mono text-[9px] fill-gray-600">Rechenleistung</text>
+            <g transform="translate(12, 64)">
+              <line x1="0" y1="0" x2="22" y2="0" stroke="#A855F7" strokeWidth="2.5" strokeDasharray="4 3" />
+              <text x="30" y="4" className="font-mono text-[8px] fill-gray-600">Rechenleistung</text>
             </g>
           </g>
         </svg>
