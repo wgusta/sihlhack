@@ -88,25 +88,25 @@ export function PrototypeVisualization() {
         </g>
 
         {/* 4. Solar Flow: Solar Panel → Houses */}
-        {/* Flow to House 1 */}
+        {/* Flow to House 1 - Stops at border */}
         <path
-          d="M95 97 L35 160"
+          d="M95 97 L55 135"
           stroke="#FBBF24"
           strokeWidth="2.5"
           strokeDasharray="5 4"
           className="animate-[dash_2s_linear_infinite]"
         />
-        <text x="60" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        <text x="80" y="120" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
 
-        {/* Flow to House 2 */}
+        {/* Flow to House 2 - Stops at border */}
         <path
-          d="M165 97 L225 160"
+          d="M165 97 L205 135"
           stroke="#FBBF24"
           strokeWidth="2.5"
           strokeDasharray="5 4"
           className="animate-[dash_2s_linear_infinite]"
         />
-        <text x="200" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        <text x="190" y="120" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
 
         {/* 5. Rest of Solar Flow: Solar Panel → Immersion Tank */}
         <path
@@ -152,36 +152,52 @@ export function PrototypeVisualization() {
               />
             )
           })}
-          <text x="130" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Core</text>
+          <text x="130" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Hub Core</text>
           <text x="130" y="285" textAnchor="middle" className="font-mono text-[7px] fill-gray-400 font-bold">Immersionskühlung</text>
         </g>
 
-        {/* 7. Heat Return: Immersion Tank → Houses */}
+        {/* 7. Heat Return: Immersion Tank → Houses - Starts from BOTTOM edge */}
         {/* Heat Flow to House 1 - Warmwasser */}
         <path
-          d="M80 220 L35 180"
+          d="M100 260 L35 180"
           stroke="#FF6B35"
           strokeWidth="3"
           strokeDasharray="6 4"
           className="animate-[dash_1.5s_linear_infinite]"
         />
-        <text x="52" y="205" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
+        <text x="52" y="225" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
 
         {/* Heat Flow to House 2 - Raumheizung */}
         <path
-          d="M180 220 L225 180"
+          d="M160 260 L225 180"
           stroke="#FF6B35"
           strokeWidth="3"
           strokeDasharray="6 4"
           className="animate-[dash_1.5s_linear_infinite]"
         />
-        <text x="207" y="205" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
+        <text x="207" y="225" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
 
         {/* 8. Compute / AI Section - To the right of Immersion Tank (PURPLE) */}
         <g id="compute-flow">
-          {/* Data flow right from Core */}
+          {/* Data flow right from Core and branching */}
           <path
             d="M180 220 L340 220"
+            stroke="#A855F7"
+            strokeWidth="2.5"
+            strokeDasharray="5 4"
+            className="animate-[dash_2s_linear_infinite]"
+          />
+          {/* Branch to Training */}
+          <path
+            d="M340 220 L360 190"
+            stroke="#A855F7"
+            strokeWidth="2.5"
+            strokeDasharray="5 4"
+            className="animate-[dash_2s_linear_infinite]"
+          />
+          {/* Branch to Inference */}
+          <path
+            d="M340 220 L360 240"
             stroke="#A855F7"
             strokeWidth="2.5"
             strokeDasharray="5 4"
