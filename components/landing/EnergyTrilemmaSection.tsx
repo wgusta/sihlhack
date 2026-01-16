@@ -77,13 +77,13 @@ export function EnergyTrilemmaSection() {
             {/* Desktop: SVG Triangle */}
             <div className="hidden sm:block relative w-full" style={{ aspectRatio: '1', maxWidth: '350px', margin: '0 auto' }}>
               <svg
-                viewBox="0 0 100 100"
+                viewBox="0 0 120 110"
                 className="w-full h-full"
                 style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }}
               >
-                {/* Triangle background */}
+                {/* Triangle background - Equilateral */}
                 <polygon
-                  points="50,10 15,85 85,85"
+                  points="60,15 20,85 100,85"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="0.5"
@@ -95,20 +95,20 @@ export function EnergyTrilemmaSection() {
                   <>
                     {hoveredVertex === 'solar' && (
                       <>
-                        <line x1="50" y1="10" x2="15" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
-                        <line x1="50" y1="10" x2="85" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
+                        <line x1="60" y1="15" x2="20" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
+                        <line x1="60" y1="15" x2="100" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
                       </>
                     )}
                     {hoveredVertex === 'grid' && (
                       <>
-                        <line x1="15" y1="85" x2="50" y2="10" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
-                        <line x1="15" y1="85" x2="85" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
+                        <line x1="20" y1="85" x2="60" y2="15" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
+                        <line x1="20" y1="85" x2="100" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-compute-blue/50" />
                       </>
                     )}
                     {hoveredVertex === 'autonomy' && (
                       <>
-                        <line x1="85" y1="85" x2="50" y2="10" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
-                        <line x1="85" y1="85" x2="15" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
+                        <line x1="100" y1="85" x2="60" y2="15" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-solar-yellow/50" />
+                        <line x1="100" y1="85" x2="20" y2="85" stroke="currentColor" strokeWidth="0.3" strokeDasharray="2,2" className="text-thermal-orange/50" />
                       </>
                     )}
                   </>
@@ -120,8 +120,8 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle cx="50" cy="10" r="5" fill="#FBBF24" className={hoveredVertex === 'solar' ? 'opacity-100' : 'opacity-80'} />
-                  <text x="50" y="12" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚡</text>
+                  <circle cx="60" cy="15" r="5" fill="#FBBF24" className={hoveredVertex === 'solar' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="60" y="17" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚡</text>
                 </g>
 
                 {/* Vertex 2: Grid (Bottom Left) */}
@@ -130,8 +130,8 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle cx="15" cy="85" r="5" fill="#FF6B35" className={hoveredVertex === 'grid' ? 'opacity-100' : 'opacity-80'} />
-                  <text x="15" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚠</text>
+                  <circle cx="20" cy="85" r="5" fill="#FF6B35" className={hoveredVertex === 'grid' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="20" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>⚠</text>
                 </g>
 
                 {/* Vertex 3: Autonomy (Bottom Right) */}
@@ -140,33 +140,33 @@ export function EnergyTrilemmaSection() {
                   onMouseLeave={() => setHoveredVertex(null)}
                   className="cursor-pointer transition-all"
                 >
-                  <circle cx="85" cy="85" r="5" fill="#3B82F6" className={hoveredVertex === 'autonomy' ? 'opacity-100' : 'opacity-80'} />
-                  <text x="85" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>🏠</text>
+                  <circle cx="100" cy="85" r="5" fill="#3B82F6" className={hoveredVertex === 'autonomy' ? 'opacity-100' : 'opacity-80'} />
+                  <text x="100" y="87" textAnchor="middle" fill="white" style={{ fontSize: '4px' }}>🏠</text>
                 </g>
 
                 {/* Labels outside triangle - Desktop only */}
-                <text x="50" y="2" textAnchor="middle" className="font-mono" fill="#FBBF24" style={{ fontSize: '4px', fontWeight: 'bold' }}>Solar</text>
-                <text x="8" y="95" textAnchor="middle" className="font-mono" fill="#FF6B35" style={{ fontSize: '4px', fontWeight: 'bold' }}>Netz</text>
-                <text x="92" y="95" textAnchor="middle" className="font-mono" fill="#3B82F6" style={{ fontSize: '4px', fontWeight: 'bold' }}>Autonomie</text>
+                <text x="60" y="8" textAnchor="middle" className="font-mono" fill="#FBBF24" style={{ fontSize: '5px', fontWeight: 'bold' }}>Solar</text>
+                <text x="10" y="100" textAnchor="middle" className="font-mono" fill="#FF6B35" style={{ fontSize: '5px', fontWeight: 'bold' }}>Netz</text>
+                <text x="110" y="100" textAnchor="middle" className="font-mono" fill="#3B82F6" style={{ fontSize: '5px', fontWeight: 'bold' }}>Autonomie</text>
               </svg>
             </div>
 
             {/* Mobile: Simplified Triangle */}
             <div className="sm:hidden flex justify-center mb-6">
               <div className="relative w-48 h-44">
-                <svg viewBox="0 0 100 90" className="w-full h-full">
-                  {/* Triangle */}
-                  <polygon points="50,5 10,80 90,80" fill="none" stroke="#e5e5e5" strokeWidth="1" />
+                <svg viewBox="0 0 120 105" className="w-full h-full">
+                  {/* Triangle - Equilateral */}
+                  <polygon points="60,10 15,85 105,85" fill="none" stroke="#e5e5e5" strokeWidth="1" />
                   
                   {/* Vertices with labels */}
-                  <circle cx="50" cy="5" r="8" fill="#FBBF24" />
-                  <text x="50" y="8" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚡</text>
+                  <circle cx="60" cy="10" r="8" fill="#FBBF24" />
+                  <text x="60" y="13" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚡</text>
                   
-                  <circle cx="10" cy="80" r="8" fill="#FF6B35" />
-                  <text x="10" y="83" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚠</text>
+                  <circle cx="15" cy="85" r="8" fill="#FF6B35" />
+                  <text x="15" y="88" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>⚠</text>
                   
-                  <circle cx="90" cy="80" r="8" fill="#3B82F6" />
-                  <text x="90" y="83" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>🏠</text>
+                  <circle cx="105" cy="85" r="8" fill="#3B82F6" />
+                  <text x="105" y="88" textAnchor="middle" fill="white" style={{ fontSize: '6px' }}>🏠</text>
                 </svg>
               </div>
             </div>
