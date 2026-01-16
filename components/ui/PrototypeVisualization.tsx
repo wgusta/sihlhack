@@ -31,14 +31,14 @@ export function PrototypeVisualization() {
         {/* 1. SUN - Radiating onto Solar Panel */}
         <g id="sun">
           {/* Sun body */}
-          <circle cx="250" cy="30" r="18" fill="url(#sunGradient)" />
-          <circle cx="250" cy="30" r="12" fill="#FBBF24" />
+          <circle cx="170" cy="30" r="18" fill="url(#sunGradient)" />
+          <circle cx="170" cy="30" r="12" fill="#FBBF24" />
           {/* Sun rays */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
             const rad = (angle * Math.PI) / 180
-            const x1 = 250 + Math.cos(rad) * 15
+            const x1 = 170 + Math.cos(rad) * 15
             const y1 = 30 + Math.sin(rad) * 15
-            const x2 = 250 + Math.cos(rad) * 22
+            const x2 = 170 + Math.cos(rad) * 22
             const y2 = 30 + Math.sin(rad) * 22
             return (
               <line
@@ -57,7 +57,7 @@ export function PrototypeVisualization() {
           })}
           {/* Light beams to solar panel */}
           <path
-            d="M250 48 L250 70"
+            d="M170 48 L170 70"
             stroke="#FBBF24"
             strokeWidth="2"
             strokeDasharray="3 3"
@@ -66,75 +66,75 @@ export function PrototypeVisualization() {
           />
         </g>
 
-        {/* 2. Solar Panel Section - Centered */}
+        {/* 2. Solar Panel Section - Shifted Left */}
         <g id="solar-input">
           {/* Solar Panel */}
-          <rect x="215" y="75" width="70" height="45" rx="4" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
+          <rect x="135" y="75" width="70" height="45" rx="4" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
           {/* Panel grid lines */}
-          <path d="M215 92 L285 92 M215 109 L285 109" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-          <path d="M238 75 L238 120 M262 75 L262 120" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+          <path d="M135 92 L205 92 M135 109 L205 109" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+          <path d="M158 75 L158 120 M182 75 L182 120" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
           {/* Reflection effect */}
-          <rect x="220" y="80" width="15" height="8" rx="1" fill="white" fillOpacity="0.3" />
+          <rect x="140" y="80" width="15" height="8" rx="1" fill="white" fillOpacity="0.3" />
           
-          <text x="250" y="135" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Solarmodul</text>
+          <text x="170" y="135" textAnchor="middle" className="font-mono text-[9px] fill-solar-yellow font-bold">Solarmodul</text>
         </g>
 
-        {/* 3. Two Houses - Left and Right of Solar Panel */}
+        {/* 3. Two Houses - Shifted Left */}
         {/* House 1 (Left) */}
         <g id="house-1">
-          <path d="M120 140 L145 125 L170 140 L170 180 L120 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
-          <path d="M120 140 L145 125 L170 140" fill="none" stroke="#10B981" strokeWidth="2" />
-          <text x="145" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 1</text>
+          <path d="M40 140 L65 125 L90 140 L90 180 L40 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
+          <path d="M40 140 L65 125 L90 140" fill="none" stroke="#10B981" strokeWidth="2" />
+          <text x="65" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 1</text>
         </g>
 
-        {/* House 2 (Right) */}
+        {/* House 2 (Right of Solar) */}
         <g id="house-2">
-          <path d="M330 140 L355 125 L380 140 L380 180 L330 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
-          <path d="M330 140 L355 125 L380 140" fill="none" stroke="#10B981" strokeWidth="2" />
-          <text x="355" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 2</text>
+          <path d="M250 140 L275 125 L300 140 L300 180 L250 180 Z" fill="#10B981" fillOpacity="0.1" stroke="#10B981" strokeWidth="2" />
+          <path d="M250 140 L275 125 L300 140" fill="none" stroke="#10B981" strokeWidth="2" />
+          <text x="275" y="195" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-semibold">Haus 2</text>
         </g>
 
         {/* 4. Solar Flow: Solar Panel → Houses (direct) */}
         {/* Flow to House 1 */}
         <path
-          d="M215 97 L145 160"
+          d="M135 97 L65 160"
           stroke="#FBBF24"
           strokeWidth="2.5"
           strokeDasharray="5 4"
           className="animate-[dash_2s_linear_infinite]"
         />
-        <text x="180" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        <text x="100" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
 
         {/* Flow to House 2 */}
         <path
-          d="M285 97 L355 160"
+          d="M205 97 L275 160"
           stroke="#FBBF24"
           strokeWidth="2.5"
           strokeDasharray="5 4"
           className="animate-[dash_2s_linear_infinite]"
         />
-        <text x="320" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
+        <text x="240" y="125" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Strom</text>
 
         {/* 5. Rest of Solar Flow: Solar Panel → Immersion Tank */}
         <path
-          d="M250 120 L250 180"
+          d="M170 120 L170 180"
           stroke="#FBBF24"
           strokeWidth="2.5"
           strokeDasharray="5 4"
           className="animate-[dash_2s_linear_infinite]"
         />
-        <text x="265" y="150" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Rest-Strom</text>
+        <text x="185" y="150" textAnchor="middle" className="font-mono text-[7px] fill-solar-yellow font-bold">Rest-Strom</text>
 
-        {/* 6. The Sihlicon Core (Immersion Tank) - Centered below */}
+        {/* 6. The Sihlicon Core (Immersion Tank) - Shifted Left */}
         <g id="sihlicon-core">
           {/* Tank Outer */}
-          <rect x="200" y="180" width="100" height="80" rx="8" fill="#1A1A1A" />
+          <rect x="120" y="180" width="100" height="80" rx="8" fill="#1A1A1A" />
           
           {/* Liquid Level */}
-          <rect x="206" y="195" width="88" height="60" rx="4" fill="url(#waterGradient)" fillOpacity="0.3" />
+          <rect x="126" y="195" width="88" height="60" rx="4" fill="url(#waterGradient)" fillOpacity="0.3" />
           
           {/* Server Blades */}
-          {[215, 230, 245, 260, 275].map((x, i) => (
+          {[135, 150, 165, 180, 195].map((x, i) => (
             <rect
               key={i}
               x={x - 4}
@@ -156,7 +156,7 @@ export function PrototypeVisualization() {
             return (
               <circle
                 key={i}
-                cx={210 + (i * 10)}
+                cx={130 + (i * 10)}
                 cy={235}
                 r="2"
                 fill="white"
@@ -167,56 +167,60 @@ export function PrototypeVisualization() {
             )
           })}
 
-          <text x="250" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Core</text>
-          <text x="250" y="285" textAnchor="middle" className="font-mono text-[7px] fill-gray-400">Immersionskühlung</text>
+          <text x="170" y="275" textAnchor="middle" className="font-mono text-[10px] fill-white font-bold">Sihlicon Core</text>
+          <text x="170" y="285" textAnchor="middle" className="font-mono text-[7px] fill-gray-400">Immersionskühlung</text>
         </g>
 
-        {/* 7. Heat Return: Immersion Tank → Houses with Labels */}
+        {/* 7. Heat Return: Immersion Tank → Houses */}
         {/* Heat Flow to House 1 - Warmwasser */}
         <path
-          d="M200 220 L145 180"
+          d="M120 220 L65 180"
           stroke="#FF6B35"
           strokeWidth="3"
           strokeDasharray="6 4"
           className="animate-[dash_1.5s_linear_infinite]"
         />
-        <text x="172" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
+        <text x="92" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Warmwasser</text>
 
         {/* Heat Flow to House 2 - Raumheizung */}
         <path
-          d="M300 220 L355 180"
+          d="M220 220 L275 180"
           stroke="#FF6B35"
           strokeWidth="3"
           strokeDasharray="6 4"
           className="animate-[dash_1.5s_linear_infinite]"
         />
-        <text x="327" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
+        <text x="247" y="200" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-bold">Raumheizung</text>
 
-        {/* 8. Compute / AI Section - Below Immersion Tank */}
+        {/* 8. Compute / AI Section - To the right of Immersion Tank (PURPLE) */}
         <g id="compute-flow">
-          {/* Data flow down from Core */}
+          {/* Data flow right from Core */}
           <path
-            d="M250 260 L250 290"
-            stroke="#10B981"
+            d="M220 220 L360 220"
+            stroke="#A855F7"
             strokeWidth="2.5"
             strokeDasharray="5 4"
             className="animate-[dash_2s_linear_infinite]"
           />
           
           {/* Rechenleistung label on the line */}
-          <text x="250" y="280" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Rechenleistung</text>
+          <text x="290" y="210" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">Rechenleistung</text>
           
-          {/* AI-Training - Left of arrow */}
-          <text x="150" y="290" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">AI-Training</text>
-          {/* Neural network icon - Left */}
-          <circle cx="150" cy="275" r="6" fill="none" stroke="#10B981" strokeWidth="1.5" />
-          <path d="M147 272 L153 278 M153 272 L147 278" stroke="#10B981" strokeWidth="1" />
-          <circle cx="150" cy="275" r="3" fill="#10B981" fillOpacity="0.3" />
+          {/* AI-Training - Top Right */}
+          <g transform="translate(380, 190)">
+            <text x="45" y="10" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">AI-Training</text>
+            {/* Neural network icon */}
+            <circle cx="45" cy="-5" r="6" fill="none" stroke="#A855F7" strokeWidth="1.5" />
+            <path d="M42 -8 L48 -2 M48 -8 L42 -2" stroke="#A855F7" strokeWidth="1" />
+            <circle cx="45" cy="-5" r="3" fill="#A855F7" fillOpacity="0.3" />
+          </g>
           
-          {/* AI-Inference - Right of arrow */}
-          <text x="350" y="290" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">AI-Inference</text>
-          {/* Lightning/bolt icon - Right */}
-          <path d="M350 269 L347 275 L350 275 L353 281 L350 275 L347 275" stroke="#10B981" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          {/* AI-Inference - Bottom Right */}
+          <g transform="translate(380, 240)">
+            <text x="45" y="10" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">AI-Inference</text>
+            {/* Lightning/bolt icon */}
+            <path d="M45 -11 L42 -5 L45 -5 L48 1 L45 -5 L42 -5" stroke="#A855F7" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
         </g>
       </svg>
 
