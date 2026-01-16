@@ -189,7 +189,7 @@ export function PrototypeVisualization() {
             <text x="385" y="73" textAnchor="middle" className="text-[10px]">🚿</text>
           </g>
           <text x="385" y="115" textAnchor="middle" className="font-mono text-[7px] fill-thermal-orange font-semibold">Warmwasser</text>
-          <text x="385" y="123" textAnchor="middle" className="font-mono text-[6px] fill-historic-sepia">60°C</text>
+          <text x="385" y="123" textAnchor="middle" className="font-mono text-[6px] fill-historic-sepia">45°C (Demo)</text>
           
           {/* Lower branch - Room Heating */}
           <path
@@ -258,18 +258,25 @@ export function PrototypeVisualization() {
       {/* Legend / Stats overlay */}
       <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end pointer-events-none">
         <div className="bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-gray-100 shadow-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-solar-yellow animate-pulse" />
-            <span className="font-mono text-[10px] text-brand-black">Solarstrom: 100%</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-compute-blue" />
-            <span className="font-mono text-[10px] text-brand-black">Wärmerückgewinnung: 99%</span>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-solar-yellow animate-pulse" />
+              <span className="font-mono text-[9px] text-brand-black">P_solar: 150W</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-compute-blue" />
+              <span className="font-mono text-[9px] text-brand-black">P_compute: 140W</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-thermal-orange" />
+              <span className="font-mono text-[9px] text-brand-black">ΔT: +25°C</span>
+            </div>
           </div>
         </div>
         
         <div className="text-right">
-          <span className="font-accent text-lg text-thermal-orange rotate-[-5deg] block">Sihlicon Hub v1.0</span>
+          <span className="font-accent text-sm text-thermal-orange">Sihlicon Hub Demo</span>
+          <span className="font-mono text-[8px] text-historic-sepia block">20L Tank · Mini-ITX</span>
         </div>
       </div>
     </div>

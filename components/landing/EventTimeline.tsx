@@ -4,38 +4,58 @@ const timelineEvents = [
   {
     date: 'Jetzt',
     title: 'Anmeldung offen',
-    description: 'Sichere dir deinen Platz und reiche erste Projektvorschläge ein.',
-    status: 'current',
+    description: 'Sichere dir deinen Platz (CHF 150). Wähle deine Rolle und Paket-Präferenz.',
+    status: 'current' as const,
+    icon: '📝',
+  },
+  {
+    date: '2-4 Wochen vor Event',
+    title: 'Pre-Challenge: Historisches Archiv',
+    description: 'Online-Recherche startet: Standort-Scouting und Energie-Baupläne aus historischen Quellen sammeln.',
+    status: 'upcoming' as const,
+    icon: '📜',
   },
   {
     date: 'Wird bekannt gegeben',
-    title: 'Anmeldeschluss',
-    description: 'Letzte Chance zur Anmeldung. Danach startet die Abstimmung.',
-    status: 'upcoming',
+    title: 'Anmeldeschluss & Team-Matching',
+    description: 'Letzte Chance zur Anmeldung. Danach werden Teams gebildet (5 Personen pro Team).',
+    status: 'upcoming' as const,
+    icon: '👥',
   },
   {
     date: 'Wird bekannt gegeben',
     title: 'Rückerstattungs-Deadline',
     description: 'Falls Mindestzahl nicht erreicht: automatische Rückerstattung aller Gebühren.',
-    status: 'upcoming',
+    status: 'upcoming' as const,
+    icon: '💰',
   },
   {
-    date: 'Ende August/Anfang September 2025',
-    title: 'Hackathon-Wochenende',
-    description: '48 Stunden intensives Arbeiten an euren Projekten. Ort wird noch bekannt gegeben.',
-    status: 'upcoming',
+    date: 'Freitag Abend',
+    title: 'Tag 1: Kickoff & Briefing',
+    description: 'Check-in, Hardware-Intro, Team-Setup. Die Basis-Hardware ist vorgebaut — ihr erweitert und optimiert.',
+    status: 'upcoming' as const,
+    icon: '🚀',
   },
   {
-    date: 'Sonntag',
-    title: 'Solar-Test & Integration',
-    description: 'Wir schliessen den Prototyp an ein reales Solar-Modul an und testen das System unter realen Bedingungen.',
-    status: 'upcoming',
+    date: 'Samstag',
+    title: 'Tag 2: Deep Work',
+    description: 'Voller Tag für eure Pakete. Hardware-Teams bauen, Software-Teams coden, alle dokumentieren.',
+    status: 'upcoming' as const,
+    icon: '⚡',
   },
   {
-    date: 'Tag 3',
-    title: 'Präsentation & Preisverleihung',
-    description: 'Präsentiert eure Ergebnisse. Die besten Projekte teilen sich das Preisgeld.',
-    status: 'upcoming',
+    date: 'Sonntag Vormittag',
+    title: 'Tag 3: Solar-Test & Integration',
+    description: 'Wir schliessen den Prototyp an ein reales Solar-Modul an und testen den End-to-End Flow.',
+    status: 'upcoming' as const,
+    icon: '☀️',
+  },
+  {
+    date: 'Sonntag Nachmittag',
+    title: 'Demo-Day & Preisverleihung',
+    description: 'Teams präsentieren ihre Lösungen. Jury bewertet nach Paket-Kriterien. Preisgeld wird verteilt.',
+    status: 'upcoming' as const,
+    icon: '🏆',
   },
 ]
 
@@ -45,12 +65,31 @@ export function EventTimeline() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black">
+          <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+            3-Tage Competition
+          </span>
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-2">
             Der Fahrplan
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
-            Von der Anmeldung bis zur Preisverleihung: so läuft sihlhack ab.
+            Von der Pre-Challenge bis zur Preisverleihung: so läuft sihlhack ab.
           </p>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="flex justify-center gap-8 mb-12">
+          <div className="text-center">
+            <div className="font-mono text-3xl font-bold text-thermal-orange">3</div>
+            <div className="font-mono text-xs text-historic-sepia">Tage</div>
+          </div>
+          <div className="text-center">
+            <div className="font-mono text-3xl font-bold text-compute-blue">30-36</div>
+            <div className="font-mono text-xs text-historic-sepia">Teams</div>
+          </div>
+          <div className="text-center">
+            <div className="font-mono text-3xl font-bold text-grid-green">150+</div>
+            <div className="font-mono text-xs text-historic-sepia">Teilnehmer</div>
+          </div>
         </div>
 
         {/* Timeline */}
@@ -81,6 +120,7 @@ export function EventTimeline() {
                     {event.date}
                   </span>
                   <h3 className="font-display text-2xl font-bold text-brand-black">
+                    <span className="mr-2">{event.icon}</span>
                     {event.title}
                   </h3>
                   <p className="mt-2 text-historic-sepia font-mono text-sm">
@@ -102,6 +142,17 @@ export function EventTimeline() {
                 <div className="hidden md:block flex-1" />
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Event Format Note */}
+        <div className="mt-16 text-center">
+          <div className="inline-block bg-brand-black text-white px-6 py-4 rounded-xl">
+            <p className="font-mono text-sm">
+              <span className="text-thermal-orange font-bold">Freitag bis Sonntag</span> · 
+              Ort wird bekannt gegeben · 
+              <span className="text-grid-green font-bold">Ende August/September 2025</span>
+            </p>
           </div>
         </div>
       </div>

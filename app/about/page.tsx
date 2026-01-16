@@ -2,11 +2,11 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { HACKATHON_ROLES, IDEAL_TEAM_COMPOSITION } from '@/lib/roles'
+import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
 
 export const metadata = {
   title: 'Das Konzept | sihlhack',
-  description: 'Erfahre mehr über sihlhack: Der Hackathon für dezentrale Energieinfrastruktur in der Schweiz.',
+  description: 'Competition-Style Hackathon: 150+ Teilnehmer, 30-36 Teams, 3 Pflicht-Pakete. Dezentrale Energieinfrastruktur für die Schweiz.',
 }
 
 export default function AboutPage() {
@@ -19,15 +19,35 @@ export default function AboutPage() {
         <section className="bg-brand-black text-white py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-              Sihlicon Hub Infrastructure
+              Competition-Style Hackathon
             </span>
             <h1 className="font-display text-4xl sm:text-5xl font-bold mt-4">
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              sihlhack entwickelt Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
-              Server die heizen. Solar das rechnet. LEGs die profitieren.
+              150+ Teilnehmer, 30-36 Teams, 3 Pflicht-Pakete. 
+              Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
             </p>
+            
+            {/* Quick Stats */}
+            <div className="mt-8 grid grid-cols-4 gap-4 max-w-lg mx-auto">
+              <div className="p-3 bg-white/5 rounded-xl">
+                <div className="font-mono text-2xl font-bold text-thermal-orange">150+</div>
+                <div className="font-mono text-[10px] text-gray-400">Teilnehmer</div>
+              </div>
+              <div className="p-3 bg-white/5 rounded-xl">
+                <div className="font-mono text-2xl font-bold text-compute-blue">30-36</div>
+                <div className="font-mono text-[10px] text-gray-400">Teams</div>
+              </div>
+              <div className="p-3 bg-white/5 rounded-xl">
+                <div className="font-mono text-2xl font-bold text-grid-green">3</div>
+                <div className="font-mono text-[10px] text-gray-400">Tage</div>
+              </div>
+              <div className="p-3 bg-white/5 rounded-xl">
+                <div className="font-mono text-2xl font-bold text-solar-yellow">11</div>
+                <div className="font-mono text-[10px] text-gray-400">Rollen</div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -156,43 +176,51 @@ export default function AboutPage() {
               ))}
             </div>
 
-            {/* Ideal Team Composition */}
+            {/* Package-Based Team Composition */}
             <div className="bg-brand-black rounded-2xl p-6 sm:p-8">
               <h3 className="font-display text-xl font-bold text-white text-center mb-6">
-                Ideale Teamzusammensetzung (4–6 Personen)
+                Team-Zusammensetzung pro Paket (5 Personen)
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {IDEAL_TEAM_COMPOSITION.map((item) => {
-                  const role = HACKATHON_ROLES.find(r => r.id === item.role)
-                  if (!role) return null
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {HACKATHON_PACKAGES.filter(p => p.type === 'mandatory').map((pkg) => {
+                  const teamComp = PACKAGE_TEAM_COMPOSITIONS[pkg.id as keyof typeof PACKAGE_TEAM_COMPOSITIONS]
                   return (
-                    <div
-                      key={item.role}
-                      className={`p-3 rounded-lg text-center ${
-                        item.priority === 'essential'
-                          ? 'bg-grid-green/20 border border-grid-green/30'
-                          : item.priority === 'recommended'
-                          ? 'bg-thermal-orange/20 border border-thermal-orange/30'
-                          : 'bg-white/10 border border-white/20'
-                      }`}
-                    >
-                      <div className="text-2xl mb-1">{role.icon}</div>
-                      <div className="font-mono text-xs text-white">{role.nameDE}</div>
-                      <div className="font-mono text-xs text-gray-400 mt-1">{item.count}×</div>
-                      <div className={`text-[10px] font-mono mt-1 ${
-                        item.priority === 'essential' ? 'text-grid-green' :
-                        item.priority === 'recommended' ? 'text-thermal-orange' :
-                        'text-gray-500'
-                      }`}>
-                        {item.priority === 'essential' ? 'Essentiell' :
-                         item.priority === 'recommended' ? 'Empfohlen' : 'Optional'}
+                    <div key={pkg.id} className="bg-white/5 rounded-xl p-4">
+                      <div className="text-center mb-4">
+                        <span className="text-2xl">{pkg.icon}</span>
+                        <h4 className="font-mono text-sm font-bold text-white mt-2">{pkg.nameDE}</h4>
+                      </div>
+                      <div className="space-y-2">
+                        {teamComp?.map((member) => {
+                          const role = HACKATHON_ROLES.find(r => r.id === member.role)
+                          if (!role) return null
+                          return (
+                            <div 
+                              key={member.role}
+                              className={`flex items-center gap-2 px-2 py-1 rounded ${
+                                member.priority === 'essential' 
+                                  ? 'bg-grid-green/20' 
+                                  : 'bg-white/5'
+                              }`}
+                            >
+                              <span className="text-sm">{role.icon}</span>
+                              <span className="font-mono text-[10px] text-white flex-1">{role.nameDE}</span>
+                              <span className={`text-[8px] font-mono ${
+                                member.priority === 'essential' ? 'text-grid-green' : 'text-gray-500'
+                              }`}>
+                                {member.priority === 'essential' ? '●' : '○'}
+                              </span>
+                            </div>
+                          )
+                        })}
                       </div>
                     </div>
                   )
                 })}
               </div>
               <p className="text-center text-gray-400 font-mono text-xs mt-6">
-                Kein vollständiges Team? Wir helfen dir, passende Teammitglieder zu finden.
+                <span className="text-grid-green">●</span> Essential · 
+                <span className="text-gray-500 ml-2">○</span> Recommended
               </p>
             </div>
             
@@ -549,7 +577,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was kostet die Teilnahme?',
-                  a: 'CHF 120 pro Person. Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (50/30/20) ausgeschüttet. Vollständige Rückerstattung bei Absage.',
+                  a: 'CHF 150 pro Person. Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (35/35/20/10 pro Paket) ausgeschüttet. Vollständige Rückerstattung bei Absage.',
                 },
                 {
                   q: 'Was ist eine LEG?',

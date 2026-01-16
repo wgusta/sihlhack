@@ -5,12 +5,28 @@ import { cn } from '@/lib/utils'
 
 const faqs = [
   {
+    q: 'Was kostet die Teilnahme?',
+    a: 'CHF 150 pro Person für 3 Tage (Freitag bis Sonntag). Das Budget: 50% Preisgeld-Pool, 25% Hardware/Material, 20% Venue/Catering, 5% Reserve. Vollständige Rückerstattung bei Absage des Events.',
+  },
+  {
     q: 'Was ist ein Sihlicon Hub?',
     a: 'Ein Sihlicon Hub ist ein dezentrales Compute-System: Server, die in dielektrischem Öl gekühlt werden (Immersion Cooling). Die Abwärme wird für Warmwasser und Raumheizung genutzt – 99% Wärmerückgewinnung. Betrieben wird das System mit lokalem Solarstrom.',
   },
   {
-    q: 'Was bedeutet "teilnehmerorientiert"?',
-    a: 'Bei sihlhack gehört der Hackathon den Teilnehmern, nicht den Sponsoren. Es gibt keine vorgegebene Corporate-Agenda. Alle Ergebnisse werden unter Apache 2.0 Open Source veröffentlicht. Du behältst deine Rechte und kannst deine Arbeit auch kommerziell nutzen.',
+    q: 'Was sind die Pflicht-Pakete?',
+    a: 'Es gibt 3 Pflicht-Pakete: (1) End-to-End Demo-Kit – messbarer Energie-Flow mit One-Button-Demo, (2) Hardware Safety & Thermal Baseline – BOM, Safety Case, thermische Charakterisierung, (3) Grid-OS Controller – Scheduler mit Solar-Budget und API. Jedes Team wählt ein Paket als Hauptfokus.',
+  },
+  {
+    q: 'Wie funktioniert die Competition?',
+    a: '30-36 Teams à 5 Personen arbeiten parallel an den gleichen Paketen. Mehrere Teams können am gleichen Paket arbeiten – die beste Lösung pro Paket gewinnt. Preisgeld: 35% für Demo-Kit, 35% für Safety, 20% für Grid-OS, 10% für Best Integration.',
+  },
+  {
+    q: 'Was ist die Pre-Challenge?',
+    a: 'Die Historic Archive Pre-Challenge läuft 2-4 Wochen vor dem Event online. Ziel: Standort-Scouting und historische Energie-Baupläne aus dem Sihltal sammeln. Die besten Einreichungen bekommen Bonuspunkte für das Hauptevent.',
+  },
+  {
+    q: 'Wie werden Teams gebildet?',
+    a: 'Teams organisieren sich selbst oder werden bei der Anmeldung gebildet. Jedes Paket hat empfohlene Rollen: z.B. Demo-Kit braucht Hardware-Ing., Sensor/Data Engineer, Backend-Dev. Wir helfen beim Matching.',
   },
   {
     q: 'Was ist eine LEG?',
@@ -18,31 +34,23 @@ const faqs = [
   },
   {
     q: 'Brauche ich Hardware-Erfahrung?',
-    a: 'Nein. Wir haben 5 verschiedene Challenges: Sihlicon Core (Hardware), Grid-OS (Software), LEG Toolkit (Legal), Energy Dashboard (Frontend) und System Integration. Wähle bei der Anmeldung deine Rolle – von Entwickler bis Designer bis Projektmanager.',
+    a: 'Nein. Wir haben 11 verschiedene Rollen: Hardware-Ingenieur, Elektro-Ingenieur, Sensor/Data Engineer, Energie-Experte, Grid-OS Dev, Backend-Dev, Frontend-Dev, Designer, LEG-Rechtsexperte, Projektleiter und Generalist. Wähle bei der Anmeldung deine Rolle.',
   },
   {
     q: 'Was passiert am Sonntag?',
-    a: 'Am Sonntag schliessen wir den Prototyp an ein echtes Solarmodul an und testen das System unter realen Bedingungen. Das ist der Höhepunkt des Hackathons – vom Konzept zum funktionierenden System.',
+    a: 'Demo-Day: Alle Teams präsentieren ihre Ergebnisse. Wir schliessen den Prototyp an ein echtes Solarmodul an und testen das System unter realen Bedingungen. Jury bewertet nach den Paket-Kriterien. Preisgeld wird verteilt.',
   },
   {
     q: 'Wie funktioniert Immersion Cooling?',
-    a: 'Server werden komplett in dielektrisches Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Ergebnis: Lautlose Server, keine Staubprobleme, und 60°C warmes Wasser für Heizung und Warmwasser.',
+    a: 'Server werden komplett in dielektrisches Öl getaucht. Das Öl nimmt die Wärme auf und wird durch einen Wärmetauscher gepumpt. Ergebnis: Lautlose Server, keine Staubprobleme, und 40-50°C warmes Wasser für Heizung und Warmwasser.',
   },
   {
     q: 'Was passiert mit meinem Code?',
     a: 'Alles wird unter Apache 2.0 veröffentlicht. Du behältst alle Urheberrechte an deinen Beiträgen und kannst deinen Code auch für andere Projekte nutzen (Dual Licensing). Das Ziel ist, dass andere LEGs die Lösung nachbauen können.',
   },
   {
-    q: 'Wer finanziert den Hackathon?',
-    a: 'Wir suchen aktuell Hardware-Sponsoren für Server, GPUs und Immersion-Cooling-Equipment. Langfristig finanzieren sich die Systeme durch Compute-Einnahmen (Rechenleistung verkaufen) und eingesparte Heizkosten.',
-  },
-  {
     q: 'Kann ich remote teilnehmen?',
-    a: 'Der Hardware-Teil findet vor Ort statt – man muss den Prototyp anfassen können. Software-Teams können hybrid arbeiten. Für den Solar-Test am Sonntag empfehlen wir, vor Ort zu sein.',
-  },
-  {
-    q: 'Was ist das Energie-Trilemma?',
-    a: 'LEGs stehen vor drei Zielen, die sich klassisch widersprechen: Maximale Solarproduktion, Netzstabilität und Gemeinschaftsautonomie. Der Sihlicon Hub löst dieses Trilemma, indem er Solarüberschuss direkt in Rechenleistung umwandelt und die Abwärme nutzt.',
+    a: 'Der Hardware-Teil findet vor Ort statt – man muss den Prototyp anfassen können. Software-Teams können hybrid arbeiten. Für den Demo-Day am Sonntag empfehlen wir, vor Ort zu sein.',
   },
 ]
 

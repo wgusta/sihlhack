@@ -13,6 +13,36 @@ export const HACKATHON_ROLES = [
     color: 'thermal-orange',
   },
   {
+    id: 'electrical-engineer',
+    name: 'Electrical Engineer',
+    nameDE: 'Elektro-Ingenieur',
+    icon: '🔌',
+    description: 'Designs safe electrical systems, power distribution, and safety interlocks.',
+    descriptionDE: 'Entwickelt sichere Elektrosysteme, Stromverteilung und Sicherheitsverriegelungen (RCD/GFCI, Not-Aus).',
+    skills: ['Elektrotechnik', 'RCD/GFCI', 'Niederspannung', 'Safety Systems', 'Schaltpläne'],
+    color: 'sihl-red',
+  },
+  {
+    id: 'sensor-data-engineer',
+    name: 'Sensor/Data Engineer',
+    nameDE: 'Sensor/Data Engineer',
+    icon: '📡',
+    description: 'Integrates sensors, builds data pipelines, and creates logging infrastructure.',
+    descriptionDE: 'Integriert Sensoren (Temp, Flow, Power), baut Daten-Pipelines und Logging-Infrastruktur.',
+    skills: ['Messtechnik', 'InfluxDB/TimescaleDB', 'Grafana', 'Python', 'Raspberry Pi', 'I2C/SPI'],
+    color: 'compute-blue',
+  },
+  {
+    id: 'energy-expert',
+    name: 'Energy Domain Expert',
+    nameDE: 'Energie-Experte',
+    icon: '☀️',
+    description: 'Deep knowledge of solar systems, load profiles, and energy protocols (non-legal).',
+    descriptionDE: 'Tiefes Wissen über Solarsysteme, Lastprofile, Inverter-APIs und Energieprotokolle (technisch, nicht rechtlich).',
+    skills: ['Solar-APIs', 'Fronius/SMA', 'Lastprofile', 'Modbus', 'Energy Protocols', 'PV-Simulation'],
+    color: 'solar-yellow',
+  },
+  {
     id: 'grid-os-dev',
     name: 'Grid-OS Developer',
     nameDE: 'Grid-OS Entwickler',
@@ -91,6 +121,10 @@ export const SKILL_TAGS = [
   // Hardware / Thermal
   'Thermodynamik', 'Fluidmechanik', 'CAD/3D-Druck', 'Elektronik', 'Löten',
   'Wärmetauscher', 'Immersion Cooling', 'Pumpen/Hydraulik',
+  // Electrical / Safety
+  'Elektrotechnik', 'RCD/GFCI', 'Niederspannung', 'Safety Systems', 'Schaltpläne',
+  // Sensors / Data
+  'Messtechnik', 'I2C/SPI', 'Grafana', 'PV-Simulation',
   // Software / Grid
   'Python', 'Rust', 'Go', 'TypeScript', 'JavaScript',
   'React', 'Vue', 'Next.js',
@@ -113,109 +147,202 @@ export const SKILL_TAGS = [
 
 export type SkillTag = typeof SKILL_TAGS[number]
 
-// Team composition recommendation for Sihlicon Hub hackathon
-export const IDEAL_TEAM_COMPOSITION = [
-  { role: 'hardware-engineer', count: '1-2', priority: 'essential' },
-  { role: 'grid-os-dev', count: '1-2', priority: 'essential' },
-  { role: 'frontend-dev', count: '1', priority: 'essential' },
-  { role: 'backend-dev', count: '0-1', priority: 'recommended' },
-  { role: 'leg-specialist', count: '1', priority: 'essential' },
-  { role: 'designer', count: '0-1', priority: 'recommended' },
-  { role: 'pm', count: '0-1', priority: 'optional' },
-] as const
-
-// Hackathon Challenges - the main tracks teams can work on
-export const HACKATHON_CHALLENGES = [
+// Hackathon Packages - the deliverable packages teams compete on
+export const HACKATHON_PACKAGES = [
   {
-    id: 'sihlicon-core',
-    name: 'Sihlicon Core',
-    nameDE: 'Sihlicon Core',
-    icon: '🔧',
-    track: 'Hardware',
-    description: 'Design and build the immersion-cooled compute module with heat extraction to a water circuit.',
-    descriptionDE: 'Entwickle das immersionsgekühlte Compute-Modul mit Wärmeauskopplung zum Wasserkreislauf.',
+    id: 'demo-kit',
+    name: 'End-to-End Demo-Kit',
+    nameDE: 'End-to-End Demo-Kit',
+    icon: '🎯',
+    type: 'mandatory' as const,
+    teamSize: 5,
+    description: 'Complete measurable energy flow with reproducible one-button demo.',
+    descriptionDE: 'Messbarer Energie-Flow mit reproduzierbarer One-Button Demo.',
     deliverables: [
-      'Funktionierender Immersionstank',
-      'Wärmetauscher-Integration',
-      'Temperatur-Monitoring',
-      'Bauanleitung & Stückliste',
+      'Logging: P_solar, P_compute, Durchfluss, ΔT',
+      'One-Button Demo Script',
+      'Demo-Protokoll mit erwarteten Werten',
+      '1-Seite Skalierbarkeits-Analyse',
     ],
-    requiredRoles: ['hardware-engineer', 'backend-dev'],
-    difficulty: 'advanced',
+    scoringCriteria: [
+      { name: 'End-to-End Flow funktioniert', weight: 40 },
+      { name: 'Demo reproduzierbar', weight: 30 },
+      { name: 'Dokumentationsqualität', weight: 20 },
+      { name: 'Skalierbarkeits-Analyse', weight: 10 },
+    ],
+    requiredRoles: ['hardware-engineer', 'sensor-data-engineer', 'backend-dev'],
+    recommendedRoles: ['grid-os-dev', 'pm'],
     color: 'thermal-orange',
+    prizeShare: 35,
+  },
+  {
+    id: 'hardware-safety',
+    name: 'Hardware Safety & Thermal Baseline',
+    nameDE: 'Hardware Safety & Thermal Baseline',
+    icon: '🛡️',
+    type: 'mandatory' as const,
+    teamSize: 5,
+    description: 'BOM, Safety Case, and thermal characterization.',
+    descriptionDE: 'BOM, Safety Case und thermische Charakterisierung.',
+    deliverables: [
+      'BOM + Build Guide (CH/EU Bezugsquellen)',
+      'Safety Case Lite (RCD, Not-Aus, Leckwanne)',
+      'Thermal Baseline Report (ΔT vs Load vs Flow)',
+      'Sensor-Map mit Kalibrierhinweisen',
+    ],
+    scoringCriteria: [
+      { name: 'Safety-Checkliste vollständig', weight: 30 },
+      { name: 'Thermal Baseline Qualität', weight: 30 },
+      { name: 'BOM Nachbaubarkeit', weight: 20 },
+      { name: 'Sensor-Integration', weight: 20 },
+    ],
+    requiredRoles: ['hardware-engineer', 'electrical-engineer', 'sensor-data-engineer'],
+    recommendedRoles: ['designer', 'pm'],
+    color: 'sihl-red',
+    prizeShare: 35,
   },
   {
     id: 'grid-os',
-    name: 'Grid-OS',
-    nameDE: 'Grid-OS',
+    name: 'Grid-OS Minimal Controller',
+    nameDE: 'Grid-OS Minimal Controller',
     icon: '⚡',
-    track: 'Software',
-    description: 'Build the intelligent scheduling system that balances solar production, compute demand, and grid stability.',
-    descriptionDE: 'Entwickle die intelligente Laststeuerung: Solar-Watcher, Compute-Scheduler, Grid-Balance.',
+    type: 'mandatory' as const,
+    teamSize: 5,
+    description: 'Scheduler with solar budget, fallback policy, and API.',
+    descriptionDE: 'Scheduler mit Solar-Budget, Fallback-Policy und API.',
     deliverables: [
-      'Solar Inverter API Integration',
-      'Load Scheduling Algorithm',
-      'Swissgrid SDL Mock',
-      'API Dokumentation',
+      'Scheduler v0 (Solar-Budget → Compute-Limit)',
+      'Fallback-Policy Definition',
+      'API Spec + Stub',
+      'Replay-Modus für Solar-Zeitreihen',
     ],
-    requiredRoles: ['grid-os-dev', 'backend-dev'],
-    difficulty: 'advanced',
+    scoringCriteria: [
+      { name: 'Scheduler funktioniert', weight: 40 },
+      { name: 'API-Spec Qualität', weight: 25 },
+      { name: 'Fallback-Policy sinnvoll', weight: 20 },
+      { name: 'Replay-Modus funktioniert', weight: 15 },
+    ],
+    requiredRoles: ['grid-os-dev', 'energy-expert', 'backend-dev'],
+    recommendedRoles: ['sensor-data-engineer', 'pm'],
     color: 'compute-blue',
-  },
-  {
-    id: 'leg-toolkit',
-    name: 'LEG Toolkit',
-    nameDE: 'LEG-Werkzeugkasten',
-    icon: '⚖️',
-    track: 'Legal',
-    description: 'Create the complete legal framework for LEG formation: statutes, contracts, regulatory filings.',
-    descriptionDE: 'Erstelle das rechtliche Framework für LEG-Gründung: Statuten, Verträge, Behörden-Templates.',
-    deliverables: [
-      'LEG-Musterstatuten (AG/ZH)',
-      'Teilnehmer-Vertrag Template',
-      'Behörden-Checkliste',
-      'FAQ für Genossenschaften',
-    ],
-    requiredRoles: ['leg-specialist', 'pm'],
-    difficulty: 'intermediate',
-    color: 'industrial-gold',
+    prizeShare: 20,
   },
   {
     id: 'dashboard',
-    name: 'Energy Dashboard',
-    nameDE: 'Energie-Dashboard',
+    name: 'Dashboard Truth Layer',
+    nameDE: 'Dashboard Truth Layer',
     icon: '📊',
-    track: 'Frontend',
-    description: 'Build the real-time monitoring dashboard showing energy flow, thermal output, and compute status.',
-    descriptionDE: 'Entwickle das Echtzeit-Dashboard: Energiefluss, Wärmeabgabe, Compute-Status.',
+    type: 'optional' as const,
+    teamSize: 3,
+    description: 'Live panel with real data only, no fake visualizations.',
+    descriptionDE: 'Live Panel mit echten Daten, keine Fake-Visualisierungen.',
     deliverables: [
-      'Sankey-Diagramm Energiefluss',
-      'Temperatur-Heatmap',
-      'Compute Job Queue',
-      'Mobile-responsive Design',
+      'Live Panel: Solar/Compute/Heat + Ampel',
+      'Nur echte Messdaten (kein Fake)',
+      'CSV/JSON Export',
     ],
-    requiredRoles: ['frontend-dev', 'designer'],
-    difficulty: 'intermediate',
+    scoringCriteria: [
+      { name: 'Live-Daten funktionieren', weight: 50 },
+      { name: 'Export funktioniert', weight: 30 },
+      { name: 'UI-Qualität', weight: 20 },
+    ],
+    requiredRoles: ['frontend-dev', 'backend-dev'],
+    recommendedRoles: ['designer'],
     color: 'grid-green',
+    prizeShare: 5,
   },
   {
-    id: 'integration',
-    name: 'System Integration',
-    nameDE: 'System-Integration',
-    icon: '🔗',
-    track: 'Integration',
-    description: 'Connect all components into a working prototype and create deployment documentation.',
-    descriptionDE: 'Verbinde alle Komponenten zum funktionierenden Prototyp mit Deployment-Dokumentation.',
+    id: 'leg-starter',
+    name: 'LEG Starter Pack',
+    nameDE: 'LEG Starter Pack',
+    icon: '⚖️',
+    type: 'optional' as const,
+    teamSize: 3,
+    description: 'Legal templates for LEG formation (AG or ZH).',
+    descriptionDE: 'Rechtliche Templates für LEG-Gründung (AG oder ZH).',
     deliverables: [
-      'End-to-End Integration Test',
-      'Docker Compose Setup',
-      'Deployment Guide',
-      'Troubleshooting FAQ',
+      'Template-Set (Statuten + Vertrag + FAQ)',
+      'Regulatorische Checkliste',
+      'Risiko-/Haftungsklärung',
     ],
-    requiredRoles: ['backend-dev', 'pm', 'hardware-engineer'],
-    difficulty: 'advanced',
-    color: 'sihl-red',
+    scoringCriteria: [
+      { name: 'Rechtliche Korrektheit', weight: 50 },
+      { name: 'Vollständigkeit', weight: 30 },
+      { name: 'Verständlichkeit', weight: 20 },
+    ],
+    requiredRoles: ['leg-specialist'],
+    recommendedRoles: ['pm'],
+    color: 'industrial-gold',
+    prizeShare: 5,
   },
 ] as const
 
-export type ChallengeId = typeof HACKATHON_CHALLENGES[number]['id']
+export type PackageId = typeof HACKATHON_PACKAGES[number]['id']
+export type PackageType = 'mandatory' | 'optional'
+
+// Team composition recommendation per package
+export const PACKAGE_TEAM_COMPOSITIONS = {
+  'demo-kit': [
+    { role: 'hardware-engineer', count: 1, priority: 'essential' as const },
+    { role: 'sensor-data-engineer', count: 1, priority: 'essential' as const },
+    { role: 'backend-dev', count: 1, priority: 'essential' as const },
+    { role: 'grid-os-dev', count: 1, priority: 'recommended' as const },
+    { role: 'pm', count: 1, priority: 'recommended' as const },
+  ],
+  'hardware-safety': [
+    { role: 'hardware-engineer', count: 1, priority: 'essential' as const },
+    { role: 'electrical-engineer', count: 1, priority: 'essential' as const },
+    { role: 'sensor-data-engineer', count: 1, priority: 'essential' as const },
+    { role: 'designer', count: 1, priority: 'recommended' as const },
+    { role: 'pm', count: 1, priority: 'recommended' as const },
+  ],
+  'grid-os': [
+    { role: 'grid-os-dev', count: 1, priority: 'essential' as const },
+    { role: 'energy-expert', count: 1, priority: 'essential' as const },
+    { role: 'backend-dev', count: 1, priority: 'essential' as const },
+    { role: 'sensor-data-engineer', count: 1, priority: 'recommended' as const },
+    { role: 'pm', count: 1, priority: 'recommended' as const },
+  ],
+  'dashboard': [
+    { role: 'frontend-dev', count: 1, priority: 'essential' as const },
+    { role: 'backend-dev', count: 1, priority: 'essential' as const },
+    { role: 'designer', count: 1, priority: 'recommended' as const },
+  ],
+  'leg-starter': [
+    { role: 'leg-specialist', count: 1, priority: 'essential' as const },
+    { role: 'pm', count: 1, priority: 'recommended' as const },
+    { role: 'designer', count: 1, priority: 'optional' as const },
+  ],
+} as const
+
+// Pre-Challenge definition
+export const PRE_CHALLENGE = {
+  id: 'historic-archive',
+  name: 'Historic Archive',
+  nameDE: 'Historisches Archiv',
+  icon: '📜',
+  format: 'online',
+  duration: '2-4 Wochen vor Event',
+  description: 'Asynchrone Online-Recherche: Standort-Scouting und historische Energie-Baupläne sammeln.',
+  deliverables: [
+    'Dokumentierte Fundstücke (Karte, Quellen)',
+    'Relevante historische Dokumente',
+    'Standort-Analyse für Sihlicon Hubs',
+  ],
+  bonusPoints: 10,
+} as const
+
+// Legacy export for backward compatibility (deprecated)
+export const HACKATHON_CHALLENGES = HACKATHON_PACKAGES
+export type ChallengeId = PackageId
+
+// General team composition (legacy, use PACKAGE_TEAM_COMPOSITIONS instead)
+export const IDEAL_TEAM_COMPOSITION = [
+  { role: 'hardware-engineer', count: '1-2', priority: 'essential' },
+  { role: 'sensor-data-engineer', count: '1', priority: 'essential' },
+  { role: 'grid-os-dev', count: '1-2', priority: 'essential' },
+  { role: 'backend-dev', count: '0-1', priority: 'recommended' },
+  { role: 'electrical-engineer', count: '0-1', priority: 'recommended' },
+  { role: 'energy-expert', count: '0-1', priority: 'recommended' },
+  { role: 'pm', count: '0-1', priority: 'optional' },
+] as const

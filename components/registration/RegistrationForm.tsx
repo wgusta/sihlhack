@@ -10,7 +10,7 @@ import { formatCHF } from '@/lib/utils'
 import { HACKATHON_ROLES, SKILL_TAGS } from '@/lib/roles'
 import { cn } from '@/lib/utils'
 
-const REGISTRATION_FEE = 12000 // CHF 120 in centimes
+const REGISTRATION_FEE = 15000 // CHF 150 in centimes
 
 const steps = [
   { id: 1, name: 'Kontakt' },
