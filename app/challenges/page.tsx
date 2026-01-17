@@ -17,6 +17,11 @@ export const metadata = {
 // Get packages by type
 const mandatoryPackages = HACKATHON_PACKAGES.filter(p => p.type === 'mandatory')
 const optionalPackages = HACKATHON_PACKAGES.filter(p => p.type === 'optional')
+const teamRedTracks = mandatoryPackages.map((pkg) => ({
+  id: pkg.id,
+  nameDE: pkg.nameDE,
+  icon: pkg.icon,
+}))
 
 // Team Red: Security Challenge - SEPARATE GROUP with selection
 const TEAM_RED = {
@@ -152,26 +157,31 @@ export default function ChallengesPage() {
             {/* Team Red - Separate Group */}
             <div>
               <h3 className="font-mono text-xs text-red-500 uppercase tracking-wider text-center mb-4">
-                Spezialeinheit · Mit Bewerbung
+                Spezialeinheit · 3 Team Reds · Mit Bewerbung
               </h3>
-              <div className="flex justify-center">
-                <a
-                  href="#team-red"
-                  className="p-4 rounded-xl border-2 border-red-500 bg-red-500/10 hover:bg-red-500/20 transition-all text-center relative overflow-hidden group"
-                  style={{
-                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.03) 10px, rgba(255,0,0,0.03) 20px)',
-                  }}
-                >
-                  <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-mono px-2 py-0.5 rounded-bl">
-                    SELEKTION
-                  </div>
-                  <span className="text-3xl mb-2 block">{TEAM_RED.icon}</span>
-                  <span className="font-mono text-sm font-bold text-red-500 block">Team Red</span>
-                  <span className="block font-mono text-[10px] text-red-400 mt-1">Security & Physical Hardening</span>
-                  <span className="block font-mono text-[9px] text-red-500/60 mt-2 group-hover:text-red-500 transition-colors">
-                    Separate Bewerbung →
-                  </span>
-                </a>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {teamRedTracks.map((track) => (
+                  <a
+                    key={track.id}
+                    href="#team-red"
+                    className="p-4 rounded-xl border-2 border-red-500 bg-red-500/10 hover:bg-red-500/20 transition-all text-center relative overflow-hidden group"
+                    style={{
+                      backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.03) 10px, rgba(255,0,0,0.03) 20px)',
+                    }}
+                  >
+                    <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-mono px-2 py-0.5 rounded-bl">
+                      SELEKTION
+                    </div>
+                    <span className="text-3xl mb-2 block">{TEAM_RED.icon}</span>
+                    <span className="font-mono text-sm font-bold text-red-500 block">Team Red</span>
+                    <span className="block font-mono text-[10px] text-red-400 mt-1">
+                      {track.icon} {track.nameDE}
+                    </span>
+                    <span className="block font-mono text-[9px] text-red-500/60 mt-2 group-hover:text-red-500 transition-colors">
+                      Separate Bewerbung →
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -392,8 +402,8 @@ export default function ChallengesPage() {
             {/* Header */}
             <div className="text-center mb-10">
               <div className="inline-block bg-red-500 text-white text-xs font-mono px-4 py-1 rounded-full mb-4">
-                🎯 EINZIGE CHALLENGE MIT SELEKTION
-                    </div>
+                🎯 3 TEAM REDS · EINZIGE CHALLENGE MIT SELEKTION
+              </div>
               <span className="font-mono text-xs text-red-500 uppercase tracking-[0.5em] animate-pulse block">
                 ⚠ DANGER ZONE ⚠
               </span>

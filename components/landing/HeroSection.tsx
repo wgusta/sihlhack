@@ -148,7 +148,7 @@ export function HeroSection() {
 
           {/* "Für wen" Section */}
           <div className="max-w-4xl mx-auto mt-12 animate-fade-in">
-            <div className="bg-gradient-to-r from-thermal-orange/10 to-compute-blue/10 border border-white/10 rounded-2xl p-8">
+            <div className="bg-brand-black/40 backdrop-blur-sm border border-thermal-orange/30 rounded-2xl p-8">
               <div className="text-center mb-6">
                 <span className="font-mono text-sm text-gray-400 uppercase tracking-wide">
                   Für Leute, die lieber bauen als reden
@@ -157,7 +157,7 @@ export function HeroSection() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Hardware-Tüftler */}
-                <div className="text-left p-4 rounded-xl bg-white/5">
+                <div className="text-left p-4 rounded-xl bg-gradient-to-b from-white/10 to-white/0 border border-white/10">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">🔧</span>
                     <h3 className="font-mono text-thermal-orange font-semibold">Hardware</h3>
@@ -170,7 +170,7 @@ export function HeroSection() {
                 </div>
                 
                 {/* Software-Builder */}
-                <div className="text-left p-4 rounded-xl bg-white/5">
+                <div className="text-left p-4 rounded-xl bg-gradient-to-b from-white/10 to-white/0 border border-white/10">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">💻</span>
                     <h3 className="font-mono text-compute-blue font-semibold">Software</h3>
@@ -183,7 +183,7 @@ export function HeroSection() {
                 </div>
                 
                 {/* Energie-Visionäre */}
-                <div className="text-left p-4 rounded-xl bg-white/5">
+                <div className="text-left p-4 rounded-xl bg-gradient-to-b from-white/10 to-white/0 border border-white/10">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">⚡</span>
                     <h3 className="font-mono text-grid-green font-semibold">Energie</h3>

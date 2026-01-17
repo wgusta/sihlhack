@@ -215,7 +215,7 @@ export function PrototypeVisualization() {
             
             {/* Branch to AI-Training */}
             <path
-              d="M460 340 L550 240"
+              d="M460 340 L550 270"
               stroke="#A855F7"
               strokeWidth="3.5"
               strokeDasharray="6 5"
@@ -224,7 +224,7 @@ export function PrototypeVisualization() {
             
             {/* Branch to AI-Inference */}
             <path
-              d="M460 340 L550 340"
+              d="M460 340 L550 370"
               stroke="#A855F7"
               strokeWidth="3.5"
               strokeDasharray="6 5"
@@ -235,23 +235,23 @@ export function PrototypeVisualization() {
             <text x="390" y="330" textAnchor="middle" className="font-mono text-[12px] fill-purple-600 font-bold">Rechenleistung</text>
             
             {/* AI-Training Box */}
-            <g transform="translate(555, 200)">
-              <rect x="0" y="0" width="130" height="50" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            <g transform="translate(555, 230)">
+              <rect x="0" y="0" width="110" height="44" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Neural network icon */}
-              <circle cx="24" cy="25" r="10" fill="none" stroke="#A855F7" strokeWidth="1.5" />
-              <path d="M19 20 L29 30 M29 20 L19 30" stroke="#A855F7" strokeWidth="1.2" />
-              <circle cx="24" cy="25" r="5" fill="#A855F7" fillOpacity="0.3" />
-              <text x="80" y="22" textAnchor="middle" className="font-mono text-[12px] fill-purple-600 font-bold">AI-Training</text>
-              <text x="80" y="36" textAnchor="middle" className="font-mono text-[9px] fill-purple-400">GPU Workloads</text>
+              <circle cx="20" cy="22" r="8" fill="none" stroke="#A855F7" strokeWidth="1.4" />
+              <path d="M16 18 L24 26 M24 18 L16 26" stroke="#A855F7" strokeWidth="1.1" />
+              <circle cx="20" cy="22" r="4" fill="#A855F7" fillOpacity="0.3" />
+              <text x="70" y="19" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Training</text>
+              <text x="70" y="32" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">GPU Workloads</text>
             </g>
             
             {/* AI-Inference Box */}
-            <g transform="translate(555, 310)">
-              <rect x="0" y="0" width="130" height="50" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
+            <g transform="translate(555, 350)">
+              <rect x="0" y="0" width="110" height="44" rx="8" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="2" />
               {/* Lightning icon */}
-              <path d="M24 8 L18 25 L27 25 L21 42" stroke="#A855F7" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              <text x="80" y="22" textAnchor="middle" className="font-mono text-[12px] fill-purple-600 font-bold">AI-Inference</text>
-              <text x="80" y="36" textAnchor="middle" className="font-mono text-[9px] fill-purple-400">Low Latency</text>
+              <path d="M20 8 L15 22 L23 22 L18 36" stroke="#A855F7" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              <text x="70" y="19" textAnchor="middle" className="font-mono text-[11px] fill-purple-600 font-bold">AI-Inference</text>
+              <text x="70" y="32" textAnchor="middle" className="font-mono text-[8px] fill-purple-400">Low Latency</text>
             </g>
           </g>
 
