@@ -353,8 +353,21 @@ export default function SnackHackathonPage() {
 
             <div className="space-y-6">
               <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sihl-red/10 flex items-center justify-center">
+                  <span className="font-mono font-bold text-sihl-red">1</span>
+                </div>
+                <div>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Januar 2026: Snack-Hackathon</h3>
+                  <p className="font-mono text-sm text-historic-sepia mt-1">
+                    Erster Pilot-Event: Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
+                    Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-thermal-orange/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-thermal-orange">1</span>
+                  <span className="font-mono font-bold text-thermal-orange">2</span>
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">Februar 2026: Auswahl</h3>
@@ -367,7 +380,7 @@ export default function SnackHackathonPage() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-compute-blue/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-compute-blue">2</span>
+                  <span className="font-mono font-bold text-compute-blue">3</span>
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">März 2026: Bestätigung</h3>
@@ -379,11 +392,12 @@ export default function SnackHackathonPage() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-grid-green/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-grid-green">3</span>
+                  <span className="font-mono font-bold text-grid-green">4</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">April/Mai 2026: Snack-Hackathon</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">April/Mai 2026: Snack-Hackathon (Historic)</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
+                    Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
                     Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
                     Wir dokumentieren alles für den grossen Event im September.
                   </p>
@@ -392,12 +406,12 @@ export default function SnackHackathonPage() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-solar-yellow/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-solar-yellow">4</span>
+                  <span className="font-mono font-bold text-solar-yellow">5</span>
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Der grosse Event mit 100 Teilnehmern. Was wir beim Pilot gelernt haben, fliesst direkt ein.
+                    Der grosse Event mit 100 Teilnehmern. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
                     Snack-Hackathon Alumni sind automatisch eingeladen (gratis Upgrade wenn sie nochmal kommen wollen).
                   </p>
                 </div>
