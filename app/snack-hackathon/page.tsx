@@ -56,7 +56,7 @@ export default function SnackHackathonPage() {
               Snack-Hackathon
             </h1>
             <p className="mt-4 text-xl font-mono text-gray-300">
-              Ein Wochenende. Ein Thermal-Pfad. Ein funktionierender Prototyp.
+              18 Stunden Hackathon. Ein Thermal-Pfad. Ein funktionierender Prototyp.
             </p>
 
             <p className="mt-6 text-lg font-mono text-gray-400 max-w-2xl mx-auto">
@@ -69,12 +69,12 @@ export default function SnackHackathonPage() {
               <div className="p-4 bg-white/5 rounded-xl">
                 <CalendarIcon className="w-6 h-6 mx-auto mb-2 text-thermal-orange" />
                 <div className="font-mono text-sm text-white">Juni/Juli 2026</div>
-                <div className="font-mono text-xs text-gray-400">Wochenende</div>
+                <div className="font-mono text-xs text-gray-400">2 Events</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <ClockIcon className="w-6 h-6 mx-auto mb-2 text-compute-blue" />
-                <div className="font-mono text-sm text-white">2 Tage</div>
-                <div className="font-mono text-xs text-gray-400">Sa + So</div>
+                <div className="font-mono text-sm text-white">18 Stunden</div>
+                <div className="font-mono text-xs text-gray-400">Pro Event</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <UserGroupIcon className="w-6 h-6 mx-auto mb-2 text-grid-green" />
@@ -134,8 +134,89 @@ export default function SnackHackathonPage() {
           </div>
         </section>
 
-        {/* Scope */}
+        {/* Overview: Both Snack-Hackathons */}
         <section className="py-16 bg-off-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
+                Die beiden Pilot-Events
+              </span>
+              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
+                Zwei Snack-Hackathons im Sommer 2026
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Wir testen das Konzept zweimal, um sicherzustellen, dass alles funktioniert.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {/* Snack-Hackathon 1: June */}
+              <div className="bg-white rounded-2xl border-2 border-sihl-red/40 p-6 hover:border-sihl-red hover:shadow-lg transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="inline-block bg-sihl-red text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
+                      🍿 Pilot #1
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Juni 2026</h3>
+                    <p className="font-mono text-sm text-historic-sepia">Snack-Hackathon</p>
+                  </div>
+                  <span className="text-3xl">🍿</span>
+                </div>
+                <div className="space-y-2 font-mono text-sm text-historic-sepia">
+                  <div className="flex items-center gap-2">
+                    <ClockIcon className="w-4 h-4 text-compute-blue" />
+                    <span>18 Stunden Hackathon</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <UserGroupIcon className="w-4 h-4 text-grid-green" />
+                    <span>30-40 Teilnehmer</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPinIcon className="w-4 h-4 text-solar-yellow" />
+                    <span>Zürich (Ort folgt)</span>
+                  </div>
+                </div>
+                <p className="mt-4 font-mono text-xs text-historic-sepia">
+                  Erster Pilot-Event: Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
+                </p>
+              </div>
+
+              {/* Snack-Hackathon 2: July */}
+              <div className="bg-white rounded-2xl border-2 border-historic-sepia/40 p-6 hover:border-historic-sepia hover:shadow-lg transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
+                      🍿 Pilot #2
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Juli 2026</h3>
+                    <p className="font-mono text-sm text-historic-sepia">Snack-Hackathon (Historic)</p>
+                  </div>
+                  <span className="text-3xl">📜</span>
+                </div>
+                <div className="space-y-2 font-mono text-sm text-historic-sepia">
+                  <div className="flex items-center gap-2">
+                    <ClockIcon className="w-4 h-4 text-compute-blue" />
+                    <span>18 Stunden Hackathon</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <UserGroupIcon className="w-4 h-4 text-grid-green" />
+                    <span>30-40 Teilnehmer</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPinIcon className="w-4 h-4 text-solar-yellow" />
+                    <span>Zürich (Ort folgt)</span>
+                  </div>
+                </div>
+                <p className="mt-4 font-mono text-xs text-historic-sepia">
+                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Scope */}
+        <section className="py-16 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-compute-blue uppercase tracking-widest">
