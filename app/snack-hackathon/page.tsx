@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_ROLES } from '@/lib/roles'
+import { PreChallengeSection } from '@/components/challenges/PreChallengeSection'
 import {
   CalendarIcon,
   ClockIcon,
@@ -419,6 +420,9 @@ export default function SnackHackathonPage() {
             </div>
           </div>
         </section>
+
+        {/* Pre-Challenge Section */}
+        <PreChallengeSection />
 
         {/* CTA */}
         <section className="py-16 bg-gradient-to-br from-thermal-orange via-sihl-red to-compute-blue text-white">
