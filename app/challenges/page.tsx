@@ -148,6 +148,34 @@ export default function ChallengesPage() {
                 ))}
               </div>
             </div>
+
+            {/* Team Red - Single Card */}
+            <div>
+              <h3 className="font-mono text-xs text-red-500 uppercase tracking-wider text-center mb-4">
+                Spezialeinheit · Mit Bewerbung
+              </h3>
+              <div className="flex justify-center">
+                <a
+                  href="#team-red"
+                  className="p-4 rounded-xl border-2 border-red-500 bg-red-500/10 hover:bg-red-500/20 transition-all text-center relative overflow-hidden group max-w-xs w-full"
+                  style={{
+                    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,0,0,0.03) 10px, rgba(255,0,0,0.03) 20px)',
+                  }}
+                >
+                  <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-mono px-2 py-0.5 rounded-bl">
+                    SELEKTION
+                  </div>
+                  <span className="text-3xl mb-2 block">{TEAM_RED.icon}</span>
+                  <span className="font-mono text-sm font-bold text-red-500 block">Team Red</span>
+                  <span className="block font-mono text-[10px] text-red-400 mt-1">
+                    {TEAM_RED.nameDE}
+                  </span>
+                  <span className="block font-mono text-[9px] text-red-500/60 mt-2 group-hover:text-red-500 transition-colors">
+                    Separate Bewerbung →
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
