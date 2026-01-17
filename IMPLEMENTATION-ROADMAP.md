@@ -1,5 +1,26 @@
 # Implementation Roadmap
 
+## Current Status (January 2025)
+
+**✅ Completed:**
+- Foundation (Phase 1): Design system, landing page, base components
+- Payment System (Phase 2): Stripe integration, fund tracking
+- Core Features (Phase 3): Registration, proposals, data catalog
+- **Active Energy Node Narrative**: Shifted from "water heater" to "Active Energy Node"
+- **Open-Source Resources**: Integrated recommended tools per challenge
+- **Resource Submission**: Form for participants to suggest additional repos
+- **Glossary Accordion**: 26 technical terms explained
+- **Messaging Update**: Du/Ihr voice, Sihlvalley vs Silicon Valley attitude
+- **Team Page**: Team member profiles
+
+**🚧 In Progress:**
+- Challenge evaluation infrastructure (Node-RED, MCP-Server)
+- Verein governance setup
+
+**📋 Planned:**
+- Event execution (September 20-22, 2025)
+- Post-event community governance
+
 ## Overview
 
 The implementation is divided into 5 phases, each building on the previous. Estimated 50-60 files total.

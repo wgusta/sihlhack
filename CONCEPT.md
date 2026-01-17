@@ -1,8 +1,16 @@
 # SIHLHACK Concept
 
+## The Sihlicon Hub: Active Energy Node
+
+The Sihlicon Hub is an **Active Energy Node** combining Battery + Compute + Heat + Resilience. It's not a "water heater" - it's a system that:
+- Stores solar energy in batteries (time-shift architecture)
+- Runs compute jobs when energy is available (deferred compute)
+- Provides heat to buildings (thermal recovery)
+- Powers neighborhoods during grid outages (load shedding)
+
 ## The Sihl Valley Industrial Heritage
 
-The Sihl Valley (Sihltal) was the cradle of Zurich's industrialization. From textile mills to machine factories, companies kept meticulous records: ledgers, photographs, technical drawings, employee records, production data. Much of this data sits in archives, undigitalized and unexplored.
+The Sihl Valley (Sihltal) was the cradle of Zurich's industrialization. Today, we face new challenges: energy sovereignty, digital autonomy, decentralized infrastructure.
 
 ### What Lies Hidden
 
@@ -52,13 +60,19 @@ Benefits:
 
 ### How It Works
 
-1. **Registration**: Participants pay a registration fee (e.g., 150 CHF)
-2. **Fund Pool**: 70% goes to prize pool, 30% to operations
-3. **Proposal Phase**: Anyone can propose project ideas
-4. **Voting**: Registered participants vote on proposals
-5. **Hackathon**: Top-voted projects are pursued
-6. **Judging**: Peer and expert evaluation
-7. **Prizes**: Distributed from collective pool
+1. **Registration**: Participants pay CHF 150 registration fee
+2. **Team Formation**: Self-organized or matched by skills/roles
+3. **Challenge Selection**: Each team chooses one mandatory package:
+   - **Demo-Kit**: End-to-end energy flow with reproducible demo
+   - **Hardware Safety**: BOM, Safety Case, thermal baseline
+   - **Grid-OS**: Scheduler with solar budget, fallback policy, API
+4. **Thermal Path Choice**: Teams evaluate and choose:
+   - **Path A**: Oil Immersion (99% heat capture, complex)
+   - **Path B**: Water Loop (60-70% capture, proven)
+   - **Path C**: Heat Pump Integration (70°C+ output, ambitious)
+5. **Hackathon**: 3 days of building (September 20-22, 2025)
+6. **Judging**: Scoring based on deliverables and criteria
+7. **Prizes**: 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
 
 ### Transparency Commitment
 
@@ -67,105 +81,115 @@ Benefits:
 - Transaction ledger accessible
 - Automatic refunds if event cancelled
 
-## The AI Digitalization Pipeline
+## The Three Engineering Challenges
 
-### Before the Hackathon
+### Die Zeit-Frage (Time-Shift Challenge)
+Solar energy peaks during the day, but heat is needed at night. How do you bridge this gap?
+- **Options**: Batteries buffer day→night, Deferred Compute shifts jobs, or both
+- **Teams decide**: The perfect balance is what you build
 
-1. **Company Outreach**: Contact Sihl Valley companies with historical archives
-2. **Data Collection**: Companies provide raw materials (photos, ledgers, documents)
-3. **Initial Processing**: Basic scanning and cataloging
-4. **Preview Generation**: Create browsable catalog for participants
+### Die Wärme-Frage (Thermal Challenge)
+How do you extract heat from compute? Three paths, no "right" answer:
+- **Path A (Oil Immersion)**: Elegant, 99% capture, but complex handling
+- **Path B (Water Loop)**: Proven, standard parts, but only 60-70% capture
+- **Path C (Heat Pump)**: 70°C+ output, radiator-ready, but complex and expensive
+- **Teams evaluate**: Trade-offs, not prescriptions
 
-### During Registration Period
-
-5. **OCR Processing**: Extract text from handwritten and typed documents
-6. **Image Recognition**: Identify objects, people, machinery in photographs
-7. **Structuring**: Convert extracted data to queryable formats
-8. **Pattern Discovery**: ML algorithms find initial connections
-
-### During Hackathon
-
-9. **Participant Access**: Full dataset available to registered participants
-10. **Real-time Processing**: Additional AI processing on demand
-11. **Insight Generation**: Participants build on processed data
-12. **Cross-referencing**: Connect findings across multiple company archives
+### Die Resilienz-Frage (Resilience Challenge)
+When the grid fails, what does your server do?
+- **Grid stable**: Run compute, charge battery
+- **Grid unstable**: Throttle compute, battery ready
+- **Grid down**: Pause compute, power the neighborhood
+- **Teams build**: The logic doesn't exist yet - you create it
 
 ## Target Participants
 
-### Primary Audience
+### Primary Roles
 
-- Data scientists and ML engineers
-- Historians and archivists
-- Business researchers
-- Industrial designers
-- Students (ETHZ, UZH, ZHAW, HSLU)
+- **Hardware Engineers**: Evaluate thermal architectures, build chosen solution
+- **Electrical Engineers**: Design safe systems, RCD/GFCI, safety interlocks
+- **Grid-OS Developers**: Build scheduler, deferred compute, load shedding
+- **Energy Experts**: Solar APIs, Swissgrid integration, SDL knowledge
+- **Sensor/Data Engineers**: Integrate sensors, build data pipelines
+- **Backend Developers**: APIs, compute scheduling infrastructure
+- **Frontend Developers**: Monitoring dashboards with real-time data
+- **Designers**: UX/UI for complex energy data visualization
+- **LEG Specialists**: Navigate Swiss energy law (StromVG, EnG)
+- **Project Managers**: Coordinate teams, manage timeline
+- **Generalists**: Flexible contributors across all areas
 
 ### Secondary Audience
 
-- Genealogy enthusiasts
-- Local history buffs
-- Innovation consultants
-- Startup founders seeking inspiration
+- Students (ETHZ, UZH, ZHAW, HSLU)
+- DIY makers and hardware hackers
+- Energy enthusiasts with own PV systems
+- Open-source contributors
 
 ## Value Proposition
 
 ### For Participants
 
-- Access to unique, never-before-digitalized data
-- Opportunity to discover lost innovations
-- Direct stake in outcomes through payment model
-- Community of like-minded innovators
-- Portfolio piece: "I discovered X from 1890 archives"
+- **Own your code**: Apache 2.0 means you can fork, compete, commercialize
+- **Solve real problems**: Three open engineering challenges, not prescribed solutions
+- **Build something physical**: Not PowerPoint - actual hardware that works
+- **Community ownership**: Verein governance after event, you can join
+- **Sihlvalley vs Silicon Valley**: Cheeky underdog attitude, Swiss precision
 
-### For Companies
+### For LEGs (Lokale Elektrizitätsgemeinschaften)
 
-- Digitalization of historical archives at no cost
-- Modern AI processing of legacy materials
-- Fresh perspectives on company heritage
-- PR value: "Preserving industrial history"
-- No financial commitment required
+- **Commercial use allowed**: Apache 2.0 enables commercial LEG operations
+- **Three revenue streams**: Energy, compute, heat (not just one)
+- **Grid stability**: Server can throttle/boost based on grid signals
+- **Resilience**: Community backup when grid fails
+- **Open-source stack**: No vendor lock-in, full control
 
-### For Zurich / Switzerland
+### For Switzerland
 
-- Preservation of industrial heritage
-- Innovation from historical perspective
-- Unique positioning: "Where history meets AI"
-- Model for other regions to replicate
+- **Energy sovereignty**: Decentralized infrastructure, not cloud-dependent
+- **Swiss precision advantage**: Small, precise, coordinated (vs. Silicon Valley scale)
+- **Data sovereignty**: Local compute, no data leaves Switzerland
+- **Innovation model**: Participant-driven, not corporate-driven
 
 ## Event Format
 
-### Timeline (Example)
+### Timeline
 
-- **T-8 weeks**: Registration opens, fund tracker live
-- **T-6 weeks**: Company data submission deadline
-- **T-4 weeks**: Data catalog published, proposal submission opens
-- **T-2 weeks**: Voting closes, top projects announced
-- **T-1 week**: Registration deadline, refund check
-- **T-0**: Hackathon weekend (48 hours)
-- **T+1 week**: Prize distribution, results published
+- **September 20-22, 2025**: 3-day hackathon
+- **Friday**: Kickoff, team formation, hardware setup
+- **Saturday**: Building, testing, iteration
+- **Sunday**: Demo day, presentations, judging, prize distribution
 
 ### Physical Setup
 
-- Venue: Industrial heritage site (ideal) or tech hub
-- Computation: Cloud credits provided (AWS/GCP/Azure)
-- Data access: Secure local network + cloud backup
-- Catering: Covered by operating budget
-- Documentation: Professional photography/video
+- **Venue**: To be announced (industrial heritage site preferred)
+- **Hardware**: Server hardware, GPUs, thermal components provided
+- **Safety**: Professional electrical engineers on-site
+- **Tools**: Open-source stack (Prometheus, Node-RED, k3s, etc.)
+- **Catering**: Covered by operating budget
+- **Documentation**: Professional photography/video
+
+### Challenge Evaluation Infrastructure
+
+- **Node-RED**: Orchestrator for submissions, evaluations, scoring, leaderboard
+- **MCP-Server**: Capability gateway with RBAC, audit logging, rate limiting
+- **Submission Format**: Policy-Config (JSON/YAML) for MVP, Container (OCI) later
+- **Scoring**: Deterministic formula (Comfort, Resilience, Cost, SLA)
+- **Anti-Scam**: Node identity, signed receipts, random audits, reputation system
 
 ## Why This Works
 
-### Economic Alignment
+### Participant Agency
 
-Participants who pay are more committed. They have skin in the game. They will propose better projects and work harder because success means return on their investment.
+"Du baust es" - participants own the solutions. Not "we build" but "you build." This creates genuine ownership and commitment. Apache 2.0 means you can fork, compete, commercialize. We encourage that.
 
-### Innovation Quality
+### Open Architecture
 
-Corporate hackathons often produce solutions that are "good enough" for the sponsoring company. Participant-driven hackathons produce solutions that participants genuinely believe in.
+Three thermal paths, teams choose. No prescribed solution, only constraints. This attracts real engineers who want to solve problems, not assemble kits.
 
-### Historical Relevance
+### Swiss Precision vs Silicon Valley Scale
 
-The Sihl Valley archives contain real business decisions, real trade-offs, real innovations. These are not theoretical case studies but actual industrial history waiting to be rediscovered.
+Silicon Valley builds datacenters that heat rivers. We build servers that heat houses. Small, precise, coordinated. The Sihlvalley challenges Silicon Valley with Swiss precision.
 
-### AI Timing
+### Energy Sovereignty
 
-Current AI capabilities (OCR, image recognition, LLMs) make it possible to process historical documents at scale for the first time. This is the right moment to attempt this.
+Decentralized infrastructure, local-first, no cloud dependency. Data stays in Switzerland. Compute runs on Swiss solar. Heat warms Swiss buildings. This is sovereignty, not convenience.

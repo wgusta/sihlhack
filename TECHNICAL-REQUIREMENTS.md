@@ -19,6 +19,17 @@
 | **Hosting** | Vercel | Single platform for everything |
 | **Cron Jobs** | Vercel Cron | Automated refund checks |
 
+### Challenge Evaluation Infrastructure
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **Orchestrator** | Node-RED (Apache-2.0) | Handles submissions, evaluations, scoring, leaderboard |
+| **Capability Gateway** | MCP-Server | RBAC, audit logging, rate limiting, hides Node-RED |
+| **Messaging** | NATS (Apache-2.0) | High-performance pub/sub between components |
+| **Container Runtime** | k3s (Apache-2.0) | Lightweight Kubernetes for edge deployment |
+| **Time-Series DB** | VictoriaMetrics (Apache-2.0) | Stores sensor data, metrics |
+| **Monitoring** | Prometheus (Apache-2.0) | Metrics collection and querying |
+
 ### Why This Stack
 
 1. **Single billing relationship** (Vercel)
@@ -511,6 +522,7 @@ export function DataUploader({ companyId }: { companyId: string }) {
 │   └── [id]/route.ts            # GET, PATCH
 ├── upload/route.ts              # POST (file upload to Vercel Blob)
 ├── funds/route.ts               # GET (public fund status)
+├── submit-resource/route.ts     # POST (resource submission to hello@sihlhack.ch)
 └── cron/
     └── check-event-status/route.ts  # Vercel cron job
 ```
@@ -542,6 +554,44 @@ CRON_SECRET=your_cron_secret
 NEXT_PUBLIC_REGISTRATION_OPEN=true
 NEXT_PUBLIC_PROPOSALS_OPEN=true
 ```
+
+## Open-Source Resources
+
+### Recommended Tools (Apache-2.0 / MIT Only)
+
+**Demo-Kit:**
+- Prometheus (Apache-2.0) - Metrics collection
+- VictoriaMetrics (Apache-2.0) - Time-series DB
+- Home Assistant (Apache-2.0) - IoT platform with inverter APIs
+- Mosquitto (EPL-2.0) - MQTT broker
+
+**Hardware Safety:**
+- LibreSolar BMS (Apache-2.0) - Battery management
+- LibreSolar Charge Controller (Apache-2.0) - MPPT solar controller
+- Zephyr RTOS (Apache-2.0) - Real-time OS for safety-critical systems
+
+**Grid-OS:**
+- Node-RED (Apache-2.0) - Flow-based programming, orchestrator
+- NATS (Apache-2.0) - High-performance messaging
+- Ollama (MIT) - Local LLM inference
+- llama.cpp (MIT) - LLM on CPU
+- Chronos-T5 (Apache-2.0) - Time-series forecasting
+- k3s (Apache-2.0) - Lightweight Kubernetes
+
+**Dashboard:**
+- OpenTelemetry Collector (Apache-2.0) - Telemetry pipeline
+- Prometheus (Apache-2.0) - Metrics backend
+
+### Excluded Tools (License Issues)
+
+- **AGPL-3.0**: OpenEMS, Grafana, EmonLib (copyleft incompatible with commercial LEGs)
+- **BSL-1.1**: emqx (not open source per OSI definition)
+- **CC BY-NC-SA**: diyBMSv4 (non-commercial restriction)
+- **Blockchain**: Cosmos SDK, Substrate (overkill for hackathon)
+
+### Resource Submission
+
+Participants can submit additional repos via form on challenges page. Submissions sent to `hello@sihlhack.ch` via Resend API.
 
 ## Vercel Setup Steps
 

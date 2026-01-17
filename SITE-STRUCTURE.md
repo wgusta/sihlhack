@@ -13,10 +13,12 @@ sihlhack.ch/
 ├── /register .................. Registration Flow
 │   └── /success ............... Post-payment confirmation
 ├── /funds ..................... Public Fund Tracker
-├── /proposals ................. Project Proposals
+├── /challenges ................ Challenges & Packages
+├── /team ...................... Team Page
+├── /proposals ................. Project Proposals (legacy)
 │   ├── /new ................... Submit New Proposal
 │   └── /[id] .................. Proposal Detail
-├── /data-catalog .............. Historical Data Browser
+├── /data-catalog .............. Historical Data Browser (legacy)
 │   └── /[id] .................. Data Item Detail
 ├── /dashboard ................. Participant Dashboard
 │   ├── /proposals ............. My Proposals
@@ -26,6 +28,7 @@ sihlhack.ch/
 │   ├── /upload ................ Data Upload
 │   ├── /dashboard ............. Company Dashboard
 │   └── /nda ................... Digital NDA
+├── /team ...................... Team Page
 ├── /admin ..................... Admin Dashboard (Protected)
 │   ├── /participants .......... Participant Management
 │   ├── /payments .............. Payment Overview
@@ -45,6 +48,7 @@ sihlhack.ch/
     ├── /companies
     ├── /upload
     ├── /funds
+    ├── /submit-resource ........ Resource submission (sends to hello@sihlhack.ch)
     └── /cron/check-event-status
 ```
 
@@ -77,16 +81,21 @@ sihlhack.ch/
 **Purpose**: Deep dive into concept, FAQ, team
 
 **Sections**:
-1. **Sihl Valley Story**: History of industrial heritage
-2. **Why Participant-Oriented**: Philosophy and benefits
-3. **How It Works**: Step-by-step explanation
-4. **The Team**: Organizer profiles
-5. **FAQ**: Common questions with answers
+1. **Hero**: Competition-style hackathon overview
+2. **Vision**: Sihlicon Hub - Silicon Valley vs Sihlvalley attitude
+3. **Problem → Solution**: VORHER/NACHHER visualization
+4. **Role-Based Hackathon**: 11 roles with expandable details
+6. **LEG Legal Framework**: Swiss energy law (StromVG, EnG)
+7. **Open Source**: "Dein Code. Deine Entscheidung." with Apache 2.0 details
+8. **Post-Event Paths**: Verein governance, community ownership
+9. **Endgame Section**: Decentralized AI compute network vision
+10. **FAQ**: Participant-focused answers (du/ihr voice)
 
 **Content Focus**:
-- Historical context (can include actual archival images)
-- Trust building (transparency, refund guarantee)
-- Answer objections before they arise
+- Participant agency ("du baust es")
+- Open architecture (three thermal paths, teams choose)
+- Trust through ownership (Apache 2.0, fork it)
+- Cheeky Sihlvalley vs Silicon Valley attitude
 
 ---
 
@@ -163,24 +172,31 @@ sihlhack.ch/
 
 ---
 
-### Proposals Page (/proposals)
+### Challenges Page (/challenges)
 
-**Purpose**: Browse and vote on project ideas
+**Purpose**: Detailed challenge descriptions, packages, resources
 
-**Features**:
-- Grid of proposal cards
-- Filter by data type, vote count, status
-- Sort by newest, most voted, recently updated
-- Vote button (requires registration)
-- Submit new proposal (requires registration)
+**Sections**:
+1. **Hero**: "Wähle dein Paket. Bau die Lösung."
+2. **Package Overview**: Mandatory and optional packages
+3. **Pre-Challenge**: Historic Archive (optional snack-hackathon)
+4. **Thermal Architecture Challenge**: Three paths (Oil, Water, Heat Pump)
+5. **Mandatory Packages Detail**: Demo-Kit, Hardware Safety, Grid-OS
+6. **Optional Packages**: Dashboard, LEG Starter Pack
+7. **Team Red**: Security challenge (separate selection process)
+8. **Glossary Accordion**: 26 technical terms explained (4 categories)
+9. **Competition Model**: Scoring, prize distribution
+10. **CTA**: Registration call-to-action
 
 **Components**:
-- `ProposalGrid`
-- `ProposalCard`
-- `FilterBar`
-- `SortDropdown`
-- `VoteButton`
-- `NewProposalCTA`
+- `PackageCard` (with resources section)
+- `PackageCardCompact`
+- `PreChallengeSection`
+- `GlossaryAccordion`
+- `ResourceSubmissionForm` (participants can suggest repos)
+- `DemoKitVisualization`
+- `SafetyVisualization`
+- `GridOSVisualization`
 
 ---
 

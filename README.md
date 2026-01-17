@@ -1,6 +1,6 @@
 # SIHLHACK.CH
 
-Switzerland's first participant-oriented hackathon focused on digitalizing historical industrial records from the Sihl Valley.
+Switzerland's first participant-oriented hackathon building the **Sihlicon Hub**: an Active Energy Node combining Battery + Compute + Heat + Resilience for decentralized energy infrastructure.
 
 ## Quick Links
 
@@ -20,22 +20,28 @@ Switzerland's first participant-oriented hackathon focused on digitalizing histo
 
 **sihlhack.ch** is a sub-brand of sihliconvalley.ch presenting a new hackathon model where:
 
-- **Participants front the costs** and decide which projects to pursue
-- **Companies share historical data** from Zurich's industrial era
-- **AI digitalizes records** using image recognition and OCR
+- **Participants build the Sihlicon Hub**: an Active Energy Node (Battery + Server + Heat + Resilience)
+- **Three mandatory challenges**: End-to-End Demo-Kit, Hardware Safety, Grid-OS Controller
+- **Open thermal architecture**: Teams choose between Immersion Cooling, Water Loop, or Heat Pump Integration
+- **Open-source tools only**: Apache-2.0/MIT licensed resources for commercial LEG compatibility
 - **Prize money comes from participants**, not corporate sponsors
 - **All finances are public** with automatic refunds if event is cancelled
 
 ## Core Innovation
 
-Traditional hackathons: Companies pay, companies set challenges, participants compete for company prizes.
+**The Sihlicon Hub Concept:**
+- **Active Energy Node**: Server + Battery + Heat + Resilience in one system
+- **Time-Shift Architecture**: Solar energy stored in batteries, used for compute and heat when needed
+- **Load Shedding**: Grid stable? Run compute. Grid down? Power the neighborhood.
+- **Three Thermal Paths**: Teams evaluate and choose (Immersion, Water Loop, Heat Pump)
+- **Deferred Compute**: Batch jobs scheduled based on solar availability
 
-**SihlHack inverts this:**
-- Participants pay registration fees
-- Participants propose and vote on projects
-- Prize pool comes from participant contributions
-- Companies contribute data, not money
-- All finances are public and transparent
+**The Hackathon Model:**
+- Participants pay registration fees (CHF 150)
+- 30-36 teams compete on 3 mandatory packages
+- Multiple teams per package, best solution wins
+- Prize pool distributed: 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
+- All code is Apache 2.0 - participants own their work
 
 ## Visual Concept
 
@@ -65,32 +71,35 @@ This project extends the sihliconvalley.ch design system:
 ### ✅ Completed Features
 
 **Homepage:**
-- Hero section with live prize pool tracker
-- Countdown timer to registration deadline
-- Historic photo reveal effect (grayscale to color)
-- "Why It Matters" section (save knowledge + AI-ready data)
-- Privacy section (local-first AI approach)
-- Data providers section
-- Dynamic funding transparency
-- FAQ accordion
-- Event timeline
-- Typewriter logo animation
+- Hero section with new tagline: "Server, die Häuser heizen. Batterien, die das Quartier versorgen."
+- Three engineering challenges: Zeit-Frage, Wärme-Frage, Resilienz-Frage
+- Participant-focused messaging (du/ihr voice)
+- Open-source ownership message (Apache 2.0)
+- Countdown timer to event date
 
 **About/Concept Page:**
-- Role-based hackathon explanation
-- Traditional vs. SihlHack comparison
-- How it works (4-step process)
-- Data privacy & AI processing policy (3-tier approach)
-- Open source commitment
-- Library partnership plans
-- Comprehensive FAQ
+- Vision: Sihlvalley vs Silicon Valley attitude
+- Problem → Solution visualization (VORHER/NACHHER)
+- Role-based hackathon explanation (11 roles)
+- Open source commitment with transparency messaging
+- Endgame section: Decentralized AI compute network vision
+- Comprehensive FAQ with participant-focused answers
+
+**Challenges Page:**
+- Three mandatory packages with detailed descriptions
+- Thermal Architecture Challenge: Three paths (Oil, Water, Heat Pump)
+- Open-source resources per challenge (Prometheus, Node-RED, k3s, etc.)
+- Resource submission form (participants can suggest additional repos)
+- Glossary accordion: 26 technical terms explained
+- Team Red: Security challenge with selection process
+- Competition model with scoring criteria
 
 **Core Policies:**
-- Local-first AI: Primary use of local LLMs and offline processing
-- Cloud AI only with data provider consent
-- Three-tier data protection (local/cloud/protected)
-- Open source pipelines and datasets (MIT/Apache 2.0)
-- Partnerships with Zentralbibliothek Zürich, ETH-Bibliothek, Schweizerisches Bundesarchiv
+- **Open Source First**: All code Apache 2.0, participants own their work
+- **Permissive Licenses Only**: Only Apache-2.0/MIT tools recommended for commercial LEG use
+- **Thermal Architecture Open**: Teams choose their path (Immersion, Water, Heat Pump)
+- **Participant Agency**: "Du baust es" - participants solve the problems
+- **Transparency**: Budget public, prize pool transparent, no hidden agendas
 
 **Technical Infrastructure:**
 - Next.js 16 with App Router
@@ -107,22 +116,34 @@ This project extends the sihliconvalley.ch design system:
 
 ### 📅 Event Details
 
-- **Date:** End of August / Beginning of September 2025 (TBD)
+- **Date:** September 20-22, 2025 (3 days)
 - **Location:** To be announced
-- **Registration:** CHF 480 per participant
-- **Model:** 70% to prize pool, 30% to operations
+- **Registration:** CHF 150 per participant
+- **Model:** 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
+- **Teams:** 30-36 teams (10-12 per mandatory package)
+- **Participants:** 150+ expected
 - **Refund Policy:** Automatic refund if minimum participants not reached
 
 ## Key Design Decisions
 
-### Privacy First
-All historical data processing prioritizes local AI (Llama, Mistral, local OCR) with cloud providers (Anthropic, OpenAI, Google) only used with explicit consent from data providers.
+### Active Energy Node Architecture
+The Sihlicon Hub is not a "water heater" - it's an Active Energy Node that:
+- Stores solar energy in batteries (time-shift)
+- Runs compute jobs when energy is available (deferred compute)
+- Provides heat to buildings (thermal recovery)
+- Powers neighborhoods during grid outages (load shedding)
 
 ### Open Source Commitment
-All processing pipelines, ML models, and structured datasets will be released under MIT/Apache 2.0 licenses for maximum reusability and scientific integrity.
+- All code Apache 2.0 - participants can fork, compete, commercialize
+- Only permissive licenses (Apache-2.0/MIT) recommended for tools
+- AGPL-3.0 tools excluded (Grafana, OpenEMS) to protect commercial LEG use
+- Resource submission form allows community to suggest additional repos
 
-### Public Library Partnerships
-Seeking long-term hosting partnerships with Swiss institutions to ensure sustainable access to digitized historical data beyond the hackathon event.
+### Participant Agency
+- "Du/Ihr" voice throughout - participants own the solutions
+- Three thermal paths, teams choose
+- No prescribed solutions, only constraints
+- Cheeky Sihlvalley vs Silicon Valley attitude
 
 ## Development Commands
 

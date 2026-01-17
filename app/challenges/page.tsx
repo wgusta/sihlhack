@@ -58,7 +58,7 @@ const TEAM_RED = {
     'Tamper-Detection Konzept',
   ],
   skills: ['Pentesting', 'Kali Linux', 'Burp Suite', 'Python', 'Hardware Hacking', 'Lock Picking', 'Electronics'],
-  teamSize: '3-5 Personen',
+  teamSize: '10-15 Personen (ein Team)',
   selectionProcess: true,
 }
 
@@ -413,8 +413,8 @@ export default function ChallengesPage() {
               <p className="mt-4 text-gray-400 font-mono max-w-2xl mx-auto">
                 {TEAM_RED.description}
               </p>
-              <p className="mt-2 text-gray-500 font-mono text-sm">
-                Team-Grösse: {TEAM_RED.teamSize}
+                <p className="mt-2 text-gray-500 font-mono text-sm">
+                Team-Grösse: {TEAM_RED.teamSize} · Ein einziges Team
                     </p>
                   </div>
 
@@ -502,7 +502,7 @@ export default function ChallengesPage() {
                 </h3>
                 <p className="text-gray-300 font-mono text-sm max-w-2xl mx-auto mb-6">
                   Team Red ist die <strong className="text-red-400">einzige Challenge mit Selektionsverfahren</strong>. 
-                  Wir suchen erfahrene Security-Researcher mit nachweisbarer Expertise. 
+                  Wir suchen erfahrene Security-Researcher mit nachweisbarer Expertise für <strong className="text-red-400">ein einziges Team mit 10-15 Personen</strong>. 
                   Die reguläre Hackathon-Anmeldung gilt hier nicht. Bewirb dich separat.
                 </p>
                 

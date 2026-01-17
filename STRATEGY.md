@@ -11,14 +11,25 @@ Traditional:  Companies pay → Companies decide → Participants execute
 sihlhack:     Participants pay → Participants decide → Participants execute
 ```
 
+### The Sihlicon Hub: Active Energy Node
+
+The hackathon builds the **Sihlicon Hub** - an Active Energy Node combining:
+- **Battery**: Time-shift solar energy, provide UPS/resilience
+- **Compute**: Deferred compute jobs, batch processing
+- **Heat**: Thermal recovery (Immersion, Water Loop, or Heat Pump)
+- **Resilience**: Load shedding, community backup
+
+**Key Principle**: The thermal path is NOT prescribed. Teams evaluate three options and choose. This is the engineering challenge, not a kit assembly.
+
 ### Core Principles
 
-1. **Participants fund the event** through registration fees
-2. **Participants propose and vote** on projects
-3. **Participants receive the prize money** (70% of collected funds)
-4. **Companies contribute data only**, never money, never agenda
-5. **All finances are public** in real time
-6. **Automatic refunds** if minimum threshold is not met
+1. **Participants fund the event** through registration fees (CHF 150)
+2. **Participants choose their challenge** (Demo-Kit, Hardware Safety, or Grid-OS)
+3. **Participants choose their thermal path** (Immersion, Water, or Heat Pump)
+4. **Participants own their code** (Apache 2.0 - fork, compete, commercialize)
+5. **Open-source tools only** (Apache-2.0/MIT for commercial LEG compatibility)
+6. **All finances are public** in real time
+7. **Automatic refunds** if minimum threshold is not met
 
 ## What We Will NOT Do
 
@@ -102,6 +113,46 @@ Before collecting payments:
 - `/terms` participation terms (cancellation, refunds, liability, conduct, prizes)
 - `/privacy` DSG-compliant privacy policy with processor list
 - `/code-of-conduct` with enforcement process
+
+## Messaging Strategy
+
+### Participant Voice (Du/Ihr)
+
+All messaging uses "du" (singular) or "ihr" (plural) to emphasize participant agency:
+- "Du baust es" (not "wir bauen")
+- "Ihr entscheidet" (not "wir entscheiden")
+- "Dein Code. Deine Entscheidung." (not "unser Code")
+
+This creates a "community underdog" vibe where participants solve problems, not organizers.
+
+### Sihlvalley vs Silicon Valley
+
+Cheeky, confident attitude:
+- "Silicon Valley baut Rechenzentren, die Flüsse erhitzen. Wir bauen Server, die Häuser heizen."
+- "Silicon Valley optimiert Werbung. Wir optimieren Wärmeflüsse."
+- "Der kleine Sihlvalley will mit Silicon Valley konkurrieren."
+
+This positions Switzerland as a precision player, not a scale player.
+
+### Open Architecture Messaging
+
+- **Not**: "We use immersion cooling"
+- **Instead**: "Drei thermische Pfade. Euer Team entscheidet."
+
+- **Not**: "Here's the solution"
+- **Instead**: "Ihr bekommt Constraints, ihr findet den Weg."
+
+### Trust Through Ownership
+
+- Apache 2.0 means you can fork, compete, commercialize
+- "Du kannst morgen eine Firma gründen, die mit dem Code konkurriert, den du hier schreibst. Wir ermutigen das."
+- No hidden agendas, no ecosystem seeding
+
+### Full Sentences, Bullet Points
+
+- Use full sentences for complex concepts
+- Use bullet points for simple, glanceable information
+- Avoid em/en dashes in prose (use colons, commas, periods)
 
 ## Governance Principles
 

@@ -86,66 +86,6 @@ export default function TeamPage() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Alfred Escher - Team Member Style */}
-            <Card className="overflow-hidden shadow-xl border-2 border-thermal-orange/30">
-              <CardContent className="p-0">
-                <div className="flex flex-col lg:flex-row">
-                  {/* Photo */}
-                  <div className="lg:w-80 flex-shrink-0 relative">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Alfred_Escher_photo.jpg"
-                      alt="Alfred Escher"
-                      className="w-full h-72 lg:h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                    {/* Role Badge */}
-                    <div className="absolute top-4 right-4 bg-thermal-orange text-white text-xs font-mono px-3 py-1 rounded-full shadow-lg">
-                      Gründervater
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 p-6 lg:p-8">
-                    <span className="text-xs font-mono text-thermal-orange uppercase tracking-wide">
-                      Inspiration & Visionär
-                    </span>
-                    <h2 className="font-display text-2xl font-bold text-brand-black mt-2">
-                      Alfred Escher
-                    </h2>
-                    <p className="text-sm font-mono text-historic-sepia mt-1">
-                      1819–1882 · Zürich
-                    </p>
-
-                    <div className="mt-6 space-y-4 text-historic-sepia font-mono text-sm leading-relaxed">
-                      <p>
-                        Ein Mann. Er baute den Gotthardtunnel, gründete die Vorläufer von Credit Suisse und ETH Zürich, 
-                        und legte das Fundament für die moderne Schweiz.
-                      </p>
-
-                      <p>
-                        Mitte des 19. Jahrhunderts drohte die Schweiz, vom europäischen Eisenbahnnetz abgehängt zu werden. 
-                        Escher erkannte das Risiko und warf sich mit aller Kraft in den Aufbau der Schweizer Infrastruktur. 
-                        Das Ergebnis: Die Schweiz wurde zum Transit-Land für Güterverkehr, zum Finanzplatz, 
-                        zum Bildungs- und Forschungszentrum.
-                      </p>
-                    </div>
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      <span className="text-xs font-mono px-3 py-1 bg-thermal-orange/10 text-thermal-orange rounded-full border border-thermal-orange/30">
-                        🚂 Gotthard-Eisenbahn
-                      </span>
-                      <span className="text-xs font-mono px-3 py-1 bg-compute-blue/10 text-compute-blue rounded-full border border-compute-blue/30">
-                        🏦 Schweizerische Kreditanstalt
-                      </span>
-                      <span className="text-xs font-mono px-3 py-1 bg-grid-green/10 text-grid-green rounded-full border border-grid-green/30">
-                        🎓 ETH Zürich
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </section>
 
