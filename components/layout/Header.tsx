@@ -8,6 +8,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 
 const navigation = [
+  { name: 'Snack-Hackathon', href: '/snack-hackathon', highlight: true },
   { name: 'Konzept', href: '/about' },
   { name: 'Challenges', href: '/challenges' },
   { name: 'Team', href: '/team' },
@@ -33,8 +34,14 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-mono text-historic-sepia hover:text-brand-black transition-colors"
+                className={cn(
+                  "text-sm font-mono transition-colors",
+                  item.highlight
+                    ? "text-grid-green font-bold hover:text-grid-green/80"
+                    : "text-historic-sepia hover:text-brand-black"
+                )}
               >
+                {item.highlight && <span className="mr-1">●</span>}
                 {item.name}
               </Link>
             ))}
@@ -79,9 +86,15 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-base font-mono text-historic-sepia hover:text-brand-black hover:bg-historic-cream rounded-lg transition-colors"
+                className={cn(
+                  "block px-3 py-2 text-base font-mono rounded-lg transition-colors",
+                  item.highlight
+                    ? "text-grid-green font-bold bg-grid-green/10 hover:bg-grid-green/20"
+                    : "text-historic-sepia hover:text-brand-black hover:bg-historic-cream"
+                )}
                 onClick={() => setMobileMenuOpen(false)}
               >
+                {item.highlight && <span className="mr-1">●</span>}
                 {item.name}
               </Link>
             ))}

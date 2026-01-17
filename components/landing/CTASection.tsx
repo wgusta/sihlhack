@@ -46,7 +46,7 @@ export function CTASection() {
           {/* Description */}
           <p className="mt-6 text-lg text-white/90 font-mono">
             3 Tage. Open Source. Demo-Massstab Prototypen.
-            Wettbewerbs-Format: 30-36 Teams arbeiten parallel. Beste Lösungen gewinnen Preisgeld.
+            Wettbewerbs-Format: 20 Teams arbeiten parallel. Beste Lösungen gewinnen Preisgeld.
           </p>
 
           {/* What you'll build */}

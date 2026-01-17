@@ -196,7 +196,7 @@ export default function TeamPage() {
               Bereit, dabei zu sein?
             </h2>
             <p className="mt-4 text-white/90 font-mono max-w-xl mx-auto">
-              Der erste sihlhack findet Ende August/Anfang September 2025 statt. Melde dich an und werde Teil der Bewegung.
+              Der erste sihlhack findet September 2026 statt. Melde dich an und werde Teil der Bewegung.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <ButtonLink href="/register" variant="secondary" size="lg">

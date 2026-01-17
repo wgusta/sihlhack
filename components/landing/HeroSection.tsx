@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 
-// Event date - Sihlhack 3-Day Competition
-const EVENT_DATE = new Date('2025-09-20T09:00:00')
+// Event date - Sihlhack 3-Day Competition (September 2026)
+const EVENT_DATE = new Date('2026-09-12T09:00:00')
 
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
@@ -213,7 +213,7 @@ export function HeroSection() {
               <div className="font-mono text-xs text-gray-400">Tage</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-compute-blue">150+</div>
+              <div className="font-mono text-3xl font-bold text-compute-blue">100</div>
               <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
             </div>
             <div className="text-center">
@@ -221,7 +221,7 @@ export function HeroSection() {
               <div className="font-mono text-xs text-gray-400">Teilnahme</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-solar-yellow">30-36</div>
+              <div className="font-mono text-3xl font-bold text-solar-yellow">20</div>
               <div className="font-mono text-xs text-gray-400">Teams</div>
             </div>
           </div>

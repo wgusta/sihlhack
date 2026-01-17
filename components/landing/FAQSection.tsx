@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Was kostet das?',
-    a: 'CHF 150 / Person für 3 Tage. Budget ist öffentlich: 50% Preisgeld, 25% Hardware, 20% Venue, 5% Reserve. Vollständige Rückerstattung bei Event-Absage.',
+    a: 'CHF 150 / Person für 3 Tage. 70% aller Teilnahmegebühren gehen ins Preisgeld. 30% decken Betriebskosten (Venue, Catering, Infrastruktur). Vollständige Rückerstattung bei Event-Absage.',
   },
   {
     q: 'Wem gehört der Code?',

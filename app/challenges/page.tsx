@@ -74,17 +74,17 @@ export default function ChallengesPage() {
               Die Challenges
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              3 Pflicht-Pakete. 30-36 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
+              3 Pflicht-Pakete. 20 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
             </p>
-            
+
             {/* Stats */}
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               <div className="p-4 bg-white/5 rounded-xl">
-                <div className="font-mono text-3xl font-bold text-thermal-orange">150+</div>
+                <div className="font-mono text-3xl font-bold text-thermal-orange">100</div>
                 <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
-                <div className="font-mono text-3xl font-bold text-compute-blue">30-36</div>
+                <div className="font-mono text-3xl font-bold text-compute-blue">20</div>
                 <div className="font-mono text-xs text-gray-400">Teams</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">

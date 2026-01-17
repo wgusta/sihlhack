@@ -27,18 +27,18 @@ export default function AboutPage() {
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              150+ Teilnehmer, 30-36 Teams, 3 Pflicht-Pakete. 
+              100 Teilnehmer, 20 Teams, 3 Pflicht-Pakete.
               Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
             </p>
-            
+
             {/* Quick Stats */}
             <div className="mt-8 grid grid-cols-4 gap-4 max-w-lg mx-auto">
               <div className="p-3 bg-white/5 rounded-xl">
-                <div className="font-mono text-2xl font-bold text-thermal-orange">150+</div>
+                <div className="font-mono text-2xl font-bold text-thermal-orange">100</div>
                 <div className="font-mono text-[10px] text-gray-400">Teilnehmer</div>
               </div>
               <div className="p-3 bg-white/5 rounded-xl">
-                <div className="font-mono text-2xl font-bold text-compute-blue">30-36</div>
+                <div className="font-mono text-2xl font-bold text-compute-blue">20</div>
                 <div className="font-mono text-[10px] text-gray-400">Teams</div>
               </div>
               <div className="p-3 bg-white/5 rounded-xl">
@@ -703,7 +703,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was kostet die Teilnahme?',
-                  a: 'CHF 150 pro Person. Der gesamte Überschuss nach Betriebskosten wird als Preisgeld (35/35/20/10 pro Paket) ausgeschüttet. Vollständige Rückerstattung bei Absage.',
+                  a: 'CHF 150 pro Person. 70% aller Teilnahmegebühren gehen ins Preisgeld (verteilt auf die Pakete: 35/35/20/10). 30% decken Betriebskosten. Vollständige Rückerstattung bei Absage.',
                 },
                 {
                   q: (

@@ -77,11 +77,11 @@ export function EventTimeline() {
             <div className="font-mono text-xs text-historic-sepia">Tage</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-3xl font-bold text-compute-blue">30-36</div>
+            <div className="font-mono text-3xl font-bold text-compute-blue">20</div>
             <div className="font-mono text-xs text-historic-sepia">Teams</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-3xl font-bold text-grid-green">150+</div>
+            <div className="font-mono text-3xl font-bold text-grid-green">100</div>
             <div className="font-mono text-xs text-historic-sepia">Teilnehmer</div>
           </div>
         </div>
@@ -145,7 +145,7 @@ export function EventTimeline() {
             <p className="font-mono text-sm">
               <span className="text-thermal-orange font-bold">Freitag bis Sonntag</span> · 
               Ort wird bekannt gegeben · 
-              <span className="text-grid-green font-bold">Ende August/September 2025</span>
+              <span className="text-grid-green font-bold">September 2026</span>
             </p>
           </div>
         </div>
