@@ -102,28 +102,33 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Pre-Challenge Link - Snack-Hackathon */}
-            <div className="flex justify-center mb-6">
-              <a
-                href="#pre-challenge"
-                className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
-              >
-                {/* Snack-Hackathon Label */}
-                <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
-                  🍿 Snack-Hackathon
-                </div>
-                {/* Optional Badge */}
-                <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
-                  OPTIONAL
-                </div>
-                <div className="flex items-center gap-3 pt-2">
-                  <Icon emoji={PRE_CHALLENGE.icon} size="xl" color="text-historic-sepia" />
-                  <div>
-                    <div className="font-mono text-sm font-semibold text-historic-sepia">Pre-Challenge</div>
-                    <div className="font-accent text-xs text-historic-sepia/70">{PRE_CHALLENGE.nameDE}</div>
+            {/* Snack-Hackathon - Pre-Challenge */}
+            <div className="mb-6">
+              <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
+                Pre-Challenge
+              </h3>
+              <div className="flex justify-center">
+                <a
+                  href="#pre-challenge"
+                  className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group max-w-xs w-full"
+                >
+                  {/* Snack-Hackathon Label */}
+                  <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
+                    🍿 Snack-Hackathon
                   </div>
-                </div>
-              </a>
+                  {/* Optional Badge */}
+                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
+                    OPTIONAL
+                  </div>
+                  <div className="flex items-center gap-3 pt-2">
+                    <Icon emoji={PRE_CHALLENGE.icon} size="xl" color="text-historic-sepia" />
+                    <div>
+                      <div className="font-mono text-sm font-semibold text-historic-sepia">Pre-Challenge</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">{PRE_CHALLENGE.nameDE}</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
 
             {/* Mandatory Packages */}
