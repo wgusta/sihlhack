@@ -102,10 +102,10 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Snack-Hackathons */}
+            {/* Snack-Hackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
-                🍿 Snack-Hackathons
+                🍿 Snack-Hackathons <span className="text-gray-500">(OPTIONAL)</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
                 {/* June 2026 Snack-Hackathon */}
@@ -115,6 +115,9 @@ export default function ChallengesPage() {
                 >
                   <div className="absolute -top-2 -right-2 bg-sihl-red text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
                     🍿 Pilot #1
+                  </div>
+                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
+                    OPTIONAL
                   </div>
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">🍿</span>
@@ -134,37 +137,15 @@ export default function ChallengesPage() {
                   <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
                     🍿 Pilot #2
                   </div>
+                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
+                    OPTIONAL
+                  </div>
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">📜</span>
                     <div>
                       <div className="font-mono text-sm font-semibold text-brand-black">Juli 2026</div>
                       <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon (Historic)</div>
                       <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            {/* Pre-Challenge */}
-            <div className="mb-6">
-              <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
-                Pre-Challenge
-              </h3>
-              <div className="flex justify-center">
-                <a
-                  href="#pre-challenge"
-                  className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group max-w-xs w-full"
-                >
-                  {/* Optional Badge */}
-                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
-                    OPTIONAL
-                  </div>
-                  <div className="flex items-center gap-3 pt-2">
-                    <Icon emoji={PRE_CHALLENGE.icon} size="xl" color="text-historic-sepia" />
-                    <div>
-                      <div className="font-mono text-sm font-semibold text-historic-sepia">Pre-Challenge</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">{PRE_CHALLENGE.nameDE}</div>
                     </div>
                   </div>
                 </a>
