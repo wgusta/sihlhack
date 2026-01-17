@@ -19,8 +19,17 @@ import {
 } from '@heroicons/react/24/solid'
 
 export default function SnackHackathonPage() {
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [formData, setFormData] = useState({
+  const [juneFormState, setJuneFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [julyFormState, setJulyFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [juneFormData, setJuneFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    role: '',
+    experience: '',
+    motivation: '',
+  })
+  const [julyFormData, setJulyFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
@@ -29,13 +38,22 @@ export default function SnackHackathonPage() {
     motivation: '',
   })
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleJuneSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setFormState('submitting')
+    setJuneFormState('submitting')
 
     // For now, just simulate success (connect to actual API later)
     await new Promise(resolve => setTimeout(resolve, 1000))
-    setFormState('success')
+    setJuneFormState('success')
+  }
+
+  const handleJulySubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setJulyFormState('submitting')
+
+    // For now, just simulate success (connect to actual API later)
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    setJulyFormState('success')
   }
 
   return (
@@ -282,9 +300,9 @@ export default function SnackHackathonPage() {
           </div>
         </section>
 
-        {/* Registration Form */}
+        {/* Registration Forms */}
         <section className="py-16 bg-brand-black text-white" id="register">
-          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-grid-green uppercase tracking-widest">
                 Gratis Anmeldung
@@ -293,27 +311,169 @@ export default function SnackHackathonPage() {
                 Interesse bekunden
               </h2>
               <p className="mt-4 font-mono text-gray-400">
-                30-40 Plätze. Wir wählen nach Skill-Mix und Motivation aus.
+                30-40 Plätze pro Event. Wir wählen nach Skill-Mix und Motivation aus.
               </p>
             </div>
 
-            {formState === 'success' ? (
-              <Card className="bg-white/10 border-grid-green/30">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* June Registration Form */}
+              <div>
+                <div className="mb-4 text-center">
+                  <div className="inline-block bg-sihl-red text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
+                    🍿 Pilot #1
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-white">Juni 2026</h3>
+                  <p className="font-mono text-sm text-gray-400 mt-1">Erster Pilot-Event</p>
+                </div>
+
+                {juneFormState === 'success' ? (
+                  <Card className="bg-white/10 border-sihl-red/30">
+                    <CardContent className="p-8 text-center">
+                      <CheckCircleIcon className="w-16 h-16 mx-auto text-sihl-red mb-4" />
+                      <h3 className="font-display text-2xl font-bold text-white mb-2">
+                        Interesse registriert!
+                      </h3>
+                      <p className="font-mono text-gray-300">
+                        Wir melden uns bei dir für den Juni 2026 Snack-Hackathon.
+                      </p>
+                    </CardContent>
+                  </Card>
+                ) : (
+                  <Card className="bg-white/5 border-sihl-red/30">
+                    <CardContent className="p-8">
+                      <form onSubmit={handleJuneSubmit} className="space-y-6">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block font-mono text-sm text-gray-300 mb-2">
+                              Vorname *
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              value={juneFormData.firstName}
+                              onChange={(e) => setJuneFormData({ ...juneFormData, firstName: e.target.value })}
+                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
+                            />
+                          </div>
+                          <div>
+                            <label className="block font-mono text-sm text-gray-300 mb-2">
+                              Nachname *
+                            </label>
+                            <input
+                              type="text"
+                              required
+                              value={juneFormData.lastName}
+                              onChange={(e) => setJuneFormData({ ...juneFormData, lastName: e.target.value })}
+                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block font-mono text-sm text-gray-300 mb-2">
+                            E-Mail *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            value={juneFormData.email}
+                            onChange={(e) => setJuneFormData({ ...juneFormData, email: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block font-mono text-sm text-gray-300 mb-2">
+                            Welche Rolle passt am besten? *
+                          </label>
+                          <select
+                            required
+                            value={juneFormData.role}
+                            onChange={(e) => setJuneFormData({ ...juneFormData, role: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
+                          >
+                            <option value="" className="bg-brand-black">Bitte wählen...</option>
+                            {HACKATHON_ROLES.map((role) => (
+                              <option key={role.id} value={role.id} className="bg-brand-black">
+                                {role.nameDE}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block font-mono text-sm text-gray-300 mb-2">
+                            Erfahrung mit Hardware/Energie-Projekten
+                          </label>
+                          <select
+                            value={juneFormData.experience}
+                            onChange={(e) => setJuneFormData({ ...juneFormData, experience: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
+                          >
+                            <option value="" className="bg-brand-black">Bitte wählen...</option>
+                            <option value="none" className="bg-brand-black">Keine, aber ich lerne schnell</option>
+                            <option value="hobby" className="bg-brand-black">Hobby-Projekte (Raspberry Pi, Arduino, etc.)</option>
+                            <option value="professional" className="bg-brand-black">Beruflich (Ingenieur, Techniker, etc.)</option>
+                            <option value="expert" className="bg-brand-black">Experte (10+ Jahre Hardware/Energie)</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block font-mono text-sm text-gray-300 mb-2">
+                            Warum willst du dabei sein? (optional, aber hilft bei der Auswahl)
+                          </label>
+                          <textarea
+                            rows={3}
+                            value={juneFormData.motivation}
+                            onChange={(e) => setJuneFormData({ ...juneFormData, motivation: e.target.value })}
+                            placeholder="Was interessiert dich am Konzept? Was willst du lernen oder beitragen?"
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red placeholder:text-gray-500"
+                          />
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={juneFormState === 'submitting'}
+                          className="w-full py-4 bg-sihl-red hover:bg-sihl-red/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50"
+                        >
+                          {juneFormState === 'submitting' ? 'Wird gesendet...' : 'Für Juni 2026 anmelden'}
+                        </button>
+
+                        <p className="font-mono text-xs text-gray-500 text-center">
+                          Kein Geld, keine Verpflichtung. Wir melden uns, wenn wir mehr wissen.
+                        </p>
+                      </form>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+
+              {/* July Registration Form */}
+              <div>
+                <div className="mb-4 text-center">
+                  <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
+                    🍿 Pilot #2
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-white">Juli 2026</h3>
+                  <p className="font-mono text-sm text-gray-400 mt-1">Zweiter Pilot-Event (Historic)</p>
+                </div>
+
+                {julyFormState === 'success' ? (
+                  <Card className="bg-white/10 border-historic-sepia/30">
                 <CardContent className="p-8 text-center">
-                  <CheckCircleIcon className="w-16 h-16 mx-auto text-grid-green mb-4" />
+                      <CheckCircleIcon className="w-16 h-16 mx-auto text-historic-sepia mb-4" />
                   <h3 className="font-display text-2xl font-bold text-white mb-2">
                     Interesse registriert!
                   </h3>
                   <p className="font-mono text-gray-300">
-                    Wir melden uns bei dir, sobald wir den genauen Termin und Ort haben.
-                    Rechne mit einer Antwort bis Ende Februar 2026.
+                        Wir melden uns bei dir für den Juli 2026 Snack-Hackathon.
                   </p>
                 </CardContent>
               </Card>
             ) : (
-              <Card className="bg-white/5 border-white/10">
+                  <Card className="bg-white/5 border-historic-sepia/30">
                 <CardContent className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                      <form onSubmit={handleJulySubmit} className="space-y-6">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block font-mono text-sm text-gray-300 mb-2">
@@ -322,9 +482,9 @@ export default function SnackHackathonPage() {
                         <input
                           type="text"
                           required
-                          value={formData.firstName}
-                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange"
+                              value={julyFormData.firstName}
+                              onChange={(e) => setJulyFormData({ ...julyFormData, firstName: e.target.value })}
+                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
                         />
                       </div>
                       <div>
@@ -334,9 +494,9 @@ export default function SnackHackathonPage() {
                         <input
                           type="text"
                           required
-                          value={formData.lastName}
-                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange"
+                              value={julyFormData.lastName}
+                              onChange={(e) => setJulyFormData({ ...julyFormData, lastName: e.target.value })}
+                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
                         />
                       </div>
                     </div>
@@ -348,9 +508,9 @@ export default function SnackHackathonPage() {
                       <input
                         type="email"
                         required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange"
+                            value={julyFormData.email}
+                            onChange={(e) => setJulyFormData({ ...julyFormData, email: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
                       />
                     </div>
 
@@ -360,9 +520,9 @@ export default function SnackHackathonPage() {
                       </label>
                       <select
                         required
-                        value={formData.role}
-                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange"
+                            value={julyFormData.role}
+                            onChange={(e) => setJulyFormData({ ...julyFormData, role: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
                       >
                         <option value="" className="bg-brand-black">Bitte wählen...</option>
                         {HACKATHON_ROLES.map((role) => (
@@ -378,9 +538,9 @@ export default function SnackHackathonPage() {
                         Erfahrung mit Hardware/Energie-Projekten
                       </label>
                       <select
-                        value={formData.experience}
-                        onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange"
+                            value={julyFormData.experience}
+                            onChange={(e) => setJulyFormData({ ...julyFormData, experience: e.target.value })}
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
                       >
                         <option value="" className="bg-brand-black">Bitte wählen...</option>
                         <option value="none" className="bg-brand-black">Keine, aber ich lerne schnell</option>
@@ -396,19 +556,19 @@ export default function SnackHackathonPage() {
                       </label>
                       <textarea
                         rows={3}
-                        value={formData.motivation}
-                        onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
+                            value={julyFormData.motivation}
+                            onChange={(e) => setJulyFormData({ ...julyFormData, motivation: e.target.value })}
                         placeholder="Was interessiert dich am Konzept? Was willst du lernen oder beitragen?"
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-thermal-orange placeholder:text-gray-500"
+                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia placeholder:text-gray-500"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      disabled={formState === 'submitting'}
-                      className="w-full py-4 bg-thermal-orange hover:bg-thermal-orange/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50"
+                          disabled={julyFormState === 'submitting'}
+                          className="w-full py-4 bg-historic-sepia hover:bg-historic-sepia/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50"
                     >
-                      {formState === 'submitting' ? 'Wird gesendet...' : 'Interesse bekunden'}
+                          {julyFormState === 'submitting' ? 'Wird gesendet...' : 'Für Juli 2026 anmelden'}
                     </button>
 
                     <p className="font-mono text-xs text-gray-500 text-center">
@@ -418,6 +578,8 @@ export default function SnackHackathonPage() {
                 </CardContent>
               </Card>
             )}
+              </div>
+            </div>
           </div>
         </section>
 
