@@ -108,7 +108,7 @@ export default function ChallengesPage() {
                 🍿 Snack-Hackathons
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
-                {/* January 2026 Snack-Hackathon */}
+                {/* June 2026 Snack-Hackathon */}
                 <a
                   href="/snack-hackathon"
                   className="p-4 rounded-xl border-2 border-sihl-red/40 hover:border-sihl-red hover:bg-sihl-red/10 transition-all relative group"
@@ -119,14 +119,14 @@ export default function ChallengesPage() {
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">🍿</span>
                     <div>
-                      <div className="font-mono text-sm font-semibold text-brand-black">Januar 2026</div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">Juni 2026</div>
                       <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon</div>
                       <div className="font-mono text-[10px] text-sihl-red mt-1">Erster Pilot-Event →</div>
                     </div>
                   </div>
                 </a>
 
-                {/* April/Mai 2026 Snack-Hackathon (Historic) */}
+                {/* July 2026 Snack-Hackathon */}
                 <a
                   href="/snack-hackathon"
                   className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
@@ -137,7 +137,7 @@ export default function ChallengesPage() {
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">📜</span>
                     <div>
-                      <div className="font-mono text-sm font-semibold text-brand-black">April/Mai 2026</div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">Juli 2026</div>
                       <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon (Historic)</div>
                       <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
                     </div>

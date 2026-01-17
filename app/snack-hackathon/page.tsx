@@ -68,7 +68,7 @@ export default function SnackHackathonPage() {
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
               <div className="p-4 bg-white/5 rounded-xl">
                 <CalendarIcon className="w-6 h-6 mx-auto mb-2 text-thermal-orange" />
-                <div className="font-mono text-sm text-white">April/Mai 2026</div>
+                <div className="font-mono text-sm text-white">Juni/Juli 2026</div>
                 <div className="font-mono text-xs text-gray-400">Wochenende</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
@@ -358,7 +358,7 @@ export default function SnackHackathonPage() {
                   <span className="font-mono font-bold text-sihl-red">1</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Januar 2026: Snack-Hackathon</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Juni 2026: Snack-Hackathon</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Erster Pilot-Event: Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
                     Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
@@ -367,36 +367,11 @@ export default function SnackHackathonPage() {
               </div>
 
               <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-thermal-orange/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-thermal-orange">2</span>
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Februar 2026: Auswahl</h3>
-                  <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Wir schauen uns alle Anmeldungen an und wählen 30-40 Leute mit dem besten Skill-Mix aus.
-                    Hardware + Elektro + Software + Energie brauchen wir in Balance.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-compute-blue/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-compute-blue">3</span>
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">März 2026: Bestätigung</h3>
-                  <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Venue und exaktes Datum werden bekannt gegeben. Ausgewählte Teilnehmer bestätigen ihre Teilnahme.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-grid-green/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-grid-green">4</span>
+                  <span className="font-mono font-bold text-grid-green">2</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">April/Mai 2026: Snack-Hackathon (Historic)</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Juli 2026: Snack-Hackathon (Historic)</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
                     Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
@@ -407,7 +382,7 @@ export default function SnackHackathonPage() {
 
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-solar-yellow/10 flex items-center justify-center">
-                  <span className="font-mono font-bold text-solar-yellow">5</span>
+                  <span className="font-mono font-bold text-solar-yellow">3</span>
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
