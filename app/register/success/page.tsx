@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
+import { CheckCircleIcon } from '@heroicons/react/24/solid'
 
 export const metadata = {
   title: 'Anmeldung erfolgreich | sihlhack',
@@ -18,9 +19,7 @@ export default function RegisterSuccessPage() {
           </div>
 
           <div className="w-20 h-20 mx-auto bg-fund-green/10 rounded-full flex items-center justify-center">
-            <svg className="w-10 h-10 text-fund-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
+            <CheckCircleIcon className="w-10 h-10 text-fund-green" aria-hidden="true" />
           </div>
 
           <div>

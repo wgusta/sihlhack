@@ -1,6 +1,7 @@
 'use client'
 
 import { PRE_CHALLENGE } from '@/lib/roles'
+import { Icon } from '@/components/ui/Icon'
 
 export function PreChallengeSection() {
   return (
@@ -24,8 +25,9 @@ export function PreChallengeSection() {
           
           {/* Title with Icon */}
           <div className="relative inline-block mt-4">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black">
-              {PRE_CHALLENGE.icon} {PRE_CHALLENGE.nameDE}
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black flex items-center justify-center gap-2">
+              <Icon emoji={PRE_CHALLENGE.icon} size="xl" color="text-historic-sepia" />
+              {PRE_CHALLENGE.nameDE}
             </h2>
           </div>
           

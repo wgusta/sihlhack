@@ -2,6 +2,7 @@
 
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
 import { ResourceSubmissionForm } from './ResourceSubmissionForm'
+import { Icon } from '@/components/ui/Icon'
 
 type Package = typeof HACKATHON_PACKAGES[number]
 
@@ -33,7 +34,7 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
       <div className="p-6 border-b border-gray-100">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-4xl">{pkg.icon}</span>
+            <Icon emoji={pkg.icon} size="2xl" color={`text-${pkg.color}`} />
             <div>
               <h3 className="font-display text-xl font-bold text-brand-black">{pkg.nameDE}</h3>
               <p className="font-mono text-sm text-historic-sepia mt-1">{pkg.descriptionDE}</p>
@@ -166,7 +167,7 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
                       : 'bg-white/10 border border-white/20'
                   }`}
                 >
-                  <span className="text-lg">{role.icon}</span>
+                  <Icon emoji={role.icon} size="lg" className="text-white" />
                   <span className="font-mono text-xs text-white">{role.nameDE}</span>
                   <span className={`text-[10px] font-mono ${
                     member.priority === 'essential' ? 'text-grid-green' :
@@ -206,7 +207,9 @@ export function PackageCardCompact({ pkg }: { pkg: Package }) {
       className={`block p-4 rounded-xl border-2 ${colors} transition-all group`}
     >
       <div className="text-center">
-        <span className="text-3xl mb-2 block">{pkg.icon}</span>
+        <div className="mb-2 flex justify-center">
+          <Icon emoji={pkg.icon} size="xl" color={`text-${pkg.color}`} />
+        </div>
         <h3 className="font-display font-semibold text-brand-black text-sm">{pkg.nameDE}</h3>
         <span className={`inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-mono ${
           pkg.type === 'mandatory' ? 'bg-sihl-red text-white' : 'bg-gray-200 text-gray-600'

@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { Icon } from '@/components/ui/Icon'
 
 const timelineEvents = [
   {
@@ -112,8 +113,8 @@ export function EventTimeline() {
                   )}>
                     {event.date}
                   </span>
-                  <h3 className="font-display text-2xl font-bold text-brand-black">
-                    <span className="mr-2">{event.icon}</span>
+                  <h3 className="font-display text-2xl font-bold text-brand-black flex items-center gap-2">
+                    <Icon emoji={event.icon} size="lg" color="text-thermal-orange" />
                     {event.title}
                   </h3>
                   <p className="mt-2 text-historic-sepia font-mono text-sm">

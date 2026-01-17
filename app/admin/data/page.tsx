@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Icon } from '@/components/ui/Icon'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { useSearchParams } from 'next/navigation'
@@ -175,7 +176,7 @@ export default function AdminDataPage() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <span className="text-4xl">{type.icon}</span>
+                    <Icon emoji={type.icon} size="2xl" color="text-historic-sepia" />
                   )}
                   {isPending && (
                     <div className="absolute top-2 right-2 bg-amber-500 text-white text-xs px-2 py-1 rounded-full">
@@ -196,7 +197,7 @@ export default function AdminDataPage() {
                     </div>
 
                     <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <span>{type.icon}</span>
+                      <Icon emoji={type.icon} size="sm" color="text-historic-sepia" />
                       <span>{type.text}</span>
                       <span>•</span>
                       <span>{item.companyName || 'Unbekannt'}</span>

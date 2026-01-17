@@ -1,5 +1,13 @@
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { EmailCapture } from './EmailCapture'
+import {
+  WrenchIcon,
+  ComputerDesktopIcon,
+  ChartBarIcon,
+  ShieldCheckIcon,
+  CurrencyDollarIcon,
+  BoltIcon,
+} from '@heroicons/react/24/solid'
 
 export function CTASection() {
   return (
@@ -44,17 +52,17 @@ export function CTASection() {
           {/* What you'll build */}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-              <div className="text-3xl mb-2">🔧</div>
+              <WrenchIcon className="w-10 h-10 mb-2 text-thermal-orange" aria-hidden="true" />
               <div className="font-mono text-sm text-white">Sihlicon Core Modul</div>
               <div className="font-mono text-xs text-white/70">Immersionsgekühlte Server</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-              <div className="text-3xl mb-2">💻</div>
+              <ComputerDesktopIcon className="w-10 h-10 mb-2 text-compute-blue" aria-hidden="true" />
               <div className="font-mono text-sm text-white">Grid-OS Software</div>
               <div className="font-mono text-xs text-white/70">Solar-Watcher + Scheduler</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
-              <div className="text-3xl mb-2">📊</div>
+              <ChartBarIcon className="w-10 h-10 mb-2 text-grid-green" aria-hidden="true" />
               <div className="font-mono text-sm text-white">Monitoring-Dashboard</div>
               <div className="font-mono text-xs text-white/70">Echtzeit Energie + Compute</div>
             </div>
@@ -83,21 +91,15 @@ export function CTASection() {
           {/* Trust badges */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/80 font-mono text-xs sm:text-sm">
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+              <ShieldCheckIcon className="w-5 h-5 text-grid-green" aria-hidden="true" />
               <span>100% Open Source</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <CurrencyDollarIcon className="w-5 h-5 text-solar-yellow" aria-hidden="true" />
               <span>CHF 150 Teilnahme</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+              <BoltIcon className="w-5 h-5 text-compute-blue" aria-hidden="true" />
               <span>Echter Production-Deploy</span>
             </div>
           </div>

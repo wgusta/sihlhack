@@ -44,3 +44,6 @@ drizzle/meta/
 # Temporary
 *.tmp
 *.temp
+
+# Private Analysis Documents
+SIHLICON-MANUFACTURING-ANALYSIS.md

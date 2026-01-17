@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Header } from '@/components/layout/Header'
+import { Icon } from '@/components/ui/Icon'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
@@ -217,7 +218,7 @@ export default function AboutPage() {
                     }`}
                   >
                     <div className="flex items-start justify-between mb-3">
-                      <div className="text-3xl">{role.icon}</div>
+                      <Icon emoji={role.icon} size="xl" color={`text-${role.color}`} />
                       <div className={`text-xs font-mono text-gray-400 transition-all duration-300 ${
                         isExpanded ? 'rotate-180 text-thermal-orange' : 'group-hover:text-thermal-orange'
                       }`}>
@@ -302,7 +303,7 @@ export default function AboutPage() {
                   return (
                     <div key={pkg.id} className="bg-white/5 rounded-xl p-4">
                       <div className="text-center mb-4">
-                        <span className="text-2xl">{pkg.icon}</span>
+                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
                         <h4 className="font-mono text-sm font-bold text-white mt-2">{pkg.nameDE}</h4>
                       </div>
                       <div className="space-y-2">
@@ -318,7 +319,7 @@ export default function AboutPage() {
                                   : 'bg-white/5'
                               }`}
                             >
-                              <span className="text-sm">{role.icon}</span>
+                              <Icon emoji={role.icon} size="sm" className="text-white" />
                               <span className="font-mono text-[10px] text-white flex-1">{role.nameDE}</span>
                               <span className={`text-[8px] font-mono ${
                                 member.priority === 'essential' ? 'text-grid-green' : 'text-gray-500'

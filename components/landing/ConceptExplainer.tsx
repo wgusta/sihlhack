@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
+import { Icon } from '@/components/ui/Icon'
 
 const concepts = [
   {
@@ -53,7 +54,9 @@ export function ConceptExplainer() {
           {concepts.map((concept, index) => (
             <Card key={index} variant="historic" className="text-center">
               <CardHeader>
-                <div className="text-5xl mb-4">{concept.icon}</div>
+                <div className="mb-4 flex justify-center">
+                  <Icon emoji={concept.icon} size="3xl" color="text-industrial-gold" />
+                </div>
                 <CardTitle className="text-xl">{concept.title}</CardTitle>
               </CardHeader>
               <CardContent>

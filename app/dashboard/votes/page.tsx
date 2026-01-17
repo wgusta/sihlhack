@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useSession } from '@/hooks/useSession'
 import { Card, CardContent } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { CheckCircleIcon, CheckIcon } from '@heroicons/react/24/solid'
 import type { ProjectProposal } from '@/types/proposal'
 
 interface VotedProposal extends ProjectProposal {
@@ -61,9 +62,7 @@ export default function MyVotesPage() {
         <Card>
           <CardContent className="py-12 text-center">
             <div className="w-16 h-16 mx-auto bg-historic-cream rounded-full flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-historic-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+              <CheckCircleIcon className="w-8 h-8 text-historic-sepia" aria-hidden="true" />
             </div>
             <h3 className="font-display text-lg font-semibold text-brand-black">
               Noch keine Stimmen
@@ -83,9 +82,7 @@ export default function MyVotesPage() {
               <CardContent className="py-4">
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-fund-green/10 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-fund-green" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <CheckIcon className="w-5 h-5 text-fund-green" aria-hidden="true" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <Link

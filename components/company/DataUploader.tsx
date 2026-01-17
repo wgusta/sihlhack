@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { cn } from '@/lib/utils'
+import { CheckCircleIcon, ArrowUpTrayIcon } from '@heroicons/react/24/solid'
 
 const DATA_TYPES = [
   { value: 'photograph', label: 'Fotografie' },
@@ -139,9 +140,7 @@ export function DataUploader({ onUploadComplete }: DataUploaderProps) {
 
         {file ? (
           <div className="space-y-2">
-            <svg className="w-12 h-12 mx-auto text-fund-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
+            <CheckCircleIcon className="w-12 h-12 mx-auto text-fund-green" aria-hidden="true" />
             <p className="font-mono text-brand-black">{file.name}</p>
             <p className="text-sm font-mono text-historic-sepia">
               {(file.size / 1024 / 1024).toFixed(2)} MB
@@ -149,9 +148,7 @@ export function DataUploader({ onUploadComplete }: DataUploaderProps) {
           </div>
         ) : (
           <div className="space-y-2">
-            <svg className="w-12 h-12 mx-auto text-historic-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-            </svg>
+            <ArrowUpTrayIcon className="w-12 h-12 mx-auto text-historic-sepia" aria-hidden="true" />
             <p className="font-mono text-brand-black">
               Datei hier ablegen oder klicken zum Auswählen
             </p>

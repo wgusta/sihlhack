@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { EnvelopeIcon } from '@heroicons/react/24/solid'
 
 interface MagicLinkFormProps {
   redirectTo?: string
@@ -45,9 +46,7 @@ export function MagicLinkForm({ redirectTo, onSuccess }: MagicLinkFormProps) {
     return (
       <div className="text-center space-y-4">
         <div className="w-16 h-16 mx-auto bg-fund-green/10 rounded-full flex items-center justify-center">
-          <svg className="w-8 h-8 text-fund-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
+          <EnvelopeIcon className="w-8 h-8 text-fund-green" aria-hidden="true" />
         </div>
         <h3 className="font-display text-xl font-semibold text-brand-black">
           Prüfe dein Postfach

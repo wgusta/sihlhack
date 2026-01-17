@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { Icon } from '@/components/ui/Icon'
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PRE_CHALLENGE } from '@/lib/roles'
 import { PackageCard, PackageCardCompact } from '@/components/challenges/PackageCard'
 import { PreChallengeSection } from '@/components/challenges/PreChallengeSection'
@@ -116,7 +117,7 @@ export default function ChallengesPage() {
                   OPTIONAL
                 </div>
                 <div className="flex items-center gap-3 pt-2">
-                  <span className="text-3xl">{PRE_CHALLENGE.icon}</span>
+                  <Icon emoji={PRE_CHALLENGE.icon} size="xl" color="text-historic-sepia" />
                   <div>
                     <div className="font-mono text-sm font-semibold text-historic-sepia">Pre-Challenge</div>
                     <div className="font-accent text-xs text-historic-sepia/70">{PRE_CHALLENGE.nameDE}</div>
@@ -165,7 +166,9 @@ export default function ChallengesPage() {
                   <div className="absolute top-0 right-0 bg-red-500 text-white text-[8px] font-mono px-2 py-0.5 rounded-bl">
                     SELEKTION
                   </div>
-                  <span className="text-3xl mb-2 block">{TEAM_RED.icon}</span>
+                  <div className="mb-2 flex justify-center">
+                    <Icon emoji={TEAM_RED.icon} size="xl" color="text-sihl-red" />
+                  </div>
                   <span className="font-mono text-sm font-bold text-red-500 block">Team Red</span>
                   <span className="block font-mono text-[10px] text-red-400 mt-1">
                     {TEAM_RED.nameDE}
@@ -400,7 +403,10 @@ export default function ChallengesPage() {
                 ⚠ DANGER ZONE ⚠
               </span>
               <h2 className="font-display text-4xl sm:text-5xl font-bold text-red-500 mt-4">
-                {TEAM_RED.icon} {TEAM_RED.nameDE}
+                <span className="inline-flex items-center gap-2">
+                  <Icon emoji={TEAM_RED.icon} size="md" color="text-sihl-red" />
+                  {TEAM_RED.nameDE}
+                </span>
                         </h2>
               <p className="mt-4 text-gray-400 font-mono max-w-2xl mx-auto">
                 {TEAM_RED.description}
@@ -574,7 +580,7 @@ export default function ChallengesPage() {
                   {mandatoryPackages.map((pkg) => (
                     <div key={pkg.id} className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="text-xl">{pkg.icon}</span>
+                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
                         <span className="font-mono text-sm">{pkg.nameDE}</span>
                       </div>
                       <span className="font-mono text-sm text-historic-sepia">10-12 Teams</span>
@@ -592,7 +598,7 @@ export default function ChallengesPage() {
                   {mandatoryPackages.map((pkg) => (
                     <div key={pkg.id} className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="text-xl">{pkg.icon}</span>
+                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
                         <span className="font-mono text-sm">{pkg.nameDE}</span>
                       </div>
                       <span className="font-mono text-sm font-bold text-thermal-orange">{pkg.prizeShare}%</span>

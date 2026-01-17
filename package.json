@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/wgusta/sihlhack#readme",
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@stripe/stripe-js": "^8.6.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@vercel/blob": "^2.0.0",

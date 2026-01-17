@@ -1,11 +1,21 @@
 import { cn } from '@/lib/utils'
+import {
+  FireIcon,
+  HomeIcon,
+  WrenchIcon,
+  ComputerDesktopIcon,
+  ChartBarIcon,
+  BeakerIcon,
+  BookOpenIcon,
+  RocketLaunchIcon,
+} from '@heroicons/react/24/solid'
 
 // The tech stack pillars we're building
 const techPillars = [
   {
     id: 'hardware',
     label: 'Hardware',
-    icon: '🔧',
+    icon: WrenchIcon,
     color: 'thermal-orange',
     description: 'Immersionsgekühlte Server-Module',
     features: [
@@ -18,7 +28,7 @@ const techPillars = [
   {
     id: 'software',
     label: 'Grid-OS',
-    icon: '💻',
+    icon: ComputerDesktopIcon,
     color: 'compute-blue',
     description: 'Intelligente Laststeuerung',
     features: [
@@ -31,7 +41,7 @@ const techPillars = [
   {
     id: 'dashboard',
     label: 'Dashboard',
-    icon: '📊',
+    icon: ChartBarIcon,
     color: 'grid-green',
     description: 'Echtzeit-Monitoring',
     features: [
@@ -65,7 +75,7 @@ export function DataRevealSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
             {/* Problem */}
             <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-6 text-center">
-              <div className="text-3xl mb-3">🔥</div>
+              <FireIcon className="w-12 h-12 mx-auto mb-3 text-thermal-orange" aria-hidden="true" />
               <h3 className="font-mono text-red-400 font-semibold mb-2">Heute</h3>
               <p className="text-sm text-gray-400 font-mono">
                 Server verschwenden Wärme. Häuser brauchen Gas. Solar wird verschenkt.
@@ -82,7 +92,7 @@ export function DataRevealSection() {
 
             {/* Solution */}
             <div className="bg-grid-green/20 border border-grid-green/30 rounded-xl p-6 text-center">
-              <div className="text-3xl mb-3">🏠</div>
+              <HomeIcon className="w-12 h-12 mx-auto mb-3 text-grid-green" aria-hidden="true" />
               <h3 className="font-mono text-grid-green font-semibold mb-2">Sihlicon</h3>
               <p className="text-sm text-gray-400 font-mono">
                 Server heizen Häuser. Solar powert Compute. Wärme ist das Produkt.
@@ -101,7 +111,20 @@ export function DataRevealSection() {
                 "bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10"
               )}
             >
-              <div className="text-4xl mb-4">{pillar.icon}</div>
+              {(() => {
+                const IconComponent = pillar.icon
+                return (
+                  <IconComponent
+                    className={cn(
+                      "w-12 h-12 mb-4",
+                      pillar.color === 'thermal-orange' && "text-thermal-orange",
+                      pillar.color === 'compute-blue' && "text-compute-blue",
+                      pillar.color === 'grid-green' && "text-grid-green",
+                    )}
+                    aria-hidden="true"
+                  />
+                )
+              })()}
               <h3 className={cn(
                 "font-mono text-lg font-semibold mb-2",
                 pillar.color === 'thermal-orange' && "text-thermal-orange",
@@ -162,29 +185,34 @@ export function DataRevealSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: '🔬',
+                icon: BeakerIcon,
                 title: 'Echte Hardware',
                 description: 'Server, GPUs, Immersionstanks, Wärmetauscher. Alles zum Anfassen und Zusammenbauen.',
+                color: 'text-insight-cyan',
               },
               {
-                icon: '📖',
+                icon: BookOpenIcon,
                 title: 'Open Source',
                 description: 'Alles unter Apache 2.0. Hardware-Schematics, Software, Dokumentation. Replizierbar.',
+                color: 'text-grid-green',
               },
               {
-                icon: '🚀',
+                icon: RocketLaunchIcon,
                 title: 'Echter Deploy',
                 description: 'Der beste Prototyp wird in einer echten LEG installiert. Nicht nur ein Demo.',
+                color: 'text-compute-blue',
               },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "p-6 rounded-xl border transition-all duration-300",
-                  "bg-white/5 border-white/10 hover:border-thermal-orange/50 hover:bg-white/10"
-                )}
-              >
-                <div className="text-3xl mb-3">{item.icon}</div>
+            ].map((item, index) => {
+              const IconComponent = item.icon
+              return (
+                <div
+                  key={index}
+                  className={cn(
+                    "p-6 rounded-xl border transition-all duration-300",
+                    "bg-white/5 border-white/10 hover:border-thermal-orange/50 hover:bg-white/10"
+                  )}
+                >
+                  <IconComponent className={cn("w-10 h-10 mb-3", item.color)} aria-hidden="true" />
                 <h3 className="font-display text-lg font-semibold text-white mb-2">
                   {item.title}
                 </h3>
@@ -192,7 +220,8 @@ export function DataRevealSection() {
                   {item.description}
                 </p>
               </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* Engineer CTA */}

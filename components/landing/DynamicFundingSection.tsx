@@ -1,4 +1,16 @@
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import { cn } from '@/lib/utils'
+import {
+  BuildingOfficeIcon,
+  ClipboardDocumentListIcon,
+  GiftIcon,
+  TrashIcon,
+  WrenchIcon,
+  HomeIcon,
+  BookOpenIcon,
+  RocketLaunchIcon,
+  CheckCircleIcon,
+} from '@heroicons/react/24/solid'
 
 export function DynamicFundingSection() {
   return (
@@ -29,16 +41,19 @@ export function DynamicFundingSection() {
             </div>
             <ul className="space-y-4">
               {[
-                { icon: '🏢', text: 'Sponsor will Recruiting betreiben' },
-                { icon: '📋', text: '"Löse unser Problem gratis"' },
-                { icon: '🎁', text: 'Preisgeld kauft kein Deployment' },
-                { icon: '🗑️', text: 'Projekte sterben nach dem Demo' },
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-historic-sepia font-mono text-sm">
-                  <span className="text-xl opacity-50">{item.icon}</span>
-                  <span>{item.text}</span>
-                </li>
-              ))}
+                { icon: BuildingOfficeIcon, text: 'Sponsor will Recruiting betreiben', color: 'text-historic-sepia opacity-50' },
+                { icon: ClipboardDocumentListIcon, text: '"Löse unser Problem gratis"', color: 'text-historic-sepia opacity-50' },
+                { icon: GiftIcon, text: 'Preisgeld kauft kein Deployment', color: 'text-historic-sepia opacity-50' },
+                { icon: TrashIcon, text: 'Projekte sterben nach dem Demo', color: 'text-historic-sepia opacity-50' },
+              ].map((item, i) => {
+                const IconComponent = item.icon
+                return (
+                  <li key={i} className="flex items-center gap-3 text-historic-sepia font-mono text-sm">
+                    <IconComponent className={cn('w-5 h-5', item.color)} aria-hidden="true" />
+                    <span>{item.text}</span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
 
@@ -51,16 +66,19 @@ export function DynamicFundingSection() {
             </div>
             <ul className="space-y-4">
               {[
-                { icon: '🔧', text: 'Echte Hardware zum Anfassen' },
-                { icon: '🏠', text: <>Echter Deployment-Standort (<a href="/leg" className="text-sihl-red hover:underline">LEG</a>)</> },
-                { icon: '📖', text: '100% Open Source, du behältst alles' },
-                { icon: '🚀', text: 'Prototyp läuft nach dem Hackathon weiter' },
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-gray-300 font-mono text-sm">
-                  <span className="text-xl">{item.icon}</span>
-                  <span>{item.text}</span>
-                </li>
-              ))}
+                { icon: WrenchIcon, text: 'Echte Hardware zum Anfassen', color: 'text-thermal-orange' },
+                { icon: HomeIcon, text: <>Echter Deployment-Standort (<a href="/leg" className="text-sihl-red hover:underline">LEG</a>)</>, color: 'text-grid-green' },
+                { icon: BookOpenIcon, text: '100% Open Source, du behältst alles', color: 'text-grid-green' },
+                { icon: RocketLaunchIcon, text: 'Prototyp läuft nach dem Hackathon weiter', color: 'text-compute-blue' },
+              ].map((item, i) => {
+                const IconComponent = item.icon
+                return (
+                  <li key={i} className="flex items-center gap-3 text-gray-300 font-mono text-sm">
+                    <IconComponent className={cn('w-5 h-5', item.color)} aria-hidden="true" />
+                    <span>{item.text}</span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
@@ -110,10 +128,10 @@ export function DynamicFundingSection() {
             {/* After */}
             <div className="mt-8 pt-8 border-t border-gray-200 text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-grid-green/10 rounded-full">
-                <span className="text-grid-green">✓</span>
+                <CheckCircleIcon className="w-5 h-5 text-grid-green" aria-hidden="true" />
                 <span className="font-mono text-sm text-historic-sepia">
                   <strong>Danach:</strong> Der beste Prototyp wird in einer echten <a href="/leg" className="text-sihl-red hover:underline">LEG</a> deployed
-              </span>
+                </span>
               </div>
             </div>
           </div>

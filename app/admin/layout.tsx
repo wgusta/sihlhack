@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Logo } from '@/components/ui/Logo'
+import { Icon } from '@/components/ui/Icon'
 
 const ADMIN_EMAILS = ['admin@sihlhack.ch', 'gusta@sihlhack.ch']
 
@@ -88,7 +89,7 @@ export default function AdminLayout({
                     : 'text-gray-700 hover:bg-gray-100'
                 )}
               >
-                <span>{item.icon}</span>
+                <Icon emoji={item.icon} size="md" className={pathname === item.href ? 'text-white' : 'text-gray-700'} />
                 {item.label}
               </Link>
             ))}

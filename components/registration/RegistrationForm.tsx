@@ -9,6 +9,7 @@ import { TermsCheckbox } from './TermsCheckbox'
 import { formatCHF } from '@/lib/utils'
 import { HACKATHON_ROLES, SKILL_TAGS } from '@/lib/roles'
 import { cn } from '@/lib/utils'
+import { Icon } from '@/components/ui/Icon'
 
 const REGISTRATION_FEE = 15000 // CHF 150 in centimes
 
@@ -246,7 +247,7 @@ export function RegistrationForm() {
                   )}
                 >
                   <div className="flex items-center gap-2">
-                    <span className="text-xl">{role.icon}</span>
+                    <Icon emoji={role.icon} size="lg" color={`text-${role.color}`} />
                     <span className="font-mono text-sm font-medium text-brand-black">
                       {role.nameDE}
                     </span>
@@ -269,7 +270,7 @@ export function RegistrationForm() {
               <option value="">Keine sekundäre Rolle</option>
               {HACKATHON_ROLES.filter(r => r.id !== formData.primaryRole).map((role) => (
                 <option key={role.id} value={role.id}>
-                  {role.icon} {role.nameDE}
+                  {role.nameDE}
                 </option>
               ))}
             </select>
@@ -405,16 +406,24 @@ export function RegistrationForm() {
               <div className="flex justify-between items-center">
                 <span className="text-historic-sepia">Hauptrolle</span>
                 <span className="text-brand-black flex items-center gap-1">
-                  {HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.icon}
-                  {HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.nameDE}
+                  {formData.primaryRole && (
+                    <>
+                      <Icon emoji={HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.icon || ''} size="md" color={`text-${HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.color || 'brand-black'}`} />
+                      {HACKATHON_ROLES.find(r => r.id === formData.primaryRole)?.nameDE}
+                    </>
+                  )}
                 </span>
               </div>
               {formData.secondaryRole && (
                 <div className="flex justify-between items-center">
                   <span className="text-historic-sepia">Sekundär</span>
                   <span className="text-brand-black flex items-center gap-1">
-                    {HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.icon}
-                    {HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.nameDE}
+                    {formData.secondaryRole && (
+                      <>
+                        <Icon emoji={HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.icon || ''} size="md" color={`text-${HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.color || 'brand-black'}`} />
+                        {HACKATHON_ROLES.find(r => r.id === formData.secondaryRole)?.nameDE}
+                      </>
+                    )}
                   </span>
                 </div>
               )}

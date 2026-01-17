@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
 const faqs = [
   {
@@ -101,19 +102,7 @@ export function FAQSection() {
                     openIndex === index && "rotate-180"
                   )}
                 >
-                  <svg
-                    className="w-4 h-4 text-gray-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  <ChevronDownIcon className="w-4 h-4 text-gray-600" aria-hidden="true" />
                 </span>
               </button>
               <div

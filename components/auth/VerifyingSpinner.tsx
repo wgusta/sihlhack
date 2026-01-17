@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { XMarkIcon, ArrowPathIcon } from '@heroicons/react/24/solid'
 
 export function VerifyingSpinner() {
   const router = useRouter()
@@ -43,9 +44,7 @@ export function VerifyingSpinner() {
     return (
       <div className="text-center space-y-4">
         <div className="w-16 h-16 mx-auto bg-sihl-red/10 rounded-full flex items-center justify-center">
-          <svg className="w-8 h-8 text-sihl-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <XMarkIcon className="w-8 h-8 text-sihl-red" aria-hidden="true" />
         </div>
         <h3 className="font-display text-xl font-semibold text-brand-black">
           Verifizierung fehlgeschlagen
@@ -63,9 +62,8 @@ export function VerifyingSpinner() {
 
   return (
     <div className="text-center space-y-4">
-      <div className="w-16 h-16 mx-auto relative">
-        <div className="absolute inset-0 border-4 border-historic-cream rounded-full" />
-        <div className="absolute inset-0 border-4 border-sihl-red rounded-full border-t-transparent animate-spin" />
+      <div className="w-16 h-16 mx-auto">
+        <ArrowPathIcon className="w-16 h-16 text-sihl-red animate-spin" aria-hidden="true" />
       </div>
       <h3 className="font-display text-xl font-semibold text-brand-black">
         Anmeldung wird verifiziert...

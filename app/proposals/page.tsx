@@ -7,6 +7,7 @@ import { ProposalCard } from '@/components/proposals/ProposalCard'
 import { FilterBar } from '@/components/proposals/FilterBar'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Header } from '@/components/layout/Header'
+import { DocumentTextIcon } from '@heroicons/react/24/solid'
 import { Footer } from '@/components/layout/Footer'
 
 export default function ProposalsPage() {
@@ -68,9 +69,7 @@ export default function ProposalsPage() {
           ) : proposals.length === 0 ? (
             <div className="text-center py-12">
               <div className="w-16 h-16 mx-auto bg-historic-cream rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-historic-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+                <DocumentTextIcon className="w-8 h-8 text-historic-sepia" aria-hidden="true" />
               </div>
               <h3 className="font-display text-lg font-semibold text-brand-black">
                 Keine Projekte gefunden

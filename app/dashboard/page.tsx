@@ -5,6 +5,12 @@ import { useSession } from '@/hooks/useSession'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Badge } from '@/components/ui/Badge'
+import {
+  PlusIcon,
+  ClipboardDocumentListIcon,
+  CircleStackIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/24/solid'
 
 export default function DashboardPage() {
   const { user } = useSession()
@@ -60,9 +66,7 @@ export default function DashboardPage() {
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <div className="w-12 h-12 mx-auto bg-sihl-red/10 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-sihl-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
+                <PlusIcon className="w-6 h-6 text-sihl-red" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-brand-black">Projekt vorschlagen</h3>
@@ -81,9 +85,7 @@ export default function DashboardPage() {
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <div className="w-12 h-12 mx-auto bg-industrial-gold/10 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-industrial-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
+                <ClipboardDocumentListIcon className="w-6 h-6 text-industrial-gold" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-brand-black">Projekte entdecken</h3>
@@ -102,9 +104,7 @@ export default function DashboardPage() {
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <div className="w-12 h-12 mx-auto bg-insight-cyan/10 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-insight-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+                <CircleStackIcon className="w-6 h-6 text-insight-cyan" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-display font-semibold text-brand-black">Daten entdecken</h3>
@@ -125,9 +125,7 @@ export default function DashboardPage() {
         <CardContent className="pt-6">
           <div className="flex items-start gap-4">
             <div className="flex-shrink-0">
-              <svg className="w-6 h-6 text-industrial-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <InformationCircleIcon className="w-6 h-6 text-industrial-gold" aria-hidden="true" />
             </div>
             <div>
               <h3 className="font-display font-semibold text-brand-black">So funktioniert sihlhack</h3>

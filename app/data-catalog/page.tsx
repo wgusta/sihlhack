@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import useSWR from 'swr'
 import { Header } from '@/components/layout/Header'
+import { CircleStackIcon } from '@heroicons/react/24/solid'
 import { Footer } from '@/components/layout/Footer'
 import { HistoricCard } from '@/components/data/HistoricCard'
 import { DataFilterBar } from '@/components/data/DataFilterBar'
@@ -74,9 +75,7 @@ export default function DataCatalogPage() {
           ) : items.length === 0 ? (
             <div className="text-center py-16">
               <div className="w-20 h-20 mx-auto bg-historic-cream rounded-full flex items-center justify-center mb-4">
-                <svg className="w-10 h-10 text-historic-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+                <CircleStackIcon className="w-10 h-10 text-historic-sepia" aria-hidden="true" />
               </div>
               <h2 className="font-display text-xl font-semibold text-brand-black">
                 Noch keine Daten verfügbar
