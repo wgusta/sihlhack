@@ -102,7 +102,51 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Snack-Hackathon - Pre-Challenge */}
+            {/* Snack-Hackathons */}
+            <div className="mb-6">
+              <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
+                🍿 Snack-Hackathons
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
+                {/* January 2026 Snack-Hackathon */}
+                <a
+                  href="/snack-hackathon"
+                  className="p-4 rounded-xl border-2 border-sihl-red/40 hover:border-sihl-red hover:bg-sihl-red/10 transition-all relative group"
+                >
+                  <div className="absolute -top-2 -right-2 bg-sihl-red text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
+                    🍿 Pilot #1
+                  </div>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="text-2xl">🍿</span>
+                    <div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">Januar 2026</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon</div>
+                      <div className="font-mono text-[10px] text-sihl-red mt-1">Erster Pilot-Event →</div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* April/Mai 2026 Snack-Hackathon (Historic) */}
+                <a
+                  href="/snack-hackathon"
+                  className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
+                >
+                  <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
+                    🍿 Pilot #2
+                  </div>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="text-2xl">📜</span>
+                    <div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">April/Mai 2026</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon (Historic)</div>
+                      <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Pre-Challenge */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
                 Pre-Challenge
@@ -112,10 +156,6 @@ export default function ChallengesPage() {
                   href="#pre-challenge"
                   className="p-4 rounded-xl border-2 border-dashed border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group max-w-xs w-full"
                 >
-                  {/* Snack-Hackathon Label */}
-                  <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
-                    🍿 Snack-Hackathon
-                  </div>
                   {/* Optional Badge */}
                   <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
                     OPTIONAL
