@@ -1,5 +1,3 @@
-'use client'
-
 export function EndgameSection() {
   return (
     <section className="py-24 bg-gradient-to-br from-brand-black via-[#0a0a0a] to-compute-blue/20">

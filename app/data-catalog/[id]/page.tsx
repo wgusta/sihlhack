@@ -1,8 +1,4 @@
-'use client'
-
-import { use } from 'react'
 import Link from 'next/link'
-import useSWR from 'swr'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent } from '@/components/ui/Card'
@@ -10,7 +6,7 @@ import { Badge } from '@/components/ui/Badge'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { formatDate } from '@/lib/utils'
 import { db, historicalData, companies } from '@/lib/db'
-import { eq } from 'drizzle-orm'
+import { and, eq, isNotNull } from 'drizzle-orm'
 
 const DATA_TYPE_LABELS: Record<string, string> = {
   photograph: 'Fotografie',
@@ -21,31 +17,35 @@ const DATA_TYPE_LABELS: Record<string, string> = {
 }
 
 interface DataDetailPageProps {
-  params: Promise<{ id: string }>
+  params: { id: string }
 }
 
-// This would normally be fetched via API, but for simplicity using client-side fetch
-const fetcher = (url: string) => fetch(url).then(res => res.json())
+export default async function DataDetailPage({ params }: DataDetailPageProps) {
+  const { id } = params
 
-export default function DataDetailPage({ params }: DataDetailPageProps) {
-  const { id } = use(params)
-
-  // Note: In production, create a dedicated API endpoint for this
-  // For now, redirect to catalog if data not available
-  const { data: catalogData, isLoading } = useSWR(
-    `/api/data-catalog`,
-    fetcher
-  )
-
-  const item = catalogData?.data?.find((d: { id: string }) => d.id === id)
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-off-white flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-historic-cream border-t-sihl-red rounded-full animate-spin" />
-      </div>
+  const [item] = await db
+    .select({
+      id: historicalData.id,
+      title: historicalData.title,
+      description: historicalData.description,
+      dataType: historicalData.dataType,
+      blobUrl: historicalData.blobUrl,
+      thumbnailUrl: historicalData.thumbnailUrl,
+      ocrStatus: historicalData.ocrStatus,
+      ocrText: historicalData.ocrText,
+      createdAt: historicalData.createdAt,
+      companyName: companies.name,
+      historicalPeriod: companies.historicalPeriod,
+    })
+    .from(historicalData)
+    .leftJoin(companies, eq(historicalData.companyId, companies.id))
+    .where(
+      and(
+        eq(historicalData.id, id),
+        isNotNull(historicalData.approvedAt)
+      )
     )
-  }
+    .limit(1)
 
   if (!item) {
     return (

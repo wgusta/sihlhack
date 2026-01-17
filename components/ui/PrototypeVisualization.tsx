@@ -1,5 +1,3 @@
-'use client'
-
 export function PrototypeVisualization() {
   return (
     <div className="relative w-full max-w-5xl mx-auto">

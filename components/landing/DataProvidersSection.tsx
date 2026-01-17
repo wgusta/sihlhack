@@ -1,5 +1,3 @@
-'use client'
-
 export function DataProvidersSection() {
   return (
     <section className="py-24 bg-off-white">
