@@ -410,7 +410,7 @@ export default function ChallengesPage() {
                           <p className="text-xs font-mono text-sihl-red font-semibold mb-1">⚠️ Spezifische Risiken:</p>
                           <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                             <li>• Öl-Leckage: Umweltverschmutzung, Rutschgefahr</li>
-                            <li>• Brandrisiko: Öl ist brennbar (Flashpoint >200°C)</li>
+                            <li>• Brandrisiko: Öl ist brennbar (Flashpoint &gt;200°C)</li>
                             <li>• Öl-Dämpfe: Gesundheitsrisiko bei Einatmung</li>
                           </ul>
                           <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>

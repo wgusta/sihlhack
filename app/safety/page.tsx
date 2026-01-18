@@ -661,7 +661,7 @@ export default function SafetyPage() {
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-sihl-red mt-0.5">⚠</span>
-                          <span><strong>Brandrisiko:</strong> Öl hat Flashpoint >200°C, aber ist brennbar. Bei Überhitzung oder externer Zündquelle kann Öl Feuer fangen.</span>
+                          <span><strong>Brandrisiko:</strong> Öl hat Flashpoint &gt;200°C, aber ist brennbar. Bei Überhitzung oder externer Zündquelle kann Öl Feuer fangen.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-sihl-red mt-0.5">⚠</span>
