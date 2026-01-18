@@ -251,7 +251,7 @@ export default function SecurityAnalysisPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Alle Teilnehmer müssen vor dem Event ein Online-Sicherheitstraining absolvieren und eine Zertifizierungsprüfung bestehen (80% Bestehensquote). 
+                    Alle Teilnehmende müssen vor dem Event ein Online-Sicherheitstraining absolvieren und eine Zertifizierungsprüfung bestehen (80% Bestehensquote). 
                     Vor Ort gibt es einen kurzen Refresher. Keine Teilnahme ohne Zertifizierung.
                   </p>
                 </CardContent>
@@ -334,7 +334,7 @@ export default function SecurityAnalysisPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-gray-300">
-                    Organisationsstruktur zur Gewährleistung der Teilnehmersicherheit.
+                    Organisationsstruktur zur Gewährleistung der Sicherheit der Teilnehmenden.
                   </p>
                 </CardContent>
               </Card>

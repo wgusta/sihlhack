@@ -173,7 +173,7 @@ export default function LicensingPage() {
                 <div className="space-y-4 font-mono text-sm text-historic-sepia">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-grid-green/10 rounded-lg p-4">
-                      <p className="font-semibold text-brand-black mb-2">Für Teilnehmer</p>
+                      <p className="font-semibold text-brand-black mb-2">Für Teilnehmende</p>
                       <ul className="space-y-1 text-xs">
                         <li>✓ Du behältst alle Rechte an deinem Code</li>
                         <li>✓ Du bist geschützt vor Waffenisierung durch "Energy Grifter"</li>
@@ -229,7 +229,7 @@ export default function LicensingPage() {
                   nicht es destabilisieren.
                 </p>
                 <p className="pt-4 border-t border-gray-200 text-xs italic">
-                  Gute Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
+                  Gute Ingenieurinnen und Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
                 </p>
               </div>
               </CardContent>

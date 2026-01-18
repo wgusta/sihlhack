@@ -183,13 +183,13 @@ export default function AdminConfigPage() {
         {/* Participant Limits */}
         <Card>
           <CardHeader>
-            <CardTitle>Teilnehmerlimits</CardTitle>
+            <CardTitle>Teilnehmenden-Limits</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Minimum Teilnehmer
+                  Minimum Teilnehmende
                 </label>
                 <input
                   type="number"
@@ -204,7 +204,7 @@ export default function AdminConfigPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Maximum Teilnehmer
+                  Maximum Teilnehmende
                 </label>
                 <input
                   type="number"
@@ -261,7 +261,7 @@ export default function AdminConfigPage() {
               <div>
                 <p className="font-medium text-brand-black">Registrierung offen</p>
                 <p className="text-sm text-gray-500">
-                  Erlaubt neue Teilnehmerregistrierungen.
+                  Erlaubt neue Registrierungen von Teilnehmenden.
                 </p>
               </div>
               <div

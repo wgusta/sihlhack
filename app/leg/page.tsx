@@ -193,7 +193,7 @@ export default function LEGPage() {
                   <CardTitle className="text-xl text-thermal-orange">2. Metering & Billing Overhead</CardTitle>
                 </CardHeader>
                 <CardContent className="font-mono text-sm space-y-3">
-                  <p><strong>Problem:</strong> LEGs brauchen <strong>intelligente Messsysteme</strong> (Smart Meters) für jeden Teilnehmer + zentrale Steuerung.</p>
+                  <p><strong>Problem:</strong> LEGs brauchen <strong>intelligente Messsysteme</strong> (Smart Meters) für jede Teilnehmende + zentrale Steuerung.</p>
                   <ul className="list-disc list-inside space-y-2 ml-4 text-xs">
                     <li><strong>Setup-Kosten:</strong> CHF 500–2'000 pro Zähler + jährliche Abrechnungssoftware</li>
                     <li><strong>Betreiberpflicht:</strong> LEGs müssen einen <em>Messstellenbetreiber</em> beauftragen (oft der Netzbetreiber selbst → Interessenkonflikt)</li>
@@ -254,7 +254,7 @@ export default function LEGPage() {
                   <p><strong>Warum es klappt:</strong></p>
                   <ul className="list-disc list-inside space-y-1 ml-4 text-xs">
                     <li>Keine Governance-Konflikte (zentraler Owner)</li>
-                    <li>Economies of Scale (viele Teilnehmer)</li>
+                    <li>Economies of Scale (viele Teilnehmende)</li>
                     <li>Professionelles Management</li>
                   </ul>
                   <p className="text-grid-green text-xs pt-2"><strong>Status:</strong> Bewährt, &gt;1000 LEGs in der Schweiz</p>
@@ -410,7 +410,7 @@ export default function LEGPage() {
                 <CardContent className="text-sm font-mono space-y-2">
                   <p><strong>1. Governance klären:</strong> <em>Vor</em> technischer Planung: wer entscheidet was?</p>
                   <p><strong>2. Netzbetreiber frühzeitig einbinden:</strong> Vorabklärung zu Anschlussbedingungen</p>
-                  <p><strong>3. Professionelle Begleitung:</strong> Energieberater mit LEG-Erfahrung beauftragen</p>
+                  <p><strong>3. Professionelle Begleitung:</strong> Energieberaterinnen oder Energieberater mit LEG-Erfahrung beauftragen</p>
                   <p><strong>4. Skalierbarkeit einplanen:</strong> System so bauen, dass Erweiterung möglich ist</p>
                 </CardContent>
               </Card>

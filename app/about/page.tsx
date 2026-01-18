@@ -27,7 +27,7 @@ export default function AboutPage() {
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              100 Teilnehmer, 20 Teams, 3 Pflicht-Pakete.
+              100 Teilnehmende, 20 Teams, 3 Pflicht-Pakete.
               Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
             </p>
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
             <div className="mt-8 grid grid-cols-4 gap-4 max-w-lg mx-auto">
               <div className="p-3 bg-white/5 rounded-xl">
                 <div className="font-mono text-2xl font-bold text-thermal-orange">100</div>
-                <div className="font-mono text-[10px] text-gray-400">Teilnehmer</div>
+                <div className="font-mono text-[10px] text-gray-400">Teilnehmende</div>
               </div>
               <div className="p-3 bg-white/5 rounded-xl">
                 <div className="font-mono text-2xl font-bold text-compute-blue">20</div>
@@ -203,10 +203,10 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
                 Erfolgreiche Teams brauchen verschiedene Expertisen.
-                Hardware-Hacker arbeiten mit Grid-Devs, Rechtsexperten mit Designern.
+                Hardware Engineers arbeiten mit Grid-OS Developers, Legal Experts mit Designers.
               </p>
               <p className="mt-2 text-sm text-historic-sepia font-mono max-w-2xl mx-auto">
-                Auch ohne qualifizierte Kenntnisse können Teilnehmerinnen sich für eine Rolle anmelden. 
+                Auch ohne qualifizierte Kenntnisse können Teilnehmende sich für eine Rolle anmelden. 
                 <strong className="text-brand-black"> klick auf die Karte</strong> um herauszufinden, was es benötigt.
               </p>
             </div>
@@ -435,7 +435,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>Teilnehmerverträge (Producer/Consumer)</span>
+                      <span>Verträge zwischen Teilnehmenden (Producer/Consumer)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
@@ -565,11 +565,11 @@ export default function AboutPage() {
                 </h3>
                 <div className="space-y-3 text-sm font-mono text-gray-300">
                   <p>
-                    <strong className="text-white">Grundprinzip:</strong> Alle Teilnehmer behalten die vollen Rechte an ihren Beiträgen.
+                    <strong className="text-white">Grundprinzip:</strong> Alle Teilnehmende behalten die vollen Rechte an ihren Beiträgen.
                   </p>
                   <p>
                     Gemäss <strong className="text-white">Art. 2 URG</strong> (Schweizer Urheberrechtsgesetz) entstehen Urheberrechte automatisch bei der Schöpfung eines Werks. 
-                    Du als Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
+                    Du als Entwicklerin oder Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
                   </p>
                   <p>
                     sihlhack verwendet ein <strong className="text-thermal-orange">Dual-Lizenz-Modell</strong>: 
@@ -685,7 +685,7 @@ export default function AboutPage() {
                     <strong className="text-white">Wir bauen Denker, die heizen – nicht Heizungen, die denken.</strong>
                   </p>
                   <p className="pt-2 border-t border-white/10 text-xs text-gray-400 italic">
-                    Gute Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
+                      Gute Ingenieurinnen und Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
                   </p>
                 </div>
               </div>
@@ -792,7 +792,7 @@ export default function AboutPage() {
               {[
                 {
                   q: 'Brauche ich Programmierkenntnisse?',
-                  a: 'Nicht unbedingt. Wir brauchen Hardware-Engineers, Rechtsexperten, Designer genauso wie Software-Devs. Wähle bei der Anmeldung deine Rolle.',
+                  a: 'Nicht unbedingt. Wir brauchen Hardware Engineers, Legal Experts, Designer genauso wie Software Developers. Wähle bei der Anmeldung deine Rolle.',
                 },
                 {
                   q: 'Was passiert mit dem Prototyp nach dem Hackathon?',

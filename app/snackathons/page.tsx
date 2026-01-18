@@ -5,8 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { HACKATHON_ROLES } from '@/lib/roles'
-import { PreChallengeSection } from '@/components/challenges/PreChallengeSection'
+import { HACKATHON_ROLES, PRE_CHALLENGE } from '@/lib/roles'
 import {
   CalendarIcon,
   ClockIcon,
@@ -18,42 +17,82 @@ import {
   WrenchIcon,
 } from '@heroicons/react/24/solid'
 
+// Snackathon definitions
+const SNACKATHONS = [
+  {
+    id: 'april-2026',
+    name: 'April 2026',
+    subtitle: 'Sihl-Sim API',
+    icon: '🍿',
+    badge: 'Pilot #1',
+    badgeColor: 'sihl-red',
+    date: 'April 2026',
+    duration: '18 Stunden Hackathon',
+    participants: '10-20 Teilnehmende',
+    location: 'Zürich (Ort folgt)',
+    description: 'Erster Pilot-Event: Wir bauen den Sihl-Sim (Digital Twin API) mit einer kleinen Gruppe von Pionieren.',
+  },
+  {
+    id: 'mai-2026',
+    name: 'Mai 2026',
+    subtitle: 'Sihl-Sim API (Iteration)',
+    icon: '🍿',
+    badge: 'Pilot #2',
+    badgeColor: 'historic-sepia',
+    date: 'Mai 2026',
+    duration: '18 Stunden Hackathon',
+    participants: '10-20 Teilnehmende',
+    location: 'Zürich (Ort folgt)',
+    description: 'Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons. Finalisierung des Sihl-Sim APIs.',
+  },
+  {
+    id: 'historik-hack',
+    name: 'Historik Hack',
+    subtitle: 'Historisches Archiv',
+    icon: '📜',
+    badge: 'Pre-Challenge',
+    badgeColor: 'historic-sepia',
+    date: '2-4 Wochen vor Event',
+    duration: 'Online, Asynchron',
+    participants: 'Unbegrenzt',
+    location: 'Online',
+    description: PRE_CHALLENGE.description,
+  },
+] as const
+
 export default function SnackathonsPage() {
-  const [juneFormState, setJuneFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [julyFormState, setJulyFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [juneFormData, setJuneFormData] = useState({
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     role: '',
     experience: '',
     motivation: '',
-  })
-  const [julyFormData, setJulyFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    role: '',
-    experience: '',
-    motivation: '',
+    selectedSnackathons: [] as string[],
   })
 
-  const handleJuneSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setJuneFormState('submitting')
+    
+    if (formData.selectedSnackathons.length === 0) {
+      return
+    }
+    
+    setFormState('submitting')
 
     // For now, just simulate success (connect to actual API later)
     await new Promise(resolve => setTimeout(resolve, 1000))
-    setJuneFormState('success')
+    setFormState('success')
   }
 
-  const handleJulySubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setJulyFormState('submitting')
-
-    // For now, just simulate success (connect to actual API later)
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setJulyFormState('success')
+  const toggleSnackathon = (id: string) => {
+    setFormData(prev => ({
+      ...prev,
+      selectedSnackathons: prev.selectedSnackathons.includes(id)
+        ? prev.selectedSnackathons.filter(s => s !== id)
+        : [...prev.selectedSnackathons, id],
+    }))
   }
 
   return (
@@ -102,7 +141,7 @@ export default function SnackathonsPage() {
               <div className="p-4 bg-white/5 rounded-xl">
                 <UserGroupIcon className="w-6 h-6 mx-auto mb-2 text-grid-green" />
                 <div className="font-mono text-sm text-white">10-20</div>
-                <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
+                <div className="font-mono text-xs text-gray-400">Teilnehmende</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <MapPinIcon className="w-6 h-6 mx-auto mb-2 text-solar-yellow" />
@@ -163,88 +202,81 @@ export default function SnackathonsPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
-                Die beiden Pilot-Events
+                Die Snackathons
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Zwei Snackathons im Frühling 2026
+                Drei Events im Frühling 2026
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Wir bauen den Sihl-Sim (Digital Twin API) zweimal, um sicherzustellen, dass er für den Hauptevent bereit ist.
+                Zwei Pilot-Events für den Sihl-Sim (Digital Twin API) und ein optionales Pre-Challenge für historische Recherche.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Snackathons 1: June */}
-              <div className="bg-white rounded-2xl border-2 border-sihl-red/40 p-6 hover:border-sihl-red hover:shadow-lg transition-all">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <div className="inline-block bg-sihl-red text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
-                      🍿 Pilot #1
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {SNACKATHONS.map((snackathon) => {
+                const borderColorClass = snackathon.badgeColor === 'sihl-red' 
+                  ? 'border-sihl-red/40 hover:border-sihl-red' 
+                  : snackathon.badgeColor === 'historic-sepia'
+                  ? 'border-historic-sepia/40 hover:border-historic-sepia'
+                  : 'border-sihl-red/40 hover:border-sihl-red'
+                const bgColorClass = snackathon.badgeColor === 'sihl-red'
+                  ? 'bg-sihl-red'
+                  : snackathon.badgeColor === 'historic-sepia'
+                  ? 'bg-historic-sepia'
+                  : 'bg-sihl-red'
+                const textColorClass = snackathon.badgeColor === 'sihl-red'
+                  ? 'text-sihl-red'
+                  : snackathon.badgeColor === 'historic-sepia'
+                  ? 'text-historic-sepia'
+                  : 'text-sihl-red'
+                
+                return (
+                  <div
+                    key={snackathon.id}
+                    id={snackathon.id}
+                    className={`bg-white rounded-2xl border-2 ${borderColorClass} p-6 hover:shadow-lg transition-all`}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <div className={`inline-block ${bgColorClass} text-white text-xs font-mono px-2 py-1 rounded-full mb-2`}>
+                          {snackathon.icon} {snackathon.badge}
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-brand-black">{snackathon.name}</h3>
+                        <p className="font-mono text-sm text-historic-sepia">{snackathon.subtitle}</p>
+                      </div>
+                      <span className="text-3xl">{snackathon.icon}</span>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-brand-black">April 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Sihl-Sim API</p>
-                  </div>
-                  <span className="text-3xl">🍿</span>
-                </div>
-                <div className="space-y-2 font-mono text-sm text-historic-sepia">
-                  <div className="flex items-center gap-2">
-                    <ClockIcon className="w-4 h-4 text-compute-blue" />
-                    <span>18 Stunden Hackathon</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <UserGroupIcon className="w-4 h-4 text-grid-green" />
-                    <span>10-20 Teilnehmer</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPinIcon className="w-4 h-4 text-solar-yellow" />
-                    <span>Zürich (Ort folgt)</span>
-                  </div>
-                </div>
-                <p className="mt-4 font-mono text-xs text-historic-sepia">
-                  Erster Pilot-Event: Wir bauen den Sihl-Sim (Digital Twin API) mit einer kleinen Gruppe von Pionieren.
-                </p>
-                <div className="mt-3 pt-3 border-t border-sihl-red/20">
-                  <p className="font-mono text-xs text-sihl-red font-semibold">
-                    🎁 30% Rabatt auf sihlhack September 2026
-                  </p>
-                </div>
-              </div>
-
-              {/* Snackathons 2: July */}
-              <div className="bg-white rounded-2xl border-2 border-historic-sepia/40 p-6 hover:border-historic-sepia hover:shadow-lg transition-all">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
-                      🍿 Pilot #2
+                    <div className="space-y-2 font-mono text-sm text-historic-sepia">
+                      <div className="flex items-center gap-2">
+                        <CalendarIcon className="w-4 h-4 text-compute-blue" />
+                        <span>{snackathon.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <ClockIcon className="w-4 h-4 text-compute-blue" />
+                        <span>{snackathon.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <UserGroupIcon className="w-4 h-4 text-grid-green" />
+                        <span>{snackathon.participants}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPinIcon className="w-4 h-4 text-solar-yellow" />
+                        <span>{snackathon.location}</span>
+                      </div>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-brand-black">Mai 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Sihl-Sim API (Iteration)</p>
+                    <p className="mt-4 font-mono text-xs text-historic-sepia">
+                      {snackathon.description}
+                    </p>
+                    {snackathon.id !== 'historik-hack' && (
+                      <div className="mt-3 pt-3 border-t border-sihl-red/20">
+                        <p className={`font-mono text-xs ${textColorClass} font-semibold`}>
+                          🎁 30% Rabatt auf sihlhack September 2026
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <span className="text-3xl">📜</span>
-                </div>
-                <div className="space-y-2 font-mono text-sm text-historic-sepia">
-                  <div className="flex items-center gap-2">
-                    <ClockIcon className="w-4 h-4 text-compute-blue" />
-                    <span>18 Stunden Hackathon</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <UserGroupIcon className="w-4 h-4 text-grid-green" />
-                    <span>10-20 Teilnehmer</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPinIcon className="w-4 h-4 text-solar-yellow" />
-                    <span>Zürich (Ort folgt)</span>
-                  </div>
-                </div>
-                <p className="mt-4 font-mono text-xs text-historic-sepia">
-                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons. Finalisierung des Sihl-Sim APIs.
-                </p>
-                <div className="mt-3 pt-3 border-t border-historic-sepia/20">
-                  <p className="font-mono text-xs text-historic-sepia font-semibold">
-                    🎁 30% Rabatt auf sihlhack September 2026
-                  </p>
-                </div>
-              </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -319,9 +351,9 @@ export default function SnackathonsPage() {
           </div>
         </section>
 
-        {/* Registration Forms */}
+        {/* Registration Form */}
         <section className="py-16 bg-brand-black text-white" id="register">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-grid-green uppercase tracking-widest">
                 Gratis Anmeldung
@@ -330,169 +362,79 @@ export default function SnackathonsPage() {
                 Interesse bekunden
               </h2>
               <p className="mt-4 font-mono text-gray-400">
-                10-20 Plätze pro Event. Wir wählen nach Skill-Mix und Motivation aus.
+                Wähle einen oder mehrere Snackathons. 10-20 Plätze pro Event. Wir wählen nach Skill-Mix und Motivation aus.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* June Registration Form */}
-              <div>
-                <div className="mb-4 text-center">
-                  <div className="inline-block bg-sihl-red text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
-                    🍿 Pilot #1
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white">April 2026</h3>
-                  <p className="font-mono text-sm text-gray-400 mt-1">Erster Pilot-Event: Sihl-Sim API</p>
-                </div>
-
-                {juneFormState === 'success' ? (
-                  <Card className="bg-white/10 border-sihl-red/30">
-                    <CardContent className="p-8 text-center">
-                      <CheckCircleIcon className="w-16 h-16 mx-auto text-sihl-red mb-4" />
-                      <h3 className="font-display text-2xl font-bold text-white mb-2">
-                        Interesse registriert!
-                      </h3>
-                      <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den April 2026 Snackathons.
-                      </p>
-                    </CardContent>
-                  </Card>
-                ) : (
-                  <Card className="bg-white/5 border-sihl-red/30">
-                    <CardContent className="p-8">
-                      <form onSubmit={handleJuneSubmit} className="space-y-6">
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <label className="block font-mono text-sm text-gray-300 mb-2">
-                              Vorname *
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              value={juneFormData.firstName}
-                              onChange={(e) => setJuneFormData({ ...juneFormData, firstName: e.target.value })}
-                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
-                            />
-                          </div>
-                          <div>
-                            <label className="block font-mono text-sm text-gray-300 mb-2">
-                              Nachname *
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              value={juneFormData.lastName}
-                              onChange={(e) => setJuneFormData({ ...juneFormData, lastName: e.target.value })}
-                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
-                            />
-                          </div>
-                        </div>
-
-                        <div>
-                          <label className="block font-mono text-sm text-gray-300 mb-2">
-                            E-Mail *
-                          </label>
-                          <input
-                            type="email"
-                            required
-                            value={juneFormData.email}
-                            onChange={(e) => setJuneFormData({ ...juneFormData, email: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block font-mono text-sm text-gray-300 mb-2">
-                            Welche Rolle passt am besten? *
-                          </label>
-                          <select
-                            required
-                            value={juneFormData.role}
-                            onChange={(e) => setJuneFormData({ ...juneFormData, role: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
-                          >
-                            <option value="" className="bg-brand-black">Bitte wählen...</option>
-                            {HACKATHON_ROLES.map((role) => (
-                              <option key={role.id} value={role.id} className="bg-brand-black">
-                                {role.nameDE}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block font-mono text-sm text-gray-300 mb-2">
-                            Erfahrung mit Hardware/Energie-Projekten
-                          </label>
-                          <select
-                            value={juneFormData.experience}
-                            onChange={(e) => setJuneFormData({ ...juneFormData, experience: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red"
-                          >
-                            <option value="" className="bg-brand-black">Bitte wählen...</option>
-                            <option value="none" className="bg-brand-black">Keine, aber ich lerne schnell</option>
-                            <option value="hobby" className="bg-brand-black">Hobby-Projekte (Raspberry Pi, Arduino, etc.)</option>
-                            <option value="professional" className="bg-brand-black">Beruflich (Ingenieur, Techniker, etc.)</option>
-                            <option value="expert" className="bg-brand-black">Experte (10+ Jahre Hardware/Energie)</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label className="block font-mono text-sm text-gray-300 mb-2">
-                            Warum willst du dabei sein? (optional, aber hilft bei der Auswahl)
-                          </label>
-                          <textarea
-                            rows={3}
-                            value={juneFormData.motivation}
-                            onChange={(e) => setJuneFormData({ ...juneFormData, motivation: e.target.value })}
-                            placeholder="Was interessiert dich am Sihl-Sim API? Was willst du lernen oder beitragen?"
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red placeholder:text-gray-500"
-                          />
-                        </div>
-
-                        <button
-                          type="submit"
-                          disabled={juneFormState === 'submitting'}
-                          className="w-full py-4 bg-sihl-red hover:bg-sihl-red/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50"
-                        >
-                          {juneFormState === 'submitting' ? 'Wird gesendet...' : 'Für Juni 2026 anmelden'}
-                        </button>
-
-                        <p className="font-mono text-xs text-gray-500 text-center">
-                          Kein Geld, keine Verpflichtung. Wir melden uns, wenn wir mehr wissen.
-                        </p>
-                      </form>
-                    </CardContent>
-                  </Card>
-                )}
-              </div>
-
-              {/* July Registration Form */}
-              <div>
-                <div className="mb-4 text-center">
-                  <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
-                    🍿 Pilot #2
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white">Mai 2026</h3>
-                  <p className="font-mono text-sm text-gray-400 mt-1">Zweiter Pilot-Event: Sihl-Sim API Iteration</p>
-                </div>
-
-                {julyFormState === 'success' ? (
-                  <Card className="bg-white/10 border-historic-sepia/30">
+            {formState === 'success' ? (
+              <Card className="bg-white/10 border-grid-green/30">
                 <CardContent className="p-8 text-center">
-                      <CheckCircleIcon className="w-16 h-16 mx-auto text-historic-sepia mb-4" />
+                  <CheckCircleIcon className="w-16 h-16 mx-auto text-grid-green mb-4" />
                   <h3 className="font-display text-2xl font-bold text-white mb-2">
                     Interesse registriert!
                   </h3>
                   <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den Mai 2026 Snackathons.
+                    Wir melden uns bei dir für die ausgewählten Snackathons.
                   </p>
                 </CardContent>
               </Card>
             ) : (
-                  <Card className="bg-white/5 border-historic-sepia/30">
+              <Card className="bg-white/5 border-grid-green/30">
                 <CardContent className="p-8">
-                      <form onSubmit={handleJulySubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Snackathon Selection */}
+                    <div>
+                      <label className="block font-mono text-sm text-gray-300 mb-3">
+                        Für welche Snackathons möchtest du dich anmelden? *
+                      </label>
+                      <div className="space-y-3">
+                        {SNACKATHONS.map((snackathon) => {
+                          const isSelected = formData.selectedSnackathons.includes(snackathon.id)
+                          const borderClass = isSelected
+                            ? snackathon.badgeColor === 'sihl-red'
+                              ? 'border-sihl-red bg-sihl-red/10'
+                              : 'border-historic-sepia bg-historic-sepia/10'
+                            : 'border-white/20 bg-white/5 hover:bg-white/10'
+                          const badgeBgClass = snackathon.badgeColor === 'sihl-red'
+                            ? 'bg-sihl-red'
+                            : 'bg-historic-sepia'
+                          
+                          return (
+                            <label
+                              key={snackathon.id}
+                              className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${borderClass}`}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={isSelected}
+                                onChange={() => toggleSnackathon(snackathon.id)}
+                                className="mt-1 w-5 h-5 text-grid-green focus:ring-grid-green focus:ring-offset-brand-black focus:ring-offset-2"
+                              />
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <span className="text-xl">{snackathon.icon}</span>
+                                  <span className="font-mono text-sm font-bold text-white">
+                                    {snackathon.name}: {snackathon.subtitle}
+                                  </span>
+                                  <span className={`text-xs font-mono px-2 py-0.5 rounded ${badgeBgClass} text-white`}>
+                                    {snackathon.badge}
+                                  </span>
+                                </div>
+                                <p className="font-mono text-xs text-gray-400">
+                                  {snackathon.date} · {snackathon.duration}
+                                </p>
+                              </div>
+                            </label>
+                          )
+                        })}
+                      </div>
+                      {formData.selectedSnackathons.length === 0 && (
+                        <p className="mt-2 font-mono text-xs text-red-400">
+                          Bitte wähle mindestens einen Snackathon aus.
+                        </p>
+                      )}
+                    </div>
+
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block font-mono text-sm text-gray-300 mb-2">
@@ -501,9 +443,9 @@ export default function SnackathonsPage() {
                         <input
                           type="text"
                           required
-                              value={julyFormData.firstName}
-                              onChange={(e) => setJulyFormData({ ...julyFormData, firstName: e.target.value })}
-                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
+                          value={formData.firstName}
+                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green"
                         />
                       </div>
                       <div>
@@ -513,9 +455,9 @@ export default function SnackathonsPage() {
                         <input
                           type="text"
                           required
-                              value={julyFormData.lastName}
-                              onChange={(e) => setJulyFormData({ ...julyFormData, lastName: e.target.value })}
-                              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
+                          value={formData.lastName}
+                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green"
                         />
                       </div>
                     </div>
@@ -527,9 +469,9 @@ export default function SnackathonsPage() {
                       <input
                         type="email"
                         required
-                            value={julyFormData.email}
-                            onChange={(e) => setJulyFormData({ ...julyFormData, email: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green"
                       />
                     </div>
 
@@ -539,9 +481,9 @@ export default function SnackathonsPage() {
                       </label>
                       <select
                         required
-                            value={julyFormData.role}
-                            onChange={(e) => setJulyFormData({ ...julyFormData, role: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
+                        value={formData.role}
+                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green"
                       >
                         <option value="" className="bg-brand-black">Bitte wählen...</option>
                         {HACKATHON_ROLES.map((role) => (
@@ -557,15 +499,15 @@ export default function SnackathonsPage() {
                         Erfahrung mit Hardware/Energie-Projekten
                       </label>
                       <select
-                            value={julyFormData.experience}
-                            onChange={(e) => setJulyFormData({ ...julyFormData, experience: e.target.value })}
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia"
+                        value={formData.experience}
+                        onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green"
                       >
                         <option value="" className="bg-brand-black">Bitte wählen...</option>
                         <option value="none" className="bg-brand-black">Keine, aber ich lerne schnell</option>
                         <option value="hobby" className="bg-brand-black">Hobby-Projekte (Raspberry Pi, Arduino, etc.)</option>
-                        <option value="professional" className="bg-brand-black">Beruflich (Ingenieur, Techniker, etc.)</option>
-                        <option value="expert" className="bg-brand-black">Experte (10+ Jahre Hardware/Energie)</option>
+                        <option value="professional" className="bg-brand-black">Beruflich (Ingenieur/in, Techniker/in, etc.)</option>
+                        <option value="expert" className="bg-brand-black">Expert/in (10+ Jahre Hardware/Energie)</option>
                       </select>
                     </div>
 
@@ -575,19 +517,19 @@ export default function SnackathonsPage() {
                       </label>
                       <textarea
                         rows={3}
-                            value={julyFormData.motivation}
-                            onChange={(e) => setJulyFormData({ ...julyFormData, motivation: e.target.value })}
-                        placeholder="Was interessiert dich am Sihl-Sim API? Was willst du lernen oder beitragen?"
-                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia placeholder:text-gray-500"
+                        value={formData.motivation}
+                        onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
+                        placeholder="Was interessiert dich an den Snackathons? Was willst du lernen oder beitragen?"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-grid-green placeholder:text-gray-500"
                       />
                     </div>
 
                     <button
                       type="submit"
-                          disabled={julyFormState === 'submitting'}
-                          className="w-full py-4 bg-historic-sepia hover:bg-historic-sepia/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50"
+                      disabled={formState === 'submitting' || formData.selectedSnackathons.length === 0}
+                      className="w-full py-4 bg-grid-green hover:bg-grid-green/90 text-white font-mono font-bold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                          {julyFormState === 'submitting' ? 'Wird gesendet...' : 'Für Juli 2026 anmelden'}
+                      {formState === 'submitting' ? 'Wird gesendet...' : 'Anmeldung absenden'}
                     </button>
 
                     <p className="font-mono text-xs text-gray-500 text-center">
@@ -597,8 +539,6 @@ export default function SnackathonsPage() {
                 </CardContent>
               </Card>
             )}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -648,7 +588,7 @@ export default function SnackathonsPage() {
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Der grosse Event mit 100 Teilnehmern. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
+                    Der grosse Event mit 100 Teilnehmenden. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
                     Snackathons Alumni erhalten 30% Rabatt auf die Teilnahmegebühr (CHF 150 → CHF 105).
                   </p>
                 </div>
@@ -657,8 +597,6 @@ export default function SnackathonsPage() {
           </div>
         </section>
 
-        {/* Pre-Challenge Section */}
-        <PreChallengeSection />
 
         {/* CTA */}
         <section className="py-16 bg-gradient-to-br from-thermal-orange via-sihl-red to-compute-blue text-white">

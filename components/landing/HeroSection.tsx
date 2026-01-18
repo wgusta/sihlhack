@@ -90,7 +90,7 @@ export function HeroSection() {
             </div>
             <div className="text-center">
               <div className="font-mono text-3xl font-bold text-compute-blue">100</div>
-              <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
+              <div className="font-mono text-xs text-gray-400">Teilnehmende</div>
             </div>
             <div className="text-center">
               <div className="font-mono text-3xl font-bold text-grid-green">CHF 150</div>

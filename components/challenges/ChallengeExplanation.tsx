@@ -88,10 +88,10 @@ const challengeExplanations: Record<string, {
     nonTechnical: {
       what: 'Ein LEG Starter Pack ist wie ein Baukasten für die rechtliche Gründung einer Lokalen Elektrizitätsgemeinschaft. Es enthält alle notwendigen Dokumente und Checklisten, damit Nachbarn legal zusammen Energie teilen können.',
       why: 'Die rechtliche Gründung einer LEG ist komplex und viele scheitern an den rechtlichen Hürden. Ein Starter Pack macht es einfacher, die richtigen Schritte zu gehen und alle regulatorischen Anforderungen zu erfüllen.',
-      whatYouBuild: 'Du erstellst ein komplettes Template-Set: Statuten für die LEG, Verträge zwischen Teilnehmern, FAQ zu rechtlichen Fragen, und eine Checkliste aller regulatorischen Anforderungen. Alles auf Deutsch, verständlich, und rechtlich korrekt.',
+      whatYouBuild: 'Du erstellst ein komplettes Template-Set: Statuten für die LEG, Verträge zwischen Teilnehmenden, FAQ zu rechtlichen Fragen, und eine Checkliste aller regulatorischen Anforderungen. Alles auf Deutsch, verständlich, und rechtlich korrekt.',
     },
     technical: {
-      howItWorks: 'Templates basieren auf StromVG Art. 18 und EnG Art. 17. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmern. Checkliste deckt alle regulatorischen Anforderungen ab (Netzbetreiber, Steuern, Haftung).',
+      howItWorks: 'Templates basieren auf StromVG Art. 18 und EnG Art. 17. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmenden. Checkliste deckt alle regulatorischen Anforderungen ab (Netzbetreiber, Steuern, Haftung).',
     },
   },
 }

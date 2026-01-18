@@ -24,7 +24,7 @@ export default function TeamPage() {
               Team
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              sihlhack entstand aus einer einfachen Frage: Was wäre, wenn Hackathons den Teilnehmern gehören würden?
+              sihlhack entstand aus einer einfachen Frage: Was wäre, wenn Hackathons den Teilnehmenden gehören würden?
             </p>
           </div>
         </section>
@@ -60,7 +60,7 @@ export default function TeamPage() {
                     <div className="mt-6 space-y-4 text-historic-sepia font-mono text-sm leading-relaxed">
                       <p>
                         Was, wenn wir dezentrale Infrastruktur bauen, die mit überschüssigem Solarstrom läuft und gleichzeitig 
-                        Gebäude heizt? Und was, wenn der Hackathon den Teilnehmern gehört, ohne Corporate-Agenda, mit echtem 
+                        Gebäude heizt? Und was, wenn der Hackathon den Teilnehmenden gehört, ohne Corporate-Agenda, mit echtem 
                         Stake am Ergebnis?
                       </p>
 
@@ -108,7 +108,7 @@ export default function TeamPage() {
                   Skin in the Game
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Teilnehmer zahlen. Dadurch haben alle echten Stake. Das Preisgeld kommt von uns, 
+                  Teilnehmende zahlen. Dadurch haben alle echten Stake. Das Preisgeld kommt von uns, 
                   nicht von Sponsoren mit versteckter Agenda.
                 </p>
               </div>
@@ -162,7 +162,7 @@ export default function TeamPage() {
                     <span>🧭</span> Advisory Board
                   </h3>
                   <p className="font-mono text-sm text-historic-sepia mb-4">
-                    Wir bauen ein Advisory Board auf mit Experten aus Energietechnik, Recht, 
+                    Wir bauen ein Advisory Board auf mit Expertinnen und Experten aus Energietechnik, Recht, 
                     Hardware-Engineering und Community Building.
                   </p>
                   <p className="font-mono text-xs text-historic-sepia/70">

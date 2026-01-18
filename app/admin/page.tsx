@@ -100,7 +100,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm font-medium text-gray-600">
-              Registrierte Teilnehmer
+              Registrierte Teilnehmende
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -173,7 +173,7 @@ export default function AdminDashboardPage() {
           <CardContent>
             <div className="space-y-3">
               <div className="flex justify-between text-sm">
-                <span>{stats.participants.registered} von {stats.config.minParticipants} Teilnehmern</span>
+                <span>{stats.participants.registered} von {stats.config.minParticipants} Teilnehmenden</span>
                 <span className="font-medium">{progress}%</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-4">
@@ -186,7 +186,7 @@ export default function AdminDashboardPage() {
               </div>
               {progress < 100 && (
                 <p className="text-sm text-gray-500">
-                  Noch {stats.config.minParticipants - stats.participants.registered} Teilnehmer
+                  Noch {stats.config.minParticipants - stats.participants.registered} Teilnehmende
                   benötigt, um das Minimum zu erreichen.
                 </p>
               )}
@@ -218,7 +218,7 @@ export default function AdminDashboardPage() {
               {stats.proposals.count}
             </div>
             <p className="text-sm text-gray-500 mt-1">
-              Von Teilnehmern eingereicht
+              Von Teilnehmenden eingereicht
             </p>
           </CardContent>
         </Card>
@@ -277,7 +277,7 @@ export default function AdminDashboardPage() {
           <div className="flex flex-wrap gap-4">
             <Link href="/admin/participants">
               <Button variant="outline">
-                👥 Teilnehmer verwalten
+                👥 Teilnehmende verwalten
               </Button>
             </Link>
             <Link href="/admin/payments">

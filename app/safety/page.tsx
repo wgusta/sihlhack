@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 
 export const metadata = {
   title: 'Sicherheit | sihlhack',
-  description: 'Sicherheitsmassnahmen und fachkundige Überwachung für alle Teilnehmer',
+  description: 'Sicherheitsmassnahmen und fachkundige Überwachung für alle Teilnehmende',
 }
 
 export default function SafetyPage() {
@@ -211,7 +211,7 @@ export default function SafetyPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-display text-3xl font-bold text-brand-black">
-                Sicherheitsanforderungen für Teilnehmer
+                Sicherheitsanforderungen für Teilnehmende
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
                 Teams programmieren Betriebssicherheitslogik – Software-Sicherheitsverriegelungen für sicheres System-Betrieb.
@@ -296,7 +296,7 @@ export default function SafetyPage() {
                 Sicherheitssysteme
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Mehrschichtige Sicherheitssysteme schützen alle Teilnehmer.
+                Mehrschichtige Sicherheitssysteme schützen alle Teilnehmende.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function SafetyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-grid-green">✓</span>
-                    <span>Professionelle Haftpflicht für vor Ort tätige Ingenieure</span>
+                    <span>Professionelle Haftpflicht für vor Ort tätige Ingenieurinnen und Ingenieure</span>
                   </li>
                 </ul>
               </div>
@@ -823,7 +823,7 @@ export default function SafetyPage() {
                     Ist es sicher?
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Ja. Alle Teilnehmer arbeiten unter fachkundiger Aufsicht mit zertifizierten Sicherheitssystemen. 
+                    Ja. Alle Teilnehmende arbeiten unter fachkundiger Aufsicht mit zertifizierten Sicherheitssystemen. 
                     Obligatorisches Sicherheitstraining stellt sicher, dass jeder die Risiken und Sicherheitsverfahren versteht. 
                     Eine unabhängige Sicherheitsbeauftragte Person überwacht kontinuierlich die Sicherheit während des gesamten Events.
                   </p>
@@ -836,7 +836,7 @@ export default function SafetyPage() {
                     Welches Sicherheitstraining ist erforderlich?
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Alle Teilnehmer müssen vor dem Event ein Online-Sicherheitstraining absolvieren, 
+                    Alle Teilnehmende müssen vor dem Event ein Online-Sicherheitstraining absolvieren, 
                     das elektrische Sicherheit, Batteriesicherheit, thermische Systeme und Notfallverfahren abdeckt. 
                     Eine Zertifizierungsprüfung (80% Bestehensquote) ist erforderlich. 
                     Vor Ort gibt es einen kurzen Refresher. Keine Teilnahme ohne Zertifizierung.
@@ -851,7 +851,7 @@ export default function SafetyPage() {
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
                     Medizinisches Personal ist kontinuierlich vor Ort. Ein Notfallreaktionsplan ist etabliert, 
-                    einschliesslich Koordination mit dem örtlichen Krankenhaus. Alle Teilnehmer erhalten tägliche 
+                    einschliesslich Koordination mit dem örtlichen Krankenhaus. Alle Teilnehmende erhalten tägliche 
                     Sicherheitsbriefings mit Notfallkontakten und Evakuierungsverfahren.
                   </p>
                 </CardContent>

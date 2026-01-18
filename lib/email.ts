@@ -71,7 +71,7 @@ export async function sendRegistrationConfirmationEmail(
           <p style="margin: 8px 0 0 0;"><strong>Status:</strong> Bezahlt</p>
         </div>
         <p>
-          Du kannst den aktuellen Stand des Fonds und die Teilnehmerzahl jederzeit unter
+          Du kannst den aktuellen Stand des Fonds und die Anzahl Teilnehmende jederzeit unter
           <a href="https://sihlhack.ch/funds" style="color: #B5A642;">sihlhack.ch/funds</a> einsehen.
         </p>
         <p style="color: #8B7355; font-size: 14px;">

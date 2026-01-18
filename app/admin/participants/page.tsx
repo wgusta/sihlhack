@@ -28,7 +28,7 @@ export default function AdminParticipantsPage() {
       if (statusFilter) params.set('status', statusFilter)
 
       const res = await fetch(`/api/admin/participants?${params}`)
-      if (!res.ok) throw new Error('Teilnehmer konnten nicht geladen werden')
+      if (!res.ok) throw new Error('Teilnehmende konnten nicht geladen werden')
       const data = await res.json()
       setParticipants(data.participants)
     } catch (err) {
@@ -88,9 +88,9 @@ export default function AdminParticipantsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-brand-black">Teilnehmer</h1>
+          <h1 className="text-3xl font-bold text-brand-black">Teilnehmende</h1>
           <p className="text-gray-600 mt-1">
-            {participants.length} Teilnehmer gefunden
+            {participants.length} Teilnehmende gefunden
           </p>
         </div>
         <Button onClick={exportCsv} variant="outline">
@@ -143,7 +143,7 @@ export default function AdminParticipantsPage() {
       ) : participants.length === 0 ? (
         <Card>
           <CardContent className="py-12 text-center">
-            <p className="text-gray-500">Keine Teilnehmer gefunden</p>
+            <p className="text-gray-500">Keine Teilnehmende gefunden</p>
           </CardContent>
         </Card>
       ) : (
@@ -154,7 +154,7 @@ export default function AdminParticipantsPage() {
                 <thead className="bg-gray-50 border-b border-gray-200">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Teilnehmer
+                      Teilnehmende
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Firma

@@ -88,7 +88,7 @@ export default function SuggestRolePage() {
                       onChange={(e) => setFormData({ ...formData, roleName: e.target.value })}
                       required
                       className="w-full px-4 py-3 text-sm border border-gray-200 rounded-lg font-mono focus:outline-none focus:ring-2 focus:ring-thermal-orange/50"
-                      placeholder="z.B. Thermodynamik-Experte"
+                      placeholder="z.B. Thermodynamik-Expert/in"
                     />
                   </div>
 

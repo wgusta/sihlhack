@@ -5,7 +5,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'hardware-engineer',
     name: 'Hardware Engineer',
-    nameDE: 'Hardware-Ingenieur',
+    nameDE: 'Hardware Engineer',
     icon: '🔧',
     description: 'Evaluates three thermal architectures (Immersion, Water Loop, Heat Pump) and integrates sensors with provided Reference Hardware.',
     descriptionDE: 'Evaluiert drei thermische Architekturen (Öl-Immersion, Wasser-Loop, Wärmepumpe) und integriert Sensoren mit bereitgestellter Reference Hardware. Entscheidet mit dem Team, welcher Pfad zu eurem Kontext passt.',
@@ -25,7 +25,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'electrical-engineer',
     name: 'Electrical Engineer',
-    nameDE: 'Elektro-Ingenieur',
+    nameDE: 'Electrical Engineer',
     icon: '🔌',
     description: 'Designs software safety interlocks, anomaly detection, and operational safety logic for Grid-OS integration.',
     descriptionDE: 'Entwickelt Software-Sicherheitsverriegelungen, Anomalie-Erkennung und Operational Safety Logik für Grid-OS Integration.',
@@ -65,7 +65,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'energy-expert',
     name: 'Energy Domain Expert',
-    nameDE: 'Energie-Experte',
+    nameDE: 'Energy Expert',
     icon: '☀️',
     description: 'Deep knowledge of solar systems, load profiles, Swissgrid integration, SDL, and energy protocols (non-legal).',
     descriptionDE: 'Tiefes Wissen über Solarsysteme, Lastprofile, Inverter-APIs, Swissgrid-Integration, SDL (Systemdienstleistungen) und Energieprotokolle (technisch, nicht rechtlich).',
@@ -85,7 +85,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'grid-os-dev',
     name: 'Grid-OS Developer',
-    nameDE: 'Grid-OS Entwickler',
+    nameDE: 'Grid-OS Developer',
     icon: '⚡',
     description: 'Builds the intelligent load scheduling software with Deferred Compute, Load Shedding, and Swissgrid integration.',
     descriptionDE: 'Entwickelt die Laststeuerung: Solar-Budget, Compute-Scheduler, Deferred Compute, Load Shedding und Swissgrid-Integration. Definiert Fallback-Policies.',
@@ -105,7 +105,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'backend-dev',
     name: 'Backend Developer',
-    nameDE: 'Backend-Entwickler',
+    nameDE: 'Backend Developer',
     icon: '⚙️',
     description: 'Creates APIs, handles data storage, and builds compute scheduling infrastructure.',
     descriptionDE: 'Erstellt APIs, Datenbank-Architektur und Compute-Scheduling Backend. Integriert Sensor-Daten, baut Logging-Infrastruktur.',
@@ -114,7 +114,7 @@ export const HACKATHON_ROLES = [
     tracks: {
       basis: {
         title: 'Ausbildung/Beruf als Basis',
-        items: ['Informatik-Studium', 'Backend-Entwickler', 'Software-Engineering'],
+        items: ['Informatik-Studium', 'Backend Developer', 'Software-Engineering'],
       },
       quereinsteiger: {
         title: 'Systeme/Tools/Wissen für Quereinsteiger',
@@ -125,7 +125,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'frontend-dev',
     name: 'Frontend Developer',
-    nameDE: 'Frontend-Entwickler',
+    nameDE: 'Frontend Developer',
     icon: '📊',
     description: 'Builds the monitoring dashboard with real-time energy flow and compute job visualization.',
     descriptionDE: 'Entwickelt das Monitoring-Dashboard mit Echtzeit-Energiefluss und Compute-Visualisierung.',
@@ -134,7 +134,7 @@ export const HACKATHON_ROLES = [
     tracks: {
       basis: {
         title: 'Ausbildung/Beruf als Basis',
-        items: ['Informatik-Studium', 'Frontend-Entwickler', 'Web-Development'],
+        items: ['Informatik-Studium', 'Frontend Developer', 'Web-Development'],
       },
       quereinsteiger: {
         title: 'Systeme/Tools/Wissen für Quereinsteiger',
@@ -165,7 +165,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'leg-specialist',
     name: 'LEG/Energy Law Specialist',
-    nameDE: 'LEG-Rechtsexperte',
+    nameDE: 'LEG/Energy Law Specialist',
     icon: '⚖️',
     description: 'Navigates Swiss energy regulations, drafts LEG formation documents, and ensures legal compliance.',
     descriptionDE: 'Navigiert Schweizer Energierecht (StromVG), erstellt LEG-Gründungsdokumente und Vertragsvorlagen.',
@@ -174,7 +174,7 @@ export const HACKATHON_ROLES = [
     tracks: {
       basis: {
         title: 'Ausbildung/Beruf als Basis',
-        items: ['Jura-Studium', 'Rechtsexperte', 'Energierecht-Kenntnisse'],
+        items: ['Jura-Studium', 'Legal Expert', 'Energierecht-Kenntnisse'],
       },
       quereinsteiger: {
         title: 'Systeme/Tools/Wissen für Quereinsteiger',
@@ -185,7 +185,7 @@ export const HACKATHON_ROLES = [
   {
     id: 'pm',
     name: 'Project Manager',
-    nameDE: 'Projektleiter',
+    nameDE: 'Project Manager',
     icon: '📋',
     description: 'Coordinates teams, manages timeline, and ensures all components integrate properly.',
     descriptionDE: 'Koordiniert Teams, managt Zeitplan und stellt Integration aller Komponenten sicher.',
@@ -194,7 +194,7 @@ export const HACKATHON_ROLES = [
     tracks: {
       basis: {
         title: 'Ausbildung/Beruf als Basis',
-        items: ['Projektmanagement-Studium', 'Projektleiter', 'Scrum Master'],
+        items: ['Projektmanagement-Studium', 'Project Manager', 'Scrum Master'],
       },
       quereinsteiger: {
         title: 'Systeme/Tools/Wissen für Quereinsteiger',

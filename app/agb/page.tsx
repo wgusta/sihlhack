@@ -133,7 +133,7 @@ export default function AGBPage() {
               </p>
 
               <h3 className="font-display text-lg font-semibold text-brand-black mb-3 mt-6">
-                6.3 Teilnehmerrechte
+                6.3 Rechte der Teilnehmenden
               </h3>
               <p className="text-historic-sepia mb-2">
                 Teilnehmende behalten alle Urheberrechte an ihren Beiträgen (Art. 2 URG). Die Veröffentlichung 

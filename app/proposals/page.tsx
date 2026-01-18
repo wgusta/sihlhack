@@ -111,7 +111,7 @@ export default function ProposalsPage() {
                 Möchtest du abstimmen?
               </h3>
               <p className="mt-2 text-sm font-mono text-historic-sepia">
-                Registriere dich als Teilnehmer, um für Projekte zu stimmen und eigene Vorschläge einzureichen.
+                Registriere dich als Teilnehmende, um für Projekte zu stimmen und eigene Vorschläge einzureichen.
               </p>
               <ButtonLink href="/register" variant="primary" className="mt-4">
                 Jetzt registrieren

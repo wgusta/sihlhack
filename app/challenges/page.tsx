@@ -99,7 +99,7 @@ export default function ChallengesPage() {
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               <div className="p-4 bg-white/5 rounded-xl">
                 <div className="font-mono text-3xl font-bold text-thermal-orange">100</div>
-                <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
+                <div className="font-mono text-xs text-gray-400">Teilnehmende</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <div className="font-mono text-3xl font-bold text-compute-blue">20</div>
@@ -221,15 +221,43 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
+            {/* Historik Hack - Optional Pre-Challenge */}
+            <div className="mb-6">
+              <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
+                📜 Historik Hack <span className="text-gray-500">(OPTIONAL)</span>
+              </h3>
+              <div className="flex justify-center mb-6">
+                <a
+                  href="/snackathons#historik-hack"
+                  className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group max-w-md w-full"
+                >
+                  <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
+                    📜 Pre-Challenge
+                  </div>
+                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
+                    OPTIONAL
+                  </div>
+                  <div className="flex items-center gap-3 pt-2">
+                    <span className="text-2xl">📜</span>
+                    <div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">Historik Hack</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Historisches Archiv</div>
+                      <div className="font-mono text-[10px] text-historic-sepia mt-1">2-4 Wochen vor Event (Online) →</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
             {/* Snackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
                 🍿 Snackathons <span className="text-gray-500">(OPTIONAL)</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
-                {/* June 2026 Snackathons */}
+                {/* April 2026 Snackathons */}
                 <a
-                  href="/snackathons"
+                  href="/snackathons#april-2026"
                   className="p-4 rounded-xl border-2 border-sihl-red/40 hover:border-sihl-red hover:bg-sihl-red/10 transition-all relative group"
                 >
                   <div className="absolute -top-2 -right-2 bg-sihl-red text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
@@ -248,9 +276,9 @@ export default function ChallengesPage() {
                   </div>
                 </a>
 
-                {/* July 2026 Snackathons */}
+                {/* Mai 2026 Snackathons */}
                 <a
-                  href="/snackathons"
+                  href="/snackathons#mai-2026"
                   className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
                 >
                   <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
@@ -260,7 +288,7 @@ export default function ChallengesPage() {
                     OPTIONAL
                   </div>
                   <div className="flex items-center gap-3 pt-2">
-                    <span className="text-2xl">📜</span>
+                    <span className="text-2xl">🍿</span>
                     <div>
                       <div className="font-mono text-sm font-semibold text-brand-black">Mai 2026</div>
                       <div className="font-accent text-xs text-historic-sepia/70">Sihl-Sim API (Iteration)</div>
