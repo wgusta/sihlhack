@@ -209,7 +209,7 @@ The concept has genuine strengths:
 ### Pilot Event: Snack-Hackathon
 
 - **When:** April/May 2026
-- **Size:** 30-40 participants
+- **Size:** 10-20 participants
 - **Duration:** 2 days (weekend)
 - **Cost:** Free
 - **Scope:** Single thermal path, software focus, one deliverable

@@ -78,9 +78,14 @@ export default function SnackHackathonPage() {
             </p>
 
             <p className="mt-6 text-lg font-mono text-gray-400 max-w-2xl mx-auto">
-              Bevor wir 100 Leute einladen, testen wir das Konzept mit 30-40 Pionieren.
+              Bevor wir 100 Leute einladen, testen wir das Konzept mit 10-20 Pionieren.
               Keine Teilnahmegebühr. Keine Verpflichtungen. Nur echte Arbeit an echten Problemen.
             </p>
+            <div className="mt-6 inline-block px-4 py-2 bg-thermal-orange/20 border border-thermal-orange/40 rounded-full">
+              <span className="font-mono text-sm text-thermal-orange">
+                🎁 Bonus: 30% Rabatt auf sihlhack September 2026
+              </span>
+            </div>
 
             {/* Quick Stats */}
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
@@ -96,7 +101,7 @@ export default function SnackHackathonPage() {
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
                 <UserGroupIcon className="w-6 h-6 mx-auto mb-2 text-grid-green" />
-                <div className="font-mono text-sm text-white">30-40</div>
+                <div className="font-mono text-sm text-white">10-20</div>
                 <div className="font-mono text-xs text-gray-400">Teilnehmer</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
@@ -136,7 +141,7 @@ export default function SnackHackathonPage() {
                   Logistik testen
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Venue, Sicherheit, Catering, Werkzeuge. Besser mit 30 Leuten scheitern als mit 100.
+                  Venue, Sicherheit, Catering, Werkzeuge. Besser mit 10-20 Leuten scheitern als mit 100.
                 </p>
               </div>
               <div className="p-6 border border-gray-200 rounded-xl">
@@ -145,7 +150,8 @@ export default function SnackHackathonPage() {
                   Community aufbauen
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Die ersten 30-40 werden Botschafter. Ihr formt mit, wie sihlhack im September aussieht.
+                  Die ersten 10-20 werden Botschafter. Ihr formt mit, wie sihlhack im September aussieht.
+                  Plus: 30% Rabatt auf die Teilnahmegebühr für den Hauptevent.
                 </p>
               </div>
             </div>
@@ -187,7 +193,7 @@ export default function SnackHackathonPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <UserGroupIcon className="w-4 h-4 text-grid-green" />
-                    <span>30-40 Teilnehmer</span>
+                    <span>10-20 Teilnehmer</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPinIcon className="w-4 h-4 text-solar-yellow" />
@@ -197,6 +203,11 @@ export default function SnackHackathonPage() {
                 <p className="mt-4 font-mono text-xs text-historic-sepia">
                   Erster Pilot-Event: Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
                 </p>
+                <div className="mt-3 pt-3 border-t border-sihl-red/20">
+                  <p className="font-mono text-xs text-sihl-red font-semibold">
+                    🎁 30% Rabatt auf sihlhack September 2026
+                  </p>
+                </div>
               </div>
 
               {/* Snack-Hackathon 2: July */}
@@ -218,7 +229,7 @@ export default function SnackHackathonPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <UserGroupIcon className="w-4 h-4 text-grid-green" />
-                    <span>30-40 Teilnehmer</span>
+                    <span>10-20 Teilnehmer</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPinIcon className="w-4 h-4 text-solar-yellow" />
@@ -228,6 +239,11 @@ export default function SnackHackathonPage() {
                 <p className="mt-4 font-mono text-xs text-historic-sepia">
                   Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
                 </p>
+                <div className="mt-3 pt-3 border-t border-historic-sepia/20">
+                  <p className="font-mono text-xs text-historic-sepia font-semibold">
+                    🎁 30% Rabatt auf sihlhack September 2026
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -311,7 +327,7 @@ export default function SnackHackathonPage() {
                 Interesse bekunden
               </h2>
               <p className="mt-4 font-mono text-gray-400">
-                30-40 Plätze pro Event. Wir wählen nach Skill-Mix und Motivation aus.
+                10-20 Plätze pro Event. Wir wählen nach Skill-Mix und Motivation aus.
               </p>
             </div>
 
@@ -631,7 +647,7 @@ export default function SnackHackathonPage() {
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Der grosse Event mit 100 Teilnehmern. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
-                    Snack-Hackathon Alumni sind automatisch eingeladen (gratis Upgrade wenn sie nochmal kommen wollen).
+                    Snack-Hackathon Alumni erhalten 30% Rabatt auf die Teilnahmegebühr (CHF 150 → CHF 105).
                   </p>
                 </div>
               </div>
@@ -646,10 +662,13 @@ export default function SnackHackathonPage() {
         <section className="py-16 bg-gradient-to-br from-thermal-orange via-sihl-red to-compute-blue text-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-3xl font-bold">
-              30-40 Plätze. Keine Kosten. Echte Arbeit.
+              10-20 Plätze. Keine Kosten. Echte Arbeit.
             </h2>
             <p className="mt-4 font-mono text-white/90">
               Die ersten Pioniere formen mit, wie sihlhack aussieht.
+            </p>
+            <p className="mt-3 font-mono text-white/80 text-sm">
+              🎁 Bonus: 30% Rabatt auf die Teilnahmegebühr für sihlhack September 2026 (CHF 150 → CHF 105)
             </p>
             <div className="mt-8">
               <ButtonLink

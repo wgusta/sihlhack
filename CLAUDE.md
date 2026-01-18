@@ -310,7 +310,7 @@ Before collecting real payments, ensure these legal requirements are met:
 
 ## Swiss Context Notes
 
-- **Pilot event (Snack-Hackathon)**: April/May 2026 (2 days, free, 30-40 participants)
+- **Pilot event (Snack-Hackathon)**: April/May 2026 (2 days, free, 10-20 participants)
 - **Main event date**: September 2026 (3 days)
 - Target participants: 100 at CHF 150 registration
 - Prize pool: 70% of revenue (percentage-based, not fixed amount)
