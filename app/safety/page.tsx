@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 
 export const metadata = {
   title: 'Sicherheit | sihlhack',
-  description: 'Sicherheitsmassnahmen und Professional Oversight für alle Teilnehmer',
+  description: 'Sicherheitsmassnahmen und fachkundige Überwachung für alle Teilnehmer',
 }
 
 export default function SafetyPage() {
@@ -24,8 +24,8 @@ export default function SafetyPage() {
               Deine Sicherheit ist unsere Priorität
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              Alle Hardware wird bereitgestellt und unter professioneller Aufsicht betrieben. 
-              Teams programmieren die Operational Safety Logik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
+              Alle Hardware wird bereitgestellt und unter fachkundiger Aufsicht betrieben. 
+              Teams programmieren die Betriebssicherheitslogik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
             </p>
           </div>
         </section>
@@ -51,37 +51,37 @@ export default function SafetyPage() {
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia leading-relaxed">
                     Unsere Sicherheitsmassnahmen gehen bewusst über die gesetzlichen Mindestanforderungen hinaus. 
-                    Wir setzen nicht nur auf Compliance, sondern auf proaktive Risikominimierung. 
-                    Jedes System wird vor dem Event von unabhängigen Safety Officers geprüft und freigegeben.
+                    Wir setzen nicht nur auf Einhaltung der Vorschriften, sondern auf proaktive Risikominimierung. 
+                    Jedes System wird vor dem Event von unabhängigen Sicherheitsbeauftragten geprüft und freigegeben.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="font-display text-xl font-bold text-brand-black mb-3 flex items-center gap-2">
                     <span>💻</span>
-                    Simulation-to-Reality Workflow
+                    Arbeitsablauf: Simulation zur Realität
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia leading-relaxed mb-3">
-                    Teams entwickeln ihre Grid-OS Logik gegen den Sihl-Sim (Digital Twin) lokal, 
-                    testen auf dem 5V Safety Avatar (15-Minuten Slots), und deployen auf supervised Reference Hardware. 
-                    Alle Hardware-Operationen werden von Safety Supervisors überwacht.
+                    Teams entwickeln ihre Grid-OS Logik gegen den Sihl-Sim (Digitaler Zwilling) lokal, 
+                    prüfen auf dem 5V Sicherheitsprüfstand (15-Minuten Zeitfenster), und setzen auf überwachte Referenz-Hardware ein. 
+                    Alle Hardware-Operationen werden von Sicherheitsbeauftragten überwacht.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia ml-4">
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Entwicklung gegen Sihl-Sim (Digital Twin) – keine physischen Risiken</span>
+                      <span>Entwicklung gegen Sihl-Sim (Digitaler Zwilling) – keine physischen Risiken</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Testing auf 5V Safety Avatar – low-power, sichere Validierung</span>
+                      <span>Prüfung auf 5V Sicherheitsprüfstand – Niedrigleistung, sichere Validierung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Deployment auf Reference Hardware – supervised, professionelle Überwachung</span>
+                      <span>Einsatz auf Referenz-Hardware – überwacht, fachkundige Überwachung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Alle Hardware wird bereitgestellt – keine physische Assembly durch Teams</span>
+                      <span>Alle Hardware wird bereitgestellt – keine physische Montage durch Teams</span>
                     </li>
                   </ul>
                 </div>
@@ -110,7 +110,7 @@ export default function SafetyPage() {
                 Professionelle Sicherheitsüberwachung
               </h2>
               <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
-                Unabhängige Safety Officer, lizenzierte Elektriker und medizinisches Personal sorgen für deine Sicherheit.
+                Unabhängige Sicherheitsbeauftragte, lizenzierte Elektriker und medizinisches Personal sorgen für deine Sicherheit.
               </p>
             </div>
 
@@ -119,25 +119,25 @@ export default function SafetyPage() {
               <Card className="border-2 border-thermal-orange/20">
                 <CardHeader>
                   <div className="text-4xl mb-4">🛡️</div>
-                  <CardTitle className="text-xl text-brand-black">Unabhängiger Safety Officer</CardTitle>
+                  <CardTitle className="text-xl text-brand-black">Sicherheitsbeauftragte Person</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Professionelle Safety Supervisors überwachen alle Reference Hardware Operationen. 
-                    Teams programmieren die Operational Safety Logik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
+                    Fachkundige Sicherheitsbeauftragte überwachen alle Referenz-Hardware Operationen. 
+                    Teams programmieren die Betriebssicherheitslogik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>Supervised Reference Hardware Operation</span>
+                      <span>Überwachte Referenz-Hardware Operationen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>Operational Safety Logik Überwachung</span>
+                      <span>Betriebssicherheitslogik Überwachung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>Kontinuierliche Anwesenheit während Deployments</span>
+                      <span>Kontinuierliche Anwesenheit während Inbetriebnahmen</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -151,21 +151,21 @@ export default function SafetyPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Safety Supervisors überwachen alle Reference Hardware Deployments. 
-                    Alle Hardware ist pre-zertifiziert und wird unter professioneller Aufsicht betrieben.
+                    Sicherheitsbeauftragte überwachen alle Referenz-Hardware Inbetriebnahmen. 
+                    Alle Hardware ist vorab zertifiziert und wird unter fachkundiger Aufsicht betrieben.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Pre-zertifizierte Reference Hardware</span>
+                      <span>Vorab zertifizierte Referenz-Hardware</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Supervised Deployment Slots</span>
+                      <span>Überwachte Inbetriebnahme-Zeitfenster</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Operational Safety Logik Validierung</span>
+                      <span>Betriebssicherheitslogik Validierung</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -179,25 +179,25 @@ export default function SafetyPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Sensor-Integration Teams bauen Daten-Pipelines für Real-Time Monitoring. 
-                    Operational Safety Logik Teams programmieren Anomalie-Erkennung und Emergency Stop Logik.
+                    Sensor-Integration Teams bauen Daten-Pipelines für Echtzeitüberwachung. 
+                    Betriebssicherheitslogik Teams programmieren Anomalieerkennung und Not-Aus Logik.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Sensor Data Pipelines (Temp, Flow, Power, Battery SOC)</span>
+                      <span>Sensor-Daten-Pipelines (Temp, Durchfluss, Leistung, Batterie-Ladezustand)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Anomalie-Erkennungs-Algorithmen</span>
+                      <span>Anomalieerkennungs-Algorithmen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Emergency Stop Logik</span>
+                      <span>Not-Aus Logik</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Sensor-Validierung Framework</span>
+                      <span>Sensor-Validierungssystem</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -214,7 +214,7 @@ export default function SafetyPage() {
                 Sicherheitsanforderungen für Teilnehmer
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Teams programmieren Operational Safety Logik – Software-Sicherheitsverriegelungen für sicheres System-Betrieb.
+                Teams programmieren Betriebssicherheitslogik – Software-Sicherheitsverriegelungen für sicheres System-Betrieb.
               </p>
             </div>
 
@@ -227,36 +227,36 @@ export default function SafetyPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-mono text-historic-sepia mb-6">
-                  Operational Safety Logik Teams programmieren Software-Sicherheitsverriegelungen für sicheres System-Betrieb:
+                  Betriebssicherheitslogik Teams programmieren Software-Sicherheitsverriegelungen für sicheres System-Betrieb:
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Anomalie-Erkennung</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Anomalieerkennung</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• ML/Statistical Anomaly Detection</li>
+                      <li>• Maschinelles Lernen / Statistische Anomalieerkennung</li>
                       <li>• Sensor-Daten Validierung</li>
-                      <li>• Pattern Recognition</li>
-                      <li>• Real-Time Monitoring</li>
+                      <li>• Mustererkennung</li>
+                      <li>• Echtzeitüberwachung</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Emergency Stop Logik</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Not-Aus Logik</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                       <li>• Software-basierte Not-Aus</li>
-                      <li>• Fail-Safe Mechanismen</li>
-                      <li>• Graceful Shutdown</li>
-                      <li>• API-Integration mit Reference Hardware</li>
+                      <li>• Ausfallsichere Mechanismen</li>
+                      <li>• Kontrolliertes Herunterfahren</li>
+                      <li>• Schnittstellen-Integration mit Referenz-Hardware</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Safety Interlocks</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Sicherheitsverriegelungen</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                       <li>• Software-Sicherheitsverriegelungen</li>
-                      <li>• Zustands-Überwachung</li>
-                      <li>• Pre-Condition Checks</li>
+                      <li>• Zustandsüberwachung</li>
+                      <li>• Vorbedingungsprüfungen</li>
                       <li>• Integration mit Grid-OS</li>
                     </ul>
                   </div>
@@ -264,10 +264,10 @@ export default function SafetyPage() {
                   <div>
                     <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Sensor-Validierung</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• Daten-Konsistenz-Checks</li>
-                      <li>• Sensor-Ausfall-Erkennung</li>
-                      <li>• Kalibrierung-Validierung</li>
-                      <li>• Redundanz-Management</li>
+                      <li>• Datenkonsistenz-Prüfungen</li>
+                      <li>• Sensor-Ausfallerkennung</li>
+                      <li>• Kalibrierungsvalidierung</li>
+                      <li>• Redundanzverwaltung</li>
                     </ul>
                   </div>
                 </div>
@@ -277,9 +277,9 @@ export default function SafetyPage() {
                     Hardware-Bereitstellung
                   </p>
                   <ul className="space-y-1 text-xs font-mono text-historic-sepia">
-                    <li>• Alle Hardware wird bereitgestellt (Reference Nodes)</li>
-                    <li>• Pre-zertifiziert und safety-approved</li>
-                    <li>• Supervised Operation durch Safety Supervisors</li>
+                    <li>• Alle Hardware wird bereitgestellt (Referenz-Systeme)</li>
+                    <li>• Vorab zertifiziert und sicherheitsgeprüft</li>
+                    <li>• Überwachte Betriebsführung durch Sicherheitsbeauftragte</li>
                     <li>• Teams programmieren die Logik, nicht die Hardware</li>
                   </ul>
                 </div>
@@ -823,9 +823,9 @@ export default function SafetyPage() {
                     Ist es sicher?
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Ja. Alle Teilnehmer arbeiten unter professioneller Aufsicht mit zertifizierten Sicherheitssystemen. 
+                    Ja. Alle Teilnehmer arbeiten unter fachkundiger Aufsicht mit zertifizierten Sicherheitssystemen. 
                     Obligatorisches Sicherheitstraining stellt sicher, dass jeder die Risiken und Sicherheitsverfahren versteht. 
-                    Ein unabhängiger Safety Officer überwacht kontinuierlich die Sicherheit während des gesamten Events.
+                    Eine unabhängige Sicherheitsbeauftragte Person überwacht kontinuierlich die Sicherheit während des gesamten Events.
                   </p>
                 </CardContent>
               </Card>
@@ -863,8 +863,8 @@ export default function SafetyPage() {
                     Wer überwacht die Sicherheit?
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Ein unabhängiger Safety Officer (lizenzierter Elektroingenieur) überwacht kontinuierlich die Sicherheit. 
-                    Der Safety Officer ist unabhängig von den Event-Organisatoren und hat die Befugnis, Aktivitäten zu stoppen, 
+                    Eine unabhängige Sicherheitsbeauftragte Person (lizenzierte Elektroingenieurin oder lizenzierter Elektroingenieur) überwacht kontinuierlich die Sicherheit. 
+                    Die Sicherheitsbeauftragte Person ist unabhängig von den Event-Organisatoren und hat die Befugnis, Aktivitäten zu stoppen, 
                     wenn Sicherheitsrisiken identifiziert werden. Zusätzlich sind lizenzierte Elektriker, Brandschutzpersonal 
                     und medizinisches Personal kontinuierlich vor Ort.
                   </p>
@@ -878,7 +878,7 @@ export default function SafetyPage() {
         <section className="py-16 bg-gradient-to-r from-thermal-orange to-compute-blue">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-display text-3xl font-bold text-white">
-              Bereit, sicher mitzubauen?
+              Bereit, sicher mitzuprogrammieren?
             </h2>
             <p className="mt-4 text-white/90 font-mono max-w-xl mx-auto">
               Deine Sicherheit ist unsere Priorität. Melde dich an und absolviere das obligatorische Sicherheitstraining.
