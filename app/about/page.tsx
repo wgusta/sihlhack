@@ -362,6 +362,10 @@ export default function AboutPage() {
                 <span className="text-grid-green">●</span> Essential · 
                 <span className="text-gray-500 ml-2">○</span> Recommended
               </p>
+              <p className="text-center text-gray-500 font-mono text-xs mt-2">
+                Essential-Rollen sind für das Paket zwingend erforderlich. 
+                Recommended-Rollen werden empfohlen, sind aber nicht zwingend.
+              </p>
             </div>
             
             <div className="mt-8 text-center">
