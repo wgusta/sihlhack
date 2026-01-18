@@ -66,33 +66,36 @@ This project extends the sihliconvalley.ch design system:
 - Same core colors: deep-pink, teal, sun-red, brand-black, off-white
 - Extended with historic palette: sepia, cream, rust, insight-cyan
 
-## Current Status (December 2024)
+## Current Status (January 2026)
 
 ### ✅ Completed Features
 
-**Homepage:**
-- Hero section with new tagline: "Server, die Häuser heizen. Batterien, die das Quartier versorgen."
+**Homepage (Streamlined):**
+- Hero section with tagline: "Server, die Häuser heizen. Batterien, die das Quartier versorgen."
 - Three engineering challenges: Zeit-Frage, Wärme-Frage, Resilienz-Frage
-- Participant-focused messaging (du/ihr voice)
-- Open-source ownership message (Apache 2.0)
-- Countdown timer to event date
+- QuickCTA for immediate conversion after Three Questions
+- Condensed FAQ (8 questions, punchy answers)
+- Fund transparency calculator
+- Event timeline
+- Final CTA
 
 **About/Concept Page:**
 - Vision: Sihlvalley vs Silicon Valley attitude
 - Problem → Solution visualization (VORHER/NACHHER)
 - Role-based hackathon explanation (11 roles)
 - Open source commitment with transparency messaging
-- Endgame section: Decentralized AI compute network vision
-- Comprehensive FAQ with participant-focused answers
+- Energy Quadrilemma and Thermal Paths (moved from homepage)
+- Partner/Sponsor ecosystem (moved from homepage)
+- Legal framework FAQ
 
 **Challenges Page:**
 - Three mandatory packages with detailed descriptions
 - Thermal Architecture Challenge: Three paths (Oil, Water, Heat Pump)
-- Open-source resources per challenge (Prometheus, Node-RED, k3s, etc.)
-- Resource submission form (participants can suggest additional repos)
-- Glossary accordion: 26 technical terms explained
+- Sihlicon Hub v1.0 Prototype visualization (moved from homepage)
+- Compute Scenarios: What runs on the Hub (moved from homepage)
 - Team Red: Security challenge with selection process
 - Competition model with scoring criteria
+- Glossary accordion: 26 technical terms explained
 
 **Core Policies:**
 - **Open Source First**: All code Apache 2.0, participants own their work
@@ -116,12 +119,13 @@ This project extends the sihliconvalley.ch design system:
 
 ### 📅 Event Details
 
-- **Date:** September 20-22, 2025 (3 days)
-- **Location:** To be announced
+- **Pilot:** Snackathons (April/May 2026, 2 days, 10-20 participants, free)
+- **Main Event:** September 2026 (3 days)
+- **Location:** Zürich area
 - **Registration:** CHF 150 per participant
-- **Model:** 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
-- **Teams:** 30-36 teams (10-12 per mandatory package)
-- **Participants:** 150+ expected
+- **Model:** 70% to prize pool (35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration), 30% operations
+- **Teams:** 20 teams of 5 people
+- **Participants:** 100 target
 - **Refund Policy:** Automatic refund if minimum participants not reached
 
 ## Key Design Decisions

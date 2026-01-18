@@ -7,8 +7,8 @@ import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
-import { PostEventPathSection } from '@/components/landing/PostEventPathSection'
-import { EndgameSection } from '@/components/landing/EndgameSection'
+import { EnergyTrilemmaSection } from '@/components/landing/EnergyTrilemmaSection'
+import { DataProvidersSection } from '@/components/landing/DataProvidersSection'
 
 export default function AboutPage() {
   const [expandedRole, setExpandedRole] = useState<string | null>(null)
@@ -69,7 +69,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-6">
                 <a
-                  href="/#compute-scenarios"
+                  href="/challenges#compute-scenarios"
                   className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
                 >
                   → Was läuft auf dem Hub? Compute-Szenarien anschauen
@@ -677,11 +677,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Post-Event Paths */}
-        <PostEventPathSection />
+        {/* Energy Quadrilemma & Thermal Paths */}
+        <EnergyTrilemmaSection />
 
-        {/* ENDGAME Vision */}
-        <EndgameSection />
+        {/* Ecosystem: Partners & Sponsors */}
+        <DataProvidersSection />
 
         {/* FAQ */}
         <section id="faq" className="py-16 bg-off-white">

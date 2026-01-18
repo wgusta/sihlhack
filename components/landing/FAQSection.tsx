@@ -7,59 +7,35 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid'
 const faqs = [
   {
     q: 'Was ist ein Sihlicon Hub?',
-    a: 'Server + Batterie + Wärme in einem System. Ihr kombiniert Dinge, die normalerweise getrennt leben. Der thermische Pfad? Noch offen; das ist eure Challenge.',
-  },
-  {
-    q: 'Ist Öl-Immersion die einzige Option?',
-    a: 'Nein. Drei Pfade stehen offen: Öl-Immersion (elegant, komplex), Wasser-Loop (erprobt, solide), Wärmepumpe (ambitioniert). Euer Team entscheidet. Ihr bekommt Constraints, ihr findet den Weg.',
-  },
-  {
-    q: 'Wie löst man den Solar/Wärme-Mismatch?',
-    a: 'Ihr löst ihn. Optionen: Batterien puffern Tag→Nacht. Deferred Compute verschiebt Jobs. Beides zusammen? Noch besser. Die perfekte Balance? Baut ihr vielleicht.',
-  },
-  {
-    q: 'Warum Batterien?',
-    a: 'Server ohne Batterie = nur Server. Mit Batterie = Community-Backup. Netz down? Compute pausiert, Quartier wird versorgt. Kreislauf: Server bezahlt Batterie, Batterie liefert Resilienz.',
+    a: 'Server + Batterie + Wärme in einem System. Compute erzeugt Wärme, Batterie puffert Solar, Wärme heizt Gebäude. Der thermische Pfad? Noch offen; das ist eure Challenge.',
   },
   {
     q: 'Was kostet das?',
-    a: 'CHF 150 / Person für 3 Tage. 70% aller Teilnahmegebühren gehen ins Preisgeld. 30% decken Betriebskosten (Venue, Catering, Infrastruktur). Vollständige Rückerstattung bei Event-Absage.',
+    a: 'CHF 150 / Person für 3 Tage. 70% gehen ins Preisgeld, 30% decken Betriebskosten. Vollständige Rückerstattung bei Event-Absage. Kein Risiko.',
   },
   {
     q: 'Wem gehört der Code?',
-    a: 'Dir. Apache 2.0 = alle Rechte bei dir. Du kannst morgen eine Firma gründen und konkurrieren. Mach das. Je mehr Forks, desto besser.',
-  },
-  {
-    q: 'Was ist anders an diesem Hackathon?',
-    a: 'Keine vorgegebene Lösung. Ihr bekommt Constraints, ihr findet den Pfad. Echte Ingenieurs-Entscheidungen. Am Ende funktioniert was Physisches, oder nicht. Das ist der Test.',
+    a: 'Dir. Apache 2.0 = alle Rechte bei dir. Du kannst morgen eine Firma gründen und konkurrieren. Mach das.',
   },
   {
     q: 'Was sind die Pakete?',
-    a: 'Drei Pakete: Demo-Kit (Energie-Flow beweisen), Hardware Safety (niemand kriegt Stromschlag), Grid-OS (wann rechnen, wann heizen). Jedes Team wählt Fokus. Mehrere Teams pro Paket. Beste Lösung gewinnt.',
+    a: 'Drei Pakete: Demo-Kit (Energie-Flow beweisen), Hardware Safety (niemand kriegt Stromschlag), Grid-OS (wann rechnen, wann heizen). Drei thermische Pfade: Öl-Immersion, Wasser-Loop, Wärmepumpe. Euer Team entscheidet.',
   },
   {
     q: 'Wie bilden sich Teams?',
     a: 'Selbstorganisiert oder über Matching bei Anmeldung. Skills mischen: Hardware + Sensor + Backend + Energie. Chemie müsst ihr selbst finden.',
   },
   {
-    q: 'Was ist eine LEG?',
-    a: 'Lokale Elektrizitätsgemeinschaft nach Schweizer Recht. Nachbarn produzieren und teilen Strom gemeinsam. Rechtliche Grundlage existiert. Technische Infrastruktur? Baut ihr.',
-  },
-  {
     q: 'Brauche ich Hardware-Erfahrung?',
-    a: 'Nicht unbedingt. Rollen: Hardware, Elektro, Software, Design, sogar Recht. Wähle deine Stärke bei der Anmeldung.',
+    a: 'Nicht unbedingt. Rollen: Hardware, Elektro, Software, Design, sogar Recht. Wähle deine Stärke bei der Anmeldung. Nicht-Techniker sind willkommen.',
   },
   {
-    q: 'Was passiert nach dem Hackathon?',
-    a: 'Verein übernimmt Governance. Du kannst Mitglied werden, Roadmap mitgestalten, PRs einreichen. Ziel: Das wird größer als alle Einzelnen. Bessere Version gebaut? Perfekt. Open Source.',
+    q: 'Was ist eine LEG?',
+    a: 'Lokale Elektrizitätsgemeinschaft nach Schweizer Recht (StromVG Art. 18). Nachbarn produzieren und teilen Strom gemeinsam. Technische Infrastruktur? Baut ihr.',
   },
   {
     q: 'Was passiert am Sonntag?',
-    a: 'Demo-Day. Alle Teams präsentieren. Prototyp geht ans echte Solarmodul. Kommt Wärme raus? Jury bewertet. Preisgeld verteilt. Bier danach.',
-  },
-  {
-    q: 'Kann ich remote mitmachen?',
-    a: 'Hardware-Teil = vor Ort (muss man anfassen). Software = hybrid möglich. Demo-Day Sonntag = vor Ort empfohlen. Nichts schlägt das Gefühl, wenn der Prototyp warm wird.',
+    a: 'Demo-Day. Prototyp geht ans echte Solarmodul. Kommt Wärme raus? Jury bewertet. Preisgeld verteilt. Hardware-Teil ist vor Ort, Software kann hybrid sein. Aber: nichts schlägt das Gefühl, wenn der Prototyp warm wird.',
   },
 ]
 

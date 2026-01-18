@@ -84,7 +84,40 @@ Environment variables required: `POSTGRES_URL`, `BLOB_READ_WRITE_TOKEN`, `STRIPE
 /drizzle                - Migration files (auto-generated)
 
 /.claude                - Multi-agent discussion files
+
+/future-comms           - Preserved content for other channels (gitignored)
+                          - endgame-vision.md (investor pitch content)
+                          - post-event-paths.md (post-registration email content)
+                          - faq-removed-questions.md (Discord/email support)
+                          - thermal-paths-technical.md (video/PDF content)
+                          - compute-scenarios-detail.md (technical docs)
+                          - data-providers-ecosystem.md (partner outreach)
 ```
+
+### Page Content Strategy
+
+The website is optimized for conversion with progressive disclosure:
+
+**Homepage (Fast-Track Flow):**
+```
+Hero → Three Questions → QuickCTA → Who Should Join → Before/After →
+Why It Matters → Privacy → Fund Transparency → FAQ (8 questions) →
+Timeline → Final CTA
+```
+
+**Content moved to subpages:**
+- Energy Trilemma/Thermal Paths → `/about`
+- Compute Scenarios → `/challenges`
+- Prototype Visualization → `/challenges`
+- Data Providers/Sponsors → `/about`
+- Endgame Vision → `future-comms/` (offline pitch materials)
+- Post-Event Paths → `future-comms/` (post-registration emails)
+
+**Communication Principles:**
+- Don't overexplain on landing page; leave gaps for curiosity
+- Depth content on subpages for committed visitors
+- Technical details for builders, not for conversion
+- Endgame/investor content kept offline
 
 ### Database Schema
 

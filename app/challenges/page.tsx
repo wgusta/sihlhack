@@ -10,6 +10,8 @@ import { GlossaryAccordion } from '@/components/challenges/GlossaryAccordion'
 import { DemoKitVisualization } from '@/components/visualizations/DemoKitVisualization'
 import { SafetyVisualization } from '@/components/visualizations/SafetyVisualization'
 import { GridOSVisualization } from '@/components/visualizations/GridOSVisualization'
+import { ComputeScenariosSection } from '@/components/landing/ComputeScenariosSection'
+import { PrototypeVisualization } from '@/components/ui/PrototypeVisualization'
 
 export const metadata = {
   title: 'Pakete & Competition | sihlhack',
@@ -882,6 +884,28 @@ export default function ChallengesPage() {
             </div>
           </div>
         </section>
+
+        {/* Prototype Visualization */}
+        <section className="py-24 bg-off-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <span className="font-mono text-sm text-compute-blue uppercase tracking-widest">
+                Vom Konzept zum Prototyp
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-brand-black mt-4">
+                Der Sihlicon Hub v1.0
+              </h2>
+              <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
+                Hardware, die heizt. Software, die steuert. Ein komplettes System für die Energiewende.
+              </p>
+            </div>
+
+            <PrototypeVisualization />
+          </div>
+        </section>
+
+        {/* Compute Scenarios: What runs on the Hub */}
+        <ComputeScenariosSection />
 
         {/* CTA */}
         <section className="py-16 bg-gradient-to-r from-thermal-orange to-compute-blue">
