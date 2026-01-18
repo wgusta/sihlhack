@@ -551,44 +551,44 @@ export function PrototypeVisualization() {
       <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <span className="bg-grid-green/20 text-grid-green px-3 py-1 rounded-full font-mono text-xs font-bold border border-grid-green/30">
-            v2: Production Scale
+            v2: Produktionsmaßstab
           </span>
-          <span className="text-gray-500 font-mono text-xs">Coming Next</span>
+          <span className="text-gray-500 font-mono text-xs">Als Nächstes</span>
         </div>
         
         <h3 className="font-accent text-xl md:text-2xl text-brand-black mb-4">
-          The Economically Viable Next Step
+          Der wirtschaftlich tragfähige nächste Schritt
         </h3>
         
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">
-              Version 2 scales the proof-of-concept to an economically self-sustaining system. 
-              Where v1 demonstrates the closed-loop energy flow with a 150W panel and 20L tank, 
-              <strong className="text-brand-black"> v2 targets real building integration</strong>: 
-              multi-kW solar arrays, industrial-grade immersion cooling, and full HVAC integration.
+              Version 2 skaliert den Machbarkeitsnachweis zu einem wirtschaftlich selbsttragenden System. 
+              Während v1 den geschlossenen Energiefluss mit einem 150W-Panel und 20L-Tank demonstriert, 
+              <strong className="text-brand-black"> zielt v2 auf echte Gebäudeintegration</strong>: 
+              Multi-kW-Solaranlagen, industrielle Immersionskühlung und vollständige HLK-Integration.
             </p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-solar-yellow font-bold">☀</span>
-                <span className="text-gray-700"><strong>5 bis 20 kW</strong> solar capacity per building unit</span>
+                <span className="text-gray-700"><strong>5 bis 20 kW</strong> Solarleistung pro Gebäudeeinheit</span>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-compute-blue font-bold">⬢</span>
-                <span className="text-gray-700"><strong>GPU clusters</strong> with commercial heat recovery</span>
+                <span className="text-gray-700"><strong>GPU-Cluster</strong> mit kommerzieller Wärmerückgewinnung</span>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-thermal-orange font-bold">◉</span>
-                <span className="text-gray-700"><strong>200L+ tanks</strong> for real hot water demand</span>
+                <span className="text-gray-700"><strong>200L+ Tanks</strong> für echten Warmwasserbedarf</span>
               </li>
             </ul>
           </div>
           
           <div className="bg-white rounded-xl border border-gray-100 p-4">
-            <h4 className="font-mono text-xs text-gray-500 uppercase tracking-wider mb-3">v1 → v2 Scaling</h4>
+            <h4 className="font-mono text-xs text-gray-500 uppercase tracking-wider mb-3">V1 → V2 SKALIERUNG</h4>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Solar Input</span>
+                <span className="font-mono text-sm text-gray-600">Solareingang</span>
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">150W</span>
                   <span className="text-gray-300 mx-2">→</span>
@@ -596,7 +596,7 @@ export function PrototypeVisualization() {
                 </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Tank Volume</span>
+                <span className="font-mono text-sm text-gray-600">Tankvolumen</span>
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">20L</span>
                   <span className="text-gray-300 mx-2">→</span>
@@ -604,19 +604,19 @@ export function PrototypeVisualization() {
                 </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Heat Output</span>
+                <span className="font-mono text-sm text-gray-600">Wärmeausgabe</span>
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">Demo</span>
                   <span className="text-gray-300 mx-2">→</span>
-                  <span className="text-grid-green font-bold">Full Building</span>
+                  <span className="text-grid-green font-bold">Vollständiges Gebäude</span>
                 </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Economics</span>
+                <span className="font-mono text-sm text-gray-600">Wirtschaftlichkeit</span>
                 <span className="font-mono text-sm">
                   <span className="text-gray-400">N/A</span>
                   <span className="text-gray-300 mx-2">→</span>
-                  <span className="text-grid-green font-bold">Revenue-positive</span>
+                  <span className="text-grid-green font-bold">Gewinnbringend</span>
                 </span>
               </div>
             </div>
@@ -624,8 +624,8 @@ export function PrototypeVisualization() {
         </div>
         
         <p className="text-gray-500 text-xs mt-6 font-mono">
-          The hackathon builds v1 as a measurable closed-loop proof. The extrapolation to v2 demonstrates 
-          commercial viability: same physics, larger scale, real economic returns from compute revenue and energy savings.
+          Der Hackathon baut v1 als messbaren geschlossenen Kreislauf-Nachweis. Die Extrapolation auf v2 zeigt 
+          kommerzielle Tragfähigkeit: gleiche Physik, größerer Maßstab, echte wirtschaftliche Rendite aus Rechenumsatz und Energieeinsparungen.
         </p>
       </div>
     </div>
