@@ -460,8 +460,9 @@ export default function AboutPage() {
                 Dein Code. Deine Entscheidung.
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Apache 2.0 bedeutet: Du behältst alle Rechte. Du kannst morgen eine Firma gründen, 
-                die mit dem Code konkurriert, den du hier schreibst. Wir ermutigen das. Je mehr Forks, desto besser.
+                Dual-Lizenz-Modell bedeutet: Du behältst alle Rechte. Hardware (CERN-OHL-P/MIT) ist vollständig frei, 
+                Grid-OS (SVG-L) schützt das Netz. Du kannst morgen eine Firma gründen, die mit dem Code konkurriert, 
+                den du hier schreibst. Wir ermutigen das. Je mehr Forks, desto besser.
               </p>
             </div>
 
@@ -551,51 +552,127 @@ export default function AboutPage() {
                     Du als Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
                   </p>
                   <p>
-                    Durch die Veröffentlichung unter <strong className="text-thermal-orange">Apache 2.0</strong> erteilst du eine <strong className="text-white">nicht-exklusive, weltweite, gebührenfreie Lizenz</strong>: 
-                    du gibst also Nutzungsrechte weiter, ohne deine eigenen Rechte zu verlieren.
+                    sihlhack verwendet ein <strong className="text-thermal-orange">Dual-Lizenz-Modell</strong>: 
+                    Hardware unter <strong className="text-white">CERN-OHL-P/MIT</strong> (vollständig frei), 
+                    Grid-OS unter <strong className="text-white">SVG-L</strong> (verantwortungsvoll, schützt das Netz). 
+                    Du erteilst eine <strong className="text-white">nicht-exklusive, weltweite, gebührenfreie Lizenz</strong>: 
+                    Nutzungsrechte werden weitergegeben, ohne dass deine eigenen Rechte verloren gehen.
                   </p>
                   <p className="pt-2 border-t border-white/10 text-xs text-gray-400">
-                    ℹ️ Das bedeutet: Du kannst deinen Code später auch für andere Projekte nutzen, verkaufen oder anders lizenzieren.
+                    ℹ️ Das bedeutet: Du kannst deinen Code später auch für andere Projekte nutzen, verkaufen oder anders lizenzieren. 
+                    <a href="/licensing" className="text-thermal-orange hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                   </p>
                 </div>
               </div>
 
-              {/* Apache 2.0 License */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="font-display text-xl font-bold text-compute-blue mb-4 flex items-center gap-3">
-                  <span>📜</span>
-                  Warum Apache 2.0?
+              {/* The Body: Open Hardware */}
+              <div className="bg-gradient-to-r from-thermal-orange/20 to-thermal-orange/10 border border-thermal-orange/30 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-thermal-orange mb-4 flex items-center gap-3">
+                  <span>🔧</span>
+                  Der Körper: Open Hardware
                 </h3>
                 <div className="space-y-3 text-sm font-mono text-gray-300">
                   <p>
-                    Die <strong className="text-white">Apache 2.0 Lizenz</strong> ist eine der meistgenutzten Open-Source-Lizenzen weltweit und wurde speziell für die Schweiz durch 
-                    <strong className="text-white"> Art. 19 URG</strong> (Bearbeitung und Änderung) sowie 
-                    <strong className="text-white"> Art. 62 OR</strong> (Vertragsfreiheit) abgesichert.
+                    <strong className="text-white">Lizenz:</strong> <strong className="text-thermal-orange">CERN-OHL-P (Permissive)</strong> oder <strong className="text-thermal-orange">MIT</strong>
+                  </p>
+                  <p className="text-lg font-semibold text-white mb-2">
+                    Philosophie: "Jeder kann die Maschine bauen."
+                  </p>
+                  <p>
+                    <strong className="text-white">Gilt für:</strong> Thermische Architektur, CAD-Dateien, Schematics, Stücklisten (BOM)
                   </p>
                   <ul className="space-y-2 pl-4">
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-1">✓</span>
-                      <span><strong className="text-white">Patent-Grant:</strong> Schützt Nutzer vor Patent-Klagen (wichtig bei Hardware)</span>
+                      <span>Du kannst es bauen, verkaufen, modifizieren</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-1">✓</span>
-                      <span><strong className="text-white">Disclaimer of Warranty:</strong> Haftungsausschluss nach Schweizer OR (Art. 100 OR)</span>
+                      <span>Kommerzielle Nutzung ohne Einschränkungen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-1">✓</span>
-                      <span><strong className="text-white">Commercial Use:</strong> <a href="/leg" className="text-thermal-orange hover:underline">LEGs</a> dürfen damit kommerziell arbeiten</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-grid-green mt-1">✓</span>
-                      <span><strong className="text-white">Modification:</strong> Jeder darf den Code anpassen und weiterentwickeln</span>
+                      <span>Wir wollen diese Heizungen in jedem Keller</span>
                     </li>
                   </ul>
+                  <p className="pt-2 border-t border-white/10 text-xs text-gray-400">
+                    Null Einschränkungen am physischen Artefakt.
+                  </p>
+                </div>
+              </div>
+
+              {/* The Conscience: Grid-OS License */}
+              <div className="bg-gradient-to-r from-compute-blue/20 to-compute-blue/10 border border-compute-blue/30 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-compute-blue mb-4 flex items-center gap-3">
+                  <span>🧠</span>
+                  Das Gewissen: Grid-OS Lizenz
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    <strong className="text-white">Lizenz:</strong> <strong className="text-compute-blue">Sihl Valley Common-Good License (SVG-L)</strong>
+                  </p>
+                  <p className="text-lg font-semibold text-white mb-2">
+                    Philosophie: "Du kannst das Gewissen der Maschine nicht entfernen."
+                  </p>
+                  <p>
+                    <strong className="text-white">Gilt für:</strong> Grid-OS, Scheduler, Orchestrator, Verhandlungslogik, Grid-Interface Code
+                  </p>
+                  <div className="space-y-3 pt-2">
+                    <div className="border-l-4 border-sihl-red pl-3">
+                      <p className="font-semibold text-white text-xs mb-1">
+                        Thermodynamische Wahrheit
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        Keine "Dummy Loops" nur zur Wärmeerzeugung ohne Wert. Lizenzverletzung.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-grid-green pl-3">
+                      <p className="font-semibold text-white text-xs mb-1">
+                        Netzgehorsam
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        Grid-Curtailment-Signale müssen befolgt werden. Code entfernen = Lizenz beendet.
+                      </p>
+                    </div>
+                    <div className="border-l-4 border-thermal-orange pl-3">
+                      <p className="font-semibold text-white text-xs mb-1">
+                        Anti-Vampir
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        Minimum 500 MFLOPS/Watt Effizienz. Keine E-Waste-Verbrennung für Subventionen.
+                      </p>
+                    </div>
+                  </div>
+                  <p className="pt-2 border-t border-white/10 text-xs text-gray-400">
+                    <a href="/licensing" className="text-compute-blue hover:underline">→ Vollständige Lizenz-Erklärung</a>
+                  </p>
+                </div>
+              </div>
+
+              {/* Why Dual-License */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl font-bold text-sihl-red mb-4 flex items-center gap-3">
+                  <span>⚡</span>
+                  Warum Dual-Lizenz?
+                </h3>
+                <div className="space-y-3 text-sm font-mono text-gray-300">
+                  <p>
+                    Wir kämpfen gegen den <strong className="text-white">Cobra-Effekt</strong>: Ohne diese Regeln könnten 
+                    schlechte Akteure die Netzschutz-Logik entfernen und "Vampir-Heizungen" bauen, die nur Energie 
+                    verbrennen für Subventionen – und dabei das Schweizer Netz ignorieren.
+                  </p>
+                  <p>
+                    <strong className="text-white">Wir bauen Denker, die heizen – nicht Heizungen, die denken.</strong>
+                  </p>
+                  <p className="pt-2 border-t border-white/10 text-xs text-gray-400 italic">
+                    Gute Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
+                  </p>
                 </div>
               </div>
 
               {/* Contributor Agreement */}
               <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <h3 className="font-display text-xl font-bold text-sihl-red mb-4 flex items-center gap-3">
+                <h3 className="font-display text-xl font-bold text-industrial-gold mb-4 flex items-center gap-3">
                   <span>✍️</span>
                   Contributor Agreement
                 </h3>
@@ -605,11 +682,12 @@ export default function AboutPage() {
                   </p>
                   <ol className="space-y-2 pl-4 list-decimal">
                     <li><strong className="text-white">Originalität:</strong> Du hast den Code selbst geschrieben oder hast die Rechte daran.</li>
-                    <li><strong className="text-white">Lizenzierung:</strong> Du stimmst der Veröffentlichung unter Apache 2.0 zu.</li>
+                    <li><strong className="text-white">Lizenzierung:</strong> Du stimmst der Veröffentlichung unter der entsprechenden Lizenz zu (CERN-OHL-P/MIT für Hardware, SVG-L für Grid-OS).</li>
                     <li><strong className="text-white">Keine Drittrechte:</strong> Der Code verletzt keine Rechte Dritter (z.B. keine Copy-Paste von proprietärem Code).</li>
+                    <li><strong className="text-white">Compliance:</strong> Du verpflichtest dich, die SVG-L Klauseln einzuhalten (falls Grid-OS Code).</li>
                   </ol>
                   <p className="pt-2 border-t border-white/10">
-                    Dies entspricht dem Standard-CLA (Contributor License Agreement), wie er auch bei Linux, Kubernetes und anderen Open-Source-Projekten verwendet wird.
+                    Dies entspricht dem Standard-CLA (Contributor License Agreement), angepasst für das Dual-Lizenz-Modell.
                   </p>
                 </div>
               </div>
@@ -648,19 +726,19 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
                   <div className="space-y-2">
                     <p className="text-grid-green font-semibold">✓ Du behältst alle Rechte</p>
-                    <p className="text-gray-300 text-xs">Dein Code gehört dir, auch nach dem Hackathon.</p>
+                    <p className="text-gray-300 text-xs">Dein Code gehört dir, auch nach dem Hackathon (Art. 2 URG).</p>
                   </div>
                   <div className="space-y-2">
                     <p className="text-grid-green font-semibold">✓ Kommerzielle Nutzung erlaubt</p>
-                    <p className="text-gray-300 text-xs">Du darfst deine Arbeit später verkaufen oder damit Geld verdienen.</p>
+                    <p className="text-gray-300 text-xs">Hardware frei, Grid-OS kommerziell nutzbar (mit SVG-L Compliance).</p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-grid-green font-semibold">✓ Keine Haftung für Fehler</p>
-                    <p className="text-gray-300 text-xs">Rechtlich abgesichert durch Apache 2.0 Disclaimer.</p>
+                    <p className="text-grid-green font-semibold">✓ Du bist geschützt</p>
+                    <p className="text-gray-300 text-xs">SVG-L verhindert Waffenisierung deiner Arbeit durch "Energy Grifter".</p>
                   </div>
                   <div className="space-y-2">
                     <p className="text-grid-green font-semibold">✓ Community profitiert</p>
-                    <p className="text-gray-300 text-xs">Andere <a href="/leg" className="text-thermal-orange hover:underline">LEGs</a> können deine Lösung nachbauen.</p>
+                    <p className="text-gray-300 text-xs">Andere <a href="/leg" className="text-thermal-orange hover:underline">LEGs</a> können deine Lösung nachbauen, das Netz bleibt geschützt.</p>
                   </div>
                 </div>
               </div>
@@ -730,24 +808,63 @@ export default function AboutPage() {
                   a: 'Nein, es ist ein Tages-Event (Fr Abend bis So Nachmittag). Du kannst pendeln oder wir helfen bei der Organisation von Unterkünften.',
                 },
                 {
+                  q: 'Was ist das Dual-Lizenz-Modell?',
+                  a: (
+                    <>
+                      Hardware (Körper) ist vollständig frei unter <strong>CERN-OHL-P/MIT</strong> – jeder kann die Maschine bauen. 
+                      Grid-OS Software (Gewissen) hat verantwortungsvolle Einschränkungen unter <strong>SVG-L</strong>, um das Schweizer 
+                      Netz zu schützen. <a href="/licensing" className="text-sihl-red hover:underline">→ Vollständige Erklärung</a>
+                    </>
+                  ),
+                },
+                {
+                  q: 'Warum braucht Grid-OS eine spezielle Lizenz?',
+                  a: (
+                    <>
+                      Ohne diese Regeln könnten schlechte Akteure die Netzschutz-Logik entfernen und "Vampir-Heizungen" bauen, 
+                      die nur Energie verbrennen für Subventionen. Das würde das Schweizer Netz destabilisieren. 
+                      Wir verhindern den <strong>Cobra-Effekt</strong>.
+                    </>
+                  ),
+                },
+                {
                   q: 'Was passiert, wenn mein Code später in einem kommerziellen Produkt verwendet wird?',
                   a: (
                     <>
-                      Apache 2.0 erlaubt kommerzielle Nutzung, das ist gewollt. <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> dürfen (und sollen) damit Geld verdienen. Du behältst aber alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.
+                      Kommerzielle Nutzung ist erlaubt und gewollt. <a href="/leg" className="text-sihl-red hover:underline">LEGs</a> dürfen (und sollen) damit Geld verdienen. 
+                      Hardware ist vollständig frei, Grid-OS kann kommerziell genutzt werden (mit SVG-L Compliance). 
+                      Du behältst alle Rechte an deinem Original-Code und kannst ihn auch selbst kommerziell nutzen.
                     </>
                   ),
                 },
                 {
                   q: 'Hafte ich, wenn mein Code einen Fehler hat und etwas kaputt geht?',
-                  a: 'Nein. Die Apache 2.0 Lizenz enthält einen Haftungsausschluss ("AS IS", also ohne Gewährleistung), der nach Schweizer Recht (Art. 100 OR) rechtlich wirksam ist. Du haftest nur bei Vorsatz oder grober Fahrlässigkeit.',
+                  a: 'Nein. Die Lizenzen (CERN-OHL-P/MIT und SVG-L) enthalten Haftungsausschlüsse ("AS IS", also ohne Gewährleistung), die nach Schweizer Recht (Art. 100 OR) rechtlich wirksam sind. Du haftest nur bei Vorsatz oder grober Fahrlässigkeit.',
                 },
                 {
                   q: 'Kann ich meinen Code später unter einer anderen Lizenz verwenden?',
-                  a: 'Ja! Du behältst alle Urheberrechte. Du kannst denselben Code parallel unter einer anderen Lizenz (z.B. proprietär) für andere Projekte nutzen. Dies nennt sich "Dual Licensing" und ist völlig legal.',
+                  a: (
+                    <>
+                      Ja! Du behältst alle Urheberrechte (Art. 2 URG). Du kannst denselben Code parallel unter einer anderen 
+                      Lizenz (z.B. proprietär) für andere Projekte nutzen. Dies nennt sich "Dual Licensing" und ist völlig legal. 
+                      Wichtig: Wenn du Grid-OS Code unter SVG-L veröffentlicht hast, gelten die SVG-L Klauseln weiterhin für 
+                      Kopien dieses Codes.
+                    </>
+                  ),
+                },
+                {
+                  q: 'Welche Lizenz gilt für welches Challenge-Paket?',
+                  a: (
+                    <>
+                      <strong>Hardware Safety & Thermal Architecture:</strong> CERN-OHL-P/MIT (Hardware). 
+                      <strong>Grid-OS Controller:</strong> SVG-L (Software). 
+                      <strong>Demo-Kit:</strong> Je nach Komponente – Hardware-Teile frei, Grid-OS-Teile SVG-L.
+                    </>
+                  ),
                 },
                 {
                   q: 'Was ist, wenn ich Code von Stack Overflow oder GitHub kopiere?',
-                  a: 'Du darfst nur Code einreichen, für den du die Rechte hast. Stack Overflow Code ist meist CC BY-SA lizenziert (kompatibel mit Apache 2.0). Bei GitHub-Code: Prüfe die Lizenz. Im Zweifelsfall: Frag uns vorher.',
+                  a: 'Du darfst nur Code einreichen, für den du die Rechte hast. Stack Overflow Code ist meist CC BY-SA lizenziert (kompatibel mit CERN-OHL-P/MIT). Bei GitHub-Code: Prüfe die Lizenz. Im Zweifelsfall: Frag uns vorher.',
                 },
               ].map((item, index) => (
                 <Card key={index}>

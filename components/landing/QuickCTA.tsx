@@ -18,7 +18,7 @@ export function QuickCTA() {
               <span>Rückerstattung bei Absage</span>
             </div>
             <div className="flex items-center gap-2 text-gray-400">
-              <span className="text-compute-blue font-bold">Apache 2.0</span>
+              <span className="text-compute-blue font-bold">Dual-Lizenz</span>
               <span>Dein Code</span>
             </div>
           </div>

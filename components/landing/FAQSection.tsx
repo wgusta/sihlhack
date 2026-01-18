@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: 'Wem gehört der Code?',
-    a: 'Dir. Apache 2.0 = alle Rechte bei dir. Du kannst morgen eine Firma gründen und konkurrieren. Mach das.',
+    a: 'Dir. Dual-Lizenz-Modell: Hardware (CERN-OHL-P/MIT) vollständig frei, Grid-OS (SVG-L) schützt das Netz. Alle Rechte bleiben bei dir. Du kannst morgen eine Firma gründen und konkurrieren. Mach das.',
   },
   {
     q: 'Was sind die Pakete?',

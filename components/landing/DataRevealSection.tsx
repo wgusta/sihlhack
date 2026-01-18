@@ -193,7 +193,7 @@ export function DataRevealSection() {
               {
                 icon: BookOpenIcon,
                 title: 'Open Source',
-                description: 'Alles unter Apache 2.0. Hardware-Schematics, Software, Dokumentation. Replizierbar.',
+                description: 'Dual-Lizenz-Modell: Hardware (CERN-OHL-P/MIT) vollständig frei, Grid-OS (SVG-L) schützt das Netz. Replizierbar.',
                 color: 'text-grid-green',
               },
               {

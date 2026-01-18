@@ -483,6 +483,24 @@ export function RegistrationForm() {
             </div>
           </div>
 
+          {/* Licensing Information */}
+          <div className="bg-gradient-to-r from-thermal-orange/5 to-compute-blue/5 border border-thermal-orange/20 rounded-lg p-4 mt-6">
+            <h3 className="font-display font-semibold text-brand-black mb-2 text-sm">
+              Dual-Lizenz-Modell
+            </h3>
+            <p className="text-xs font-mono text-historic-sepia mb-2">
+              Hardware (Thermal Architecture, CAD, BOM): <strong className="text-thermal-orange">CERN-OHL-P/MIT</strong> (vollständig frei)
+            </p>
+            <p className="text-xs font-mono text-historic-sepia mb-2">
+              Grid-OS Software (Scheduler, Orchestrator): <strong className="text-compute-blue">SVG-L</strong> (schützt das Netz)
+            </p>
+            <p className="text-xs font-mono text-historic-sepia">
+              <a href="/licensing" target="_blank" className="text-sihl-red hover:underline">
+                → Vollständige Lizenz-Erklärung lesen
+              </a>
+            </p>
+          </div>
+
           <TermsCheckbox
             checked={formData.acceptedTerms}
             onChange={(checked) => setFormData({ ...formData, acceptedTerms: checked })}

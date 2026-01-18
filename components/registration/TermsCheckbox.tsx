@@ -43,11 +43,16 @@ export function TermsCheckbox({ checked, onChange, error }: TermsCheckboxProps) 
           <a href="/datenschutz" target="_blank" className="text-sihl-red hover:underline">
             Datenschutzerklärung
           </a>{' '}
-          gelesen. Ich verstehe, dass ein{' '}
+          gelesen. Ich verstehe das{' '}
+          <a href="/licensing" target="_blank" className="text-sihl-red hover:underline">
+            Dual-Lizenz-Modell
+          </a>{' '}
+          (Hardware: CERN-OHL-P/MIT, Grid-OS: SVG-L) und verpflichte mich zur Einhaltung der SVG-L Klauseln. 
+          Ein{' '}
           <a href="/safety" target="_blank" className="text-sihl-red hover:underline">
             obligatorisches Sicherheitstraining
           </a>{' '}
-          vor der Teilnahme erforderlich ist.
+          vor der Teilnahme ist erforderlich.
         </span>
       </label>
       {error && (

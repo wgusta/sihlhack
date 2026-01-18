@@ -119,8 +119,8 @@ export function WhyItMattersSection() {
         {/* Ownership Message */}
         <div className="mt-16 max-w-3xl mx-auto pt-12 border-t border-gray-200">
           <p className="font-mono text-sm text-historic-sepia text-center">
-            <span className="text-brand-black font-semibold">Dein Code. Deine Rechte.</span> Apache 2.0 = Du kannst morgen eine Firma gründen 
-            und mit uns konkurrieren. Go for it.
+            <span className="text-brand-black font-semibold">Dein Code. Deine Rechte.</span> Dual-Lizenz-Modell: Hardware frei (CERN-OHL-P/MIT), 
+            Grid-OS schützt das Netz (SVG-L). Du kannst morgen eine Firma gründen und mit uns konkurrieren. Go for it.
           </p>
         </div>
       </div>

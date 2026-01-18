@@ -14,7 +14,8 @@ export function PrivacySection() {
               </h3>
               <p className="font-mono text-sm text-gray-300">
                 Alles was wir bauen, gehört der Community.
-                Apache 2.0 Lizenz. Keine Vendor Lock-ins. Keine versteckten APIs.
+                Dual-Lizenz-Modell: Hardware frei (CERN-OHL-P/MIT), Grid-OS schützt das Netz (SVG-L). 
+                Keine Vendor Lock-ins. Keine versteckten APIs.
               </p>
             </div>
 

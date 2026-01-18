@@ -190,8 +190,11 @@ export default function ChallengesPage() {
                   Kontext passt. Kein Pfad ist "richtig" – nur Trade-offs.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr baut, gehört euch (Apache 2.0). 
-                  Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das.
+                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr baut, gehört euch. 
+                  Hardware-Designs unter <strong className="text-thermal-orange">CERN-OHL-P/MIT</strong> (vollständig frei), 
+                  Grid-OS Code unter <strong className="text-compute-blue">SVG-L</strong> (schützt das Netz). 
+                  Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das. 
+                  <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
                   <strong className="text-brand-black">Preisgeld:</strong> 35% für Demo-Kit, 35% für Hardware Safety, 

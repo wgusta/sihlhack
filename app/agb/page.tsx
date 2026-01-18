@@ -76,13 +76,86 @@ export default function AGBPage() {
 
             <section>
               <h2 className="font-display text-xl font-semibold text-brand-black mb-4">
-                6. Geistiges Eigentum
+                6. Geistiges Eigentum und Lizenzierung
               </h2>
-              <p className="text-historic-sepia">
-                Alle während des Hackathons erstellten Projekte (Software, Hardware-Designs, Dokumentation) werden unter der Apache 2.0 Open-Source-Lizenz veröffentlicht. Teilnehmende behalten alle Urheberrechte an ihren Beiträgen und stimmen der Veröffentlichung unter dieser Lizenz zu. Die Projekte verbleiben im geistigen Eigentum der jeweiligen Teams, werden aber der Öffentlichkeit zur freien Nutzung, Anpassung und Weiterentwicklung zur Verfügung gestellt.
+              
+              <p className="text-historic-sepia mb-4">
+                sihlhack verwendet ein Dual-Lizenz-Modell, um das Schweizer Stromnetz vor dem "Cobra-Effekt" 
+                zu schützen, während gleichzeitig maximale Freiheit für Hardware-Innovation gewährleistet wird. 
+                Teilnehmende behalten alle Urheberrechte an ihren Beiträgen (Art. 2 URG).
               </p>
-              <p className="text-historic-sepia mt-4">
-                Teilnehmende gewähren dem Veranstalter das Recht, Projektergebnisse zu Dokumentations- und Werbezwecken zu verwenden.
+
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-3 mt-6">
+                6.1 Hardware (Der Körper)
+              </h3>
+              <p className="text-historic-sepia mb-2">
+                Alle Hardware-Designs, thermische Architekturen, CAD-Dateien, Schematics und Stücklisten (BOM) 
+                werden unter der <strong>CERN-OHL-P (Permissive)</strong> oder <strong>MIT</strong> Lizenz veröffentlicht.
+              </p>
+              <p className="text-historic-sepia mb-4">
+                <strong>Philosophie:</strong> "Jeder kann die Maschine bauen." Kommerzielle Nutzung, Modifikation 
+                und Weiterverkauf sind ohne Einschränkungen erlaubt.
+              </p>
+
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-3 mt-6">
+                6.2 Software/Grid-OS (Das Gewissen)
+              </h3>
+              <p className="text-historic-sepia mb-2">
+                Grid-OS Software (Scheduler, Orchestrator, Verhandlungslogik, Grid-Interface Code) wird unter 
+                der <strong>Sihl Valley Common-Good License (SVG-L)</strong> veröffentlicht.
+              </p>
+              <p className="text-historic-sepia mb-3">
+                <strong>Philosophie:</strong> "Du kannst das Gewissen der Maschine nicht entfernen." Diese Lizenz 
+                enthält drei Kernklauseln:
+              </p>
+              <ul className="list-disc pl-6 text-historic-sepia space-y-2 mb-4">
+                <li>
+                  <strong>Thermodynamische Wahrheit:</strong> Die Software darf nicht so modifiziert werden, 
+                  dass "Dummy Loops" (NO-OP Zyklen) nur zur Wärmeerzeugung ohne wirtschaftlichen oder 
+                  wissenschaftlichen Wert laufen. Dies ist eine Lizenzverletzung.
+                </li>
+                <li>
+                  <strong>Netzgehorsam:</strong> Jede Installation dieser Software, die signifikante Last 
+                  kontrolliert, muss eine aktive, ungehinderte Schnittstelle für Grid Frequency Containment 
+                  aufrechterhalten. Code zu entfernen, der Grid-Curtailment-Signale ignoriert, beendet die 
+                  Lizenz sofort.
+                </li>
+                <li>
+                  <strong>Anti-Vampir:</strong> Diese Software darf nicht auf Hardware mit einer Computational 
+                  Efficiency Rating unter 500 MFLOPS/Watt verwendet werden, es sei denn, die Hardware ist als 
+                  "Historisches Erbe" deklariert und auf Bildungszwecke beschränkt.
+                </li>
+              </ul>
+              <p className="text-historic-sepia mb-4">
+                Kommerzielle Nutzung ist erlaubt, jedoch unter Einhaltung der obigen Klauseln. 
+                Eine detaillierte Beschreibung des Lizenzmodells findet sich unter{' '}
+                <a href="/licensing" className="text-sihl-red hover:underline">/licensing</a>.
+              </p>
+
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-3 mt-6">
+                6.3 Teilnehmerrechte
+              </h3>
+              <p className="text-historic-sepia mb-2">
+                Teilnehmende behalten alle Urheberrechte an ihren Beiträgen (Art. 2 URG). Die Veröffentlichung 
+                unter den genannten Lizenzen erteilt eine nicht-exklusive, weltweite, gebührenfreie Lizenz: 
+                Nutzungsrechte werden weitergegeben, ohne dass die eigenen Rechte verloren gehen.
+              </p>
+              <p className="text-historic-sepia mb-4">
+                Teilnehmende können ihren Code später auch für andere Projekte nutzen, verkaufen oder anders 
+                lizenzieren (Dual Licensing ist zulässig).
+              </p>
+
+              <h3 className="font-display text-lg font-semibold text-brand-black mb-3 mt-6">
+                6.4 Lizenz-Compliance
+              </h3>
+              <p className="text-historic-sepia mb-2">
+                Teilnehmende verpflichten sich, die Lizenzbedingungen einzuhalten. Bei Verstössen gegen die 
+                SVG-L Klauseln (insbesondere Thermodynamische Wahrheit, Netzgehorsam oder Anti-Vampir) 
+                erlischt die Lizenz sofort.
+              </p>
+              <p className="text-historic-sepia mb-4">
+                Teilnehmende gewähren dem Veranstalter das Recht, Projektergebnisse zu Dokumentations- und 
+                Werbezwecken zu verwenden.
               </p>
             </section>
 
