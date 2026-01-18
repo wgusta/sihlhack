@@ -1,6 +1,8 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/landing/HeroSection'
+import { ChallengesPreview } from '@/components/landing/ChallengesPreview'
+import { WhoShouldJoinSection } from '@/components/landing/WhoShouldJoinSection'
 import { DataRevealSection } from '@/components/landing/DataRevealSection'
 import { WhyItMattersSection } from '@/components/landing/WhyItMattersSection'
 import { PrivacySection } from '@/components/landing/PrivacySection'
@@ -17,28 +19,34 @@ export default function HomePage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        {/* 1. Hero: Live Pot Tracker + Countdown + Historical Data meets AI */}
+        {/* 1. Hero: Executive Summary */}
         <HeroSection />
 
-        {/* 2. The Challenge: Before/After slider showing data transformation */}
+        {/* 2. Challenges Preview: Three open questions */}
+        <ChallengesPreview />
+
+        {/* 3. Who Should Join: Audience targeting */}
+        <WhoShouldJoinSection />
+
+        {/* 4. The Challenge: Before/After slider showing data transformation */}
         <div className="py-12 sm:py-16">
           <DataRevealSection />
         </div>
 
-        {/* 3. Why This Matters: Value proposition */}
+        {/* 5. Why This Matters: Value proposition */}
         <WhyItMattersSection />
 
-        {/* 4. Privacy: Local-first AI approach */}
+        {/* 6. Privacy: Local-first AI approach */}
         <div className="py-12 sm:py-16">
           <PrivacySection />
         </div>
 
-        {/* 5. Energy Trilemma & LEGs */}
+        {/* 7. Energy Trilemma & LEGs */}
         <div className="py-12 sm:py-16">
           <EnergyTrilemmaSection />
         </div>
 
-        {/* 6. Technical Prototype: Visualisation */}
+        {/* 8. Technical Prototype: Visualisation */}
         <section className="py-24 bg-off-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -72,22 +80,22 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 7. Data Providers: Who contributes historical data */}
+        {/* 9. Data Providers: Who contributes historical data */}
         <div className="py-12 sm:py-16">
           <DataProvidersSection />
         </div>
 
-        {/* 7. Transparency: Calculator widget + Community vs Corporate */}
+        {/* 10. Transparency: Calculator widget + Community vs Corporate */}
         <div className="py-12 sm:py-16">
           <DynamicFundingSection />
         </div>
 
-        {/* 8. FAQ: Common questions accordion */}
+        {/* 11. FAQ: Common questions accordion */}
         <div className="py-12 sm:py-16">
           <FAQSection />
         </div>
 
-        {/* 8.5. Team Red: Security Challenge */}
+        {/* 11.5. Team Red: Security Challenge */}
         <section className="py-16 bg-brand-black text-white relative overflow-hidden">
           {/* Warning stripes */}
           <div className="absolute top-0 left-0 right-0 h-2" style={{
@@ -150,12 +158,12 @@ export default function HomePage() {
           }} />
         </section>
 
-        {/* 9. Timeline: When things happen */}
+        {/* 12. Timeline: When things happen */}
         <div className="py-12 sm:py-16">
           <EventTimeline />
         </div>
 
-        {/* 10. Final CTA */}
+        {/* 13. Final CTA */}
         <div className="py-12 sm:py-16">
           <CTASection />
         </div>
