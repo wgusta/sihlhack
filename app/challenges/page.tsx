@@ -654,30 +654,30 @@ export default function ChallengesPage() {
             </div>
 
             <div className="space-y-12">
-              {/* Package 1: Demo-Kit */}
-              <div id="demo-kit" className="scroll-mt-24">
+              {/* Package 1: Grid-OS Logic */}
+              <div id="grid-os-logic" className="scroll-mt-24">
                 <PackageCard 
-                  pkg={mandatoryPackages.find(p => p.id === 'demo-kit')!}
+                  pkg={mandatoryPackages.find(p => p.id === 'grid-os-logic')!}
                   showVisualization={true}
-                  visualization={<DemoKitVisualization />}
+                  visualization={<GridOSVisualization />}
                 />
               </div>
 
-              {/* Package 2: Hardware Safety */}
-              <div id="hardware-safety" className="scroll-mt-24">
+              {/* Package 2: Operational Safety Logic */}
+              <div id="operational-safety-logic" className="scroll-mt-24">
                 <PackageCard 
-                  pkg={mandatoryPackages.find(p => p.id === 'hardware-safety')!}
+                  pkg={mandatoryPackages.find(p => p.id === 'operational-safety-logic')!}
                   showVisualization={true}
                   visualization={<SafetyVisualization />}
                 />
               </div>
 
-              {/* Package 3: Grid-OS */}
-              <div id="grid-os" className="scroll-mt-24">
+              {/* Package 3: Sensor Integration */}
+              <div id="sensor-integration" className="scroll-mt-24">
                 <PackageCard 
-                  pkg={mandatoryPackages.find(p => p.id === 'grid-os')!}
+                  pkg={mandatoryPackages.find(p => p.id === 'sensor-integration')!}
                   showVisualization={true}
-                  visualization={<GridOSVisualization />}
+                  visualization={<DemoKitVisualization />}
                 />
                 <div className="mt-4 text-center">
                   <a

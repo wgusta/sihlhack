@@ -208,7 +208,7 @@ export function ComputeScenariosSection() {
             Willst du wissen, wie diese Workloads implementiert werden?
           </p>
           <a
-            href="/challenges#grid-os"
+            href="/challenges#sensor-integration"
             className="inline-block bg-compute-blue hover:bg-compute-blue/90 text-white font-mono px-6 py-3 rounded-lg transition-colors"
           >
             Grid-OS Challenge anschauen →
