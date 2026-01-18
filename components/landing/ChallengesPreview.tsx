@@ -22,8 +22,8 @@ export function ChallengesPreview() {
             </p>
             <ul className="text-xs text-gray-400 font-mono space-y-1 mb-4">
               <li>• Batterien als Puffer?</li>
-              <li>• Deferred Compute?</li>
-              <li>• Deine Lösung.</li>
+              <li>• Deferred Compute Logik?</li>
+              <li>• Du programmierst die Lösung.</li>
             </ul>
           </div>
           
@@ -55,7 +55,7 @@ export function ChallengesPreview() {
             <ul className="text-xs text-gray-400 font-mono space-y-1 mb-4">
               <li>• Weiterrechnen?</li>
               <li>• Nachbarschaft versorgen?</li>
-              <li>• Du baust die Logik.</li>
+              <li>• Du programmierst die Logik.</li>
             </ul>
           </div>
         </div>

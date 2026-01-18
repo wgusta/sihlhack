@@ -75,10 +75,10 @@ export function HeroSection() {
               Server, die Häuser heizen. Batterien, die das Quartier versorgen.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-gray-300 font-mono max-w-2xl mx-auto">
-              Drei Tage. Ein System. Unendlich viele Möglichkeiten.
+              Programmiere die Grid-OS Logik. Integriere Sensoren. Deploye auf Reference Hardware.
             </p>
             <p className="mt-3 text-sm text-gray-400 font-mono">
-              Professionelle Sicherheitsüberwachung · <a href="/safety" className="text-thermal-orange hover:underline">Mehr erfahren</a>
+              Hardware wird bereitgestellt · Simulation-to-Reality Workflow · <a href="/snackathons" className="text-thermal-orange hover:underline">Snackathons (April/Mai)</a>
             </p>
           </div>
 

@@ -589,24 +589,24 @@ NEXT_PUBLIC_PROPOSALS_OPEN=true
 
 ### Recommended Tools (Apache-2.0 / MIT Only)
 
-**Demo-Kit:**
-- Prometheus (Apache-2.0) - Metrics collection
-- VictoriaMetrics (Apache-2.0) - Time-series DB
-- Home Assistant (Apache-2.0) - IoT platform with inverter APIs
-- Mosquitto (EPL-2.0) - MQTT broker
-
-**Hardware Safety:**
-- LibreSolar BMS (Apache-2.0) - Battery management
-- LibreSolar Charge Controller (Apache-2.0) - MPPT solar controller
-- Zephyr RTOS (Apache-2.0) - Real-time OS for safety-critical systems
-
-**Grid-OS:**
+**Grid-OS Logic:**
 - Node-RED (Apache-2.0) - Flow-based programming, orchestrator
 - NATS (Apache-2.0) - High-performance messaging
 - Ollama (MIT) - Local LLM inference
 - llama.cpp (MIT) - LLM on CPU
 - Chronos-T5 (Apache-2.0) - Time-series forecasting
 - k3s (Apache-2.0) - Lightweight Kubernetes
+
+**Sensor Integration:**
+- Prometheus (Apache-2.0) - Metrics collection
+- VictoriaMetrics (Apache-2.0) - Time-series DB
+- Home Assistant (Apache-2.0) - IoT platform with inverter APIs
+- Mosquitto (EPL-2.0) - MQTT broker
+
+**Operational Safety Logic:**
+- Zephyr RTOS (Apache-2.0) - Real-time OS for safety-critical systems
+- Anomaly detection libraries (Apache-2.0/MIT)
+- Sensor validation frameworks
 
 **Dashboard:**
 - OpenTelemetry Collector (Apache-2.0) - Telemetry pipeline

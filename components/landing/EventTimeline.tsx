@@ -3,6 +3,13 @@ import { Icon } from '@/components/ui/Icon'
 
 const timelineEvents = [
   {
+    date: 'April/Mai 2026',
+    title: 'Snackathons: Sihl-Sim API',
+    description: 'Pilot-Events: Baue den Sihl-Sim (Digital Twin API). Coding, Pizza, "Game Design" für Energie-Systeme. Gratis, 10-20 Teilnehmer.',
+    status: 'upcoming' as const,
+    icon: '🍿',
+  },
+  {
     date: 'Jetzt',
     title: 'Anmeldung offen',
     description: 'Sichere dir deinen Platz (CHF 150). Wähle deine Rolle und Paket-Präferenz.',
@@ -11,10 +18,10 @@ const timelineEvents = [
   },
   {
     date: '2-4 Wochen vor Event',
-    title: 'Pre-Challenge: Historisches Archiv',
-    description: 'Online-Recherche startet: Standort-Scouting und Energie-Baupläne aus historischen Quellen sammeln.',
+    title: 'Pre-Challenge: Sihl-Sim Zugang',
+    description: 'Teams erhalten Zugang zum Sihl-Sim (Digital Twin) für lokale Entwicklung. Simulation-to-Reality Workflow wird erklärt.',
     status: 'upcoming' as const,
-    icon: '📜',
+    icon: '💻',
   },
   {
     date: 'Wird bekannt gegeben',
@@ -25,22 +32,22 @@ const timelineEvents = [
   },
   {
     date: 'Freitag Abend',
-    title: 'Tag 1: Kickoff & Briefing',
-    description: 'Check-in, Hardware-Einführung, Team-Aufbau. Die Basis-Hardware ist vorgebaut; ihr erweitert und optimiert.',
+    title: 'Tag 1: Kickoff & Simulator-Zugang',
+    description: 'Check-in, Reference Hardware Einführung, Team-Aufbau. Hardware wird bereitgestellt; ihr programmiert die Grid-OS Logik.',
     status: 'upcoming' as const,
     icon: '🚀',
   },
   {
     date: 'Samstag',
-    title: 'Tag 2: Deep Work',
-    description: 'Voller Tag für eure Pakete. Hardware-Teams bauen, Software-Teams coden, alle dokumentieren.',
+    title: 'Tag 2: Code & Test',
+    description: 'Voller Tag für eure Pakete. Teams entwickeln gegen Sihl-Sim, buchen Safety Avatar Slots, und iterieren.',
     status: 'upcoming' as const,
     icon: '⚡',
   },
   {
     date: 'Sonntag Vormittag',
-    title: 'Tag 3: Solar-Test & Integration',
-    description: 'Wir schliessen den Prototyp an ein reales Solar-Modul an und testen den End-to-End Flow.',
+    title: 'Tag 3: Deployment auf Reference Hardware',
+    description: 'Finalisten deployen ihren Code auf supervised Reference Hardware (The Beast). Integration und Validierung.',
     status: 'upcoming' as const,
     icon: '☀️',
   },

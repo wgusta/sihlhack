@@ -805,7 +805,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Wer stellt die Hardware?',
-                  a: 'Wir suchen aktuell noch Sponsoren für Hardware (Server, GPUs, Immersion-Cooling-Equipment). Du bringst nur Laptop und Skills mit.',
+                  a: 'Wir stellen die Hardware bereit: 3-5 safety-zertifizierte Reference Nodes (Immersion, Water Loop, Heat Pump). Du programmierst die Grid-OS Logik und integrierst Sensoren. Du bringst nur Laptop und Skills mit.',
                 },
                 {
                   q: 'Was kostet die Teilnahme?',

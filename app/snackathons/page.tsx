@@ -74,11 +74,11 @@ export default function SnackathonsPage() {
               Snackathons
             </h1>
             <p className="mt-4 text-xl font-mono text-gray-300">
-              18 Stunden Hackathon. Ein Thermal-Pfad. Ein funktionierender Prototyp.
+              Baue den Sihl-Sim. Das Digital Twin API für den Hauptevent.
             </p>
 
             <p className="mt-6 text-lg font-mono text-gray-400 max-w-2xl mx-auto">
-              Bevor wir 100 Leute einladen, testen wir das Konzept mit 10-20 Pionieren.
+              Bevor wir 100 Leute einladen, bauen wir den Simulator. Coding, Pizza, "Game Design" für Energie-Systeme.
               Keine Teilnahmegebühr. Keine Verpflichtungen. Nur echte Arbeit an echten Problemen.
             </p>
             <div className="mt-6 inline-block px-4 py-2 bg-thermal-orange/20 border border-thermal-orange/40 rounded-full">
@@ -91,7 +91,7 @@ export default function SnackathonsPage() {
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
               <div className="p-4 bg-white/5 rounded-xl">
                 <CalendarIcon className="w-6 h-6 mx-auto mb-2 text-thermal-orange" />
-                <div className="font-mono text-sm text-white">Juni/Juli 2026</div>
+                <div className="font-mono text-sm text-white">April/Mai 2026</div>
                 <div className="font-mono text-xs text-gray-400">2 Events</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
@@ -132,7 +132,7 @@ export default function SnackathonsPage() {
                   Konzept validieren
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Funktioniert Hardware-Hackathon in der Schweiz? Wer kommt wirklich? Was läuft schief? Wir finden es heraus.
+                  Funktioniert der Simulation-to-Reality Ansatz? Wer kommt wirklich? Was läuft schief? Wir finden es heraus.
                 </p>
               </div>
               <div className="p-6 border border-gray-200 rounded-xl">
@@ -141,7 +141,7 @@ export default function SnackathonsPage() {
                   Logistik testen
                 </h3>
                 <p className="font-mono text-sm text-historic-sepia">
-                  Venue, Sicherheit, Catering, Werkzeuge. Besser mit 10-20 Leuten scheitern als mit 100.
+                  API-Design, Simulation-Logik, Integration. Besser mit 10-20 Leuten scheitern als mit 100.
                 </p>
               </div>
               <div className="p-6 border border-gray-200 rounded-xl">
@@ -166,10 +166,10 @@ export default function SnackathonsPage() {
                 Die beiden Pilot-Events
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Zwei Snackathons im Sommer 2026
+                Zwei Snackathons im Frühling 2026
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Wir testen das Konzept zweimal, um sicherzustellen, dass alles funktioniert.
+                Wir bauen den Sihl-Sim (Digital Twin API) zweimal, um sicherzustellen, dass er für den Hauptevent bereit ist.
               </p>
             </div>
 
@@ -181,8 +181,8 @@ export default function SnackathonsPage() {
                     <div className="inline-block bg-sihl-red text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
                       🍿 Pilot #1
                     </div>
-                    <h3 className="font-display text-xl font-bold text-brand-black">Juni 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Snackathons</p>
+                    <h3 className="font-display text-xl font-bold text-brand-black">April 2026</h3>
+                    <p className="font-mono text-sm text-historic-sepia">Sihl-Sim API</p>
                   </div>
                   <span className="text-3xl">🍿</span>
                 </div>
@@ -201,7 +201,7 @@ export default function SnackathonsPage() {
                   </div>
                 </div>
                 <p className="mt-4 font-mono text-xs text-historic-sepia">
-                  Erster Pilot-Event: Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
+                  Erster Pilot-Event: Wir bauen den Sihl-Sim (Digital Twin API) mit einer kleinen Gruppe von Pionieren.
                 </p>
                 <div className="mt-3 pt-3 border-t border-sihl-red/20">
                   <p className="font-mono text-xs text-sihl-red font-semibold">
@@ -217,8 +217,8 @@ export default function SnackathonsPage() {
                     <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-2 py-1 rounded-full mb-2">
                       🍿 Pilot #2
                     </div>
-                    <h3 className="font-display text-xl font-bold text-brand-black">Juli 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Snackathons (Historic)</p>
+                    <h3 className="font-display text-xl font-bold text-brand-black">Mai 2026</h3>
+                    <p className="font-mono text-sm text-historic-sepia">Sihl-Sim API (Iteration)</p>
                   </div>
                   <span className="text-3xl">📜</span>
                 </div>
@@ -237,7 +237,7 @@ export default function SnackathonsPage() {
                   </div>
                 </div>
                 <p className="mt-4 font-mono text-xs text-historic-sepia">
-                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons.
+                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons. Finalisierung des Sihl-Sim APIs.
                 </p>
                 <div className="mt-3 pt-3 border-t border-historic-sepia/20">
                   <p className="font-mono text-xs text-historic-sepia font-semibold">
@@ -257,16 +257,11 @@ export default function SnackathonsPage() {
                 Fokussiert, nicht verwässert
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Was wir bauen
+                Was wir bauen: Der Sihl-Sim
               </h2>
-              <div className="mt-4">
-                <a
-                  href="/#compute-scenarios"
-                  className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
-                >
-                  → Welche Compute-Szenarien laufen auf dem Hub?
-                </a>
-              </div>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Das Digital Twin API, das Teams beim Hauptevent verwenden werden, um ihre Grid-OS Logik zu entwickeln.
+              </p>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-8">
@@ -279,21 +274,19 @@ export default function SnackathonsPage() {
                   <ul className="space-y-3 font-mono text-sm text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
-                      <span><strong>Ein Thermal-Pfad</strong>: Wir wählen einen (wahrscheinlich Öl-Immersion, weil visuell am beeindruckendsten)</span>
+                      <span><strong>Sihl-Sim API</strong>: Input (Solar/Grid-Daten), Output (Fan/Battery Commands)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
-                      <span><strong>Demo-Kit Fokus</strong>: End-to-End Energie-Flow beweisen</span>
+                      <span><strong>Simulation-Logik</strong>: Zeitkompression (10 Jahre Grid-Stress in 10 Minuten testen)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
-                      <span><strong>Basis Grid-OS</strong>: Solar-Watcher + einfacher Scheduler 
-                        <a href="/#compute-scenarios" className="text-compute-blue hover:underline ml-1">(Compute-Szenarien →)</a>
-                      </span>
+                      <span><strong>Grid-OS Integration</strong>: API-kompatibel mit Scheduler für Hauptevent</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
-                      <span><strong>Sicherheitskonzept</strong>: RCD, Gehäuse, Notabschaltung</span>
+                      <span><strong>Dokumentation</strong>: Onboarding-Guide für Teams im September</span>
                     </li>
                   </ul>
                 </div>
@@ -305,7 +298,7 @@ export default function SnackathonsPage() {
                   <ul className="space-y-3 font-mono text-sm text-gray-400">
                     <li className="flex items-start gap-2">
                       <span className="mt-0.5">•</span>
-                      <span>Alle drei Thermal-Pfade gleichzeitig</span>
+                      <span>Physische Hardware (wird beim Hauptevent bereitgestellt)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-0.5">•</span>
@@ -348,8 +341,8 @@ export default function SnackathonsPage() {
                   <div className="inline-block bg-sihl-red text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
                     🍿 Pilot #1
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-white">Juni 2026</h3>
-                  <p className="font-mono text-sm text-gray-400 mt-1">Erster Pilot-Event</p>
+                  <h3 className="font-display text-2xl font-bold text-white">April 2026</h3>
+                  <p className="font-mono text-sm text-gray-400 mt-1">Erster Pilot-Event: Sihl-Sim API</p>
                 </div>
 
                 {juneFormState === 'success' ? (
@@ -360,7 +353,7 @@ export default function SnackathonsPage() {
                         Interesse registriert!
                       </h3>
                       <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den Juni 2026 Snackathons.
+                        Wir melden uns bei dir für den April 2026 Snackathons.
                       </p>
                     </CardContent>
                   </Card>
@@ -452,7 +445,7 @@ export default function SnackathonsPage() {
                             rows={3}
                             value={juneFormData.motivation}
                             onChange={(e) => setJuneFormData({ ...juneFormData, motivation: e.target.value })}
-                            placeholder="Was interessiert dich am Konzept? Was willst du lernen oder beitragen?"
+                            placeholder="Was interessiert dich am Sihl-Sim API? Was willst du lernen oder beitragen?"
                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-sihl-red placeholder:text-gray-500"
                           />
                         </div>
@@ -480,8 +473,8 @@ export default function SnackathonsPage() {
                   <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-3 py-1 rounded-full mb-2">
                     🍿 Pilot #2
                   </div>
-                  <h3 className="font-display text-2xl font-bold text-white">Juli 2026</h3>
-                  <p className="font-mono text-sm text-gray-400 mt-1">Zweiter Pilot-Event (Historic)</p>
+                  <h3 className="font-display text-2xl font-bold text-white">Mai 2026</h3>
+                  <p className="font-mono text-sm text-gray-400 mt-1">Zweiter Pilot-Event: Sihl-Sim API Iteration</p>
                 </div>
 
                 {julyFormState === 'success' ? (
@@ -492,7 +485,7 @@ export default function SnackathonsPage() {
                     Interesse registriert!
                   </h3>
                   <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den Juli 2026 Snackathons.
+                        Wir melden uns bei dir für den Mai 2026 Snackathons.
                   </p>
                 </CardContent>
               </Card>
@@ -584,7 +577,7 @@ export default function SnackathonsPage() {
                         rows={3}
                             value={julyFormData.motivation}
                             onChange={(e) => setJulyFormData({ ...julyFormData, motivation: e.target.value })}
-                        placeholder="Was interessiert dich am Konzept? Was willst du lernen oder beitragen?"
+                        placeholder="Was interessiert dich am Sihl-Sim API? Was willst du lernen oder beitragen?"
                             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white font-mono focus:outline-none focus:border-historic-sepia placeholder:text-gray-500"
                       />
                     </div>
@@ -627,10 +620,10 @@ export default function SnackathonsPage() {
                   <span className="font-mono font-bold text-sihl-red">1</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Juni 2026: Snackathons</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">April 2026: Snackathons</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Erster Pilot-Event: Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
-                    Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
+                    Erster Pilot-Event: Baue den Sihl-Sim (Digital Twin API).
+                    Coding, Pizza, "Game Design" für Energie-Systeme. Wir bauen die Simulation-Plattform, die Teams im September verwenden werden.
                   </p>
                 </div>
               </div>
@@ -640,11 +633,10 @@ export default function SnackathonsPage() {
                   <span className="font-mono font-bold text-grid-green">2</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Juli 2026: Snackathons (Historic)</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Mai 2026: Snackathons (Iteration)</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons.
-                    Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
-                    Wir dokumentieren alles für den grossen Event im September.
+                    Finalisierung des Sihl-Sim APIs. Wir dokumentieren alles für den grossen Event im September.
                   </p>
                 </div>
               </div>

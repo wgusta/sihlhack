@@ -13,23 +13,24 @@ sihlhack:     Participants pay → Participants decide → Participants execute
 
 ### The Sihlicon Hub: Active Energy Node
 
-The hackathon builds the **Sihlicon Hub** - an Active Energy Node combining:
+The hackathon programs and integrates the **Sihlicon Hub** - an Active Energy Node combining:
 - **Battery**: Time-shift solar energy, provide UPS/resilience
 - **Compute**: Deferred compute jobs, batch processing
 - **Heat**: Thermal recovery (Immersion, Water Loop, or Heat Pump)
 - **Resilience**: Load shedding, community backup
 
-**Key Principle**: The thermal path is NOT prescribed. Teams evaluate three options and choose. This is the engineering challenge, not a kit assembly.
+**Key Principle**: The thermal path is NOT prescribed. Teams evaluate three options and choose. Hardware is provided as safety-certified Reference Nodes. Teams program the Grid-OS logic and integrate sensors to "breathe life" into the provided hardware.
 
 ### Core Principles
 
 1. **Participants fund the event** through registration fees (CHF 150)
-2. **Participants choose their challenge** (Demo-Kit, Hardware Safety, or Grid-OS)
-3. **Participants choose their thermal path** (Immersion, Water, or Heat Pump)
+2. **Participants choose their challenge** (Grid-OS Logic, Sensor Integration, or Operational Safety Logic)
+3. **Participants choose their thermal path** (Immersion, Water, or Heat Pump) - hardware provided
 4. **Participants own their code** (Apache 2.0 - fork, compete, commercialize)
 5. **Open-source tools only** (Apache-2.0/MIT for commercial LEG compatibility)
 6. **All finances are public** in real time
 7. **Automatic refunds** if minimum threshold is not met
+8. **Simulation-to-Reality workflow**: Code on Digital Twin (Sihl-Sim), deploy to supervised Reference Hardware
 
 ## What We Will NOT Do
 
@@ -119,11 +120,11 @@ Before collecting payments:
 ### Participant Voice (Du/Ihr)
 
 All messaging uses "du" (singular) or "ihr" (plural) to emphasize participant agency:
-- "Du baust es" (not "wir bauen")
+- "Du programmierst es" (not "wir bauen")
 - "Ihr entscheidet" (not "wir entscheiden")
 - "Dein Code. Deine Entscheidung." (not "unser Code")
 
-This creates a "community underdog" vibe where participants solve problems, not organizers.
+This creates a "community underdog" vibe where participants solve problems through code and logic, not organizers.
 
 ### Sihlvalley vs Silicon Valley
 
@@ -263,6 +264,25 @@ Distributed via Stripe payouts after event. Timeline:
 - Payout initiated
 - Funds received (3-5 business days)
 
+## Event Phases
+
+### Phase 1: The Snackathon (April/May 2026)
+
+**Goal**: Build the Sihl-Sim (Digital Twin API)
+- 2 days, 10-20 participants, free
+- Coding, pizza, "game design" for energy systems
+- Output: Functional API that accepts solar/grid data inputs and outputs fan/battery commands
+- This API becomes the simulation platform teams use at the main event
+
+### Phase 2: The Main Event (September 2026)
+
+**Goal**: Code on Simulator, deploy to Reference Hardware
+- 3 days, 100 participants, CHF 150 registration
+- **Develop**: Code against the AI Simulator (Local)
+- **Test**: Book 15-minute slot on 5V "Safety Avatar" (low-power validation)
+- **Deploy**: Finalists run code on Supervised Reference Node (The Beast)
+- Hardware provided: 3-5 safety-certified Reference Nodes (Immersion, Water, Heat Pump)
+
 ## Timeline Constraints
 
 ### Stripe 90-Day Limit
@@ -276,12 +296,16 @@ Refund deadline must align with venue cancellation window. Do not pay venue cost
 ### Recommended Timeline
 
 ```
+Phase 1 (Snackathons):
+April/May 2026: Build Sihl-Sim API
+
+Phase 2 (Main Event):
 T-8 weeks: Registration opens, fund tracker live
 T-6 weeks: Data submission deadline for companies
 T-4 weeks: Data catalog published, proposals open
 T-2 weeks: Voting closes, top projects announced
 T-1 week:  Registration deadline, refund decision
-T-0:       Hackathon (48 hours)
+T-0:       Hackathon (3 days)
 T+3 days:  Prize verification
 T+1 week:  Prize distribution
 ```

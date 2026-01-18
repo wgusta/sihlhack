@@ -20,8 +20,8 @@ Switzerland's first participant-oriented hackathon building the **Sihlicon Hub**
 
 **sihlhack.ch** is a sub-brand of sihliconvalley.ch presenting a new hackathon model where:
 
-- **Participants build the Sihlicon Hub**: an Active Energy Node (Battery + Server + Heat + Resilience)
-- **Three mandatory challenges**: End-to-End Demo-Kit, Hardware Safety, Grid-OS Controller
+- **Participants program and integrate the Sihlicon Hub**: an Active Energy Node (Battery + Server + Heat + Resilience)
+- **Three mandatory challenges**: Grid-OS Logic (Control it), Sensor Integration (Measure it), Operational Safety Logic
 - **Open thermal architecture**: Teams choose between Immersion Cooling, Water Loop, or Heat Pump Integration
 - **Open-source tools only**: Apache-2.0/MIT licensed resources for commercial LEG compatibility
 - **Prize money comes from participants**, not corporate sponsors
@@ -40,8 +40,9 @@ Switzerland's first participant-oriented hackathon building the **Sihlicon Hub**
 - Participants pay registration fees (CHF 150)
 - 30-36 teams compete on 3 mandatory packages
 - Multiple teams per package, best solution wins
-- Prize pool distributed: 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
+- Prize pool distributed: 35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration
 - All code is Apache 2.0 - participants own their work
+- **Simulation-to-Reality**: Teams code on Digital Twins (AI Simulator), then deploy to supervised Reference Hardware
 
 ## Visual Concept
 
@@ -119,11 +120,12 @@ This project extends the sihliconvalley.ch design system:
 
 ### 📅 Event Details
 
-- **Pilot:** Snackathons (April/May 2026, 2 days, 10-20 participants, free)
-- **Main Event:** September 2026 (3 days)
+- **Pilot:** Snackathons (April/May 2026, 2 days, 10-20 participants, free) - Build the Sihl-Sim (Digital Twin API)
+- **Main Event:** September 2026 (3 days) - Code on Simulator, deploy to Reference Hardware
 - **Location:** Zürich area
 - **Registration:** CHF 150 per participant
-- **Model:** 70% to prize pool (35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration), 30% operations
+- **Model:** 70% to prize pool (35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration), 30% operations
+- **Hardware:** Provided by organizers - 3-5 safety-certified Reference Nodes (Immersion, Water, Heat Pump)
 - **Teams:** 20 teams of 5 people
 - **Participants:** 100 target
 - **Refund Policy:** Automatic refund if minimum participants not reached
@@ -144,10 +146,11 @@ The Sihlicon Hub is not a "water heater" - it's an Active Energy Node that:
 - Resource submission form allows community to suggest additional repos
 
 ### Participant Agency
-- "Du/Ihr" voice throughout - participants own the solutions
-- Three thermal paths, teams choose
+- "Du/Ihr" voice throughout - participants own the code
+- Three thermal paths, teams choose (hardware provided, teams program the logic)
 - No prescribed solutions, only constraints
 - Cheeky Sihlvalley vs Silicon Valley attitude
+- **Simulation-to-Reality**: Write Grid-OS code on Digital Twin, then deploy to supervised Reference Hardware
 
 ## Development Commands
 

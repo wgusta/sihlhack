@@ -63,16 +63,19 @@ Benefits:
 1. **Registration**: Participants pay CHF 150 registration fee
 2. **Team Formation**: Self-organized or matched by skills/roles
 3. **Challenge Selection**: Each team chooses one mandatory package:
-   - **Demo-Kit**: End-to-end energy flow with reproducible demo
-   - **Hardware Safety**: BOM, Safety Case, thermal baseline
-   - **Grid-OS**: Scheduler with solar budget, fallback policy, API
-4. **Thermal Path Choice**: Teams evaluate and choose:
+   - **Grid-OS Logic**: Scheduler with solar budget, deferred compute, load shedding policies
+   - **Sensor Integration**: Data pipelines, real-time monitoring, sensor validation
+   - **Operational Safety Logic**: Software safety interlocks, anomaly detection, emergency stop logic
+4. **Thermal Path Choice**: Teams evaluate and choose (hardware provided):
    - **Path A**: Oil Immersion (99% heat capture, complex)
    - **Path B**: Water Loop (60-70% capture, proven)
    - **Path C**: Heat Pump Integration (70°C+ output, ambitious)
-5. **Hackathon**: 3 days of building (September 20-22, 2025)
+5. **Hackathon**: 3 days of coding and integration (September 2026)
+   - **Develop**: Code against the AI Simulator (Local)
+   - **Test**: Book 15-minute slot on 5V "Safety Avatar" (low-power validation)
+   - **Deploy**: Finalists run code on Supervised Reference Node (The Beast)
 6. **Judging**: Scoring based on deliverables and criteria
-7. **Prizes**: 35% Demo-Kit, 35% Hardware Safety, 20% Grid-OS, 10% Best Integration
+7. **Prizes**: 35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration
 
 ### Transparency Commitment
 
@@ -80,6 +83,22 @@ Benefits:
 - Expense breakdown public
 - Transaction ledger accessible
 - Automatic refunds if event cancelled
+
+## Competitive Landscape
+
+SihlHack sits at the intersection of three existing industries, yet occupies a unique "Civic Infrastructure" niche.
+
+| Feature | SihlHack (The Sihlicon Hub) | Blockheating / Qarnot / Heata | Traditional Hackathons | Standard Cloud (AWS/Azure) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Primary Goal** | Energy Sovereignty & Education | Profit via Heat/Compute Sales | Recruitment & PR | Scale & Reliability |
+| **Hardware Ownership** | **Participant / Citizen** | Company (Leased to host) | Company / Sponsor | Company |
+| **Thermal Model** | Open (Immersion/Water/Pump) | Proprietary / Closed Box | N/A | Air Cooled (Heat Wasted) |
+| **Grid Logic** | **Open Source (Grid-OS)** | Proprietary Algorithms | N/A | Proprietary |
+| **Financial Model** | Participants Pay & Own | B2B Service Contracts | Sponsors Pay & Own | Pay-per-use |
+| **Social Structure** | **Decentralized Militia** | Centralized Service Provider | Temporary Teams | Centralized Corp |
+
+### Why this matters
+Existing "Server Heater" startups (Qarnot, Blockheating) treat the host as a passive landlord. They install a black box, pay a small fee, and keep the profits. **SihlHack inverts this:** You program the logic, you own the code, you control the system. The hardware remains with organizers as a platform, but teams own the Grid-OS code that makes it intelligent. We are building an active citizenry, not passive consumers.
 
 ## The Three Engineering Challenges
 
@@ -102,17 +121,28 @@ When the grid fails, what does your server do?
 - **Grid down**: Pause compute, power the neighborhood
 - **Teams build**: The logic doesn't exist yet - you create it
 
+## The Simulation Gap
+
+Why do we use simulations? **Time compression**: Test 10 years of grid stress in 10 minutes. Real-world deployment requires months of validation, but a Digital Twin (AI Simulator) lets teams iterate rapidly, test edge cases, and validate logic before touching physical hardware.
+
+The Sihl-Sim (Digital Twin API) accepts solar/grid data inputs and outputs fan/battery commands. Teams develop against this simulator locally, then deploy their validated code to supervised Reference Hardware at the main event.
+
+### Ownership Model
+
+- **Teams own the Code (Grid-OS)**: All code is Apache 2.0 - participants can fork, compete, commercialize
+- **Hardware remains with organizers**: Reference Nodes are provided as a platform for testing and deployment
+- **Prize may include dev-kit**: Winners might receive a development kit to continue work post-event
+
 ## Target Participants
 
 ### Primary Roles
 
-- **Hardware Engineers**: Evaluate thermal architectures, build chosen solution
-- **Electrical Engineers**: Design safe systems, RCD/GFCI, safety interlocks
-- **Grid-OS Developers**: Build scheduler, deferred compute, load shedding
+- **Grid-OS Developers**: Build scheduler, deferred compute, load shedding logic
+- **Sensor/Data Engineers**: Integrate sensors, build data pipelines, real-time monitoring
+- **Backend Developers**: APIs, compute scheduling infrastructure, simulator integration
+- **Frontend Developers**: Monitoring dashboards with real-time data visualization
 - **Energy Experts**: Solar APIs, Swissgrid integration, SDL knowledge
-- **Sensor/Data Engineers**: Integrate sensors, build data pipelines
-- **Backend Developers**: APIs, compute scheduling infrastructure
-- **Frontend Developers**: Monitoring dashboards with real-time data
+- **Safety Logic Engineers**: Software safety interlocks, anomaly detection, emergency stop logic
 - **Designers**: UX/UI for complex energy data visualization
 - **LEG Specialists**: Navigate Swiss energy law (StromVG, EnG)
 - **Project Managers**: Coordinate teams, manage timeline
@@ -171,16 +201,24 @@ To prevent this **Cobra Effect**, we are pioneering a Dual-License Model:
 
 ### Timeline
 
-- **September 20-22, 2025**: 3-day hackathon
-- **Friday**: Kickoff, team formation, hardware setup
-- **Saturday**: Building, testing, iteration
-- **Sunday**: Demo day, presentations, judging, prize distribution
+- **Phase 1 - Snackathons (April/May 2026)**: Build the Sihl-Sim (Digital Twin API)
+  - 2 days, 10-20 participants, free
+  - Goal: Functional simulation API that teams will use at main event
+  - Output: Sihl-Sim API ready for main event
+
+- **Phase 2 - Main Event (September 2026)**: Code on Sim, deploy to Reference Hardware
+  - **Friday**: Kickoff, team formation, simulator access
+  - **Saturday**: Coding against simulator, booking Safety Avatar slots, iteration
+  - **Sunday**: Finalist deployments to Reference Hardware, presentations, judging, prize distribution
 
 ### Physical Setup
 
 - **Venue**: To be announced (industrial heritage site preferred)
-- **Hardware**: Server hardware, GPUs, thermal components provided
-- **Safety**: Professional electrical engineers on-site
+- **Hardware**: 3-5 safety-certified Reference Nodes provided (Immersion, Water Loop, Heat Pump)
+- **Simulator**: Sihl-Sim API (Digital Twin) - teams code against this locally
+- **Safety Avatar**: 5V low-power validation system for 15-minute test slots
+- **Reference Hardware**: Supervised high-end nodes for finalist deployments
+- **Safety**: Professional supervisors on-site for all hardware operations
 - **Tools**: Open-source stack (Prometheus, Node-RED, k3s, etc.)
 - **Catering**: Covered by operating budget
 - **Documentation**: Professional photography/video
@@ -197,7 +235,7 @@ To prevent this **Cobra Effect**, we are pioneering a Dual-License Model:
 
 ### Participant Agency
 
-"Du baust es" - participants own the solutions. Not "we build" but "you build." This creates genuine ownership and commitment. Apache 2.0 means you can fork, compete, commercialize. We encourage that.
+"Du programmierst es" - participants own the code. Not "we build hardware" but "you write the logic." Teams breathe life into provided hardware through their Grid-OS code and sensor integration. This creates genuine ownership and commitment. Apache 2.0 means you can fork, compete, commercialize. We encourage that.
 
 ### Open Architecture
 

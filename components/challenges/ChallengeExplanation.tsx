@@ -37,96 +37,41 @@ const challengeExplanations: Record<string, {
     hazards: Array<{ risk: string; mitigation: string }>
   }
 }> = {
-  'demo-kit': {
+  'grid-os-logic': {
     nonTechnical: {
-      what: 'Ein End-to-End Demo-Kit ist wie ein Rezept, das beweist, dass das ganze System funktioniert. Stell dir vor: Du hast ein intelligentes Energiesystem, das Sonnenenergie speichert, Computer-Aufgaben erledigt und dabei Wärme produziert. Das Demo-Kit zeigt, dass all diese Teile zusammenarbeiten – von der Sonne bis zur warmen Heizung.',
-      why: 'Ohne einen funktionierenden End-to-End Flow können wir nicht beweisen, dass das Konzept in der echten Welt funktioniert. Es ist wie ein Prototyp: Wenn du nicht zeigen kannst, dass alles zusammenarbeitet, bleibt es nur eine Idee. Das Demo-Kit macht das System nachbaubar und beweisbar.',
-      whatYouBuild: 'Du baust ein System, das alle Energieflüsse misst und aufzeichnet: Wie viel Sonnenenergie kommt rein? Wie viel wird für Computer-Aufgaben verwendet? Wie viel Wärme entsteht? Alles wird in einem einfachen "Ein-Knopf-Demo" gezeigt, das jeder nachvollziehen kann.',
+      what: 'Grid-OS Logik ist das "Gehirn" des Systems. Es entscheidet intelligent, wann Computer-Aufgaben laufen, wann die Batterie geladen wird, und wann Wärme produziert wird. Du programmierst den Scheduler, der Solar-Budget berechnet und Compute-Jobs entsprechend plant.',
+      why: 'Ohne intelligente Steuerung wäre das System nur ein passives Heizsystem. Grid-OS Logik macht es intelligent: Es nutzt Sonnenenergie optimal, verschiebt Computer-Aufgaben auf Zeiten mit viel Solar (Deferred Compute), und kann bei Netzproblemen automatisch reagieren (Load Shedding).',
+      whatYouBuild: 'Du programmierst einen Scheduler mit Solar-Budget-Algorithmen, Deferred Compute Logik, und Load Shedding Policies. Das System entwickelt gegen den Sihl-Sim (Digital Twin), testet auf dem Safety Avatar, und deployt auf der supervised Reference Hardware.',
     },
     technical: {
-      howItWorks: 'Das System integriert Sensoren für Solar-Leistung (P_solar), Compute-Leistung (P_compute), Durchflussraten und Temperaturdifferenzen (ΔT). Ein zentrales Logging-System (z.B. Prometheus + VictoriaMetrics) sammelt alle Daten in Echtzeit. Ein Demo-Script startet den kompletten Energie-Flow und generiert ein Protokoll mit erwarteten Werten.',
-      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Visualization (Grafana/Home Assistant) → Demo Script (Python/Node-RED)',
-      integration: 'Integriert mit Solar-Inverter-APIs (Fronius/SMA), Compute-Scheduler (Grid-OS), und Thermal-System (Immersion/Water/Heat Pump). Alle Komponenten kommunizieren über standardisierte Protokolle.',
-    },
-    risks: {
-      title: 'Sicherheitsrisiken im Demo-Kit',
-      hazards: [
-        {
-          risk: 'Batterie Thermal Runaway: Lithium-Batterien können bei Beschädigung oder Überladung explodieren',
-          mitigation: 'BMS-Überwachung, Temperatur-Sensoren, Not-Aus-Schalter, Brandschutzsystem'
-        },
-        {
-          risk: 'Elektrokontakt: Hochspannung (48V+) und Fehlerströme bei Wasser/Kontakt',
-          mitigation: 'RCD/GFCI-Schutz, Isolationsprüfung, professionelle Installation'
-        },
-        {
-          risk: 'Grid-Backfeed: Unkontrollierte Einspeisung gefährdet Netzwerker',
-          mitigation: 'Grid-Trennung mit Schutzrelais, Frequenz-Überwachung'
-        },
-        {
-          risk: 'Überhitzung: Heisse Oberflächen bei hoher Last',
-          mitigation: 'Temperatur-Limits, Kühlungssysteme, Warnsysteme'
-        }
-      ]
-    }
-  },
-  'hardware-safety': {
-    nonTechnical: {
-      what: 'Hardware Safety bedeutet: Du stellst sicher, dass das System sicher in Gebäuden betrieben werden kann. Es ist wie ein Bauvorschriften-Check für Energie-Systeme – es muss absolut sicher sein, bevor es in echten Gebäuden eingesetzt wird.',
-      why: 'Sicherheit ist nicht verhandelbar. Ein System, das Öl, Wasser, Strom und hohe Temperaturen kombiniert, braucht robuste Sicherheitsmassnahmen. Ohne Safety Case kann niemand das System legal und verantwortungsvoll betreiben. Es ist die Grundlage für real-world Deployment.',
-      whatYouBuild: 'Du baust ein komplettes Sicherheits-System: Schutzschalter (RCD/GFCI), die bei Problemen sofort abschalten, Not-Aus-Schalter für Notfälle, Leckwannen für Öl/Wasser, Temperatur-Überwachung und eine vollständige Dokumentation aller Sicherheitsmassnahmen.',
-    },
-    technical: {
-      howItWorks: 'RCD/GFCI (30mA Trip) überwacht Fehlerströme und schaltet bei Leckage sofort ab. Not-Aus-Schalter sind physisch erreichbar und trennen alle kritischen Systeme. Leckwannen fangen Öl/Wasser auf. Temperatur-Sensoren mit Max-Limits triggern automatische Abschaltung. Alle Komponenten sind redundant und fail-safe ausgelegt.',
-      architecture: 'Safety Layer (RCD/GFCI/Not-Aus) → Monitoring (Temp/Flow/Power Sensors) → Interlock Logic (Zephyr RTOS/LibreSolar) → Documentation (BOM + Safety Case)',
-      integration: 'Integriert mit allen Thermal-Pfaden (Immersion/Water/Heat Pump), Grid-OS für Load Shedding, und Compute-System für Notfall-Abschaltung.',
-    },
-    risks: {
-      title: 'Sicherheitsrisiken in Hardware Safety',
-      hazards: [
-        {
-          risk: 'Öl-Immersion: Leckage (Umweltverschmutzung), Brandrisiko (brennbar), Öl-Dämpfe (Gesundheitsrisiko)',
-          mitigation: 'Leckwanne, Brandschutzsystem kompatibel mit Öl, Belüftung, professionelle Handhabung'
-        },
-        {
-          risk: 'Wasser-Loop: Elektrokontakt (Wasser + Strom = Lebensgefahr), Leckage, Pumpen-Ausfall',
-          mitigation: 'Isolierte Systeme, Leckage-Erkennung, redundante Pumpen, RCD/GFCI-Schutz'
-        },
-        {
-          risk: 'Wärmepumpe: Hochdruck (Explosionsgefahr), Kältemittel-Austritt (Umweltgefahr), komplexe Fehlerketten',
-          mitigation: 'Druck-Überwachung, Dichtheitsprüfung, professionelle Installation, redundante Sicherheitssysteme'
-        }
-      ]
-    }
-  },
-  'grid-os': {
-    nonTechnical: {
-      what: 'Grid-OS ist das "Gehirn" des Systems. Es entscheidet intelligent, wann Computer-Aufgaben laufen, wann die Batterie geladen wird, und wann Wärme produziert wird. Es ist wie ein intelligenter Thermostat, aber für Energie und Computing – es passt sich automatisch an die verfügbare Sonnenenergie an.',
-      why: 'Ohne intelligente Steuerung wäre das System nur ein teures passives Heizsystem. Grid-OS macht es intelligent: Es nutzt Sonnenenergie optimal, verschiebt Computer-Aufgaben auf Zeiten mit viel Solar, und kann bei Netzproblemen automatisch reagieren. Das ist der Unterschied zwischen einem passiven System und einem aktiven Energie-Knoten.',
-      whatYouBuild: 'Du baust einen Scheduler, der Solar-Budget berechnet, Computer-Aufgaben plant, und Fallback-Regeln definiert. Das System kann historische Solar-Daten "abspielen" (Replay-Modus), um zu testen, wie es in verschiedenen Situationen reagieren würde. Eine API erlaubt anderen Systemen, mit dem Grid-OS zu kommunizieren.',
-    },
-    technical: {
-      howItWorks: 'Der Scheduler liest Solar-Budget von Inverter-APIs, berechnet verfügbare Energie, und plant Compute-Jobs entsprechend. Fallback-Policies definieren Verhalten bei Solar-Ausfall oder Netz-Instabilität. Replay-Modus simuliert historische Solar-Zeitreihen. API (REST/GraphQL) ermöglicht externe Integration.',
+      howItWorks: 'Der Scheduler liest Solar-Budget von Inverter-APIs, berechnet verfügbare Energie, und plant Compute-Jobs entsprechend. Deferred Compute verschiebt Jobs auf Zeiten mit viel Solar. Load Shedding Policies definieren Verhalten bei Solar-Ausfall oder Netz-Instabilität. Integration mit Sihl-Sim API für Simulation.',
       architecture: 'Input Layer (Solar APIs/Swissgrid Signals) → Policy Engine (Node-RED/Python) → Scheduler (k3s/Ollama for intelligent scheduling) → Output Layer (Compute Control/Battery Management) → API Gateway (NATS/OpenTelemetry)',
-      integration: 'Integriert mit Solar-Invertern (Fronius/SMA), Swissgrid-Signalen (Frequenz/Spannung), Compute-System (Grid-OS → Server Control), Battery Management (LibreSolar), und Dashboard (Truth Layer).',
+      integration: 'Integriert mit Sihl-Sim (Digital Twin API), Solar-Invertern (Fronius/SMA), Swissgrid-Signalen (Frequenz/Spannung), Compute-System (Grid-OS → Server Control), Battery Management, und Reference Hardware.',
     },
-    risks: {
-      title: 'Sicherheitsrisiken in Grid-OS',
-      hazards: [
-        {
-          risk: 'Grid-Backfeed: Unkontrollierte Einspeisung gefährdet Netzwerker (tödliche Unfälle möglich)',
-          mitigation: 'Grid-Trennung mit Schutzrelais (Anti-Islanding), Frequenz-Überwachung, professionelle Installation'
-        },
-        {
-          risk: 'Software-Fehler: Fehlsteuerung kann zu Battery-Überladung oder Grid-Backfeed führen',
-          mitigation: 'Hardware-Interlocks (unabhängig von Software), Fail-Safe-Logik, redundante Kontrollen'
-        },
-        {
-          risk: 'Frequenz-Instabilität: Falsche Frequenz kann zu Netzausfällen führen',
-          mitigation: 'Frequenz-Überwachung mit automatischer Abschaltung, Spannungs-Überwachung'
-        }
-      ]
-    }
+  },
+  'operational-safety-logic': {
+    nonTechnical: {
+      what: 'Operational Safety Logik bedeutet: Du programmierst Software-Sicherheitsverriegelungen, die das System sicher betreiben. Es ist wie ein digitaler Sicherheitswächter – die Software überwacht kontinuierlich und schaltet bei Problemen automatisch ab.',
+      why: 'Sicherheit ist nicht verhandelbar. Ein System, das Energie, Compute und Wärme kombiniert, braucht robuste Software-Sicherheitsmassnahmen. Operational Safety Logik ist die Grundlage für sicheres Deployment auf Reference Hardware.',
+      whatYouBuild: 'Du programmierst Software-Sicherheitsverriegelungen: Anomalie-Erkennungs-Algorithmen, Emergency Stop Logik, Sensor-Validierung, und Safety Interlocks. Alles integriert mit der Reference Hardware über APIs.',
+    },
+    technical: {
+      howItWorks: 'Anomalie-Erkennungs-Algorithmen überwachen Sensor-Daten kontinuierlich und erkennen ungewöhnliche Muster. Emergency Stop Logik triggert sofortige Abschaltung bei kritischen Zuständen. Sensor-Validierung stellt sicher, dass alle Sensoren korrekt funktionieren. Safety Interlocks verhindern unsichere Betriebszustände.',
+      architecture: 'Sensor Input → Anomaly Detection (ML/Statistical) → Safety Interlock Logic (Zephyr RTOS/Python) → Emergency Stop → API Integration (Reference Hardware)',
+      integration: 'Integriert mit Sensor Integration Package, Grid-OS Logik, und Reference Hardware über standardisierte APIs. Alle Safety-Funktionen sind software-basiert und API-kompatibel.',
+    },
+  },
+  'sensor-integration': {
+    nonTechnical: {
+      what: 'Sensor Integration bedeutet: Du baust Daten-Pipelines, die alle Sensoren (Temperatur, Durchfluss, Leistung, Batterie) verbinden und die Daten in Echtzeit überwachen. Es ist wie das Nervensystem des Systems – es sammelt alle Informationen und macht sie verfügbar.',
+      why: 'Ohne Sensor-Daten kann das System nicht intelligent reagieren. Sensor Integration ist die Grundlage für Grid-OS Logik und Operational Safety Logik – beide brauchen zuverlässige, validierte Sensordaten.',
+      whatYouBuild: 'Du baust Sensor-Daten-Pipelines, die alle Sensoren (Temp, Flow, Power, Battery SOC) verbinden, ein Real-Time Monitoring Dashboard, ein Data Validation Framework, und API-Integration mit Grid-OS. Alles integriert mit der Reference Hardware.',
+    },
+    technical: {
+      howItWorks: 'Sensor-Daten werden über I2C/SPI gesammelt, über MQTT/Mosquitto übertragen, in einer Time-Series DB (VictoriaMetrics) gespeichert, und in Echtzeit visualisiert. Data Validation Framework stellt sicher, dass alle Sensordaten korrekt und konsistent sind. API-Integration ermöglicht Grid-OS Zugriff auf Sensordaten.',
+      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Data Validation → Real-Time Monitoring (WebSockets) → API Integration (Grid-OS)',
+      integration: 'Integriert mit Reference Hardware Sensoren, Grid-OS Logik (für Scheduling), Operational Safety Logik (für Anomalie-Erkennung), und Dashboard (Truth Layer).',
+    },
   },
   'dashboard': {
     nonTechnical: {

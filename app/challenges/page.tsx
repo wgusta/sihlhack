@@ -77,7 +77,7 @@ export default function ChallengesPage() {
               Die Challenges
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              3 Pflicht-Pakete. 20 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
+              3 Pflicht-Pakete. 20 Teams. Hardware wird bereitgestellt. Ihr programmiert die Logik. Beste Lösung gewinnt.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
@@ -189,23 +189,24 @@ export default function ChallengesPage() {
               >
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
                   <strong className="text-brand-black">3 Tage, 3 Challenges:</strong> Jedes Team wählt eines von drei 
-                  Pflicht-Paketen und baut daran. Mehrere Teams arbeiten parallel am gleichen Paket – die beste Lösung gewinnt.
+                  Pflicht-Paketen und programmiert daran. Hardware wird bereitgestellt – ihr schreibt die Grid-OS Logik. 
+                  Mehrere Teams arbeiten parallel am gleichen Paket – die beste Lösung gewinnt.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">Ihr entscheidet:</strong> Es gibt keine vorgefertigte Lösung. 
-                  Ihr evaluiert drei verschiedene Wege, Wärme aus Computern zu gewinnen, und wählt den, der zu eurem 
-                  Kontext passt. Kein Pfad ist "richtig" – nur Trade-offs.
+                  <strong className="text-brand-black">Simulation-to-Reality:</strong> Ihr entwickelt gegen den Sihl-Sim 
+                  (Digital Twin) lokal, testet auf dem 5V Safety Avatar, und finalisiert auf der supervised Reference Hardware. 
+                  Kein Pfad ist "richtig" – nur Trade-offs.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr baut, gehört euch. 
+                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr programmiert, gehört euch. 
                   Hardware-Designs unter <strong className="text-thermal-orange">CERN-OHL-P/MIT</strong> (vollständig frei), 
                   Grid-OS Code unter <strong className="text-compute-blue">SVG-L</strong> (schützt das Netz). 
                   Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das. 
                   <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Demo-Kit, 35% für Hardware Safety, 
-                  20% für Grid-OS, 10% für beste Integration. Finanziert durch Teilnahmegebühren (CHF 150) – 
+                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Grid-OS Logik, 35% für Sensor Integration, 
+                  20% für Operational Safety Logik, 10% für beste Integration. Finanziert durch Teilnahmegebühren (CHF 150) – 
                   alle Finanzen sind öffentlich einsehbar.
                 </p>
               </Accordion>
@@ -240,8 +241,8 @@ export default function ChallengesPage() {
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">🍿</span>
                     <div>
-                      <div className="font-mono text-sm font-semibold text-brand-black">Juni 2026</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">Snackathons</div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">April 2026</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Sihl-Sim API</div>
                       <div className="font-mono text-[10px] text-sihl-red mt-1">Erster Pilot-Event →</div>
                     </div>
                   </div>
@@ -261,8 +262,8 @@ export default function ChallengesPage() {
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">📜</span>
                     <div>
-                      <div className="font-mono text-sm font-semibold text-brand-black">Juli 2026</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">Snackathons (Historic)</div>
+                      <div className="font-mono text-sm font-semibold text-brand-black">Mai 2026</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Sihl-Sim API (Iteration)</div>
                       <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
                     </div>
                   </div>
@@ -596,7 +597,7 @@ export default function ChallengesPage() {
                         <div className="bg-sihl-red/5 border border-sihl-red/20 rounded-lg p-3 mt-2">
                           <p className="text-xs font-mono text-sihl-red font-semibold mb-1">⚠️ Spezifische Risiken:</p>
                           <ul className="space-y-1 text-xs font-mono text-historic-sepia">
-                            <li>• Hochdruck: Kältemittel unter hohem Druck (Explosionsgefahr bei Fehlern)</li>
+                            <li>• Hochdruck: Kältemittel unter hohem Druck (professionelle Überwachung erforderlich)</li>
                             <li>• Kältemittel-Austritt: Umweltgefahr, Gesundheitsrisiko, Ozonabbau</li>
                             <li>• Komplexe Fehlerketten: Mehrere Systeme müssen zusammenarbeiten</li>
                           </ul>

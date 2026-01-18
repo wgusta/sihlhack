@@ -21,6 +21,7 @@
 | Company Retention | 80%+ | Companies who upload after NDA |
 | Mobile Traffic | 40%+ | Analytics: mobile sessions / total |
 | Page Load Time | <2s | Core Web Vitals LCP |
+| Successful Deployments to Reference Hardware | 80%+ | Teams that successfully deploy code to Reference Nodes during event |
 
 ### Transparency Metrics (Public)
 

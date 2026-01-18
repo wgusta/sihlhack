@@ -24,8 +24,8 @@ export default function SafetyPage() {
               Deine Sicherheit ist unsere Priorität
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              Alle Teilnehmer arbeiten unter professioneller Aufsicht mit zertifizierten Sicherheitssystemen. 
-              Obligatorisches Sicherheitstraining stellt sicher, dass jeder die Risiken und Sicherheitsverfahren versteht.
+              Alle Hardware wird bereitgestellt und unter professioneller Aufsicht betrieben. 
+              Teams programmieren die Operational Safety Logik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
             </p>
           </div>
         </section>
@@ -58,30 +58,30 @@ export default function SafetyPage() {
 
                 <div>
                   <h3 className="font-display text-xl font-bold text-brand-black mb-3 flex items-center gap-2">
-                    <span>📍</span>
-                    Prototyp-Testing: Separater Bereich
+                    <span>💻</span>
+                    Simulation-to-Reality Workflow
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia leading-relaxed mb-3">
-                    Alle Prototypen werden ausschliesslich in einem separaten Testbereich getestet, 
-                    der ausserhalb des offiziellen Event-Raums liegt, aber in der Nähe. 
-                    Dies minimiert Risiken für Teilnehmer im Haupt-Event-Bereich.
+                    Teams entwickeln ihre Grid-OS Logik gegen den Sihl-Sim (Digital Twin) lokal, 
+                    testen auf dem 5V Safety Avatar (15-Minuten Slots), und deployen auf supervised Reference Hardware. 
+                    Alle Hardware-Operationen werden von Safety Supervisors überwacht.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia ml-4">
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Prototypen werden NUR im separaten Testbereich betrieben</span>
+                      <span>Entwicklung gegen Sihl-Sim (Digital Twin) – keine physischen Risiken</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Testbereich liegt ausserhalb des Haupt-Event-Raums, aber in der Nähe</span>
+                      <span>Testing auf 5V Safety Avatar – low-power, sichere Validierung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Alle Prototypen müssen vor dem Testen von Safety Officer freigegeben werden</span>
+                      <span>Deployment auf Reference Hardware – supervised, professionelle Überwachung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange mt-0.5">•</span>
-                      <span>Keine Prototypen im Haupt-Event-Raum während des Events</span>
+                      <span>Alle Hardware wird bereitgestellt – keine physische Assembly durch Teams</span>
                     </li>
                   </ul>
                 </div>
@@ -123,28 +123,23 @@ export default function SafetyPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Ein lizenzierter Elektroingenieur mit Befugnis, Aktivitäten zu stoppen, wenn Sicherheitsrisiken identifiziert werden. 
-                    Der Safety Officer ist unabhängig von den Event-Organisatoren.
+                    Professionelle Safety Supervisors überwachen alle Reference Hardware Operationen. 
+                    Teams programmieren die Operational Safety Logik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>Lizenzierter Elektroingenieur (Elektroinstallateur EFZ)</span>
+                      <span>Supervised Reference Hardware Operation</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>NIV-Installationslizenz</span>
+                      <span>Operational Safety Logik Überwachung</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">✓</span>
-                      <span>Kontinuierliche Anwesenheit während des Events</span>
+                      <span>Kontinuierliche Anwesenheit während Deployments</span>
                     </li>
                   </ul>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <a href="/security-analysis" className="text-thermal-orange hover:underline font-mono text-xs">
-                      → Vollständige Sicherheitsanalyse lesen
-                    </a>
-                  </div>
                 </CardContent>
               </Card>
 
@@ -156,20 +151,21 @@ export default function SafetyPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Lizenzierte Elektriker, Brandschutzpersonal und medizinisches Personal sind kontinuierlich während des gesamten Events anwesend.
+                    Safety Supervisors überwachen alle Reference Hardware Deployments. 
+                    Alle Hardware ist pre-zertifiziert und wird unter professioneller Aufsicht betrieben.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Lizenzierte Elektriker (kontinuierlich)</span>
+                      <span>Pre-zertifizierte Reference Hardware</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Brandschutzpersonal</span>
+                      <span>Supervised Deployment Slots</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-compute-blue">✓</span>
-                      <span>Medizinisches Personal (Erste Hilfe, Notfallversorgung)</span>
+                      <span>Operational Safety Logik Validierung</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -183,31 +179,27 @@ export default function SafetyPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm font-mono text-historic-sepia mb-4">
-                    Sensor-basierte Systeme überwachen kontinuierlich alle kritischen Systeme mit automatisierten Warnungen.
+                    Sensor-Integration Teams bauen Daten-Pipelines für Real-Time Monitoring. 
+                    Operational Safety Logik Teams programmieren Anomalie-Erkennung und Emergency Stop Logik.
                   </p>
                   <ul className="space-y-2 text-xs font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Batterie-Temperaturen und Spannungen</span>
+                      <span>Sensor Data Pipelines (Temp, Flow, Power, Battery SOC)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Elektrische Systeme</span>
+                      <span>Anomalie-Erkennungs-Algorithmen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Thermische Systeme</span>
+                      <span>Emergency Stop Logik</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Branderkennung</span>
+                      <span>Sensor-Validierung Framework</span>
                     </li>
                   </ul>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <a href="/security-analysis" className="text-grid-green hover:underline font-mono text-xs">
-                      → Risikoanalyse und Empfehlungen
-                    </a>
-                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -222,7 +214,7 @@ export default function SafetyPage() {
                 Sicherheitsanforderungen für Teilnehmer
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Vor der Teilnahme müssen alle Teilnehmer ein obligatorisches Sicherheitstraining absolvieren.
+                Teams programmieren Operational Safety Logik – Software-Sicherheitsverriegelungen für sicheres System-Betrieb.
               </p>
             </div>
 
@@ -235,61 +227,60 @@ export default function SafetyPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-mono text-historic-sepia mb-6">
-                  Alle Teilnehmer müssen vor dem Event ein Online-Sicherheitstraining absolvieren. 
-                  Vor Ort gibt es einen kurzen Refresher:
+                  Operational Safety Logik Teams programmieren Software-Sicherheitsverriegelungen für sicheres System-Betrieb:
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Modul 1: Elektrische Sicherheit</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Anomalie-Erkennung</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• RCD/GFCI-Funktion und Test</li>
-                      <li>• Arbeiten unter Spannung</li>
-                      <li>• Fehlerstromschutz</li>
-                      <li>• Notfallverfahren</li>
+                      <li>• ML/Statistical Anomaly Detection</li>
+                      <li>• Sensor-Daten Validierung</li>
+                      <li>• Pattern Recognition</li>
+                      <li>• Real-Time Monitoring</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Modul 2: Batteriesicherheit</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Emergency Stop Logik</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• Lithium-Batterie-Gefahren</li>
-                      <li>• Batterie-Handling und Lagerung</li>
-                      <li>• BMS-Funktion und Ausfallmodi</li>
-                      <li>• Notfallreaktion auf Batterie-Vorfälle</li>
+                      <li>• Software-basierte Not-Aus</li>
+                      <li>• Fail-Safe Mechanismen</li>
+                      <li>• Graceful Shutdown</li>
+                      <li>• API-Integration mit Reference Hardware</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Modul 3: Thermische Systeme</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Safety Interlocks</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• Öl-Immersion: Handhabung, Lagerung</li>
-                      <li>• Wasser-Loop: Elektrokontakt-Prävention</li>
-                      <li>• Wärmepumpe: Hochdruck, Kältemittel</li>
-                      <li>• Verbrennungsprävention und Erste Hilfe</li>
+                      <li>• Software-Sicherheitsverriegelungen</li>
+                      <li>• Zustands-Überwachung</li>
+                      <li>• Pre-Condition Checks</li>
+                      <li>• Integration mit Grid-OS</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Modul 4: Notfallverfahren</h4>
+                    <h4 className="font-mono text-sm font-bold text-brand-black mb-3">Sensor-Validierung</h4>
                     <ul className="space-y-2 text-xs font-mono text-historic-sepia">
-                      <li>• Brandreaktion und Evakuierung</li>
-                      <li>• Medizinische Notfallverfahren</li>
-                      <li>• Vorfallmeldung</li>
-                      <li>• Notfallkontakte</li>
+                      <li>• Daten-Konsistenz-Checks</li>
+                      <li>• Sensor-Ausfall-Erkennung</li>
+                      <li>• Kalibrierung-Validierung</li>
+                      <li>• Redundanz-Management</li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="bg-thermal-orange/10 border border-thermal-orange/30 rounded-lg p-4">
                   <p className="text-sm font-mono text-brand-black font-semibold mb-2">
-                    Zertifizierungsprozess
+                    Hardware-Bereitstellung
                   </p>
                   <ul className="space-y-1 text-xs font-mono text-historic-sepia">
-                    <li>• Online-Training (4 Stunden)</li>
-                    <li>• Zertifizierungsprüfung (80% Bestehensquote erforderlich)</li>
-                    <li>• Zertifikat gültig für 12 Monate</li>
-                    <li>• Keine Teilnahme ohne Zertifizierung</li>
+                    <li>• Alle Hardware wird bereitgestellt (Reference Nodes)</li>
+                    <li>• Pre-zertifiziert und safety-approved</li>
+                    <li>• Supervised Operation durch Safety Supervisors</li>
+                    <li>• Teams programmieren die Logik, nicht die Hardware</li>
                   </ul>
                 </div>
               </CardContent>
