@@ -19,6 +19,12 @@ export default function RegisterPage() {
           <p className="mt-2 text-historic-sepia font-mono">
             Sichere dir deinen Platz beim ersten teilnehmerorientierten Hackathon der Schweiz.
           </p>
+          <div className="mt-4 p-3 bg-grid-green/10 border border-grid-green/30 rounded-lg inline-block">
+            <p className="text-xs font-mono text-brand-black">
+              🛡️ <strong>Sicherheit zuerst:</strong> Obligatorisches Sicherheitstraining vor Teilnahme.{' '}
+              <a href="/safety" className="text-sihl-red hover:underline">Mehr erfahren</a>
+            </p>
+          </div>
         </div>
 
         <Card>

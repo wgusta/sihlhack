@@ -149,6 +149,148 @@ export const emailSubscribers = pgTable('email_subscribers', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
 })
 
+// Sihlicon Hubs table - represents physical Active Energy Nodes
+export const sihliconHubs = pgTable('sihlicon_hubs', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  location: text('location'), // City/region in Switzerland
+  operatorId: uuid('operator_id').references(() => participants.id), // Hub owner/operator
+  // Hardware specs
+  computeCapacityKw: integer('compute_capacity_kw'), // Max compute power in kW
+  batteryCapacityKwh: integer('battery_capacity_kwh'), // Battery capacity in kWh
+  thermalPath: text('thermal_path'), // 'immersion' | 'water-loop' | 'heat-pump'
+  // Status
+  status: text('status').default('pending').notNull(), // 'pending' | 'active' | 'inactive' | 'maintenance'
+  // Grid integration
+  gridOsVersion: text('grid_os_version'), // Version of Grid-OS running
+  swissgridRegistered: boolean('swissgrid_registered').default(false),
+  // Metadata
+  metadata: text('metadata'), // JSON string for flexible metadata
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Compute jobs table - tracks compute workloads running on Hubs
+export const computeJobs = pgTable('compute_jobs', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  hubId: uuid('hub_id').references(() => sihliconHubs.id).notNull(),
+  submittedBy: uuid('submitted_by').references(() => participants.id), // Job submitter
+  // Job definition
+  jobType: text('job_type').notNull(), // 'ocr' | 'ai-inference' | 'time-series' | 'video-processing' | 'scientific' | 'custom'
+  jobName: text('job_name').notNull(),
+  jobDescription: text('job_description'),
+  // Workload specification
+  workloadConfig: text('workload_config').notNull(), // JSON: container image, command, env vars, etc.
+  inputDataRefs: text('input_data_refs').array(), // Array of content-addressed storage refs (CIDs)
+  outputDataRefs: text('output_data_refs').array(), // Array of output CIDs (populated after completion)
+  // Resource requirements
+  estimatedComputeKwh: integer('estimated_compute_kwh'), // Estimated energy consumption in Wh
+  priority: integer('priority').default(0).notNull(), // Higher = more urgent
+  // Scheduling
+  status: text('status').default('pending').notNull(), // 'pending' | 'queued' | 'running' | 'completed' | 'failed' | 'cancelled'
+  scheduledAt: timestamp('scheduled_at'), // When job should start
+  startedAt: timestamp('started_at'),
+  completedAt: timestamp('completed_at'),
+  // Execution results
+  actualComputeKwh: integer('actual_compute_kwh'), // Actual energy consumed
+  heatGeneratedKwh: integer('heat_generated_kwh'), // Heat generated (≈ compute kWh)
+  errorMessage: text('error_message'),
+  // Grid-OS integration
+  gridThrottled: boolean('grid_throttled').default(false), // Was job throttled due to grid needs?
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Storage manifests table - content-addressed storage with replication
+export const storageManifests = pgTable('storage_manifests', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  contentId: text('content_id').notNull().unique(), // Content-addressed ID (CIDv1 compatible)
+  // File metadata
+  fileName: text('file_name'),
+  fileSizeBytes: integer('file_size_bytes').notNull(),
+  mimeType: text('mime_type'),
+  // Storage tier
+  storageTier: text('storage_tier').default('hot').notNull(), // 'hot' | 'cold' | 'glacier'
+  // Replication
+  replicaHubs: uuid('replica_hubs').array(), // Array of hub IDs storing replicas
+  minReplicas: integer('min_replicas').default(3).notNull(), // Minimum replication factor
+  // Access control
+  accessLevel: text('access_level').default('private').notNull(), // 'private' | 'public' | 'community'
+  ownerId: uuid('owner_id').references(() => participants.id), // Content owner
+  // Provenance
+  sourceHubId: uuid('source_hub_id').references(() => sihliconHubs.id), // Hub that originally stored this
+  provenance: text('provenance'), // JSON: processing history, transformations
+  // Metadata
+  metadata: text('metadata'), // JSON string for flexible metadata
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Storage replicas table - tracks which Hub stores which content
+export const storageReplicas = pgTable('storage_replicas', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  manifestId: uuid('manifest_id').references(() => storageManifests.id, { onDelete: 'cascade' }).notNull(),
+  hubId: uuid('hub_id').references(() => sihliconHubs.id, { onDelete: 'cascade' }).notNull(),
+  // Replica status
+  status: text('status').default('syncing').notNull(), // 'syncing' | 'active' | 'corrupted' | 'deleted'
+  // Storage location on Hub
+  localPath: text('local_path'), // Path on Hub's local storage
+  // Health checks
+  lastHealthCheck: timestamp('last_health_check'),
+  checksum: text('checksum'), // Content checksum for integrity verification
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+}, (table) => [
+  unique('unique_replica_per_hub').on(table.manifestId, table.hubId),
+])
+
+// Heat accounting table - tracks heat generation and credits
+export const heatAccounting = pgTable('heat_accounting', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  hubId: uuid('hub_id').references(() => sihliconHubs.id).notNull(),
+  // Heat generation
+  heatGeneratedKwh: integer('heat_generated_kwh').notNull(), // Heat generated in Wh
+  periodStart: timestamp('period_start').notNull(), // Start of accounting period
+  periodEnd: timestamp('period_end').notNull(), // End of accounting period
+  // Credit calculation
+  heatCreditChf: integer('heat_credit_chf'), // Heat credit in centimes (if monetized)
+  // Source of heat
+  sourceType: text('source_type').notNull(), // 'compute' | 'battery-charge' | 'direct-heating'
+  sourceJobId: uuid('source_job_id').references(() => computeJobs.id), // If from compute job
+  // Settlement
+  settled: boolean('settled').default(false).notNull(), // Has this been settled/paid?
+  settledAt: timestamp('settled_at'),
+  // Metadata
+  metadata: text('metadata'), // JSON string for flexible metadata
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+})
+
+// LEG marketplace transactions - inter-Hub compute/heat trading
+export const marketplaceTransactions = pgTable('marketplace_transactions', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  // Transaction parties
+  sellerHubId: uuid('seller_hub_id').references(() => sihliconHubs.id).notNull(), // Hub providing service
+  buyerHubId: uuid('buyer_hub_id').references(() => sihliconHubs.id).notNull(), // Hub consuming service
+  // Transaction type
+  transactionType: text('transaction_type').notNull(), // 'compute' | 'storage' | 'heat' | 'energy'
+  // Resource details
+  resourceAmount: integer('resource_amount').notNull(), // Amount in base units (kWh, GB, etc.)
+  resourceUnit: text('resource_unit').notNull(), // 'kwh' | 'gb' | 'compute-hours'
+  // Pricing
+  pricePerUnitChf: integer('price_per_unit_chf').notNull(), // Price per unit in centimes
+  totalPriceChf: integer('total_price_chf').notNull(), // Total price in centimes
+  // Settlement
+  status: text('status').default('pending').notNull(), // 'pending' | 'confirmed' | 'settled' | 'cancelled'
+  settledAt: timestamp('settled_at'),
+  // Related resources
+  relatedJobId: uuid('related_job_id').references(() => computeJobs.id), // If compute transaction
+  relatedManifestId: uuid('related_manifest_id').references(() => storageManifests.id), // If storage transaction
+  // Metadata
+  metadata: text('metadata'), // JSON string for flexible metadata
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
 // Type exports for use in application
 export type Participant = typeof participants.$inferSelect
 export type NewParticipant = typeof participants.$inferInsert
@@ -176,3 +318,21 @@ export type NewBudgetPosition = typeof budgetPositions.$inferInsert
 
 export type EmailSubscriber = typeof emailSubscribers.$inferSelect
 export type NewEmailSubscriber = typeof emailSubscribers.$inferInsert
+
+export type SihliconHub = typeof sihliconHubs.$inferSelect
+export type NewSihliconHub = typeof sihliconHubs.$inferInsert
+
+export type ComputeJob = typeof computeJobs.$inferSelect
+export type NewComputeJob = typeof computeJobs.$inferInsert
+
+export type StorageManifest = typeof storageManifests.$inferSelect
+export type NewStorageManifest = typeof storageManifests.$inferInsert
+
+export type StorageReplica = typeof storageReplicas.$inferSelect
+export type NewStorageReplica = typeof storageReplicas.$inferInsert
+
+export type HeatAccounting = typeof heatAccounting.$inferSelect
+export type NewHeatAccounting = typeof heatAccounting.$inferInsert
+
+export type MarketplaceTransaction = typeof marketplaceTransactions.$inferSelect
+export type NewMarketplaceTransaction = typeof marketplaceTransactions.$inferInsert

@@ -77,6 +77,14 @@ export default function ChallengesPage() {
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
               3 Pflicht-Pakete. 20 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
             </p>
+            <div className="mt-6">
+              <a
+                href="/#compute-scenarios"
+                className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
+              >
+                → Was läuft auf dem Hub? Compute-Szenarien anschauen
+              </a>
+            </div>
 
             {/* Stats */}
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
@@ -585,6 +593,14 @@ export default function ChallengesPage() {
                   showVisualization={true}
                   visualization={<GridOSVisualization />}
                 />
+                <div className="mt-4 text-center">
+                  <a
+                    href="/#compute-scenarios"
+                    className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
+                  >
+                    → Welche Compute-Workloads laufen auf dem Hub?
+                  </a>
+                </div>
               </div>
             </div>
           </div>

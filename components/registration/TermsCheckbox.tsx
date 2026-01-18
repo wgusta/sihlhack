@@ -43,7 +43,11 @@ export function TermsCheckbox({ checked, onChange, error }: TermsCheckboxProps) 
           <a href="/datenschutz" target="_blank" className="text-sihl-red hover:underline">
             Datenschutzerklärung
           </a>{' '}
-          gelesen.
+          gelesen. Ich verstehe, dass ein{' '}
+          <a href="/safety" target="_blank" className="text-sihl-red hover:underline">
+            obligatorisches Sicherheitstraining
+          </a>{' '}
+          vor der Teilnahme erforderlich ist.
         </span>
       </label>
       {error && (

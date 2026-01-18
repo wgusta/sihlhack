@@ -67,6 +67,14 @@ export default function AboutPage() {
                 Silicon Valley baut Rechenzentren, die Flüsse erhitzen. Wir bauen Server, die Häuser heizen. 
                 Der Unterschied? Wir machen Kühlung zum Feature, nicht zum Problem.
               </p>
+              <div className="mt-6">
+                <a
+                  href="/#compute-scenarios"
+                  className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
+                >
+                  → Was läuft auf dem Hub? Compute-Szenarien anschauen
+                </a>
+              </div>
             </div>
 
             {/* Problem → Solution - Fixed */}

@@ -11,6 +11,7 @@ const navigation = [
   { name: 'Snackathons', href: '/snackathons', highlight: true },
   { name: 'Konzept', href: '/about' },
   { name: 'Challenges', href: '/challenges' },
+  { name: 'Sicherheit', href: '/safety' },
   { name: 'Team', href: '/team' },
 ]
 

@@ -77,6 +77,9 @@ export function HeroSection() {
             <p className="mt-4 text-base sm:text-lg text-gray-300 font-mono max-w-2xl mx-auto">
               Drei Tage. Ein System. Unendlich viele Möglichkeiten.
             </p>
+            <p className="mt-3 text-sm text-gray-400 font-mono">
+              Professionelle Sicherheitsüberwachung · <a href="/safety" className="text-thermal-orange hover:underline">Mehr erfahren</a>
+            </p>
           </div>
 
           {/* Key Stats - Condensed 2x2 grid */}

@@ -523,9 +523,39 @@ export function DataUploader({ companyId }: { companyId: string }) {
 ├── upload/route.ts              # POST (file upload to Vercel Blob)
 ├── funds/route.ts               # GET (public fund status)
 ├── submit-resource/route.ts     # POST (resource submission to hello@sihlhack.ch)
+├── compute/
+│   ├── route.ts                 # POST (submit job), GET (list jobs)
+│   └── [jobId]/route.ts        # GET (job status), DELETE (cancel job)
+├── storage/
+│   └── route.ts                 # POST (upload), GET (get manifest), DELETE (delete)
+├── heat/
+│   ├── credits/route.ts        # GET (heat credits for hub)
+│   ├── stats/route.ts          # GET (heat statistics)
+│   └── settle/route.ts         # POST (settle heat credits)
 └── cron/
     └── check-event-status/route.ts  # Vercel cron job
 ```
+
+### New Service APIs
+
+**Compute API** (`/api/compute`):
+- Submit compute jobs (OCR, AI inference, time-series, etc.)
+- List and query job status
+- Cancel pending/queued jobs
+- Grid-OS integration for energy-aware scheduling
+
+**Storage API** (`/api/storage`):
+- Upload content with content-addressed storage (CID)
+- Get storage manifests
+- Delete content (removes from all replicas)
+- Supports hot/cold/glacier tiers
+
+**Heat API** (`/api/heat`):
+- Get heat credits for hubs
+- Get heat generation statistics
+- Settle heat credits (mark as paid)
+
+See [docs/service-apis.md](docs/service-apis.md) for detailed API documentation.
 
 ## Environment Variables
 

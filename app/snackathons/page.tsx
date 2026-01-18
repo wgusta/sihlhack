@@ -259,6 +259,14 @@ export default function SnackathonsPage() {
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
                 Was wir bauen
               </h2>
+              <div className="mt-4">
+                <a
+                  href="/#compute-scenarios"
+                  className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
+                >
+                  → Welche Compute-Szenarien laufen auf dem Hub?
+                </a>
+              </div>
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-8">
@@ -279,7 +287,9 @@ export default function SnackathonsPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
-                      <span><strong>Basis Grid-OS</strong>: Solar-Watcher + einfacher Scheduler</span>
+                      <span><strong>Basis Grid-OS</strong>: Solar-Watcher + einfacher Scheduler 
+                        <a href="/#compute-scenarios" className="text-compute-blue hover:underline ml-1">(Compute-Szenarien →)</a>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green mt-0.5">•</span>
