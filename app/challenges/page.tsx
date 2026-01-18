@@ -221,40 +221,12 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Historik Hack - Optional Pre-Challenge */}
-            <div className="mb-6">
-              <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
-                📜 Historik Hack <span className="text-gray-500">(OPTIONAL)</span>
-              </h3>
-              <div className="flex justify-center mb-6">
-                <a
-                  href="/snackathons#historik-hack"
-                  className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group max-w-md w-full"
-                >
-                  <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
-                    📜 Pre-Challenge
-                  </div>
-                  <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
-                    OPTIONAL
-                  </div>
-                  <div className="flex items-center gap-3 pt-2">
-                    <span className="text-2xl">📜</span>
-                    <div>
-                      <div className="font-mono text-sm font-semibold text-brand-black">Historik Hack</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">Historisches Archiv</div>
-                      <div className="font-mono text-[10px] text-historic-sepia mt-1">2-4 Wochen vor Event (Online) →</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
             {/* Snackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
                 🍿 Snackathons <span className="text-gray-500">(OPTIONAL)</span>
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-6">
                 {/* April 2026 Snackathons */}
                 <a
                   href="/snackathons#april-2026"
@@ -293,6 +265,31 @@ export default function ChallengesPage() {
                       <div className="font-mono text-sm font-semibold text-brand-black">Mai 2026</div>
                       <div className="font-accent text-xs text-historic-sepia/70">Sihl-Sim API (Iteration)</div>
                       <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Historik Hack Snackathon */}
+                <a
+                  href="/snackathons#historik-hack"
+                  className="p-4 rounded-xl border-dashed border-4 border-historic-sepia/60 hover:border-historic-sepia bg-gradient-to-br from-historic-cream/50 via-white to-historic-cream/30 transition-all relative group overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-historic-sepia/5 rounded-full -mr-10 -mt-10" />
+                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-historic-sepia/5 rounded-full -ml-8 -mb-8" />
+                  <div className="relative z-10">
+                    <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm font-bold ring-2 ring-historic-sepia/30 ring-offset-2 ring-offset-white">
+                      📜 Pre-Challenge
+                    </div>
+                    <div className="absolute -top-2 left-3 bg-industrial-gold/90 text-white text-[8px] font-mono px-1.5 py-0.5 rounded font-semibold border border-industrial-gold">
+                      ONLINE
+                    </div>
+                    <div className="flex items-center gap-3 pt-2">
+                      <span className="text-2xl opacity-80">📜</span>
+                      <div>
+                        <div className="font-mono text-sm font-semibold text-historic-sepia">Historik Hack</div>
+                        <div className="font-accent text-xs text-historic-sepia/70 font-semibold">Historisches Archiv</div>
+                        <div className="font-mono text-[10px] text-historic-sepia mt-1">2-4 Wochen vor Event →</div>
+                      </div>
                     </div>
                   </div>
                 </a>

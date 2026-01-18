@@ -57,6 +57,7 @@ const SNACKATHONS = [
     participants: 'Unbegrenzt',
     location: 'Online',
     description: PRE_CHALLENGE.description,
+    isPreChallenge: true, // Mark as visually different
   },
 ] as const
 
@@ -214,6 +215,7 @@ export default function SnackathonsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {SNACKATHONS.map((snackathon) => {
+                const isPreChallenge = snackathon.id === 'historik-hack'
                 const borderColorClass = snackathon.badgeColor === 'sihl-red' 
                   ? 'border-sihl-red/40 hover:border-sihl-red' 
                   : snackathon.badgeColor === 'historic-sepia'
@@ -234,17 +236,36 @@ export default function SnackathonsPage() {
                   <div
                     key={snackathon.id}
                     id={snackathon.id}
-                    className={`bg-white rounded-2xl border-2 ${borderColorClass} p-6 hover:shadow-lg transition-all`}
+                    className={`${
+                      isPreChallenge 
+                        ? 'bg-gradient-to-br from-historic-cream/50 via-white to-historic-cream/30 border-dashed border-4 border-historic-sepia/60 hover:border-historic-sepia relative overflow-hidden' 
+                        : `bg-white border-2 ${borderColorClass}`
+                    } rounded-2xl p-6 hover:shadow-lg transition-all`}
                   >
-                    <div className="flex items-center justify-between mb-4">
+                    {isPreChallenge && (
+                      <>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-historic-sepia/5 rounded-full -mr-16 -mt-16" />
+                        <div className="absolute bottom-0 left-0 w-24 h-24 bg-historic-sepia/5 rounded-full -ml-12 -mb-12" />
+                      </>
+                    )}
+                    <div className={`flex items-center justify-between mb-4 ${isPreChallenge ? 'relative z-10' : ''}`}>
                       <div>
-                        <div className={`inline-block ${bgColorClass} text-white text-xs font-mono px-2 py-1 rounded-full mb-2`}>
+                        <div className={`inline-block ${bgColorClass} text-white text-xs font-mono px-3 py-1.5 rounded-full mb-2 font-bold ${isPreChallenge ? 'ring-2 ring-historic-sepia/30 ring-offset-2 ring-offset-white' : ''}`}>
                           {snackathon.icon} {snackathon.badge}
                         </div>
-                        <h3 className="font-display text-xl font-bold text-brand-black">{snackathon.name}</h3>
-                        <p className="font-mono text-sm text-historic-sepia">{snackathon.subtitle}</p>
+                        {isPreChallenge && (
+                          <div className="inline-block ml-2 bg-industrial-gold/20 text-industrial-gold text-[10px] font-mono px-2 py-0.5 rounded border border-industrial-gold/30 font-semibold">
+                            ONLINE ONLY
+                          </div>
+                        )}
+                        <h3 className={`font-display text-xl font-bold ${isPreChallenge ? 'text-historic-sepia' : 'text-brand-black'}`}>
+                          {snackathon.name}
+                        </h3>
+                        <p className={`font-mono text-sm ${isPreChallenge ? 'text-historic-sepia font-semibold' : 'text-historic-sepia'}`}>
+                          {snackathon.subtitle}
+                        </p>
                       </div>
-                      <span className="text-3xl">{snackathon.icon}</span>
+                      <span className={`text-3xl ${isPreChallenge ? 'opacity-80' : ''}`}>{snackathon.icon}</span>
                     </div>
                     <div className="space-y-2 font-mono text-sm text-historic-sepia">
                       <div className="flex items-center gap-2">
@@ -264,16 +285,24 @@ export default function SnackathonsPage() {
                         <span>{snackathon.location}</span>
                       </div>
                     </div>
-                    <p className="mt-4 font-mono text-xs text-historic-sepia">
-                      {snackathon.description}
-                    </p>
-                    {snackathon.id !== 'historik-hack' && (
-                      <div className="mt-3 pt-3 border-t border-sihl-red/20">
-                        <p className={`font-mono text-xs ${textColorClass} font-semibold`}>
-                          🎁 30% Rabatt auf sihlhack September 2026
-                        </p>
-                      </div>
-                    )}
+                    <div className={isPreChallenge ? 'relative z-10' : ''}>
+                      <p className={`mt-4 font-mono text-xs ${isPreChallenge ? 'text-historic-sepia font-medium' : 'text-historic-sepia'}`}>
+                        {snackathon.description}
+                      </p>
+                      {isPreChallenge ? (
+                        <div className="mt-3 pt-3 border-t-2 border-dashed border-historic-sepia/40">
+                          <p className="font-mono text-xs text-historic-sepia font-semibold">
+                            📚 Asynchrone Online-Recherche · Keine physische Teilnahme erforderlich
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="mt-3 pt-3 border-t border-sihl-red/20">
+                          <p className={`font-mono text-xs ${textColorClass} font-semibold`}>
+                            🎁 30% Rabatt auf sihlhack September 2026
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )
               })}
@@ -390,10 +419,15 @@ export default function SnackathonsPage() {
                       <div className="space-y-3">
                         {SNACKATHONS.map((snackathon) => {
                           const isSelected = formData.selectedSnackathons.includes(snackathon.id)
+                          const isPreChallenge = snackathon.id === 'historik-hack'
                           const borderClass = isSelected
-                            ? snackathon.badgeColor === 'sihl-red'
+                            ? isPreChallenge
+                              ? 'border-dashed border-4 border-historic-sepia bg-historic-sepia/20 bg-gradient-to-br from-historic-cream/30 to-white/10'
+                              : snackathon.badgeColor === 'sihl-red'
                               ? 'border-sihl-red bg-sihl-red/10'
                               : 'border-historic-sepia bg-historic-sepia/10'
+                            : isPreChallenge
+                            ? 'border-dashed border-2 border-historic-sepia/40 bg-gradient-to-br from-historic-cream/20 to-white/5 hover:from-historic-cream/30 hover:to-white/10'
                             : 'border-white/20 bg-white/5 hover:bg-white/10'
                           const badgeBgClass = snackathon.badgeColor === 'sihl-red'
                             ? 'bg-sihl-red'
@@ -402,25 +436,36 @@ export default function SnackathonsPage() {
                           return (
                             <label
                               key={snackathon.id}
-                              className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${borderClass}`}
+                              className={`flex items-start gap-3 p-4 rounded-lg cursor-pointer transition-all relative overflow-hidden ${borderClass}`}
                             >
+                              {isPreChallenge && (
+                                <>
+                                  <div className="absolute top-0 right-0 w-16 h-16 bg-historic-sepia/5 rounded-full -mr-8 -mt-8" />
+                                  <div className="absolute bottom-0 left-0 w-12 h-12 bg-historic-sepia/5 rounded-full -ml-6 -mb-6" />
+                                </>
+                              )}
                               <input
                                 type="checkbox"
                                 checked={isSelected}
                                 onChange={() => toggleSnackathon(snackathon.id)}
-                                className="mt-1 w-5 h-5 text-grid-green focus:ring-grid-green focus:ring-offset-brand-black focus:ring-offset-2"
+                                className={`mt-1 w-5 h-5 ${isPreChallenge ? 'text-historic-sepia' : 'text-grid-green'} focus:ring-grid-green focus:ring-offset-brand-black focus:ring-offset-2 relative z-10`}
                               />
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <span className="text-xl">{snackathon.icon}</span>
-                                  <span className="font-mono text-sm font-bold text-white">
+                              <div className="flex-1 relative z-10">
+                                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                  <span className={`text-xl ${isPreChallenge ? 'opacity-80' : ''}`}>{snackathon.icon}</span>
+                                  <span className={`font-mono text-sm font-bold ${isPreChallenge ? 'text-historic-sepia' : 'text-white'}`}>
                                     {snackathon.name}: {snackathon.subtitle}
                                   </span>
-                                  <span className={`text-xs font-mono px-2 py-0.5 rounded ${badgeBgClass} text-white`}>
+                                  <span className={`text-xs font-mono px-2 py-0.5 rounded ${badgeBgClass} text-white font-bold ${isPreChallenge ? 'ring-2 ring-historic-sepia/30' : ''}`}>
                                     {snackathon.badge}
                                   </span>
+                                  {isPreChallenge && (
+                                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-industrial-gold/30 text-industrial-gold border border-industrial-gold/40 font-semibold">
+                                      ONLINE
+                                    </span>
+                                  )}
                                 </div>
-                                <p className="font-mono text-xs text-gray-400">
+                                <p className={`font-mono text-xs ${isPreChallenge ? 'text-historic-sepia/80 font-medium' : 'text-gray-400'}`}>
                                   {snackathon.date} · {snackathon.duration}
                                 </p>
                               </div>
