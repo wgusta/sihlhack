@@ -125,15 +125,32 @@ When the grid fails, what does your server do?
 - Energy enthusiasts with own PV systems
 - Open-source contributors
 
-## Value Proposition
+## The Dual-License Model: "Open but Sovereign"
+
+We discovered a dangerous loop: If we simply open-source everything under Apache 2.0, bad actors could strip the grid-protection logic and build "Vampire Heaters" that burn energy just for subsidies, ignoring grid needs.
+
+To prevent this **Cobra Effect**, we are pioneering a Dual-License Model:
+
+### 1. The Body: Sihl Open Hardware License (Permissive)
+**Applies to:** Thermal architecture, CAD files, schematics, BOMs.
+**License:** **CERN-OHL-P (Permissive) / MIT**
+**Philosophy:** "Anyone can build the machine."
+- You can build it, sell it, modify it.
+- We want these heaters in every basement.
+- Zero restrictions on the physical artifact.
+
+### 2. The Conscience: Sihl Sovereignty License (Civic/Constrained)
+**Applies to:** Grid-OS, Scheduler, Orchestrator, Negotiation Logic.
+**License:** **Sihl Valley Common-Good License (SVG-L)**
+**Philosophy:** "You cannot remove the machine's conscience."
+- **The Thermodynamic Truth Clause:** Modifying the software to run "dummy loops" (generating heat without economic/scientific value) is a license violation.
+- **The Grid Obedience Clause:** You cannot strip the code that allows the grid operator to throttle your device during emergencies.
+- **The Anti-Vampire Clause:** You cannot deploy this software on hardware with <500 MFLOPS/Watt efficiency (preventing e-waste burning), unless designated as "Historical/Heritage".
 
 ### For Participants
-
-- **Own your code**: Apache 2.0 means you can fork, compete, commercialize
-- **Solve real problems**: Three open engineering challenges, not prescribed solutions
-- **Build something physical**: Not PowerPoint - actual hardware that works
-- **Community ownership**: Verein governance after event, you can join
-- **Sihlvalley vs Silicon Valley**: Cheeky underdog attitude, Swiss precision
+- **You still own your code.** The code you write for challenges is yours.
+- **You are protected.** This license prevents your work from being weaponized by "Energy Grifters" who want to destabilize the Swiss grid for quick profit.
+- **You are building infrastructure.** Real infrastructure requires rules of the road. This is ours.
 
 ### For LEGs (Lokale Elektrizitätsgemeinschaften)
 

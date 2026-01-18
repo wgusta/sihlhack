@@ -551,22 +551,22 @@ export function PrototypeVisualization() {
       <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-6 md:p-8">
         <div className="flex items-center gap-3 mb-4">
           <span className="bg-grid-green/20 text-grid-green px-3 py-1 rounded-full font-mono text-xs font-bold border border-grid-green/30">
-            v2: Produktionsmaßstab
+            v2: Produktionsreife
           </span>
           <span className="text-gray-500 font-mono text-xs">Als Nächstes</span>
         </div>
         
         <h3 className="font-accent text-xl md:text-2xl text-brand-black mb-4">
-          Der wirtschaftlich tragfähige nächste Schritt
+          Der nächste Schritt: Wirtschaftlich rentabel
         </h3>
         
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <p className="text-gray-600 text-sm leading-relaxed mb-4">
-              Version 2 skaliert den Machbarkeitsnachweis zu einem wirtschaftlich selbsttragenden System. 
-              Während v1 den geschlossenen Energiefluss mit einem 150W-Panel und 20L-Tank demonstriert, 
-              <strong className="text-brand-black"> zielt v2 auf echte Gebäudeintegration</strong>: 
-              Multi-kW-Solaranlagen, industrielle Immersionskühlung und vollständige HLK-Integration.
+              Version 2 macht aus dem Prototypen ein System, das sich selbst trägt. 
+              Während v1 den Energiekreislauf mit einem 150W-Panel und 20L-Tank zeigt, 
+              <strong className="text-brand-black"> geht es bei v2 um echte Gebäudeintegration</strong>: 
+              Solaranlagen im Kilowatt-Bereich, professionelle Immersionskühlung und vollständige Heizungsintegration.
             </p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm">
@@ -575,11 +575,11 @@ export function PrototypeVisualization() {
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-compute-blue font-bold">⬢</span>
-                <span className="text-gray-700"><strong>GPU-Cluster</strong> mit kommerzieller Wärmerückgewinnung</span>
+                <span className="text-gray-700"><strong>GPU-Cluster</strong> mit professioneller Wärmerückgewinnung</span>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <span className="text-thermal-orange font-bold">◉</span>
-                <span className="text-gray-700"><strong>200L+ Tanks</strong> für echten Warmwasserbedarf</span>
+                <span className="text-gray-700"><strong>200L+ Tanks</strong> für den tatsächlichen Warmwasserbedarf</span>
               </li>
             </ul>
           </div>
@@ -624,8 +624,8 @@ export function PrototypeVisualization() {
         </div>
         
         <p className="text-gray-500 text-xs mt-6 font-mono">
-          Der Hackathon baut v1 als messbaren geschlossenen Kreislauf-Nachweis. Die Extrapolation auf v2 zeigt 
-          kommerzielle Tragfähigkeit: gleiche Physik, größerer Maßstab, echte wirtschaftliche Rendite aus Rechenumsatz und Energieeinsparungen.
+          Der Hackathon baut v1 als funktionierenden Nachweis des geschlossenen Kreislaufs. Die Übertragung auf v2 zeigt, 
+          dass es wirtschaftlich funktioniert: gleiche Physik, größerer Maßstab, echte Gewinne durch Rechenleistung und Energieeinsparungen.
         </p>
       </div>
     </div>

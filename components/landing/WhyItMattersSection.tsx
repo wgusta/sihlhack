@@ -106,49 +106,6 @@ export function WhyItMattersSection() {
           </div>
         </div>
 
-        {/* The Legal Patch: Anti-Cobra */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <div className="border-2 border-sihl-red bg-sihl-red/5 rounded-2xl p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10 text-9xl">⚖️</div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="bg-sihl-red text-white text-xs font-mono px-2 py-1 uppercase tracking-widest rounded">
-                  Critical Patch
-                </span>
-                <h3 className="font-display text-2xl font-bold text-brand-black">
-                  Das "Lex Sihlicon"
-                </h3>
-              </div>
-              
-              <p className="font-mono text-sm text-brand-black mb-4">
-                Wir haben einen Bug im Gesetz gefunden: Man könnte alte, ineffiziente Server als "Heizung" tarnen, um Subventionen abzugreifen ("Cobra-Effekt").
-              </p>
-              
-              <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <div>
-                  <h4 className="font-bold text-sihl-red font-mono text-sm mb-2">Die Gefahr</h4>
-                  <p className="text-xs font-mono text-gray-700 leading-relaxed">
-                    Akteure installieren "Zombie-Server", die nur Strom verbrennen (Dummy Loops), um Heizkosten zu sparen. Das belastet das Netz und verschwendet Solarstrom.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-grid-green font-mono text-sm mb-2">Unsere Lösung: Dual-License</h4>
-                  <p className="text-xs font-mono text-gray-700 leading-relaxed">
-                    Die Hardware ist <strong>Open Source</strong> (bau es nach!).<br/>
-                    Die Software hat eine <strong>"Gewissens-Klausel"</strong>: Wer den "Grid-Obedience"-Code entfernt oder Dummy-Loops laufen lässt, verliert die Lizenz.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="mt-6 pt-6 border-t border-sihl-red/20">
-                <p className="text-xs font-mono text-historic-sepia italic text-center">
-                  "We do not build heaters that think. We build thinkers that heat."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="mt-12 text-center">
           <p className="font-mono text-sm text-historic-sepia mb-6">

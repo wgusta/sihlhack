@@ -214,7 +214,7 @@ export default function ChallengesPage() {
         </div>
 
         {/* Thermal Architecture Challenge */}
-        <section className="py-16 bg-off-white">
+        <section className="py-16 bg-gradient-to-br from-thermal-orange/5 via-off-white to-compute-blue/5">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">

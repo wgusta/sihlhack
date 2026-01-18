@@ -28,14 +28,14 @@ export function PostEventPathSection() {
                   Follow-up Hackathon: 1:1 Prototypen
                 </h3>
                 <p className="font-mono text-sm text-gray-300 mb-4 leading-relaxed">
-                  Der nächste Schritt: Bau von vollskalierten Prototypen für echte LEG-Deployments. 
+                  Der nächste Schritt: Prototypen in echter Größe für echte LEG-Einsätze. 
                   Teams arbeiten an konkreten Standorten mit realen Anforderungen. 
                   Hardware, die tatsächlich in Produktion geht.
                 </p>
                 <ul className="space-y-2 font-mono text-xs text-gray-400">
                   <li className="flex items-start gap-2">
                     <span className="text-thermal-orange mt-1">→</span>
-                    <span>Vollskalierte Hardware (kein Demo-Scale)</span>
+                    <span>Hardware in echter Größe (keine Demo-Versionen)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-thermal-orange mt-1">→</span>
@@ -90,8 +90,8 @@ export function PostEventPathSection() {
                   LEG DIY: Selbstbau-Anleitung
                 </h3>
                 <p className="font-mono text-sm text-gray-300 mb-4 leading-relaxed">
-                  Komplette Bauanleitungen, BOM-Listen und Schritt-für-Schritt Guides für LEGs, 
-                  die ihren eigenen Sihlicon Hub bauen wollen. Community-Support, Workshops, 
+                  Komplette Bauanleitungen, Materiallisten und Schritt-für-Schritt-Anleitungen für LEGs, 
+                  die ihren eigenen Sihlicon Hub bauen wollen. Community-Support, Workshops 
                   und dokumentierte Erfahrungen von anderen LEGs.
                 </p>
                 <ul className="space-y-2 font-mono text-xs text-gray-400">
@@ -122,7 +122,7 @@ export function PostEventPathSection() {
                 </h3>
                 <p className="font-mono text-sm text-gray-300 mb-4 leading-relaxed">
                   Unternehmen können Sihlicon Hubs für LEGs bauen und installieren, 
-                  unter strikten Open Source Richtlinien. Kein Vendor Lock-in, 
+                  unter strikten Open-Source-Richtlinien. Kein Vendor Lock-in, 
                   vollständige Transparenz, Community-zertifizierte Partner.
                 </p>
                 <ul className="space-y-2 font-mono text-xs text-gray-400 mb-4">
@@ -141,7 +141,7 @@ export function PostEventPathSection() {
                 </ul>
                 <div className="mt-4 p-3 bg-sihl-red/20 border border-sihl-red/30 rounded-lg">
                   <p className="font-mono text-xs text-sihl-red">
-                    ⚠️ Richtlinien: Alle Modifikationen müssen Open Source bleiben. 
+                    ⚠️ Richtlinien: Alle Änderungen müssen Open Source bleiben. 
                     Keine proprietären Erweiterungen. Community-Review erforderlich.
                   </p>
                 </div>
