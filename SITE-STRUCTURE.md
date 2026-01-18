@@ -179,7 +179,7 @@ sihlhack.ch/
 **Sections**:
 1. **Hero**: "Wähle dein Paket. Bau die Lösung."
 2. **Package Overview**: Mandatory and optional packages
-3. **Pre-Challenge**: Historic Archive (optional snack-hackathon)
+3. **Pre-Challenge**: Historic Archive (optional snackathons)
 4. **Thermal Architecture Challenge**: Three paths (Oil, Water, Heat Pump)
 5. **Mandatory Packages Detail**: Demo-Kit, Hardware Safety, Grid-OS
 6. **Optional Packages**: Dashboard, LEG Starter Pack

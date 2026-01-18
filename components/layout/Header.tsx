@@ -8,7 +8,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 
 const navigation = [
-  { name: 'Snack-Hackathon', href: '/snack-hackathon', highlight: true },
+  { name: 'Snackathons', href: '/snackathons', highlight: true },
   { name: 'Konzept', href: '/about' },
   { name: 'Challenges', href: '/challenges' },
   { name: 'Team', href: '/team' },

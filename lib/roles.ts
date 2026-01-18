@@ -536,7 +536,7 @@ export const PRE_CHALLENGE = {
   id: 'historic-archive',
   name: 'Historic Archive',
   nameDE: 'Historisches Archiv',
-  subtitle: 'Snack-Hackathon',
+  subtitle: 'Snackathons',
   icon: '📜',
   format: 'online',
   duration: '2-4 Wochen vor Event',

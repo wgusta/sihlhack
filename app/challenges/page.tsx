@@ -2,6 +2,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Icon } from '@/components/ui/Icon'
+import { Accordion } from '@/components/ui/Accordion'
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PRE_CHALLENGE } from '@/lib/roles'
 import { PackageCard, PackageCardCompact } from '@/components/challenges/PackageCard'
 import { PreChallengeSection } from '@/components/challenges/PreChallengeSection'
@@ -95,6 +96,103 @@ export default function ChallengesPage() {
           </div>
         </section>
 
+        {/* For Non-Technical People */}
+        <section className="py-16 bg-off-white">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="font-mono text-sm text-historic-sepia uppercase tracking-widest">
+                Für Nicht-Techniker
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
+                Was ist ein Sihlicon Hub?
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Einfache Erklärungen für alle, die noch nie von Active Energy Nodes gehört haben.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <Accordion
+                id="what-is-hub"
+                title="Was ist ein Sihlicon Hub?"
+                icon="🏠"
+                color="thermal-orange"
+                defaultOpen={true}
+              >
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  Ein Sihlicon Hub ist wie ein intelligenter Heizungskeller, der viel mehr kann als nur heizen. 
+                  Stell dir vor: Du hast eine Solaranlage auf dem Dach, die tagsüber viel Energie produziert. 
+                  Normalerweise geht diese Energie ins Netz oder wird verschwendet.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  Ein Sihlicon Hub nutzt diese Energie intelligent:
+                </p>
+                <ul className="font-mono text-sm text-historic-sepia space-y-2 ml-4 list-disc">
+                  <li><strong className="text-brand-black">Batterie:</strong> Speichert Sonnenenergie für die Nacht</li>
+                  <li><strong className="text-brand-black">Computer:</strong> Erledigt Aufgaben, wenn viel Solar-Energie da ist</li>
+                  <li><strong className="text-brand-black">Wärme:</strong> Die Abwärme vom Computer heizt dein Haus</li>
+                  <li><strong className="text-brand-black">Resilienz:</strong> Bei Stromausfall versorgt die Batterie dein Quartier</li>
+                </ul>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mt-4">
+                  Es ist kein "Wasserkocher" – es ist ein <strong className="text-brand-black">Aktiver Energie-Knoten</strong>, 
+                  der alle diese Funktionen intelligent kombiniert.
+                </p>
+              </Accordion>
+
+              <Accordion
+                id="why-do-we-need"
+                title="Warum brauchen wir das?"
+                icon="🌍"
+                color="compute-blue"
+              >
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  Die Schweiz braucht mehr dezentrale Energie-Infrastruktur. Statt riesige Rechenzentren zu bauen, 
+                  die Flüsse erhitzen, können wir kleine, intelligente Systeme in Kellern bauen, die Häuser heizen 
+                  und gleichzeitig Computer-Aufgaben erledigen.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  <strong className="text-brand-black">Energie-Souveränität:</strong> Wir werden weniger abhängig von 
+                  grossen Energie-Konzernen und Cloud-Anbietern. Jeder kann seinen eigenen kleinen Energie-Knoten betreiben.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  <strong className="text-brand-black">Resilienz:</strong> Wenn das Stromnetz ausfällt, können 
+                  Nachbarschaften sich gegenseitig mit Energie versorgen. Die Batterien im Hub werden zu Notstromquellen.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                  <strong className="text-brand-black">Effizienz:</strong> Statt Computer-Abwärme zu verschwenden, 
+                  nutzen wir sie zum Heizen. Das ist viel effizienter als separate Systeme.
+                </p>
+              </Accordion>
+
+              <Accordion
+                id="how-does-hackathon-work"
+                title="Wie funktioniert der Hackathon?"
+                icon="⚡"
+                color="grid-green"
+              >
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  <strong className="text-brand-black">3 Tage, 3 Challenges:</strong> Jedes Team wählt eines von drei 
+                  Pflicht-Paketen und baut daran. Mehrere Teams arbeiten parallel am gleichen Paket – die beste Lösung gewinnt.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  <strong className="text-brand-black">Ihr entscheidet:</strong> Es gibt keine vorgefertigte Lösung. 
+                  Ihr evaluiert drei verschiedene Wege, Wärme aus Computern zu gewinnen, und wählt den, der zu eurem 
+                  Kontext passt. Kein Pfad ist "richtig" – nur Trade-offs.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
+                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr baut, gehört euch (Apache 2.0). 
+                  Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das.
+                </p>
+                <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Demo-Kit, 35% für Hardware Safety, 
+                  20% für Grid-OS, 10% für beste Integration. Finanziert durch Teilnahmegebühren (CHF 150) – 
+                  alle Finanzen sind öffentlich einsehbar.
+                </p>
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
         {/* Package Overview */}
         <section className="py-12 bg-white border-b">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -102,15 +200,15 @@ export default function ChallengesPage() {
               Übersicht
             </h2>
             
-            {/* Snack-Hackathons - Optional */}
+            {/* Snackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
-                🍿 Snack-Hackathons <span className="text-gray-500">(OPTIONAL)</span>
+                🍿 Snackathons <span className="text-gray-500">(OPTIONAL)</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
-                {/* June 2026 Snack-Hackathon */}
+                {/* June 2026 Snackathons */}
                 <a
-                  href="/snack-hackathon"
+                  href="/snackathons"
                   className="p-4 rounded-xl border-2 border-sihl-red/40 hover:border-sihl-red hover:bg-sihl-red/10 transition-all relative group"
                 >
                   <div className="absolute -top-2 -right-2 bg-sihl-red text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
@@ -123,15 +221,15 @@ export default function ChallengesPage() {
                     <span className="text-2xl">🍿</span>
                     <div>
                       <div className="font-mono text-sm font-semibold text-brand-black">Juni 2026</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Snackathons</div>
                       <div className="font-mono text-[10px] text-sihl-red mt-1">Erster Pilot-Event →</div>
                     </div>
                   </div>
                 </a>
 
-                {/* July 2026 Snack-Hackathon */}
+                {/* July 2026 Snackathons */}
                 <a
-                  href="/snack-hackathon"
+                  href="/snackathons"
                   className="p-4 rounded-xl border-2 border-historic-sepia/40 hover:border-historic-sepia hover:bg-historic-cream/30 transition-all relative group"
                 >
                   <div className="absolute -top-2 -right-2 bg-historic-sepia text-white text-[9px] font-mono px-2 py-0.5 rounded-full shadow-sm">
@@ -144,7 +242,7 @@ export default function ChallengesPage() {
                     <span className="text-2xl">📜</span>
                     <div>
                       <div className="font-mono text-sm font-semibold text-brand-black">Juli 2026</div>
-                      <div className="font-accent text-xs text-historic-sepia/70">Snack-Hackathon (Historic)</div>
+                      <div className="font-accent text-xs text-historic-sepia/70">Snackathons (Historic)</div>
                       <div className="font-mono text-[10px] text-historic-sepia mt-1">Zweiter Pilot-Event →</div>
                     </div>
                   </div>
@@ -228,7 +326,7 @@ export default function ChallengesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               {/* Path A: Oil Immersion */}
               <div className="bg-white rounded-2xl border-2 border-thermal-orange/30 p-6 hover:border-thermal-orange transition-all">
                 <div className="flex items-center justify-between mb-4">
@@ -243,7 +341,7 @@ export default function ChallengesPage() {
                   Server baden in dielektrischem Öl. Lautlos, effizient, fast 100% Wärmeabfuhr. 
                   Aber: Öl muss gehandhabt werden. Brandschutz ist real. Wartung ist komplex.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono mb-4">
                   <div>
                     <p className="font-semibold text-grid-green mb-1">Pro</p>
                     <ul className="space-y-1 text-historic-sepia">
@@ -261,6 +359,41 @@ export default function ChallengesPage() {
                     </ul>
                   </div>
                 </div>
+                <div className="space-y-2">
+                  <Accordion id="path-a-what" title="Was bedeutet das?" icon="❓" color="thermal-orange">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      Die Server-Komponenten (CPU, GPU) werden vollständig in spezielles, nicht-leitfähiges Öl getaucht. 
+                      Das Öl leitet Wärme direkt von den Chips ab – viel effizienter als Luftkühlung. 
+                      Es ist wie ein Ölbad für Computer: Die Wärme wird direkt ins Öl übertragen und dann über 
+                      einen Wärmetauscher ins Heizungssystem geleitet.
+                    </p>
+                  </Accordion>
+                  <Accordion id="path-a-why" title="Warum diesen Pfad wählen?" icon="💡" color="thermal-orange">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      Wähle diesen Pfad, wenn:
+                    </p>
+                    <ul className="font-mono text-sm text-historic-sepia space-y-1 ml-4 list-disc">
+                      <li>Du maximale Wärmeausbeute brauchst (99%)</li>
+                      <li>Lautlosigkeit wichtig ist (keine Lüfter)</li>
+                      <li>Du bereit bist, mit Öl-Handling umzugehen</li>
+                      <li>Du professionelle Wartung planst</li>
+                    </ul>
+                  </Accordion>
+                  <Accordion id="path-a-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="thermal-orange">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Öl-Handling:</strong> Dielektrisches Öl (z.B. Midel 7131) 
+                      muss fachgerecht gehandhabt werden. Leckagen müssen sofort erkannt werden.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Brandschutz:</strong> Öl ist brennbar. Leckwannen, 
+                      Brandschutz-Massnahmen und Not-Aus-Schalter sind Pflicht.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      <strong className="text-brand-black">Wartung:</strong> Komplexer als Wasser-Systeme. 
+                      Öl muss regelmässig überprüft und eventuell gewechselt werden.
+                    </p>
+                  </Accordion>
+                </div>
               </div>
 
               {/* Path B: Water Loop */}
@@ -277,7 +410,7 @@ export default function ChallengesPage() {
                   Direct-to-Chip Kühlung mit Standard-Komponenten. Bewährt, verfügbar, reparierbar. 
                   Aber: Nur 60-70% Wärmeabfuhr. Nicht so elegant.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono mb-4">
                   <div>
                     <p className="font-semibold text-grid-green mb-1">Pro</p>
                     <ul className="space-y-1 text-historic-sepia">
@@ -295,6 +428,41 @@ export default function ChallengesPage() {
                     </ul>
                   </div>
                 </div>
+                <div className="space-y-2">
+                  <Accordion id="path-b-what" title="Was bedeutet das?" icon="❓" color="compute-blue">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      Kühlwasser wird direkt auf die CPU/GPU-Chips geleitet über spezielle Kühlplatten. 
+                      Die Wärme wird ins Wasser übertragen und dann über einen Wärmetauscher ins Heizungssystem. 
+                      Es ist wie eine Auto-Kühlung: Bewährt, Standard-Komponenten, einfach zu reparieren. 
+                      Aber nicht alle Wärme wird erfasst – ein Teil geht über die Luft verloren.
+                    </p>
+                  </Accordion>
+                  <Accordion id="path-b-why" title="Warum diesen Pfad wählen?" icon="💡" color="compute-blue">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      Wähle diesen Pfad, wenn:
+                    </p>
+                    <ul className="font-mono text-sm text-historic-sepia space-y-1 ml-4 list-disc">
+                      <li>Du bewährte, einfache Technik bevorzugst</li>
+                      <li>Standard-Komponenten wichtig sind (einfache Beschaffung)</li>
+                      <li>Einfache Wartung und Reparatur Priorität haben</li>
+                      <li>60-70% Wärmeausbeute ausreichend ist</li>
+                    </ul>
+                  </Accordion>
+                  <Accordion id="path-b-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="compute-blue">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Wärmeausbeute:</strong> Nur 60-70% der Wärme wird erfasst. 
+                      Der Rest geht über die Luft verloren. Nicht so effizient wie Immersion.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Leckage-Risiko:</strong> Wasser und Elektronik sind eine 
+                      gefährliche Kombination. Leckwannen und Überwachung sind Pflicht.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      <strong className="text-brand-black">Geräusch:</strong> Pumpen machen Geräusche. 
+                      Nicht so lautlos wie Immersion-Cooling.
+                    </p>
+                  </Accordion>
+                </div>
               </div>
 
               {/* Path C: Heat Pump */}
@@ -311,7 +479,7 @@ export default function ChallengesPage() {
                   Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben, 
                   genug für Radiatoren. Aber: Komplexität und COP-Trade-offs.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-xs font-mono">
+                <div className="grid grid-cols-2 gap-4 text-xs font-mono mb-4">
                   <div>
                     <p className="font-semibold text-grid-green mb-1">Pro</p>
                     <ul className="space-y-1 text-historic-sepia">
@@ -328,6 +496,41 @@ export default function ChallengesPage() {
                       <li className="flex items-start gap-1"><span className="text-sihl-red">−</span> COP-Verluste</li>
                     </ul>
                   </div>
+                </div>
+                <div className="space-y-2">
+                  <Accordion id="path-c-what" title="Was bedeutet das?" icon="❓" color="grid-green">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      Die niedrige Wärme vom Server (30-50°C) wird als Quelle für eine Wärmepumpe genutzt. 
+                      Die Pumpe "pumpt" die Temperatur auf 70°C+ hoch – genug für normale Radiatoren. 
+                      Es ist wie eine umgekehrte Klimaanlage: Statt Kälte zu erzeugen, erzeugt sie höhere Wärme. 
+                      Die höchste Nutzung der Server-Wärme, aber auch die komplexeste Lösung.
+                    </p>
+                  </Accordion>
+                  <Accordion id="path-c-why" title="Warum diesen Pfad wählen?" icon="💡" color="grid-green">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      Wähle diesen Pfad, wenn:
+                    </p>
+                    <ul className="font-mono text-sm text-historic-sepia space-y-1 ml-4 list-disc">
+                      <li>Du hohe Temperaturen brauchst (70°C+ für Radiatoren)</li>
+                      <li>Maximale Wärmenutzung wichtig ist</li>
+                      <li>Du bereit bist, mit komplexer Technik umzugehen</li>
+                      <li>Du die zusätzlichen Kosten für die Wärmepumpe akzeptierst</li>
+                    </ul>
+                  </Accordion>
+                  <Accordion id="path-c-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="grid-green">
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Komplexität:</strong> Wärmepumpen sind komplexe Systeme. 
+                      Mehr Komponenten = mehr Fehlerquellen. Professionelle Installation empfohlen.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                      <strong className="text-brand-black">Stromverbrauch:</strong> Die Wärmepumpe braucht selbst Strom. 
+                      COP (Coefficient of Performance) bestimmt, wie effizient das ist. COP 3 = 1 kWh Strom erzeugt 3 kWh Wärme.
+                    </p>
+                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                      <strong className="text-brand-black">Kosten:</strong> Wärmepumpen sind teuer. 
+                      Die Investition muss sich durch höhere Wärmenutzung lohnen.
+                    </p>
+                  </Accordion>
                 </div>
               </div>
             </div>

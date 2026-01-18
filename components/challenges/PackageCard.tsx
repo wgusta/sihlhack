@@ -2,6 +2,7 @@
 
 import { HACKATHON_PACKAGES, HACKATHON_ROLES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
 import { ResourceSubmissionForm } from './ResourceSubmissionForm'
+import { ChallengeExplanation } from './ChallengeExplanation'
 import { Icon } from '@/components/ui/Icon'
 
 type Package = typeof HACKATHON_PACKAGES[number]
@@ -66,6 +67,14 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
           {visualization}
         </div>
       )}
+
+      {/* Challenge Explanation - Accordions */}
+      <div className="p-6 bg-white/30 border-t border-gray-100">
+        <h4 className="font-display font-semibold text-brand-black mb-4 flex items-center gap-2">
+          <span>📖</span> Erklärung
+        </h4>
+        <ChallengeExplanation packageId={pkg.id} color={pkg.color} />
+      </div>
 
       {/* Deliverables */}
       <div className="p-6 bg-white/50">

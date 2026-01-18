@@ -15,7 +15,7 @@ export function PreChallengeSection() {
               OPTIONAL
             </span>
             <span className="inline-block bg-historic-sepia text-white text-xs font-mono px-3 py-1 rounded-full">
-              🍿 Snack-Hackathon
+              🍿 Snackathons
             </span>
           </div>
           

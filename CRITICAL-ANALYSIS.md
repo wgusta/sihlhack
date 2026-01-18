@@ -15,7 +15,7 @@ Based on analysis, the following changes have been made:
 | 150 participants | 100 participants | More realistic for first event; reduces break-even pressure |
 | August 2026 | September 2026 | August is peak vacation; September has better attendance |
 | CHF 15'750 prize pool (specific) | "70% of fees to prizes" (percentage) | Specific amount requires 180+ people; percentage is always true |
-| Single large event | Pilot (Snack-Hackathon) + Full event | De-risks execution; validates demand before full commitment |
+| Single large event | Pilot (Snackathons) + Full event | De-risks execution; validates demand before full commitment |
 
 ---
 
@@ -25,7 +25,7 @@ Based on analysis, the following changes have been made:
 
 Nobody wants to be the first to pay CHF 150 for an event that might not happen. The refund policy helps psychologically but doesn't solve the cold-start problem. Traditional hackathons use corporate money to de-risk this entirely.
 
-**Mitigation:** Free pilot event (Snack-Hackathon) builds community before asking for money.
+**Mitigation:** Free pilot event (Snackathons) builds community before asking for money.
 
 ### 2. Competing Against Free
 
@@ -102,7 +102,7 @@ The overlap is minimal.
 - Targeted outreach to engineering schools (FHNW, ZHAW, ETH mechanical/electrical)
 - Partner with energy companies for expert mentors
 - Accept software-heavy participants and pair with hardware experts
-- Snack-Hackathon identifies who actually shows up
+- Snackathons identifies who actually shows up
 
 ### 9. Safety Liability Nightmare
 
@@ -188,7 +188,7 @@ The "inverted model" claim is vulnerable to factual criticism:
 
 A corporate-sponsored hackathon in the same space (energy, sustainability) with free entry and better prizes could siphon all potential participants.
 
-**Mitigation:** Build community before competition emerges. Snack-Hackathon creates loyalty.
+**Mitigation:** Build community before competition emerges. Snackathons creates loyalty.
 
 ---
 
@@ -206,7 +206,7 @@ The concept has genuine strengths:
 
 ## Strategic Pivots Made
 
-### Pilot Event: Snack-Hackathon
+### Pilot Event: Snackathons
 
 - **When:** April/May 2026
 - **Size:** 10-20 participants
@@ -226,7 +226,7 @@ The concept has genuine strengths:
 
 ### Go/No-Go Criteria
 
-**Proceed to full event if Snack-Hackathon achieves:**
+**Proceed to full event if Snackathons achieves:**
 - [ ] 25+ participants attend
 - [ ] At least 3 hardware/electrical engineers participate
 - [ ] At least 1 working demo produced
@@ -275,7 +275,7 @@ The concept has genuine strengths:
 
 Document these regardless of outcome:
 
-1. **Validate before building** - Snack-Hackathon should have come first
+1. **Validate before building** - Snackathons should have come first
 2. **Niche is fine, microscopic is not** - energy sovereignty has an audience; industrial heritage digitization does not
 3. **Free entry removes friction** - pilot being free will show true demand
 4. **Hardware hackathons need longer prep** - 4-week pre-event period for teams
@@ -289,6 +289,6 @@ Document these regardless of outcome:
 | Date | Change |
 |------|--------|
 | Jan 2026 | Initial critical analysis created |
-| Jan 2026 | Added Snack-Hackathon pilot decision |
+| Jan 2026 | Added Snackathons pilot decision |
 | Jan 2026 | Revised target from 150 to 100 |
 | Jan 2026 | Moved date from August to September 2026 |

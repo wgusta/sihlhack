@@ -18,7 +18,7 @@ import {
   WrenchIcon,
 } from '@heroicons/react/24/solid'
 
-export default function SnackHackathonPage() {
+export default function SnackathonsPage() {
   const [juneFormState, setJuneFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [julyFormState, setJulyFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [juneFormData, setJuneFormData] = useState({
@@ -71,7 +71,7 @@ export default function SnackHackathonPage() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold">
-              Snack-Hackathon
+              Snackathons
             </h1>
             <p className="mt-4 text-xl font-mono text-gray-300">
               18 Stunden Hackathon. Ein Thermal-Pfad. Ein funktionierender Prototyp.
@@ -158,7 +158,7 @@ export default function SnackHackathonPage() {
           </div>
         </section>
 
-        {/* Overview: Both Snack-Hackathons */}
+        {/* Overview: Both Snackathons */}
         <section className="py-16 bg-off-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
@@ -166,7 +166,7 @@ export default function SnackHackathonPage() {
                 Die beiden Pilot-Events
               </span>
               <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Zwei Snack-Hackathons im Sommer 2026
+                Zwei Snackathons im Sommer 2026
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
                 Wir testen das Konzept zweimal, um sicherzustellen, dass alles funktioniert.
@@ -174,7 +174,7 @@ export default function SnackHackathonPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {/* Snack-Hackathon 1: June */}
+              {/* Snackathons 1: June */}
               <div className="bg-white rounded-2xl border-2 border-sihl-red/40 p-6 hover:border-sihl-red hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <div>
@@ -182,7 +182,7 @@ export default function SnackHackathonPage() {
                       🍿 Pilot #1
                     </div>
                     <h3 className="font-display text-xl font-bold text-brand-black">Juni 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Snack-Hackathon</p>
+                    <p className="font-mono text-sm text-historic-sepia">Snackathons</p>
                   </div>
                   <span className="text-3xl">🍿</span>
                 </div>
@@ -210,7 +210,7 @@ export default function SnackHackathonPage() {
                 </div>
               </div>
 
-              {/* Snack-Hackathon 2: July */}
+              {/* Snackathons 2: July */}
               <div className="bg-white rounded-2xl border-2 border-historic-sepia/40 p-6 hover:border-historic-sepia hover:shadow-lg transition-all">
                 <div className="flex items-center justify-between mb-4">
                   <div>
@@ -218,7 +218,7 @@ export default function SnackHackathonPage() {
                       🍿 Pilot #2
                     </div>
                     <h3 className="font-display text-xl font-bold text-brand-black">Juli 2026</h3>
-                    <p className="font-mono text-sm text-historic-sepia">Snack-Hackathon (Historic)</p>
+                    <p className="font-mono text-sm text-historic-sepia">Snackathons (Historic)</p>
                   </div>
                   <span className="text-3xl">📜</span>
                 </div>
@@ -237,7 +237,7 @@ export default function SnackHackathonPage() {
                   </div>
                 </div>
                 <p className="mt-4 font-mono text-xs text-historic-sepia">
-                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
+                  Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons.
                 </p>
                 <div className="mt-3 pt-3 border-t border-historic-sepia/20">
                   <p className="font-mono text-xs text-historic-sepia font-semibold">
@@ -350,7 +350,7 @@ export default function SnackHackathonPage() {
                         Interesse registriert!
                       </h3>
                       <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den Juni 2026 Snack-Hackathon.
+                        Wir melden uns bei dir für den Juni 2026 Snackathons.
                       </p>
                     </CardContent>
                   </Card>
@@ -482,7 +482,7 @@ export default function SnackHackathonPage() {
                     Interesse registriert!
                   </h3>
                   <p className="font-mono text-gray-300">
-                        Wir melden uns bei dir für den Juli 2026 Snack-Hackathon.
+                        Wir melden uns bei dir für den Juli 2026 Snackathons.
                   </p>
                 </CardContent>
               </Card>
@@ -617,7 +617,7 @@ export default function SnackHackathonPage() {
                   <span className="font-mono font-bold text-sihl-red">1</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Juni 2026: Snack-Hackathon</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Juni 2026: Snackathons</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Erster Pilot-Event: Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
                     Wir testen das Konzept mit einer kleinen Gruppe von Pionieren.
@@ -630,9 +630,9 @@ export default function SnackHackathonPage() {
                   <span className="font-mono font-bold text-grid-green">2</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-bold text-brand-black">Juli 2026: Snack-Hackathon (Historic)</h3>
+                  <h3 className="font-display text-lg font-bold text-brand-black">Juli 2026: Snackathons (Historic)</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Zweiter Pilot-Event basierend auf den Learnings vom ersten Snack-Hackathon.
+                    Zweiter Pilot-Event basierend auf den Learnings vom ersten Snackathons.
                     Ein Wochenende, ein Thermal-Pfad, ein funktionierender Prototyp.
                     Wir dokumentieren alles für den grossen Event im September.
                   </p>
@@ -647,7 +647,7 @@ export default function SnackHackathonPage() {
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
                     Der grosse Event mit 100 Teilnehmern. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
-                    Snack-Hackathon Alumni erhalten 30% Rabatt auf die Teilnahmegebühr (CHF 150 → CHF 105).
+                    Snackathons Alumni erhalten 30% Rabatt auf die Teilnahmegebühr (CHF 150 → CHF 105).
                   </p>
                 </div>
               </div>
