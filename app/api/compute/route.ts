@@ -24,7 +24,7 @@ const jobSubmissionSchema = z.object({
   workloadConfig: z.object({
     containerImage: z.string(),
     command: z.array(z.string()).optional(),
-    env: z.record(z.string()).optional(),
+    env: z.record(z.string(), z.string()).optional(),
     resources: z.object({
       cpu: z.string().optional(),
       memory: z.string().optional(),
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       scheduledAt: validated.scheduledAt ? new Date(validated.scheduledAt) : undefined,
     }
 
-    const jobId = await submitJob(session.participantId, submission)
+    const jobId = await submitJob(session.id, submission)
 
     return NextResponse.json({
       success: true,
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Validation error', details: error.errors },
+        { error: 'Validation error', details: error.issues },
         { status: 400 }
       )
     }

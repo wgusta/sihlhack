@@ -1,6 +1,9 @@
 import { createHash, randomBytes } from 'crypto'
+import { cookies } from 'next/headers'
 import { db, participants } from './db'
 import { eq } from 'drizzle-orm'
+
+const SESSION_COOKIE_NAME = 'sihlhack_session'
 
 const TOKEN_EXPIRY_MINUTES = 15
 const TOKEN_LENGTH = 32
@@ -113,4 +116,35 @@ export function validateSessionToken(token: string): { id: string } | null {
   } catch {
     return null
   }
+}
+
+/**
+ * Get the current session from cookies
+ * Returns session data if valid, null otherwise
+ */
+export async function getSession(): Promise<{ id: string; participant?: typeof participants.$inferSelect } | null> {
+  const cookieStore = await cookies()
+  const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME)
+
+  if (!sessionCookie?.value) {
+    return null
+  }
+
+  const session = validateSessionToken(sessionCookie.value)
+  if (!session) {
+    return null
+  }
+
+  // Optionally fetch the full participant record
+  const [participant] = await db
+    .select()
+    .from(participants)
+    .where(eq(participants.id, session.id))
+    .limit(1)
+
+  if (!participant) {
+    return null
+  }
+
+  return { id: session.id, participant }
 }

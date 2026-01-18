@@ -1,7 +1,5 @@
 'use client'
 
-import { ButtonLink } from '@/components/ui/ButtonLink'
-
 export function ChallengesPreview() {
   return (
     <section className="py-16 bg-brand-black text-white">
@@ -11,8 +9,8 @@ export function ChallengesPreview() {
             Drei offene Fragen. Du findest die Antworten.
           </span>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Die Zeit-Frage */}
           <div className="p-6 rounded-xl bg-white/5 border border-solar-yellow/20 hover:border-solar-yellow/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
@@ -60,17 +58,6 @@ export function ChallengesPreview() {
               <li>• Du baust die Logik.</li>
             </ul>
           </div>
-        </div>
-
-        <div className="text-center">
-          <ButtonLink
-            href="/challenges"
-            variant="ghost"
-            size="lg"
-            className="text-white border-white/30 hover:bg-white/10"
-          >
-            Mehr erfahren →
-          </ButtonLink>
         </div>
       </div>
     </section>

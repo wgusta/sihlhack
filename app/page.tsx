@@ -2,6 +2,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/landing/HeroSection'
 import { ChallengesPreview } from '@/components/landing/ChallengesPreview'
+import { QuickCTA } from '@/components/landing/QuickCTA'
 import { WhoShouldJoinSection } from '@/components/landing/WhoShouldJoinSection'
 import { DataRevealSection } from '@/components/landing/DataRevealSection'
 import { WhyItMattersSection } from '@/components/landing/WhyItMattersSection'
@@ -26,8 +27,13 @@ export default function HomePage() {
         {/* 2. Challenges Preview: Three open questions */}
         <ChallengesPreview />
 
+        {/* 2.5. Quick CTA: Immediate conversion point for decided visitors */}
+        <QuickCTA />
+
         {/* 3. Who Should Join: Audience targeting */}
-        <WhoShouldJoinSection />
+        <div id="mehr">
+          <WhoShouldJoinSection />
+        </div>
 
         {/* 4. The Challenge: Before/After slider showing data transformation */}
         <div className="py-12 sm:py-16">

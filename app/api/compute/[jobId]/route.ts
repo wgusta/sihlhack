@@ -14,7 +14,7 @@ import { getJobStatus, cancelJob } from '@/lib/compute/scheduler'
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { jobId: string } }
+  { params }: { params: Promise<{ jobId: string }> }
 ) {
   try {
     const session = await getSession()
@@ -22,7 +22,8 @@ export async function GET(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const job = await getJobStatus(params.jobId)
+    const { jobId } = await params
+    const job = await getJobStatus(jobId)
 
     if (!job) {
       return NextResponse.json({ error: 'Job not found' }, { status: 404 })
@@ -46,7 +47,7 @@ export async function GET(
  */
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { jobId: string } }
+  { params }: { params: Promise<{ jobId: string }> }
 ) {
   try {
     const session = await getSession()
@@ -54,7 +55,8 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const cancelled = await cancelJob(params.jobId)
+    const { jobId } = await params
+    const cancelled = await cancelJob(jobId)
 
     if (!cancelled) {
       return NextResponse.json(
