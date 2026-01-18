@@ -68,6 +68,11 @@ export default function SafetyPage() {
                       <span>Kontinuierliche Anwesenheit während des Events</span>
                     </li>
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <a href="/security-analysis" className="text-thermal-orange hover:underline font-mono text-xs">
+                      → Vollständige Sicherheitsanalyse lesen
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -126,6 +131,11 @@ export default function SafetyPage() {
                       <span>Branderkennung</span>
                     </li>
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <a href="/security-analysis" className="text-grid-green hover:underline font-mono text-xs">
+                      → Risikoanalyse und Empfehlungen
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -253,6 +263,11 @@ export default function SafetyPage() {
                       <span>Überstromschutz</span>
                     </li>
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <a href="/security-analysis" className="text-sihl-red hover:underline font-mono text-xs">
+                      → Risikoanalyse: Elektrische Fehler
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -282,6 +297,11 @@ export default function SafetyPage() {
                       <span>Feuerwehr-Koordination</span>
                     </li>
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <a href="/security-analysis" className="text-thermal-orange hover:underline font-mono text-xs">
+                      → Risikoanalyse: Batterie Thermal Runaway
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -307,6 +327,11 @@ export default function SafetyPage() {
                       <span>Umweltgerechte Entsorgungspläne</span>
                     </li>
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <a href="/security-analysis" className="text-solar-yellow hover:underline font-mono text-xs">
+                      → Risikoanalyse: Öl-Leckage
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 

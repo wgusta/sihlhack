@@ -317,9 +317,9 @@ export function PrototypeVisualization() {
       </div>
 
       {/* Mobile Version - Simplified vertical layout */}
-      <div className="md:hidden bg-white rounded-2xl border-2 border-gray-100 shadow-xl overflow-hidden p-4">
+      <div className="md:hidden bg-white rounded-2xl border-2 border-gray-100 shadow-xl overflow-hidden p-3">
         {/* V1 Badge - Mobile */}
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-2">
           <span className="bg-solar-yellow/20 text-solar-yellow px-2 py-0.5 rounded-full font-mono text-[10px] font-bold border border-solar-yellow/30">
             v1: Demo Scale
           </span>
@@ -327,10 +327,12 @@ export function PrototypeVisualization() {
         </div>
 
         <svg
-          viewBox="0 0 300 450"
+          viewBox="0 0 280 420"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
+          className="w-full"
+          style={{ maxHeight: '420px' }}
+          preserveAspectRatio="xMidYMid meet"
         >
           {/* Mobile Background */}
           <defs>
@@ -347,18 +349,18 @@ export function PrototypeVisualization() {
               <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.3" />
             </linearGradient>
           </defs>
-          <rect width="300" height="450" fill="url(#gridMobile)" />
+          <rect width="280" height="420" fill="url(#gridMobile)" />
 
           {/* === 1. SUN - Mobile === */}
           <g id="sun-mobile">
-            <circle cx="150" cy="30" r="20" fill="url(#sunGradientMobile)" />
-            <circle cx="150" cy="30" r="12" fill="#FBBF24" />
+            <circle cx="140" cy="25" r="18" fill="url(#sunGradientMobile)" />
+            <circle cx="140" cy="25" r="11" fill="#FBBF24" />
             {[0, 60, 120, 180, 240, 300].map((angle, i) => {
               const rad = (angle * Math.PI) / 180
-              const x1 = 150 + Math.cos(rad) * 16
-              const y1 = 30 + Math.sin(rad) * 16
-              const x2 = 150 + Math.cos(rad) * 24
-              const y2 = 30 + Math.sin(rad) * 24
+              const x1 = 140 + Math.cos(rad) * 14
+              const y1 = 25 + Math.sin(rad) * 14
+              const x2 = 140 + Math.cos(rad) * 22
+              const y2 = 25 + Math.sin(rad) * 22
               return (
                 <line
                   key={i}
@@ -377,26 +379,26 @@ export function PrototypeVisualization() {
 
           {/* === 2. SOLAR PANEL - Mobile === */}
           <g id="solar-panel-mobile">
-            <rect x="100" y="60" width="100" height="45" rx="5" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
-            <path d="M100 78 L200 78 M100 95 L200 95" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
-            <path d="M133 60 L133 105 M166 60 L166 105" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+            <rect x="90" y="55" width="100" height="40" rx="5" fill="#FBBF24" fillOpacity="0.15" stroke="#FBBF24" strokeWidth="2" />
+            <path d="M90 70 L190 70 M90 85 L190 85" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
+            <path d="M123 55 L123 95 M156 55 L156 95" stroke="#FBBF24" strokeWidth="1" strokeOpacity="0.4" />
           </g>
-          <text x="150" y="120" textAnchor="middle" className="font-mono text-[11px] fill-solar-yellow font-bold">Solar (150W)</text>
+          <text x="140" y="110" textAnchor="middle" className="font-mono text-[10px] fill-solar-yellow font-bold">Solar (150W)</text>
 
           {/* === 3. BATTERY - Mobile === */}
           <g id="battery-mobile">
-            <rect x="35" y="140" width="50" height="45" rx="5" fill="#22C55E" fillOpacity="0.1" stroke="#22C55E" strokeWidth="2" />
+            <rect x="30" y="130" width="45" height="40" rx="5" fill="#22C55E" fillOpacity="0.1" stroke="#22C55E" strokeWidth="2" />
             {/* Battery terminal */}
-            <rect x="48" y="135" width="24" height="5" rx="2" fill="#22C55E" />
+            <rect x="41" y="125" width="23" height="5" rx="2" fill="#22C55E" />
             {/* Battery level bars */}
-            <rect x="42" y="160" width="36" height="7" rx="2" fill="#22C55E" fillOpacity="0.8" />
-            <rect x="42" y="150" width="36" height="7" rx="2" fill="#22C55E" fillOpacity="0.5" className="animate-pulse" />
+            <rect x="35" y="148" width="35" height="6" rx="2" fill="#22C55E" fillOpacity="0.8" />
+            <rect x="35" y="139" width="35" height="6" rx="2" fill="#22C55E" fillOpacity="0.5" className="animate-pulse" />
           </g>
-          <text x="60" y="200" textAnchor="middle" className="font-mono text-[9px] fill-grid-green font-bold">Batterie</text>
+          <text x="52" y="180" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Batterie</text>
 
           {/* Solar → Battery */}
           <path
-            d="M100 85 L85 85 L85 140"
+            d="M90 80 L80 80 L80 130"
             stroke="#FBBF24"
             strokeWidth="2"
             strokeDasharray="4 3"
@@ -405,25 +407,25 @@ export function PrototypeVisualization() {
 
           {/* === 4. HOUSE/BUILDING - Mobile === */}
           <g id="house-mobile">
-            <g transform="translate(215, 140)">
-              <path d="M0 25 L35 5 L70 25 L70 65 L0 65 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2" />
-              <path d="M0 25 L35 5 L70 25" fill="none" stroke="#10B981" strokeWidth="2" />
+            <g transform="translate(200, 130)">
+              <path d="M0 22 L30 4 L60 22 L60 58 L0 58 Z" fill="#10B981" fillOpacity="0.12" stroke="#10B981" strokeWidth="2" />
+              <path d="M0 22 L30 4 L60 22" fill="none" stroke="#10B981" strokeWidth="2" />
             </g>
           </g>
-          <text x="250" y="220" textAnchor="middle" className="font-mono text-[9px] fill-grid-green font-bold">Gebäude</text>
+          <text x="230" y="200" textAnchor="middle" className="font-mono text-[8px] fill-grid-green font-bold">Gebäude</text>
 
           {/* === 5. SIHLICON HUB CORE - Mobile (Centered) === */}
-          <g id="core-mobile" transform="translate(75, 235)">
-            <rect x="0" y="0" width="150" height="70" rx="8" fill="#1A1A1A" />
-            <rect x="8" y="10" width="134" height="50" rx="4" fill="url(#waterGradientMobile)" fillOpacity="0.35" />
+          <g id="core-mobile" transform="translate(65, 220)">
+            <rect x="0" y="0" width="150" height="65" rx="8" fill="#1A1A1A" />
+            <rect x="8" y="8" width="134" height="49" rx="4" fill="url(#waterGradientMobile)" fillOpacity="0.35" />
             {/* Server blades */}
             {[25, 50, 75, 100, 125].map((x, i) => (
               <rect
                 key={i}
                 x={x - 6}
-                y="16"
+                y="14"
                 width="12"
-                height="38"
+                height="35"
                 rx="2"
                 fill="#3B82F6"
                 fillOpacity="0.75"
@@ -432,12 +434,12 @@ export function PrototypeVisualization() {
               />
             ))}
           </g>
-          <text x="150" y="320" textAnchor="middle" className="font-mono text-[11px] fill-brand-black font-bold">Sihlicon Hub Core</text>
-          <text x="150" y="333" textAnchor="middle" className="font-mono text-[8px] fill-gray-500">Thermische Kühlung</text>
+          <text x="140" y="300" textAnchor="middle" className="font-mono text-[10px] fill-brand-black font-bold">Sihlicon Hub Core</text>
+          <text x="140" y="312" textAnchor="middle" className="font-mono text-[7px] fill-gray-500">20L Tank</text>
 
           {/* Battery → Core */}
           <path
-            d="M60 185 L60 270 L75 270"
+            d="M52 170 L52 250 L65 250"
             stroke="#22C55E"
             strokeWidth="2"
             strokeDasharray="4 3"
@@ -446,7 +448,7 @@ export function PrototypeVisualization() {
 
           {/* Solar → Core */}
           <path
-            d="M150 120 L150 235"
+            d="M140 110 L140 220"
             stroke="#FBBF24"
             strokeWidth="2"
             strokeDasharray="4 3"
@@ -457,165 +459,165 @@ export function PrototypeVisualization() {
           <g id="heat-return-mobile">
             {/* Arrow to building */}
             <path
-              d="M225 270 L250 205"
+              d="M215 250 L235 195"
               stroke="#FF6B35"
               strokeWidth="3"
               strokeDasharray="4 3"
               className="animate-[dash_1.5s_linear_infinite]"
             />
           </g>
-          <text x="260" y="248" textAnchor="middle" className="font-mono text-[9px] fill-thermal-orange font-bold">Wärme ↑</text>
+          <text x="245" y="230" textAnchor="middle" className="font-mono text-[8px] fill-thermal-orange font-bold">Wärme</text>
 
           {/* === 7. COMPUTE OUTPUT - Mobile (Bottom) === */}
           <g id="compute-mobile">
             <path
-              d="M150 305 L150 345"
+              d="M140 285 L140 320"
               stroke="#A855F7"
               strokeWidth="3"
               strokeDasharray="4 3"
               className="animate-[dash_2s_linear_infinite]"
             />
             
-            {/* AI Boxes - Side by side */}
-            <g transform="translate(30, 355)">
-              <rect x="0" y="0" width="110" height="35" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
-              <text x="55" y="15" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Training</text>
-              <text x="55" y="27" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">GPU Workloads</text>
+            {/* AI Boxes - Stacked vertically for better fit */}
+            <g transform="translate(20, 330)">
+              <rect x="0" y="0" width="120" height="30" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
+              <text x="60" y="13" textAnchor="middle" className="font-mono text-[9px] fill-purple-600 font-bold">AI-Training</text>
+              <text x="60" y="23" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">GPU Workloads</text>
             </g>
-            <g transform="translate(160, 355)">
-              <rect x="0" y="0" width="110" height="35" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
-              <text x="55" y="15" textAnchor="middle" className="font-mono text-[10px] fill-purple-600 font-bold">AI-Inference</text>
-              <text x="55" y="27" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">Low Latency</text>
+            <g transform="translate(140, 330)">
+              <rect x="0" y="0" width="120" height="30" rx="6" fill="#A855F7" fillOpacity="0.1" stroke="#A855F7" strokeWidth="1.5" />
+              <text x="60" y="13" textAnchor="middle" className="font-mono text-[9px] fill-purple-600 font-bold">AI-Inference</text>
+              <text x="60" y="23" textAnchor="middle" className="font-mono text-[7px] fill-purple-400">Low Latency</text>
             </g>
           </g>
-          <text x="150" y="350" textAnchor="middle" className="font-mono text-[9px] fill-purple-500 font-bold">Rechenleistung ↓</text>
+          <text x="140" y="325" textAnchor="middle" className="font-mono text-[8px] fill-purple-500 font-bold">Rechenleistung</text>
         </svg>
 
         {/* Mobile Legend - Below SVG */}
-        <div className="mt-4 p-3 bg-gray-50 rounded-xl">
-          <div className="text-center mb-2">
-            <span className="font-mono text-[10px] text-brand-black font-bold">ENERGIEFLUSS</span>
+        <div className="mt-3 p-2.5 bg-gray-50 rounded-xl">
+          <div className="text-center mb-1.5">
+            <span className="font-mono text-[9px] text-brand-black font-bold">ENERGIEFLUSS</span>
           </div>
-          <div className="flex justify-center gap-3 flex-wrap">
-            <div className="flex items-center gap-1">
-              <div className="w-5 h-0.5 bg-solar-yellow" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FBBF24 0, #FBBF24 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[8px] text-gray-600">Solar</span>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="flex items-center gap-1 justify-center">
+              <div className="w-4 h-0.5 bg-solar-yellow" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FBBF24 0, #FBBF24 3px, transparent 3px, transparent 6px)' }} />
+              <span className="font-mono text-[7px] text-gray-600">Solarstrom</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-5 h-0.5 bg-grid-green" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #22C55E 0, #22C55E 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[8px] text-gray-600">Batterie</span>
+            <div className="flex items-center gap-1 justify-center">
+              <div className="w-4 h-0.5 bg-grid-green" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #22C55E 0, #22C55E 3px, transparent 3px, transparent 6px)' }} />
+              <span className="font-mono text-[7px] text-gray-600">Batterie → Core</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-5 h-0.5 bg-thermal-orange" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FF6B35 0, #FF6B35 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[8px] text-gray-600">Wärme</span>
+            <div className="flex items-center gap-1 justify-center">
+              <div className="w-4 h-0.5 bg-thermal-orange" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FF6B35 0, #FF6B35 3px, transparent 3px, transparent 6px)' }} />
+              <span className="font-mono text-[7px] text-gray-600">Abwärme (45-60°C)</span>
             </div>
-            <div className="flex items-center gap-1">
-              <div className="w-5 h-0.5 bg-purple-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0, #A855F7 4px, transparent 4px, transparent 7px)' }} />
-              <span className="font-mono text-[8px] text-gray-600">Compute</span>
+            <div className="flex items-center gap-1 justify-center">
+              <div className="w-4 h-0.5 bg-purple-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0, #A855F7 3px, transparent 3px, transparent 6px)' }} />
+              <span className="font-mono text-[7px] text-gray-600">Rechenleistung</span>
             </div>
           </div>
         </div>
 
         {/* Mobile Stats - Below */}
-        <div className="mt-3 grid grid-cols-4 gap-2">
-          <div className="bg-solar-yellow/10 rounded-lg p-2 text-center">
-            <div className="w-2 h-2 rounded-full bg-solar-yellow mx-auto mb-1 animate-pulse" />
-            <span className="font-mono text-[8px] text-brand-black font-semibold block">150W</span>
-            <span className="font-mono text-[6px] text-gray-500">Solar</span>
+        <div className="mt-2 grid grid-cols-4 gap-1.5">
+          <div className="bg-solar-yellow/10 rounded-lg p-1.5 text-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-solar-yellow mx-auto mb-0.5 animate-pulse" />
+            <span className="font-mono text-[7px] text-brand-black font-semibold block">150W</span>
+            <span className="font-mono text-[5px] text-gray-500">P_solar</span>
           </div>
-          <div className="bg-grid-green/10 rounded-lg p-2 text-center">
-            <div className="w-2 h-2 rounded-full bg-grid-green mx-auto mb-1 animate-pulse" />
-            <span className="font-mono text-[8px] text-brand-black font-semibold block">2 kWh</span>
-            <span className="font-mono text-[6px] text-gray-500">Batterie</span>
+          <div className="bg-grid-green/10 rounded-lg p-1.5 text-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-grid-green mx-auto mb-0.5 animate-pulse" />
+            <span className="font-mono text-[7px] text-brand-black font-semibold block">2 kWh</span>
+            <span className="font-mono text-[5px] text-gray-500">Batterie</span>
           </div>
-          <div className="bg-compute-blue/10 rounded-lg p-2 text-center">
-            <div className="w-2 h-2 rounded-full bg-compute-blue mx-auto mb-1" />
-            <span className="font-mono text-[8px] text-brand-black font-semibold block">140W</span>
-            <span className="font-mono text-[6px] text-gray-500">Compute</span>
+          <div className="bg-compute-blue/10 rounded-lg p-1.5 text-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-compute-blue mx-auto mb-0.5" />
+            <span className="font-mono text-[7px] text-brand-black font-semibold block">140W</span>
+            <span className="font-mono text-[5px] text-gray-500">P_compute</span>
           </div>
-          <div className="bg-thermal-orange/10 rounded-lg p-2 text-center">
-            <div className="w-2 h-2 rounded-full bg-thermal-orange mx-auto mb-1" />
-            <span className="font-mono text-[8px] text-brand-black font-semibold block">+25°C</span>
-            <span className="font-mono text-[6px] text-gray-500">ΔT</span>
+          <div className="bg-thermal-orange/10 rounded-lg p-1.5 text-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-thermal-orange mx-auto mb-0.5" />
+            <span className="font-mono text-[7px] text-brand-black font-semibold block">+25°C</span>
+            <span className="font-mono text-[5px] text-gray-500">ΔT</span>
           </div>
         </div>
 
         {/* Mobile Title */}
-        <div className="mt-3 text-center">
-          <span className="font-accent text-sm text-thermal-orange font-semibold">Sihlicon Hub Demo</span>
-          <span className="font-mono text-[8px] text-historic-sepia block">Ein-Knopf-Demo · Mini-ITX · 20L Tank</span>
+        <div className="mt-2 text-center">
+          <span className="font-accent text-xs text-thermal-orange font-semibold">Sihlicon Hub Demo</span>
+          <span className="font-mono text-[7px] text-historic-sepia block">Solar → Batterie → Compute → Wärme</span>
         </div>
       </div>
 
       {/* === V2 DESCRIPTION SECTION === */}
-      <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-6 md:p-8">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="bg-grid-green/20 text-grid-green px-3 py-1 rounded-full font-mono text-xs font-bold border border-grid-green/30">
+      <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 p-4 sm:p-6 md:p-8">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
+          <span className="bg-grid-green/20 text-grid-green px-2 sm:px-3 py-1 rounded-full font-mono text-[10px] sm:text-xs font-bold border border-grid-green/30">
             v2: Produktionsreife
           </span>
-          <span className="text-gray-500 font-mono text-xs">Als Nächstes</span>
+          <span className="text-gray-500 font-mono text-[10px] sm:text-xs">Als Nächstes</span>
         </div>
         
-        <h3 className="font-accent text-xl md:text-2xl text-brand-black mb-4">
+        <h3 className="font-accent text-lg sm:text-xl md:text-2xl text-brand-black mb-4">
           Der nächste Schritt: Wirtschaftlich rentabel
         </h3>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
           <div>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">
               Version 2 macht aus dem Prototypen ein System, das sich selbst trägt. 
               Während v1 den Energiekreislauf mit einem 150W-Panel und 20L-Tank zeigt, 
               <strong className="text-brand-black"> geht es bei v2 um echte Gebäudeintegration</strong>: 
               Solaranlagen im Kilowatt-Bereich, professionelle Immersionskühlung und vollständige Heizungsintegration.
             </p>
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2 text-sm">
-                <span className="text-solar-yellow font-bold">☀</span>
+            <ul className="space-y-2 sm:space-y-2.5">
+              <li className="flex items-start gap-2 text-xs sm:text-sm">
+                <span className="text-solar-yellow font-bold text-base sm:text-lg flex-shrink-0 mt-0.5">☀</span>
                 <span className="text-gray-700"><strong>5 bis 20 kW</strong> Solarleistung pro Gebäudeeinheit</span>
               </li>
-              <li className="flex items-start gap-2 text-sm">
-                <span className="text-compute-blue font-bold">⬢</span>
+              <li className="flex items-start gap-2 text-xs sm:text-sm">
+                <span className="text-compute-blue font-bold text-base sm:text-lg flex-shrink-0 mt-0.5">⬢</span>
                 <span className="text-gray-700"><strong>GPU-Cluster</strong> mit professioneller Wärmerückgewinnung</span>
               </li>
-              <li className="flex items-start gap-2 text-sm">
-                <span className="text-thermal-orange font-bold">◉</span>
+              <li className="flex items-start gap-2 text-xs sm:text-sm">
+                <span className="text-thermal-orange font-bold text-base sm:text-lg flex-shrink-0 mt-0.5">◉</span>
                 <span className="text-gray-700"><strong>200L+ Tanks</strong> für den tatsächlichen Warmwasserbedarf</span>
               </li>
             </ul>
           </div>
           
-          <div className="bg-white rounded-xl border border-gray-100 p-4">
-            <h4 className="font-mono text-xs text-gray-500 uppercase tracking-wider mb-3">V1 → V2 SKALIERUNG</h4>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Solareingang</span>
-                <span className="font-mono text-sm">
+          <div className="bg-white rounded-xl border border-gray-100 p-3 sm:p-4">
+            <h4 className="font-mono text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-3">V1 → V2 SKALIERUNG</h4>
+            <div className="space-y-2.5 sm:space-y-3">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+                <span className="font-mono text-xs sm:text-sm text-gray-600">Solareingang</span>
+                <span className="font-mono text-xs sm:text-sm flex items-center gap-1 sm:gap-2">
                   <span className="text-gray-400">150W</span>
-                  <span className="text-gray-300 mx-2">→</span>
+                  <span className="text-gray-300">→</span>
                   <span className="text-grid-green font-bold">5-20 kW</span>
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Tankvolumen</span>
-                <span className="font-mono text-sm">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+                <span className="font-mono text-xs sm:text-sm text-gray-600">Tankvolumen</span>
+                <span className="font-mono text-xs sm:text-sm flex items-center gap-1 sm:gap-2">
                   <span className="text-gray-400">20L</span>
-                  <span className="text-gray-300 mx-2">→</span>
+                  <span className="text-gray-300">→</span>
                   <span className="text-grid-green font-bold">200-500L</span>
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Wärmeausgabe</span>
-                <span className="font-mono text-sm">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+                <span className="font-mono text-xs sm:text-sm text-gray-600">Wärmeausgabe</span>
+                <span className="font-mono text-xs sm:text-sm flex items-center gap-1 sm:gap-2 flex-wrap">
                   <span className="text-gray-400">Demo</span>
-                  <span className="text-gray-300 mx-2">→</span>
+                  <span className="text-gray-300">→</span>
                   <span className="text-grid-green font-bold">Vollständiges Gebäude</span>
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="font-mono text-sm text-gray-600">Wirtschaftlichkeit</span>
-                <span className="font-mono text-sm">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-0">
+                <span className="font-mono text-xs sm:text-sm text-gray-600">Wirtschaftlichkeit</span>
+                <span className="font-mono text-xs sm:text-sm flex items-center gap-1 sm:gap-2">
                   <span className="text-gray-400">N/A</span>
-                  <span className="text-gray-300 mx-2">→</span>
+                  <span className="text-gray-300">→</span>
                   <span className="text-grid-green font-bold">Gewinnbringend</span>
                 </span>
               </div>
@@ -623,7 +625,7 @@ export function PrototypeVisualization() {
           </div>
         </div>
         
-        <p className="text-gray-500 text-xs mt-6 font-mono">
+        <p className="text-gray-500 text-[10px] sm:text-xs mt-4 sm:mt-6 font-mono leading-relaxed">
           Der Hackathon baut v1 als funktionierenden Nachweis des geschlossenen Kreislaufs. Die Übertragung auf v2 zeigt, 
           dass es wirtschaftlich funktioniert: gleiche Physik, größerer Maßstab, echte Gewinne durch Rechenleistung und Energieeinsparungen.
         </p>
