@@ -130,7 +130,7 @@ export default function ChallengesPage() {
                 defaultOpen={true}
               >
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  Ein Sihlicon Hub ist wie ein intelligenter Heizungskeller, der viel mehr kann als nur heizen. 
+                  Ein Sihlicon Hub ist wie ein intelligentes Energiesystem, das viel mehr kann als nur heizen. 
                   Stell dir vor: Du hast eine Solaranlage auf dem Dach, die tagsüber viel Energie produziert. 
                   Normalerweise geht diese Energie ins Netz oder wird verschwendet.
                 </p>
@@ -157,7 +157,7 @@ export default function ChallengesPage() {
               >
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
                   Die Schweiz braucht mehr dezentrale Energie-Infrastruktur. Statt riesige Rechenzentren zu bauen, 
-                  die Flüsse erhitzen, können wir kleine, intelligente Systeme in Kellern bauen, die Häuser heizen 
+                  die Flüsse erhitzen, können wir kleine, intelligente Systeme in geeigneten Räumen installieren, die Häuser heizen 
                   und gleichzeitig Computer-Aufgaben erledigen.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">

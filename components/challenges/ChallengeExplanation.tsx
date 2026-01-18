@@ -31,7 +31,7 @@ const challengeExplanations: Record<string, {
 }> = {
   'demo-kit': {
     nonTechnical: {
-      what: 'Ein End-to-End Demo-Kit ist wie ein Rezept, das beweist, dass das ganze System funktioniert. Stell dir vor: Du hast einen intelligenten Heizungskeller, der Sonnenenergie speichert, Computer-Aufgaben erledigt und dabei Wärme produziert. Das Demo-Kit zeigt, dass all diese Teile zusammenarbeiten – von der Sonne bis zur warmen Heizung.',
+      what: 'Ein End-to-End Demo-Kit ist wie ein Rezept, das beweist, dass das ganze System funktioniert. Stell dir vor: Du hast ein intelligentes Energiesystem, das Sonnenenergie speichert, Computer-Aufgaben erledigt und dabei Wärme produziert. Das Demo-Kit zeigt, dass all diese Teile zusammenarbeiten – von der Sonne bis zur warmen Heizung.',
       why: 'Ohne einen funktionierenden End-to-End Flow können wir nicht beweisen, dass das Konzept in der echten Welt funktioniert. Es ist wie ein Prototyp: Wenn du nicht zeigen kannst, dass alles zusammenarbeitet, bleibt es nur eine Idee. Das Demo-Kit macht das System nachbaubar und beweisbar.',
       whatYouBuild: 'Du baust ein System, das alle Energieflüsse misst und aufzeichnet: Wie viel Sonnenenergie kommt rein? Wie viel wird für Computer-Aufgaben verwendet? Wie viel Wärme entsteht? Alles wird in einem einfachen "Ein-Knopf-Demo" gezeigt, das jeder nachvollziehen kann.',
     },
@@ -43,7 +43,7 @@ const challengeExplanations: Record<string, {
   },
   'hardware-safety': {
     nonTechnical: {
-      what: 'Hardware Safety bedeutet: Du stellst sicher, dass das System sicher in jemandes Keller betrieben werden kann. Es ist wie ein Bauvorschriften-Check für Energie-Systeme – es muss absolut sicher sein, bevor es in echten Gebäuden eingesetzt wird.',
+      what: 'Hardware Safety bedeutet: Du stellst sicher, dass das System sicher in Gebäuden betrieben werden kann. Es ist wie ein Bauvorschriften-Check für Energie-Systeme – es muss absolut sicher sein, bevor es in echten Gebäuden eingesetzt wird.',
       why: 'Sicherheit ist nicht verhandelbar. Ein System, das Öl, Wasser, Strom und hohe Temperaturen kombiniert, braucht robuste Sicherheitsmassnahmen. Ohne Safety Case kann niemand das System legal und verantwortungsvoll betreiben. Es ist die Grundlage für real-world Deployment.',
       whatYouBuild: 'Du baust ein komplettes Sicherheits-System: Schutzschalter (RCD/GFCI), die bei Problemen sofort abschalten, Not-Aus-Schalter für Notfälle, Leckwannen für Öl/Wasser, Temperatur-Überwachung und eine vollständige Dokumentation aller Sicherheitsmassnahmen.',
     },
@@ -56,7 +56,7 @@ const challengeExplanations: Record<string, {
   'grid-os': {
     nonTechnical: {
       what: 'Grid-OS ist das "Gehirn" des Systems. Es entscheidet intelligent, wann Computer-Aufgaben laufen, wann die Batterie geladen wird, und wann Wärme produziert wird. Es ist wie ein intelligenter Thermostat, aber für Energie und Computing – es passt sich automatisch an die verfügbare Sonnenenergie an.',
-      why: 'Ohne intelligente Steuerung wäre das System nur ein teurer Heizungskeller. Grid-OS macht es intelligent: Es nutzt Sonnenenergie optimal, verschiebt Computer-Aufgaben auf Zeiten mit viel Solar, und kann bei Netzproblemen automatisch reagieren. Das ist der Unterschied zwischen einem passiven System und einem aktiven Energie-Knoten.',
+      why: 'Ohne intelligente Steuerung wäre das System nur ein teures passives Heizsystem. Grid-OS macht es intelligent: Es nutzt Sonnenenergie optimal, verschiebt Computer-Aufgaben auf Zeiten mit viel Solar, und kann bei Netzproblemen automatisch reagieren. Das ist der Unterschied zwischen einem passiven System und einem aktiven Energie-Knoten.',
       whatYouBuild: 'Du baust einen Scheduler, der Solar-Budget berechnet, Computer-Aufgaben plant, und Fallback-Regeln definiert. Das System kann historische Solar-Daten "abspielen" (Replay-Modus), um zu testen, wie es in verschiedenen Situationen reagieren würde. Eine API erlaubt anderen Systemen, mit dem Grid-OS zu kommunizieren.',
     },
     technical: {
