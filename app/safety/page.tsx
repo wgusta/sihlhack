@@ -163,7 +163,8 @@ export default function SafetyPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm font-mono text-historic-sepia mb-6">
-                  Alle Teilnehmer müssen vor dem Event ein 4-stündiges Online-Sicherheitstraining absolvieren:
+                  Alle Teilnehmer müssen vor dem Event ein Online-Sicherheitstraining absolvieren. 
+                  Vor Ort gibt es einen kurzen Refresher:
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -470,9 +471,10 @@ export default function SafetyPage() {
                     Welches Sicherheitstraining ist erforderlich?
                   </h3>
                   <p className="text-sm font-mono text-historic-sepia">
-                    Alle Teilnehmer müssen vor dem Event ein 4-stündiges Online-Sicherheitstraining absolvieren, 
+                    Alle Teilnehmer müssen vor dem Event ein Online-Sicherheitstraining absolvieren, 
                     das elektrische Sicherheit, Batteriesicherheit, thermische Systeme und Notfallverfahren abdeckt. 
-                    Eine Zertifizierungsprüfung (80% Bestehensquote) ist erforderlich. Keine Teilnahme ohne Zertifizierung.
+                    Eine Zertifizierungsprüfung (80% Bestehensquote) ist erforderlich. 
+                    Vor Ort gibt es einen kurzen Refresher. Keine Teilnahme ohne Zertifizierung.
                   </p>
                 </CardContent>
               </Card>
