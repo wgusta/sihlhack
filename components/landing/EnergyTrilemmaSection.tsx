@@ -350,7 +350,7 @@ export function EnergyTrilemmaSection() {
 
         {/* Final CTA */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-thermal-orange to-compute-blue rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-brand-black rounded-2xl p-8 md:p-12 text-center border-2 border-thermal-orange/30">
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
               Bereit für echte Ingenieurs-Entscheidungen?
             </h3>
@@ -362,7 +362,7 @@ export function EnergyTrilemmaSection() {
               href="/challenges"
               variant="secondary"
               size="lg"
-              className="bg-white text-brand-black hover:bg-white/90"
+              className="bg-thermal-orange text-white hover:bg-thermal-orange/90"
             >
               Die Challenges ansehen
             </ButtonLink>

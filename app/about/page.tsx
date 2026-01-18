@@ -298,6 +298,22 @@ export default function AboutPage() {
                   </div>
                 )
               })}
+              
+              {/* Suggest a Role Card */}
+              <a
+                href="/suggest-role"
+                className="p-4 rounded-xl border-2 border-dashed border-gray-300 hover:border-thermal-orange/50 transition-all duration-300 group cursor-pointer relative dotted-corner bg-white/50 block"
+              >
+                <div className="flex items-center justify-center mb-3">
+                  <Icon emoji="💡" size="xl" color="text-thermal-orange" />
+                </div>
+                <h3 className="font-display font-semibold text-brand-black text-center group-hover:text-thermal-orange transition-colors duration-200">
+                  Schlage eine Rolle vor, an die wir nicht gedacht haben
+                </h3>
+                <p className="text-sm font-mono text-historic-sepia mt-2 text-center">
+                  Klick auf die Karte um herauszufinden, was es benötigt.
+                </p>
+              </a>
             </div>
 
             {/* Package-Based Team Composition */}
