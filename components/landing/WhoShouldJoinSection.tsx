@@ -14,102 +14,127 @@ export function WhoShouldJoinSection() {
             Wer sollte teilnehmen?
           </h2>
           <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
-            Hardware, Software, Energie: Drei Perspektiven. Ein System.
+            Vier Perspektiven. Ein System. Finde deine Rolle.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* Hardware-Tüftler */}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {/* Maker: Hardware + Elektro */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-thermal-orange/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🔧</span>
-              <h3 className="font-display text-xl font-bold text-thermal-orange">Hardware</h3>
+              <h3 className="font-display text-xl font-bold text-thermal-orange">Maker</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
-              Thermodynamik ist dein Spielplatz. Du baust, was funktioniert.
+              Du baust gerne Dinge mit deinen Händen.
             </p>
-            <ul className="text-sm text-historic-sepia font-mono space-y-2 mb-4">
+            <ul className="text-sm text-historic-sepia font-mono space-y-2">
               <li className="flex items-start gap-2">
-                <span className="text-thermal-orange">•</span>
-                <span>Löten, CAD, Pumpen: dein Ding</span>
+                <span className="text-thermal-orange">→</span>
+                <span>Kühlsystem zusammenbauen</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-thermal-orange">•</span>
-                <span>Thermal-Architekturen evaluieren</span>
+                <span className="text-thermal-orange">→</span>
+                <span>Sensoren verkabeln</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-thermal-orange">•</span>
-                <span>Safety-Cases und BOMs erstellen</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-thermal-orange">•</span>
-                <span>RCD/GFCI, Safety Interlocks</span>
+                <span className="text-thermal-orange">→</span>
+                <span>Bauanleitung schreiben</span>
               </li>
             </ul>
+            <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
+              Ideal: Bastler, Handwerker, Ingenieure
+            </p>
           </div>
-          
-          {/* Software-Builder */}
+
+          {/* Coder: Software + Grid-OS */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-compute-blue/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">💻</span>
-              <h3 className="font-display text-xl font-bold text-compute-blue">Software</h3>
+              <h3 className="font-display text-xl font-bold text-compute-blue">Coder</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
-              Code, der Strom verteilt. Grid-OS wartet auf dich.
+              Du schreibst Code, der echte Probleme löst.
             </p>
-            <ul className="text-sm text-historic-sepia font-mono space-y-2 mb-4">
+            <ul className="text-sm text-historic-sepia font-mono space-y-2">
               <li className="flex items-start gap-2">
-                <span className="text-compute-blue">•</span>
-                <span>APIs, Scheduler, Dashboards</span>
+                <span className="text-compute-blue">→</span>
+                <span>Steuerung programmieren</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-compute-blue">•</span>
-                <span>Deferred Compute implementieren</span>
+                <span className="text-compute-blue">→</span>
+                <span>Dashboard bauen</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-compute-blue">•</span>
-                <span>Solar-Budget und Fallback-Policy</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-compute-blue">•</span>
-                <span>Backend-Infrastruktur für Compute</span>
+                <span className="text-compute-blue">→</span>
+                <span>Sensordaten verarbeiten</span>
               </li>
             </ul>
+            <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
+              Ideal: Entwickler, Data Scientists, Hobbyisten
+            </p>
           </div>
-          
-          {/* Energie-Visionäre */}
+
+          {/* Connector: Energie + LEG */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-grid-green/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">⚡</span>
-              <h3 className="font-display text-xl font-bold text-grid-green">Energie</h3>
+              <h3 className="font-display text-xl font-bold text-grid-green">Connector</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
-              Lokal, dezentral, demokratisch. LEGs sind für dich Zukunft.
+              Du verbindest Menschen, Systeme und Regeln.
             </p>
-            <ul className="text-sm text-historic-sepia font-mono space-y-2 mb-4">
+            <ul className="text-sm text-historic-sepia font-mono space-y-2">
               <li className="flex items-start gap-2">
-                <span className="text-grid-green">•</span>
-                <span>Solar-APIs, Swissgrid-Integration</span>
+                <span className="text-grid-green">→</span>
+                <span><a href="/leg" className="hover:text-sihl-red">Energiegemeinschaft</a> gründen</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-grid-green">•</span>
-                <span><a href="/leg" className="text-sihl-red hover:underline">LEG</a>-Spezialist: StromVG, EnG</span>
+                <span className="text-grid-green">→</span>
+                <span>Verträge aufsetzen</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-grid-green">•</span>
-                <span>Sensor-Integration, Data Pipelines</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-grid-green">•</span>
-                <span>Resilienz-Logik für Grid-Ausfälle</span>
+                <span className="text-grid-green">→</span>
+                <span>Solardaten beschaffen</span>
               </li>
             </ul>
+            <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
+              Ideal: Juristen, Energieberater, PV-Besitzer
+            </p>
+          </div>
+
+          {/* Gestalter: Design + PM + Generalist */}
+          <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-historic-sepia/50 transition-all">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-3xl">✏️</span>
+              <h3 className="font-display text-xl font-bold text-historic-sepia">Gestalter</h3>
+            </div>
+            <p className="text-sm text-historic-sepia font-mono mb-4">
+              Du machst Komplexes verständlich.
+            </p>
+            <ul className="text-sm text-historic-sepia font-mono space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-historic-sepia">→</span>
+                <span>Dokumentation schreiben</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-historic-sepia">→</span>
+                <span>Interfaces designen</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-historic-sepia">→</span>
+                <span>Team koordinieren</span>
+              </li>
+            </ul>
+            <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
+              Ideal: Designer, PMs, Texter, Generalisten
+            </p>
           </div>
         </div>
 
         <div className="text-center">
           <p className="font-mono text-sm text-historic-sepia mb-6">
-            Du passt nicht in eine Kategorie? Perfekt. Generalisten sind willkommen.
+            Du passt in mehrere Kategorien? Noch besser. Wir matchen Teams nach Skills.
           </p>
           <ButtonLink
             href="/register"
