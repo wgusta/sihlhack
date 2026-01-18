@@ -255,7 +255,7 @@ export function ChallengeExplanation({ packageId, color, nonTechnical, technical
                   <span>{hazard.risk}</span>
                 </p>
                 <div className="bg-grid-green/10 border border-grid-green/30 rounded p-2 mt-2">
-                  <p className="text-[10px] font-mono text-brand-black font-semibold mb-1">Mitigation:</p>
+                  <p className="text-[10px] font-mono text-brand-black font-semibold mb-1">Schutzmassnahmen:</p>
                   <p className="text-[10px] font-mono text-historic-sepia">{hazard.mitigation}</p>
                 </div>
               </div>

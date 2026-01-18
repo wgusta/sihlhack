@@ -413,7 +413,7 @@ export default function ChallengesPage() {
                             <li>• Brandrisiko: Öl ist brennbar (Flashpoint &gt;200°C)</li>
                             <li>• Öl-Dämpfe: Gesundheitsrisiko bei Einatmung</li>
                           </ul>
-                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Schutzmassnahmen:</p>
                           <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                             <li>• Leckwanne (Auffangbehälter) für alle Ölsysteme</li>
                             <li>• Brandschutzsystem kompatibel mit Öl</li>
@@ -511,7 +511,7 @@ export default function ChallengesPage() {
                             <li>• Leckage: Wasserschaden, Kurzschluss, Systemausfall</li>
                             <li>• Pumpen-Ausfall: Führt zu Überhitzung und möglichem Systemausfall</li>
                           </ul>
-                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Schutzmassnahmen:</p>
                           <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                             <li>• Vollständig isolierte Systeme (Wasser nie in Kontakt mit Strom)</li>
                             <li>• Leckage-Erkennungssensoren mit sofortiger Abschaltung</li>
@@ -600,7 +600,7 @@ export default function ChallengesPage() {
                             <li>• Kältemittel-Austritt: Umweltgefahr, Gesundheitsrisiko, Ozonabbau</li>
                             <li>• Komplexe Fehlerketten: Mehrere Systeme müssen zusammenarbeiten</li>
                           </ul>
-                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Schutzmassnahmen:</p>
                           <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                             <li>• Druck-Überwachung mit automatischer Abschaltung</li>
                             <li>• Dichtheitsprüfung vor Inbetriebnahme</li>

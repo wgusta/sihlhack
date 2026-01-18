@@ -571,7 +571,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• BMS-Überwachung (Temperatur, Spannung, Strom) mit automatischer Abschaltung</li>
                           <li>• Temperatur-Sensoren an jeder Batterie-Zelle</li>
@@ -601,7 +601,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• RCD/GFCI-Schutz (30mA) für alle Stromkreise</li>
                           <li>• Isolationsprüfung vor Inbetriebnahme</li>
@@ -627,7 +627,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Temperatur-Limits mit automatischer Abschaltung</li>
                           <li>• Kühlungssysteme (Immersion/Water/Heat Pump)</li>
@@ -669,7 +669,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Leckwanne (Auffangbehälter) für alle Ölsysteme</li>
                           <li>• Brandschutzsystem kompatibel mit Öl (nicht wasserbasiert)</li>
@@ -699,7 +699,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Vollständig isolierte Systeme (Wasser nie in Kontakt mit Strom)</li>
                           <li>• Leckage-Erkennungssensoren mit sofortiger Abschaltung</li>
@@ -729,7 +729,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Druck-Überwachung mit automatischer Abschaltung</li>
                           <li>• Dichtheitsprüfung vor Inbetriebnahme</li>
@@ -772,7 +772,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Grid-Trennung mit Schutzrelais (Anti-Islanding)</li>
                           <li>• Frequenz-Überwachung mit automatischer Abschaltung</li>
@@ -802,7 +802,7 @@ export default function SafetyPage() {
                         </li>
                       </ul>
                       <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
-                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Schutzmassnahmen:</p>
                         <ul className="space-y-1 text-xs font-mono text-historic-sepia">
                           <li>• Hardware-Interlocks (unabhängig von Software)</li>
                           <li>• Fail-Safe-Logik (bei Fehler: sicherer Zustand)</li>
