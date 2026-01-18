@@ -15,6 +15,10 @@ interface ChallengeExplanationProps {
     architecture?: string
     integration?: string
   }
+  risks?: {
+    title: string
+    hazards: Array<{ risk: string; mitigation: string }>
+  }
 }
 
 const challengeExplanations: Record<string, {
@@ -28,6 +32,10 @@ const challengeExplanations: Record<string, {
     architecture?: string
     integration?: string
   }
+  risks?: {
+    title: string
+    hazards: Array<{ risk: string; mitigation: string }>
+  }
 }> = {
   'demo-kit': {
     nonTechnical: {
@@ -40,6 +48,27 @@ const challengeExplanations: Record<string, {
       architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Visualization (Grafana/Home Assistant) → Demo Script (Python/Node-RED)',
       integration: 'Integriert mit Solar-Inverter-APIs (Fronius/SMA), Compute-Scheduler (Grid-OS), und Thermal-System (Immersion/Water/Heat Pump). Alle Komponenten kommunizieren über standardisierte Protokolle.',
     },
+    risks: {
+      title: 'Sicherheitsrisiken im Demo-Kit',
+      hazards: [
+        {
+          risk: 'Batterie Thermal Runaway: Lithium-Batterien können bei Beschädigung oder Überladung explodieren',
+          mitigation: 'BMS-Überwachung, Temperatur-Sensoren, Not-Aus-Schalter, Brandschutzsystem'
+        },
+        {
+          risk: 'Elektrokontakt: Hochspannung (48V+) und Fehlerströme bei Wasser/Kontakt',
+          mitigation: 'RCD/GFCI-Schutz, Isolationsprüfung, professionelle Installation'
+        },
+        {
+          risk: 'Grid-Backfeed: Unkontrollierte Einspeisung gefährdet Netzwerker',
+          mitigation: 'Grid-Trennung mit Schutzrelais, Frequenz-Überwachung'
+        },
+        {
+          risk: 'Überhitzung: Heisse Oberflächen bei hoher Last',
+          mitigation: 'Temperatur-Limits, Kühlungssysteme, Warnsysteme'
+        }
+      ]
+    }
   },
   'hardware-safety': {
     nonTechnical: {
@@ -52,6 +81,23 @@ const challengeExplanations: Record<string, {
       architecture: 'Safety Layer (RCD/GFCI/Not-Aus) → Monitoring (Temp/Flow/Power Sensors) → Interlock Logic (Zephyr RTOS/LibreSolar) → Documentation (BOM + Safety Case)',
       integration: 'Integriert mit allen Thermal-Pfaden (Immersion/Water/Heat Pump), Grid-OS für Load Shedding, und Compute-System für Notfall-Abschaltung.',
     },
+    risks: {
+      title: 'Sicherheitsrisiken in Hardware Safety',
+      hazards: [
+        {
+          risk: 'Öl-Immersion: Leckage (Umweltverschmutzung), Brandrisiko (brennbar), Öl-Dämpfe (Gesundheitsrisiko)',
+          mitigation: 'Leckwanne, Brandschutzsystem kompatibel mit Öl, Belüftung, professionelle Handhabung'
+        },
+        {
+          risk: 'Wasser-Loop: Elektrokontakt (Wasser + Strom = Lebensgefahr), Leckage, Pumpen-Ausfall',
+          mitigation: 'Isolierte Systeme, Leckage-Erkennung, redundante Pumpen, RCD/GFCI-Schutz'
+        },
+        {
+          risk: 'Wärmepumpe: Hochdruck (Explosionsgefahr), Kältemittel-Austritt (Umweltgefahr), komplexe Fehlerketten',
+          mitigation: 'Druck-Überwachung, Dichtheitsprüfung, professionelle Installation, redundante Sicherheitssysteme'
+        }
+      ]
+    }
   },
   'grid-os': {
     nonTechnical: {
@@ -64,6 +110,23 @@ const challengeExplanations: Record<string, {
       architecture: 'Input Layer (Solar APIs/Swissgrid Signals) → Policy Engine (Node-RED/Python) → Scheduler (k3s/Ollama for intelligent scheduling) → Output Layer (Compute Control/Battery Management) → API Gateway (NATS/OpenTelemetry)',
       integration: 'Integriert mit Solar-Invertern (Fronius/SMA), Swissgrid-Signalen (Frequenz/Spannung), Compute-System (Grid-OS → Server Control), Battery Management (LibreSolar), und Dashboard (Truth Layer).',
     },
+    risks: {
+      title: 'Sicherheitsrisiken in Grid-OS',
+      hazards: [
+        {
+          risk: 'Grid-Backfeed: Unkontrollierte Einspeisung gefährdet Netzwerker (tödliche Unfälle möglich)',
+          mitigation: 'Grid-Trennung mit Schutzrelais (Anti-Islanding), Frequenz-Überwachung, professionelle Installation'
+        },
+        {
+          risk: 'Software-Fehler: Fehlsteuerung kann zu Battery-Überladung oder Grid-Backfeed führen',
+          mitigation: 'Hardware-Interlocks (unabhängig von Software), Fail-Safe-Logik, redundante Kontrollen'
+        },
+        {
+          risk: 'Frequenz-Instabilität: Falsche Frequenz kann zu Netzausfällen führen',
+          mitigation: 'Frequenz-Überwachung mit automatischer Abschaltung, Spannungs-Überwachung'
+        }
+      ]
+    }
   },
   'dashboard': {
     nonTechnical: {
@@ -88,7 +151,7 @@ const challengeExplanations: Record<string, {
   },
 }
 
-export function ChallengeExplanation({ packageId, color, nonTechnical, technical }: ChallengeExplanationProps) {
+export function ChallengeExplanation({ packageId, color, nonTechnical, technical, risks }: ChallengeExplanationProps) {
   const defaultExplanation = challengeExplanations[packageId]
   
   const what = nonTechnical?.what || defaultExplanation?.nonTechnical?.what
@@ -97,6 +160,7 @@ export function ChallengeExplanation({ packageId, color, nonTechnical, technical
   const howItWorks = technical?.howItWorks || defaultExplanation?.technical?.howItWorks
   const architecture = technical?.architecture || defaultExplanation?.technical?.architecture
   const integration = technical?.integration || defaultExplanation?.technical?.integration
+  const packageRisks = risks || defaultExplanation?.risks
 
   return (
     <div className="space-y-3">
@@ -169,6 +233,38 @@ export function ChallengeExplanation({ packageId, color, nonTechnical, technical
                 </p>
               </div>
             )}
+          </div>
+        </Accordion>
+      )}
+
+      {packageRisks && (
+        <Accordion
+          id={`${packageId}-risks`}
+          title="⚠️ Sicherheitsrisiken"
+          icon="⚠️"
+          color={color}
+        >
+          <div className="space-y-4">
+            <p className="text-xs font-mono text-historic-sepia mb-3">
+              {packageRisks.title}
+            </p>
+            {packageRisks.hazards.map((hazard, i) => (
+              <div key={i} className="bg-sihl-red/5 border border-sihl-red/20 rounded-lg p-3">
+                <p className="text-xs font-mono text-brand-black font-semibold mb-2 flex items-start gap-2">
+                  <span className="text-sihl-red mt-0.5">⚠</span>
+                  <span>{hazard.risk}</span>
+                </p>
+                <div className="bg-grid-green/10 border border-grid-green/30 rounded p-2 mt-2">
+                  <p className="text-[10px] font-mono text-brand-black font-semibold mb-1">Mitigation:</p>
+                  <p className="text-[10px] font-mono text-historic-sepia">{hazard.mitigation}</p>
+                </div>
+              </div>
+            ))}
+            <div className="mt-4 pt-3 border-t border-gray-200">
+              <a href="/safety#challenge-risks" className="text-thermal-orange hover:underline font-mono text-xs">
+                → Detaillierte Risikoanalyse auf der Safety-Seite
+              </a>
+            </div>
           </div>
         </Accordion>
       )}

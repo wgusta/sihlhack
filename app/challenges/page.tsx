@@ -79,12 +79,19 @@ export default function ChallengesPage() {
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
               3 Pflicht-Pakete. 20 Teams. Mehrere Teams pro Paket. Beste Lösung gewinnt.
             </p>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="/#compute-scenarios"
                 className="inline-block font-mono text-sm text-compute-blue hover:text-compute-blue/80 underline"
               >
                 → Was läuft auf dem Hub? Compute-Szenarien anschauen
+              </a>
+              <span className="text-gray-500 font-mono text-sm hidden sm:inline">|</span>
+              <a
+                href="/safety#challenge-risks"
+                className="inline-block font-mono text-sm text-thermal-orange hover:text-thermal-orange/80 underline"
+              >
+                → Sicherheitsrisiken pro Paket
               </a>
             </div>
 
@@ -325,7 +332,7 @@ export default function ChallengesPage() {
         </div>
 
         {/* Thermal Architecture Challenge */}
-        <section className="py-16 bg-gradient-to-br from-thermal-orange/5 via-off-white to-compute-blue/5">
+        <section id="thermal-architecture" className="py-16 bg-gradient-to-br from-thermal-orange/5 via-off-white to-compute-blue/5">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
@@ -393,18 +400,41 @@ export default function ChallengesPage() {
                     </ul>
                   </Accordion>
                   <Accordion id="path-a-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="thermal-orange">
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Öl-Handling:</strong> Dielektrisches Öl (z.B. Midel 7131) 
-                      muss fachgerecht gehandhabt werden. Leckagen müssen sofort erkannt werden.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Brandschutz:</strong> Öl ist brennbar. Leckwannen, 
-                      Brandschutz-Massnahmen und Not-Aus-Schalter sind Pflicht.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                      <strong className="text-brand-black">Wartung:</strong> Komplexer als Wasser-Systeme. 
-                      Öl muss regelmässig überprüft und eventuell gewechselt werden.
-                    </p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                          <strong className="text-brand-black">Öl-Handling:</strong> Dielektrisches Öl (z.B. Midel 7131) 
+                          muss fachgerecht gehandhabt werden. Leckagen müssen sofort erkannt werden.
+                        </p>
+                        <div className="bg-sihl-red/5 border border-sihl-red/20 rounded-lg p-3 mt-2">
+                          <p className="text-xs font-mono text-sihl-red font-semibold mb-1">⚠️ Spezifische Risiken:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Öl-Leckage: Umweltverschmutzung, Rutschgefahr</li>
+                            <li>• Brandrisiko: Öl ist brennbar (Flashpoint >200°C)</li>
+                            <li>• Öl-Dämpfe: Gesundheitsrisiko bei Einatmung</li>
+                          </ul>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Leckwanne (Auffangbehälter) für alle Ölsysteme</li>
+                            <li>• Brandschutzsystem kompatibel mit Öl</li>
+                            <li>• Belüftungssystem für Dampf-Abzug</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                        <strong className="text-brand-black">Brandschutz:</strong> Öl ist brennbar. Leckwannen, 
+                        Brandschutz-Massnahmen und Not-Aus-Schalter sind Pflicht.
+                      </p>
+                      <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                        <strong className="text-brand-black">Wartung:</strong> Komplexer als Wasser-Systeme. 
+                        Öl muss regelmässig überprüft und eventuell gewechselt werden.
+                      </p>
+                      <div className="mt-3 pt-3 border-t border-gray-200">
+                        <a href="/safety#challenge-risks" className="text-thermal-orange hover:underline font-mono text-xs">
+                          → Detaillierte Risikoanalyse auf der Safety-Seite
+                        </a>
+                      </div>
+                    </div>
                   </Accordion>
                 </div>
               </div>
@@ -462,18 +492,44 @@ export default function ChallengesPage() {
                     </ul>
                   </Accordion>
                   <Accordion id="path-b-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="compute-blue">
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Wärmeausbeute:</strong> Nur 60-70% der Wärme wird erfasst. 
-                      Der Rest geht über die Luft verloren. Nicht so effizient wie Immersion.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Leckage-Risiko:</strong> Wasser und Elektronik sind eine 
-                      gefährliche Kombination. Leckwannen und Überwachung sind Pflicht.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                      <strong className="text-brand-black">Geräusch:</strong> Pumpen machen Geräusche. 
-                      Nicht so lautlos wie Immersion-Cooling.
-                    </p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                          <strong className="text-brand-black">Wärmeausbeute:</strong> Nur 60-70% der Wärme wird erfasst. 
+                          Der Rest geht über die Luft verloren. Nicht so effizient wie Immersion.
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                          <strong className="text-brand-black">Leckage-Risiko:</strong> Wasser und Elektronik sind eine 
+                          gefährliche Kombination. Leckwannen und Überwachung sind Pflicht.
+                        </p>
+                        <div className="bg-sihl-red/5 border border-sihl-red/20 rounded-lg p-3 mt-2">
+                          <p className="text-xs font-mono text-sihl-red font-semibold mb-1">⚠️ Spezifische Risiken:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Elektrokontakt: Wasser + Strom = Lebensgefahr (tödliche Ströme möglich)</li>
+                            <li>• Leckage: Wasserschaden, Kurzschluss, Systemausfall</li>
+                            <li>• Pumpen-Ausfall: Führt zu Überhitzung und möglichem Systemausfall</li>
+                          </ul>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Vollständig isolierte Systeme (Wasser nie in Kontakt mit Strom)</li>
+                            <li>• Leckage-Erkennungssensoren mit sofortiger Abschaltung</li>
+                            <li>• Redundante Pumpen für Ausfallsicherheit</li>
+                            <li>• RCD/GFCI-Schutz für alle wassernahen Systeme</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                        <strong className="text-brand-black">Geräusch:</strong> Pumpen machen Geräusche. 
+                        Nicht so lautlos wie Immersion-Cooling.
+                      </p>
+                      <div className="mt-3 pt-3 border-t border-gray-200">
+                        <a href="/safety#challenge-risks" className="text-compute-blue hover:underline font-mono text-xs">
+                          → Detaillierte Risikoanalyse auf der Safety-Seite
+                        </a>
+                      </div>
+                    </div>
                   </Accordion>
                 </div>
               </div>
@@ -531,18 +587,42 @@ export default function ChallengesPage() {
                     </ul>
                   </Accordion>
                   <Accordion id="path-c-challenges" title="Was sind die Herausforderungen?" icon="⚠️" color="grid-green">
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Komplexität:</strong> Wärmepumpen sind komplexe Systeme. 
-                      Mehr Komponenten = mehr Fehlerquellen. Professionelle Installation empfohlen.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
-                      <strong className="text-brand-black">Stromverbrauch:</strong> Die Wärmepumpe braucht selbst Strom. 
-                      COP (Coefficient of Performance) bestimmt, wie effizient das ist. COP 3 = 1 kWh Strom erzeugt 3 kWh Wärme.
-                    </p>
-                    <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                      <strong className="text-brand-black">Kosten:</strong> Wärmepumpen sind teuer. 
-                      Die Investition muss sich durch höhere Wärmenutzung lohnen.
-                    </p>
+                    <div className="space-y-4">
+                      <div>
+                        <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                          <strong className="text-brand-black">Komplexität:</strong> Wärmepumpen sind komplexe Systeme. 
+                          Mehr Komponenten = mehr Fehlerquellen. Professionelle Installation empfohlen.
+                        </p>
+                        <div className="bg-sihl-red/5 border border-sihl-red/20 rounded-lg p-3 mt-2">
+                          <p className="text-xs font-mono text-sihl-red font-semibold mb-1">⚠️ Spezifische Risiken:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Hochdruck: Kältemittel unter hohem Druck (Explosionsgefahr bei Fehlern)</li>
+                            <li>• Kältemittel-Austritt: Umweltgefahr, Gesundheitsrisiko, Ozonabbau</li>
+                            <li>• Komplexe Fehlerketten: Mehrere Systeme müssen zusammenarbeiten</li>
+                          </ul>
+                          <p className="text-xs font-mono text-grid-green font-semibold mt-2 mb-1">✓ Mitigation:</p>
+                          <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                            <li>• Druck-Überwachung mit automatischer Abschaltung</li>
+                            <li>• Dichtheitsprüfung vor Inbetriebnahme</li>
+                            <li>• Professionelle Installation durch zertifizierte Techniker</li>
+                            <li>• Redundante Sicherheitssysteme</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-2">
+                        <strong className="text-brand-black">Stromverbrauch:</strong> Die Wärmepumpe braucht selbst Strom. 
+                        COP (Coefficient of Performance) bestimmt, wie effizient das ist. COP 3 = 1 kWh Strom erzeugt 3 kWh Wärme.
+                      </p>
+                      <p className="font-mono text-sm text-historic-sepia leading-relaxed">
+                        <strong className="text-brand-black">Kosten:</strong> Wärmepumpen sind teuer. 
+                        Die Investition muss sich durch höhere Wärmenutzung lohnen.
+                      </p>
+                      <div className="mt-3 pt-3 border-t border-gray-200">
+                        <a href="/safety#challenge-risks" className="text-grid-green hover:underline font-mono text-xs">
+                          → Detaillierte Risikoanalyse auf der Safety-Seite
+                        </a>
+                      </div>
+                    </div>
                   </Accordion>
                 </div>
               </div>

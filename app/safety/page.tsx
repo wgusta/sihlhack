@@ -30,6 +30,78 @@ export default function SafetyPage() {
           </div>
         </section>
 
+        {/* Safety Philosophy */}
+        <section className="py-16 bg-off-white">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <h2 className="font-display text-3xl font-bold text-brand-black">
+                Unsere Sicherheitsphilosophie
+              </h2>
+              <p className="mt-4 text-lg text-historic-sepia font-mono max-w-2xl mx-auto">
+                Wir versuchen, zu sicher zu sein, als dass wir es bereuen.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border-2 border-thermal-orange/30 p-8">
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-display text-xl font-bold text-brand-black mb-3 flex items-center gap-2">
+                    <span>🛡️</span>
+                    Über gesetzliche Anforderungen hinaus
+                  </h3>
+                  <p className="text-sm font-mono text-historic-sepia leading-relaxed">
+                    Unsere Sicherheitsmassnahmen gehen bewusst über die gesetzlichen Mindestanforderungen hinaus. 
+                    Wir setzen nicht nur auf Compliance, sondern auf proaktive Risikominimierung. 
+                    Jedes System wird vor dem Event von unabhängigen Safety Officers geprüft und freigegeben.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-display text-xl font-bold text-brand-black mb-3 flex items-center gap-2">
+                    <span>📍</span>
+                    Prototyp-Testing: Separater Bereich
+                  </h3>
+                  <p className="text-sm font-mono text-historic-sepia leading-relaxed mb-3">
+                    Alle Prototypen werden ausschliesslich in einem separaten Testbereich getestet, 
+                    der ausserhalb des offiziellen Event-Raums liegt, aber in der Nähe. 
+                    Dies minimiert Risiken für Teilnehmer im Haupt-Event-Bereich.
+                  </p>
+                  <ul className="space-y-2 text-xs font-mono text-historic-sepia ml-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-thermal-orange mt-0.5">•</span>
+                      <span>Prototypen werden NUR im separaten Testbereich betrieben</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-thermal-orange mt-0.5">•</span>
+                      <span>Testbereich liegt ausserhalb des Haupt-Event-Raums, aber in der Nähe</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-thermal-orange mt-0.5">•</span>
+                      <span>Alle Prototypen müssen vor dem Testen von Safety Officer freigegeben werden</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-thermal-orange mt-0.5">•</span>
+                      <span>Keine Prototypen im Haupt-Event-Raum während des Events</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-thermal-orange/10 border border-thermal-orange/30 rounded-lg p-4">
+                  <p className="text-sm font-mono text-brand-black font-semibold mb-2">
+                    Unser Ansatz: Proaktive Sicherheit
+                  </p>
+                  <p className="text-xs font-mono text-historic-sepia leading-relaxed">
+                    Statt zu warten, bis etwas schiefgeht, identifizieren wir Risiken im Voraus und 
+                    implementieren Massnahmen, die über das gesetzlich Erforderliche hinausgehen. 
+                    Sicherheit ist nicht verhandelbar – auch wenn das bedeutet, dass wir manche Aktivitäten 
+                    einschränken oder zusätzliche Prüfungen durchführen müssen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Safety Commitment */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -376,7 +448,10 @@ export default function SafetyPage() {
                 Regulatorische Compliance
               </h2>
               <p className="mt-4 text-gray-300 font-mono max-w-2xl mx-auto">
-                Alle Sicherheitsmassnahmen entsprechen den Schweizer Vorschriften.
+                Alle Sicherheitsmassnahmen entsprechen den Schweizer Vorschriften und gehen darüber hinaus.
+              </p>
+              <p className="mt-2 text-sm text-gray-400 font-mono max-w-2xl mx-auto">
+                Wir setzen nicht nur auf gesetzliche Mindestanforderungen, sondern auf proaktive Risikominimierung.
               </p>
             </div>
 
@@ -440,6 +515,305 @@ export default function SafetyPage() {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Challenge-Specific Risks */}
+        <section id="challenge-risks" className="py-16 bg-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold text-brand-black">
+                Sicherheitsrisiken pro Paket
+              </h2>
+              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
+                Jedes Paket hat spezifische Risiken. Wir erklären sie transparent und zeigen, wie wir sie minimieren.
+              </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="/challenges" className="text-thermal-orange hover:underline font-mono text-sm">
+                  → Alle Pakete und Challenges ansehen
+                </a>
+                <span className="text-gray-400 font-mono text-sm hidden sm:inline">|</span>
+                <a href="/challenges#thermal-architecture" className="text-thermal-orange hover:underline font-mono text-sm">
+                  → Wärme-Pfade mit Risiken vergleichen
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              {/* Demo-Kit Risks */}
+              <Card className="border-2 border-thermal-orange/20">
+                <CardHeader>
+                  <CardTitle className="text-xl text-brand-black flex items-center gap-3">
+                    <span>⚡</span>
+                    Demo-Kit: Spezifische Risiken
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>🔋</span>
+                        Batterie-Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Thermal Runaway:</strong> Lithium-Batterien können bei Beschädigung oder Überladung explodieren. Temperaturen über 150°C lösen eine Kettenreaktion aus.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Überladung/Überentladung:</strong> Führt zu irreversiblen Zellschäden und erhöht Brandrisiko.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Kurzschluss:</strong> Bei unsachgemässer Handhabung oder defekten Zellen kann Kurzschluss zu sofortiger Überhitzung führen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• BMS-Überwachung (Temperatur, Spannung, Strom) mit automatischer Abschaltung</li>
+                          <li>• Temperatur-Sensoren an jeder Batterie-Zelle</li>
+                          <li>• Not-Aus-Schalter für sofortige Trennung</li>
+                          <li>• Brandschutzsystem speziell für Lithium-Batterien</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>⚡</span>
+                        Elektrische Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Hochspannung:</strong> Batterie-Spannungen bis 48V+ können bei direktem Kontakt gefährlich sein.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Fehlerstrom:</strong> Wasser oder Öl in Kontakt mit elektrischen Komponenten kann zu lebensgefährlichen Strömen führen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Grid-Backfeed:</strong> Unkontrollierte Einspeisung ins Netz gefährdet Netzwerker und kann zu Netzinstabilität führen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• RCD/GFCI-Schutz (30mA) für alle Stromkreise</li>
+                          <li>• Isolationsprüfung vor Inbetriebnahme</li>
+                          <li>• Grid-Trennung mit Schutzrelais</li>
+                          <li>• Professionelle Installation durch lizenzierte Elektriker</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>🌡️</span>
+                        Thermische Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Überhitzung:</strong> Bei hoher Compute-Last können Komponenten Temperaturen über 80°C erreichen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Heisse Oberflächen:</strong> Verbrennungsgefahr bei direktem Kontakt mit heissen Komponenten.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Temperatur-Limits mit automatischer Abschaltung</li>
+                          <li>• Kühlungssysteme (Immersion/Water/Heat Pump)</li>
+                          <li>• Warnsysteme und Absperrungen für heisse Bereiche</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Hardware Safety Risks */}
+              <Card className="border-2 border-sihl-red/20">
+                <CardHeader>
+                  <CardTitle className="text-xl text-brand-black flex items-center gap-3">
+                    <span>🛡️</span>
+                    Hardware Safety: Spezifische Risiken
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>🛢️</span>
+                        Öl-Immersion Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Öl-Leckage:</strong> Umweltverschmutzung, Rutschgefahr auf Böden, Kontamination von anderen Systemen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Brandrisiko:</strong> Öl hat Flashpoint >200°C, aber ist brennbar. Bei Überhitzung oder externer Zündquelle kann Öl Feuer fangen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Öl-Dämpfe:</strong> Gesundheitsrisiko bei Einatmung, besonders in geschlossenen Räumen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Leckwanne (Auffangbehälter) für alle Ölsysteme</li>
+                          <li>• Brandschutzsystem kompatibel mit Öl (nicht wasserbasiert)</li>
+                          <li>• Belüftungssystem für Dampf-Abzug</li>
+                          <li>• Professionelle Handhabung durch geschultes Personal</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>💧</span>
+                        Wasser-Loop Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Elektrokontakt:</strong> Wasser + Strom = Lebensgefahr. Bereits kleine Leckagen können zu tödlichen Strömen führen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Leckage:</strong> Wasserschaden, Kurzschluss, Systemausfall.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Pumpen-Ausfall:</strong> Führt zu Überhitzung und möglichem Systemausfall.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Vollständig isolierte Systeme (Wasser nie in Kontakt mit Strom)</li>
+                          <li>• Leckage-Erkennungssensoren mit sofortiger Abschaltung</li>
+                          <li>• Redundante Pumpen für Ausfallsicherheit</li>
+                          <li>• RCD/GFCI-Schutz für alle wassernahen Systeme</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>♨️</span>
+                        Wärmepumpe Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Hochdruck:</strong> Kältemittel steht unter hohem Druck. Fehlerhafte Komponenten können zu Explosionen führen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Kältemittel-Austritt:</strong> Umweltgefahr, Gesundheitsrisiko, Ozonabbau.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Komplexe Fehlerketten:</strong> Mehrere Systeme müssen zusammenarbeiten. Ein Ausfall kann Kaskadenfehler verursachen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Druck-Überwachung mit automatischer Abschaltung</li>
+                          <li>• Dichtheitsprüfung vor Inbetriebnahme</li>
+                          <li>• Professionelle Installation durch zertifizierte Techniker</li>
+                          <li>• Redundante Sicherheitssysteme</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Grid-OS Risks */}
+              <Card className="border-2 border-compute-blue/20">
+                <CardHeader>
+                  <CardTitle className="text-xl text-brand-black flex items-center gap-3">
+                    <span>⚡</span>
+                    Grid-OS: Spezifische Risiken
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>🔌</span>
+                        Grid-Verbindung Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Backfeed ins Netz:</strong> Unkontrollierte Einspeisung gefährdet Netzwerker, die am Netz arbeiten. Kann zu tödlichen Unfällen führen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Frequenz-Instabilität:</strong> Falsche Frequenz kann zu Netzausfällen führen und andere Verbraucher schädigen.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Überspannung:</strong> Kann andere Geräte im Netz beschädigen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Grid-Trennung mit Schutzrelais (Anti-Islanding)</li>
+                          <li>• Frequenz-Überwachung mit automatischer Abschaltung</li>
+                          <li>• Spannungs-Überwachung und Schutz</li>
+                          <li>• Professionelle Installation und Prüfung durch Netzbetreiber</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-mono text-sm font-bold text-sihl-red mb-3 flex items-center gap-2">
+                        <span>💻</span>
+                        Software-Fehler Risiken
+                      </h4>
+                      <ul className="space-y-2 text-xs font-mono text-historic-sepia mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Fehlsteuerung:</strong> Software-Bug kann dazu führen, dass Compute bei Netzausfall weiterläuft und Batterie entlädt.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Battery-Überladung:</strong> Software-Fehler kann zu Überladung führen, was Thermal Runaway auslösen kann.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-sihl-red mt-0.5">⚠</span>
+                          <span><strong>Grid-Backfeed durch Bug:</strong> Software-Fehler kann Grid-Trennung umgehen.</span>
+                        </li>
+                      </ul>
+                      <div className="bg-grid-green/10 border border-grid-green/30 rounded-lg p-3">
+                        <p className="text-xs font-mono text-brand-black font-semibold mb-2">Mitigation:</p>
+                        <ul className="space-y-1 text-xs font-mono text-historic-sepia">
+                          <li>• Hardware-Interlocks (unabhängig von Software)</li>
+                          <li>• Fail-Safe-Logik (bei Fehler: sicherer Zustand)</li>
+                          <li>• Redundante Kontrollen und Überwachung</li>
+                          <li>• Code-Review und Testing vor Deployment</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>

@@ -76,6 +76,17 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
         <ChallengeExplanation packageId={pkg.id} color={pkg.color} />
       </div>
 
+      {/* Safety Link */}
+      <div className="p-4 bg-sihl-red/5 border-t border-gray-100">
+        <a 
+          href="/safety#challenge-risks" 
+          className="flex items-center gap-2 text-xs font-mono text-sihl-red hover:text-sihl-red/80 transition-colors"
+        >
+          <span>⚠️</span>
+          <span>Detaillierte Sicherheitsrisiken für dieses Paket →</span>
+        </a>
+      </div>
+
       {/* Deliverables */}
       <div className="p-6 bg-white/50">
         <h4 className="font-display font-semibold text-brand-black mb-3 flex items-center gap-2">
