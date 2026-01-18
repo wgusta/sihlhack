@@ -304,3 +304,43 @@ export async function sendResourceSubmissionEmail(data: {
     `,
   })
 }
+
+/**
+ * Send role suggestion email to hello@sihlhack.ch
+ */
+export async function sendRoleSuggestionEmail(data: {
+  roleName: string
+  description: string
+  submitterName?: string
+  submitterEmail?: string
+}): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: 'hello@sihlhack.ch',
+    subject: `[sihlhack] Neuer Rollen-Vorschlag: ${data.roleName}`,
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span>
+        </h1>
+        <h2 style="color: #1A1A1A; margin-top: 24px;">Neuer Rollen-Vorschlag</h2>
+        
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #E62F2D;">
+          <p style="margin: 0 0 8px 0;"><strong>Rolle:</strong> ${data.roleName}</p>
+          <p style="margin: 8px 0 0 0;"><strong>Beschreibung:</strong><br>${data.description.replace(/\n/g, '<br/>')}</p>
+        </div>
+
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #8B7355;">
+          <p style="margin: 0 0 8px 0;"><strong>Eingereicht von:</strong></p>
+          ${data.submitterName ? `<p style="margin: 0 0 8px 0;">Name: ${data.submitterName}</p>` : '<p style="margin: 0 0 8px 0;">Anonym</p>'}
+          ${data.submitterEmail ? `<p style="margin: 0;">E-Mail: <a href="mailto:${data.submitterEmail}" style="color: #B5A642;">${data.submitterEmail}</a></p>` : ''}
+        </div>
+
+        <p style="color: #8B7355; font-size: 12px; margin-top: 24px;">
+          Diese E-Mail wurde automatisch vom sihlhack-Website-Formular generiert am ${new Date().toLocaleString('de-CH')}.
+        </p>
+      </div>
+    `,
+  })
+}

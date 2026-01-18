@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { StepIndicator } from './StepIndicator'
 import { TermsCheckbox } from './TermsCheckbox'
+import { RoleSuggestionModal } from './RoleSuggestionModal'
 import { formatCHF } from '@/lib/utils'
 import { HACKATHON_ROLES, SKILL_TAGS } from '@/lib/roles'
 import { cn } from '@/lib/utils'
@@ -46,6 +47,7 @@ export function RegistrationForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showRoleSuggestionModal, setShowRoleSuggestionModal] = useState(false)
 
   const [formData, setFormData] = useState<FormData>({
     email: '',
@@ -167,6 +169,11 @@ export function RegistrationForm() {
   return (
     <div className="max-w-lg mx-auto">
       <StepIndicator steps={steps} currentStep={currentStep} />
+      
+      <RoleSuggestionModal
+        isOpen={showRoleSuggestionModal}
+        onClose={() => setShowRoleSuggestionModal(false)}
+      />
 
       {error && (
         <div className="mb-6 p-4 bg-sihl-red/10 border border-sihl-red rounded-lg">
@@ -254,6 +261,21 @@ export function RegistrationForm() {
                   </div>
                 </button>
               ))}
+              
+              {/* Role Suggestion Box */}
+              <button
+                type="button"
+                onClick={() => setShowRoleSuggestionModal(true)}
+                className="col-span-2 p-4 rounded-lg border-2 border-dashed border-historic-sepia/40 hover:border-sihl-red/50 transition-all text-center group"
+              >
+                <Icon emoji="💡" size="lg" color="text-historic-sepia group-hover:text-sihl-red" />
+                <p className="font-mono text-sm font-medium text-brand-black mt-2">
+                  Deine Rolle ist nicht dabei?
+                </p>
+                <p className="font-mono text-xs text-historic-sepia mt-1">
+                  Schlage eine neue Rolle vor
+                </p>
+              </button>
             </div>
           </div>
 
