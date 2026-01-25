@@ -1,98 +1,34 @@
-# CLAUDE.md
+# sihlhack.ch
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+**Be extremely concise, sacrifice grammar for concision. No dashes (—, –, -) in prose, use commas/colons/semicolons. German: active voice (Aktiv), direct verbs.**
 
-## Project Overview
-
-sihlhack.ch is Switzerland's first participant-oriented hackathon building the Sihlicon Hub: an Active Energy Node combining Battery, Compute, Heat, and Resilience. The hackathon inverts the traditional model where participants fund the event, propose challenges, and own all outcomes under Apache 2.0.
-
-Read STRATEGY.md for the authoritative vision and non-negotiable principles.
+Switzerland's first participant-oriented hackathon building Sihlicon Hub (Active Energy Node: Battery, Compute, Heat, Resilience). Participants fund, propose, vote, own outcomes (Apache 2.0).
 
 ## Core Model (Non-Negotiable)
-
-The fundamental inversion that defines this project:
 
 ```
 Traditional:  Companies pay → Companies decide → Participants execute
 sihlhack:     Participants pay → Participants decide → Participants execute
 ```
 
-Key principles never to dilute:
-- Participants fund through registration fees (CHF 150)
-- 70% of collected funds go to prize pool, 30% to operations
-- Participants propose and vote on projects
-- Companies contribute historical data only, never money or influence
-- All code is Apache 2.0: participants own their work
-- All finances public in real time
-- Automatic refunds if minimum threshold not met
-
-Reject any features or changes that move toward traditional corporate hackathon dynamics.
+- CHF 150 registration (70% prize pool, 30% ops), participants vote on projects
+- Companies: data only, no money/influence | All code Apache 2.0
+- Public finances, auto-refunds if minimum not met
+- Reject features moving toward corporate model
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router), TypeScript (strict mode)
-- **Styling**: Tailwind CSS 3 with custom design system
-- **Database**: Vercel Postgres + Drizzle ORM
-- **Storage**: Vercel Blob
-- **Auth**: Magic link via Resend (no passwords ever)
-- **Payments**: Stripe Connect with manual payouts
-- **Data fetching**: SWR for client-side caching
-- **Icons**: Heroicons React (solid style)
+Next.js 16 (App Router, TS strict), Tailwind CSS 3, Vercel Postgres + Drizzle, Vercel Blob
+Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroicons
 
-Environment variables required: `POSTGRES_URL`, `BLOB_READ_WRITE_TOKEN`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `RESEND_API_KEY`, `CRON_SECRET`, `NEXT_PUBLIC_SITE_URL`
+**Env:** POSTGRES_URL, BLOB_READ_WRITE_TOKEN, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, RESEND_API_KEY, CRON_SECRET, NEXT_PUBLIC_SITE_URL
 
-## Architecture
+## Key Directories
 
-### Directory Structure
-
-```
-/app                    - Next.js App Router pages and routes
-  /api                  - API endpoints (auth, payments, proposals, admin)
-  /auth                 - Authentication pages (login, verify)
-  /admin                - Admin dashboard pages
-  /challenges           - Challenge descriptions and thermal architecture
-  /company              - Company profile and NDA flows
-  /dashboard            - Participant dashboards
-  /proposals            - Project proposal pages
-  /register             - Registration flow
-  /team                 - Team matching interface
-
-/components             - React components organized by feature
-  /auth                 - Login, verification components
-  /challenges           - Challenge cards, thermal paths
-  /data                 - Data catalog display
-  /landing              - Homepage components (hero, features, FAQ)
-  /proposals            - Proposal forms and listings
-  /registration         - Registration form components
-  /ui                   - Reusable UI (buttons, inputs, modals, etc.)
-  /visualizations       - Data visualizations and charts
-
-/lib                    - Utilities and business logic
-  /db                   - Drizzle schema and migrations
-  /admin.ts             - Admin-only operations
-  /auth.ts              - Session and token management
-  /email.ts             - Email templates (Resend)
-  /funds.ts             - Fund calculations and breakeven
-  /refunds.ts           - Automatic refund logic
-  /roles.ts             - Hackathon role definitions
-  /stripe.ts            - Stripe client wrapper
-  /icon-mapping.ts      - Heroicon name to role/skill mapping
-  /utils.ts             - Common utilities
-
-/public                 - Static assets, images, data files
-
-/drizzle                - Migration files (auto-generated)
-
-/.claude                - Multi-agent discussion files
-
-/future-comms           - Preserved content for other channels (gitignored)
-                          - endgame-vision.md (investor pitch content)
-                          - post-event-paths.md (post-registration email content)
-                          - faq-removed-questions.md (Discord/email support)
-                          - thermal-paths-technical.md (video/PDF content)
-                          - compute-scenarios-detail.md (technical docs)
-                          - data-providers-ecosystem.md (partner outreach)
-```
+- `/app`: Next.js (api, auth, admin, challenges, dashboard, proposals, registration, team)
+- `/components`: React (auth, challenges, data, landing, proposals, registration, ui, visualizations)
+- `/lib`: Utilities (db/, auth.ts, stripe.ts, email.ts, funds.ts, refunds.ts, admin.ts, roles.ts)
+- `/future-comms`: Offline content (investor pitch, post-reg emails, detailed docs)
 
 ### Page Content Strategy
 
@@ -175,70 +111,23 @@ npm run db:migrate       # Run pending migrations
 npm run db:studio        # Open Drizzle Studio UI (localhost:3001)
 ```
 
-## Multi-Agent Development Workflow
+## Multi-Agent Workflow
 
-This project uses specialized agents for different concerns. Coordination happens through discussion files:
+| Agent | Task | Trigger |
+|-------|------|---------|
+| architect | Design, schema, API contracts | Major features, DB changes |
+| frontend | UI, pages, styling, client effects | Component work, layout |
+| backend | API, queries, auth | Endpoints, complex logic |
+| payment | Stripe, funds, refunds | Payment flows, billing |
+| reviewer | Code review, security, bugs | Pre-deployment QA |
+| deployer | Deployment, environment | Production push |
 
-### Agent Roles
+**Protocol:** Agent work → Discussion file (`.claude/discussions/`) → `/reviewer` → Resolution → `/deployer`
 
-| Agent | Responsibility | When to Use |
-|-------|---------------|------------|
-| `/architect` | System design, schema changes, API contracts | Planning major features, database changes |
-| `/frontend` | UI, pages, styling, client-side effects | Component work, page layout, responsive design |
-| `/backend` | API routes, database queries, auth logic | API endpoints, complex business logic |
-| `/payment` | Stripe integration, fund calculations, refunds | Payment flows, financial transactions |
-| `/reviewer` | Code review, security, bug detection | Pre-deployment QA, security audit |
-| `/deployer` | Deployment orchestration, environment setup | Final deployment to production |
+## Writing
 
-### Discussion Protocol
-
-Before any deployment:
-
-1. **Agent Work**: Each agent completes assigned tasks
-2. **Documentation**: Create discussion file in `.claude/discussions/YYYY-MM-DD-[topic].md`
-3. **Review**: `/reviewer` analyzes all changes and discussions
-4. **Resolution**: Issues discussed and resolved in response sections
-5. **Deployment**: `/deployer` proceeds only after consensus
-
-Discussion file template:
-
-```markdown
-# Discussion: [Topic]
-Date: YYYY-MM-DD
-Agent: [agent-name]
-Status: [open|resolved|blocked]
-
-## Context
-What triggered this work
-
-## Findings
-What was discovered or built
-
-## Concerns
-Potential issues, security risks, edge cases
-
-## Proposed Actions
-Recommended next steps
-
-## Responses
-[Other agents add input here]
-```
-
-## Writing Guidelines
-
-### German Text
-- Always use active voice (Aktiv): "Wir bauen" not "Es wird gebaut"
-- Direct, action-oriented verbs
-- No passive voice constructions
-
-### Swiss Number Formatting
-- Currency: always `CHF` prefix, e.g., `CHF 150`
-- Thousands separator: apostrophe, not comma: `CHF 11'000` not `CHF 11,000`
-- Examples: `CHF 4'500`, `CHF 105'000`, `CHF 1'234.50`
-
-### Punctuation
-- Avoid em dashes, en dashes, hyphens in prose
-- Use commas, colons, semicolons to structure sentences
+- Inclusive: "Teilnehmende" (not "Teilnehmer"), English role titles
+- Swiss: `CHF 150`, `CHF 11'000` (apostrophe separator)
 
 ## Code Standards
 
@@ -249,29 +138,11 @@ Recommended next steps
 - **Fund transparency**: Public display at all times
 - **Type safety**: TypeScript strict mode enabled
 
-## Swiss Compliance Requirements
+## Swiss Compliance
 
-Before collecting real payments, ensure these legal requirements are met:
-
-### Legal & Governance
-- Legal entity established (Verein or GmbH)
-- Event liability insurance (Haftpflicht-Versicherung)
-- Terms of participation at `/agb` in German
-- Code of conduct at appropriate route
-- Historical data access agreements with companies
-
-### Data Protection (DSG)
-- Privacy policy at `/datenschutz` in German
-- Data Processing Agreements with Vercel, Stripe, Resend
-- No personally identifiable information in logs or public displays
-- Breach notification procedure documented
-- User access/deletion/export request process implemented
-
-### Payments & Finances
-- Avoid "escrow" language (not licensed for escrow services)
-- Respect Stripe 90-day payout constraint
-- VAT (MWST) assessment and reporting with accountant
-- Public budget transparency maintained
+Legal: Verein/GmbH, liability insurance, German `/agb` + `/datenschutz`
+DSG: DPA vendors, no PII logs, breach notification, data access/deletion
+Payments: No escrow language, Stripe 90d payout, VAT, public transparency
 
 ## Key Business Logic Files
 
@@ -313,41 +184,15 @@ Before collecting real payments, ensure these legal requirements are met:
 
 ## Common Tasks
 
-### Adding a New Participant Flow
-1. Create form component in `/components/registration/`
-2. Create API route in `/app/api/` to handle submission
-3. Add new fields to `participants` table schema if needed
-4. Update `lib/roles.ts` with new role/skill options
-5. Use `/backend` agent for database work, `/frontend` for UI
+**New Participant Flow:** Form component → API route → update `participants` schema → `lib/roles.ts`
+**New Admin Feature:** Page `/app/admin/` → API `/app/api/admin/` → use `isAdmin()` from `lib/admin.ts`
+**Financial Change:** Discussion file → `lib/funds.ts` → schema → `db:generate` → `db:push` → test
+**Deploy:** Commit → lint → discussion → `/reviewer` → `/deployer` → Vercel via GitHub
 
-### Adding an Admin Feature
-1. Create page in `/app/admin/` (protected by auth middleware)
-2. Add API route in `/app/api/admin/` with admin check
-3. Import `isAdmin()` from `lib/admin.ts` to verify permissions
-4. Document in admin section of schema
+## Timeline & Thresholds
 
-### Changing Financial Model
-1. Document changes in discussion file first
-2. Update budget table or calculations in `lib/funds.ts`
-3. Add new fields to schema if needed
-4. Run `npm run db:generate` then `npm run db:push`
-5. Update `/api/funds` response format if needed
-6. Test break-even calculation edge cases
-
-### Deploying to Production
-1. Ensure all changes are committed and pushed to GitHub
-2. All tests passing, lint clean: `npm run lint`
-3. Create discussion documenting what changed and why
-4. Get approval from `/reviewer` agent
-5. Use `/deployer` agent to push to Vercel (connected via GitHub)
-
-## Swiss Context Notes
-
-- **Pilot event (Snackathons)**: April/May 2026 (2 days, free, 10-20 participants)
-- **Main event date**: September 2026 (3 days)
-- Target participants: 100 at CHF 150 registration
-- Prize pool: 70% of revenue (percentage-based, not fixed amount)
-- Event minimum threshold: approximately 100 participants for break-even
-- Automatic refunds triggered if participants drop below minimum in final weeks
-- All terminology uses Swiss German where appropriate (Sihltal, LEG, etc.)
-- See CRITICAL-ANALYSIS.md for vulnerabilities and strategic pivots
+- April 2026: Pilot #1 (Sihl-Sim API, 18h, free, 10-20)
+- Mai 2026: Pilot #2 (Sihl-Sim Iteration, 18h, free, 10-20)
+- Historik Hack: Async archive research (2-4 weeks pre-event, unlimited)
+- **Main:** September 2026 (3d, CHF 150, 100 min for break-even)
+- Prize: 70% revenue, auto-refund if <100 participants final weeks
