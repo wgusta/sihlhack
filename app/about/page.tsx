@@ -431,15 +431,19 @@ export default function AboutPage() {
                   <ul className="space-y-3 text-sm font-mono text-historic-sepia">
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>Musterstatuten für AG und ZH</span>
+                      <span>LEG-Statuten und Vertragsvorlagen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>Verträge zwischen Teilnehmenden (Producer/Consumer)</span>
+                      <span>StromVG/EnG Compliance-Checklisten</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>Behörden-Checklisten und Formulare</span>
+                      <span>Hardware Reuse (CE-Kennzeichnung, PrSG)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-thermal-orange">→</span>
+                      <span>Haftungsklärung und Versicherungsfragen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
