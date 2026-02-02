@@ -319,9 +319,9 @@ export default function AboutPage() {
             {/* Package-Based Team Composition */}
             <div className="bg-brand-black rounded-2xl p-6 sm:p-8">
               <h3 className="font-display text-xl font-bold text-white text-center mb-6">
-                Team-Zusammensetzung pro Paket (5 Personen)
+                Team-Zusammensetzung pro Challenge (5 Personen)
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {HACKATHON_PACKAGES.filter(p => p.type === 'mandatory').map((pkg) => {
                   const teamComp = PACKAGE_TEAM_COMPOSITIONS[pkg.id as keyof typeof PACKAGE_TEAM_COMPOSITIONS]
                   return (
