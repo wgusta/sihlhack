@@ -719,7 +719,7 @@ export default function SnackathonsPage() {
                 <div>
                   <h3 className="font-display text-lg font-bold text-brand-black">September 2026: sihlhack</h3>
                   <p className="font-mono text-sm text-historic-sepia mt-1">
-                    Der grosse Event mit 100 Teilnehmenden. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
+                    Der grosse Event mit über 100 Teilnehmenden. Was wir bei den Pilots gelernt haben, fliesst direkt ein.
                     Snackathons Alumni erhalten 30% Rabatt auf die Teilnahmegebühr (CHF 150 → CHF 105).
                   </p>
                 </div>
