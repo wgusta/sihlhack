@@ -217,9 +217,76 @@ export default function ChallengesPage() {
             <h2 className="text-center font-display text-2xl font-bold mb-4">
               Übersicht
             </h2>
-            <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-12">
+            <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-4">
               Vier Challenges bauen aufeinander auf: Von lokalen Sensoren über Multi-Node-Koordination bis zur Grid-Integration und rechtlichen Grundlagen.
             </p>
+            <div className="text-center mb-12">
+              <div className="inline-block bg-sihl-red/10 border-2 border-sihl-red/30 rounded-lg px-4 py-2">
+                <p className="font-mono text-sm text-sihl-red font-bold">
+                  ⚠️ Pro Team nur 1 Challenge · Mehrere Teams arbeiten parallel an der gleichen Challenge
+                </p>
+              </div>
+            </div>
+
+            {/* Onion Layer Visualization */}
+            <div className="mb-12">
+              <h3 className="text-center font-mono text-xs text-gray-500 uppercase tracking-wider mb-6">
+                Architektur-Ebenen
+              </h3>
+              <div className="relative max-w-2xl mx-auto aspect-square">
+                {/* Layer 4 (Outermost): LEG Legal - Rechtliche Grundlagen */}
+                <div className="absolute inset-0 rounded-full border-4 border-dashed border-industrial-gold/60 flex items-center justify-center">
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2">
+                    <div className="text-center">
+                      <div className="font-mono text-xs text-industrial-gold font-bold">⚖️ LEG Legal</div>
+                      <div className="font-mono text-[9px] text-gray-500">Rechtliche Grundlagen</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Layer 3: Grid-OS Logic - Netzanschluss */}
+                <div className="absolute inset-[12%] rounded-full border-4 border-dashed border-compute-blue/60 flex items-center justify-center">
+                  <div className="absolute top-6 left-1/2 -translate-x-1/2">
+                    <div className="text-center">
+                      <div className="font-mono text-xs text-compute-blue font-bold">⚡ Grid-OS</div>
+                      <div className="font-mono text-[9px] text-gray-500">Netzanschluss</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Layer 2: Multi-Node Safety - LEG-Verbund */}
+                <div className="absolute inset-[24%] rounded-full border-4 border-dashed border-sihl-red/60 flex items-center justify-center">
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2">
+                    <div className="text-center">
+                      <div className="font-mono text-xs text-sihl-red font-bold">🛡️ Multi-Node</div>
+                      <div className="font-mono text-[9px] text-gray-500">LEG-Verbund</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Layer 1 (Innermost): Sensor Integration - Einzelne LEG */}
+                <div className="absolute inset-[36%] rounded-full border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="font-mono text-sm text-thermal-orange font-bold">📡 Sensor Integration</div>
+                    <div className="font-mono text-[10px] text-gray-600 mt-1">Einzelne LEG</div>
+                    <div className="font-mono text-[8px] text-gray-500 mt-2">
+                      Innerster Ring:<br/>Lokale Sensoren & Daten
+                    </div>
+                  </div>
+                </div>
+
+                {/* Arrows showing data flow */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
+                  <div className="font-mono text-[9px] text-gray-400">
+                    ← Datenfluss: Innen nach Außen →
+                  </div>
+                </div>
+              </div>
+              <p className="text-center font-mono text-[10px] text-gray-500 mt-6 max-w-xl mx-auto">
+                Jedes Team wählt eine Ebene. Die inneren Ringe (Sensoren) liefern Daten für die äußeren Ringe (Grid-OS).
+                Rechtliche Grundlagen (LEG) ermöglichen das Gesamtsystem.
+              </p>
+            </div>
 
             {/* Snackathons - Optional */}
             <div className="mb-6">
@@ -294,7 +361,7 @@ export default function ChallengesPage() {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-display text-base font-bold text-brand-black mb-1">
-                          Sensor Integration <span className="font-mono text-xs text-thermal-orange ml-2">→ Local Nodes</span>
+                          Sensor Integration <span className="font-mono text-xs text-thermal-orange ml-2">→ Einzelne LEG</span>
                         </h4>
                         <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
                           <li>• Sensoren</li>
@@ -324,7 +391,7 @@ export default function ChallengesPage() {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-display text-base font-bold text-brand-black mb-1">
-                          Multi-Node Safety <span className="font-mono text-xs text-sihl-red ml-2">→ Safety Coordination</span>
+                          Multi-Node Safety <span className="font-mono text-xs text-sihl-red ml-2">→ LEG-Verbund</span>
                         </h4>
                         <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
                           <li>• Multi-Node</li>
@@ -354,7 +421,7 @@ export default function ChallengesPage() {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-display text-base font-bold text-brand-black mb-1">
-                          Grid-OS Logic <span className="font-mono text-xs text-compute-blue ml-2">→ Grid Scheduler</span>
+                          Grid-OS Logic <span className="font-mono text-xs text-compute-blue ml-2">→ Netzanschluss</span>
                         </h4>
                         <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
                           <li>• Load Balancing</li>
@@ -444,11 +511,6 @@ export default function ChallengesPage() {
             </div>
           </div>
         </section>
-
-        {/* Pre-Challenge Section */}
-        <div id="pre-challenge">
-          <PreChallengeSection />
-        </div>
 
         {/* Thermal Architecture Challenge */}
         <section id="thermal-architecture" className="py-16 bg-gradient-to-br from-thermal-orange/5 via-off-white to-compute-blue/5">
