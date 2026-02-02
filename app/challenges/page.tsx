@@ -215,29 +215,11 @@ export default function ChallengesPage() {
         <section className="bg-white py-16 border-b">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center font-display text-2xl font-bold mb-4">
-              Übersicht & Architektur
+              Übersicht
             </h2>
-            <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-8">
-              Die drei Pakete bilden aufeinander aufbauende Schichten:
-              <strong className="text-thermal-orange"> Sensor Integration</strong> sammelt lokale Daten,
-              <strong className="text-sihl-red"> Multi-Node Safety</strong> koordiniert zwischen Nodes,
-              <strong className="text-compute-blue"> Grid-OS Logic</strong> orchestriert das Gesamtsystem.
+            <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-12">
+              Vier Challenges bauen aufeinander auf: Von lokalen Sensoren über Multi-Node-Koordination bis zur Grid-Integration und rechtlichen Grundlagen.
             </p>
-
-            {/* ASCII-style flowchart */}
-            <div className="bg-off-white rounded-xl p-6 font-mono text-xs overflow-x-auto mb-12">
-              <pre className="text-gray-700 leading-relaxed">
-{`┌────────────────┐     ┌─────────────────┐     ┌──────────────────┐     ┌─────────────┐
-│ Local Nodes    │────▶│ Safety          │────▶│ Grid Scheduler   │────▶│ External    │
-│ (Sensor Integ) │     │ Coordination    │     │ (Grid-OS Logic)  │     │ Grid        │
-└────────────────┘     └─────────────────┘     └──────────────────┘     └─────────────┘
-      ↓                       ↓                        ↓
-  • Sensoren              • Multi-Node            • Load Balancing
-  • Thermal Mgmt         • Failover              • VPP Integration
-  • Local Storage        • Network Sync          • Market Signals
-  • Node Dashboard       • Coord. Dashboard      • System Dashboard`}
-              </pre>
-            </div>
 
             {/* Snackathons - Optional */}
             <div className="mb-6">
@@ -314,16 +296,142 @@ export default function ChallengesPage() {
               </div>
             </div>
 
-            {/* Main Challenge Packages */}
-            <div className="mb-6">
-              <h3 className="font-mono text-xs text-brand-black uppercase tracking-wider text-center mb-4">
+            {/* Main Challenge Packages - Layered Architecture */}
+            <div className="mb-12">
+              <h3 className="font-mono text-xs text-brand-black uppercase tracking-wider text-center mb-2">
                 Die vier Challenges
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <PackageCardCompact key="sensor-integration" pkg={mandatoryPackages.find(p => p.id === 'sensor-integration')!} />
-                <PackageCardCompact key="operational-safety-logic" pkg={mandatoryPackages.find(p => p.id === 'operational-safety-logic')!} />
-                <PackageCardCompact key="grid-os-logic" pkg={mandatoryPackages.find(p => p.id === 'grid-os-logic')!} />
-                <PackageCardCompact key="leg-starter" pkg={mandatoryPackages.find(p => p.id === 'leg-starter')!} />
+              <p className="font-mono text-[10px] text-gray-500 text-center mb-6">
+                Aufeinander aufbauende Ebenen: Sensoren → Safety → Scheduler → Grid + Recht
+              </p>
+
+              {/* Visual Layer Stack */}
+              <div className="max-w-4xl mx-auto space-y-3 mb-8">
+                {/* Layer 1: Sensor Integration */}
+                <a href="#sensor-integration" className="block group">
+                  <div className="bg-gradient-to-r from-thermal-orange/10 to-thermal-orange/5 border-2 border-thermal-orange/30 hover:border-thermal-orange rounded-xl p-4 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <Icon emoji="📡" size="xl" color="text-thermal-orange" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-base font-bold text-brand-black mb-1">
+                          Sensor Integration <span className="font-mono text-xs text-thermal-orange ml-2">→ Local Nodes</span>
+                        </h4>
+                        <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
+                          <li>• Sensoren</li>
+                          <li>• Thermal Mgmt</li>
+                          <li>• Local Storage</li>
+                          <li>• Node Dashboard</li>
+                        </ul>
+                      </div>
+                      <div className="flex-shrink-0 text-thermal-orange opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Arrow Down */}
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-xl">↓</div>
+                </div>
+
+                {/* Layer 2: Multi-Node Safety */}
+                <a href="#operational-safety-logic" className="block group">
+                  <div className="bg-gradient-to-r from-sihl-red/10 to-sihl-red/5 border-2 border-sihl-red/30 hover:border-sihl-red rounded-xl p-4 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <Icon emoji="🛡️" size="xl" color="text-sihl-red" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-base font-bold text-brand-black mb-1">
+                          Multi-Node Safety <span className="font-mono text-xs text-sihl-red ml-2">→ Safety Coordination</span>
+                        </h4>
+                        <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
+                          <li>• Multi-Node</li>
+                          <li>• Failover</li>
+                          <li>• Network Sync</li>
+                          <li>• Coord. Dashboard</li>
+                        </ul>
+                      </div>
+                      <div className="flex-shrink-0 text-sihl-red opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Arrow Down */}
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-xl">↓</div>
+                </div>
+
+                {/* Layer 3: Grid-OS Logic */}
+                <a href="#grid-os-logic" className="block group">
+                  <div className="bg-gradient-to-r from-compute-blue/10 to-compute-blue/5 border-2 border-compute-blue/30 hover:border-compute-blue rounded-xl p-4 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <Icon emoji="⚡" size="xl" color="text-compute-blue" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-base font-bold text-brand-black mb-1">
+                          Grid-OS Logic <span className="font-mono text-xs text-compute-blue ml-2">→ Grid Scheduler</span>
+                        </h4>
+                        <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
+                          <li>• Load Balancing</li>
+                          <li>• VPP Integration</li>
+                          <li>• Market Signals</li>
+                          <li>• System Dashboard</li>
+                        </ul>
+                      </div>
+                      <div className="flex-shrink-0 text-compute-blue opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Arrow Down */}
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-xl">↓</div>
+                </div>
+
+                {/* Layer 4: LEG Legal & Hardware Compliance */}
+                <a href="#leg-starter" className="block group">
+                  <div className="bg-gradient-to-r from-industrial-gold/10 to-industrial-gold/5 border-2 border-industrial-gold/30 hover:border-industrial-gold rounded-xl p-4 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0">
+                        <Icon emoji="⚖️" size="xl" color="text-industrial-gold" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-base font-bold text-brand-black mb-1">
+                          LEG Legal & Hardware <span className="font-mono text-xs text-industrial-gold ml-2">→ Rechtliche Grundlagen</span>
+                        </h4>
+                        <ul className="font-mono text-[10px] text-historic-sepia flex flex-wrap gap-x-4 gap-y-1">
+                          <li>• StromVG/EnG</li>
+                          <li>• Vertragsvorlagen</li>
+                          <li>• CE/PrSG</li>
+                          <li>• Haftungsklärung</li>
+                        </ul>
+                      </div>
+                      <div className="flex-shrink-0 text-industrial-gold opacity-0 group-hover:opacity-100 transition-opacity">
+                        →
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Final Arrow to External Grid */}
+                <div className="flex justify-center">
+                  <div className="text-gray-400 text-xl">↓</div>
+                </div>
+
+                <div className="bg-gray-100 border-2 border-gray-300 rounded-xl p-3 text-center">
+                  <p className="font-mono text-xs text-gray-600">
+                    ⚡ External Grid (Swissgrid, Netzbetreiber)
+                  </p>
+                </div>
               </div>
             </div>
 
