@@ -230,10 +230,6 @@ export default function ChallengesPage() {
 
             {/* Onion Layer Visualization - Rectangular */}
             <div className="mb-12">
-              <h3 className="text-center font-mono text-xs text-gray-500 uppercase tracking-wider mb-6">
-                Architektur-Ebenen
-              </h3>
-
               {/* Desktop Version - Simplified Horizontal Layers */}
               <div className="hidden md:block w-full max-w-6xl mx-auto space-y-6">
                 <style jsx>{`
