@@ -18,9 +18,8 @@ export const metadata = {
   description: 'Die drei Pflicht-Pakete und optionalen Challenges: End-to-End Demo-Kit, Hardware Safety, Grid-OS Controller. Competition-Style mit 30-36 Teams.',
 }
 
-// Get packages by type
+// Get packages by type (all are now mandatory/equal)
 const mandatoryPackages = HACKATHON_PACKAGES.filter(p => p.type === 'mandatory')
-const optionalPackages = HACKATHON_PACKAGES.filter(p => p.type === 'optional')
 
 // Team Red: Security Challenge - SEPARATE GROUP with selection
 const TEAM_RED = {
@@ -77,7 +76,7 @@ export default function ChallengesPage() {
               Die Challenges
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              3 Pflicht-Pakete. 20 Teams. Hardware wird bereitgestellt. Ihr programmiert die Logik. Beste Lösung gewinnt.
+              4 Challenges. 25 Teams. Hardware wird bereitgestellt. Ihr programmiert die Logik. Beste Lösung gewinnt.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
@@ -205,20 +204,18 @@ export default function ChallengesPage() {
                   <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Grid-OS Logik, 35% für Multi-Node Safety,
-                  25% für Sensor Integration (inkl. Dashboard), 5% für LEG Legal & Hardware Compliance. Finanziert durch Teilnahmegebühren (CHF 150) –
-                  alle Finanzen sind öffentlich einsehbar.
+                  <strong className="text-brand-black">Preisgeld:</strong> Alle vier Challenges sind gleichwertig. 70% der Teilnahmegebühren (CHF 150) fließen in den Prize Pool. Bewertung durch Jury nach technischer Qualität, Vollständigkeit, und Integration. Alle Finanzen sind öffentlich einsehbar.
                 </p>
               </Accordion>
             </div>
           </div>
         </section>
 
-        {/* Architecture Flow */}
+        {/* Package Overview with Architecture */}
         <section className="bg-white py-16 border-b">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-center font-display text-2xl font-bold mb-4">
-              Aufbauende Architektur
+              Übersicht & Architektur
             </h2>
             <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-8">
               Die drei Pakete bilden aufeinander aufbauende Schichten:
@@ -226,8 +223,9 @@ export default function ChallengesPage() {
               <strong className="text-sihl-red"> Multi-Node Safety</strong> koordiniert zwischen Nodes,
               <strong className="text-compute-blue"> Grid-OS Logic</strong> orchestriert das Gesamtsystem.
             </p>
+
             {/* ASCII-style flowchart */}
-            <div className="bg-off-white rounded-xl p-6 font-mono text-xs overflow-x-auto">
+            <div className="bg-off-white rounded-xl p-6 font-mono text-xs overflow-x-auto mb-12">
               <pre className="text-gray-700 leading-relaxed">
 {`┌────────────────┐     ┌─────────────────┐     ┌──────────────────┐     ┌─────────────┐
 │ Local Nodes    │────▶│ Safety          │────▶│ Grid Scheduler   │────▶│ External    │
@@ -240,16 +238,7 @@ export default function ChallengesPage() {
   • Node Dashboard       • Coord. Dashboard      • System Dashboard`}
               </pre>
             </div>
-          </div>
-        </section>
 
-        {/* Package Overview */}
-        <section className="py-12 bg-white border-b">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-display text-2xl font-bold text-brand-black text-center mb-8">
-              Übersicht
-            </h2>
-            
             {/* Snackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
@@ -325,27 +314,16 @@ export default function ChallengesPage() {
               </div>
             </div>
 
-            {/* Mandatory Packages */}
+            {/* Main Challenge Packages */}
             <div className="mb-6">
-              <h3 className="font-mono text-xs text-sihl-red uppercase tracking-wider text-center mb-4">
-                Pflicht-Pakete
+              <h3 className="font-mono text-xs text-brand-black uppercase tracking-wider text-center mb-4">
+                Die vier Challenges
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {mandatoryPackages.map((pkg) => (
-                  <PackageCardCompact key={pkg.id} pkg={pkg} />
-                ))}
-              </div>
-            </div>
-
-            {/* Optional Packages */}
-            <div className="mb-6">
-              <h3 className="font-mono text-xs text-gray-500 uppercase tracking-wider text-center mb-4">
-                Optional-Paket
-              </h3>
-              <div className="flex justify-center max-w-md mx-auto">
-                {optionalPackages.map((pkg) => (
-                  <PackageCardCompact key={pkg.id} pkg={pkg} />
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <PackageCardCompact key="sensor-integration" pkg={mandatoryPackages.find(p => p.id === 'sensor-integration')!} />
+                <PackageCardCompact key="operational-safety-logic" pkg={mandatoryPackages.find(p => p.id === 'operational-safety-logic')!} />
+                <PackageCardCompact key="grid-os-logic" pkg={mandatoryPackages.find(p => p.id === 'grid-os-logic')!} />
+                <PackageCardCompact key="leg-starter" pkg={mandatoryPackages.find(p => p.id === 'leg-starter')!} />
               </div>
             </div>
 
@@ -691,44 +669,26 @@ export default function ChallengesPage() {
           </div>
         </section>
 
-        {/* Mandatory Packages Detail */}
+        {/* Challenge Details */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="font-mono text-sm text-sihl-red uppercase tracking-widest">
-                Pflicht-Pakete
+              <span className="font-mono text-sm text-brand-black uppercase tracking-widest">
+                Die vier Challenges
               </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-black mt-2">
-                Die drei Haupt-Challenges
+                Details zu allen Challenges
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Jedes Team wählt ein Pflicht-Paket als Hauptfokus.
-                Mehrere Teams arbeiten parallel am gleichen Paket. Beste Lösung gewinnt.
+                Jedes Team wählt eine Challenge als Hauptfokus.
+                Mehrere Teams arbeiten parallel an der gleichen Challenge. Beste Lösung gewinnt.
               </p>
             </div>
 
             <div className="space-y-12">
-              {/* Package 1: Grid-OS Logic */}
-              <div id="grid-os-logic" className="scroll-mt-24">
-                <PackageCard 
-                  pkg={mandatoryPackages.find(p => p.id === 'grid-os-logic')!}
-                  showVisualization={true}
-                  visualization={<GridOSVisualization />}
-                />
-              </div>
-
-              {/* Package 2: Operational Safety Logic */}
-              <div id="operational-safety-logic" className="scroll-mt-24">
-                <PackageCard 
-                  pkg={mandatoryPackages.find(p => p.id === 'operational-safety-logic')!}
-                  showVisualization={true}
-                  visualization={<SafetyVisualization />}
-                />
-              </div>
-
-              {/* Package 3: Sensor Integration */}
+              {/* Challenge 1: Sensor Integration */}
               <div id="sensor-integration" className="scroll-mt-24">
-                <PackageCard 
+                <PackageCard
                   pkg={mandatoryPackages.find(p => p.id === 'sensor-integration')!}
                   showVisualization={true}
                   visualization={<DemoKitVisualization />}
@@ -742,31 +702,31 @@ export default function ChallengesPage() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Optional Packages */}
-        <section className="py-16 bg-off-white">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="font-mono text-sm text-gray-500 uppercase tracking-widest">
-                Optional-Pakete
-              </span>
-              <h2 className="font-display text-3xl font-bold text-brand-black mt-2">
-                Bonus-Challenges
-              </h2>
-              <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Teams können zusätzlich Optional-Pakete liefern für Bonus-Punkte.
-              </p>
-            </div>
+              {/* Challenge 2: Multi-Node Safety Coordination */}
+              <div id="operational-safety-logic" className="scroll-mt-24">
+                <PackageCard
+                  pkg={mandatoryPackages.find(p => p.id === 'operational-safety-logic')!}
+                  showVisualization={true}
+                  visualization={<SafetyVisualization />}
+                />
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {optionalPackages.map((pkg) => (
-                <div key={pkg.id} id={pkg.id} className="scroll-mt-24">
-                  <PackageCard pkg={pkg} />
-                </div>
-              ))}
+              {/* Challenge 3: Grid-OS Logic */}
+              <div id="grid-os-logic" className="scroll-mt-24">
+                <PackageCard
+                  pkg={mandatoryPackages.find(p => p.id === 'grid-os-logic')!}
+                  showVisualization={true}
+                  visualization={<GridOSVisualization />}
+                />
+              </div>
+
+              {/* Challenge 4: LEG Legal & Hardware Compliance */}
+              <div id="leg-starter" className="scroll-mt-24">
+                <PackageCard
+                  pkg={mandatoryPackages.find(p => p.id === 'leg-starter')!}
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -955,70 +915,48 @@ export default function ChallengesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Team Distribution */}
-              <div className="bg-off-white rounded-2xl p-6">
-                <h3 className="font-display text-lg font-bold text-brand-black mb-4">
-                  📊 Team-Verteilung
-                </h3>
-                <div className="space-y-3">
-                  {mandatoryPackages.map((pkg) => (
-                    <div key={pkg.id} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
-                        <span className="font-mono text-sm">{pkg.nameDE}</span>
-                      </div>
-                      <span className="font-mono text-sm text-historic-sepia">10-12 Teams</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Prize Distribution */}
-              <div className="bg-off-white rounded-2xl p-6">
-                <h3 className="font-display text-lg font-bold text-brand-black mb-4">
-                  🏆 Preisgeld-Verteilung
-                </h3>
-                <div className="space-y-3">
-                  {mandatoryPackages.map((pkg) => (
-                    <div key={pkg.id} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
-                        <span className="font-mono text-sm">{pkg.nameDE}</span>
-                      </div>
-                      <span className="font-mono text-sm font-bold text-thermal-orange">{pkg.prizeShare}%</span>
-                    </div>
-                  ))}
-                  <div className="flex items-center justify-between pt-2 border-t">
-                    <span className="font-mono text-sm">🔗 Best Integration</span>
-                    <span className="font-mono text-sm font-bold text-grid-green">10%</span>
+            {/* Team Distribution */}
+            <div className="bg-off-white rounded-2xl p-8 max-w-2xl mx-auto">
+              <h3 className="font-display text-lg font-bold text-brand-black mb-6 text-center">
+                📊 Team-Verteilung
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Icon emoji="📡" size="lg" color="text-thermal-orange" />
+                    <span className="font-mono text-sm">Sensor Integration</span>
                   </div>
+                  <span className="font-mono text-sm text-historic-sepia">~7 Teams</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Icon emoji="🛡️" size="lg" color="text-sihl-red" />
+                    <span className="font-mono text-sm">Multi-Node Safety</span>
+                  </div>
+                  <span className="font-mono text-sm text-historic-sepia">~7 Teams</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Icon emoji="⚡" size="lg" color="text-compute-blue" />
+                    <span className="font-mono text-sm">Grid-OS Logic</span>
+                  </div>
+                  <span className="font-mono text-sm text-historic-sepia">~7 Teams</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Icon emoji="⚖️" size="lg" color="text-industrial-gold" />
+                    <span className="font-mono text-sm">LEG Legal & Hardware</span>
+                  </div>
+                  <span className="font-mono text-sm text-historic-sepia">~4 Teams</span>
                 </div>
               </div>
             </div>
 
-            {/* Scoring per Position */}
+            {/* Scoring Info */}
             <div className="mt-8 bg-brand-black rounded-2xl p-6 text-center">
-              <h3 className="font-display text-lg font-bold text-white mb-4">
-                Punkte pro Platzierung
-              </h3>
-              <div className="flex justify-center gap-8">
-                <div>
-                  <div className="text-3xl mb-2">🥇</div>
-                  <div className="font-mono text-2xl font-bold text-solar-yellow">40%</div>
-                  <div className="font-mono text-xs text-gray-400">1. Platz</div>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">🥈</div>
-                  <div className="font-mono text-2xl font-bold text-gray-300">30%</div>
-                  <div className="font-mono text-xs text-gray-400">2. Platz</div>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">🥉</div>
-                  <div className="font-mono text-2xl font-bold text-thermal-orange">20%</div>
-                  <div className="font-mono text-xs text-gray-400">3. Platz</div>
-                </div>
-              </div>
+              <p className="font-mono text-sm text-gray-300">
+                Alle Challenges sind gleichwertig. Bewertung erfolgt durch Jury nach technischer Qualität, Vollständigkeit, und Integration.
+              </p>
             </div>
           </div>
         </section>

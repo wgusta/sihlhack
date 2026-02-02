@@ -427,7 +427,7 @@ export const HACKATHON_PACKAGES = [
     name: 'LEG Legal & Hardware Compliance',
     nameDE: 'LEG Rechtsgrundlagen & Hardware-Compliance',
     icon: '⚖️',
-    type: 'optional' as const,
+    type: 'mandatory' as const,
     teamSize: 4,
     description: 'Legal templates for LEG formation and hardware reuse compliance (CE marking, warranty, liability).',
     descriptionDE: 'Rechtliche Templates für LEG-Gründung und Hardware-Wiederverwendungs-Compliance (CE-Kennzeichnung, Gewährleistung, Haftung).',
