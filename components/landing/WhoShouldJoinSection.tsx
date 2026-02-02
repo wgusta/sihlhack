@@ -43,7 +43,7 @@ export function WhoShouldJoinSection() {
               </li>
             </ul>
             <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
-              Ideal: Bastler, Handwerker, Ingenieurinnen und Ingenieure
+              Ideal: Tüftlerinnen und Tüftler, Handwerkerinnen und Handwerker, Ingenieurinnen und Ingenieure
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export function WhoShouldJoinSection() {
               </li>
             </ul>
             <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
-              Ideal: Entwicklerinnen und Entwickler, Data Scientists, Hobbyisten
+              Ideal: Programmiererinnen und Programmierer, Data Scientists, Hobbyprogrammiererinnen und Hobbyprogrammierer
             </p>
           </div>
 
@@ -127,7 +127,7 @@ export function WhoShouldJoinSection() {
               </li>
             </ul>
             <p className="text-xs text-gray-500 font-mono mt-4 pt-3 border-t border-gray-200">
-              Ideal: Designer, PMs, Texter, Generalisten
+              Ideal: Gestalterinnen und Gestalter, PMs, Texterinnen und Texter, Generalistinnen und Generalisten
             </p>
           </div>
         </div>
