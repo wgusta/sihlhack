@@ -223,7 +223,7 @@ export default function ChallengesPage() {
             <div className="text-center mb-12">
               <div className="inline-block bg-sihl-red/10 border-2 border-sihl-red/30 rounded-lg px-4 py-2">
                 <p className="font-mono text-sm text-sihl-red font-bold">
-                  ⚠️ Pro Team nur 1 Challenge · Mehrere Teams arbeiten parallel an der gleichen Challenge
+                  ⚠️ Pro Team nur 1 Challenge
                 </p>
               </div>
             </div>
@@ -234,101 +234,120 @@ export default function ChallengesPage() {
                 Architektur-Ebenen
               </h3>
 
-              {/* Desktop Version - Nested Boxes */}
-              <div className="hidden md:block relative w-full max-w-6xl mx-auto" style={{ height: '700px' }}>
-                {/* Layer 4 (Outermost): LEG Legal - Rechtliche Grundlagen */}
-                <div className="absolute inset-0 rounded-3xl border-4 border-dashed border-industrial-gold/60">
-                  <div className="absolute top-4 left-8">
-                    <div className="font-mono text-sm text-industrial-gold font-bold">⚖️ LEG Legal</div>
-                    <div className="font-mono text-[10px] text-gray-500">Rechtliche Grundlagen</div>
-                  </div>
-                  {/* No visual illustration - just legal framework */}
-                  <div className="absolute top-4 right-8 text-center">
-                    <div className="font-mono text-xs text-gray-400">Rechtlicher Rahmen</div>
-                    <div className="text-4xl opacity-20">📜</div>
-                  </div>
-                </div>
-
-                {/* Layer 3: Grid-OS Logic - Netzanschluss */}
-                <div className="absolute inset-x-[6%] inset-y-[8%] rounded-2xl border-4 border-dashed border-compute-blue/60">
-                  <div className="absolute top-6 left-8">
-                    <div className="font-mono text-sm text-compute-blue font-bold">⚡ Grid-OS Logic</div>
-                    <div className="font-mono text-[10px] text-gray-500 mb-3">Netzanschluss</div>
-                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-2">
-                      <li>• Load Balancing</li>
-                      <li>• VPP Integration</li>
-                      <li>• Market Signals</li>
-                      <li>• System Dashboard</li>
-                    </ul>
-                  </div>
-                  {/* Groups of hubs on grid */}
-                  <div className="absolute top-8 right-12 flex flex-col items-center gap-2">
-                    <div className="flex gap-2">
-                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
-                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
-                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
+              {/* Desktop Version - Simplified Horizontal Layers */}
+              <div className="hidden md:block w-full max-w-6xl mx-auto space-y-6">
+                {/* Layer 1 (Innermost): Sensor Integration */}
+                <div className="border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 rounded-lg p-8">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="font-mono text-lg text-thermal-orange font-bold mb-2">📡 Sensor Integration</div>
+                      <div className="font-mono text-xs text-gray-500 mb-4">Einzelne LEG · Innerste Schicht</div>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2">
+                        <li>• Sensoren</li>
+                        <li>• Thermal Management</li>
+                        <li>• Local Storage</li>
+                        <li>• Node Dashboard</li>
+                      </ul>
                     </div>
-                    <div className="text-2xl">⚡</div>
-                    <div className="font-mono text-[8px] text-gray-500">Grid Connected</div>
-                  </div>
-                </div>
-
-                {/* Layer 2: Multi-Node Safety - LEG-Verbund */}
-                <div className="absolute inset-x-[12%] inset-y-[16%] rounded-xl border-4 border-dashed border-sihl-red/60">
-                  <div className="absolute top-8 left-8">
-                    <div className="font-mono text-sm text-sihl-red font-bold">🛡️ Multi-Node Safety</div>
-                    <div className="font-mono text-[10px] text-gray-500 mb-3">LEG-Verbund</div>
-                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-2">
-                      <li>• Multi-Node Coordination</li>
-                      <li>• Failover Logic</li>
-                      <li>• Network Sync</li>
-                      <li>• Coord. Dashboard</li>
-                    </ul>
-                  </div>
-                  {/* Multiple LEGs with hubs */}
-                  <div className="absolute top-12 right-16 flex flex-col items-center gap-3">
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-10 h-10 bg-sihl-red/20 border-2 border-sihl-red/60 rounded flex items-center justify-center">🏠</div>
-                        <div className="font-mono text-[7px] text-gray-500 mt-1">LEG 1</div>
+                    <div className="flex flex-col items-center gap-2 ml-8">
+                      <div className="w-20 h-20 bg-thermal-orange/30 border-3 border-thermal-orange rounded-lg flex items-center justify-center relative">
+                        <div className="text-3xl">🏠</div>
+                        <div className="absolute -top-2 -right-2 text-lg">⚡</div>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <div className="w-10 h-10 bg-sihl-red/20 border-2 border-sihl-red/60 rounded flex items-center justify-center">🏠</div>
-                        <div className="font-mono text-[7px] text-gray-500 mt-1">LEG 2</div>
+                      <div className="font-mono text-xs text-gray-600 text-center max-w-[120px]">
+                        Single Sihlicon Hub
                       </div>
                     </div>
-                    <div className="font-mono text-[8px] text-gray-500">↔ Synchronized</div>
                   </div>
                 </div>
 
-                {/* Layer 1 (Innermost): Sensor Integration - Einzelne LEG */}
-                <div className="absolute inset-x-[18%] inset-y-[24%] rounded-lg border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5">
-                  <div className="absolute top-12 left-8">
-                    <div className="font-mono text-base text-thermal-orange font-bold">📡 Sensor Integration</div>
-                    <div className="font-mono text-[11px] text-gray-600 mt-1 mb-3">Einzelne LEG</div>
-                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-3">
-                      <li>• Sensoren</li>
-                      <li>• Thermal Management</li>
-                      <li>• Local Storage</li>
-                      <li>• Node Dashboard</li>
-                    </ul>
-                  </div>
-                  {/* Single LEG with Sihlicon Hub */}
-                  <div className="absolute top-16 right-20 flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 bg-thermal-orange/30 border-2 border-thermal-orange rounded-lg flex items-center justify-center relative">
-                      <div className="text-2xl">🏠</div>
-                      <div className="absolute -top-1 -right-1 text-xs">⚡</div>
+                {/* Arrow down */}
+                <div className="text-center">
+                  <div className="font-mono text-sm text-gray-400">↓ Koordination ↓</div>
+                </div>
+
+                {/* Layer 2: Multi-Node Safety */}
+                <div className="border-4 border-dashed border-sihl-red/60 bg-sihl-red/5 rounded-lg p-8">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="font-mono text-lg text-sihl-red font-bold mb-2">🛡️ Multi-Node Safety</div>
+                      <div className="font-mono text-xs text-gray-500 mb-4">LEG-Verbund · Mehrere LEGs</div>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2">
+                        <li>• Multi-Node Coordination</li>
+                        <li>• Failover Logic</li>
+                        <li>• Network Sync</li>
+                        <li>• Coord. Dashboard</li>
+                      </ul>
                     </div>
-                    <div className="font-mono text-[8px] text-gray-600 text-center">
-                      Sihlicon Hub<br/>(Battery + Compute + Heat)
+                    <div className="flex flex-col items-center gap-3 ml-8">
+                      <div className="flex gap-4">
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 bg-sihl-red/20 border-3 border-sihl-red/60 rounded flex items-center justify-center">
+                            <div className="text-2xl">🏠</div>
+                          </div>
+                          <div className="font-mono text-[10px] text-gray-500 mt-1">LEG 1</div>
+                        </div>
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 bg-sihl-red/20 border-3 border-sihl-red/60 rounded flex items-center justify-center">
+                            <div className="text-2xl">🏠</div>
+                          </div>
+                          <div className="font-mono text-[10px] text-gray-500 mt-1">LEG 2</div>
+                        </div>
+                      </div>
+                      <div className="font-mono text-xs text-gray-600">↔ Synchronized</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Arrows showing data flow */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-                  <div className="font-mono text-xs text-gray-400">
-                    ← Datenfluss: Innen nach Außen →
+                {/* Arrow down */}
+                <div className="text-center">
+                  <div className="font-mono text-sm text-gray-400">↓ Grid Integration ↓</div>
+                </div>
+
+                {/* Layer 3: Grid-OS Logic */}
+                <div className="border-4 border-dashed border-compute-blue/60 bg-compute-blue/5 rounded-lg p-8">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="font-mono text-lg text-compute-blue font-bold mb-2">⚡ Grid-OS Logic</div>
+                      <div className="font-mono text-xs text-gray-500 mb-4">Netzanschluss · System-Ebene</div>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2">
+                        <li>• Load Balancing</li>
+                        <li>• VPP Integration</li>
+                        <li>• Market Signals</li>
+                        <li>• System Dashboard</li>
+                      </ul>
+                    </div>
+                    <div className="flex flex-col items-center gap-3 ml-8">
+                      <div className="flex gap-2">
+                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
+                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
+                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
+                      </div>
+                      <div className="text-3xl">⚡</div>
+                      <div className="font-mono text-xs text-gray-600">Grid Connected</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Arrow down */}
+                <div className="text-center">
+                  <div className="font-mono text-sm text-gray-400">↓ Rechtlicher Rahmen ↓</div>
+                </div>
+
+                {/* Layer 4: LEG Legal */}
+                <div className="border-4 border-dashed border-industrial-gold/60 bg-industrial-gold/5 rounded-lg p-8">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="font-mono text-lg text-industrial-gold font-bold mb-2">⚖️ LEG Legal & Hardware Compliance</div>
+                      <div className="font-mono text-xs text-gray-500 mb-4">Rechtliche Grundlagen · Gesamtsystem</div>
+                      <div className="font-mono text-sm text-gray-600">
+                        Ermöglicht alle anderen Ebenen durch rechtliche und regulatorische Grundlagen
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 ml-8">
+                      <div className="text-5xl opacity-30">📜</div>
+                      <div className="font-mono text-xs text-gray-500 text-center">Rechtlicher<br/>Rahmen</div>
+                    </div>
                   </div>
                 </div>
               </div>

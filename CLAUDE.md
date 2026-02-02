@@ -42,18 +42,17 @@ Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroico
 
 **Key constraints:**
 - Pro Team nur 1 Challenge (teams pick ONE challenge only)
-- Mehrere Teams arbeiten parallel (multiple teams work on same challenge)
 - NO prize percentages displayed on website (removed: 35/35/25/5 split)
 - Jury-based evaluation, technical quality + completeness + integration
 
-**Zwiebel Visualization:**
-- Rectangular nested boxes (wider left-to-right, not circular)
-- Desktop: nested layers with bullet points for each challenge
+**Architecture Visualization:**
+- Desktop: horizontal stacked layers with visual hub illustrations
 - Mobile: simplified stacked cards with arrows showing data flow
-- Layer 1 (innermost): Sensor Integration → Sensoren, Thermal Mgmt, Local Storage, Node Dashboard
-- Layer 2: Multi-Node Safety → Multi-Node, Failover, Network Sync, Coord. Dashboard
-- Layer 3: Grid-OS Logic → Load Balancing, VPP Integration, Market Signals, System Dashboard
-- Layer 4 (outermost): LEG Legal → Rechtliche Grundlagen
+- Layer 1 (bottom): Sensor Integration → Single Sihlicon Hub (🏠⚡)
+- Layer 2: Multi-Node Safety → Two synchronized LEGs (LEG 1 ↔ LEG 2)
+- Layer 3: Grid-OS Logic → Three hubs connected to grid (⚡)
+- Layer 4 (top): LEG Legal → Rechtlicher Rahmen (📜, no hubs)
+- Flow shows progression: single hub → multiple hubs → grid-connected → legal framework
 
 **Page locations:**
 - `/challenges`: Main page with zwiebel visualization, thermal paths, all challenge details
