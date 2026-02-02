@@ -233,7 +233,7 @@ export default function ChallengesPage() {
               <h3 className="text-center font-mono text-xs text-gray-500 uppercase tracking-wider mb-6">
                 Architektur-Ebenen
               </h3>
-              <div className="relative w-full max-w-5xl mx-auto" style={{ height: '400px' }}>
+              <div className="relative w-full max-w-5xl mx-auto" style={{ height: '500px' }}>
                 {/* Layer 4 (Outermost): LEG Legal - Rechtliche Grundlagen */}
                 <div className="absolute inset-0 rounded-3xl border-4 border-dashed border-industrial-gold/60 flex items-start justify-center">
                   <div className="mt-4">
@@ -245,32 +245,49 @@ export default function ChallengesPage() {
                 </div>
 
                 {/* Layer 3: Grid-OS Logic - Netzanschluss */}
-                <div className="absolute inset-x-[8%] inset-y-[10%] rounded-2xl border-4 border-dashed border-compute-blue/60 flex items-start justify-center">
-                  <div className="mt-4">
-                    <div className="text-center">
-                      <div className="font-mono text-xs text-compute-blue font-bold">⚡ Grid-OS</div>
-                      <div className="font-mono text-[9px] text-gray-500">Netzanschluss</div>
+                <div className="absolute inset-x-[8%] inset-y-[10%] rounded-2xl border-4 border-dashed border-compute-blue/60">
+                  <div className="mt-4 text-center">
+                    <div className="font-mono text-xs text-compute-blue font-bold">⚡ Grid-OS</div>
+                    <div className="font-mono text-[9px] text-gray-500 mb-2">Netzanschluss</div>
+                    <div className="flex justify-center gap-6 mt-3">
+                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
+                        <li>• Load Balancing</li>
+                        <li>• VPP Integration</li>
+                        <li>• Market Signals</li>
+                        <li>• System Dashboard</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 {/* Layer 2: Multi-Node Safety - LEG-Verbund */}
-                <div className="absolute inset-x-[16%] inset-y-[20%] rounded-xl border-4 border-dashed border-sihl-red/60 flex items-start justify-center">
-                  <div className="mt-4">
-                    <div className="text-center">
-                      <div className="font-mono text-xs text-sihl-red font-bold">🛡️ Multi-Node</div>
-                      <div className="font-mono text-[9px] text-gray-500">LEG-Verbund</div>
+                <div className="absolute inset-x-[16%] inset-y-[20%] rounded-xl border-4 border-dashed border-sihl-red/60">
+                  <div className="mt-4 text-center">
+                    <div className="font-mono text-xs text-sihl-red font-bold">🛡️ Multi-Node</div>
+                    <div className="font-mono text-[9px] text-gray-500 mb-2">LEG-Verbund</div>
+                    <div className="flex justify-center gap-6 mt-3">
+                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
+                        <li>• Multi-Node</li>
+                        <li>• Failover</li>
+                        <li>• Network Sync</li>
+                        <li>• Coord. Dashboard</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
 
                 {/* Layer 1 (Innermost): Sensor Integration - Einzelne LEG */}
-                <div className="absolute inset-x-[24%] inset-y-[30%] rounded-lg border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 flex items-center justify-center">
-                  <div className="text-center">
+                <div className="absolute inset-x-[24%] inset-y-[30%] rounded-lg border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5">
+                  <div className="text-center pt-6">
                     <div className="font-mono text-sm text-thermal-orange font-bold">📡 Sensor Integration</div>
-                    <div className="font-mono text-[10px] text-gray-600 mt-1">Einzelne LEG</div>
-                    <div className="font-mono text-[8px] text-gray-500 mt-2">
-                      Innerste Schicht:<br/>Lokale Sensoren & Daten
+                    <div className="font-mono text-[10px] text-gray-600 mt-1 mb-3">Einzelne LEG</div>
+                    <div className="flex justify-center gap-6">
+                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
+                        <li>• Sensoren</li>
+                        <li>• Thermal Mgmt</li>
+                        <li>• Local Storage</li>
+                        <li>• Node Dashboard</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
