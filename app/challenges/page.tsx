@@ -251,12 +251,57 @@ export default function ChallengesPage() {
                         Details zur Challenge →
                       </a>
                     </div>
-                    <div className="flex flex-col items-center gap-3 min-w-[180px]">
-                      <div className="w-24 h-24 bg-thermal-orange/20 border-2 border-thermal-orange rounded-xl flex items-center justify-center relative">
-                        <div className="text-4xl">🏠</div>
-                        <div className="absolute -top-3 -right-3 text-2xl">⚡</div>
+                    <div className="flex flex-col items-center gap-3 min-w-[200px]">
+                      <div className="relative">
+                        {/* Main Hub */}
+                        <div className="w-24 h-24 bg-thermal-orange/20 border-2 border-thermal-orange rounded-xl flex items-center justify-center relative">
+                          <div className="text-4xl">🏠</div>
+                          <div className="absolute -top-3 -right-3 text-2xl">⚡</div>
+                        </div>
+
+                        {/* Solar Panel - top left */}
+                        <div className="absolute -top-6 -left-8 flex flex-col items-center">
+                          <div className="w-10 h-10 bg-solar-yellow/20 border border-solar-yellow/40 rounded flex items-center justify-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" className="fill-solar-yellow">
+                              <rect x="4" y="8" width="16" height="12" rx="1" className="fill-solar-yellow/60" />
+                              <line x1="4" y1="11" x2="20" y2="11" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                              <line x1="4" y1="14" x2="20" y2="14" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                              <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                              <line x1="8" y1="8" x2="8" y2="20" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                              <line x1="12" y1="8" x2="12" y2="20" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                              <line x1="16" y1="8" x2="16" y2="20" stroke="currentColor" strokeWidth="0.5" className="stroke-solar-yellow" />
+                            </svg>
+                          </div>
+                          <div className="font-mono text-[7px] text-gray-500 mt-0.5">Solar</div>
+                        </div>
+
+                        {/* Battery - bottom left */}
+                        <div className="absolute -bottom-6 -left-8 flex flex-col items-center">
+                          <div className="w-10 h-10 bg-grid-green/20 border border-grid-green/40 rounded flex items-center justify-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                              <rect x="5" y="6" width="10" height="8" rx="1" className="fill-none stroke-grid-green" strokeWidth="1.5" />
+                              <rect x="7" y="4" width="6" height="2" className="fill-grid-green" />
+                              <rect x="6.5" y="8" width="1.5" height="4" className="fill-grid-green" />
+                              <rect x="9" y="8" width="1.5" height="4" className="fill-grid-green" />
+                              <rect x="11.5" y="8" width="1.5" height="4" className="fill-grid-green" />
+                            </svg>
+                          </div>
+                          <div className="font-mono text-[7px] text-gray-500 mt-0.5">Batterie</div>
+                        </div>
+
+                        {/* Heat/Wärmepumpe - bottom right */}
+                        <div className="absolute -bottom-6 -right-8 flex flex-col items-center">
+                          <div className="w-10 h-10 bg-thermal-orange/20 border border-thermal-orange/40 rounded flex items-center justify-center">
+                            <svg width="20" height="20" viewBox="0 0 20 20">
+                              <path d="M10 4 Q8 6 10 8 Q12 6 10 4" className="fill-thermal-orange opacity-60" />
+                              <path d="M10 7 Q8 9 10 11 Q12 9 10 7" className="fill-thermal-orange opacity-80" />
+                              <path d="M10 10 Q8 12 10 14 Q12 12 10 10" className="fill-thermal-orange" />
+                            </svg>
+                          </div>
+                          <div className="font-mono text-[7px] text-gray-500 mt-0.5">Wärme</div>
+                        </div>
                       </div>
-                      <div className="font-mono text-xs text-gray-600 text-center">
+                      <div className="font-mono text-xs text-gray-600 text-center mt-8">
                         Single Sihlicon Hub
                       </div>
                     </div>
