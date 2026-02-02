@@ -310,6 +310,92 @@ export default function SnackathonsPage() {
           </div>
         </section>
 
+        {/* Historik Hack Details */}
+        <section className="py-16 bg-gradient-to-br from-historic-cream/50 via-white to-historic-cream/30 border-y-4 border-dashed border-historic-sepia/60">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-historic-sepia text-white text-xs font-mono px-4 py-2 rounded-full mb-4 font-bold">
+                📜 Historik Hack · Pre-Challenge
+              </div>
+              <h2 className="font-display text-3xl font-bold text-historic-sepia mt-2">
+                Historisches Archiv: Was wir suchen
+              </h2>
+              <p className="mt-4 text-historic-sepia/80 font-mono max-w-2xl mx-auto">
+                Asynchrone Online-Recherche: Standort-Scouting und historische Energie-Baupläne sammeln.
+                Keine physische Teilnahme erforderlich.
+              </p>
+            </div>
+
+            <div className="bg-white/80 rounded-2xl p-8 border-2 border-historic-sepia/40 mb-8">
+              <h3 className="font-display text-xl font-bold text-historic-sepia mb-4">
+                🎯 Deliverables
+              </h3>
+              <ul className="space-y-3 font-mono text-sm text-historic-sepia">
+                {PRE_CHALLENGE.deliverables.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-industrial-gold mt-0.5 flex-shrink-0">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white/80 rounded-xl p-6 border-2 border-historic-sepia/40">
+                <h4 className="font-display text-lg font-bold text-historic-sepia mb-3">
+                  📍 Was ist Standort-Scouting?
+                </h4>
+                <p className="font-mono text-sm text-historic-sepia/80 mb-3">
+                  Finde potenzielle Orte für Sihlicon Hubs in deiner Region:
+                </p>
+                <ul className="space-y-2 font-mono text-xs text-historic-sepia/70">
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Alte Industrie-Areale mit Heizungssystemen</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Geeignete Räume mit thermischer Infrastruktur</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Geographische Koordinaten, Fotos, Kontextinfo</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white/80 rounded-xl p-6 border-2 border-historic-sepia/40">
+                <h4 className="font-display text-lg font-bold text-historic-sepia mb-3">
+                  📚 Historische Energie-Baupläne
+                </h4>
+                <p className="font-mono text-sm text-historic-sepia/80 mb-3">
+                  Recherchiere historische Dokumente über Energiesysteme:
+                </p>
+                <ul className="space-y-2 font-mono text-xs text-historic-sepia/70">
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Archiv-Recherche (Stadtarchive, Bibliotheken)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Alte Heizpläne, Wärmenetze, Kraftwerke</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span>•</span>
+                    <span>Dokumentation mit Quellen und Kontext</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-industrial-gold/10 border-2 border-industrial-gold/30 rounded-xl p-6 text-center">
+              <p className="font-mono text-sm text-brand-black">
+                <strong>Bonus:</strong> {PRE_CHALLENGE.bonusPoints} Punkte für sihlhack September 2026 · Beiträge werden als Open Data veröffentlicht
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Scope */}
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
