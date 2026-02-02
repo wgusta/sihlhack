@@ -242,6 +242,11 @@ export default function ChallengesPage() {
                     <div className="font-mono text-sm text-industrial-gold font-bold">⚖️ LEG Legal</div>
                     <div className="font-mono text-[10px] text-gray-500">Rechtliche Grundlagen</div>
                   </div>
+                  {/* No visual illustration - just legal framework */}
+                  <div className="absolute top-4 right-8 text-center">
+                    <div className="font-mono text-xs text-gray-400">Rechtlicher Rahmen</div>
+                    <div className="text-4xl opacity-20">📜</div>
+                  </div>
                 </div>
 
                 {/* Layer 3: Grid-OS Logic - Netzanschluss */}
@@ -255,6 +260,16 @@ export default function ChallengesPage() {
                       <li>• Market Signals</li>
                       <li>• System Dashboard</li>
                     </ul>
+                  </div>
+                  {/* Groups of hubs on grid */}
+                  <div className="absolute top-8 right-12 flex flex-col items-center gap-2">
+                    <div className="flex gap-2">
+                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
+                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
+                      <div className="w-8 h-8 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center text-xs">🏠</div>
+                    </div>
+                    <div className="text-2xl">⚡</div>
+                    <div className="font-mono text-[8px] text-gray-500">Grid Connected</div>
                   </div>
                 </div>
 
@@ -270,6 +285,20 @@ export default function ChallengesPage() {
                       <li>• Coord. Dashboard</li>
                     </ul>
                   </div>
+                  {/* Multiple LEGs with hubs */}
+                  <div className="absolute top-12 right-16 flex flex-col items-center gap-3">
+                    <div className="flex gap-3">
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 bg-sihl-red/20 border-2 border-sihl-red/60 rounded flex items-center justify-center">🏠</div>
+                        <div className="font-mono text-[7px] text-gray-500 mt-1">LEG 1</div>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="w-10 h-10 bg-sihl-red/20 border-2 border-sihl-red/60 rounded flex items-center justify-center">🏠</div>
+                        <div className="font-mono text-[7px] text-gray-500 mt-1">LEG 2</div>
+                      </div>
+                    </div>
+                    <div className="font-mono text-[8px] text-gray-500">↔ Synchronized</div>
+                  </div>
                 </div>
 
                 {/* Layer 1 (Innermost): Sensor Integration - Einzelne LEG */}
@@ -283,6 +312,16 @@ export default function ChallengesPage() {
                       <li>• Local Storage</li>
                       <li>• Node Dashboard</li>
                     </ul>
+                  </div>
+                  {/* Single LEG with Sihlicon Hub */}
+                  <div className="absolute top-16 right-20 flex flex-col items-center gap-2">
+                    <div className="w-16 h-16 bg-thermal-orange/30 border-2 border-thermal-orange rounded-lg flex items-center justify-center relative">
+                      <div className="text-2xl">🏠</div>
+                      <div className="absolute -top-1 -right-1 text-xs">⚡</div>
+                    </div>
+                    <div className="font-mono text-[8px] text-gray-600 text-center">
+                      Sihlicon Hub<br/>(Battery + Compute + Heat)
+                    </div>
                   </div>
                 </div>
 
