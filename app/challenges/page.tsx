@@ -236,9 +236,24 @@ export default function ChallengesPage() {
 
               {/* Desktop Version - Simplified Horizontal Layers */}
               <div className="hidden md:block w-full max-w-6xl mx-auto space-y-6">
+                <style jsx>{`
+                  @keyframes flow {
+                    0% {
+                      stroke-dashoffset: 20;
+                    }
+                    100% {
+                      stroke-dashoffset: 0;
+                    }
+                  }
+                  .animated-line {
+                    stroke-dasharray: 5 5;
+                    animation: flow 1s linear infinite;
+                  }
+                `}</style>
+
                 {/* Layer 1 (Innermost): Sensor Integration */}
-                <div className="border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 rounded-lg p-8">
-                  <div className="flex items-start justify-between">
+                <div className="border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 rounded-lg p-10">
+                  <div className="flex items-center justify-between gap-12">
                     <div className="flex-1">
                       <div className="font-mono text-lg text-thermal-orange font-bold mb-2">📡 Sensor Integration</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Einzelne LEG · Innerste Schicht</div>
@@ -249,26 +264,30 @@ export default function ChallengesPage() {
                         <li>• Node Dashboard</li>
                       </ul>
                     </div>
-                    <div className="flex flex-col items-center gap-2 ml-8">
-                      <div className="w-20 h-20 bg-thermal-orange/30 border-3 border-thermal-orange rounded-lg flex items-center justify-center relative">
-                        <div className="text-3xl">🏠</div>
-                        <div className="absolute -top-2 -right-2 text-lg">⚡</div>
+                    <div className="flex flex-col items-center gap-3 min-w-[180px]">
+                      <div className="w-24 h-24 bg-thermal-orange/20 border-2 border-thermal-orange rounded-xl flex items-center justify-center relative">
+                        <div className="text-4xl">🏠</div>
+                        <div className="absolute -top-3 -right-3 text-2xl">⚡</div>
                       </div>
-                      <div className="font-mono text-xs text-gray-600 text-center max-w-[120px]">
+                      <div className="font-mono text-xs text-gray-600 text-center">
                         Single Sihlicon Hub
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Arrow down */}
-                <div className="text-center">
-                  <div className="font-mono text-sm text-gray-400">↓ Koordination ↓</div>
+                {/* Arrow down with animated connection */}
+                <div className="text-center py-3">
+                  <svg width="60" height="50" className="mx-auto">
+                    <line x1="30" y1="0" x2="30" y2="45" stroke="#dc2626" strokeWidth="3" className="animated-line" />
+                    <polygon points="30,45 22,35 38,35" fill="#dc2626" />
+                  </svg>
+                  <div className="font-mono text-xs text-gray-500 font-semibold">Koordination</div>
                 </div>
 
                 {/* Layer 2: Multi-Node Safety */}
-                <div className="border-4 border-dashed border-sihl-red/60 bg-sihl-red/5 rounded-lg p-8">
-                  <div className="flex items-start justify-between">
+                <div className="border-4 border-dashed border-sihl-red/60 bg-sihl-red/5 rounded-lg p-10">
+                  <div className="flex items-center justify-between gap-12">
                     <div className="flex-1">
                       <div className="font-mono text-lg text-sihl-red font-bold mb-2">🛡️ Multi-Node Safety</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">LEG-Verbund · Mehrere LEGs</div>
@@ -279,34 +298,41 @@ export default function ChallengesPage() {
                         <li>• Coord. Dashboard</li>
                       </ul>
                     </div>
-                    <div className="flex flex-col items-center gap-3 ml-8">
-                      <div className="flex gap-4">
+                    <div className="relative min-w-[220px]">
+                      <svg width="220" height="120" className="absolute top-0 left-0">
+                        <line x1="70" y1="50" x2="150" y2="50" stroke="#dc2626" strokeWidth="2" className="animated-line" />
+                      </svg>
+                      <div className="flex gap-6 justify-center relative z-10">
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 bg-sihl-red/20 border-3 border-sihl-red/60 rounded flex items-center justify-center">
-                            <div className="text-2xl">🏠</div>
+                          <div className="w-20 h-20 bg-sihl-red/20 border-2 border-sihl-red rounded-lg flex items-center justify-center">
+                            <div className="text-3xl">🏠</div>
                           </div>
-                          <div className="font-mono text-[10px] text-gray-500 mt-1">LEG 1</div>
+                          <div className="font-mono text-[10px] text-gray-600 mt-2">LEG 1</div>
                         </div>
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 bg-sihl-red/20 border-3 border-sihl-red/60 rounded flex items-center justify-center">
-                            <div className="text-2xl">🏠</div>
+                          <div className="w-20 h-20 bg-sihl-red/20 border-2 border-sihl-red rounded-lg flex items-center justify-center">
+                            <div className="text-3xl">🏠</div>
                           </div>
-                          <div className="font-mono text-[10px] text-gray-500 mt-1">LEG 2</div>
+                          <div className="font-mono text-[10px] text-gray-600 mt-2">LEG 2</div>
                         </div>
                       </div>
-                      <div className="font-mono text-xs text-gray-600">↔ Synchronized</div>
+                      <div className="font-mono text-xs text-gray-600 text-center mt-3">Synchronized</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Arrow down */}
-                <div className="text-center">
-                  <div className="font-mono text-sm text-gray-400">↓ Grid Integration ↓</div>
+                {/* Arrow down with animated connection */}
+                <div className="text-center py-3">
+                  <svg width="60" height="50" className="mx-auto">
+                    <line x1="30" y1="0" x2="30" y2="45" stroke="#2563eb" strokeWidth="3" className="animated-line" />
+                    <polygon points="30,45 22,35 38,35" fill="#2563eb" />
+                  </svg>
+                  <div className="font-mono text-xs text-gray-500 font-semibold">Grid Integration</div>
                 </div>
 
-                {/* Layer 3: Grid-OS Logic */}
-                <div className="border-4 border-dashed border-compute-blue/60 bg-compute-blue/5 rounded-lg p-8">
-                  <div className="flex items-start justify-between">
+                {/* Layer 3: Grid-OS Logic - Groups of LEGs */}
+                <div className="border-4 border-dashed border-compute-blue/60 bg-compute-blue/5 rounded-lg p-10">
+                  <div className="flex items-start justify-between gap-12">
                     <div className="flex-1">
                       <div className="font-mono text-lg text-compute-blue font-bold mb-2">⚡ Grid-OS Logic</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Netzanschluss · System-Ebene</div>
@@ -317,26 +343,64 @@ export default function ChallengesPage() {
                         <li>• System Dashboard</li>
                       </ul>
                     </div>
-                    <div className="flex flex-col items-center gap-3 ml-8">
-                      <div className="flex gap-2">
-                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
-                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
-                        <div className="w-12 h-12 bg-compute-blue/20 border-2 border-compute-blue/60 rounded flex items-center justify-center">🏠</div>
+                    <div className="relative min-w-[280px]">
+                      {/* Animated connecting lines */}
+                      <svg width="280" height="180" className="absolute top-0 left-0">
+                        {/* Lines between Group A hubs */}
+                        <line x1="50" y1="40" x2="110" y2="40" stroke="#2563eb" strokeWidth="1.5" className="animated-line" />
+                        {/* Lines between Group B hubs */}
+                        <line x1="170" y1="40" x2="230" y2="40" stroke="#2563eb" strokeWidth="1.5" className="animated-line" />
+                        {/* Line to grid */}
+                        <line x1="140" y1="60" x2="140" y2="110" stroke="#2563eb" strokeWidth="2" className="animated-line" />
+                      </svg>
+                      <div className="relative z-10">
+                        <div className="flex gap-8 justify-center mb-4">
+                          {/* Group A */}
+                          <div className="flex flex-col items-center">
+                            <div className="font-mono text-[9px] text-gray-500 mb-2">LEG Group A</div>
+                            <div className="flex gap-2">
+                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
+                                <div className="text-xl">🏠</div>
+                              </div>
+                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
+                                <div className="text-xl">🏠</div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Group B */}
+                          <div className="flex flex-col items-center">
+                            <div className="font-mono text-[9px] text-gray-500 mb-2">LEG Group B</div>
+                            <div className="flex gap-2">
+                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
+                                <div className="text-xl">🏠</div>
+                              </div>
+                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
+                                <div className="text-xl">🏠</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center mt-6">
+                          <div className="text-4xl">⚡</div>
+                          <div className="font-mono text-xs text-gray-600 mt-1">Grid Connected</div>
+                        </div>
                       </div>
-                      <div className="text-3xl">⚡</div>
-                      <div className="font-mono text-xs text-gray-600">Grid Connected</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Arrow down */}
-                <div className="text-center">
-                  <div className="font-mono text-sm text-gray-400">↓ Rechtlicher Rahmen ↓</div>
+                {/* Arrow down with animated connection */}
+                <div className="text-center py-3">
+                  <svg width="60" height="50" className="mx-auto">
+                    <line x1="30" y1="0" x2="30" y2="45" stroke="#ca8a04" strokeWidth="3" className="animated-line" />
+                    <polygon points="30,45 22,35 38,35" fill="#ca8a04" />
+                  </svg>
+                  <div className="font-mono text-xs text-gray-500 font-semibold">Rechtlicher Rahmen</div>
                 </div>
 
                 {/* Layer 4: LEG Legal */}
-                <div className="border-4 border-dashed border-industrial-gold/60 bg-industrial-gold/5 rounded-lg p-8">
-                  <div className="flex items-start justify-between">
+                <div className="border-4 border-dashed border-industrial-gold/60 bg-industrial-gold/5 rounded-lg p-10">
+                  <div className="flex items-center justify-between gap-12">
                     <div className="flex-1">
                       <div className="font-mono text-lg text-industrial-gold font-bold mb-2">⚖️ LEG Legal & Hardware Compliance</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Rechtliche Grundlagen · Gesamtsystem</div>
@@ -344,9 +408,9 @@ export default function ChallengesPage() {
                         Ermöglicht alle anderen Ebenen durch rechtliche und regulatorische Grundlagen
                       </div>
                     </div>
-                    <div className="flex flex-col items-center gap-2 ml-8">
-                      <div className="text-5xl opacity-30">📜</div>
-                      <div className="font-mono text-xs text-gray-500 text-center">Rechtlicher<br/>Rahmen</div>
+                    <div className="flex flex-col items-center gap-3 min-w-[180px]">
+                      <div className="text-6xl opacity-30">📜</div>
+                      <div className="font-mono text-xs text-gray-500 text-center">Rechtlicher Rahmen</div>
                     </div>
                   </div>
                 </div>
