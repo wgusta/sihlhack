@@ -41,15 +41,6 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
               <p className="font-mono text-sm text-historic-sepia mt-1">{pkg.descriptionDE}</p>
             </div>
           </div>
-          
-          {/* Type Badge */}
-          <span className={`px-3 py-1 rounded-full text-xs font-mono font-bold ${
-            pkg.type === 'mandatory' 
-              ? 'bg-sihl-red text-white' 
-              : 'bg-gray-200 text-gray-600'
-          }`}>
-            {pkg.type === 'mandatory' ? 'Pflicht' : 'Optional'}
-          </span>
         </div>
 
       </div>
@@ -224,11 +215,6 @@ export function PackageCardCompact({ pkg }: { pkg: Package }) {
           <Icon emoji={pkg.icon} size="xl" color={`text-${pkg.color}`} />
         </div>
         <h3 className="font-display font-semibold text-brand-black text-sm">{pkg.nameDE}</h3>
-        <span className={`inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-mono ${
-          pkg.type === 'mandatory' ? 'bg-sihl-red text-white' : 'bg-gray-200 text-gray-600'
-        }`}>
-          {pkg.type === 'mandatory' ? 'Pflicht' : 'Optional'}
-        </span>
       </div>
     </a>
   )

@@ -354,6 +354,32 @@ export default function ChallengesPage() {
                       </a>
                     </div>
                     <div className="relative min-w-[300px]">
+                      {/* SVG layer for connecting lines */}
+                      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+                        {/* Connect all houses with dotted lines - full mesh network */}
+                        {/* Row 1 to Row 1 */}
+                        <line x1="82" y1="36" x2="138" y2="36" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="138" y1="36" x2="194" y2="36" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        {/* Row 1 to Row 2 */}
+                        <line x1="82" y1="36" x2="82" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="138" y1="36" x2="138" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="194" y1="36" x2="194" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        {/* Row 2 to Row 2 */}
+                        <line x1="82" y1="92" x2="138" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="138" y1="92" x2="194" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        {/* Row 2 to Row 3 */}
+                        <line x1="82" y1="92" x2="82" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="138" y1="92" x2="138" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="194" y1="92" x2="194" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        {/* Row 3 to Row 3 */}
+                        <line x1="82" y1="148" x2="138" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        <line x1="138" y1="148" x2="194" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.3" />
+                        {/* Diagonal cross-connections */}
+                        <line x1="82" y1="36" x2="138" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.2" />
+                        <line x1="138" y1="36" x2="194" y2="92" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.2" />
+                        <line x1="82" y1="92" x2="138" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.2" />
+                        <line x1="138" y1="92" x2="194" y2="148" stroke="#2563eb" strokeWidth="1" className="animated-line" opacity="0.2" />
+                      </svg>
                       <div className="relative z-10">
                         {/* 3x3 Matrix - Rows are LEG groups, Columns are nodes */}
                         <div className="space-y-3">
@@ -405,7 +431,7 @@ export default function ChallengesPage() {
                         </div>
                         <div className="flex flex-col items-center mt-4">
                           <div className="text-3xl">⚡</div>
-                          <div className="font-mono text-[9px] text-gray-600 mt-1 text-center">Grid Connected<br/>3 LEG Groups × 3 Nodes</div>
+                          <div className="font-mono text-[9px] text-gray-600 mt-1 text-center">Grid Connected</div>
                         </div>
                       </div>
                     </div>
