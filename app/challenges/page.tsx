@@ -204,7 +204,7 @@ export default function ChallengesPage() {
                   <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                  <strong className="text-brand-black">Preisgeld:</strong> Alle vier Challenges sind gleichwertig. 70% der Teilnahmegebühren (CHF 150) fließen in den Prize Pool. Bewertung durch Jury nach technischer Qualität, Vollständigkeit, und Integration. Alle Finanzen sind öffentlich einsehbar.
+                  <strong className="text-brand-black">Preisgeld:</strong> Alle vier Challenges sind gleichwertig. Teilnahmegebühren fließen in den Prize Pool. Bewertung durch Jury nach technischer Qualität, Vollständigkeit, und Integration. Alle Finanzen sind öffentlich einsehbar.
                 </p>
               </Accordion>
             </div>

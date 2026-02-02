@@ -809,7 +809,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was kostet die Teilnahme?',
-                  a: 'CHF 150 pro Person. 70% aller Teilnahmegebühren gehen ins Preisgeld (verteilt auf die Pakete: 35/35/20/10). 30% decken Betriebskosten. Vollständige Rückerstattung bei Absage.',
+                  a: 'CHF 150 pro Person. Der Großteil der Teilnahmegebühren fließt ins Preisgeld, der Rest deckt Betriebskosten. Vollständige Rückerstattung bei Absage. Alle Finanzen sind öffentlich einsehbar.',
                 },
                 {
                   q: (

@@ -52,13 +52,6 @@ export function PackageCard({ pkg, showVisualization = false, visualization }: P
           </span>
         </div>
 
-        {/* Prize Share for mandatory packages */}
-        {pkg.type === 'mandatory' && (
-          <div className="mt-4 flex items-center gap-2">
-            <span className="font-mono text-sm text-historic-sepia">Preisgeld-Anteil:</span>
-            <span className={`font-mono text-lg font-bold ${colors.text}`}>{pkg.prizeShare}%</span>
-          </div>
-        )}
       </div>
 
       {/* Visualization */}
@@ -236,9 +229,6 @@ export function PackageCardCompact({ pkg }: { pkg: Package }) {
         }`}>
           {pkg.type === 'mandatory' ? 'Pflicht' : 'Optional'}
         </span>
-        {pkg.type === 'mandatory' && (
-          <p className="font-mono text-xs text-historic-sepia mt-1">{pkg.prizeShare}% Preisgeld</p>
-        )}
       </div>
     </a>
   )

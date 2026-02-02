@@ -67,10 +67,9 @@ export default function AGBPage() {
                 5. Preisgeld und Competition-Modell
               </h2>
               <p className="text-historic-sepia">
-                sihlhack funktioniert als Competition: 30-36 Teams arbeiten parallel an 3 Pflicht-Paketen. 
-                Das Preisgeld wird pro Paket verteilt: 40% für den 1. Platz, 30% für den 2. Platz, 20% für den 3. Platz. 
-                Zusätzlich gibt es 10% für die beste paketübergreifende Integration. 
-                Die Bewertung erfolgt durch eine Jury nach vorab kommunizierten Paket-Kriterien.
+                sihlhack funktioniert als Competition: Etwa 25 Teams arbeiten parallel an 4 gleichwertigen Challenges.
+                Das Preisgeld wird nach Jury-Bewertung verteilt, basierend auf technischer Qualität, Vollständigkeit und Integration.
+                Die Bewertungskriterien werden vorab kommuniziert.
               </p>
             </section>
 
