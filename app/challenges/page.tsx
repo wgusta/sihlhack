@@ -235,68 +235,60 @@ export default function ChallengesPage() {
               </h3>
 
               {/* Desktop Version - Nested Boxes */}
-              <div className="hidden md:block relative w-full max-w-5xl mx-auto" style={{ height: '500px' }}>
+              <div className="hidden md:block relative w-full max-w-6xl mx-auto" style={{ height: '700px' }}>
                 {/* Layer 4 (Outermost): LEG Legal - Rechtliche Grundlagen */}
-                <div className="absolute inset-0 rounded-3xl border-4 border-dashed border-industrial-gold/60 flex items-start justify-center">
-                  <div className="mt-4">
-                    <div className="text-center">
-                      <div className="font-mono text-xs text-industrial-gold font-bold">⚖️ LEG Legal</div>
-                      <div className="font-mono text-[9px] text-gray-500">Rechtliche Grundlagen</div>
-                    </div>
+                <div className="absolute inset-0 rounded-3xl border-4 border-dashed border-industrial-gold/60">
+                  <div className="absolute top-4 left-8">
+                    <div className="font-mono text-sm text-industrial-gold font-bold">⚖️ LEG Legal</div>
+                    <div className="font-mono text-[10px] text-gray-500">Rechtliche Grundlagen</div>
                   </div>
                 </div>
 
                 {/* Layer 3: Grid-OS Logic - Netzanschluss */}
-                <div className="absolute inset-x-[8%] inset-y-[10%] rounded-2xl border-4 border-dashed border-compute-blue/60">
-                  <div className="mt-4 text-center">
-                    <div className="font-mono text-xs text-compute-blue font-bold">⚡ Grid-OS</div>
-                    <div className="font-mono text-[9px] text-gray-500 mb-2">Netzanschluss</div>
-                    <div className="flex justify-center gap-6 mt-3">
-                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
-                        <li>• Load Balancing</li>
-                        <li>• VPP Integration</li>
-                        <li>• Market Signals</li>
-                        <li>• System Dashboard</li>
-                      </ul>
-                    </div>
+                <div className="absolute inset-x-[6%] inset-y-[8%] rounded-2xl border-4 border-dashed border-compute-blue/60">
+                  <div className="absolute top-6 left-8">
+                    <div className="font-mono text-sm text-compute-blue font-bold">⚡ Grid-OS Logic</div>
+                    <div className="font-mono text-[10px] text-gray-500 mb-3">Netzanschluss</div>
+                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-2">
+                      <li>• Load Balancing</li>
+                      <li>• VPP Integration</li>
+                      <li>• Market Signals</li>
+                      <li>• System Dashboard</li>
+                    </ul>
                   </div>
                 </div>
 
                 {/* Layer 2: Multi-Node Safety - LEG-Verbund */}
-                <div className="absolute inset-x-[16%] inset-y-[20%] rounded-xl border-4 border-dashed border-sihl-red/60">
-                  <div className="mt-4 text-center">
-                    <div className="font-mono text-xs text-sihl-red font-bold">🛡️ Multi-Node</div>
-                    <div className="font-mono text-[9px] text-gray-500 mb-2">LEG-Verbund</div>
-                    <div className="flex justify-center gap-6 mt-3">
-                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
-                        <li>• Multi-Node</li>
-                        <li>• Failover</li>
-                        <li>• Network Sync</li>
-                        <li>• Coord. Dashboard</li>
-                      </ul>
-                    </div>
+                <div className="absolute inset-x-[12%] inset-y-[16%] rounded-xl border-4 border-dashed border-sihl-red/60">
+                  <div className="absolute top-8 left-8">
+                    <div className="font-mono text-sm text-sihl-red font-bold">🛡️ Multi-Node Safety</div>
+                    <div className="font-mono text-[10px] text-gray-500 mb-3">LEG-Verbund</div>
+                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-2">
+                      <li>• Multi-Node Coordination</li>
+                      <li>• Failover Logic</li>
+                      <li>• Network Sync</li>
+                      <li>• Coord. Dashboard</li>
+                    </ul>
                   </div>
                 </div>
 
                 {/* Layer 1 (Innermost): Sensor Integration - Einzelne LEG */}
-                <div className="absolute inset-x-[24%] inset-y-[30%] rounded-lg border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5">
-                  <div className="text-center pt-6">
-                    <div className="font-mono text-sm text-thermal-orange font-bold">📡 Sensor Integration</div>
-                    <div className="font-mono text-[10px] text-gray-600 mt-1 mb-3">Einzelne LEG</div>
-                    <div className="flex justify-center gap-6">
-                      <ul className="font-mono text-[9px] text-gray-600 text-left space-y-0.5">
-                        <li>• Sensoren</li>
-                        <li>• Thermal Mgmt</li>
-                        <li>• Local Storage</li>
-                        <li>• Node Dashboard</li>
-                      </ul>
-                    </div>
+                <div className="absolute inset-x-[18%] inset-y-[24%] rounded-lg border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5">
+                  <div className="absolute top-12 left-8">
+                    <div className="font-mono text-base text-thermal-orange font-bold">📡 Sensor Integration</div>
+                    <div className="font-mono text-[11px] text-gray-600 mt-1 mb-3">Einzelne LEG</div>
+                    <ul className="font-mono text-[10px] text-gray-600 text-left space-y-1 mt-3">
+                      <li>• Sensoren</li>
+                      <li>• Thermal Management</li>
+                      <li>• Local Storage</li>
+                      <li>• Node Dashboard</li>
+                    </ul>
                   </div>
                 </div>
 
                 {/* Arrows showing data flow */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-                  <div className="font-mono text-[9px] text-gray-400">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
+                  <div className="font-mono text-xs text-gray-400">
                     ← Datenfluss: Innen nach Außen →
                   </div>
                 </div>
