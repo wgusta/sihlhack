@@ -232,20 +232,16 @@ export default function ChallengesPage() {
             <div className="mb-12">
               {/* Desktop Version - Simplified Horizontal Layers */}
               <div className="hidden md:block w-full max-w-6xl mx-auto space-y-6">
-                <style jsx>{`
+                <style dangerouslySetInnerHTML={{__html: `
                   @keyframes flow {
-                    0% {
-                      stroke-dashoffset: 20;
-                    }
-                    100% {
-                      stroke-dashoffset: 0;
-                    }
+                    0% { stroke-dashoffset: 20; }
+                    100% { stroke-dashoffset: 0; }
                   }
                   .animated-line {
                     stroke-dasharray: 5 5;
                     animation: flow 1s linear infinite;
                   }
-                `}</style>
+                `}} />
 
                 {/* Layer 1 (Innermost): Sensor Integration */}
                 <div className="border-4 border-dashed border-thermal-orange/60 bg-thermal-orange/5 rounded-lg p-10">
