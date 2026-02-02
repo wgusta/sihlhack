@@ -233,7 +233,9 @@ export default function ChallengesPage() {
               <h3 className="text-center font-mono text-xs text-gray-500 uppercase tracking-wider mb-6">
                 Architektur-Ebenen
               </h3>
-              <div className="relative w-full max-w-5xl mx-auto" style={{ height: '500px' }}>
+
+              {/* Desktop Version - Nested Boxes */}
+              <div className="hidden md:block relative w-full max-w-5xl mx-auto" style={{ height: '500px' }}>
                 {/* Layer 4 (Outermost): LEG Legal - Rechtliche Grundlagen */}
                 <div className="absolute inset-0 rounded-3xl border-4 border-dashed border-industrial-gold/60 flex items-start justify-center">
                   <div className="mt-4">
@@ -299,6 +301,30 @@ export default function ChallengesPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Mobile Version - Stacked Cards */}
+              <div className="md:hidden space-y-3 max-w-md mx-auto px-4">
+                <div className="p-3 rounded-lg border-2 border-dashed border-thermal-orange/60 bg-thermal-orange/5">
+                  <div className="font-mono text-xs text-thermal-orange font-bold mb-1">📡 Sensor Integration</div>
+                  <div className="font-mono text-[9px] text-gray-500">Einzelne LEG · Sensoren, Thermal Mgmt, Local Storage</div>
+                </div>
+                <div className="text-center font-mono text-xs text-gray-400">↓</div>
+                <div className="p-3 rounded-lg border-2 border-dashed border-sihl-red/60">
+                  <div className="font-mono text-xs text-sihl-red font-bold mb-1">🛡️ Multi-Node Safety</div>
+                  <div className="font-mono text-[9px] text-gray-500">LEG-Verbund · Multi-Node, Failover, Network Sync</div>
+                </div>
+                <div className="text-center font-mono text-xs text-gray-400">↓</div>
+                <div className="p-3 rounded-lg border-2 border-dashed border-compute-blue/60">
+                  <div className="font-mono text-xs text-compute-blue font-bold mb-1">⚡ Grid-OS Logic</div>
+                  <div className="font-mono text-[9px] text-gray-500">Netzanschluss · Load Balancing, VPP Integration</div>
+                </div>
+                <div className="text-center font-mono text-xs text-gray-400">↓</div>
+                <div className="p-3 rounded-lg border-2 border-dashed border-industrial-gold/60">
+                  <div className="font-mono text-xs text-industrial-gold font-bold mb-1">⚖️ LEG Legal</div>
+                  <div className="font-mono text-[9px] text-gray-500">Rechtliche Grundlagen</div>
+                </div>
+              </div>
+
               <p className="text-center font-mono text-[10px] text-gray-500 mt-6 max-w-xl mx-auto">
                 Jedes Team wählt eine Ebene. Die inneren Schichten (Sensoren) liefern Daten für die äußeren Schichten (Grid-OS).
                 Rechtliche Grundlagen (LEG) ermöglichen das Gesamtsystem.

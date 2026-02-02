@@ -45,7 +45,15 @@ Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroico
 - Mehrere Teams arbeiten parallel (multiple teams work on same challenge)
 - NO prize percentages displayed on website (removed: 35/35/25/5 split)
 - Jury-based evaluation, technical quality + completeness + integration
-- Concentric ring visualization (Zwiebel): sensor integration at core, legal at outer ring
+
+**Zwiebel Visualization:**
+- Rectangular nested boxes (wider left-to-right, not circular)
+- Desktop: nested layers with bullet points for each challenge
+- Mobile: simplified stacked cards with arrows showing data flow
+- Layer 1 (innermost): Sensor Integration → Sensoren, Thermal Mgmt, Local Storage, Node Dashboard
+- Layer 2: Multi-Node Safety → Multi-Node, Failover, Network Sync, Coord. Dashboard
+- Layer 3: Grid-OS Logic → Load Balancing, VPP Integration, Market Signals, System Dashboard
+- Layer 4 (outermost): LEG Legal → Rechtliche Grundlagen
 
 **Page locations:**
 - `/challenges`: Main page with zwiebel visualization, thermal paths, all challenge details
