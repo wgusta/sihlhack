@@ -253,12 +253,18 @@ export default function ChallengesPage() {
                     <div className="flex-1">
                       <div className="font-mono text-lg text-thermal-orange font-bold mb-2">📡 Sensor Integration</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Einzelne LEG · Innerste Schicht</div>
-                      <ul className="font-mono text-sm text-gray-600 space-y-2">
-                        <li>• Sensoren</li>
-                        <li>• Thermal Management</li>
-                        <li>• Local Storage</li>
-                        <li>• Node Dashboard</li>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2 mb-4">
+                        <li>• Temperatursensoren auslesen und kalibrieren</li>
+                        <li>• Thermische Daten in Echtzeit verarbeiten</li>
+                        <li>• Lokale Speicherung der Sensor-Logs</li>
+                        <li>• Node Dashboard für Monitoring bauen</li>
                       </ul>
+                      <a
+                        href="#sensor-integration"
+                        className="inline-block px-4 py-2 bg-thermal-orange text-white font-mono text-xs rounded-lg hover:bg-thermal-orange/90 transition-colors"
+                      >
+                        Details zur Challenge →
+                      </a>
                     </div>
                     <div className="flex flex-col items-center gap-3 min-w-[180px]">
                       <div className="w-24 h-24 bg-thermal-orange/20 border-2 border-thermal-orange rounded-xl flex items-center justify-center relative">
@@ -287,12 +293,18 @@ export default function ChallengesPage() {
                     <div className="flex-1">
                       <div className="font-mono text-lg text-sihl-red font-bold mb-2">🛡️ Multi-Node Safety</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">LEG-Verbund · Mehrere LEGs</div>
-                      <ul className="font-mono text-sm text-gray-600 space-y-2">
-                        <li>• Multi-Node Coordination</li>
-                        <li>• Failover Logic</li>
-                        <li>• Network Sync</li>
-                        <li>• Coord. Dashboard</li>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2 mb-4">
+                        <li>• Mehrere Nodes koordinieren und synchronisieren</li>
+                        <li>• Failover-Logik bei Ausfall eines Nodes</li>
+                        <li>• Netzwerk-Synchronisation zwischen LEGs</li>
+                        <li>• Koordinations-Dashboard für Überwachung</li>
                       </ul>
+                      <a
+                        href="#operational-safety-logic"
+                        className="inline-block px-4 py-2 bg-sihl-red text-white font-mono text-xs rounded-lg hover:bg-sihl-red/90 transition-colors"
+                      >
+                        Details zur Challenge →
+                      </a>
                     </div>
                     <div className="relative min-w-[220px]">
                       <svg width="220" height="120" className="absolute top-0 left-0">
@@ -326,59 +338,78 @@ export default function ChallengesPage() {
                   <div className="font-mono text-xs text-gray-500 font-semibold">Grid Integration</div>
                 </div>
 
-                {/* Layer 3: Grid-OS Logic - Groups of LEGs */}
+                {/* Layer 3: Grid-OS Logic - 3x3 Matrix */}
                 <div className="border-4 border-dashed border-compute-blue/60 bg-compute-blue/5 rounded-lg p-10">
                   <div className="flex items-start justify-between gap-12">
                     <div className="flex-1">
                       <div className="font-mono text-lg text-compute-blue font-bold mb-2">⚡ Grid-OS Logic</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Netzanschluss · System-Ebene</div>
-                      <ul className="font-mono text-sm text-gray-600 space-y-2">
-                        <li>• Load Balancing</li>
-                        <li>• VPP Integration</li>
-                        <li>• Market Signals</li>
-                        <li>• System Dashboard</li>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2 mb-4">
+                        <li>• Load Balancing über mehrere LEG-Gruppen</li>
+                        <li>• VPP Integration für Strommarkt-Teilnahme</li>
+                        <li>• Market Signals verarbeiten und umsetzen</li>
+                        <li>• System Dashboard für Gesamtübersicht</li>
                       </ul>
+                      <a
+                        href="#grid-os-logic"
+                        className="inline-block px-4 py-2 bg-compute-blue text-white font-mono text-xs rounded-lg hover:bg-compute-blue/90 transition-colors"
+                      >
+                        Details zur Challenge →
+                      </a>
                     </div>
-                    <div className="relative min-w-[280px]">
-                      {/* Animated connecting lines */}
-                      <svg width="280" height="180" className="absolute top-0 left-0">
-                        {/* Lines between Group A hubs */}
-                        <line x1="50" y1="40" x2="110" y2="40" stroke="#2563eb" strokeWidth="1.5" className="animated-line" />
-                        {/* Lines between Group B hubs */}
-                        <line x1="170" y1="40" x2="230" y2="40" stroke="#2563eb" strokeWidth="1.5" className="animated-line" />
-                        {/* Line to grid */}
-                        <line x1="140" y1="60" x2="140" y2="110" stroke="#2563eb" strokeWidth="2" className="animated-line" />
-                      </svg>
+                    <div className="relative min-w-[300px]">
                       <div className="relative z-10">
-                        <div className="flex gap-8 justify-center mb-4">
-                          {/* Group A */}
-                          <div className="flex flex-col items-center">
-                            <div className="font-mono text-[9px] text-gray-500 mb-2">LEG Group A</div>
-                            <div className="flex gap-2">
-                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
-                                <div className="text-xl">🏠</div>
+                        {/* 3x3 Matrix - Rows are LEG groups, Columns are nodes */}
+                        <div className="space-y-3">
+                          {/* Row 1: LEG Group A */}
+                          <div className="flex items-center gap-2">
+                            <div className="font-mono text-[8px] text-gray-500 w-12">LEG A</div>
+                            <div className="flex gap-2 bg-blue-100/50 p-2 rounded">
+                              <div className="w-12 h-12 bg-blue-200 border-2 border-blue-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
                               </div>
-                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
-                                <div className="text-xl">🏠</div>
+                              <div className="w-12 h-12 bg-green-200 border-2 border-green-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
+                              </div>
+                              <div className="w-12 h-12 bg-purple-200 border-2 border-purple-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
                               </div>
                             </div>
                           </div>
-                          {/* Group B */}
-                          <div className="flex flex-col items-center">
-                            <div className="font-mono text-[9px] text-gray-500 mb-2">LEG Group B</div>
-                            <div className="flex gap-2">
-                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
-                                <div className="text-xl">🏠</div>
+                          {/* Row 2: LEG Group B */}
+                          <div className="flex items-center gap-2">
+                            <div className="font-mono text-[8px] text-gray-500 w-12">LEG B</div>
+                            <div className="flex gap-2 bg-red-100/50 p-2 rounded">
+                              <div className="w-12 h-12 bg-blue-200 border-2 border-blue-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
                               </div>
-                              <div className="w-14 h-14 bg-compute-blue/20 border-2 border-compute-blue rounded flex items-center justify-center">
-                                <div className="text-xl">🏠</div>
+                              <div className="w-12 h-12 bg-green-200 border-2 border-green-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
+                              </div>
+                              <div className="w-12 h-12 bg-purple-200 border-2 border-purple-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Row 3: LEG Group C */}
+                          <div className="flex items-center gap-2">
+                            <div className="font-mono text-[8px] text-gray-500 w-12">LEG C</div>
+                            <div className="flex gap-2 bg-yellow-100/50 p-2 rounded">
+                              <div className="w-12 h-12 bg-blue-200 border-2 border-blue-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
+                              </div>
+                              <div className="w-12 h-12 bg-green-200 border-2 border-green-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
+                              </div>
+                              <div className="w-12 h-12 bg-purple-200 border-2 border-purple-400 rounded flex items-center justify-center">
+                                <div className="text-lg">🏠</div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div className="flex flex-col items-center mt-6">
-                          <div className="text-4xl">⚡</div>
-                          <div className="font-mono text-xs text-gray-600 mt-1">Grid Connected</div>
+                        <div className="flex flex-col items-center mt-4">
+                          <div className="text-3xl">⚡</div>
+                          <div className="font-mono text-[9px] text-gray-600 mt-1 text-center">Grid Connected<br/>3 LEG Groups × 3 Nodes</div>
                         </div>
                       </div>
                     </div>
@@ -400,9 +431,18 @@ export default function ChallengesPage() {
                     <div className="flex-1">
                       <div className="font-mono text-lg text-industrial-gold font-bold mb-2">⚖️ LEG Legal & Hardware Compliance</div>
                       <div className="font-mono text-xs text-gray-500 mb-4">Rechtliche Grundlagen · Gesamtsystem</div>
-                      <div className="font-mono text-sm text-gray-600">
-                        Ermöglicht alle anderen Ebenen durch rechtliche und regulatorische Grundlagen
-                      </div>
+                      <ul className="font-mono text-sm text-gray-600 space-y-2 mb-4">
+                        <li>• LEG-Statuten und Vertragsvorlagen erstellen</li>
+                        <li>• StromVG/EnG Compliance sicherstellen</li>
+                        <li>• Hardware Reuse (CE-Kennzeichnung, PrSG)</li>
+                        <li>• Haftungsklärung und Versicherungsfragen</li>
+                      </ul>
+                      <a
+                        href="#leg-starter"
+                        className="inline-block px-4 py-2 bg-industrial-gold text-white font-mono text-xs rounded-lg hover:bg-industrial-gold/90 transition-colors"
+                      >
+                        Details zur Challenge →
+                      </a>
                     </div>
                     <div className="flex flex-col items-center gap-3 min-w-[180px]">
                       <div className="text-6xl opacity-30">📜</div>
