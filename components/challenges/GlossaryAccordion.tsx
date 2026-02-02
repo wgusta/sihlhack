@@ -151,6 +151,18 @@ const glossaryCategories: GlossaryCategory[] = [
         term: 'VEVEE',
         definition: 'Verordnung über die Eigenversorgung mit elektrischer Energie. Konkretisiert EnG-Regelungen für LEGs. Lässt kritische Fragen offen, Netzbetreiber interpretieren oft restriktiv.',
       },
+      {
+        term: 'CE-Kennzeichnung',
+        definition: 'Conformité Européenne (Europäische Konformität). Produktsicherheits-Zertifizierung für in Verkehr gebrachte Geräte. Beim Umbau oder Wiederverwendung von Server-Hardware können CE-relevante Änderungen entstehen, die neue Konformitätsbewertung erfordern.',
+      },
+      {
+        term: 'PrSG (Produktsicherheitsgesetz)',
+        definition: 'Schweizer Gesetz, das Anforderungen an Produkte regelt, die in Verkehr gebracht werden. Relevant für wiederverwendete Server-Hardware, die als "neues Produkt" (umgebaut) gilt. Definiert Haftung, Sicherheitsanforderungen, und Rückrufpflichten.',
+      },
+      {
+        term: 'Gewährleistung bei Hardware-Reuse',
+        definition: 'Haftung für Mängel bei Wiederverwendung von Serverkomponenten. Gebrauchte Hardware hat keine Herstellergarantie mehr. LEG muss klären: Wer haftet bei Ausfall? Gibt es Gewährleistung? Wie wird dokumentiert, dass Hardware "as-is" verkauft wird?',
+      },
     ],
   },
 ]

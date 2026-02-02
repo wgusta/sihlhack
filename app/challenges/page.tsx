@@ -188,28 +188,57 @@ export default function ChallengesPage() {
                 color="grid-green"
               >
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">3 Tage, 3 Challenges:</strong> Jedes Team wählt eines von drei 
-                  Pflicht-Paketen und programmiert daran. Hardware wird bereitgestellt – ihr schreibt die Grid-OS Logik. 
+                  <strong className="text-brand-black">3 Tage, 3 Challenges:</strong> Jedes Team wählt eines von drei
+                  Pflicht-Paketen und programmiert daran. Hardware wird bereitgestellt – ihr schreibt die Grid-OS Logik.
                   Mehrere Teams arbeiten parallel am gleichen Paket – die beste Lösung gewinnt.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">Simulation-to-Reality:</strong> Ihr entwickelt gegen den Sihl-Sim 
-                  (Digital Twin) lokal, testet auf dem 5V Safety Avatar, und finalisiert auf der supervised Reference Hardware. 
+                  <strong className="text-brand-black">Simulation-to-Reality:</strong> Ihr entwickelt gegen den Sihl-Sim
+                  (Digital Twin) lokal, testet auf dem 5V Safety Avatar, und finalisiert auf der supervised Reference Hardware.
                   Kein Pfad ist "richtig" – nur Trade-offs.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr programmiert, gehört euch. 
-                  Hardware-Designs unter <strong className="text-thermal-orange">CERN-OHL-P/MIT</strong> (vollständig frei), 
-                  Grid-OS Code unter <strong className="text-compute-blue">SVG-L</strong> (schützt das Netz). 
-                  Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das. 
+                  <strong className="text-brand-black">Euer Code:</strong> Alles, was ihr programmiert, gehört euch.
+                  Hardware-Designs unter <strong className="text-thermal-orange">CERN-OHL-P/MIT</strong> (vollständig frei),
+                  Grid-OS Code unter <strong className="text-compute-blue">SVG-L</strong> (schützt das Netz).
+                  Ihr könnt es forken, kommerzialisieren, oder in eurem eigenen Projekt nutzen. Wir ermutigen das.
                   <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Grid-OS Logik, 35% für Sensor Integration, 
-                  20% für Operational Safety Logik, 10% für beste Integration. Finanziert durch Teilnahmegebühren (CHF 150) – 
+                  <strong className="text-brand-black">Preisgeld:</strong> 35% für Grid-OS Logik, 35% für Multi-Node Safety,
+                  25% für Sensor Integration (inkl. Dashboard), 5% für LEG Legal & Hardware Compliance. Finanziert durch Teilnahmegebühren (CHF 150) –
                   alle Finanzen sind öffentlich einsehbar.
                 </p>
               </Accordion>
+            </div>
+          </div>
+        </section>
+
+        {/* Architecture Flow */}
+        <section className="bg-white py-16 border-b">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-center font-display text-2xl font-bold mb-4">
+              Aufbauende Architektur
+            </h2>
+            <p className="text-center font-mono text-sm text-gray-600 max-w-3xl mx-auto mb-8">
+              Die drei Pakete bilden aufeinander aufbauende Schichten:
+              <strong className="text-thermal-orange"> Sensor Integration</strong> sammelt lokale Daten,
+              <strong className="text-sihl-red"> Multi-Node Safety</strong> koordiniert zwischen Nodes,
+              <strong className="text-compute-blue"> Grid-OS Logic</strong> orchestriert das Gesamtsystem.
+            </p>
+            {/* ASCII-style flowchart */}
+            <div className="bg-off-white rounded-xl p-6 font-mono text-xs overflow-x-auto">
+              <pre className="text-gray-700 leading-relaxed">
+{`┌────────────────┐     ┌─────────────────┐     ┌──────────────────┐     ┌─────────────┐
+│ Local Nodes    │────▶│ Safety          │────▶│ Grid Scheduler   │────▶│ External    │
+│ (Sensor Integ) │     │ Coordination    │     │ (Grid-OS Logic)  │     │ Grid        │
+└────────────────┘     └─────────────────┘     └──────────────────┘     └─────────────┘
+      ↓                       ↓                        ↓
+  • Sensoren              • Multi-Node            • Load Balancing
+  • Thermal Mgmt         • Failover              • VPP Integration
+  • Local Storage        • Network Sync          • Market Signals
+  • Node Dashboard       • Coord. Dashboard      • System Dashboard`}
+              </pre>
             </div>
           </div>
         </section>
@@ -311,9 +340,9 @@ export default function ChallengesPage() {
             {/* Optional Packages */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-gray-500 uppercase tracking-wider text-center mb-4">
-                Optional-Pakete
+                Optional-Paket
               </h3>
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <div className="flex justify-center max-w-md mx-auto">
                 {optionalPackages.map((pkg) => (
                   <PackageCardCompact key={pkg.id} pkg={pkg} />
                 ))}

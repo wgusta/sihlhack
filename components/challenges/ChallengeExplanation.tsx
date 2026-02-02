@@ -51,47 +51,36 @@ const challengeExplanations: Record<string, {
   },
   'operational-safety-logic': {
     nonTechnical: {
-      what: 'Operational Safety Logik bedeutet: Du programmierst Software-Sicherheitsverriegelungen, die das System sicher betreiben. Es ist wie ein digitaler Sicherheitswächter – die Software überwacht kontinuierlich und schaltet bei Problemen automatisch ab.',
-      why: 'Sicherheit ist nicht verhandelbar. Ein System, das Energie, Compute und Wärme kombiniert, braucht robuste Software-Sicherheitsmassnahmen. Operational Safety Logik ist die Grundlage für sicheres Deployment auf Reference Hardware.',
-      whatYouBuild: 'Du programmierst Software-Sicherheitsverriegelungen: Anomalie-Erkennungs-Algorithmen, Emergency Stop Logik, Sensor-Validierung, und Safety Interlocks. Alles integriert mit der Reference Hardware über APIs.',
+      what: 'Multi-Node Safety Koordination bedeutet: Du programmierst Software-Sicherheitsverriegelungen, die mehrere Nodes koordiniert sichern. Es ist wie ein verteilter Sicherheitswächter – die Software synchronisiert Safety-Checks über mehrere Nodes und erkennt Ausfälle im Netzwerk.',
+      why: 'Sicherheit ist nicht verhandelbar. Ein System aus mehreren verbundenen Nodes braucht koordinierte Safety-Massnahmen. Multi-Node Safety Koordination stellt sicher, dass Ausfälle einzelner Nodes keine Gefahr für das Gesamtnetz darstellen.',
+      whatYouBuild: 'Du programmierst Multi-Node-Sicherheitsverriegelungen: Netzwerkweite Anomalie-Erkennung, Emergency Stop Logik mit Failover, verteilte Sensor-Validierung, und Inter-Node Safety Interlocks. Alles API-basiert.',
     },
     technical: {
-      howItWorks: 'Anomalie-Erkennungs-Algorithmen überwachen Sensor-Daten kontinuierlich und erkennen ungewöhnliche Muster. Emergency Stop Logik triggert sofortige Abschaltung bei kritischen Zuständen. Sensor-Validierung stellt sicher, dass alle Sensoren korrekt funktionieren. Safety Interlocks verhindern unsichere Betriebszustände.',
-      architecture: 'Sensor Input → Anomaly Detection (ML/Statistical) → Safety Interlock Logic (Zephyr RTOS/Python) → Emergency Stop → API Integration (Reference Hardware)',
-      integration: 'Integriert mit Sensor Integration Package, Grid-OS Logik, und Reference Hardware über standardisierte APIs. Alle Safety-Funktionen sind software-basiert und API-kompatibel.',
+      howItWorks: 'Multi-Node-Anomalie-Erkennungs-Algorithmen synchronisieren Safety-Checks über mehrere Nodes und erkennen verteilte Fehler. Emergency Stop Logik koordiniert Abschaltungen über Nodes mit Failover-Mechanismen. Netzwerkweite Sensor-Validierung erkennt ausgefallene Nodes. Inter-Node Safety Interlocks verhindern Kaskadenausfälle.',
+      architecture: 'Multi-Node Sensor Input → Distributed Anomaly Detection → Inter-Node Safety Interlocks (Zephyr RTOS/Python + Network Sync) → Coordinated Emergency Stop → API Integration (Multiple Nodes)',
+      integration: 'Integriert mit Sensor Integration Package (alle Nodes), Grid-OS Logik (Scheduler-Koordination), und Reference Hardware über standardisierte APIs. Safety-Funktionen sind verteilt und netzwerkfähig.',
     },
   },
   'sensor-integration': {
     nonTechnical: {
-      what: 'Sensor Integration bedeutet: Du baust Daten-Pipelines, die alle Sensoren (Temperatur, Durchfluss, Leistung, Batterie) verbinden und die Daten in Echtzeit überwachen. Es ist wie das Nervensystem des Systems – es sammelt alle Informationen und macht sie verfügbar.',
-      why: 'Ohne Sensor-Daten kann das System nicht intelligent reagieren. Sensor Integration ist die Grundlage für Grid-OS Logik und Operational Safety Logik – beide brauchen zuverlässige, validierte Sensordaten.',
-      whatYouBuild: 'Du baust Sensor-Daten-Pipelines, die alle Sensoren (Temp, Flow, Power, Battery SOC) verbinden, ein Real-Time Monitoring Dashboard, ein Data Validation Framework, und API-Integration mit Grid-OS. Alles integriert mit der Reference Hardware.',
+      what: 'Sensor Integration bedeutet: Du baust Daten-Pipelines, die alle Sensoren (Temperatur, Durchfluss, Leistung, Batterie) verbinden und die Daten in Echtzeit überwachen. Zusätzlich baust du ein Dashboard mit echten Live-Daten (keine Fake-Visualisierungen). Es ist wie das Nervensystem des Systems – es sammelt alle Informationen und zeigt sie transparent an.',
+      why: 'Ohne Sensor-Daten kann das System nicht intelligent reagieren. Sensor Integration ist die Grundlage für Grid-OS Logik und Multi-Node Safety Koordination – beide brauchen zuverlässige, validierte Sensordaten. Das Dashboard macht das System transparent und vertrauenswürdig.',
+      whatYouBuild: 'Du baust Sensor-Daten-Pipelines, die alle Sensoren (Temp, Flow, Power, Battery SOC) verbinden, ein Real-Time Monitoring Dashboard (nur echte Daten, kein Fake), ein Data Validation Framework, API-Integration mit Grid-OS, und CSV/JSON Export für alle Metriken.',
     },
     technical: {
-      howItWorks: 'Sensor-Daten werden über I2C/SPI gesammelt, über MQTT/Mosquitto übertragen, in einer Time-Series DB (VictoriaMetrics) gespeichert, und in Echtzeit visualisiert. Data Validation Framework stellt sicher, dass alle Sensordaten korrekt und konsistent sind. API-Integration ermöglicht Grid-OS Zugriff auf Sensordaten.',
-      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Data Validation → Real-Time Monitoring (WebSockets) → API Integration (Grid-OS)',
-      integration: 'Integriert mit Reference Hardware Sensoren, Grid-OS Logik (für Scheduling), Operational Safety Logik (für Anomalie-Erkennung), und Dashboard (Truth Layer).',
-    },
-  },
-  'dashboard': {
-    nonTechnical: {
-      what: 'Das Dashboard ist das "Fenster" ins System. Es zeigt in Echtzeit, was gerade passiert: Wie viel Sonnenenergie kommt rein, wie viel Computer-Leistung läuft, wie viel Wärme produziert wird. Wichtig: Nur echte Daten, keine Fake-Visualisierungen.',
-      why: 'Transparenz ist entscheidend. Wenn du nicht sehen kannst, was das System wirklich macht, kannst du es nicht vertrauen oder optimieren. Ein Dashboard mit echten Daten ermöglicht es jedem, das System zu verstehen und zu überwachen.',
-      whatYouBuild: 'Du baust ein Live-Panel, das alle wichtigen Daten in Echtzeit anzeigt: Solar, Compute, Wärme, und eine Ampel-Anzeige für den System-Status. Alle Daten können als CSV oder JSON exportiert werden, damit andere Systeme darauf zugreifen können.',
-    },
-    technical: {
-      howItWorks: 'Daten werden von Sensoren und APIs gesammelt (OpenTelemetry Collector), in einer Time-Series DB gespeichert (Prometheus), und in Echtzeit visualisiert (React/Vue Frontend mit WebSockets). Export-Funktion generiert CSV/JSON aus gespeicherten Metriken.',
-      architecture: 'Data Collection (OpenTelemetry) → Storage (Prometheus/VictoriaMetrics) → Real-time Updates (WebSockets) → Visualization (React/Vue + D3.js) → Export (CSV/JSON API)',
+      howItWorks: 'Sensor-Daten werden über I2C/SPI gesammelt, über MQTT/Mosquitto übertragen, in einer Time-Series DB (VictoriaMetrics) gespeichert, und in Echtzeit visualisiert (WebSockets). Data Validation Framework stellt sicher, dass alle Sensordaten korrekt sind. Dashboard zeigt nur echte Metriken. Export-Funktion generiert CSV/JSON aus gespeicherten Daten.',
+      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Data Validation → Real-Time Dashboard (WebSockets + React/Vue) → CSV/JSON Export → API Integration (Grid-OS)',
+      integration: 'Integriert mit Reference Hardware Sensoren, Grid-OS Logik (für Scheduling), Multi-Node Safety Koordination (für Anomalie-Erkennung), und Dashboard (Truth Layer mit echten Daten).',
     },
   },
   'leg-starter': {
     nonTechnical: {
-      what: 'Ein LEG Starter Pack ist wie ein Baukasten für die rechtliche Gründung einer Lokalen Elektrizitätsgemeinschaft. Es enthält alle notwendigen Dokumente und Checklisten, damit Nachbarn legal zusammen Energie teilen können.',
-      why: 'Die rechtliche Gründung einer LEG ist komplex und viele scheitern an den rechtlichen Hürden. Ein Starter Pack macht es einfacher, die richtigen Schritte zu gehen und alle regulatorischen Anforderungen zu erfüllen.',
-      whatYouBuild: 'Du erstellst ein komplettes Template-Set: Statuten für die LEG, Verträge zwischen Teilnehmenden, FAQ zu rechtlichen Fragen, und eine Checkliste aller regulatorischen Anforderungen. Alles auf Deutsch, verständlich, und rechtlich korrekt.',
+      what: 'LEG Legal & Hardware Compliance ist ein Baukasten für die rechtliche LEG-Gründung plus Hardware-Wiederverwendungs-Compliance. Es enthält alle Dokumente für legales Energie-Sharing und klärende Leitfäden zur sicheren Wiederverwendung von Server-Hardware (CE-Kennzeichnung, Gewährleistung, Haftung).',
+      why: 'Die rechtliche Gründung einer LEG ist komplex und Hardware-Reuse wirft Compliance-Fragen auf (CE-Markierung bei Umbauten, Gewährleistung bei gebrauchter Hardware, Haftung bei Fehlfunktion). Dieser Pack macht beides einfacher und rechtssicher.',
+      whatYouBuild: 'Du erstellst ein komplettes Template-Set: Statuten für die LEG, Verträge zwischen Teilnehmenden, FAQ zu rechtlichen Fragen, regulatorische Checkliste, plus Hardware-Reuse Compliance (CE-Kennzeichnung, Gewährleistung, Haftung), Versicherungs-Checkliste, und PrSG-Leitfaden (Produktsicherheit).',
     },
     technical: {
-      howItWorks: 'Templates basieren auf StromVG Art. 18 und EnG Art. 17. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmenden. Checkliste deckt alle regulatorischen Anforderungen ab (Netzbetreiber, Steuern, Haftung).',
+      howItWorks: 'Templates basieren auf StromVG Art. 18 und EnG Art. 17. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmenden. Checkliste deckt alle regulatorischen Anforderungen ab (Netzbetreiber, Steuern, Haftung). Hardware Compliance deckt CE-Kennzeichnung (relevante Richtlinien bei Umbauten), Gewährleistung (gebrauchte Komponenten), PrSG (Produktsicherheitsgesetz), und Versicherungsanforderungen.',
     },
   },
 }
