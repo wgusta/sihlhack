@@ -91,6 +91,7 @@ This project extends the sihliconvalley.ch design system:
 
 **Challenges Page:**
 - Three mandatory packages with detailed descriptions
+- Snackathons Overview: Three optional snackathons (April 2026, Mai 2026, Historik Hack) in unified grid
 - Thermal Architecture Challenge: Three paths (Oil, Water, Heat Pump)
 - Sihlicon Hub v1.0 Prototype visualization (moved from homepage)
 - Compute Scenarios: What runs on the Hub (moved from homepage)
@@ -98,12 +99,20 @@ This project extends the sihliconvalley.ch design system:
 - Competition model with scoring criteria
 - Glossary accordion: 26 technical terms explained
 
+**Snackathons Page:**
+- Three Snackathons displayed in grid layout (3 columns)
+- Unified registration form with multi-select checkboxes for all three events
+- Historik Hack visually distinguished (dashed border, gradient background, "ONLINE ONLY" badge)
+- April/Mai: Physical events (18 hours, 10-20 participants)
+- Historik Hack: Online, asynchronous (2-4 weeks before event, unlimited participants)
+
 **Core Policies:**
 - **Open Source First**: All code Apache 2.0, participants own their work
 - **Permissive Licenses Only**: Only Apache-2.0/MIT tools recommended for commercial LEG use
 - **Thermal Architecture Open**: Teams choose their path (Immersion, Water, Heat Pump)
-- **Participant Agency**: "Du baust es" - participants solve the problems
+- **Participant Agency**: "Du programmierst es" - participants program the logic
 - **Transparency**: Budget public, prize pool transparent, no hidden agendas
+- **Inclusive Language**: Use "Teilnehmende" (neutral), English role titles, explicit inclusion when needed
 
 **Technical Infrastructure:**
 - Next.js 16 with App Router
@@ -120,7 +129,7 @@ This project extends the sihliconvalley.ch design system:
 
 ### 📅 Event Details
 
-- **Pilot:** Snackathons (April/May 2026, 2 days, 10-20 participants, free) - Build the Sihl-Sim (Digital Twin API)
+- **Pilot:** Snackathons (April/May 2026 + Historik Hack, 2-4 weeks before event, 10-20 participants, free) - Build the Sihl-Sim (Digital Twin API) and optional historic archive research
 - **Main Event:** September 2026 (3 days) - Code on Simulator, deploy to Reference Hardware
 - **Location:** Zürich area
 - **Registration:** CHF 150 per participant

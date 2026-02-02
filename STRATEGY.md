@@ -266,13 +266,29 @@ Distributed via Stripe payouts after event. Timeline:
 
 ## Event Phases
 
-### Phase 1: The Snackathon (April/May 2026)
+### Phase 1: The Snackathons (April/May 2026 + Historik Hack)
 
-**Goal**: Build the Sihl-Sim (Digital Twin API)
-- 2 days, 10-20 participants, free
-- Coding, pizza, "game design" for energy systems
-- Output: Functional API that accepts solar/grid data inputs and outputs fan/battery commands
-- This API becomes the simulation platform teams use at the main event
+**Three Snackathons:**
+
+1. **April 2026 - Pilot #1**: Build the Sihl-Sim (Digital Twin API)
+   - 18 hours, 10-20 participants, free
+   - Coding, pizza, "game design" for energy systems
+   - Output: Functional API that accepts solar/grid data inputs and outputs fan/battery commands
+
+2. **Mai 2026 - Pilot #2**: Sihl-Sim API Iteration
+   - 18 hours, 10-20 participants, free
+   - Based on learnings from first pilot
+   - Finalization of Sihl-Sim API for main event
+
+3. **Historik Hack - Pre-Challenge**: Historic Archive Research
+   - Online, asynchronous, 2-4 weeks before main event
+   - Unlimited participants
+   - Optional: Standort-Scouting and historical energy blueprints collection
+   - Deliverables: Documented findings, relevant historical documents, location analysis
+
+**Unified Registration**: Single registration form for all three Snackathons (multi-select checkboxes)
+
+**Visual Distinction**: Historik Hack is visually distinguished (dashed border, gradient background, "ONLINE ONLY" badge) but remains part of the Snackathons group
 
 ### Phase 2: The Main Event (September 2026)
 
@@ -297,7 +313,9 @@ Refund deadline must align with venue cancellation window. Do not pay venue cost
 
 ```
 Phase 1 (Snackathons):
-April/May 2026: Build Sihl-Sim API
+April 2026: Build Sihl-Sim API (Pilot #1)
+Mai 2026: Sihl-Sim API Iteration (Pilot #2)
+2-4 weeks before event: Historik Hack (Online, asynchronous)
 
 Phase 2 (Main Event):
 T-8 weeks: Registration opens, fund tracker live

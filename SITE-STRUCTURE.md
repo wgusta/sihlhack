@@ -14,6 +14,7 @@ sihlhack.ch/
 │   └── /success ............... Post-payment confirmation
 ├── /funds ..................... Public Fund Tracker
 ├── /challenges ................ Challenges & Packages
+├── /snackathons ................ Snackathons (3 events: April, Mai, Historik Hack)
 ├── /team ...................... Team Page
 ├── /proposals ................. Project Proposals (legacy)
 │   ├── /new ................... Submit New Proposal
@@ -179,9 +180,12 @@ sihlhack.ch/
 **Sections**:
 1. **Hero**: "Wähle dein Paket. Bau die Lösung."
 2. **Package Overview**: Mandatory and optional packages
-3. **Pre-Challenge**: Historic Archive (optional snackathons)
+3. **Snackathons Overview**: Three optional snackathons displayed in single grid (3 columns):
+   - April 2026: Pilot #1 - Sihl-Sim API
+   - Mai 2026: Pilot #2 - Sihl-Sim API Iteration
+   - Historik Hack: Pre-Challenge - Historic Archive (visually distinguished with dashed border, gradient, "ONLINE ONLY" badge)
 4. **Thermal Architecture Challenge**: Three paths (Oil, Water, Heat Pump)
-5. **Mandatory Packages Detail**: Demo-Kit, Hardware Safety, Grid-OS
+5. **Mandatory Packages Detail**: Grid-OS Logic, Sensor Integration, Operational Safety Logic
 6. **Optional Packages**: Dashboard, LEG Starter Pack
 7. **Team Red**: Security challenge (separate selection process)
 8. **Glossary Accordion**: 26 technical terms explained (4 categories)
@@ -191,12 +195,34 @@ sihlhack.ch/
 **Components**:
 - `PackageCard` (with resources section)
 - `PackageCardCompact`
-- `PreChallengeSection`
 - `GlossaryAccordion`
 - `ResourceSubmissionForm` (participants can suggest repos)
 - `DemoKitVisualization`
 - `SafetyVisualization`
 - `GridOSVisualization`
+
+---
+
+### Snackathons Page (/snackathons)
+
+**Purpose**: Information and registration for three optional Snackathons
+
+**Sections**:
+1. **Hero**: "Snackathons" - Build the Sihl-Sim (Digital Twin API)
+2. **What is this**: Why pilot events, concept validation, logistics testing
+3. **Overview**: Three Snackathons in grid layout (3 columns):
+   - April 2026: Pilot #1 - Sihl-Sim API (18 hours, physical event)
+   - Mai 2026: Pilot #2 - Sihl-Sim API Iteration (18 hours, physical event)
+   - Historik Hack: Pre-Challenge - Historic Archive (online, asynchronous, visually distinguished)
+4. **Scope**: What's included (Sihl-Sim API) and what's not (physical hardware)
+5. **Unified Registration Form**: Single form with multi-select checkboxes for all three Snackathons
+6. **What happens next**: Timeline from Snackathons to main event
+7. **CTA**: Registration call-to-action
+
+**Visual Distinction**:
+- Historik Hack uses dashed border (4px), gradient background, decorative circles
+- "ONLINE ONLY" badge clearly marks it as online event
+- Remains part of Snackathons group (not separate section)
 
 ---
 
