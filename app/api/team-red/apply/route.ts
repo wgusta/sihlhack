@@ -35,19 +35,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Store application in database
-    const application = await db.insert(teamRedApplications).values({
-      email,
-      name,
-      phone: phone || null,
-      bio: bio || null,
-      portfolio: portfolio || null,
-      githubProfile: githubProfile || null,
-      ctfProfile: ctfProfile || null,
-      securityExperience,
-      motivation,
-    }).returning()
-
     // Send confirmation email to applicant
     await sendTeamRedApplicationConfirmationEmail(email, name)
 
@@ -63,6 +50,19 @@ export async function POST(request: NextRequest) {
       phone,
       bio,
     })
+
+    // Store application in database
+    const application = await db.insert(teamRedApplications).values({
+      email,
+      name,
+      phone: phone || null,
+      bio: bio || null,
+      portfolio: portfolio || null,
+      githubProfile: githubProfile || null,
+      ctfProfile: ctfProfile || null,
+      securityExperience,
+      motivation,
+    }).returning()
 
     console.log('Team Red application stored:', {
       id: application[0]?.id,
