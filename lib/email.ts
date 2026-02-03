@@ -325,7 +325,7 @@ export async function sendRoleSuggestionEmail(data: {
           sihl<span style="color: #E62F2D;">hack</span>
         </h1>
         <h2 style="color: #1A1A1A; margin-top: 24px;">Neuer Rollen-Vorschlag</h2>
-        
+
         <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #E62F2D;">
           <p style="margin: 0 0 8px 0;"><strong>Rolle:</strong> ${data.roleName}</p>
           <p style="margin: 8px 0 0 0;"><strong>Beschreibung:</strong><br>${data.description.replace(/\n/g, '<br/>')}</p>
@@ -339,6 +339,104 @@ export async function sendRoleSuggestionEmail(data: {
 
         <p style="color: #8B7355; font-size: 12px; margin-top: 24px;">
           Diese E-Mail wurde automatisch vom sihlhack-Website-Formular generiert am ${new Date().toLocaleString('de-CH')}.
+        </p>
+      </div>
+    `,
+  })
+}
+
+/**
+ * Send Team Red application confirmation email to applicant
+ */
+export async function sendTeamRedApplicationConfirmationEmail(
+  email: string,
+  name: string
+): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: email,
+    subject: '💀 Team Red Bewerbung eingereicht',
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span>
+        </h1>
+        <p>Hallo ${name},</p>
+        <p>Danke für deine Bewerbung bei Team Red! Wir haben deine Unterlagen erhalten.</p>
+        <div style="background: #2A2A2A; padding: 16px; margin: 24px 0; border-left: 4px solid #E62F2D; color: #FFF;">
+          <p style="margin: 0;"><strong>Status:</strong> In Bearbeitung</p>
+          <p style="margin: 8px 0 0 0; font-size: 12px;">Du wirst kontaktiert, falls dein Profil zu unseren Anforderungen passt.</p>
+        </div>
+        <p style="color: #8B7355; font-size: 14px;">
+          Team Red ist eine exklusive Challenge mit Selektionsverfahren. Bewerbungsschluss ist 2 Wochen vor dem Event.
+        </p>
+        <p style="color: #8B7355; font-size: 14px;">
+          Wenn du Fragen hast, schreib uns eine E-Mail an
+          <a href="mailto:hallo@sihlhack.ch" style="color: #E62F2D;">hallo@sihlhack.ch</a>.
+        </p>
+      </div>
+    `,
+  })
+}
+
+/**
+ * Send Team Red application notification email to admin
+ */
+export async function sendTeamRedApplicationNotificationEmail(data: {
+  applicantName: string
+  applicantEmail: string
+  securityExperience: string
+  motivation: string
+  githubProfile?: string
+  ctfProfile?: string
+  portfolio?: string
+  phone?: string
+  bio?: string
+}): Promise<void> {
+  const resend = getResend()
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: 'hallo@sihlhack.ch',
+    subject: `[Team Red] Neue Bewerbung von ${data.applicantName}`,
+    html: `
+      <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A;">
+          sihl<span style="color: #E62F2D;">hack</span> - Team Red Bewerbung
+        </h1>
+
+        <div style="background: #F5F0E1; padding: 16px; margin: 24px 0; border-left: 4px solid #E62F2D;">
+          <p style="margin: 0 0 8px 0;"><strong>Name:</strong> ${data.applicantName}</p>
+          <p style="margin: 0 0 8px 0;"><strong>E-Mail:</strong> <a href="mailto:${data.applicantEmail}" style="color: #B5A642;">${data.applicantEmail}</a></p>
+          ${data.phone ? `<p style="margin: 0 0 8px 0;"><strong>Telefon:</strong> ${data.phone}</p>` : ''}
+        </div>
+
+        <h3 style="color: #1A1A1A; margin-top: 24px;">Security-Hintergrund</h3>
+        <div style="background: #F5F0E1; padding: 16px; margin: 16px 0; border-left: 4px solid #FF6B35;">
+          <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${data.securityExperience}</p>
+        </div>
+
+        <h3 style="color: #1A1A1A; margin-top: 24px;">Motivation</h3>
+        <div style="background: #F5F0E1; padding: 16px; margin: 16px 0; border-left: 4px solid #22C55E;">
+          <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${data.motivation}</p>
+        </div>
+
+        ${data.bio ? `
+        <h3 style="color: #1A1A1A; margin-top: 24px;">Kurze Vorstellung</h3>
+        <div style="background: #F5F0E1; padding: 16px; margin: 16px 0; border-left: 4px solid #8B7355;">
+          <p style="margin: 0; white-space: pre-wrap; line-height: 1.6;">${data.bio}</p>
+        </div>
+        ` : ''}
+
+        <h3 style="color: #1A1A1A; margin-top: 24px;">Links</h3>
+        <div style="background: #F5F0E1; padding: 16px; margin: 16px 0; border-left: 4px solid #8B7355;">
+          ${data.githubProfile ? `<p style="margin: 0 0 8px 0;"><strong>GitHub:</strong> <a href="${data.githubProfile}" style="color: #B5A642;">${data.githubProfile}</a></p>` : ''}
+          ${data.ctfProfile ? `<p style="margin: 0 0 8px 0;"><strong>CTF:</strong> <a href="${data.ctfProfile}" style="color: #B5A642;">${data.ctfProfile}</a></p>` : ''}
+          ${data.portfolio ? `<p style="margin: 0;"><strong>Portfolio:</strong> <a href="${data.portfolio}" style="color: #B5A642;">${data.portfolio}</a></p>` : ''}
+        </div>
+
+        <p style="color: #8B7355; font-size: 12px; margin-top: 24px;">
+          Eingereicht am ${new Date().toLocaleString('de-CH')}
         </p>
       </div>
     `,

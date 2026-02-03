@@ -12,6 +12,7 @@ export const participants = pgTable('participants', {
   secondaryRole: text('secondary_role'),
   skills: text('skills').array(), // Array of skill tags
   lookingForTeam: boolean('looking_for_team').default(true),
+  teamName: text('team_name'), // Name of team to join or create
   bio: text('bio'), // Short self-description for team matching
   linkedinUrl: text('linkedin_url'),
   githubUrl: text('github_url'),
@@ -35,6 +36,7 @@ export const payments = pgTable('payments', {
   stripePaymentIntentId: text('stripe_payment_intent_id').notNull().unique(),
   amountChf: integer('amount_chf').notNull(), // Stored in centimes
   status: text('status').default('pending').notNull(),
+  paymentMethod: text('payment_method'), // 'card' | 'twint'
   refundedAt: timestamp('refunded_at'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 })
@@ -127,7 +129,7 @@ export const eventConfig = pgTable('event_config', {
   refundDeadline: timestamp('refund_deadline').notNull(),
   minParticipants: integer('min_participants').default(50).notNull(),
   maxParticipants: integer('max_participants').default(180).notNull(),
-  registrationFeeChf: integer('registration_fee_chf').default(12000).notNull(), // 120 CHF in centimes
+  registrationFeeChf: integer('registration_fee_chf').default(15000).notNull(), // 150 CHF in centimes
   // Prize distribution: remaining budget after costs goes to winners
   prizeFirst: integer('prize_first').default(50).notNull(), // 50% to 1st place
   prizeSecond: integer('prize_second').default(30).notNull(), // 30% to 2nd place
@@ -291,6 +293,26 @@ export const marketplaceTransactions = pgTable('marketplace_transactions', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
 
+// Team Red applications table
+export const teamRedApplications = pgTable('team_red_applications', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  email: text('email').notNull(),
+  name: text('name').notNull(),
+  phone: text('phone'),
+  bio: text('bio'),
+  portfolio: text('portfolio'), // Link to CV/Portfolio
+  githubProfile: text('github_profile'), // GitHub profile URL
+  ctfProfile: text('ctf_profile'), // CTFtime or HackTheBox profile
+  securityExperience: text('security_experience').notNull(),
+  motivation: text('motivation').notNull(),
+  status: text('status').default('submitted').notNull(), // 'submitted' | 'reviewed' | 'accepted' | 'rejected'
+  reviewedBy: text('reviewed_by'), // Admin email or name
+  reviewedAt: timestamp('reviewed_at'),
+  rejectionReason: text('rejection_reason'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
 // Type exports for use in application
 export type Participant = typeof participants.$inferSelect
 export type NewParticipant = typeof participants.$inferInsert
@@ -336,3 +358,6 @@ export type NewHeatAccounting = typeof heatAccounting.$inferInsert
 
 export type MarketplaceTransaction = typeof marketplaceTransactions.$inferSelect
 export type NewMarketplaceTransaction = typeof marketplaceTransactions.$inferInsert
+
+export type TeamRedApplication = typeof teamRedApplications.$inferSelect
+export type NewTeamRedApplication = typeof teamRedApplications.$inferInsert
