@@ -35,23 +35,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Send confirmation email to applicant
-    await sendTeamRedApplicationConfirmationEmail(email, name)
-
-    // Send notification email to admin
-    await sendTeamRedApplicationNotificationEmail({
-      applicantName: name,
-      applicantEmail: email,
-      securityExperience,
-      motivation,
-      githubProfile,
-      ctfProfile,
-      portfolio,
-      phone,
-      bio,
-    })
-
-    // Store application in database
+    // Store application in database first
     const application = await db.insert(teamRedApplications).values({
       email,
       name,
@@ -71,8 +55,34 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     })
 
+    // Send emails asynchronously (non-blocking)
+    Promise.all([
+      sendTeamRedApplicationConfirmationEmail(email, name).catch(err => {
+        console.error('Failed to send confirmation email:', err)
+      }),
+      sendTeamRedApplicationNotificationEmail({
+        applicantName: name,
+        applicantEmail: email,
+        securityExperience,
+        motivation,
+        githubProfile,
+        ctfProfile,
+        portfolio,
+        phone,
+        bio,
+      }).catch(err => {
+        console.error('Failed to send admin notification email:', err)
+      })
+    ]).catch(err => {
+      console.error('Email sending failed:', err)
+    })
+
     return NextResponse.json(
-      { success: true, message: 'Bewerbung erfolgreich eingereicht' },
+      {
+        success: true,
+        message: 'Bewerbung erfolgreich eingereicht',
+        applicationId: application[0]?.id
+      },
       { status: 200 }
     )
   } catch (error) {
