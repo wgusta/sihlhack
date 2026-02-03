@@ -13,7 +13,7 @@ export async function GET() {
   const [participantStats] = await db
     .select({ count: count() })
     .from(participants)
-    .where(eq(participants.registrationStatus, 'registered'))
+    .where(eq(participants.registrationStatus, 'paid'))
 
   const [pendingParticipants] = await db
     .select({ count: count() })

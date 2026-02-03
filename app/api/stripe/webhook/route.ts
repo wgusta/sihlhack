@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import Stripe from 'stripe'
-import { constructWebhookEvent } from '@/lib/stripe'
+import { constructWebhookEvent, getPaymentIntent } from '@/lib/stripe'
 import { db, participants, payments } from '@/lib/db'
 import { eq } from 'drizzle-orm'
 import { sendRegistrationConfirmationEmail } from '@/lib/email'
@@ -88,12 +88,26 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     })
     .where(eq(participants.id, participantId))
 
+  // Retrieve payment method type from PaymentIntent
+  let paymentMethod: string | null = null
+  try {
+    const pi = await getPaymentIntent(session.payment_intent as string, ['payment_method'])
+    if (pi.payment_method && typeof pi.payment_method !== 'string') {
+      paymentMethod = pi.payment_method.type
+    } else if (pi.payment_method_types?.length) {
+      paymentMethod = pi.payment_method_types[0]
+    }
+  } catch {
+    console.error('Could not retrieve payment method type')
+  }
+
   // Create payment record
   await db.insert(payments).values({
     participantId,
     stripePaymentIntentId: session.payment_intent as string,
     amountChf: session.amount_total!,
     status: 'completed',
+    paymentMethod,
   })
 
   // Send confirmation email

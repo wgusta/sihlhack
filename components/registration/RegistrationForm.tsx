@@ -36,6 +36,7 @@ interface FormData {
   secondaryRole: string
   skills: string[]
   lookingForTeam: boolean
+  teamName: string
   bio: string
   linkedinUrl: string
   githubUrl: string
@@ -48,6 +49,7 @@ export function RegistrationForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [showRoleSuggestionModal, setShowRoleSuggestionModal] = useState(false)
+  const [customSkillInput, setCustomSkillInput] = useState('')
 
   const [formData, setFormData] = useState<FormData>({
     email: '',
@@ -57,6 +59,7 @@ export function RegistrationForm() {
     secondaryRole: '',
     skills: [],
     lookingForTeam: true,
+    teamName: '',
     bio: '',
     linkedinUrl: '',
     githubUrl: '',
@@ -123,6 +126,24 @@ export function RegistrationForm() {
     }))
   }
 
+  const addCustomSkill = () => {
+    const skill = customSkillInput.trim()
+    if (skill && !formData.skills.includes(skill) && formData.skills.length < 10) {
+      setFormData(prev => ({
+        ...prev,
+        skills: [...prev.skills, skill]
+      }))
+      setCustomSkillInput('')
+    }
+  }
+
+  const handleSkillKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      addCustomSkill()
+    }
+  }
+
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1)
@@ -145,6 +166,7 @@ export function RegistrationForm() {
           secondaryRole: formData.secondaryRole || undefined,
           skills: formData.skills,
           lookingForTeam: formData.lookingForTeam,
+          teamName: formData.teamName || undefined,
           bio: formData.bio || undefined,
           linkedinUrl: formData.linkedinUrl || undefined,
           githubUrl: formData.githubUrl || undefined,
@@ -167,7 +189,7 @@ export function RegistrationForm() {
   }
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-3xl mx-auto">
       <StepIndicator steps={steps} currentStep={currentStep} />
       
       <RoleSuggestionModal
@@ -303,6 +325,8 @@ export function RegistrationForm() {
             <label className="block text-sm font-mono font-medium text-brand-black mb-2">
               Deine Skills <span className="text-historic-sepia">(max. 10)</span>
             </label>
+
+            {/* Popular skills (quick select) */}
             <div className="flex flex-wrap gap-2 mb-3">
               {POPULAR_SKILLS.map((skill) => (
                 <button
@@ -320,18 +344,64 @@ export function RegistrationForm() {
                 </button>
               ))}
             </div>
-            <p className="text-xs font-mono text-historic-sepia">
+
+            {/* Selected skills */}
+            {formData.skills.length > 0 && (
+              <div className="mb-3 p-3 bg-historic-cream rounded-lg">
+                <p className="text-xs font-mono text-historic-sepia mb-2">Ausgewählt:</p>
+                <div className="flex flex-wrap gap-2">
+                  {formData.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-mono bg-sihl-red text-white"
+                    >
+                      {skill}
+                      <button
+                        type="button"
+                        onClick={() => toggleSkill(skill)}
+                        className="hover:bg-white/20 rounded-full p-0.5"
+                        aria-label="Entfernen"
+                      >
+                        ✕
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Custom skill input */}
+            <div className="flex gap-2">
+              <Input
+                type="text"
+                value={customSkillInput}
+                onChange={(e) => setCustomSkillInput(e.target.value)}
+                onKeyDown={handleSkillKeyDown}
+                placeholder="Eigenen Skill hinzufügen..."
+                disabled={formData.skills.length >= 10}
+              />
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={addCustomSkill}
+                disabled={!customSkillInput.trim() || formData.skills.length >= 10}
+              >
+                +
+              </Button>
+            </div>
+
+            <p className="text-xs font-mono text-historic-sepia mt-2">
               {formData.skills.length}/10 ausgewählt
             </p>
           </div>
 
           {/* Team Status */}
-          <div className="bg-historic-cream rounded-lg p-4">
+          <div className="bg-historic-cream rounded-lg p-4 space-y-4">
             <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
-                checked={formData.lookingForTeam}
-                onChange={(e) => setFormData({ ...formData, lookingForTeam: e.target.checked })}
+                checked={formData.lookingForTeam && !formData.teamName}
+                onChange={(e) => setFormData({ ...formData, lookingForTeam: e.target.checked, teamName: e.target.checked ? '' : formData.teamName })}
                 className="mt-1 w-4 h-4 accent-sihl-red"
               />
               <div>
@@ -343,6 +413,22 @@ export function RegistrationForm() {
                 </p>
               </div>
             </label>
+
+            <div className="border-t border-historic-sepia/20 pt-4">
+              <label htmlFor="teamName" className="block text-sm font-mono font-medium text-brand-black mb-2">
+                Oder tritt einem bestehenden Team bei <span className="text-historic-sepia">(optional)</span>
+              </label>
+              <Input
+                id="teamName"
+                type="text"
+                value={formData.teamName}
+                onChange={(e) => setFormData({ ...formData, teamName: e.target.value, lookingForTeam: e.target.value ? false : formData.lookingForTeam })}
+                placeholder="Team-Name eingeben"
+              />
+              <p className="text-xs font-mono text-historic-sepia mt-1">
+                Gib den exakten Namen des Teams ein, dem du beitreten möchtest.
+              </p>
+            </div>
           </div>
 
           {/* Bio (Optional) */}
@@ -464,7 +550,7 @@ export function RegistrationForm() {
               <div className="flex justify-between pt-2">
                 <span className="text-historic-sepia">Team-Status</span>
                 <span className="text-brand-black">
-                  {formData.lookingForTeam ? '🔍 Sucht Team' : '✓ Hat Team'}
+                  {formData.teamName ? `👥 Team: ${formData.teamName}` : formData.lookingForTeam ? '🔍 Sucht Team' : '✓ Hat Team'}
                 </span>
               </div>
             </div>

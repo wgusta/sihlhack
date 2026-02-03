@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { db, participants, eventConfig } from '@/lib/db'
-import { eq } from 'drizzle-orm'
+import { db, participants, payments, eventConfig } from '@/lib/db'
+import { eq, and, gt } from 'drizzle-orm'
 import { createCheckoutSession } from '@/lib/stripe'
 
 const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
@@ -10,12 +10,20 @@ const checkoutSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1),
   company: z.string().optional(),
+  primaryRole: z.string().optional(),
+  secondaryRole: z.string().optional(),
+  skills: z.array(z.string()).optional(),
+  lookingForTeam: z.boolean().optional(),
+  teamName: z.string().optional(),
+  bio: z.string().optional(),
+  linkedinUrl: z.string().optional(),
+  githubUrl: z.string().optional(),
 })
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, name, company } = checkoutSchema.parse(body)
+    const { email, name, company, primaryRole, secondaryRole, skills, lookingForTeam, teamName, bio, linkedinUrl, githubUrl } = checkoutSchema.parse(body)
 
     // Check if participant already exists
     const [existingParticipant] = await db
@@ -36,10 +44,21 @@ export async function POST(request: NextRequest) {
 
     if (existingParticipant) {
       participantId = existingParticipant.id
-      // Update name/company if changed
       await db
         .update(participants)
-        .set({ name, company: company || null, updatedAt: new Date() })
+        .set({
+          name,
+          company: company || null,
+          primaryRole: primaryRole || null,
+          secondaryRole: secondaryRole || null,
+          skills: skills || null,
+          lookingForTeam: lookingForTeam ?? true,
+          teamName: teamName || null,
+          bio: bio || null,
+          linkedinUrl: linkedinUrl || null,
+          githubUrl: githubUrl || null,
+          updatedAt: new Date(),
+        })
         .where(eq(participants.id, participantId))
     } else {
       // Create new participant
@@ -49,6 +68,14 @@ export async function POST(request: NextRequest) {
           email,
           name,
           company: company || null,
+          primaryRole: primaryRole || null,
+          secondaryRole: secondaryRole || null,
+          skills: skills || null,
+          lookingForTeam: lookingForTeam ?? true,
+          teamName: teamName || null,
+          bio: bio || null,
+          linkedinUrl: linkedinUrl || null,
+          githubUrl: githubUrl || null,
           registrationStatus: 'pending',
         })
         .returning({ id: participants.id })
@@ -73,6 +100,27 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Registration is closed' },
         { status: 400 }
+      )
+    }
+
+    // Rate limit: reject if a pending payment was created in last 60s
+    const oneMinuteAgo = new Date(Date.now() - 60_000)
+    const [recentPending] = await db
+      .select({ id: payments.id })
+      .from(payments)
+      .where(
+        and(
+          eq(payments.participantId, participantId),
+          eq(payments.status, 'pending'),
+          gt(payments.createdAt, oneMinuteAgo)
+        )
+      )
+      .limit(1)
+
+    if (recentPending) {
+      return NextResponse.json(
+        { error: 'Bitte warte kurz, bevor du es erneut versuchst.' },
+        { status: 429 }
       )
     }
 

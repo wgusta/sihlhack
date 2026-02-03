@@ -55,12 +55,23 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     })
 
-    // Send emails asynchronously (non-blocking)
-    Promise.all([
-      sendTeamRedApplicationConfirmationEmail(email, name).catch(err => {
-        console.error('Failed to send confirmation email:', err)
-      }),
-      sendTeamRedApplicationNotificationEmail({
+    // Send emails synchronously with detailed error logging
+    try {
+      console.log('Attempting to send confirmation email to:', email)
+      await sendTeamRedApplicationConfirmationEmail(email, name)
+      console.log('✓ Confirmation email sent to:', email)
+    } catch (err: any) {
+      console.error('✗ Failed to send confirmation email:', {
+        error: err.message,
+        stack: err.stack,
+        name: err.name,
+        email: email
+      })
+    }
+
+    try {
+      console.log('Attempting to send admin notification to: hallo@sihlhack.ch')
+      await sendTeamRedApplicationNotificationEmail({
         applicantName: name,
         applicantEmail: email,
         securityExperience,
@@ -70,12 +81,16 @@ export async function POST(request: NextRequest) {
         portfolio,
         phone,
         bio,
-      }).catch(err => {
-        console.error('Failed to send admin notification email:', err)
       })
-    ]).catch(err => {
-      console.error('Email sending failed:', err)
-    })
+      console.log('✓ Admin notification sent to: hallo@sihlhack.ch')
+    } catch (err: any) {
+      console.error('✗ Failed to send admin notification:', {
+        error: err.message,
+        stack: err.stack,
+        name: err.name,
+        recipient: 'hallo@sihlhack.ch'
+      })
+    }
 
     return NextResponse.json(
       {

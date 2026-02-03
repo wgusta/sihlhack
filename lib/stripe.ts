@@ -31,7 +31,7 @@ export async function createCheckoutSession({
   const stripe = getStripe()
   return stripe.checkout.sessions.create({
     mode: 'payment',
-    payment_method_types: ['card'],
+    payment_method_types: ['card', 'twint'],
     customer_email: participantEmail,
     line_items: [
       {
@@ -68,9 +68,9 @@ export async function processRefund(paymentIntentId: string): Promise<Stripe.Ref
 /**
  * Retrieve a payment intent
  */
-export async function getPaymentIntent(paymentIntentId: string): Promise<Stripe.PaymentIntent> {
+export async function getPaymentIntent(paymentIntentId: string, expand?: string[]): Promise<Stripe.PaymentIntent> {
   const stripe = getStripe()
-  return stripe.paymentIntents.retrieve(paymentIntentId)
+  return stripe.paymentIntents.retrieve(paymentIntentId, { expand })
 }
 
 /**

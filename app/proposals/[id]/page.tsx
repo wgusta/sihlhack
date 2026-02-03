@@ -22,7 +22,7 @@ export default function ProposalDetailPage({
   const { isAuthenticated, user } = useSession()
   const { proposal, isLoading, isError } = useProposal(id)
 
-  const canVote = isAuthenticated && user?.registrationStatus === 'registered'
+  const canVote = isAuthenticated && user?.registrationStatus === 'paid'
 
   const getStatusBadge = (status: string) => {
     switch (status) {

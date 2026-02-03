@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
       stripePaymentIntentId: payments.stripePaymentIntentId,
       amountChf: payments.amountChf,
       status: payments.status,
+      paymentMethod: payments.paymentMethod,
       refundedAt: payments.refundedAt,
       createdAt: payments.createdAt,
       participantEmail: participants.email,

@@ -88,7 +88,7 @@ export async function getFundStatus(): Promise<FundStatus> {
       count: count(),
     })
     .from(participants)
-    .where(eq(participants.registrationStatus, 'registered'))
+    .where(eq(participants.registrationStatus, 'paid'))
 
   const totalCollectedChf = Number(totals?.total || 0)
   const participantCount = Number(countResult?.count || 0)

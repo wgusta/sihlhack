@@ -1,5 +1,7 @@
+import { Suspense } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card'
 import { RegistrationForm } from '@/components/registration/RegistrationForm'
+import { CancelledBanner } from '@/components/registration/CancelledBanner'
 import { Logo } from '@/components/ui/Logo'
 
 export const metadata = {
@@ -10,7 +12,7 @@ export const metadata = {
 export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-off-white py-12 px-4">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <Logo size="xl" hackColor="black" />
           <h1 className="mt-4 font-display text-3xl font-bold text-brand-black">
@@ -19,13 +21,11 @@ export default function RegisterPage() {
           <p className="mt-2 text-historic-sepia font-mono">
             Sichere dir deinen Platz beim ersten teilnehmerorientierten Hackathon der Schweiz.
           </p>
-          <div className="mt-4 p-3 bg-grid-green/10 border border-grid-green/30 rounded-lg inline-block">
-            <p className="text-xs font-mono text-brand-black">
-              🛡️ <strong>Sicherheit zuerst:</strong> Obligatorisches Sicherheitstraining vor Teilnahme.{' '}
-              <a href="/safety" className="text-sihl-red hover:underline">Mehr erfahren</a>
-            </p>
-          </div>
         </div>
+
+        <Suspense>
+          <CancelledBanner />
+        </Suspense>
 
         <Card>
           <CardContent className="pt-8">

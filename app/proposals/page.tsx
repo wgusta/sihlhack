@@ -20,7 +20,7 @@ export default function ProposalsPage() {
     dataType: selectedDataType ?? undefined,
   })
 
-  const canVote = isAuthenticated && user?.registrationStatus === 'registered'
+  const canVote = isAuthenticated && user?.registrationStatus === 'paid'
 
   return (
     <div className="min-h-screen bg-off-white flex flex-col">

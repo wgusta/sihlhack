@@ -31,7 +31,7 @@ export async function POST(
     .where(eq(participants.id, session.id))
     .limit(1)
 
-  if (!participant || participant.registrationStatus !== 'registered') {
+  if (!participant || participant.registrationStatus !== 'paid') {
     return NextResponse.json(
       { error: 'Nur registrierte Teilnehmende können abstimmen' },
       { status: 403 }
