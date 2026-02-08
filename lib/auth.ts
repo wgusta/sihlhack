@@ -30,6 +30,8 @@ export function generateSecureToken(): string {
  * The hashed token is stored in the database
  */
 export async function generateMagicLink(email: string, redirectTo?: string): Promise<string> {
+  // prod-safe: schema may be behind code deploy (adds first_name/last_name)
+  await ensureNameSplitColumns()
   const token = generateSecureToken()
   const tokenHash = hashToken(token)
   const expiresAt = new Date(Date.now() + TOKEN_EXPIRY_MINUTES * 60 * 1000)
