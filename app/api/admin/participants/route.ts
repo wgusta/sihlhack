@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin } from '@/lib/admin'
 import { db, participants, payments } from '@/lib/db'
 import { eq, desc, like, or } from 'drizzle-orm'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 export async function GET(request: NextRequest) {
   const adminCheck = await requireAdmin()
   if (!adminCheck.isAdmin) {
     return NextResponse.json({ error: adminCheck.error }, { status: 403 })
   }
+
+  await ensureNameSplitColumns()
 
   const searchParams = request.nextUrl.searchParams
   const search = searchParams.get('search')
@@ -17,7 +20,8 @@ export async function GET(request: NextRequest) {
     .select({
       id: participants.id,
       email: participants.email,
-      name: participants.name,
+      firstName: participants.firstName,
+      lastName: participants.lastName,
       company: participants.company,
       registrationStatus: participants.registrationStatus,
       createdAt: participants.createdAt,
@@ -29,6 +33,8 @@ export async function GET(request: NextRequest) {
     query = query.where(
       or(
         like(participants.email, `%${search}%`),
+        like(participants.firstName, `%${search}%`),
+        like(participants.lastName, `%${search}%`),
         like(participants.name, `%${search}%`),
         like(participants.company, `%${search}%`)
       )

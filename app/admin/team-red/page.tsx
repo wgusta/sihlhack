@@ -1,6 +1,9 @@
 import { db } from '@/lib/db'
 import { teamRedApplications } from '@/lib/db/schema'
 import { desc } from 'drizzle-orm'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata = {
   title: 'Team Red Applications | Admin',
@@ -8,6 +11,7 @@ export const metadata = {
 }
 
 async function getApplications() {
+  await ensureNameSplitColumns()
   const applications = await db
     .select()
     .from(teamRedApplications)

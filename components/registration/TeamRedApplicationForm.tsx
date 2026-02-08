@@ -6,7 +6,8 @@ import { Input } from '@/components/ui/Input'
 
 interface ApplicationFormData {
   email: string
-  name: string
+  firstName: string
+  lastName: string
   phone: string
   bio: string
   portfolio: string
@@ -23,7 +24,8 @@ export function TeamRedApplicationForm() {
   const [success, setSuccess] = useState(false)
   const [formData, setFormData] = useState<ApplicationFormData>({
     email: '',
-    name: '',
+    firstName: '',
+    lastName: '',
     phone: '',
     bio: '',
     portfolio: '',
@@ -45,8 +47,11 @@ export function TeamRedApplicationForm() {
       newErrors.email = 'Ungültige E-Mail-Adresse'
     }
 
-    if (!formData.name) {
-      newErrors.name = 'Name ist erforderlich'
+    if (!formData.firstName) {
+      newErrors.firstName = 'Vorname ist erforderlich'
+    }
+    if (!formData.lastName) {
+      newErrors.lastName = 'Nachname ist erforderlich'
     }
 
     if (!formData.securityExperience.trim()) {
@@ -90,7 +95,8 @@ export function TeamRedApplicationForm() {
       setSuccess(true)
       setFormData({
         email: '',
-        name: '',
+        firstName: '',
+        lastName: '',
         phone: '',
         bio: '',
         portfolio: '',
@@ -135,19 +141,35 @@ export function TeamRedApplicationForm() {
           Persönliche Daten
         </h3>
 
-        <div>
-          <label htmlFor="name" className="block text-sm font-mono font-medium text-gray-300 mb-1">
-            Vollständiger Name *
-          </label>
-          <Input
-            id="name"
-            type="text"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="Max Mustermann"
-            error={errors.name}
-            className="bg-white/5 border-white/10 text-white placeholder-gray-600"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="firstName" className="block text-sm font-mono font-medium text-gray-300 mb-1">
+              Vorname *
+            </label>
+            <Input
+              id="firstName"
+              type="text"
+              value={formData.firstName}
+              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+              placeholder="Max"
+              error={errors.firstName}
+              className="bg-white/5 border-white/10 text-white placeholder-gray-600"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastName" className="block text-sm font-mono font-medium text-gray-300 mb-1">
+              Nachname *
+            </label>
+            <Input
+              id="lastName"
+              type="text"
+              value={formData.lastName}
+              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+              placeholder="Mustermann"
+              error={errors.lastName}
+              className="bg-white/5 border-white/10 text-white placeholder-gray-600"
+            />
+          </div>
         </div>
 
         <div>

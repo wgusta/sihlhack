@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin } from '@/lib/admin'
 import { db, payments, participants } from '@/lib/db'
 import { eq, desc, isNotNull, isNull } from 'drizzle-orm'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 export async function GET(request: NextRequest) {
   const adminCheck = await requireAdmin()
   if (!adminCheck.isAdmin) {
     return NextResponse.json({ error: adminCheck.error }, { status: 403 })
   }
+
+  await ensureNameSplitColumns()
 
   const searchParams = request.nextUrl.searchParams
   const status = searchParams.get('status')
@@ -23,7 +26,8 @@ export async function GET(request: NextRequest) {
       refundedAt: payments.refundedAt,
       createdAt: payments.createdAt,
       participantEmail: participants.email,
-      participantName: participants.name,
+      participantFirstName: participants.firstName,
+      participantLastName: participants.lastName,
     })
     .from(payments)
     .leftJoin(participants, eq(payments.participantId, participants.id))

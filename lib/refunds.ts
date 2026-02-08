@@ -2,6 +2,7 @@ import { db, payments, participants, eventConfig } from './db'
 import { eq, and } from 'drizzle-orm'
 import { processRefund } from './stripe'
 import { sendRefundEmail, sendEventConfirmedEmail, sendEventCancelledEmail } from './email'
+import { ensureNameSplitColumns } from './db/ensure'
 
 const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
 
@@ -20,6 +21,7 @@ export async function checkEventStatusAndProcessRefunds(): Promise<{
   action: 'none' | 'confirmed' | 'cancelled'
   result?: RefundResult
 }> {
+  await ensureNameSplitColumns()
   // Get event configuration
   const [config] = await db
     .select()
@@ -66,7 +68,7 @@ export async function checkEventStatusAndProcessRefunds(): Promise<{
     // Send confirmation emails to all paid participants
     for (const participant of paidParticipants) {
       try {
-        await sendEventConfirmedEmail(participant.email, participant.name)
+        await sendEventConfirmedEmail(participant.email, participant.firstName ?? participant.name)
       } catch (error) {
         console.error(`Failed to send confirmation email to ${participant.email}:`, error)
       }
@@ -94,6 +96,7 @@ export async function checkEventStatusAndProcessRefunds(): Promise<{
  * Process refunds for all completed payments
  */
 export async function processAllRefunds(): Promise<RefundResult> {
+  await ensureNameSplitColumns()
   const completedPayments = await db
     .select({
       payment: payments,
@@ -137,7 +140,7 @@ export async function processAllRefunds(): Promise<RefundResult> {
 
       // Send refund notification email
       try {
-        await sendRefundEmail(participant.email, participant.name, payment.amountChf)
+        await sendRefundEmail(participant.email, participant.firstName ?? participant.name, payment.amountChf)
       } catch (emailError) {
         console.error(`Failed to send refund email to ${participant.email}:`, emailError)
       }
@@ -163,6 +166,7 @@ export async function processAllRefunds(): Promise<RefundResult> {
  */
 export async function processSingleRefund(paymentId: string): Promise<{ success: boolean; error?: string }> {
   try {
+    await ensureNameSplitColumns()
     const [paymentRecord] = await db
       .select({
         payment: payments,
@@ -201,7 +205,7 @@ export async function processSingleRefund(paymentId: string): Promise<{ success:
 
     await sendRefundEmail(
       paymentRecord.participant.email,
-      paymentRecord.participant.name,
+      paymentRecord.participant.firstName ?? paymentRecord.participant.name,
       paymentRecord.payment.amountChf
     )
 

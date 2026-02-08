@@ -5,7 +5,8 @@ export type ParticipantStatus = 'pending' | 'paid' | 'registered' | 'confirmed' 
 export interface SessionUser {
   id: string
   email: string
-  name: string | null
+  firstName: string | null
+  lastName: string | null
   registrationStatus: string
 }
 
@@ -28,7 +29,8 @@ export interface SnackathonRegistrationSummary {
 export interface ParticipantProfile {
   id: string
   email: string
-  name: string | null
+  firstName: string | null
+  lastName: string | null
   company: string | null
   primaryRole: string | null
   secondaryRole: string | null

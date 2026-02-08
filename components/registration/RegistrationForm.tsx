@@ -30,7 +30,8 @@ const POPULAR_SKILLS = [
 
 interface FormData {
   email: string
-  name: string
+  firstName: string
+  lastName: string
   company: string
   primaryRole: string
   secondaryRole: string
@@ -53,7 +54,8 @@ export function RegistrationForm() {
 
   const [formData, setFormData] = useState<FormData>({
     email: '',
-    name: '',
+    firstName: '',
+    lastName: '',
     company: '',
     primaryRole: '',
     secondaryRole: '',
@@ -77,8 +79,11 @@ export function RegistrationForm() {
       newErrors.email = 'Ungültige E-Mail-Adresse'
     }
 
-    if (!formData.name) {
-      newErrors.name = 'Name ist erforderlich'
+    if (!formData.firstName) {
+      newErrors.firstName = 'Vorname ist erforderlich'
+    }
+    if (!formData.lastName) {
+      newErrors.lastName = 'Nachname ist erforderlich'
     }
 
     setErrors(newErrors)
@@ -160,7 +165,8 @@ export function RegistrationForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: formData.email,
-          name: formData.name,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           company: formData.company || undefined,
           primaryRole: formData.primaryRole,
           secondaryRole: formData.secondaryRole || undefined,
@@ -219,18 +225,33 @@ export function RegistrationForm() {
             />
           </div>
 
-          <div>
-            <label htmlFor="name" className="block text-sm font-mono font-medium text-brand-black mb-1">
-              Vollständiger Name *
-            </label>
-            <Input
-              id="name"
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Max Mustermann"
-              error={errors.name}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName" className="block text-sm font-mono font-medium text-brand-black mb-1">
+                Vorname *
+              </label>
+              <Input
+                id="firstName"
+                type="text"
+                value={formData.firstName}
+                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                placeholder="Max"
+                error={errors.firstName}
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName" className="block text-sm font-mono font-medium text-brand-black mb-1">
+                Nachname *
+              </label>
+              <Input
+                id="lastName"
+                type="text"
+                value={formData.lastName}
+                onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                placeholder="Mustermann"
+                error={errors.lastName}
+              />
+            </div>
           </div>
 
           <div>
@@ -503,7 +524,7 @@ export function RegistrationForm() {
               </div>
               <div className="flex justify-between">
                 <span className="text-historic-sepia">Name</span>
-                <span className="text-brand-black">{formData.name}</span>
+                <span className="text-brand-black">{formData.firstName} {formData.lastName}</span>
               </div>
               {formData.company && (
                 <div className="flex justify-between">

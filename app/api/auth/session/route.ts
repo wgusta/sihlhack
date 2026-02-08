@@ -3,8 +3,10 @@ import { NextResponse } from 'next/server'
 import { validateSessionToken } from '@/lib/auth'
 import { db, participants } from '@/lib/db'
 import { eq } from 'drizzle-orm'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 export async function GET() {
+  await ensureNameSplitColumns()
   const cookieStore = await cookies()
   const sessionToken = cookieStore.get('sihlhack_session')?.value
 
@@ -21,7 +23,8 @@ export async function GET() {
     .select({
       id: participants.id,
       email: participants.email,
-      name: participants.name,
+      firstName: participants.firstName,
+      lastName: participants.lastName,
       registrationStatus: participants.registrationStatus,
     })
     .from(participants)

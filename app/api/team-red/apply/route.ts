@@ -2,14 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { teamRedApplications } from '@/lib/db/schema'
 import { sendTeamRedApplicationConfirmationEmail, sendTeamRedApplicationNotificationEmail } from '@/lib/email'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 export async function POST(request: NextRequest) {
   try {
+    await ensureNameSplitColumns()
     const body = await request.json()
 
     const {
       email,
-      name,
+      firstName,
+      lastName,
       phone,
       bio,
       portfolio,
@@ -18,9 +21,10 @@ export async function POST(request: NextRequest) {
       securityExperience,
       motivation,
     } = body
+    const fullName = `${String(firstName || '').trim()} ${String(lastName || '').trim()}`.trim()
 
     // Basic validation
-    if (!email || !name || !securityExperience || !motivation) {
+    if (!email || !firstName || !lastName || !securityExperience || !motivation) {
       return NextResponse.json(
         { error: 'Erforderliche Felder fehlen' },
         { status: 400 }
@@ -38,7 +42,9 @@ export async function POST(request: NextRequest) {
     // Store application in database first
     const application = await db.insert(teamRedApplications).values({
       email,
-      name,
+      firstName: String(firstName).trim(),
+      lastName: String(lastName).trim(),
+      name: fullName,
       phone: phone || null,
       bio: bio || null,
       portfolio: portfolio || null,
@@ -51,14 +57,14 @@ export async function POST(request: NextRequest) {
     console.log('Team Red application stored:', {
       id: application[0]?.id,
       email,
-      name,
+      name: fullName,
       timestamp: new Date().toISOString(),
     })
 
     // Send emails synchronously with detailed error logging
     try {
       console.log('Attempting to send confirmation email to:', email)
-      await sendTeamRedApplicationConfirmationEmail(email, name)
+      await sendTeamRedApplicationConfirmationEmail(email, String(firstName).trim())
       console.log('✓ Confirmation email sent to:', email)
     } catch (err: any) {
       console.error('✗ Failed to send confirmation email:', {
@@ -72,7 +78,7 @@ export async function POST(request: NextRequest) {
     try {
       console.log('Attempting to send admin notification to: hallo@sihlhack.ch')
       await sendTeamRedApplicationNotificationEmail({
-        applicantName: name,
+        applicantName: fullName,
         applicantEmail: email,
         securityExperience,
         motivation,

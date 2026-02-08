@@ -5,8 +5,10 @@ import { constructWebhookEvent, getPaymentIntent } from '@/lib/stripe'
 import { db, participants, payments, snackathonRegistrations } from '@/lib/db'
 import { eq } from 'drizzle-orm'
 import { sendRegistrationConfirmationEmail } from '@/lib/email'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 export async function POST(request: NextRequest) {
+  await ensureNameSplitColumns()
   const body = await request.text()
   const headersList = await headers()
   const signature = headersList.get('stripe-signature')
@@ -120,7 +122,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   try {
     await sendRegistrationConfirmationEmail(
       participant.email,
-      participant.name,
+      participant.firstName ?? participant.name,
       session.amount_total!
     )
   } catch (error) {

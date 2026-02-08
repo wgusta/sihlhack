@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { and, desc, eq, gt, isNull } from 'drizzle-orm'
 import { db, participantNotifications, participants } from '@/lib/db'
 import { getSession } from '@/lib/auth'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 const schema = z.object({
   targetParticipantId: z.string().uuid(),
@@ -13,6 +14,8 @@ const schema = z.object({
 export async function POST(req: NextRequest) {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+
+  await ensureNameSplitColumns()
 
   let body: unknown
   try {
@@ -35,7 +38,7 @@ export async function POST(req: NextRequest) {
   const [target] = await db
     .select({
       id: participants.id,
-      name: participants.name,
+      firstName: participants.firstName,
       lookingForTeam: participants.lookingForTeam,
       teamName: participants.teamName,
       notifyOnTeamMatch: participants.notifyOnTeamMatch,
@@ -86,14 +89,14 @@ export async function POST(req: NextRequest) {
   }
 
   const [me] = await db
-    .select({ name: participants.name })
+    .select({ firstName: participants.firstName })
     .from(participants)
     .where(eq(participants.id, session.id))
     .limit(1)
 
   const title = 'Team Matching Anfrage'
   const bodyText =
-    `${me?.name ? me.name : 'Ein:e Teilnehmer:in'} möchte Kontakt aufnehmen (${reason}).` +
+    `${me?.firstName ? me.firstName : 'Ein:e Teilnehmer:in'} möchte Kontakt aufnehmen (${reason}).` +
     (note?.trim() ? `\n\nNotiz: ${note.trim()}` : '')
 
   const data = JSON.stringify({

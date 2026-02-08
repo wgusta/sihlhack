@@ -5,6 +5,7 @@ import { db, participants, snackathonRegistrations } from '@/lib/db'
 import { createCheckoutSession } from '@/lib/stripe'
 import { getSession } from '@/lib/auth'
 import { SNACKATHONS, SNACKATHON_FEE_CHF_CENTIMES, type SnackathonId } from '@/lib/snackathons'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 const snackathonIds = new Set(SNACKATHONS.map((s) => s.id))
 
@@ -12,10 +13,12 @@ const schema = z.object({
   selectedSnackathons: z.array(z.string()).min(1).max(3),
   // allow public checkout (no login) with minimal details
   email: z.string().email().optional(),
-  name: z.string().min(1).max(120).optional(),
+  firstName: z.string().min(1).max(80).optional(),
+  lastName: z.string().min(1).max(80).optional(),
 })
 
 export async function POST(req: NextRequest) {
+  await ensureNameSplitColumns()
   let body: unknown
   try {
     body = await req.json()
@@ -47,10 +50,12 @@ export async function POST(req: NextRequest) {
     participantEmail = me?.email ?? null
   } else {
     const email = parsed.data.email
-    const name = parsed.data.name
-    if (!email || !name) {
-      return NextResponse.json({ error: 'Email and name required' }, { status: 400 })
+    const firstName = parsed.data.firstName
+    const lastName = parsed.data.lastName
+    if (!email || !firstName || !lastName) {
+      return NextResponse.json({ error: 'Email, firstName, lastName required' }, { status: 400 })
     }
+    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim()
 
     const [existing] = await db
       .select({ id: participants.id })
@@ -62,14 +67,21 @@ export async function POST(req: NextRequest) {
       participantId = existing.id
       await db
         .update(participants)
-        .set({ name: name.trim(), updatedAt: new Date() })
+        .set({
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          name: fullName,
+          updatedAt: new Date(),
+        })
         .where(eq(participants.id, participantId))
     } else {
       const [created] = await db
         .insert(participants)
         .values({
           email,
-          name: name.trim(),
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          name: fullName,
           registrationStatus: 'pending',
         })
         .returning({ id: participants.id })

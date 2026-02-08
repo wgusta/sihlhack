@@ -15,7 +15,8 @@ interface Payment {
   refundedAt: string | null
   createdAt: string
   participantEmail: string | null
-  participantName: string | null
+  participantFirstName: string | null
+  participantLastName: string | null
 }
 
 export default function AdminPaymentsPage() {
@@ -156,7 +157,7 @@ export default function AdminPaymentsPage() {
                       <td className="px-6 py-4">
                         <div>
                           <div className="font-medium text-brand-black">
-                            {payment.participantName || 'Unbekannt'}
+                            {[payment.participantFirstName, payment.participantLastName].filter(Boolean).join(' ') || 'Unbekannt'}
                           </div>
                           <div className="text-sm text-gray-500">
                             {payment.participantEmail || '–'}

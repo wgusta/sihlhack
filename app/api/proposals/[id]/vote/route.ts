@@ -3,12 +3,14 @@ import { NextRequest, NextResponse } from 'next/server'
 import { validateSessionToken } from '@/lib/auth'
 import { db, projectProposals, proposalVotes, participants } from '@/lib/db'
 import { eq, and, sql } from 'drizzle-orm'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 // POST /api/proposals/[id]/vote - Vote for a proposal
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  await ensureNameSplitColumns()
   const { id } = await params
 
   // Require authentication
@@ -97,6 +99,7 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  await ensureNameSplitColumns()
   const { id } = await params
 
   // Require authentication

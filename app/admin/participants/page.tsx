@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/Button'
 interface Participant {
   id: string
   email: string
-  name: string | null
+  firstName: string | null
+  lastName: string | null
   company: string | null
   registrationStatus: string
   createdAt: string
@@ -49,12 +50,13 @@ export default function AdminParticipantsPage() {
 
   function exportCsv() {
     const csv = [
-      ['ID', 'E-Mail', 'Name', 'Firma', 'Status', 'Registriert am'].join(','),
+      ['ID', 'E-Mail', 'Vorname', 'Nachname', 'Firma', 'Status', 'Registriert am'].join(','),
       ...participants.map((p) =>
         [
           p.id,
           p.email,
-          p.name || '',
+          p.firstName || '',
+          p.lastName || '',
           p.company || '',
           p.registrationStatus,
           new Date(p.createdAt).toLocaleDateString('de-CH'),
@@ -105,7 +107,7 @@ export default function AdminParticipantsPage() {
             <form onSubmit={handleSearch} className="flex-1 flex gap-2">
               <input
                 type="text"
-                placeholder="Suche nach Name, E-Mail oder Firma..."
+                placeholder="Suche nach Vorname, Nachname, E-Mail oder Firma..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sihl-red focus:border-sihl-red"
@@ -175,7 +177,7 @@ export default function AdminParticipantsPage() {
                         <td className="px-6 py-4">
                           <div>
                             <div className="font-medium text-brand-black">
-                              {participant.name || 'Kein Name'}
+                              {[participant.firstName, participant.lastName].filter(Boolean).join(' ') || 'Kein Name'}
                             </div>
                             <div className="text-sm text-gray-500">
                               {participant.email}

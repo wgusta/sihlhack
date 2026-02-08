@@ -3,12 +3,14 @@ import { z } from 'zod'
 import { db, participants, payments, eventConfig } from '@/lib/db'
 import { eq, and, gt } from 'drizzle-orm'
 import { createCheckoutSession } from '@/lib/stripe'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 const EVENT_CONFIG_ID = '00000000-0000-0000-0000-000000000001'
 
 const checkoutSchema = z.object({
   email: z.string().email(),
-  name: z.string().min(1),
+  firstName: z.string().min(1).max(80),
+  lastName: z.string().min(1).max(80),
   company: z.string().optional(),
   primaryRole: z.string().optional(),
   secondaryRole: z.string().optional(),
@@ -22,8 +24,10 @@ const checkoutSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    await ensureNameSplitColumns()
     const body = await request.json()
-    const { email, name, company, primaryRole, secondaryRole, skills, lookingForTeam, teamName, bio, linkedinUrl, githubUrl } = checkoutSchema.parse(body)
+    const { email, firstName, lastName, company, primaryRole, secondaryRole, skills, lookingForTeam, teamName, bio, linkedinUrl, githubUrl } = checkoutSchema.parse(body)
+    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim()
 
     // Check if participant already exists
     const [existingParticipant] = await db
@@ -47,7 +51,9 @@ export async function POST(request: NextRequest) {
       await db
         .update(participants)
         .set({
-          name,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          name: fullName,
           company: company || null,
           primaryRole: primaryRole || null,
           secondaryRole: secondaryRole || null,
@@ -66,7 +72,9 @@ export async function POST(request: NextRequest) {
         .insert(participants)
         .values({
           email,
-          name,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          name: fullName,
           company: company || null,
           primaryRole: primaryRole || null,
           secondaryRole: secondaryRole || null,

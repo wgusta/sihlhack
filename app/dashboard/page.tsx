@@ -19,7 +19,7 @@ export default function DashboardPage() {
       {/* Welcome section */}
       <div>
         <h1 className="font-display text-3xl font-bold text-brand-black">
-          Willkommen{user?.name ? `, ${user.name}` : ''}!
+          Willkommen{user?.firstName ? `, ${user.firstName}` : ''}!
         </h1>
         <p className="mt-2 text-historic-sepia font-mono">
           Verwalte deine sihlhack Teilnahme.

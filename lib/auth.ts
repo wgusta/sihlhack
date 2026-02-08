@@ -2,6 +2,7 @@ import { createHash, randomBytes } from 'crypto'
 import { cookies } from 'next/headers'
 import { db, participants } from './db'
 import { eq } from 'drizzle-orm'
+import { ensureNameSplitColumns } from './db/ensure'
 
 const SESSION_COOKIE_NAME = 'sihlhack_session'
 
@@ -64,6 +65,7 @@ export async function generateMagicLink(email: string, redirectTo?: string): Pro
  * Returns the participant if valid, null otherwise
  */
 export async function verifyMagicLink(token: string): Promise<typeof participants.$inferSelect | null> {
+  await ensureNameSplitColumns()
   const tokenHash = hashToken(token)
 
   const [participant] = await db
@@ -127,6 +129,7 @@ export function validateSessionToken(token: string): { id: string } | null {
  * Returns session data if valid, null otherwise
  */
 export async function getSession(): Promise<{ id: string; participant?: typeof participants.$inferSelect } | null> {
+  await ensureNameSplitColumns()
   const cookieStore = await cookies()
   const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME)
 

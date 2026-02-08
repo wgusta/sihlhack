@@ -5,10 +5,12 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
+import { useParticipantProfile } from '@/hooks/useParticipantProfile'
 
 type ParticipantRow = {
   id: string
-  name: string | null
+  firstName: string | null
+  lastName: string | null
   company: string | null
   primaryRole: string | null
   secondaryRole: string | null
@@ -31,6 +33,7 @@ const REASONS: Array<{ id: 'form_team' | 'join_team' | 'need_role'; label: strin
 ]
 
 export default function TeamMatchingPage() {
+  const { data: meData } = useParticipantProfile()
   const [q, setQ] = useState('')
   const [rows, setRows] = useState<ParticipantRow[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -39,6 +42,8 @@ export default function TeamMatchingPage() {
   const [note, setNote] = useState('')
   const [sendingTo, setSendingTo] = useState<string | null>(null)
   const [msg, setMsg] = useState<string | null>(null)
+  const [sortMode, setSortMode] = useState<'suggested' | 'recent'>('suggested')
+  const [starred, setStarred] = useState<Record<string, true>>({})
 
   const load = async (qq: string) => {
     try {
@@ -58,6 +63,28 @@ export default function TeamMatchingPage() {
   useEffect(() => {
     load('')
   }, [])
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem('team_matching_starred') || '{}'
+      const parsed = JSON.parse(raw)
+      if (parsed && typeof parsed === 'object') setStarred(parsed)
+    } catch {
+      // ignore
+    }
+  }, [])
+
+  const setStar = (id: string, on: boolean) => {
+    const next = { ...starred }
+    if (on) next[id] = true
+    else delete next[id]
+    setStarred(next)
+    try {
+      window.localStorage.setItem('team_matching_starred', JSON.stringify(next))
+    } catch {
+      // ignore
+    }
+  }
 
   useEffect(() => {
     const t = setTimeout(() => load(q), 250)
@@ -97,7 +124,38 @@ export default function TeamMatchingPage() {
     return skills.slice(0, 8).join(', ')
   }
 
-  const filtered = useMemo(() => rows, [rows])
+  const filtered = useMemo(() => {
+    const me = meData?.participant
+    const meSkills = new Set((me?.skills ?? []).map((s) => s.toLowerCase()))
+    const mePrimary = (me?.primaryRole ?? '').toLowerCase()
+
+    const scored = rows.map((p) => {
+      const skills = (p.skills ?? []).map((s) => s.toLowerCase())
+      const shared = skills.filter((s) => meSkills.has(s)).length
+      const roleBoost =
+        mePrimary && (p.primaryRole ?? '').toLowerCase() !== mePrimary ? 1 : 0
+      const lookingBoost = p.lookingForTeam ? 1 : 0
+      const score = shared * 3 + roleBoost + lookingBoost
+      return { p, score }
+    })
+
+    const starFirst = (a: { p: ParticipantRow; score: number }, b: { p: ParticipantRow; score: number }) => {
+      const sa = starred[a.p.id] ? 1 : 0
+      const sb = starred[b.p.id] ? 1 : 0
+      if (sa !== sb) return sb - sa
+      return 0
+    }
+
+    if (sortMode === 'recent') {
+      return scored
+        .sort((a, b) => starFirst(a, b) || (new Date(b.p.updatedAt).getTime() - new Date(a.p.updatedAt).getTime()))
+        .map((x) => x.p)
+    }
+
+    return scored
+      .sort((a, b) => starFirst(a, b) || (b.score - a.score) || (new Date(b.p.updatedAt).getTime() - new Date(a.p.updatedAt).getTime()))
+      .map((x) => x.p)
+  }, [rows, meData, sortMode, starred])
 
   return (
     <div className="space-y-6">
@@ -155,6 +213,29 @@ export default function TeamMatchingPage() {
               />
             </div>
           </div>
+
+          <div className="flex items-center gap-4 flex-wrap">
+            <label className="text-sm font-mono text-historic-sepia">
+              Sort
+            </label>
+            <button
+              type="button"
+              onClick={() => setSortMode('suggested')}
+              className={sortMode === 'suggested' ? 'text-sm font-mono text-brand-black underline' : 'text-sm font-mono text-historic-sepia hover:text-brand-black'}
+            >
+              Suggested
+            </button>
+            <button
+              type="button"
+              onClick={() => setSortMode('recent')}
+              className={sortMode === 'recent' ? 'text-sm font-mono text-brand-black underline' : 'text-sm font-mono text-historic-sepia hover:text-brand-black'}
+            >
+              Recent
+            </button>
+            <div className="ml-auto text-xs font-mono text-historic-sepia">
+              Stars sind lokal (nur dein Browser).
+            </div>
+          </div>
           {msg && <div className="text-sm font-mono text-historic-sepia">{msg}</div>}
         </CardContent>
       </Card>
@@ -166,12 +247,24 @@ export default function TeamMatchingPage() {
         {filtered.map((p) => (
           <Card key={p.id} className="hover:shadow-lg transition-shadow">
             <CardHeader>
-              <CardTitle>{p.name || 'Teilnehmer:in'}</CardTitle>
+              <CardTitle>{[p.firstName, p.lastName].filter(Boolean).join(' ') || 'Teilnehmer:in'}</CardTitle>
               <div className="text-xs font-mono text-historic-sepia">
                 {p.company ? p.company : ' '}
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-xs font-mono text-historic-sepia">
+                  updated: {new Date(p.updatedAt).toLocaleDateString('de-CH')}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setStar(p.id, !starred[p.id])}
+                  className={starred[p.id] ? 'text-xs font-mono text-brand-black underline' : 'text-xs font-mono text-historic-sepia hover:text-brand-black'}
+                >
+                  {starred[p.id] ? 'Starred' : 'Star'}
+                </button>
+              </div>
               <div className="text-sm font-mono text-historic-sepia">
                 {p.teamName ? `Team: ${p.teamName}` : p.lookingForTeam ? 'Sucht Team' : ' '}
               </div>
@@ -218,4 +311,3 @@ export default function TeamMatchingPage() {
     </div>
   )
 }
-

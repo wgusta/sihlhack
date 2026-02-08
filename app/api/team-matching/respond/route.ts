@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { and, eq } from 'drizzle-orm'
 import { db, participantNotifications, participants } from '@/lib/db'
 import { getSession } from '@/lib/auth'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 const schema = z.object({
   notificationId: z.string().uuid(),
@@ -12,6 +13,8 @@ const schema = z.object({
 export async function POST(req: NextRequest) {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
+
+  await ensureNameSplitColumns()
 
   let body: unknown
   try {
@@ -53,13 +56,13 @@ export async function POST(req: NextRequest) {
     .where(and(eq(participantNotifications.id, notificationId), eq(participantNotifications.participantId, session.id)))
 
   const [me] = await db
-    .select({ name: participants.name, email: participants.email })
+    .select({ firstName: participants.firstName, email: participants.email })
     .from(participants)
     .where(eq(participants.id, session.id))
     .limit(1)
 
   const [actor] = await db
-    .select({ name: participants.name, email: participants.email })
+    .select({ firstName: participants.firstName, email: participants.email })
     .from(participants)
     .where(eq(participants.id, notif.actorParticipantId))
     .limit(1)
@@ -78,7 +81,7 @@ export async function POST(req: NextRequest) {
       actorParticipantId: session.id,
       kind: 'team_response',
       title: 'Team Matching: Anfrage abgelehnt',
-      body: `${me?.name ?? 'Ein:e Teilnehmer:in'} hat deine Anfrage abgelehnt.`,
+      body: `${me?.firstName ?? 'Ein:e Teilnehmer:in'} hat deine Anfrage abgelehnt.`,
       data: JSON.stringify({ ...commonData, response: 'decline' }),
     })
     return NextResponse.json({ success: true })
@@ -90,7 +93,7 @@ export async function POST(req: NextRequest) {
     actorParticipantId: session.id,
     kind: 'team_response',
     title: 'Team Matching: Anfrage akzeptiert',
-    body: `${me?.name ?? 'Ein:e Teilnehmer:in'} hat akzeptiert. Kontakt: ${me?.email ?? ''}`.trim(),
+    body: `${me?.firstName ?? 'Ein:e Teilnehmer:in'} hat akzeptiert. Kontakt: ${me?.email ?? ''}`.trim(),
     data: JSON.stringify({ ...commonData, response: 'accept', contactEmail: me?.email ?? null }),
   })
 
@@ -105,4 +108,3 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ success: true })
 }
-

@@ -3,9 +3,11 @@ import { z } from 'zod'
 import { desc, eq } from 'drizzle-orm'
 import { db, participants, payments, snackathonRegistrations } from '@/lib/db'
 import { getSession } from '@/lib/auth'
+import { ensureNameSplitColumns } from '@/lib/db/ensure'
 
 const profilePatchSchema = z.object({
-  name: z.string().min(1).max(120).optional(),
+  firstName: z.string().min(1).max(80).optional(),
+  lastName: z.string().min(1).max(80).optional(),
   company: z.string().max(120).optional(),
   primaryRole: z.string().max(64).optional(),
   secondaryRole: z.string().max(64).optional(),
@@ -27,11 +29,14 @@ export async function GET() {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
 
+  await ensureNameSplitColumns()
+
   const [participant] = await db
     .select({
       id: participants.id,
       email: participants.email,
-      name: participants.name,
+      firstName: participants.firstName,
+      lastName: participants.lastName,
       company: participants.company,
       primaryRole: participants.primaryRole,
       secondaryRole: participants.secondaryRole,
@@ -87,6 +92,8 @@ export async function PATCH(request: NextRequest) {
   const session = await getSession()
   if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
 
+  await ensureNameSplitColumns()
+
   let body: unknown
   try {
     body = await request.json()
@@ -100,6 +107,12 @@ export async function PATCH(request: NextRequest) {
   }
 
   const p = parsed.data
+  const nextFirst = p.firstName === undefined ? undefined : p.firstName.trim()
+  const nextLast = p.lastName === undefined ? undefined : p.lastName.trim()
+  const nextFullName =
+    nextFirst === undefined && nextLast === undefined
+      ? undefined
+      : [nextFirst, nextLast].filter(Boolean).join(' ').trim() || null
 
   const nextSkills =
     p.skills === undefined ? undefined : p.skills.length ? Array.from(new Set(p.skills.map((s) => s.trim()).filter(Boolean))) : null
@@ -107,7 +120,9 @@ export async function PATCH(request: NextRequest) {
   const [updated] = await db
     .update(participants)
     .set({
-      name: p.name === undefined ? undefined : p.name.trim(),
+      firstName: nextFirst,
+      lastName: nextLast,
+      name: nextFullName,
       company: emptyToNull(p.company),
       primaryRole: emptyToNull(p.primaryRole),
       secondaryRole: emptyToNull(p.secondaryRole),
@@ -123,7 +138,8 @@ export async function PATCH(request: NextRequest) {
     .returning({
       id: participants.id,
       email: participants.email,
-      name: participants.name,
+      firstName: participants.firstName,
+      lastName: participants.lastName,
       company: participants.company,
       primaryRole: participants.primaryRole,
       secondaryRole: participants.secondaryRole,

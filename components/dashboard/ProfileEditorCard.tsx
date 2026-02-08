@@ -26,7 +26,8 @@ function statusBadge(status: string) {
 }
 
 type FormState = {
-  name: string
+  firstName: string
+  lastName: string
   company: string
   primaryRole: string
   secondaryRole: string
@@ -54,7 +55,8 @@ export function ProfileEditorCard() {
   const initial: FormState | null = useMemo(() => {
     if (!participant) return null
     return {
-      name: participant.name ?? '',
+      firstName: participant.firstName ?? '',
+      lastName: participant.lastName ?? '',
       company: participant.company ?? '',
       primaryRole: participant.primaryRole ?? '',
       secondaryRole: participant.secondaryRole ?? '',
@@ -80,21 +82,29 @@ export function ProfileEditorCard() {
     setSaving(true)
     setSaveMsg(null)
     try {
+      const first = form.firstName.trim()
+      const last = form.lastName.trim()
+      if (!first || !last) {
+        setSaveMsg('Vorname + Nachname erforderlich.')
+        setSaving(false)
+        return
+      }
       const res = await fetch('/api/participants/me', {
         method: 'PATCH',
         credentials: 'include',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-          name: form.name.trim() || null,
-          company: form.company.trim() || null,
-          primaryRole: form.primaryRole || null,
-          secondaryRole: form.secondaryRole || null,
+          firstName: first,
+          lastName: last,
+          company: form.company,
+          primaryRole: form.primaryRole,
+          secondaryRole: form.secondaryRole,
           skills: csvToSkills(form.skillsCsv),
           lookingForTeam: form.teamName.trim() ? false : form.lookingForTeam,
-          teamName: form.teamName.trim() || null,
-          bio: form.bio.trim() || null,
-          linkedinUrl: form.linkedinUrl.trim() || null,
-          githubUrl: form.githubUrl.trim() || null,
+          teamName: form.teamName,
+          bio: form.bio,
+          linkedinUrl: form.linkedinUrl,
+          githubUrl: form.githubUrl,
         }),
       })
       if (!res.ok) throw new Error('bad')
@@ -132,16 +142,22 @@ export function ProfileEditorCard() {
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input
-                label="Name"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                label="Vorname"
+                value={form.firstName}
+                onChange={(e) => setForm({ ...form, firstName: e.target.value })}
               />
               <Input
-                label="Firma (optional)"
-                value={form.company}
-                onChange={(e) => setForm({ ...form, company: e.target.value })}
+                label="Nachname"
+                value={form.lastName}
+                onChange={(e) => setForm({ ...form, lastName: e.target.value })}
               />
             </div>
+
+            <Input
+              label="Firma (optional)"
+              value={form.company}
+              onChange={(e) => setForm({ ...form, company: e.target.value })}
+            />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="w-full">
@@ -272,4 +288,3 @@ export function ProfileEditorCard() {
     </Card>
   )
 }
-

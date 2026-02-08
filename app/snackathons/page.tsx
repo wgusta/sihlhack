@@ -42,7 +42,8 @@ const SNACKATHONS = [
 export default function SnackathonsPage() {
   const { isAuthenticated, user } = useSession()
   const [selected, setSelected] = useState<string[]>([])
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [msg, setMsg] = useState<string | null>(null)
@@ -54,8 +55,8 @@ export default function SnackathonsPage() {
   const canSubmit = useMemo(() => {
     if (selected.length === 0) return false
     if (isAuthenticated) return true
-    return name.trim().length > 0 && email.trim().length > 0
-  }, [selected.length, isAuthenticated, name, email])
+    return firstName.trim().length > 0 && lastName.trim().length > 0 && email.trim().length > 0
+  }, [selected.length, isAuthenticated, firstName, lastName, email])
 
   const submit = async () => {
     setMsg(null)
@@ -63,7 +64,8 @@ export default function SnackathonsPage() {
     try {
       const payload: any = { selectedSnackathons: selected }
       if (!isAuthenticated) {
-        payload.name = name.trim()
+        payload.firstName = firstName.trim()
+        payload.lastName = lastName.trim()
         payload.email = email.trim()
       }
       const res = await fetch('/api/snackathons/checkout', {
@@ -139,7 +141,8 @@ export default function SnackathonsPage() {
 
                 {!isAuthenticated && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Input label="Name" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Input label="Vorname" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <Input label="Nachname" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                     <Input label="Email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
                   </div>
                 )}

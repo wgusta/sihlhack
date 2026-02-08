@@ -5,7 +5,10 @@ import { sql } from 'drizzle-orm'
 export const participants = pgTable('participants', {
   id: uuid('id').defaultRandom().primaryKey(),
   email: text('email').notNull().unique(),
-  name: text('name'), // Optional: collected after magic link verification
+  // Names (split fields; legacy "name" kept for compatibility/backfill)
+  firstName: text('first_name'),
+  lastName: text('last_name'),
+  name: text('name'),
   company: text('company'),
   // Role-based hackathon fields
   primaryRole: text('primary_role'), // ml-engineer, data-engineer, frontend-dev, etc.
@@ -333,6 +336,8 @@ export const marketplaceTransactions = pgTable('marketplace_transactions', {
 export const teamRedApplications = pgTable('team_red_applications', {
   id: uuid('id').defaultRandom().primaryKey(),
   email: text('email').notNull(),
+  firstName: text('first_name'),
+  lastName: text('last_name'),
   name: text('name').notNull(),
   phone: text('phone'),
   bio: text('bio'),
