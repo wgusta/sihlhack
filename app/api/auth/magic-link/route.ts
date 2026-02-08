@@ -5,15 +5,16 @@ import { sendMagicLinkEmail } from '@/lib/email'
 
 const magicLinkSchema = z.object({
   email: z.string().email(),
+  redirectTo: z.string().optional(),
 })
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email } = magicLinkSchema.parse(body)
+    const { email, redirectTo } = magicLinkSchema.parse(body)
 
     // Generate magic link (creates/updates participant in DB)
-    const magicLink = await generateMagicLink(email)
+    const magicLink = await generateMagicLink(email, redirectTo)
 
     // Send email
     await sendMagicLinkEmail(email, magicLink)

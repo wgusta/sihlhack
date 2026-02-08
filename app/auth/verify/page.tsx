@@ -1,6 +1,4 @@
 import { redirect } from 'next/navigation'
-import { cookies } from 'next/headers'
-import { verifyMagicLink, createSessionToken } from '@/lib/auth'
 
 export const metadata = {
   title: 'Verifizierung | sihlhack',
@@ -14,37 +12,14 @@ type Props = {
 export default async function VerifyPage({ searchParams }: Props) {
   const params = await searchParams
   const token = params.token
-  const redirectTo = params.redirectTo || '/dashboard'
+  const redirectTo = params.redirectTo
 
   if (!token) {
     redirect('/auth/login?error=invalid-link')
   }
 
-  let participant
-  try {
-    participant = await verifyMagicLink(token)
-  } catch (error) {
-    console.error('[Verify] Database error:', error)
-    redirect('/auth/login?error=verification-failed')
-  }
-
-  if (!participant) {
-    redirect('/auth/login?error=invalid-token')
-  }
-
-  // Create session token
-  const sessionToken = createSessionToken(participant.id)
-
-  // Set HTTP-only cookie
-  const cookieStore = await cookies()
-  cookieStore.set('sihlhack_session', sessionToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: 7 * 24 * 60 * 60, // 7 days
-    path: '/',
-  })
-
-  // Redirect to destination
-  redirect(redirectTo)
+  const qs = new URLSearchParams({ token })
+  if (redirectTo) qs.set('redirectTo', redirectTo)
+  // Cookies can only be mutated in a Route Handler/Server Action, so delegate.
+  redirect(`/api/auth/verify?${qs.toString()}`)
 }

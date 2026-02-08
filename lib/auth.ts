@@ -28,7 +28,7 @@ export function generateSecureToken(): string {
  * Returns the unhashed token to be sent via email
  * The hashed token is stored in the database
  */
-export async function generateMagicLink(email: string): Promise<string> {
+export async function generateMagicLink(email: string, redirectTo?: string): Promise<string> {
   const token = generateSecureToken()
   const tokenHash = hashToken(token)
   const expiresAt = new Date(Date.now() + TOKEN_EXPIRY_MINUTES * 60 * 1000)
@@ -50,9 +50,13 @@ export async function generateMagicLink(email: string): Promise<string> {
       },
     })
 
-  // Return the raw token (not the hash) to be sent via email
+  // Return the raw token (not the hash) to be sent via email.
+  // Verification endpoint is a Route Handler so it can set cookies.
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
-  return `${baseUrl}/auth/verify?token=${token}`
+  const url = new URL('/api/auth/verify', baseUrl)
+  url.searchParams.set('token', token)
+  if (redirectTo) url.searchParams.set('redirectTo', redirectTo)
+  return url.toString()
 }
 
 /**
