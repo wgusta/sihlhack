@@ -9,6 +9,7 @@ import { useParticipantProfile } from '@/hooks/useParticipantProfile'
 const SNACKATHONS = [
   { id: 'april-2026', label: 'April 2026 (Pilot #1)' },
   { id: 'mai-2026', label: 'Mai 2026 (Pilot #2)' },
+  { id: 'historik-hack', label: 'Historik Hack (Online, Archiv)' },
 ] as const
 
 export function SnackathonCard() {
@@ -21,7 +22,7 @@ export function SnackathonCard() {
   const registeredIds = useMemo(() => new Set(regs.filter((r) => r.status === 'paid').map((r) => r.snackathonId)), [regs])
 
   const toggle = (id: string) => {
-    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id].slice(0, 2)))
+    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id].slice(0, 3)))
   }
 
   const checkout = async () => {
@@ -53,9 +54,9 @@ export function SnackathonCard() {
       <CardHeader>
         <CardTitle>Snackathons (CHF 80)</CardTitle>
       </CardHeader>
-      <CardContent>
+        <CardContent>
         <div className="text-sm font-mono text-historic-sepia">
-          2 Pilot-Events. Bezahlung via Stripe. Teilnahme erscheint hier nach erfolgreicher Zahlung.
+          3 Events. Bezahlung via Stripe. Teilnahme erscheint hier nach erfolgreicher Zahlung.
         </div>
 
         <div className="mt-4 space-y-2">
@@ -110,4 +111,3 @@ export function SnackathonCard() {
     </Card>
   )
 }
-

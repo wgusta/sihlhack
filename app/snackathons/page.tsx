@@ -28,6 +28,15 @@ const SNACKATHONS = [
     location: 'Zürich (Ort folgt)',
     seats: '10-20 Plätze',
   },
+  {
+    id: 'historik-hack',
+    name: 'Historik Hack',
+    subtitle: 'Historisches Archiv (Online)',
+    date: '2-4 Wochen vor Event',
+    duration: 'Asynchron',
+    location: 'Online',
+    seats: 'Offen',
+  },
 ] as const
 
 export default function SnackathonsPage() {
@@ -39,7 +48,7 @@ export default function SnackathonsPage() {
   const [msg, setMsg] = useState<string | null>(null)
 
   const toggle = (id: string) => {
-    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id].slice(0, 2)))
+    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id].slice(0, 3)))
   }
 
   const canSubmit = useMemo(() => {
@@ -90,7 +99,7 @@ export default function SnackathonsPage() {
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold">Snackathons</h1>
             <p className="mt-4 text-lg font-mono text-gray-300">
-              2 Pilot-Events: wir bauen den Sihl-Sim (Digital Twin API) in kleiner Runde.
+              3 Events: 2 Pilot-Events (Sihl-Sim API) + 1 Online Historik Hack (Archiv).
             </p>
             <div className="mt-6 flex items-center gap-4 flex-wrap">
               <Link href="/dashboard" className="text-sm font-mono text-grid-green hover:underline">
@@ -140,7 +149,7 @@ export default function SnackathonsPage() {
                     Weiter zu Stripe (CHF 80)
                   </Button>
                   <div className="text-sm font-mono text-historic-sepia">
-                    CHF 80 pro Snackathon (2 Snackathons = CHF 160).
+                    CHF 80 pro Snackathon (3 Snackathons = CHF 240).
                   </div>
                   {msg && <div className="ml-auto text-sm font-mono text-sihl-red">{msg}</div>}
                 </div>
@@ -163,4 +172,3 @@ export default function SnackathonsPage() {
     </div>
   )
 }
-

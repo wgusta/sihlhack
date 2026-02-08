@@ -9,7 +9,7 @@ import { SNACKATHONS, SNACKATHON_FEE_CHF_CENTIMES, type SnackathonId } from '@/l
 const snackathonIds = new Set(SNACKATHONS.map((s) => s.id))
 
 const schema = z.object({
-  selectedSnackathons: z.array(z.string()).min(1).max(2),
+  selectedSnackathons: z.array(z.string()).min(1).max(3),
   // allow public checkout (no login) with minimal details
   email: z.string().email().optional(),
   name: z.string().min(1).max(120).optional(),
@@ -127,4 +127,3 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ url: sessionCheckout.url })
 }
-
