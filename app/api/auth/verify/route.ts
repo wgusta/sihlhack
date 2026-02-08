@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { verifyMagicLink, createSessionToken } from '@/lib/auth'
-import { cookies } from 'next/headers'
 
 const verifySchema = z.object({
   token: z.string().min(1),
@@ -24,17 +23,8 @@ export async function POST(request: NextRequest) {
     // Create session token
     const sessionToken = createSessionToken(participant.id)
 
-    // Set HTTP-only cookie
-    const cookieStore = await cookies()
-    cookieStore.set('sihlhack_session', sessionToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 60 * 60, // 7 days
-      path: '/',
-    })
-
-    return NextResponse.json({
+    // Create response with session cookie
+    const response = NextResponse.json({
       success: true,
       participant: {
         id: participant.id,
@@ -43,6 +33,17 @@ export async function POST(request: NextRequest) {
         registrationStatus: participant.registrationStatus,
       },
     })
+
+    // Set HTTP-only cookie
+    response.cookies.set('sihlhack_session', sessionToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+      path: '/',
+    })
+
+    return response
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
