@@ -11,8 +11,6 @@ import { NotificationBell } from '@/components/dashboard/NotificationBell'
 const navigation = [
   { name: 'Übersicht', href: '/dashboard' },
   { name: 'Team Matching', href: '/dashboard/team-matching' },
-  { name: 'Meine Projekte', href: '/dashboard/proposals' },
-  { name: 'Meine Stimmen', href: '/dashboard/votes' },
 ]
 
 export default function DashboardLayout({
