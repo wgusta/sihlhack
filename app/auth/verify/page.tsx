@@ -20,30 +20,31 @@ export default async function VerifyPage({ searchParams }: Props) {
     redirect('/auth/login?error=invalid-link')
   }
 
+  let participant
   try {
-    const participant = await verifyMagicLink(token)
-
-    if (!participant) {
-      redirect('/auth/login?error=invalid-token')
-    }
-
-    // Create session token
-    const sessionToken = createSessionToken(participant.id)
-
-    // Set HTTP-only cookie
-    const cookieStore = await cookies()
-    cookieStore.set('sihlhack_session', sessionToken, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 60 * 60, // 7 days
-      path: '/',
-    })
-
-    // Redirect to destination
-    redirect(redirectTo)
+    participant = await verifyMagicLink(token)
   } catch (error) {
-    console.error('Verify error:', error)
+    console.error('[Verify] Database error:', error)
     redirect('/auth/login?error=verification-failed')
   }
+
+  if (!participant) {
+    redirect('/auth/login?error=invalid-token')
+  }
+
+  // Create session token
+  const sessionToken = createSessionToken(participant.id)
+
+  // Set HTTP-only cookie
+  const cookieStore = await cookies()
+  cookieStore.set('sihlhack_session', sessionToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60, // 7 days
+    path: '/',
+  })
+
+  // Redirect to destination
+  redirect(redirectTo)
 }
