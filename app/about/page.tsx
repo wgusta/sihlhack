@@ -689,7 +689,7 @@ export default function AboutPage() {
                     <strong className="text-white">Wir bauen Denker, die heizen – nicht Heizungen, die denken.</strong>
                   </p>
                   <p className="pt-2 border-t border-white/10 text-xs text-gray-400 italic">
-                      Gute Ingenieurinnen und Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
+                      Gute Ingenieur/innen begrüßen diese Regeln. Nur Grifter fürchten sie.
                   </p>
                 </div>
               </div>
