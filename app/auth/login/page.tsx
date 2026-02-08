@@ -8,7 +8,20 @@ export const metadata = {
   description: 'Melde dich bei sihlhack an',
 }
 
-export default function LoginPage() {
+type Props = {
+  searchParams: Promise<{ error?: string; redirectTo?: string }>
+}
+
+const ERROR_MESSAGES: Record<string, string> = {
+  'invalid-link': 'Ungültiger Link. Bitte fordere einen neuen Login-Link an.',
+  'invalid-token': 'Ungültiger oder abgelaufener Token. Bitte fordere einen neuen Login-Link an.',
+  'verification-failed': 'Verifizierung fehlgeschlagen. Bitte versuche es erneut.',
+}
+
+export default async function LoginPage({ searchParams }: Props) {
+  const params = await searchParams
+  const errorMessage = params.error ? ERROR_MESSAGES[params.error] : undefined
+
   return (
     <div className="min-h-screen bg-off-white flex items-center justify-center px-4 py-12">
       <Card className="w-full max-w-md">
@@ -22,6 +35,11 @@ export default function LoginPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {errorMessage && (
+            <div className="mb-4 p-3 bg-sihl-red/10 border border-sihl-red/20 rounded-lg">
+              <p className="text-sm text-sihl-red font-mono">{errorMessage}</p>
+            </div>
+          )}
           <Suspense fallback={<div className="h-32 animate-pulse bg-historic-cream rounded" />}>
             <MagicLinkForm />
           </Suspense>
