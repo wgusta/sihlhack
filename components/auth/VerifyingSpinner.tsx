@@ -24,11 +24,21 @@ export function VerifyingSpinner() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ token }),
+          credentials: 'include',
         })
 
         if (!res.ok) {
           const data = await res.json()
           throw new Error(data.error || 'Verifizierung fehlgeschlagen')
+        }
+
+        // Verify session is actually set before redirecting
+        const sessionRes = await fetch('/api/auth/session', {
+          credentials: 'include',
+        })
+
+        if (!sessionRes.ok) {
+          throw new Error('Session konnte nicht erstellt werden')
         }
 
         router.push(redirectTo)
