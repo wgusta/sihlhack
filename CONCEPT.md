@@ -202,9 +202,9 @@ To prevent this **Cobra Effect**, we are pioneering a Dual-License Model:
 ### Timeline
 
 - **Phase 1 - Snackathons (April/May 2026 + Historik Hack)**: 
-  - **April 2026**: Build the Sihl-Sim (Digital Twin API) - Pilot #1 (18 hours, physical event, 10-20 participants, free)
-  - **Mai 2026**: Sihl-Sim API Iteration - Pilot #2 (18 hours, physical event, 10-20 participants, free)
-  - **Historik Hack**: Optional historic archive research (online, asynchronous, 2-4 weeks before event, unlimited participants, free)
+  - **April 2026**: Build the Sihl-Sim (Digital Twin API) - Pilot #1 (18 hours, physical event, 10-20 participants, CHF 80)
+  - **Mai 2026**: Sihl-Sim API Iteration - Pilot #2 (18 hours, physical event, 10-20 participants, CHF 80)
+  - **Historik Hack**: Optional historic archive research (online, asynchronous, 2-4 weeks before event, unlimited participants, CHF 80)
   - **Unified Registration**: Single form for all three Snackathons with multi-select checkboxes
   - **Visual Distinction**: Historik Hack visually distinguished (dashed border, gradient, "ONLINE ONLY" badge) but grouped with other Snackathons
   - Goal: Functional simulation API that teams will use at main event

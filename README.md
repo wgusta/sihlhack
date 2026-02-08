@@ -60,6 +60,26 @@ Black and white historical photographs and data tables "develop" into colorful m
 - Resend (Email)
 - Vercel (Hosting)
 
+## Participant Platform (Dashboard)
+
+- `/dashboard`: profile review/edit (same fields as registration)
+- `/dashboard`: organizer news feed
+- `/dashboard`: snackathon participation + signup (CHF 80 per snackathon)
+- `/dashboard/team-matching`: platform-only team matching (no chat; structured requests + email share on accept)
+- Notification bell (top right): inbox, team requests accept/decline
+
+## Snackathons
+
+- 3 events: `april-2026`, `mai-2026`, `historik-hack`
+- Stripe checkout: CHF 80 per event
+- minimal signup fields (public): `firstName`, `lastName`, `email`
+
+## Names (Vorname / Nachname)
+
+- database uses split fields: `participants.first_name`, `participants.last_name` (legacy `participants.name` kept)
+- emails/comms address participants by `firstName` (fallback to legacy `name`)
+- safe auto-migration/backfill runs server-side via `lib/db/ensure.ts`
+
 ## Brand Alignment
 
 This project extends the sihliconvalley.ch design system:
@@ -100,11 +120,16 @@ This project extends the sihliconvalley.ch design system:
 - Glossary accordion: 26 technical terms explained
 
 **Snackathons Page:**
-- Three Snackathons displayed in grid layout (3 columns)
-- Unified registration form with multi-select checkboxes for all three events
-- Historik Hack visually distinguished (dashed border, gradient background, "ONLINE ONLY" badge)
-- April/Mai: Physical events (18 hours, 10-20 participants)
-- Historik Hack: Online, asynchronous (2-4 weeks before event, unlimited participants)
+- 3 snackathons (April, Mai, Historik Hack)
+- paid signup via Stripe (CHF 80 per event)
+- minimal fields for public checkout (Vorname, Nachname, Email)
+
+**Participant Dashboard:**
+- Profile editor (Vorname, Nachname, roles, skills, team status, links)
+- Organizer news feed (announcements)
+- Snackathon participation + signup
+- Team matching (platform-only, structured; no chat)
+- Notification bell (inbox + team request actions)
 
 **Core Policies:**
 - **Open Source First**: All code Apache 2.0, participants own their work
@@ -129,7 +154,7 @@ This project extends the sihliconvalley.ch design system:
 
 ### 📅 Event Details
 
-- **Pilot:** Snackathons (April/May 2026 + Historik Hack, 2-4 weeks before event, 10-20 participants, free) - Build the Sihl-Sim (Digital Twin API) and optional historic archive research
+- **Pilot:** Snackathons (April/May 2026 + Historik Hack) - CHF 80 / event
 - **Main Event:** September 2026 (3 days) - Code on Simulator, deploy to Reference Hardware
 - **Location:** Zürich area
 - **Registration:** CHF 150 per participant
@@ -185,6 +210,7 @@ Required environment variables:
 - `BLOB_READ_WRITE_TOKEN` - Vercel Blob storage
 - `STRIPE_SECRET_KEY` - Stripe API key
 - `RESEND_API_KEY` - Resend email API
+- `RESEND_FROM_EMAIL` - From address (verified Resend domain recommended)
 - `NEXT_PUBLIC_SITE_URL` - Site URL (https://sihlhack.ch)
 
 ## Next Steps

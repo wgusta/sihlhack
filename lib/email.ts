@@ -14,14 +14,25 @@ function getResend(): Resend {
 }
 
 // Use Resend sandbox until sihlhack.ch domain is verified
-const FROM_EMAIL = 'onboarding@resend.dev'
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
+
+async function sendOrThrow(input: Parameters<Resend['emails']['send']>[0]) {
+  const resend = getResend()
+  const result = await resend.emails.send(input as any)
+  // Resend SDK returns { data, error } (it may not throw).
+  const err = (result as any)?.error
+  if (err) {
+    const msg = err?.message || err?.name || 'Resend error'
+    throw new Error(msg)
+  }
+  return result
+}
 
 /**
  * Send magic link email for authentication
  */
 export async function sendMagicLinkEmail(email: string, magicLink: string): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'Dein sihlhack Login-Link',
@@ -55,8 +66,7 @@ export async function sendRegistrationConfirmationEmail(
   name: string | null,
   amountChf: number
 ): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'Deine sihlhack Anmeldung ist bestätigt',
@@ -92,8 +102,7 @@ export async function sendRefundEmail(
   name: string | null,
   amountChf: number
 ): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'sihlhack Rückerstattung',
@@ -127,8 +136,7 @@ export async function sendRefundEmail(
  * Send event confirmed email
  */
 export async function sendEventConfirmedEmail(email: string, name: string | null): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'sihlhack findet statt!',
@@ -162,8 +170,7 @@ export async function sendEventConfirmedEmail(email: string, name: string | null
  * Send event cancelled email
  */
 export async function sendEventCancelledEmail(email: string, name: string | null): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'sihlhack abgesagt - Rückerstattung eingeleitet',
@@ -197,8 +204,7 @@ export async function sendProposalSubmittedEmail(
   name: string | null,
   proposalTitle: string
 ): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: 'Dein sihlhack Projekt wurde eingereicht',
@@ -234,8 +240,7 @@ export async function sendVoteReceivedEmail(
   proposalTitle: string,
   voteCount: number
 ): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: `Neue Stimme für "${proposalTitle}"`,
@@ -272,8 +277,7 @@ export async function sendResourceSubmissionEmail(data: {
   submitterName?: string
   submitterEmail?: string
 }): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: 'hello@sihlhack.ch',
     subject: `[sihlhack] Neuer Repo-Vorschlag: ${data.repoName}`,
@@ -315,8 +319,7 @@ export async function sendRoleSuggestionEmail(data: {
   submitterName?: string
   submitterEmail?: string
 }): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: 'hello@sihlhack.ch',
     subject: `[sihlhack] Neuer Rollen-Vorschlag: ${data.roleName}`,
@@ -353,8 +356,7 @@ export async function sendTeamRedApplicationConfirmationEmail(
   email: string,
   name: string
 ): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: email,
     subject: '💀 Team Red Bewerbung eingereicht',
@@ -395,8 +397,7 @@ export async function sendTeamRedApplicationNotificationEmail(data: {
   phone?: string
   bio?: string
 }): Promise<void> {
-  const resend = getResend()
-  await resend.emails.send({
+  await sendOrThrow({
     from: FROM_EMAIL,
     to: 'hallo@sihlhack.ch',
     subject: `[Team Red] Neue Bewerbung von ${data.applicantName}`,

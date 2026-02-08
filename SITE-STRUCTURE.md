@@ -22,8 +22,9 @@ sihlhack.ch/
 ├── /data-catalog .............. Historical Data Browser (legacy)
 │   └── /[id] .................. Data Item Detail
 ├── /dashboard ................. Participant Dashboard
-│   ├── /proposals ............. My Proposals
-│   └── /votes ................. My Votes
+│   ├── /team-matching ......... Team matching (platform-only, structured)
+│   ├── /proposals ............. My Proposals (legacy)
+│   └── /votes ................. My Votes (legacy)
 ├── /company ................... Company Portal
 │   ├── /register .............. Company Registration
 │   ├── /upload ................ Data Upload
@@ -33,6 +34,7 @@ sihlhack.ch/
 ├── /admin ..................... Admin Dashboard (Protected)
 │   ├── /participants .......... Participant Management
 │   ├── /payments .............. Payment Overview
+│   ├── /news .................. Organizer announcements
 │   ├── /data .................. Data Moderation
 │   ├── /config ................ Event Configuration
 │   └── /refunds ............... Manual Refund Triggers
@@ -40,10 +42,20 @@ sihlhack.ch/
     ├── /auth/magic-link ....... Send magic link
     ├── /auth/verify ........... Verify token
     ├── /auth/logout ........... Clear session
+    ├── /auth/session .......... Get session
     ├── /stripe/checkout
     ├── /stripe/webhook
     ├── /stripe/refund
-    ├── /participants
+    ├── /participants/me ....... Profile GET/PATCH (registration fields)
+    ├── /announcements ......... Organizer news list
+    ├── /notifications ......... Inbox + unread count + mark read
+    ├── /team-matching ......... Discover opted-in participants
+    ├── /team-matching/request . Structured request
+    ├── /team-matching/respond . Accept/decline (email shared on accept)
+    ├── /snackathons/checkout .. Snackathon Stripe checkout (CHF 80 / event)
+    ├── /config ................ Public event config (timeline widget)
+    ├── /calendar/event ........ .ics download
+    ├── /admin/bootstrap ....... DB bootstrap (admin only)
     ├── /proposals
     ├── /votes
     ├── /companies
@@ -128,11 +140,11 @@ sihlhack.ch/
 **Purpose**: Collect participant info, process payment
 
 **Multi-step Flow**:
-1. **Email**: Enter email, receive magic link
-2. **Personal Info**: Name, company affiliation (optional)
-3. **Review**: Fee breakdown, refund policy, terms
-4. **Payment**: Stripe Checkout redirect
-5. **Confirmation**: Success page with next steps
+1. **Kontakt**: Email + Vorname + Nachname (+ company optional)
+2. **Rolle**: primary/secondary role, skills, team status
+3. **Bestätigen**: terms acceptance
+4. **Bezahlen**: Stripe Checkout redirect
+5. **Confirmation**: Success page
 
 **Components**:
 - `RegistrationForm` (multi-step)
@@ -144,7 +156,7 @@ sihlhack.ch/
 
 **Validation**:
 - Email format and uniqueness
-- Magic link verification
+- Vorname/Nachname required
 - Terms acceptance required
 - Check if registration still open
 
@@ -209,15 +221,12 @@ sihlhack.ch/
 
 **Sections**:
 1. **Hero**: "Snackathons" - Build the Sihl-Sim (Digital Twin API)
-2. **What is this**: Why pilot events, concept validation, logistics testing
-3. **Overview**: Three Snackathons in grid layout (3 columns):
+2. **Overview**: Three Snackathons:
    - April 2026: Pilot #1 - Sihl-Sim API (18 hours, physical event)
    - Mai 2026: Pilot #2 - Sihl-Sim API Iteration (18 hours, physical event)
    - Historik Hack: Pre-Challenge - Historic Archive (online, asynchronous, visually distinguished)
-4. **Scope**: What's included (Sihl-Sim API) and what's not (physical hardware)
-5. **Unified Registration Form**: Single form with multi-select checkboxes for all three Snackathons
-6. **What happens next**: Timeline from Snackathons to main event
-7. **CTA**: Registration call-to-action
+3. **Paid signup**: Stripe checkout (CHF 80 / event), minimal fields (Vorname, Nachname, Email) when logged out
+4. **What happens next**: shows in dashboard after payment
 
 **Visual Distinction**:
 - Historik Hack uses dashed border (4px), gradient background, decorative circles

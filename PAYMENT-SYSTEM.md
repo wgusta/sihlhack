@@ -478,6 +478,7 @@ import { eq } from 'drizzle-orm';
 import { format } from 'date-fns';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const from = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
 export async function sendRegistrationConfirmation(participantId: string) {
   const [participant] = await db
@@ -488,12 +489,12 @@ export async function sendRegistrationConfirmation(participantId: string) {
   const [config] = await db.select().from(eventConfig).where(eq(eventConfig.id, 1));
 
   await resend.emails.send({
-    from: 'SihlHack <noreply@sihlhack.ch>',
+    from,
     to: participant.email,
     subject: 'Registration Confirmed: SihlHack 2025',
     html: `
       <h1>Welcome to SihlHack!</h1>
-      <p>Hi ${participant.name},</p>
+      <p>Hi ${participant.firstName || participant.name},</p>
       <p>Your registration is confirmed. Here's what you need to know:</p>
       <ul>
         <li><strong>Event Date:</strong> ${format(config.eventDate, 'dd.MM.yyyy')}</li>

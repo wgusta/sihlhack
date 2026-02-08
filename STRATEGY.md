@@ -271,18 +271,19 @@ Distributed via Stripe payouts after event. Timeline:
 **Three Snackathons:**
 
 1. **April 2026 - Pilot #1**: Build the Sihl-Sim (Digital Twin API)
-   - 18 hours, 10-20 participants, free
+   - 18 hours, 10-20 participants, CHF 80
    - Coding, pizza, "game design" for energy systems
    - Output: Functional API that accepts solar/grid data inputs and outputs fan/battery commands
 
 2. **Mai 2026 - Pilot #2**: Sihl-Sim API Iteration
-   - 18 hours, 10-20 participants, free
+   - 18 hours, 10-20 participants, CHF 80
    - Based on learnings from first pilot
    - Finalization of Sihl-Sim API for main event
 
 3. **Historik Hack - Pre-Challenge**: Historic Archive Research
    - Online, asynchronous, 2-4 weeks before main event
    - Unlimited participants
+   - CHF 80
    - Optional: Standort-Scouting and historical energy blueprints collection
    - Deliverables: Documented findings, relevant historical documents, location analysis
 

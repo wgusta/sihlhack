@@ -32,8 +32,9 @@ export async function POST(request: NextRequest) {
     }
 
     console.error('Magic link error:', error)
+    const msg = error instanceof Error ? error.message : 'Failed to send magic link'
     return NextResponse.json(
-      { error: 'Failed to send magic link' },
+      { error: msg || 'Failed to send magic link' },
       { status: 500 }
     )
   }
