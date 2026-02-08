@@ -14,6 +14,7 @@ const navItems = [
   { href: '/admin', label: 'Übersicht', icon: '📊' },
   { href: '/admin/participants', label: 'Teilnehmende', icon: '👥' },
   { href: '/admin/payments', label: 'Zahlungen', icon: '💳' },
+  { href: '/admin/news', label: 'News', icon: '📣' },
   { href: '/admin/data', label: 'Daten', icon: '📁' },
   { href: '/admin/config', label: 'Einstellungen', icon: '⚙️' },
 ]
