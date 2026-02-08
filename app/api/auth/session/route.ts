@@ -6,7 +6,7 @@ import { eq } from 'drizzle-orm'
 
 export async function GET() {
   const cookieStore = await cookies()
-  const sessionToken = cookieStore.get('session')?.value
+  const sessionToken = cookieStore.get('sihlhack_session')?.value
 
   if (!sessionToken) {
     return NextResponse.json(null, { status: 401 })
