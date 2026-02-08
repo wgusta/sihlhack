@@ -13,7 +13,9 @@ function getResend(): Resend {
   return resendInstance
 }
 
-const FROM_EMAIL = 'sihlhack <noreply@sihlhack.ch>'
+// Use Resend sandbox for testing (no domain verification needed)
+// Change back to 'sihlhack <noreply@sihlhack.ch>' after verifying domain in Resend
+const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev'
 
 /**
  * Send magic link email for authentication

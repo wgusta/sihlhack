@@ -69,7 +69,7 @@ const jsonLd = {
   },
   offers: {
     '@type': 'Offer',
-    price: '480',
+    price: '150',
     priceCurrency: 'CHF',
     availability: 'https://schema.org/InStock',
     url: 'https://sihlhack.ch/register',

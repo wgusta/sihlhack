@@ -58,11 +58,10 @@ async function migrate() {
     // 3. Update registration fee default (optional, for new events)
     await sql`
       UPDATE event_config
-      SET registration_fee_chf = 48000
+      SET registration_fee_chf = 15000
       WHERE id = '00000000-0000-0000-0000-000000000001'
-      AND registration_fee_chf = 15000
     `
-    console.log('✓ Updated registration fee to CHF 480')
+    console.log('✓ Updated registration fee to CHF 150')
 
     // 4. Drop old columns if they exist (optional cleanup)
     if (columnNames.includes('prize_pool_percentage')) {

@@ -44,7 +44,7 @@ async function seed() {
       eventDate,
       registrationDeadline,
       refundDeadline,
-      registrationFeeChf: 48000,
+      registrationFeeChf: 15000,
       prizeFirst: 50,
       prizeSecond: 30,
       prizeThird: 20,

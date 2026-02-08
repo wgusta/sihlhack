@@ -14,7 +14,7 @@ interface StepIndicatorProps {
 export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
   return (
     <nav aria-label="Fortschritt" className="mb-8">
-      <ol className="flex items-center justify-center space-x-4">
+      <ol className="flex items-center justify-center space-x-2 sm:space-x-4">
         {steps.map((step, index) => (
           <li key={step.id} className="flex items-center">
             <div className="flex items-center">
@@ -46,7 +46,7 @@ export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
             {index < steps.length - 1 && (
               <div
                 className={cn(
-                  'w-8 sm:w-16 h-0.5 mx-2',
+                  'w-4 sm:w-16 h-0.5 mx-1 sm:mx-2',
                   step.id < currentStep ? 'bg-fund-green' : 'bg-historic-cream'
                 )}
               />
