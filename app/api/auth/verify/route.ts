@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
 
     // Set HTTP-only cookie
     const cookieStore = await cookies()
-    cookieStore.set('session', sessionToken, {
+    cookieStore.set('sihlhack_session', sessionToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
