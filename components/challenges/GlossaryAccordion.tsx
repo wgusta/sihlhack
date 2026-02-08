@@ -65,7 +65,7 @@ const glossaryCategories: GlossaryCategory[] = [
     terms: [
       {
         term: 'LEG (Lokale Elektrizitätsgemeinschaft)',
-        definition: 'Rechtlicher Zusammenschluss nach StromVG Art. 18. Nachbarn produzieren und teilen Strom gemeinsam. Kann das öffentliche Netz nutzen. Technische Infrastruktur muss selbst gebaut werden.',
+        definition: 'Rechtlicher Zusammenschluss nach Schweizer Recht: Nachbarn produzieren und teilen Strom gemeinsam. Technische Infrastruktur muss selbst gebaut werden.',
       },
       {
         term: 'Grid-OS',
@@ -141,11 +141,11 @@ const glossaryCategories: GlossaryCategory[] = [
     terms: [
       {
         term: 'StromVG',
-        definition: 'Stromversorgungsgesetz. Art. 18 ermöglicht Lokale Elektrizitätsgemeinschaften (LEGs). Definiert rechtlichen Rahmen für Energie-Sharing zwischen Nachbarn.',
+        definition: 'Stromversorgungsgesetz. Definiert rechtlichen Rahmen für Energie-Sharing zwischen Nachbarn (Details: /leg).',
       },
       {
         term: 'EnG',
-        definition: 'Energiegesetz. Reguliert Energieversorgung in der Schweiz. EnG Art. 17 definiert LEGs als "Zusammenschluss von Endverbrauchern".',
+        definition: 'Energiegesetz. Reguliert Energieversorgung in der Schweiz.',
       },
       {
         term: 'VEVEE',

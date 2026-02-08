@@ -22,7 +22,7 @@ const techPillars = [
       'Dielektrisches Öl-Kühlung',
       'Wärmetauscher-Integration',
       'Modulares Rack-Design',
-      'Geräuschlose Operation (<30dB)',
+      'Leiser Betrieb (Ziel: ohne Serverlüfter)',
     ],
   },
   {
@@ -169,12 +169,12 @@ export function DataRevealSection() {
                 <div className="font-mono text-xs text-gray-400 mt-1">Warmwasser (Demo-Scale)</div>
               </div>
               <div>
-                <div className="font-mono text-3xl font-bold text-compute-blue">99%</div>
-                <div className="font-mono text-xs text-gray-400 mt-1">Wärme-Rückgewinnung möglich</div>
+                <div className="font-mono text-3xl font-bold text-compute-blue">hoch</div>
+                <div className="font-mono text-xs text-gray-400 mt-1">Wärme-Rückgewinnung (designabhängig)</div>
               </div>
               <div>
-                <div className="font-mono text-3xl font-bold text-grid-green">0 dB</div>
-                <div className="font-mono text-xs text-gray-400 mt-1">Keine Lüfter, kein Lärm</div>
+                <div className="font-mono text-3xl font-bold text-grid-green">leise</div>
+                <div className="font-mono text-xs text-gray-400 mt-1">Ziel: ohne Serverlüfter</div>
               </div>
             </div>
           </div>

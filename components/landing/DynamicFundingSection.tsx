@@ -143,7 +143,7 @@ export function DynamicFundingSection() {
             Platz sichern
           </ButtonLink>
           <p className="mt-4 font-mono text-sm text-historic-sepia">
-            Kostenlos. Keine Verpflichtungen. Alle Skill-Levels willkommen.
+            CHF 150 Teilnahme (inkl. allfälliger MWST). Alle Skill-Levels willkommen.
           </p>
         </div>
       </div>

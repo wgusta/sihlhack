@@ -19,7 +19,7 @@ export default function RegisterPage() {
             Anmeldung
           </h1>
           <p className="mt-2 text-historic-sepia font-mono">
-            Sichere dir deinen Platz beim ersten teilnehmerorientierten Hackathon der Schweiz.
+            Sichere dir deinen Platz beim teilnehmerorientierten Hackathon in Zürich (Oktober 2026, Datum folgt).
           </p>
         </div>
 

@@ -4,9 +4,6 @@ import { useEffect, useRef, useState } from 'react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 
-// Event date - Sihlhack 3-Day Competition (September 2026)
-const EVENT_DATE = new Date('2026-09-12T09:00:00')
-
 export function HeroSection() {
   const [isRevealed, setIsRevealed] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)

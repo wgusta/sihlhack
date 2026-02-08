@@ -55,9 +55,6 @@ export default function RegisterSuccessPage() {
             <ButtonLink href="/proposals" variant="primary">
               Projekte ansehen
             </ButtonLink>
-            <ButtonLink href="/funds" variant="ghost">
-              Fonds verfolgen
-            </ButtonLink>
           </div>
 
           <p className="text-xs font-mono text-historic-sepia">

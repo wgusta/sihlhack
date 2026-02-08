@@ -23,7 +23,7 @@ export default function AGBPage() {
                 1. Geltungsbereich
               </h2>
               <p className="text-historic-sepia">
-                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Teilnahme am sihlhack, dem ersten teilnehmerorientierten Hackathon der Schweiz. Ziel des Hackathons ist die Digitalisierung historischer Industriedaten aus dem Sihltal und die Entwicklung von Open-Source-Lösungen für die dezentrale Energiezukunft. Mit der Anmeldung akzeptieren Teilnehmende diese Bedingungen.
+                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Teilnahme am sihlhack. Ziel des Hackathons ist die Digitalisierung historischer Industriedaten aus dem Sihltal und die Entwicklung von Open‑Source‑Lösungen für die dezentrale Energiezukunft. Mit der Anmeldung akzeptieren Teilnehmende diese Bedingungen.
               </p>
             </section>
 
@@ -32,7 +32,7 @@ export default function AGBPage() {
                 2. Teilnahmegebühr und Zahlungsbedingungen
               </h2>
               <p className="text-historic-sepia">
-                Die Teilnahmegebühr beträgt CHF 150.00 pro Person. Die Zahlung erfolgt über Stripe und ist bei der Anmeldung fällig. Der gesamte Überschuss nach Deckung der Betriebskosten fliesst in den Preisgeldpool.
+                Die Teilnahmegebühr beträgt CHF 150.00 pro Person (inkl. allfälliger MWST). Die Zahlung erfolgt über Stripe und ist bei der Anmeldung fällig. Ein allfälliger Überschuss nach Deckung der Betriebskosten kann in den Preisgeldpool fliessen.
               </p>
             </section>
 
@@ -67,7 +67,7 @@ export default function AGBPage() {
                 5. Preisgeld und Competition-Modell
               </h2>
               <p className="text-historic-sepia">
-                sihlhack funktioniert als Competition: Etwa 25 Teams arbeiten parallel an 4 gleichwertigen Challenges.
+                sihlhack funktioniert als Competition: Etwa 20 Teams arbeiten parallel an 4 gleichwertigen Challenges.
                 Das Preisgeld wird nach Jury-Bewertung verteilt, basierend auf technischer Qualität, Vollständigkeit und Integration.
                 Die Bewertungskriterien werden vorab kommuniziert.
               </p>

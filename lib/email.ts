@@ -81,10 +81,6 @@ export async function sendRegistrationConfirmationEmail(
           <p style="margin: 0;"><strong>Betrag:</strong> ${formatCHF(amountChf)}</p>
           <p style="margin: 8px 0 0 0;"><strong>Status:</strong> Bezahlt</p>
         </div>
-        <p>
-          Du kannst den aktuellen Stand des Fonds und die Anzahl Teilnehmende jederzeit unter
-          <a href="https://sihlhack.ch/funds" style="color: #B5A642;">sihlhack.ch/funds</a> einsehen.
-        </p>
         <p style="color: #8B7355; font-size: 14px;">
           Falls die Mindestteilnehmerzahl bis zur Deadline nicht erreicht wird,
           erhältst du automatisch eine vollständige Rückerstattung.
@@ -122,10 +118,6 @@ export async function sendRefundEmail(
         </div>
         <p>
           Wir hoffen, dich bei einer zukünftigen Veranstaltung begrüssen zu dürfen.
-        </p>
-        <p>
-          Alle Details zur Transparenz findest du unter
-          <a href="https://sihlhack.ch/funds" style="color: #B5A642;">sihlhack.ch/funds</a>.
         </p>
       </div>
     `,

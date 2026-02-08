@@ -142,7 +142,7 @@ export default function AboutPage() {
                     <ul className="space-y-4 text-sm font-mono">
                       <li className="flex items-start gap-3 text-green-800">
                         <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
-                        <span className="leading-relaxed">Server heizen Gebäude <strong className="text-green-900">(99% Effizienz)</strong></span>
+                        <span className="leading-relaxed">Server erzeugen Wärme (Strom → Wärme)</span>
                       </li>
                       <li className="flex items-start gap-3 text-green-800">
                         <span className="text-grid-green mt-0.5 text-xl font-bold">✓</span>
@@ -179,12 +179,12 @@ export default function AboutPage() {
                   <div className="font-mono text-xs text-historic-sepia mt-1">Wassertemperatur aus Immersion</div>
                 </div>
                 <div>
-                  <div className="font-mono text-3xl font-bold text-compute-blue">99%</div>
-                  <div className="font-mono text-xs text-historic-sepia mt-1">Wärmerückgewinnung möglich</div>
+                  <div className="font-mono text-3xl font-bold text-compute-blue">hoch</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">Wärmerückgewinnung (designabhängig)</div>
                 </div>
                 <div>
-                  <div className="font-mono text-3xl font-bold text-grid-green">0 dB</div>
-                  <div className="font-mono text-xs text-historic-sepia mt-1">Keine Lüfter, kein Lärm</div>
+                  <div className="font-mono text-3xl font-bold text-grid-green">leise</div>
+                  <div className="font-mono text-xs text-historic-sepia mt-1">Ziel: ohne Serverlüfter</div>
                 </div>
               </div>
             </div>
@@ -387,7 +387,7 @@ export default function AboutPage() {
                 <a href="/leg" className="text-sihl-red hover:underline">LEG</a>-Gründung als Challenge
               </h2>
               <p className="mt-4 text-historic-sepia font-mono max-w-2xl mx-auto">
-                Das Schweizer StromVG Art. 18 ermöglicht <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaften</a>.
+                Schweizer Recht ermöglicht <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaften</a>.
                 Wir entwickeln die Templates für die Gründung.
               </p>
             </div>
@@ -407,7 +407,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
-                      <span>Kann das öffentliche Netz nutzen (StromVG Art. 18)</span>
+                      <span>Kann je nach Modell das öffentliche Netz nutzen</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-grid-green">✓</span>
@@ -435,7 +435,7 @@ export default function AboutPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
-                      <span>StromVG/EnG Compliance-Checklisten</span>
+                      <span>Compliance-Checklisten (Netzbetreiber, Steuern, Haftung)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-thermal-orange">→</span>
@@ -539,7 +539,7 @@ export default function AboutPage() {
 
             <div className="mt-8 text-center">
               <p className="font-mono text-sm text-historic-sepia">
-                Sihlhack ist ein Event, kein Unternehmen. Das Budget ist öffentlich. Der Preisgeld-Pool ist transparent. So läuft das hier.
+                Sihlhack ist ein Event, kein Unternehmen. Teilnahmegebühr finanziert Betrieb + Preisgeld. Details gemäss AGB.
               </p>
             </div>
           </div>
@@ -727,7 +727,7 @@ export default function AboutPage() {
                     <strong className="text-white">Anwendbares Recht:</strong> Alle Vereinbarungen unterliegen Schweizer Recht (Art. 116-120 IPRG).
                   </p>
                   <p>
-                    <strong className="text-white">Gerichtsstand:</strong> Bei Streitigkeiten ist das Gericht am Sitz des Veranstalters zuständig (Zürich/Aargau).
+                    <strong className="text-white">Gerichtsstand:</strong> Baden (AG), Schweiz.
                   </p>
                   <p>
                     <strong className="text-white">Haftungsausschluss:</strong> Software wird "AS IS" bereitgestellt (Art. 100 OR, Wegbedingung der Haftung).
@@ -813,7 +813,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was kostet die Teilnahme?',
-                  a: 'CHF 150 pro Person. Der Großteil der Teilnahmegebühren fließt ins Preisgeld, der Rest deckt Betriebskosten. Vollständige Rückerstattung bei Absage. Alle Finanzen sind öffentlich einsehbar.',
+                  a: 'CHF 150 pro Person (inkl. allfälliger MWST). Rückerstattung gemäss AGB.',
                 },
                 {
                   q: (
@@ -823,7 +823,7 @@ export default function AboutPage() {
                   ),
                   a: (
                     <>
-                      Eine <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaft</a> ist ein rechtlicher Zusammenschluss nach StromVG Art. 18. Ähnlich wie ein ZEV, aber kann das öffentliche Netz nutzen.
+                      Eine <a href="/leg" className="text-sihl-red hover:underline">Lokale Elektrizitätsgemeinschaft</a> ist ein rechtlicher Zusammenschluss nach Schweizer Recht. Details & Grenzen: siehe /leg.
                     </>
                   ),
                 },
@@ -888,7 +888,7 @@ export default function AboutPage() {
                 },
                 {
                   q: 'Was ist, wenn ich Code von Stack Overflow oder GitHub kopiere?',
-                  a: 'Du darfst nur Code einreichen, für den du die Rechte hast. Stack Overflow Code ist meist CC BY-SA lizenziert (kompatibel mit CERN-OHL-P/MIT). Bei GitHub-Code: Prüfe die Lizenz. Im Zweifelsfall: Frag uns vorher.',
+                  a: 'Du darfst nur Code einreichen, für den du die Rechte hast. Code von Stack Overflow/GitHub kann Lizenzpflichten auslösen (z.B. Attribution/Share-Alike). Prüfe die Lizenz. Im Zweifel: nicht kopieren oder vorher fragen.',
                 },
               ].map((item, index) => (
                 <Card key={index}>

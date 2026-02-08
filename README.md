@@ -1,6 +1,6 @@
 # SIHLHACK.CH
 
-Switzerland's first participant-oriented hackathon building the **Sihlicon Hub**: an Active Energy Node combining Battery + Compute + Heat + Resilience for decentralized energy infrastructure.
+Participant-oriented hackathon building the **Sihlicon Hub**: an Active Energy Node combining Battery + Compute + Heat + Resilience for decentralized energy infrastructure.
 
 ## Quick Links
 
@@ -25,7 +25,7 @@ Switzerland's first participant-oriented hackathon building the **Sihlicon Hub**
 - **Open thermal architecture**: Teams choose between Immersion Cooling, Water Loop, or Heat Pump Integration
 - **Open-source tools only**: Apache-2.0/MIT licensed resources for commercial LEG compatibility
 - **Prize money comes from participants**, not corporate sponsors
-- **All finances are public** with automatic refunds if event is cancelled
+- **Automatic refunds** if event is cancelled (per AGB)
 
 ## Core Innovation
 
@@ -96,7 +96,7 @@ This project extends the sihliconvalley.ch design system:
 - Three engineering challenges: Zeit-Frage, Wärme-Frage, Resilienz-Frage
 - QuickCTA for immediate conversion after Three Questions
 - Condensed FAQ (8 questions, punchy answers)
-- Fund transparency calculator
+- Budget/Preisgeld widgets (optional)
 - Event timeline
 - Final CTA
 
@@ -132,11 +132,11 @@ This project extends the sihliconvalley.ch design system:
 - Notification bell (inbox + team request actions)
 
 **Core Policies:**
-- **Open Source First**: All code Apache 2.0, participants own their work
-- **Permissive Licenses Only**: Only Apache-2.0/MIT tools recommended for commercial LEG use
+- **Open Source First**: Dual license (Hardware: CERN-OHL-P/MIT, Grid-OS: SVG-L). Participants keep copyright.
+- **Tooling Preference**: Prefer permissive OSS tooling where possible (Apache-2.0/MIT)
 - **Thermal Architecture Open**: Teams choose their path (Immersion, Water, Heat Pump)
 - **Participant Agency**: "Du programmierst es" - participants program the logic
-- **Transparency**: Budget public, prize pool transparent, no hidden agendas
+- **No Sponsor Agenda**: No corporate challenge agenda
 - **Inclusive Language**: Use "Teilnehmende" (neutral), English role titles, explicit inclusion when needed
 
 **Technical Infrastructure:**
@@ -155,10 +155,10 @@ This project extends the sihliconvalley.ch design system:
 ### 📅 Event Details
 
 - **Pilot:** Snackathons (April/May 2026 + Historik Hack) - CHF 80 / event
-- **Main Event:** September 2026 (3 days) - Code on Simulator, deploy to Reference Hardware
+- **Main Event:** October 2026 (date TBD) - Code on Simulator, deploy to Reference Hardware
 - **Location:** Zürich area
 - **Registration:** CHF 150 per participant
-- **Model:** 70% to prize pool (35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration), 30% operations
+- **Model:** Participation fee funds operations + prize pool (details communicated in AGB)
 - **Hardware:** Provided by organizers - 3-5 safety-certified Reference Nodes (Immersion, Water, Heat Pump)
 - **Teams:** 20 teams of 5 people
 - **Participants:** 100 target
@@ -174,8 +174,8 @@ The Sihlicon Hub is not a "water heater" - it's an Active Energy Node that:
 - Powers neighborhoods during grid outages (load shedding)
 
 ### Open Source Commitment
-- All code Apache 2.0 - participants can fork, compete, commercialize
-- Only permissive licenses (Apache-2.0/MIT) recommended for tools
+- Dual license model (Hardware: CERN-OHL-P/MIT, Grid-OS: SVG-L)
+- Prefer permissive licenses (Apache-2.0/MIT) for tools where possible
 - AGPL-3.0 tools excluded (Grafana, OpenEMS) to protect commercial LEG use
 - Resource submission form allows community to suggest additional repos
 

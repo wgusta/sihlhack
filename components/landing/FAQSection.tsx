@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: 'Was kostet das?',
-    a: 'CHF 150 / Person für 3 Tage. 70% gehen ins Preisgeld, 30% decken Betriebskosten. Vollständige Rückerstattung bei Event-Absage. Kein Risiko.',
+    a: 'CHF 150 / Person für 3 Tage (inkl. allfälliger MWST). Rückerstattung gemäss AGB (z.B. bei Absage durch den Veranstalter).',
   },
   {
     q: 'Wem gehört der Code?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Was ist eine LEG?',
-    a: 'Lokale Elektrizitätsgemeinschaft nach Schweizer Recht (StromVG Art. 18). Nachbarn produzieren und teilen Strom gemeinsam. Technische Infrastruktur? Baut ihr.',
+    a: 'Lokale Elektrizitätsgemeinschaft nach Schweizer Recht. Nachbarn produzieren und teilen Strom gemeinsam. Details & Grenzen: siehe /leg.',
   },
   {
     q: 'Was passiert am Sonntag?',

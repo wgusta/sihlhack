@@ -46,15 +46,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Event',
-  name: 'sihlhack 2025',
+  name: 'sihlhack 2026',
   description: 'Aus überschüssigem Solarstrom wird Wärme und Rechenleistung, direkt im Quartier. Hands‑on Hackathon für reale Energie‑ und Infrastruktur‑Lösungen.',
-  startDate: '2025-10-18T09:00:00+02:00',
-  endDate: '2025-10-19T18:00:00+02:00',
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   location: {
     '@type': 'Place',
-    name: 'Sihltal, Zürich',
+    name: 'Zürich (Datum folgt)',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Zürich',
@@ -99,10 +97,13 @@ export default function RootLayout({
         <Script id="matomo" strategy="afterInteractive">
           {`
             var _paq = window._paq = window._paq || [];
+            _paq.push(['disableCookies']);
+            _paq.push(['setDoNotTrack', true]);
+            _paq.push(['anonymizeIp']);
             _paq.push(['trackPageView']);
             _paq.push(['enableLinkTracking']);
             (function() {
-              var u="//analytics.sihlhack.ch/";
+              var u="https://analytics.sihlhack.ch/";
               _paq.push(['setTrackerUrl', u+'matomo.php']);
               _paq.push(['setSiteId', '1']);
               var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -113,7 +114,7 @@ export default function RootLayout({
         <noscript>
           <img
             referrerPolicy="no-referrer-when-downgrade"
-            src="//analytics.sihlhack.ch/matomo.php?idsite=1&amp;rec=1"
+            src="https://analytics.sihlhack.ch/matomo.php?idsite=1&amp;rec=1"
             style={{ border: 0 }}
             alt=""
           />

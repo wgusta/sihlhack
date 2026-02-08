@@ -51,19 +51,19 @@ export default function DatenschutzPage() {
                 3. Webanalyse mit Matomo
               </h2>
               <p className="text-historic-sepia">
-                Diese Website verwendet Matomo, eine Open-Source-Webanalyseplattform. Matomo verwendet Cookies, um die Nutzung der Website zu analysieren. Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden auf unserem Server in der Schweiz gespeichert.
+                Diese Website verwendet Matomo, eine Open-Source-Webanalyseplattform. Matomo ist bei uns in einer cookieless Konfiguration eingebunden (keine Tracking-Cookies). Die Informationen über Ihre Benutzung dieser Website werden auf unserem Server in der Schweiz gespeichert.
               </p>
               <p className="text-historic-sepia mt-4">
                 <strong className="text-brand-black">Datenschutzfreundliche Einstellungen:</strong>
               </p>
               <ul className="list-disc pl-6 text-historic-sepia mt-2 space-y-1">
                 <li>IP-Adressen werden anonymisiert (letzte 2 Bytes)</li>
-                <li>Keine Weitergabe an Dritte</li>
+                <li>Keine Weitergabe der Analytics-Daten an Dritte</li>
                 <li>Daten verbleiben in der Schweiz</li>
                 <li>Do-Not-Track wird respektiert</li>
               </ul>
               <p className="text-historic-sepia mt-4">
-                Sie können die Erfassung durch Matomo verhindern, indem Sie in Ihrem Browser &quot;Do Not Track&quot; aktivieren oder Cookies deaktivieren.
+                Sie können die Erfassung durch Matomo verhindern, indem Sie in Ihrem Browser &quot;Do Not Track&quot; aktivieren oder Tracking vollständig blockieren (z.B. Browser-/Plugin-Einstellungen).
               </p>
             </section>
 
@@ -82,6 +82,10 @@ export default function DatenschutzPage() {
               </h2>
               <p className="text-historic-sepia">
                 Für den Versand von E-Mails (Magic-Link-Authentifizierung, Benachrichtigungen) nutzen wir Resend. Ihre E-Mail-Adresse wird ausschliesslich für die Kommunikation im Rahmen von sihlhack verwendet.
+              </p>
+              <p className="text-historic-sepia mt-4">
+                Website-Updates per E-Mail können Sie jederzeit unter{' '}
+                <a href="/unsubscribe" className="text-sihl-red hover:underline">/unsubscribe</a> abbestellen.
               </p>
             </section>
 
@@ -124,7 +128,6 @@ export default function DatenschutzPage() {
               </p>
               <ul className="list-disc pl-6 text-historic-sepia mt-2 space-y-1">
                 <li><strong className="text-brand-black">Notwendige Cookies:</strong> Session-Token für die Authentifizierung</li>
-                <li><strong className="text-brand-black">Analyse-Cookies:</strong> Matomo-Cookies zur Websiteanalyse (können deaktiviert werden)</li>
               </ul>
             </section>
 

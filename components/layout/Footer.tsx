@@ -11,6 +11,7 @@ const footerLinks = {
     { name: 'Impressum', href: '/impressum' },
     { name: 'Datenschutz', href: '/datenschutz' },
     { name: 'AGB', href: '/agb' },
+    { name: 'Abmelden', href: '/unsubscribe' },
   ],
   participate: [
     { name: 'Anmelden', href: '/register' },
@@ -107,9 +108,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs font-mono text-gray-500">
               © {currentYear} sihlhack. Alle Rechte vorbehalten.
-            </p>
-            <p className="text-xs font-mono text-gray-500">
-              Alle Finanzen öffentlich und transparent.
             </p>
           </div>
         </div>

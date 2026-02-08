@@ -96,7 +96,7 @@ export default function SnackathonsPage() {
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-4 py-2 bg-thermal-orange/20 border border-thermal-orange/40 rounded-full mb-6">
               <span className="font-mono text-sm text-thermal-orange uppercase tracking-wide">
-                CHF 80 Teilnahmegebühr
+                CHF 80 Teilnahmegebühr (inkl. allfälliger MWST)
               </span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold">Snackathons</h1>
@@ -152,7 +152,7 @@ export default function SnackathonsPage() {
                     Weiter zu Stripe (CHF 80)
                   </Button>
                   <div className="text-sm font-mono text-historic-sepia">
-                    CHF 80 pro Snackathon (3 Snackathons = CHF 240).
+                    CHF 80 pro Snackathon (inkl. allfälliger MWST). 3 Snackathons = CHF 240.
                   </div>
                   {msg && <div className="ml-auto text-sm font-mono text-sihl-red">{msg}</div>}
                 </div>

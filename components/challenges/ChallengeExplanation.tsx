@@ -80,7 +80,7 @@ const challengeExplanations: Record<string, {
       whatYouBuild: 'Du erstellst ein komplettes Template-Set: Statuten für die LEG, Verträge zwischen Teilnehmenden, FAQ zu rechtlichen Fragen, regulatorische Checkliste, plus Hardware-Reuse Compliance (CE-Kennzeichnung, Gewährleistung, Haftung), Versicherungs-Checkliste, und PrSG-Leitfaden (Produktsicherheit).',
     },
     technical: {
-      howItWorks: 'Templates basieren auf StromVG Art. 18 und EnG Art. 17. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmenden. Checkliste deckt alle regulatorischen Anforderungen ab (Netzbetreiber, Steuern, Haftung). Hardware Compliance deckt CE-Kennzeichnung (relevante Richtlinien bei Umbauten), Gewährleistung (gebrauchte Komponenten), PrSG (Produktsicherheitsgesetz), und Versicherungsanforderungen.',
+      howItWorks: 'Templates basieren auf Schweizer Recht und gängigen Praxisanforderungen. Statuten definieren die rechtliche Struktur (AG oder Genossenschaft). Verträge regeln Energie-Sharing zwischen Teilnehmenden. Checkliste deckt regulatorische Anforderungen ab (Netzbetreiber, Steuern, Haftung). Hardware Compliance deckt CE-Kennzeichnung (relevante Richtlinien bei Umbauten), Gewährleistung (gebrauchte Komponenten), PrSG (Produktsicherheitsgesetz), und Versicherungsanforderungen.',
     },
   },
 }

@@ -327,7 +327,7 @@ export function EnergyTrilemmaSection() {
               Was ist eine <a href="/leg" className="text-sihl-red hover:underline">LEG</a>?
             </h3>
             <ul className="font-mono text-sm text-historic-sepia space-y-2 mb-4">
-              <li>• <strong className="text-brand-black">Lokale Elektrizitätsgemeinschaft</strong> nach StromVG Art. 18</li>
+              <li>• <strong className="text-brand-black">Lokale Elektrizitätsgemeinschaft</strong> nach Schweizer Recht</li>
               <li>• Nachbarn produzieren und teilen Strom gemeinsam</li>
               <li>• Rechtliche Grundlage existiert in der Schweiz</li>
               <li>• Technische Infrastruktur? Baut ihr.</li>

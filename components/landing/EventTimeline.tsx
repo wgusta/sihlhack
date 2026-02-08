@@ -12,7 +12,7 @@ const timelineEvents = [
   {
     date: 'Jetzt',
     title: 'Anmeldung offen',
-    description: 'Sichere dir deinen Platz (CHF 150). Wähle deine Rolle und Paket-Präferenz.',
+    description: 'Sichere dir deinen Platz (CHF 150, inkl. allfälliger MWST). Wähle deine Rolle und Paket-Präferenz.',
     status: 'current' as const,
     icon: '📝',
   },
@@ -152,7 +152,7 @@ export function EventTimeline() {
             <p className="font-mono text-sm">
               <span className="text-thermal-orange font-bold">Freitag bis Sonntag</span> · 
               Ort wird bekannt gegeben · 
-              <span className="text-grid-green font-bold">September 2026</span>
+              <span className="text-grid-green font-bold">Oktober 2026 (Datum folgt)</span>
             </p>
           </div>
         </div>

@@ -114,7 +114,7 @@ This document summarizes the implementation of compute, storage, and services ar
 
 ## Next Steps
 
-### Phase 1: Hackathon Scope (September 2026)
+### Phase 1: Hackathon Scope (October 2026, date TBD)
 - OCR processing for historical archives
 - Local LLM inference (Ollama)
 - Single-Hub storage (Vercel Blob + local)

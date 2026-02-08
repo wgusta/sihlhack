@@ -47,7 +47,7 @@ export function EmailCapture() {
           Du bist dabei!
         </h3>
         <p className="font-mono text-sm text-historic-sepia mt-2">
-          Wir informieren dich über Updates und den Start der Anmeldung.
+          Wir informieren dich über Updates (z.B. Datum/Ort).
         </p>
       </div>
     )
@@ -82,7 +82,7 @@ export function EmailCapture() {
             disabled={status === 'loading'}
             className="px-6 py-3 bg-sihl-red text-white font-mono font-medium rounded-lg hover:bg-sihl-red/90 transition-colors disabled:opacity-50"
           >
-            {status === 'loading' ? '...' : 'Notify me'}
+            {status === 'loading' ? '...' : 'Updates'}
           </button>
         </div>
         {status === 'error' && (
@@ -91,7 +91,7 @@ export function EmailCapture() {
       </form>
 
       <p className="font-mono text-xs text-gray-400 text-center mt-4">
-        Kein Spam. Nur wichtige Updates.
+        Kein Spam. Nur wichtige Updates. <a href="/unsubscribe" className="text-thermal-orange hover:underline">Abmelden</a> jederzeit möglich.
       </p>
     </div>
   )

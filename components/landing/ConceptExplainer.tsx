@@ -25,12 +25,12 @@ const benefits = [
     description: 'Ihr stimmt ab, welche Projekte umgesetzt werden. Kein vorgegebenes Thema, keine Sponsoren-Agenda.',
   },
   {
-    title: 'Transparente Finanzen',
-    description: 'Der gesamte Überschuss nach Betriebskosten fliesst ins Preisgeld. Alles öffentlich einsehbar.',
+    title: 'Klare Regeln',
+    description: 'Preisgeld- und Bewertungsregeln werden vorab kommuniziert.',
   },
   {
     title: 'Garantierte Rückerstattung',
-    description: 'Falls zu wenige Teilnehmerinnen und Teilnehmer: automatische Rückerstattung aller Gebühren. Kein Risiko für euch.',
+    description: 'Rückerstattung gemäss AGB (z.B. bei Absage durch den Veranstalter oder bei zu wenigen Teilnehmenden).',
   },
 ]
 

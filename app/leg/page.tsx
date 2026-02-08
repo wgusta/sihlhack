@@ -40,7 +40,7 @@ export default function LEGPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm font-mono leading-relaxed">
-                  <strong className="text-brand-black">Seit 1. Januar 2018</strong> ermöglicht das revidierte Energiegesetz (EnG) der Schweiz sogenannte <strong>Lokale Elektrizitätsgemeinschaften (LEG)</strong>, auch Eigenverbrauchsgemeinschaften (EVG) oder Zusammenschlüsse zum Eigenverbrauch (ZEV) genannt.
+                  In der Schweiz gibt es rechtliche Grundlagen für lokale Modelle des Eigenverbrauchs und Energie‑Sharings (z.B. ZEV/LEG). Der genaue Rahmen ist in Entwicklung und hängt vom konkreten Modell und Netzbetreiber ab.
                 </p>
                 <p className="text-sm font-mono leading-relaxed">
                   <strong className="text-thermal-orange">Das Versprechen:</strong> Mehrere Haushalte oder Gebäude auf einem Areal teilen selbst produzierten Strom (meist Solar) und senken ihre Netzkosten durch lokalen Verbrauch.
@@ -63,11 +63,11 @@ export default function LEGPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <span className="text-2xl">📜</span>
-                    Rechtliche Definition (Art. 17 EnG)
+                    Rechtliche Einordnung
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="font-mono text-sm space-y-3">
-                  <p>Eine LEG ist ein <strong>Zusammenschluss von Endverbrauchern</strong>, die:</p>
+                  <p>Eine LEG/ZEV ist ein <strong>Zusammenschluss von Endverbrauchern</strong>, die typischerweise:</p>
                   <ul className="list-disc list-inside space-y-2 ml-4">
                     <li>Auf dem <strong>gleichen Grundstück oder benachbarten Grundstücken</strong> liegen</li>
                     <li>Über ein <strong>internes Verteilnetz</strong> verbunden sind</li>
@@ -75,7 +75,7 @@ export default function LEGPage() {
                     <li>Nur <strong>einen Anschluss</strong> ans öffentliche Netz haben</li>
                   </ul>
                   <p className="pt-3 text-gray-600 italic">
-                    Quelle: Bundesgesetz über die Energieversorgung (EnG), SR 734.0, revidiert 2018
+                    Quellen/Links: siehe Referenzen am Ende der Seite.
                   </p>
                 </CardContent>
               </Card>
@@ -132,7 +132,7 @@ export default function LEGPage() {
                 <CardContent className="text-xs font-mono space-y-2">
                   <p><strong>Ziel:</strong> Maximale Solarproduktion installieren und nutzen.</p>
                   <p><strong>Konflikt:</strong> Hohe Mittagsspitzen überlasten lokale Netze → Netzbetreiber können Einspeisebegrenzung fordern.</p>
-                  <p className="text-sihl-red"><strong>Real-World:</strong> Viele LEGs dürfen nur 70% ihrer Peak-Produktion einspeisen.</p>
+                  <p className="text-sihl-red"><strong>Real-World:</strong> In der Praxis gelten oft Einspeise- oder Leistungsbegrenzungen (je nach Netzbetreiber).</p>
                 </CardContent>
               </Card>
 

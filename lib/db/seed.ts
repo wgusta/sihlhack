@@ -24,7 +24,7 @@ async function seed() {
   // Insert event config
   await db.insert(eventConfig).values({
     id: '00000000-0000-0000-0000-000000000001',
-    eventName: 'sihlhack 2025',
+    eventName: 'sihlhack 2026',
     eventDate,
     registrationDeadline,
     refundDeadline,
@@ -40,7 +40,7 @@ async function seed() {
   }).onConflictDoUpdate({
     target: eventConfig.id,
     set: {
-      eventName: 'sihlhack 2025',
+      eventName: 'sihlhack 2026',
       eventDate,
       registrationDeadline,
       refundDeadline,

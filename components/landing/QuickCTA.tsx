@@ -10,12 +10,12 @@ export function QuickCTA() {
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm font-mono">
             <div className="flex items-center gap-2 text-gray-400">
-              <span className="text-grid-green font-bold">70%</span>
-              <span>ins Preisgeld</span>
+              <span className="text-grid-green font-bold">CHF 150</span>
+              <span>Teilnahme (inkl. allfälliger MWST)</span>
             </div>
             <div className="flex items-center gap-2 text-gray-400">
-              <span className="text-solar-yellow font-bold">100%</span>
-              <span>Rückerstattung bei Absage</span>
+              <span className="text-solar-yellow font-bold">Rückerstattung</span>
+              <span>gemäss AGB</span>
             </div>
             <div className="flex items-center gap-2 text-gray-400">
               <span className="text-compute-blue font-bold">Dual-Lizenz</span>
@@ -46,7 +46,7 @@ export function QuickCTA() {
 
           {/* Scarcity/urgency */}
           <p className="text-xs font-mono text-gray-500">
-            100 Plätze · September 2026 · Zürich
+            100 Plätze · Oktober 2026 (Datum folgt) · Zürich
           </p>
         </div>
       </div>

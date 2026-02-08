@@ -15,7 +15,7 @@ import { PrototypeVisualization } from '@/components/ui/PrototypeVisualization'
 
 export const metadata = {
   title: 'Pakete & Competition | sihlhack',
-  description: 'Die drei Pflicht-Pakete und optionalen Challenges: End-to-End Demo-Kit, Hardware Safety, Grid-OS Controller. Competition-Style mit 30-36 Teams.',
+  description: 'Die drei Pflicht-Pakete und optionalen Challenges: End-to-End Demo-Kit, Hardware Safety, Grid-OS Controller. Competition-Style mit ~20 Teams.',
 }
 
 // Get packages by type (all are now mandatory/equal)
@@ -76,7 +76,7 @@ export default function ChallengesPage() {
               Die Challenges
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              4 Challenges. 25 Teams. Hardware wird bereitgestellt. Ihr programmiert die Logik. Beste Lösung gewinnt.
+              4 Challenges. ~20 Teams. Hardware wird bereitgestellt. Ihr programmiert die Logik. Beste Lösung gewinnt.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
@@ -204,7 +204,7 @@ export default function ChallengesPage() {
                   <a href="/licensing" className="text-sihl-red hover:underline ml-1">→ Mehr zum Dual-Lizenz-Modell</a>
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                  <strong className="text-brand-black">Preisgeld:</strong> Alle vier Challenges sind gleichwertig. Teilnahmegebühren fließen in den Prize Pool. Bewertung durch Jury nach technischer Qualität, Vollständigkeit, und Integration. Alle Finanzen sind öffentlich einsehbar.
+                  <strong className="text-brand-black">Preisgeld:</strong> Alle vier Challenges sind gleichwertig. Teilnahmegebühren fließen in den Prize Pool. Bewertung durch Jury nach technischer Qualität, Vollständigkeit, und Integration.
                 </p>
               </Accordion>
             </div>

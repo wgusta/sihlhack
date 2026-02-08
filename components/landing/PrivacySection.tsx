@@ -41,10 +41,10 @@ export function PrivacySection() {
                 </div>
                 <div>
                   <h4 className="font-mono text-sm font-semibold text-white">
-                    Schweizer Daten bleiben in der Schweiz
+                    Datenschutz (DSG) + Datenminimierung
                   </h4>
                   <p className="text-xs font-mono text-gray-400 mt-1">
-                    Lokale Verarbeitung, keine Cloud-Abhängigkeit
+                    Analytics: Matomo (cookieless) auf CH-Server. Hosting/Payments/E-Mail: siehe Datenschutzerklärung.
                   </p>
                 </div>
               </div>

@@ -56,10 +56,10 @@ export function FundTrackerWidget() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <div>
               <h2 className="font-display text-3xl font-bold text-brand-black">
-                Live Fonds-Tracker
+                Budget & Preisgeld
               </h2>
               <p className="text-historic-sepia font-mono text-sm mt-1">
-                Alle Finanzen öffentlich und in Echtzeit
+                In Arbeit (keine öffentliche Finanzseite)
               </p>
             </div>
             <Badge variant={
@@ -161,7 +161,7 @@ export function FundTrackerWidget() {
           {/* Transparency note */}
           <div className="text-center">
             <p className="text-sm font-mono text-historic-sepia">
-              Alle Finanzen sind öffentlich und transparent.
+              Details folgen.
             </p>
           </div>
         </div>

@@ -22,7 +22,7 @@ export async function createCheckoutSession({
   successUrl,
   cancelUrl,
   productName = 'sihlhack Teilnahmegebühr',
-  productDescription = 'Registrierung für den ersten teilnehmerorientierten Hackathon der Schweiz',
+  productDescription = 'Registrierung für sihlhack (Oktober 2026, Datum folgt)',
   metadata = {},
 }: {
   participantId: string

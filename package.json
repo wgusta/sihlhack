@@ -1,7 +1,7 @@
 {
   "name": "sihlhack",
   "version": "1.0.0",
-  "description": "Switzerland's first participant-oriented hackathon focused on digitalizing historical industrial records from the Sihl Valley.",
+  "description": "Participant-oriented energy hackathon in Switzerland building the Sihlicon Hub (Battery + Compute + Heat + Resilience).",
   "private": true,
   "scripts": {
     "dev": "next dev",
