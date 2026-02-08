@@ -30,7 +30,7 @@ export default function AdminLayout({
   useEffect(() => {
     if (!isLoading) {
       if (!isAuthenticated || !user) {
-        router.push('/auth/login?redirect=/admin')
+        router.push('/auth/login?redirectTo=/admin')
       } else if (!ADMIN_EMAILS.includes(user.email)) {
         router.push('/dashboard')
       }

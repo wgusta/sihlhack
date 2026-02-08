@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 type Props = {
-  searchParams: Promise<{ error?: string; redirectTo?: string }>
+  searchParams: Promise<{ error?: string; redirectTo?: string; redirect?: string }>
 }
 
 const ERROR_MESSAGES: Record<string, string> = {
@@ -21,6 +21,7 @@ const ERROR_MESSAGES: Record<string, string> = {
 export default async function LoginPage({ searchParams }: Props) {
   const params = await searchParams
   const errorMessage = params.error ? ERROR_MESSAGES[params.error] : undefined
+  const redirectTo = params.redirectTo || params.redirect
 
   return (
     <div className="min-h-screen bg-off-white flex items-center justify-center px-4 py-12">
@@ -41,7 +42,7 @@ export default async function LoginPage({ searchParams }: Props) {
             </div>
           )}
           <Suspense fallback={<div className="h-32 animate-pulse bg-historic-cream rounded" />}>
-            <MagicLinkForm />
+            <MagicLinkForm redirectTo={redirectTo} />
           </Suspense>
         </CardContent>
       </Card>

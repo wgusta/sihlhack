@@ -22,12 +22,12 @@ export function proxy(request: NextRequest) {
 
   if (isProtectedRoute) {
     // Check for session cookie
-    const sessionToken = request.cookies.get('session_token')?.value
+    const sessionToken = request.cookies.get('sihlhack_session')?.value
 
     if (!sessionToken) {
       // Redirect to login with return URL
       const loginUrl = new URL('/auth/login', request.url)
-      loginUrl.searchParams.set('redirect', pathname)
+      loginUrl.searchParams.set('redirectTo', pathname)
       return NextResponse.redirect(loginUrl)
     }
 
