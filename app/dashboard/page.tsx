@@ -4,31 +4,19 @@ import Link from 'next/link'
 import { useSession } from '@/hooks/useSession'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { Badge } from '@/components/ui/Badge'
+import { ProfileEditorCard } from '@/components/dashboard/ProfileEditorCard'
+import { AnnouncementsCard } from '@/components/dashboard/AnnouncementsCard'
+import { SnackathonCard } from '@/components/dashboard/SnackathonCard'
 import {
   PlusIcon,
   ClipboardDocumentListIcon,
   CircleStackIcon,
   InformationCircleIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/solid'
 
 export default function DashboardPage() {
   const { user } = useSession()
-
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case 'registered':
-        return <Badge variant="success">Registriert</Badge>
-      case 'confirmed':
-        return <Badge variant="success">Bestätigt</Badge>
-      case 'pending':
-        return <Badge variant="warning">Ausstehend</Badge>
-      case 'refunded':
-        return <Badge variant="info">Zurückerstattet</Badge>
-      default:
-        return <Badge>{status}</Badge>
-    }
-  }
 
   return (
     <div className="space-y-8">
@@ -51,7 +39,7 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <p className="text-sm font-mono text-historic-sepia">Registrierungsstatus</p>
-              {user && getStatusBadge(user.registrationStatus)}
+              <p className="text-sm font-mono text-brand-black">{user?.registrationStatus ?? '-'}</p>
             </div>
             <ButtonLink href="/funds" variant="ghost" size="sm">
               Fonds ansehen
@@ -60,8 +48,35 @@ export default function DashboardPage() {
         </CardContent>
       </Card>
 
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <ProfileEditorCard />
+        <div className="space-y-6">
+          <AnnouncementsCard />
+          <SnackathonCard />
+        </div>
+      </div>
+
       {/* Quick actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <div className="w-12 h-12 mx-auto bg-grid-green/10 rounded-full flex items-center justify-center">
+                <UserGroupIcon className="w-6 h-6 text-grid-green" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 className="font-display font-semibold text-brand-black">Team finden</h3>
+                <p className="text-sm text-historic-sepia font-mono mt-1">
+                  Plattform-only, strukturiert
+                </p>
+              </div>
+              <ButtonLink href="/dashboard/team-matching" variant="secondary" size="sm" className="w-full">
+                Team Matching
+              </ButtonLink>
+            </div>
+          </CardContent>
+        </Card>
+
         <Card className="hover:shadow-lg transition-shadow">
           <CardContent className="pt-6">
             <div className="text-center space-y-4">

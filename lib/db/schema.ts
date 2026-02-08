@@ -29,6 +29,42 @@ export const participants = pgTable('participants', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
 
+// Organizer announcements shown in dashboard
+export const announcements = pgTable('announcements', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  title: text('title').notNull(),
+  body: text('body').notNull(),
+  audience: text('audience').default('participants').notNull(), // 'participants' | 'public'
+  publishedAt: timestamp('published_at').defaultNow().notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+})
+
+// Direct communication container: limited, structured notifications only (no free-form chat)
+export const participantNotifications = pgTable('participant_notifications', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  participantId: uuid('participant_id').references(() => participants.id).notNull(), // recipient
+  actorParticipantId: uuid('actor_participant_id').references(() => participants.id), // sender (optional)
+  kind: text('kind').notNull(), // team_request | team_invite | team_response | system
+  title: text('title').notNull(),
+  body: text('body'),
+  data: text('data'), // JSON string
+  readAt: timestamp('read_at'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+})
+
+// Snackathon participation: paid add-on, minimal details (uses existing participant record)
+export const snackathonRegistrations = pgTable('snackathon_registrations', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  participantId: uuid('participant_id').references(() => participants.id).notNull(),
+  snackathonId: text('snackathon_id').notNull(), // e.g. 'april-2026' | 'mai-2026'
+  status: text('status').default('paid').notNull(), // paid | refunded | cancelled
+  stripePaymentIntentId: text('stripe_payment_intent_id'), // for linking, not unique (one payment can cover multiple)
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+}, (table) => [
+  unique('unique_snackathon_per_participant').on(table.participantId, table.snackathonId),
+])
+
 // Payments table
 export const payments = pgTable('payments', {
   id: uuid('id').defaultRandom().primaryKey(),

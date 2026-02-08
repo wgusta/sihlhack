@@ -6,9 +6,11 @@ import Link from 'next/link'
 import { useSession } from '@/hooks/useSession'
 import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
+import { NotificationBell } from '@/components/dashboard/NotificationBell'
 
 const navigation = [
   { name: 'Übersicht', href: '/dashboard' },
+  { name: 'Team Matching', href: '/dashboard/team-matching' },
   { name: 'Meine Projekte', href: '/dashboard/proposals' },
   { name: 'Meine Stimmen', href: '/dashboard/votes' },
 ]
@@ -54,6 +56,7 @@ export default function DashboardLayout({
               <Logo size="md" hackColor="white" />
             </Link>
             <div className="flex items-center gap-4">
+              <NotificationBell />
               <span className="text-sm font-mono text-gray-300">
                 {user?.email}
               </span>

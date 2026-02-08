@@ -21,12 +21,18 @@ export async function createCheckoutSession({
   amountChf,
   successUrl,
   cancelUrl,
+  productName = 'sihlhack Teilnahmegebühr',
+  productDescription = 'Registrierung für den ersten teilnehmerorientierten Hackathon der Schweiz',
+  metadata = {},
 }: {
   participantId: string
   participantEmail: string
   amountChf: number // in centimes
   successUrl: string
   cancelUrl: string
+  productName?: string
+  productDescription?: string
+  metadata?: Record<string, string>
 }): Promise<Stripe.Checkout.Session> {
   const stripe = getStripe()
   return stripe.checkout.sessions.create({
@@ -39,8 +45,8 @@ export async function createCheckoutSession({
           currency: 'chf',
           unit_amount: amountChf,
           product_data: {
-            name: 'sihlhack Teilnahmegebühr',
-            description: 'Registrierung für den ersten teilnehmerorientierten Hackathon der Schweiz',
+            name: productName,
+            description: productDescription,
           },
         },
         quantity: 1,
@@ -48,6 +54,7 @@ export async function createCheckoutSession({
     ],
     metadata: {
       participant_id: participantId,
+      ...metadata,
     },
     success_url: successUrl,
     cancel_url: cancelUrl,

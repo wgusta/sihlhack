@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import Stripe from 'stripe'
 import { constructWebhookEvent, getPaymentIntent } from '@/lib/stripe'
-import { db, participants, payments } from '@/lib/db'
+import { db, participants, payments, snackathonRegistrations } from '@/lib/db'
 import { eq } from 'drizzle-orm'
 import { sendRegistrationConfirmationEmail } from '@/lib/email'
 
@@ -66,6 +66,12 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     return
   }
 
+  const purpose = session.metadata?.purpose
+  if (purpose === 'snackathon') {
+    await handleSnackathonCheckoutCompleted(session, participantId)
+    return
+  }
+
   // Get participant
   const [participant] = await db
     .select()
@@ -122,6 +128,56 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   }
 }
 
+async function handleSnackathonCheckoutCompleted(session: Stripe.Checkout.Session, participantId: string) {
+  // Retrieve payment method type from PaymentIntent (best-effort)
+  let paymentMethod: string | null = null
+  try {
+    const pi = await getPaymentIntent(session.payment_intent as string, ['payment_method'])
+    if (pi.payment_method && typeof pi.payment_method !== 'string') {
+      paymentMethod = pi.payment_method.type
+    } else if (pi.payment_method_types?.length) {
+      paymentMethod = pi.payment_method_types[0]
+    }
+  } catch {
+    console.error('Could not retrieve payment method type')
+  }
+
+  // Create payment record (do not touch main registrationStatus)
+  await db.insert(payments).values({
+    participantId,
+    stripePaymentIntentId: session.payment_intent as string,
+    amountChf: session.amount_total!,
+    status: 'completed',
+    paymentMethod,
+  })
+
+  const idsRaw = session.metadata?.snackathon_ids || ''
+  const ids = idsRaw.split(',').map((s) => s.trim()).filter(Boolean)
+  if (ids.length === 0) return
+
+  const now = new Date()
+  for (const snackathonId of ids) {
+    await db
+      .insert(snackathonRegistrations)
+      .values({
+        participantId,
+        snackathonId,
+        status: 'paid',
+        stripePaymentIntentId: session.payment_intent as string,
+        createdAt: now,
+        updatedAt: now,
+      })
+      .onConflictDoUpdate({
+        target: [snackathonRegistrations.participantId, snackathonRegistrations.snackathonId],
+        set: {
+          status: 'paid',
+          stripePaymentIntentId: session.payment_intent as string,
+          updatedAt: now,
+        },
+      })
+  }
+}
+
 async function handleChargeRefunded(charge: Stripe.Charge) {
   const paymentIntentId = charge.payment_intent as string
 
@@ -137,6 +193,15 @@ async function handleChargeRefunded(charge: Stripe.Charge) {
       refundedAt: new Date(),
     })
     .where(eq(payments.stripePaymentIntentId, paymentIntentId))
+
+  // If this refund was for snackathon checkout, reflect it
+  await db
+    .update(snackathonRegistrations)
+    .set({
+      status: 'refunded',
+      updatedAt: new Date(),
+    })
+    .where(eq(snackathonRegistrations.stripePaymentIntentId, paymentIntentId))
 }
 
 async function handlePaymentFailed(paymentIntent: Stripe.PaymentIntent) {
