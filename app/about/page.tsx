@@ -27,14 +27,14 @@ export default function AboutPage() {
               Das Konzept
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
-              100 Teilnehmende, 20 Teams, 3 Pflicht-Pakete.
+              150 Teilnehmende, 20 Teams, 3 Pflicht-Pakete.
               Open Source Hardware und Software für die dezentrale Energiezukunft der Schweiz.
             </p>
 
             {/* Quick Stats */}
             <div className="mt-8 grid grid-cols-4 gap-4 max-w-lg mx-auto">
               <div className="p-3 bg-white/5 rounded-xl">
-                <div className="font-mono text-2xl font-bold text-thermal-orange">100</div>
+                <div className="font-mono text-2xl font-bold text-thermal-orange">150</div>
                 <div className="font-mono text-[10px] text-gray-400">Teilnehmende</div>
               </div>
               <div className="p-3 bg-white/5 rounded-xl">

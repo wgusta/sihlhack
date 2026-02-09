@@ -5,7 +5,8 @@ const timelineEvents = [
   {
     date: 'April/Mai 2026',
     title: 'Snackathons: Sihl-Sim API',
-    description: 'Pilot-Events: Baue den Sihl-Sim (Digital Twin API). Coding, Pizza, "Game Design" für Energie-Systeme. Gratis, 10-20 Teilnehmende.',
+    description:
+      'Pilot-Events: Baue den Sihl-Sim (Digital Twin API). Coding, Pizza, "Game Design" für Energie-Systeme. CHF 80 pro Snackathon, ca. 10-20 Teilnehmende.',
     status: 'upcoming' as const,
     icon: '🍿',
   },
@@ -88,7 +89,7 @@ export function EventTimeline() {
             <div className="font-mono text-xs text-historic-sepia">Teams</div>
           </div>
           <div className="text-center">
-            <div className="font-mono text-3xl font-bold text-grid-green">100</div>
+            <div className="font-mono text-3xl font-bold text-grid-green">150</div>
             <div className="font-mono text-xs text-historic-sepia">Teilnehmende</div>
           </div>
         </div>

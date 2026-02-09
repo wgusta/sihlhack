@@ -75,7 +75,7 @@ export function HeroSection() {
               Programmiere die Grid-OS Logik. Integriere Sensoren. Deploye auf Reference Hardware.
             </p>
             <p className="mt-3 text-sm text-gray-400 font-mono">
-              Hardware wird bereitgestellt · Simulation-to-Reality Workflow · <a href="/snackathons" className="text-thermal-orange hover:underline">Snackathons (April/Mai)</a>
+              Hardware wird bereitgestellt · Simulation-to-Reality Workflow · <a href="/snackathons" className="text-thermal-orange hover:underline">Snackathons (April/Mai · CHF 80)</a>
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export function HeroSection() {
               <div className="font-mono text-xs text-gray-400">Tage</div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-3xl font-bold text-compute-blue">100</div>
+              <div className="font-mono text-3xl font-bold text-compute-blue">150</div>
               <div className="font-mono text-xs text-gray-400">Teilnehmende</div>
             </div>
             <div className="text-center">

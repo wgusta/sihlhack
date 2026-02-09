@@ -97,7 +97,7 @@ export default function ChallengesPage() {
             {/* Stats */}
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               <div className="p-4 bg-white/5 rounded-xl">
-                <div className="font-mono text-3xl font-bold text-thermal-orange">100</div>
+                <div className="font-mono text-3xl font-bold text-thermal-orange">150</div>
                 <div className="font-mono text-xs text-gray-400">Teilnehmende</div>
               </div>
               <div className="p-4 bg-white/5 rounded-xl">
@@ -540,7 +540,7 @@ export default function ChallengesPage() {
             {/* Snackathons - Optional */}
             <div className="mb-6">
               <h3 className="font-mono text-xs text-historic-sepia uppercase tracking-wider text-center mb-4">
-                🍿 Snackathons <span className="text-gray-500">(OPTIONAL · GRATIS)</span>
+                🍿 Snackathons <span className="text-gray-500">(OPTIONAL · CHF 80)</span>
               </h3>
               <p className="text-center font-mono text-[10px] text-gray-500 mb-4">
                 Pilot-Events im Frühling 2026 · <a href="/snackathons" className="text-sihl-red hover:underline">Alle Details →</a>
@@ -555,7 +555,7 @@ export default function ChallengesPage() {
                     🍿 Pilot #1
                   </div>
                   <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
-                    GRATIS
+                    CHF 80
                   </div>
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">🍿</span>
@@ -576,7 +576,7 @@ export default function ChallengesPage() {
                     🍿 Pilot #2
                   </div>
                   <div className="absolute -top-2 left-3 bg-gray-200 text-gray-600 text-[8px] font-mono px-2 py-0.5 rounded">
-                    GRATIS
+                    CHF 80
                   </div>
                   <div className="flex items-center gap-3 pt-2">
                     <span className="text-2xl">🍿</span>

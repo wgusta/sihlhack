@@ -46,7 +46,7 @@ export function QuickCTA() {
 
           {/* Scarcity/urgency */}
           <p className="text-xs font-mono text-gray-500">
-            100 Plätze · Oktober 2026 (Datum folgt) · Zürich
+            150 Plätze · Oktober 2026 (Datum folgt) · Zürich
           </p>
         </div>
       </div>
