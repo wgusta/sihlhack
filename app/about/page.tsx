@@ -573,7 +573,7 @@ export default function AboutPage() {
                   </p>
                   <p>
                     Gemäss <strong className="text-white">Art. 2 URG</strong> (Schweizer Urheberrechtsgesetz) entstehen Urheberrechte automatisch bei der Schöpfung eines Werks. 
-                    Du als Entwicklerin oder Entwickler bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
+                    Du als Entwickler/in bist und bleibst der <strong className="text-white">Urheber</strong> deines Codes.
                   </p>
                   <p>
                     sihlhack verwendet ein <strong className="text-thermal-orange">Dual-Lizenz-Modell</strong>: 
