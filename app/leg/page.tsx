@@ -410,7 +410,7 @@ export default function LEGPage() {
                 <CardContent className="text-sm font-mono space-y-2">
                   <p><strong>1. Governance klären:</strong> <em>Vor</em> technischer Planung: wer entscheidet was?</p>
                   <p><strong>2. Netzbetreiber frühzeitig einbinden:</strong> Vorabklärung zu Anschlussbedingungen</p>
-                  <p><strong>3. Professionelle Begleitung:</strong> Energieberater/innen mit LEG-Erfahrung beauftragen</p>
+                  <p><strong>3. Professionelle Begleitung:</strong> Energieberaterinnen und Energieberater mit LEG-Erfahrung beauftragen</p>
                   <p><strong>4. Skalierbarkeit einplanen:</strong> System so bauen, dass Erweiterung möglich ist</p>
                 </CardContent>
               </Card>

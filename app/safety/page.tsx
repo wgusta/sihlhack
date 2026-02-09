@@ -502,7 +502,7 @@ export default function SafetyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-grid-green">✓</span>
-                    <span>Professionelle Haftpflicht für vor Ort tätige Ingenieur/innen</span>
+                    <span>Professionelle Haftpflicht für vor Ort tätige Ingenieurinnen und Ingenieure</span>
                   </li>
                 </ul>
               </div>

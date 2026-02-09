@@ -229,7 +229,7 @@ export default function LicensingPage() {
                   nicht es destabilisieren.
                 </p>
                 <p className="pt-4 border-t border-gray-200 text-xs italic">
-                  Gute Ingenieur/innen begrüßen diese Regeln. Nur Grifter fürchten sie.
+                  Gute Ingenieurinnen und Ingenieure begrüßen diese Regeln. Nur Grifter fürchten sie.
                 </p>
               </div>
               </CardContent>
