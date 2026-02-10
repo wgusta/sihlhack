@@ -19,11 +19,11 @@ export function WhoShouldJoinSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {/* Maker: Hardware + Elektro */}
+          {/* Tüftlerinnen: Hardware + Elektro */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-thermal-orange/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🔧</span>
-              <h3 className="font-display text-xl font-bold text-thermal-orange">Maker</h3>
+              <h3 className="font-display text-xl font-bold text-thermal-orange">Tüftlerinnen und Tüftler</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
               Du baust gerne Dinge mit deinen Händen.
@@ -47,11 +47,11 @@ export function WhoShouldJoinSection() {
             </p>
           </div>
 
-          {/* Coder: Software + Grid-OS */}
+          {/* Programmiererinnen: Software + Grid-OS */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-compute-blue/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">💻</span>
-              <h3 className="font-display text-xl font-bold text-compute-blue">Coder</h3>
+              <h3 className="font-display text-xl font-bold text-compute-blue">Programmiererinnen und Programmierer</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
               Du schreibst Code, der echte Probleme löst.
@@ -75,11 +75,11 @@ export function WhoShouldJoinSection() {
             </p>
           </div>
 
-          {/* Connector: Energie + LEG */}
+          {/* Vernetzerinnen: Energie + LEG */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-grid-green/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">⚡</span>
-              <h3 className="font-display text-xl font-bold text-grid-green">Connector</h3>
+              <h3 className="font-display text-xl font-bold text-grid-green">Vernetzerinnen und Vernetzer</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
               Du verbindest Menschen, Systeme und Regeln.
