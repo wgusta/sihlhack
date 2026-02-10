@@ -128,7 +128,7 @@ npm run db:studio        # Open Drizzle Studio (localhost:3001)
 **Gendering (female first):**
 - Tüftlerinnen und Tüftler, Handwerkerinnen und Handwerker
 - Programmiererinnen und Programmierer
-- Gestalterinnen und Gestalter
+- Designerinnen und Designer
 - Juristinnen und Juristen
 
 **German:**

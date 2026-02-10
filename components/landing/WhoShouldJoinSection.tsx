@@ -103,11 +103,11 @@ export function WhoShouldJoinSection() {
             </p>
           </div>
 
-          {/* Gestalter: Design + PM + Generalist */}
+          {/* Designer: Design + PM + Generalist */}
           <div className="bg-off-white rounded-2xl p-6 border border-gray-200 hover:border-historic-sepia/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">✏️</span>
-              <h3 className="font-display text-xl font-bold text-historic-sepia">Gestalter</h3>
+              <h3 className="font-display text-xl font-bold text-historic-sepia">Designerinnen und Designer</h3>
             </div>
             <p className="text-sm text-historic-sepia font-mono mb-4">
               Du machst Komplexes verständlich.
