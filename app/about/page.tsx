@@ -6,7 +6,7 @@ import { Icon } from '@/components/ui/Icon'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ButtonLink } from '@/components/ui/ButtonLink'
-import { HACKATHON_ROLES, HACKATHON_PACKAGES, PACKAGE_TEAM_COMPOSITIONS } from '@/lib/roles'
+import { HACKATHON_ROLES } from '@/lib/roles'
 import { EnergyTrilemmaSection } from '@/components/landing/EnergyTrilemmaSection'
 import { DataProvidersSection } from '@/components/landing/DataProvidersSection'
 
@@ -316,57 +316,6 @@ export default function AboutPage() {
               </a>
             </div>
 
-            {/* Package-Based Team Composition */}
-            <div className="bg-brand-black rounded-2xl p-6 sm:p-8">
-              <h3 className="font-display text-xl font-bold text-white text-center mb-6">
-                Team-Zusammensetzung pro Challenge (5 Personen)
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {HACKATHON_PACKAGES.filter(p => p.type === 'mandatory').map((pkg) => {
-                  const teamComp = PACKAGE_TEAM_COMPOSITIONS[pkg.id as keyof typeof PACKAGE_TEAM_COMPOSITIONS]
-                  return (
-                    <div key={pkg.id} className="bg-white/5 rounded-xl p-4">
-                      <div className="text-center mb-4">
-                        <Icon emoji={pkg.icon} size="lg" color={`text-${pkg.color}`} />
-                        <h4 className="font-mono text-sm font-bold text-white mt-2">{pkg.nameDE}</h4>
-                      </div>
-                      <div className="space-y-2">
-                        {teamComp?.map((member) => {
-                          const role = HACKATHON_ROLES.find(r => r.id === member.role)
-                          if (!role) return null
-                          return (
-                            <div 
-                              key={member.role}
-                              className={`flex items-center gap-2 px-2 py-1 rounded ${
-                                member.priority === 'essential' 
-                                  ? 'bg-grid-green/20' 
-                                  : 'bg-white/5'
-                              }`}
-                            >
-                              <Icon emoji={role.icon} size="sm" className="text-white" />
-                              <span className="font-mono text-[10px] text-white flex-1">{role.nameDE}</span>
-                              <span className={`text-[8px] font-mono ${
-                                member.priority === 'essential' ? 'text-grid-green' : 'text-gray-500'
-                              }`}>
-                                {member.priority === 'essential' ? '●' : '○'}
-                              </span>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-              <p className="text-center text-gray-400 font-mono text-xs mt-6">
-                <span className="text-grid-green">●</span> Essential · 
-                <span className="text-gray-500 ml-2">○</span> Recommended
-              </p>
-              <p className="text-center text-gray-500 font-mono text-xs mt-2">
-                Essential-Rollen sind für das Paket zwingend erforderlich. 
-                Recommended-Rollen werden empfohlen, sind aber nicht zwingend.
-              </p>
-            </div>
             
             <div className="mt-8 text-center">
               <ButtonLink href="/challenges" variant="primary" size="sm">
