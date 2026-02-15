@@ -50,6 +50,36 @@ Default parameters (viable with AI inference workloads):
 - HT (peak): 0.26 CHF/kWh → discharge + export
 - Spread: 0.06-0.10 CHF/kWh (realistic Swiss tariff structure)
 
+## Inter-LEG Compute Credits
+
+Grid-OS can advertise available capacity as **ComputeCredits**: time-limited (15-min) offers specifying available kWh, marginal cost, thermal headroom, and energy source.
+
+### How It Works
+
+1. **Advertise:** Grid-OS computes excess capacity from solar budget. Publishes `ComputeCredit` via REST API with `availableKwh`, `marginalCostCHFPerKwh`, `thermalHeadroomW`, `source`, `validUntil`.
+2. **Claim:** Another hub's scheduler sees the credit, matches a pending job, claims partial or full capacity.
+3. **Safety gate:** Cross-LEG execution requires `SafetyClearanceResponse.clear == true` from Challenge 2 API before any remote job starts. No clearance, no execution.
+4. **Execute:** Job runs on seller hub. Actual kWh metered. Heat stays at seller (thermal locality).
+5. **Settle:** `ComputeTransaction` recorded. Settlement via marketplace (internal credits Phase 1, CHF via Stripe Phase 2).
+
+### Thermal Locality Constraint
+
+All compute becomes heat (1st law). When Hub A runs a job for Hub B, Hub A captures the heat credit (CHF 0.10/kWh). This means inter-LEG routing is primarily rational in **summer** (no heating demand, excess solar) and rarely in **winter** (heat too valuable to give away).
+
+Breakeven: inter-LEG routing makes sense when `marginalCost_remote + lostHeatCredit < marginalCost_local`, i.e., the remote hub's cheap solar surplus outweighs the 0.10 CHF/kWh heat credit the local hub would lose.
+
+### Scheduler Integration
+
+The existing `solar_budget.py` mode-specific allocation extends naturally:
+- **SUMMER_EARN mode:** Publish excess capacity as ComputeCredits
+- **WINTER_WARM mode:** Keep all compute local (heat value too high)
+- **ISLAND mode:** No cross-LEG activity (disconnected)
+- **ARBITRAGE mode:** Publish credits only during NT periods when local demand is low
+
+### Types
+
+See `solutions/integration/shared/types.ts` for `ComputeCredit` and `ComputeTransaction` interfaces.
+
 ## Offene Risiken / Naechste Tasks
 - Hardware-in-the-loop Dauerlauf fuer Scheduler-Fairness/Starvation unter Last fehlt.
 - Clearance-Latenz und Ausfallpfade gegen echte Safety API in End-to-End Tests absichern.

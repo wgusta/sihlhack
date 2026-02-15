@@ -377,7 +377,7 @@ export default function ChallengesPage() {
                       <ul className="font-mono text-sm text-gray-600 space-y-2 mb-4">
                         <li>• Load Balancing über mehrere LEG-Gruppen</li>
                         <li>• VPP Integration für Strommarkt-Teilnahme</li>
-                        <li>• Market Signals verarbeiten und umsetzen</li>
+                        <li>• Inter-LEG Compute Credits: Hubs handeln Rechenkapazität in kWh</li>
                         <li>• System Dashboard für Gesamtübersicht</li>
                       </ul>
                       <a
@@ -522,7 +522,7 @@ export default function ChallengesPage() {
                 <div className="text-center font-mono text-xs text-gray-400">↓</div>
                 <div className="p-3 rounded-lg border-2 border-dashed border-compute-blue/60">
                   <div className="font-mono text-xs text-compute-blue font-bold mb-1">⚡ Grid-OS Logic</div>
-                  <div className="font-mono text-[9px] text-gray-500">Netzanschluss · Load Balancing, VPP Integration</div>
+                  <div className="font-mono text-[9px] text-gray-500">Netzanschluss · Load Balancing, VPP, Compute Credits</div>
                 </div>
                 <div className="text-center font-mono text-xs text-gray-400">↓</div>
                 <div className="p-3 rounded-lg border-2 border-dashed border-industrial-gold/60">

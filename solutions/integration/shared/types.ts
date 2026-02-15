@@ -114,6 +114,31 @@ export type SafetyAction =
 
 // === Challenge 3: Grid-OS ===
 export type GridOSMode = 'ISLAND' | 'WINTER_WARM' | 'SUMMER_EARN' | 'ARBITRAGE';
+export type EnergySource = 'solar' | 'battery' | 'grid_nt' | 'grid_ht';
+
+// Inter-LEG compute credit: time-limited capacity advertisement (15-min window).
+// A hub publishes available kWh, marginal cost, and thermal headroom.
+// Another hub's scheduler can claim capacity for a specific job.
+export interface ComputeCredit {
+  hubId: HubId;
+  availableKwh: number;
+  marginalCostCHFPerKwh: number;
+  thermalHeadroomW: number;
+  validUntil: string; // ISO timestamp, 15-min window
+  source: EnergySource;
+}
+
+// Records a completed cross-hub compute transaction.
+// Settlement happens via marketplace (internal credits or CHF).
+export interface ComputeTransaction {
+  buyerHubId: HubId;
+  sellerHubId: HubId;
+  jobId: JobId;
+  computeKwh: number;
+  pricePerKwhCHF: number;
+  heatGeneratedKwh: number;
+  settledAt?: string; // ISO timestamp, undefined until settled
+}
 
 export interface ControlDecision {
   hubId: HubId;
