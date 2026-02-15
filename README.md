@@ -1,236 +1,73 @@
 # SIHLHACK.CH
 
-Participant-oriented hackathon building the **Sihlicon Hub**: an Active Energy Node combining Battery + Compute + Heat + Resilience for decentralized energy infrastructure.
+Participant-oriented hackathon for the Sihlicon Hub: battery, compute, heat, resilience.
 
-## Quick Links
+## Current Model
 
-| Document | Description |
-|----------|-------------|
-| [STRATEGY.md](./STRATEGY.md) | **Authoritative strategy: vision, principles, Swiss compliance** |
-| [CONCEPT.md](./CONCEPT.md) | The vision, heritage, and participant model |
-| [TECHNICAL-REQUIREMENTS.md](./TECHNICAL-REQUIREMENTS.md) | Tech stack, database schema, APIs |
-| [docs/simulation-dashboard.md](./docs/simulation-dashboard.md) | Simulation dashboard, 3D layer, live tuning, run comments |
-| [PAYMENT-SYSTEM.md](./PAYMENT-SYSTEM.md) | Stripe integration, fund holding, automatic refunds |
-| [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) | Colors, typography, historic transformation effects |
-| [SITE-STRUCTURE.md](./SITE-STRUCTURE.md) | Pages, routes, navigation |
-| [IMPLEMENTATION-ROADMAP.md](./IMPLEMENTATION-ROADMAP.md) | Phases and file breakdown |
-| [BUILD-PROMPT.md](./BUILD-PROMPT.md) | AI prompt for building the project |
-| [METRICS-AND-RISKS.md](./METRICS-AND-RISKS.md) | Success criteria, risks, and Swiss legal requirements |
+- Participants pay, participants build, participants own code.
+- Main registration fee: CHF 150.
+- Snackathons: CHF 80 per event.
+- Corporate sponsors do not set challenge scope.
+- Refund rules are defined in `app/agb/page.tsx`.
 
-## Executive Summary
+## Main Event Scope
 
-**sihlhack.ch** is a sub-brand of sihliconvalley.ch presenting a new hackathon model where:
+- 3 mandatory packages, team picks one:
+  - `Sensor Integration`
+  - `Multi-Node Safety Coordination`
+  - `Grid-OS Logic`
+- Thermal path choice (immersion, water loop, heat pump) is an evaluation dimension, not a separate package.
+- Delivery model: simulator first, supervised reference run / demo deployment for finalists.
 
-- **Participants program and integrate the Sihlicon Hub**: an Active Energy Node (Battery + Server + Heat + Resilience)
-- **Three mandatory challenges**: Grid-OS Logic (Control it), Sensor Integration (Measure it), Operational Safety Logic
-- **Open thermal architecture**: Teams choose between Immersion Cooling, Water Loop, or Heat Pump Integration
-- **Open-source tools only**: Apache-2.0/MIT licensed resources for commercial LEG compatibility
-- **Prize money comes from participants**, not corporate sponsors
-- **Automatic refunds** if event is cancelled (per AGB)
+## Key Routes
 
-## Core Innovation
+- Public:
+  - `/`
+  - `/register`
+  - `/challenges`
+  - `/snackathons`
+  - `/about`
+- Participant:
+  - `/dashboard`
+  - `/dashboard/sim`
+  - `/dashboard/team-matching`
+- Legal:
+  - `/agb`
+  - `/datenschutz`
+  - `/licensing`
+  - `/safety`
 
-**The Sihlicon Hub Concept:**
-- **Active Energy Node**: Server + Battery + Heat + Resilience in one system
-- **Time-Shift Architecture**: Solar energy stored in batteries, used for compute and heat when needed
-- **Load Shedding**: Grid stable? Run compute. Grid down? Power the neighborhood.
-- **Three Thermal Paths**: Teams evaluate and choose (Immersion, Water Loop, Heat Pump)
-- **Deferred Compute**: Batch jobs scheduled based on solar availability
+## Simulation
 
-**The Hackathon Model:**
-- Participants pay registration fees (CHF 150)
-- 30-36 teams compete on 3 mandatory packages
-- Multiple teams per package, best solution wins
-- Prize pool distributed: 35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration
-- All code is Apache 2.0 - participants own their work
-- **Simulation-to-Reality**: Teams code on Digital Twins (AI Simulator), then deploy to supervised Reference Hardware
-
-## Visual Concept
-
-Black and white historical photographs and data tables "develop" into colorful modern insights, representing the transformation of forgotten industrial knowledge into new paradigms.
+- Route: `/dashboard/sim`
+- Tabs must stay aligned with website package names:
+  - `Sensor Integration`
+  - `Multi-Node Safety Coordination`
+  - `Grid-OS Logic`
+- 3D scene code lives in `components/sim3d`.
+- Live tuning panel lives in `components/sim/SimulationTuningPanel.tsx`.
+- Run comments are user-facing and capped at 500 chars.
 
 ## Tech Stack
 
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS 3
+- Next.js 16, TypeScript, Tailwind CSS 3
 - Vercel Postgres + Drizzle ORM
-- Vercel Blob (file storage)
-- Magic Link Auth (via Resend)
-- Stripe Connect (Manual Payouts)
-- Resend (Email)
-- Vercel (Hosting)
+- Stripe, Resend
+- Playwright smoke test for sim dashboard
 
-## Participant Platform (Dashboard)
-
-- `/dashboard`: profile review/edit (same fields as registration)
-- `/dashboard`: organizer news feed
-- `/dashboard`: snackathon participation + signup (CHF 80 per snackathon)
-- `/dashboard/sim`: simulation runs, 3D challenge view, live tuning controls, run comments
-- `/dashboard/team-matching`: platform-only team matching (no chat; structured requests + email share on accept)
-- Notification bell (top right): inbox, team requests accept/decline
-
-## Simulation Dashboard (Feb 2026)
-
-- 3 challenge tabs aligned with website naming: Sensor Integration, Multi-Node Safety Coordination, Grid-OS Logic
-- challenge specific 3D composition: different node sets, camera rails, palettes, animated props
-- live tuning panel for sensor values, LEG count and safety settings, grid scenarios and limits
-- run comments field, saved per run for audit and team context
-- dev inspector remains available for allowlisted dev mode users
-
-## Snackathons
-
-- 3 events: `april-2026`, `mai-2026`, `historik-hack`
-- Stripe checkout: CHF 80 per event
-- minimal signup fields (public): `firstName`, `lastName`, `email`
-
-## Names (Vorname / Nachname)
-
-- database uses split fields: `participants.first_name`, `participants.last_name` (legacy `participants.name` kept)
-- emails/comms address participants by `firstName` (fallback to legacy `name`)
-- safe auto-migration/backfill runs server-side via `lib/db/ensure.ts`
-
-## Brand Alignment
-
-This project extends the sihliconvalley.ch design system:
-- Same fonts: Playfair Display, IBM Plex Mono, Permanent Marker
-- Same core colors: deep-pink, teal, sun-red, brand-black, off-white
-- Extended with historic palette: sepia, cream, rust, insight-cyan
-
-## Current Status (January 2026)
-
-### ✅ Completed Features
-
-**Homepage (Streamlined):**
-- Hero section with tagline: "Server, die Häuser heizen. Batterien, die das Quartier versorgen."
-- Three engineering challenges: Zeit-Frage, Wärme-Frage, Resilienz-Frage
-- QuickCTA for immediate conversion after Three Questions
-- Condensed FAQ (8 questions, punchy answers)
-- Budget/Preisgeld widgets (optional)
-- Event timeline
-- Final CTA
-
-**About/Concept Page:**
-- Vision: Sihlvalley vs Silicon Valley attitude
-- Problem → Solution visualization (VORHER/NACHHER)
-- Role-based hackathon explanation (11 roles)
-- Open source commitment with transparency messaging
-- Energy Quadrilemma and Thermal Paths (moved from homepage)
-- Partner/Sponsor ecosystem (moved from homepage)
-- Legal framework FAQ
-
-**Challenges Page:**
-- Three mandatory packages with detailed descriptions
-- Snackathons Overview: Three optional snackathons (April 2026, Mai 2026, Historik Hack) in unified grid
-- Thermal Architecture Challenge: Three paths (Oil, Water, Heat Pump)
-- Sihlicon Hub v1.0 Prototype visualization (moved from homepage)
-- Compute Scenarios: What runs on the Hub (moved from homepage)
-- Team Red: Security challenge with selection process
-- Competition model with scoring criteria
-- Glossary accordion: 26 technical terms explained
-
-**Snackathons Page:**
-- 3 snackathons (April, Mai, Historik Hack)
-- paid signup via Stripe (CHF 80 per event)
-- minimal fields for public checkout (Vorname, Nachname, Email)
-
-**Participant Dashboard:**
-- Profile editor (Vorname, Nachname, roles, skills, team status, links)
-- Organizer news feed (announcements)
-- Snackathon participation + signup
-- Team matching (platform-only, structured; no chat)
-- Notification bell (inbox + team request actions)
-
-**Core Policies:**
-- **Open Source First**: Dual license (Hardware: CERN-OHL-P/MIT, Grid-OS: SVG-L). Participants keep copyright.
-- **Tooling Preference**: Prefer permissive OSS tooling where possible (Apache-2.0/MIT)
-- **Thermal Architecture Open**: Teams choose their path (Immersion, Water, Heat Pump)
-- **Participant Agency**: "Du programmierst es" - participants program the logic
-- **No Sponsor Agenda**: No corporate challenge agenda
-- **Inclusive Language**: Use "Teilnehmende" (neutral), English role titles, explicit inclusion when needed
-
-**Technical Infrastructure:**
-- Next.js 16 with App Router
-- TypeScript strict mode
-- Tailwind CSS with custom design system
-- Drizzle ORM with complete schema
-- Magic link authentication ready
-- Stripe integration prepared
-- Vercel deployment active
-
-### 🚀 Live Site
-
-**Production:** https://sihlhack.ch
-
-### 📅 Event Details
-
-- **Pilot:** Snackathons (April/May 2026 + Historik Hack) - CHF 80 / event
-- **Main Event:** October 2026 (date TBD) - Code on Simulator, deploy to Reference Hardware
-- **Location:** Zürich area
-- **Registration:** CHF 150 per participant
-- **Model:** Participation fee funds operations + prize pool (details communicated in AGB)
-- **Hardware:** Provided by organizers - 3-5 safety-certified Reference Nodes (Immersion, Water, Heat Pump)
-- **Teams:** 20 teams of 5 people
-- **Participants:** 100 target
-- **Refund Policy:** Automatic refund if minimum participants not reached
-
-## Key Design Decisions
-
-### Active Energy Node Architecture
-The Sihlicon Hub is not a "water heater" - it's an Active Energy Node that:
-- Stores solar energy in batteries (time-shift)
-- Runs compute jobs when energy is available (deferred compute)
-- Provides heat to buildings (thermal recovery)
-- Powers neighborhoods during grid outages (load shedding)
-
-### Open Source Commitment
-- Dual license model (Hardware: CERN-OHL-P/MIT, Grid-OS: SVG-L)
-- Prefer permissive licenses (Apache-2.0/MIT) for tools where possible
-- AGPL-3.0 tools excluded (Grafana, OpenEMS) to protect commercial LEG use
-- Resource submission form allows community to suggest additional repos
-
-### Participant Agency
-- "Du/Ihr" voice throughout - participants own the code
-- Three thermal paths, teams choose (hardware provided, teams program the logic)
-- No prescribed solutions, only constraints
-- Cheeky Sihlvalley vs Silicon Valley attitude
-- **Simulation-to-Reality**: Write Grid-OS code on Digital Twin, then deploy to supervised Reference Hardware
-
-## Development Commands
+## Commands
 
 ```bash
-# Development
-npm run dev              # Start dev server (localhost:3000)
-npm run lint             # Focused lint for sim and 3D stack
-npm run lint:all         # Full repo lint (legacy issues may exist)
-npm run test:sim:smoke   # Playwright smoke test for /dashboard/sim
-
-# Database
-npm run db:push          # Push schema changes to database
-npm run db:generate      # Generate migrations
-npm run db:studio        # Open Drizzle Studio
-
-# Build & Deploy
-npm run build            # Build for production
-npm run start            # Start production server
-npx vercel --prod        # Deploy to production
+npm run dev
+npm run lint
+npx tsc --noEmit
+npm run test:sim:smoke -- --reporter=line
+npm run build
 ```
 
-## Environment Setup
+## Canonical Docs
 
-Required environment variables:
-- `POSTGRES_URL` - Vercel Postgres connection
-- `BLOB_READ_WRITE_TOKEN` - Vercel Blob storage
-- `STRIPE_SECRET_KEY` - Stripe API key
-- `RESEND_API_KEY` - Resend email API
-- `RESEND_FROM_EMAIL` - From address (verified Resend domain recommended)
-- `NEXT_PUBLIC_SITE_URL` - Site URL (https://sihlhack.ch)
-
-## Next Steps
-
-1. **Database Setup:** Configure Vercel Postgres and run migrations
-2. **API Keys:** Set up Stripe and Resend accounts
-3. **Content:** Add historical sample data and company profiles
-4. **Testing:** Full flow testing (registration, proposals, payments)
-5. **Legal:** Terms of Service, Privacy Policy, NDA templates
-6. **Partnerships:** Reach out to Sihl Valley companies and libraries
+- `CONCEPT.md` for product model and package framing
+- `docs/simulation-dashboard.md` for sim behavior and file map
+- `docs/service-apis.md` for active API surface
+- `AGENTS.md` and `CLAUDE.md` for contributor instructions

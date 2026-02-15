@@ -4,56 +4,44 @@
 
 - `/dashboard/sim`
 
-## Scope
+## Purpose
 
-- Sandbox run control for 3 challenges
-- 3D visualization layer with challenge specific composition
-- Dev inspector with feature to code mapping
-- Run history and artifacts
+- Run package-specific simulation jobs.
+- Tune inputs live before submit.
+- Inspect run history, artifacts, and comments.
 
-## Challenge Tabs
+## Package Tabs
 
 - `Sensor Integration`
 - `Multi-Node Safety Coordination`
 - `Grid-OS Logic`
 
+Package names in UI, docs, and API payloads must stay aligned.
+
 ## Modes
 
-- Default mode: config driven runs
-- Dev mode: allowlisted users only, editable override paths only
+- Default mode: config-driven runs.
+- Dev mode: allowlisted users only, restricted override paths.
 
 ## 3D Layer
 
-- Enabled by `NEXT_PUBLIC_ENABLE_SIM_3D=true`
-- WebGL fallback automatically shows 2D only state
-- Shared scene framework with challenge specific:
-  - camera presets
-  - node visibility
-  - lighting and palette
-  - props and background animation
+- Feature flag: `NEXT_PUBLIC_ENABLE_SIM_3D=true`
+- Location: `components/sim3d`
+- Fallback: auto 2D state when WebGL is unavailable
 
-## Live Tuning
+## Live Tuning Panel
 
-- Sensor Integration controls:
-  - sensor count
-  - CPU temp, flow, gas values
-- Multi Node Safety controls:
-  - LEG node count
-  - heartbeat, missed heartbeat threshold
-  - force E Stop toggle
-- Grid OS controls:
-  - scenario selector
-  - max compute
-  - CPU temp limit
-  - shedding thresholds
+- Location: `components/sim/SimulationTuningPanel.tsx`
+- Sensor package controls: sensor count, cpu temp, flow, gas
+- Safety package controls: leg node count, heartbeat settings, force e-stop
+- Grid-OS package controls: scenario, compute limit, temp limits, shedding thresholds
 
 ## Run Comments
 
-- Users can add a run comment before submit
+- Optional note before submit
 - Max length: 500 chars
-- Stored in `simulation_runs.comment`
-- Exposed in run list and run detail APIs
-- Shown in run history cards
+- Stored at `simulation_runs.comment`
+- Shown in run history and run detail
 
 ## Key Files
 
@@ -63,17 +51,14 @@
 - `components/sim/SimulationTuningPanel.tsx`
 - `components/sim3d/SceneShell.tsx`
 - `components/sim3d/SimulationScene3D.tsx`
-- `components/sim3d/hooks/useGuidedCamera.ts`
 - `lib/sim/scene-mapper.ts`
 - `lib/sim/featureRegistry.ts`
+- `types/sim.ts`
 - `app/api/sim/runs/route.ts`
 - `app/api/sim/runs/[id]/route.ts`
-- `lib/sim/validation.ts`
-- `lib/sim/serialization.ts`
-- `lib/db/schema.ts`
 - `lib/db/ensure.ts`
 
-## Test Commands
+## Validation
 
 - `npm run lint`
 - `npx tsc --noEmit`

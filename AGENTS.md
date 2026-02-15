@@ -2,20 +2,24 @@
 
 ## Style
 
-- Be concise, use short bullets
-- Keep changes scoped, no broad refactors
-- Preserve existing naming, especially challenge IDs
+- Be concise, use short bullets.
+- Keep changes scoped, no broad refactors.
+- Preserve existing naming, especially challenge IDs.
+
+## Product and Naming
+
+- Main package names must stay exact:
+  - `Sensor Integration`
+  - `Multi-Node Safety Coordination`
+  - `Grid-OS Logic`
+- Do not reintroduce alternate challenge framing in docs or UI labels.
 
 ## Simulation Dashboard
 
 - Main route: `/dashboard/sim`
-- Challenge tabs must match website names:
-  - `Sensor Integration`
-  - `Multi-Node Safety Coordination`
-  - `Grid-OS Logic`
-- 3D scene lives in `components/sim3d`
-- Live tuning controls live in `components/sim/SimulationTuningPanel.tsx`
-- Run comments are user facing, keep max length at 500 chars unless product asks otherwise
+- 3D scene code in `components/sim3d`
+- Live tuning controls in `components/sim/SimulationTuningPanel.tsx`
+- Run comments are user-facing, max 500 chars unless product asks otherwise
 
 ## API and Data Contracts
 
@@ -31,7 +35,7 @@
 - `npm run test:sim:smoke -- --reporter=line`
 - `npm run build`
 
-## Docs to Update When Sim Changes
+## Docs To Update When Sim Changes
 
 - `README.md`
 - `docs/service-apis.md`
