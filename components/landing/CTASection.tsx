@@ -100,7 +100,7 @@ export function CTASection() {
             </div>
             <div className="flex items-center gap-2">
               <BoltIcon className="w-5 h-5 text-compute-blue" aria-hidden="true" />
-              <span>Echter Production-Deploy</span>
+              <span>Überwachter Reference-Run / Demo-Deployment</span>
             </div>
           </div>
         </div>

@@ -65,7 +65,7 @@ Benefits:
 3. **Challenge Selection**: Each team chooses one mandatory package:
    - **Grid-OS Logic**: Scheduler with solar budget, deferred compute, load shedding policies
    - **Sensor Integration**: Data pipelines, real-time monitoring, sensor validation
-   - **Operational Safety Logic**: Software safety interlocks, anomaly detection, emergency stop logic
+   - **Multi-Node Safety Coordination**: Safety interlocks, anomaly detection, emergency stop logic
 4. **Thermal Path Choice**: Teams evaluate and choose (hardware provided):
    - **Path A**: Oil Immersion (99% heat capture, complex)
    - **Path B**: Water Loop (60-70% capture, proven)
@@ -75,7 +75,7 @@ Benefits:
    - **Test**: Book 15-minute slot on 5V "Safety Avatar" (low-power validation)
    - **Deploy**: Finalists run code on Supervised Reference Node (The Beast)
 6. **Judging**: Scoring based on deliverables and criteria
-7. **Prizes**: 35% Grid-OS Logic, 35% Sensor Integration, 20% Operational Safety Logic, 10% Best Integration
+7. **Prizes**: 35% Grid-OS Logic, 35% Sensor Integration, 20% Multi-Node Safety Coordination, 10% Best Integration
 
 ### Transparency Commitment
 
@@ -100,26 +100,18 @@ SihlHack sits at the intersection of three existing industries, yet occupies a u
 ### Why this matters
 Existing "Server Heater" startups (Qarnot, Blockheating) treat the host as a passive landlord. They install a black box, pay a small fee, and keep the profits. **SihlHack inverts this:** You program the logic, you own the code, you control the system. The hardware remains with organizers as a platform, but teams own the Grid-OS code that makes it intelligent. We are building an active citizenry, not passive consumers.
 
-## The Three Engineering Challenges
+## The Three Engineering Packages
 
-### Die Zeit-Frage (Time-Shift Challenge)
-Solar energy peaks during the day, but heat is needed at night. How do you bridge this gap?
-- **Options**: Batteries buffer day→night, Deferred Compute shifts jobs, or both
-- **Teams decide**: The perfect balance is what you build
+### Sensor Integration
+Build the sensor pipeline: ingestion, validation, and real-time monitoring that feeds Grid-OS.
 
-### Die Wärme-Frage (Thermal Challenge)
-How do you extract heat from compute? Three paths, no "right" answer:
-- **Path A (Oil Immersion)**: Elegant, 99% capture, but complex handling
-- **Path B (Water Loop)**: Proven, standard parts, but only 60-70% capture
-- **Path C (Heat Pump)**: 70°C+ output, radiator-ready, but complex and expensive
-- **Teams evaluate**: Trade-offs, not prescriptions
+### Multi-Node Safety Coordination
+Build safety logic across nodes: anomaly detection, fail-closed clearance, and emergency stop paths.
 
-### Die Resilienz-Frage (Resilience Challenge)
-When the grid fails, what does your server do?
-- **Grid stable**: Run compute, charge battery
-- **Grid unstable**: Throttle compute, battery ready
-- **Grid down**: Pause compute, power the neighborhood
-- **Teams build**: The logic doesn't exist yet - you create it
+### Grid-OS Logic
+Build the control loop: scheduler, load shedding, and policy decisions based on grid signals and energy state.
+
+**Note:** Time-shift, thermal-path choice, and resilience are evaluation dimensions across all three packages, not separate tracks.
 
 ## The Simulation Gap
 

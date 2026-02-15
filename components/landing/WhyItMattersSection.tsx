@@ -39,10 +39,10 @@ export function WhyItMattersSection() {
             </h3>
             <div className="space-y-4 font-mono text-sm text-historic-sepia">
               <p>
-                <strong className="text-brand-black">Schweizer Solardächer produzieren zu viel Strom zur Mittagszeit.</strong> Statt ihn sinnvoll zu nutzen, wird er für 4-8 Rappen ins Netz gedrückt.
+                <strong className="text-brand-black">Schweizer Solardächer produzieren zu viel Strom zur Mittagszeit.</strong> Statt ihn sinnvoll zu nutzen, wird er oft zu sehr niedrigen Preisen ins Netz gedrückt.
               </p>
               <p>
-                Gleichzeitig zahlen wir <span className="text-sihl-red">Milliarden an US-Cloud-Anbieter</span>, die unsere Daten in fremden Ländern speichern und verarbeiten.
+                Gleichzeitig zahlen wir <span className="text-sihl-red">grosse Summen an US-Cloud-Anbieter</span>, die unsere Daten in fremden Ländern speichern und verarbeiten.
               </p>
               <p>
                 <strong className="text-brand-black">Die Energie ist da. Die Nachfrage ist da.</strong> Es fehlt nur die Infrastruktur, die beides verbindet.

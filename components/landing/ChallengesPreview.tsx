@@ -6,56 +6,56 @@ export function ChallengesPreview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="font-mono text-sm text-thermal-orange uppercase tracking-wide">
-            Drei offene Fragen. Du findest die Antworten.
+            Drei Pakete. Klare Outputs. Du baust eines davon.
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Die Zeit-Frage */}
+          {/* Sensor Integration */}
           <div className="p-6 rounded-xl bg-white/5 border border-solar-yellow/20 hover:border-solar-yellow/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-2xl">⏰</span>
-              <h3 className="font-mono text-solar-yellow font-semibold text-lg">Zeit-Shift</h3>
+              <h3 className="font-mono text-solar-yellow font-semibold text-lg">Sensor Integration</h3>
             </div>
             <p className="text-sm text-gray-300 font-mono mb-3">
-              Sonne scheint tagsüber. Dusche läuft morgens.
+              Daten rein, Qualität hoch, Streaming stabil.
             </p>
             <ul className="text-xs text-gray-400 font-mono space-y-1 mb-4">
-              <li>• Batterien als Puffer?</li>
-              <li>• Deferred Compute Logik?</li>
-              <li>• Du programmierst die Lösung.</li>
+              <li>• Sensor-Pipeline + Validierung</li>
+              <li>• Echtzeit-Monitoring</li>
+              <li>• Saubere Daten fürs Grid-OS</li>
             </ul>
           </div>
           
-          {/* Die Wärme-Frage */}
+          {/* Multi-Node Safety Coordination */}
           <div className="p-6 rounded-xl bg-white/5 border border-thermal-orange/20 hover:border-thermal-orange/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-2xl">🔥</span>
-              <h3 className="font-mono text-thermal-orange font-semibold text-lg">Wärme-Pfad</h3>
+              <h3 className="font-mono text-thermal-orange font-semibold text-lg">Multi-Node Safety Coordination</h3>
             </div>
             <p className="text-sm text-gray-300 font-mono mb-3">
-              Drei Optionen. Kein richtiger Pfad. Nur Trade-offs.
+              Safety hat immer Vorrang. Koordiniert über mehrere Nodes.
             </p>
             <ul className="text-xs text-gray-400 font-mono space-y-1 mb-4">
-              <li>• Öl-Immersion: sexy, komplex</li>
-              <li>• Wasser-Loop: boring, funktioniert</li>
-              <li>• Wärmepumpe: clever, teuer</li>
+              <li>• Anomalien erkennen</li>
+              <li>• Fail-closed Freigaben</li>
+              <li>• E-Stop Logik</li>
             </ul>
           </div>
           
-          {/* Die Resilienz-Frage */}
+          {/* Grid-OS Logic */}
           <div className="p-6 rounded-xl bg-white/5 border border-compute-blue/20 hover:border-compute-blue/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-2xl">🔌</span>
-              <h3 className="font-mono text-compute-blue font-semibold text-lg">Resilienz-Logik</h3>
+              <h3 className="font-mono text-compute-blue font-semibold text-lg">Grid-OS Logic</h3>
             </div>
             <p className="text-sm text-gray-300 font-mono mb-3">
-              Netz fällt aus. Was macht dein Server?
+              Compute, Batterie, Wärme: du baust die Steuerlogik.
             </p>
             <ul className="text-xs text-gray-400 font-mono space-y-1 mb-4">
-              <li>• Weiterrechnen?</li>
-              <li>• Nachbarschaft versorgen?</li>
-              <li>• Du programmierst die Logik.</li>
+              <li>• Laststeuerung + Scheduler</li>
+              <li>• Netzsignale berücksichtigen</li>
+              <li>• Policies als Code</li>
             </ul>
           </div>
         </div>
