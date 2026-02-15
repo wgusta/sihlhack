@@ -275,6 +275,83 @@ curl -X POST https://sihlhack.ch/api/storage \
 }
 ```
 
+## Simulation Services API
+
+### Create Simulation Run
+
+**Endpoint**: `POST /api/sim/runs`
+
+**Request Body**:
+```typescript
+{
+  challengeId: 'sensor-logic' | 'safety-coordination' | 'grid-os',
+  scenarioId: string,
+  comment?: string,                    // Optional run note, max 500 chars
+  config: Record<string, unknown>,
+  devOverrides?: Record<string, string>
+}
+```
+
+**Response**:
+```typescript
+{
+  runId: string,
+  status: 'queued' | 'running' | 'succeeded' | 'failed' | 'timeout' | 'cancelled'
+}
+```
+
+### List Simulation Runs
+
+**Endpoint**: `GET /api/sim/runs?challengeId={id}&limit={n}`
+
+**Response**:
+```typescript
+{
+  runs: Array<{
+    id: string,
+    challengeId: string,
+    scenarioId: string,
+    comment: string | null,
+    status: string,
+    createdAt: string,
+    finishedAt: string | null,
+    summary: Record<string, unknown> | null
+  }>,
+  devModeAllowed: boolean
+}
+```
+
+### Get Simulation Run Detail
+
+**Endpoint**: `GET /api/sim/runs/[id]`
+
+**Response**:
+```typescript
+{
+  run: {
+    id: string,
+    challengeId: string,
+    scenarioId: string,
+    comment: string | null,
+    status: string,
+    config: Record<string, unknown>,
+    artifacts: Record<string, unknown> | null,
+    logsUrl: string | null
+  }
+}
+```
+
+### Cancel Simulation Run
+
+**Endpoint**: `POST /api/sim/runs/[id]/cancel`
+
+**Response**:
+```typescript
+{
+  ok: true
+}
+```
+
 ## Error Responses
 
 All APIs return errors in this format:

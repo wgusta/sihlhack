@@ -37,7 +37,7 @@ export function SceneShell({ frame, enabled }: SceneShellProps) {
       </CardHeader>
       <CardContent className="space-y-3">
         {show3d ? (
-          <SimulationScene3D frame={frame} />
+          <SimulationScene3D key={frame.challengeId} frame={frame} />
         ) : (
           <div className="rounded-lg border border-historic-sepia/25 bg-white p-4">
             <p className="font-mono text-xs text-historic-sepia">

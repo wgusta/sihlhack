@@ -23,28 +23,28 @@ function useGuidedCamera({ challengeId, focusPosition, freezeUntil, reducedMotio
         "useGuidedCamera.useMemo[viewPreset]": ()=>{
             if (challengeId === 'sensor-logic') {
                 return {
-                    center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](-0.35, 0.5, 0),
-                    radius: 8.2,
-                    height: 3.4,
-                    speed: 0.16,
-                    angle: 0.2
+                    center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](-0.9, 0.5, -0.35),
+                    radius: 7.8,
+                    height: 3.25,
+                    speed: 0.12,
+                    angle: 0.55
                 };
             }
             if (challengeId === 'safety-coordination') {
                 return {
-                    center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](0.8, 0.6, -0.8),
-                    radius: 6.4,
-                    height: 2.9,
-                    speed: 0.12,
-                    angle: -0.4
+                    center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](1.9, 0.55, -1.1),
+                    radius: 5.6,
+                    height: 2.7,
+                    speed: 0.08,
+                    angle: -0.95
                 };
             }
             return {
-                center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](0, 0.45, -0.55),
-                radius: 7.1,
-                height: 2.8,
-                speed: 0.2,
-                angle: 0.55
+                center: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Vector3"](0.4, 0.45, -0.65),
+                radius: 7.4,
+                height: 2.85,
+                speed: 0.22,
+                angle: 0.35
             };
         }
     }["useGuidedCamera.useMemo[viewPreset]"], [
@@ -1475,7 +1475,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$effec
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$types$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/sim3d/nodes/types.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/three/build/three.core.js [app-client] (ecmascript)");
 ;
-var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature();
+var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.signature(), _s2 = __turbopack_context__.k.signature(), _s3 = __turbopack_context__.k.signature(), _s4 = __turbopack_context__.k.signature(), _s5 = __turbopack_context__.k.signature(), _s6 = __turbopack_context__.k.signature(), _s7 = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
@@ -1537,23 +1537,54 @@ const BASE_NODE_POSITIONS = {
 };
 const SCENE_THEME = {
     'sensor-logic': {
-        sky: '#c7e7ff',
-        fog: '#d9efff',
-        ground: '#dcefc8',
-        environment: 'sunset'
+        sky: '#b8f0ff',
+        fog: '#d3f7ff',
+        ground: '#cbeed8',
+        environment: 'sunset',
+        ambient: 0.68,
+        keyLight: 1.1,
+        fillLight: 0.4
     },
     'safety-coordination': {
-        sky: '#c5d4f5',
-        fog: '#d7e2fb',
-        ground: '#d8e4d2',
-        environment: 'city'
+        sky: '#d3d7ea',
+        fog: '#e3e7f4',
+        ground: '#d6d9de',
+        environment: 'city',
+        ambient: 0.5,
+        keyLight: 0.85,
+        fillLight: 0.3
     },
     'grid-os': {
-        sky: '#b6d9ff',
-        fog: '#d0e6ff',
-        ground: '#cee7bf',
-        environment: 'dawn'
+        sky: '#b7dcff',
+        fog: '#d3e8ff',
+        ground: '#c5e4b8',
+        environment: 'dawn',
+        ambient: 0.62,
+        keyLight: 1.02,
+        fillLight: 0.47
     }
+};
+const CHALLENGE_VISIBLE_NODES = {
+    'sensor-logic': [
+        'solar',
+        'grid',
+        'compute',
+        'sensor'
+    ],
+    'safety-coordination': [
+        'compute',
+        'house',
+        'heating',
+        'safety'
+    ],
+    'grid-os': [
+        'solar',
+        'grid',
+        'compute',
+        'battery',
+        'house',
+        'heating'
+    ]
 };
 function SimulationScene3D({ frame }) {
     _s();
@@ -1612,22 +1643,22 @@ function SimulationScene3D({ frame }) {
                     onNodeSelect: onNodeSelect
                 }, void 0, false, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 85,
+                    lineNumber: 100,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 84,
+                lineNumber: 99,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-            lineNumber: 78,
+            lineNumber: 93,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 77,
+        lineNumber: 92,
         columnNumber: 5
     }, this);
 }
@@ -1648,6 +1679,9 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
     });
     const safety = frame.nodes.find((node)=>node.id === 'safety');
     const sensor = frame.nodes.find((node)=>node.id === 'sensor');
+    const visibleNodes = CHALLENGE_VISIBLE_NODES[frame.challengeId];
+    const visibleNodeSet = new Set(visibleNodes);
+    const visibleFlows = frame.flows.filter((flow)=>visibleNodeSet.has(flow.from) && visibleNodeSet.has(flow.to));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("color", {
@@ -1657,7 +1691,7 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 ]
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 139,
+                lineNumber: 157,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("fog", {
@@ -1669,14 +1703,14 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 ]
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 140,
+                lineNumber: 158,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ambientLight", {
-                intensity: 0.6
+                intensity: theme.ambient
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 141,
+                lineNumber: 159,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("directionalLight", {
@@ -1685,13 +1719,13 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                     9,
                     2
                 ],
-                intensity: 1.05,
+                intensity: theme.keyLight,
                 castShadow: true,
                 "shadow-mapSize-width": 1024,
                 "shadow-mapSize-height": 1024
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 142,
+                lineNumber: 160,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("directionalLight", {
@@ -1700,17 +1734,17 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                     5,
                     -2
                 ],
-                intensity: 0.45
+                intensity: theme.fillLight
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 143,
+                lineNumber: 161,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$Environment$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Environment"], {
                 preset: theme.environment
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 144,
+                lineNumber: 162,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -1733,20 +1767,20 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 147,
+                        lineNumber: 165,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: theme.ground
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 148,
+                        lineNumber: 166,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 146,
+                lineNumber: 164,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RuralBackdrop, {
@@ -1754,10 +1788,10 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 151,
+                lineNumber: 169,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$Float$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Float"], {
+            visibleNodeSet.has('solar') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$Float$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Float"], {
                 speed: reducedMotion ? 0 : 0.6,
                 rotationIntensity: 0.03,
                 floatIntensity: 0.06,
@@ -1769,15 +1803,15 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                     onSelect: onNodeSelect
                 }, void 0, false, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 154,
-                    columnNumber: 9
+                    lineNumber: 173,
+                    columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 153,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$GridNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["GridNode"], {
+                lineNumber: 172,
+                columnNumber: 9
+            }, this) : null,
+            visibleNodeSet.has('grid') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$GridNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["GridNode"], {
                 node: findNode(frame.nodes, 'grid'),
                 position: nodePositions.grid,
                 selected: selectedNode === 'grid' || hoveredNode === 'grid',
@@ -1785,10 +1819,10 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 onSelect: onNodeSelect
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 163,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$ComputeNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ComputeNode"], {
+                lineNumber: 184,
+                columnNumber: 9
+            }, this) : null,
+            visibleNodeSet.has('compute') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$ComputeNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ComputeNode"], {
                 node: findNode(frame.nodes, 'compute'),
                 position: nodePositions.compute,
                 selected: selectedNode === 'compute' || hoveredNode === 'compute',
@@ -1796,10 +1830,10 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 onSelect: onNodeSelect
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 171,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$BatteryNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BatteryNode"], {
+                lineNumber: 194,
+                columnNumber: 9
+            }, this) : null,
+            visibleNodeSet.has('battery') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$BatteryNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BatteryNode"], {
                 node: findNode(frame.nodes, 'battery'),
                 position: nodePositions.battery,
                 selected: selectedNode === 'battery' || hoveredNode === 'battery',
@@ -1807,10 +1841,10 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 onSelect: onNodeSelect
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 179,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$HouseNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HouseNode"], {
+                lineNumber: 204,
+                columnNumber: 9
+            }, this) : null,
+            visibleNodeSet.has('house') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$HouseNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HouseNode"], {
                 node: findNode(frame.nodes, 'house'),
                 position: nodePositions.house,
                 selected: selectedNode === 'house' || hoveredNode === 'house',
@@ -1818,10 +1852,10 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 onSelect: onNodeSelect
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 187,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$HeatingNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HeatingNode"], {
+                lineNumber: 214,
+                columnNumber: 9
+            }, this) : null,
+            visibleNodeSet.has('heating') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$nodes$2f$HeatingNode$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HeatingNode"], {
                 node: findNode(frame.nodes, 'heating'),
                 position: nodePositions.heating,
                 selected: selectedNode === 'heating' || hoveredNode === 'heating',
@@ -1829,24 +1863,24 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                 onSelect: onNodeSelect
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 195,
-                columnNumber: 7
-            }, this),
+                lineNumber: 224,
+                columnNumber: 9
+            }, this) : null,
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$effects$2f$FlowLinks$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["FlowLinks"], {
-                flows: frame.flows,
+                flows: visibleFlows,
                 nodePositions: nodePositions
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 203,
+                lineNumber: 233,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sim3d$2f$effects$2f$StatusParticles$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StatusParticles"], {
-                nodes: frame.nodes,
+                nodes: frame.nodes.filter((node)=>visibleNodeSet.has(node.id)),
                 nodePositions: nodePositions,
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 204,
+                lineNumber: 234,
                 columnNumber: 7
             }, this),
             frame.challengeId === 'sensor-logic' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -1869,7 +1903,7 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 208,
+                        lineNumber: 238,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
@@ -1880,13 +1914,13 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                         opacity: 0.78
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 209,
+                        lineNumber: 239,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 207,
+                lineNumber: 237,
                 columnNumber: 9
             }, this) : null,
             frame.challengeId === 'safety-coordination' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
@@ -1909,20 +1943,20 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 216,
+                                lineNumber: 246,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                                 color: "#334155"
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 217,
+                                lineNumber: 247,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 215,
+                        lineNumber: 245,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -1940,7 +1974,7 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 220,
+                                lineNumber: 250,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
@@ -1949,19 +1983,19 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                                 emissiveIntensity: 0.35 + (safety?.pulse || 0.3) * 0.7
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 221,
+                                lineNumber: 251,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 219,
+                        lineNumber: 249,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 214,
+                lineNumber: 244,
                 columnNumber: 9
             }, this) : null,
             frame.challengeId === 'grid-os' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
@@ -1985,12 +2019,12 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                             emissiveIntensity: 0.18
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 233,
+                            lineNumber: 263,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 232,
+                        lineNumber: 262,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$web$2f$Html$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Html"], {
@@ -2009,18 +2043,18 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 236,
+                            lineNumber: 266,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 235,
+                        lineNumber: 265,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 231,
+                lineNumber: 261,
                 columnNumber: 9
             }, this) : null,
             hoveredNode || selectedNodeState ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$web$2f$Html$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Html"], {
@@ -2041,12 +2075,12 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 245,
+                    lineNumber: 275,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 244,
+                lineNumber: 274,
                 columnNumber: 9
             }, this) : null,
             !reducedMotion && !lowPower ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$postprocessing$2f$dist$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EffectComposer"], {
@@ -2056,19 +2090,19 @@ function SceneContent({ frame, theme, nodePositions, reducedMotion, lowPower, ho
                     intensity: 0.55
                 }, void 0, false, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 254,
+                    lineNumber: 284,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 253,
+                lineNumber: 283,
                 columnNumber: 9
             }, this) : null,
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FramePulse, {
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 258,
+                lineNumber: 288,
                 columnNumber: 7
             }, this)
         ]
@@ -2131,49 +2165,129 @@ function getNodePositions(challengeId) {
     if (challengeId === 'sensor-logic') {
         return {
             ...BASE_NODE_POSITIONS,
-            sensor: [
-                -1.3,
+            solar: [
+                -4.8,
                 0.1,
-                -2.35
+                1.95
+            ],
+            grid: [
+                -4.9,
+                0.0,
+                -1.95
+            ],
+            sensor: [
+                -1.5,
+                0.1,
+                -1.45
             ],
             compute: [
-                -0.2,
+                1.15,
                 0.1,
-                -0.25
+                -0.2
+            ],
+            battery: [
+                1.9,
+                0,
+                2.35
+            ],
+            house: [
+                4.9,
+                0.1,
+                1.85
+            ],
+            heating: [
+                4.6,
+                0,
+                -1.45
             ]
         };
     }
     if (challengeId === 'safety-coordination') {
         return {
             ...BASE_NODE_POSITIONS,
-            safety: [
-                1.9,
+            solar: [
+                -5.1,
                 0.1,
-                -2.45
+                2.1
+            ],
+            grid: [
+                -4.95,
+                0.0,
+                -2.2
+            ],
+            compute: [
+                -0.25,
+                0.1,
+                -0.35
+            ],
+            battery: [
+                0.55,
+                0,
+                2.45
+            ],
+            safety: [
+                2.8,
+                0.1,
+                -1.5
             ],
             house: [
-                3.45,
+                3.1,
                 0.1,
-                1.1
+                0.75
             ],
             heating: [
-                3.2,
+                2.95,
                 0,
-                -1.95
+                -2.25
+            ],
+            sensor: [
+                -0.95,
+                0.1,
+                -2.35
             ]
         };
     }
     return {
         ...BASE_NODE_POSITIONS,
+        solar: [
+            -4.25,
+            0.1,
+            2.2
+        ],
         grid: [
             -4.15,
             0.0,
-            -2.05
+            -2.2
+        ],
+        compute: [
+            -0.05,
+            0.1,
+            0.35
         ],
         battery: [
-            0.45,
+            1.1,
             0,
-            2.35
+            2.6
+        ],
+        house: [
+            4.35,
+            0.1,
+            1.6
+        ],
+        heating: [
+            4.1,
+            0,
+            -1.95
+        ],
+        sensor: [
+            -1.35,
+            0.1,
+            -2.6
+        ],
+        safety: [
+            1.75,
+            0.1,
+            -2.5
         ]
     };
 }
@@ -2186,47 +2300,78 @@ function RuralBackdrop({ challengeId, reducedMotion }) {
                 challengeId: challengeId
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 335,
+                lineNumber: 381,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MountainRange, {}, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 336,
+                lineNumber: 382,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(VillageEdge, {
                 challengeId: challengeId
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 337,
+                lineNumber: 383,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(WindTurbine, {
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 338,
+                lineNumber: 384,
                 columnNumber: 7
             }, this),
-            challengeId === 'sensor-logic' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SensorFence, {}, void 0, false, {
-                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 339,
-                columnNumber: 41
-            }, this) : null,
-            challengeId === 'safety-coordination' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SafetyFence, {}, void 0, false, {
-                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 340,
-                columnNumber: 48
-            }, this) : null,
-            challengeId === 'grid-os' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PowerLines, {}, void 0, false, {
-                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 341,
-                columnNumber: 36
-            }, this) : null
+            challengeId === 'sensor-logic' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SensorFence, {}, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 387,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SensorOperationsField, {
+                        reducedMotion: reducedMotion
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 388,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true) : null,
+            challengeId === 'safety-coordination' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SafetyFence, {}, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 393,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SafetyCommandZone, {}, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 394,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true) : null,
+            challengeId === 'grid-os' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PowerLines, {}, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 399,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(GridDistrict, {
+                        reducedMotion: reducedMotion
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 400,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true) : null
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 334,
+        lineNumber: 380,
         columnNumber: 5
     }, this);
 }
@@ -2291,25 +2436,25 @@ function MountainRange() {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 360,
+                        lineNumber: 421,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: index % 2 === 0 ? '#9bb9a2' : '#87a28e'
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 361,
+                        lineNumber: 422,
                         columnNumber: 11
                     }, this)
                 ]
             }, `${peakX}-${peakZ}-${index}`, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 359,
+                lineNumber: 420,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 357,
+        lineNumber: 418,
         columnNumber: 5
     }, this);
 }
@@ -2335,12 +2480,12 @@ function VillageEdge({ challengeId }) {
                     color: homeColor
                 }, void 0, false, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 373,
+                    lineNumber: 434,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 372,
+                lineNumber: 433,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -2363,20 +2508,20 @@ function VillageEdge({ challengeId }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 376,
+                        lineNumber: 437,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: "#8f5f43"
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 377,
+                        lineNumber: 438,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 375,
+                lineNumber: 436,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -2395,26 +2540,26 @@ function VillageEdge({ challengeId }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 380,
+                        lineNumber: 441,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: "#6e8f53"
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 381,
+                        lineNumber: 442,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 379,
+                lineNumber: 440,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 371,
+        lineNumber: 432,
         columnNumber: 5
     }, this);
 }
@@ -2444,33 +2589,33 @@ function WindTurbine({ reducedMotion }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 391,
+                        lineNumber: 452,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: "#d7dee9"
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 392,
+                        lineNumber: 453,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 390,
+                lineNumber: 451,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(WindBlades, {
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 394,
+                lineNumber: 455,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 389,
+        lineNumber: 450,
         columnNumber: 5
     }, this);
 }
@@ -2517,20 +2662,20 @@ function WindBlades({ reducedMotion }) {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 411,
+                            lineNumber: 472,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                             color: "#f8fafc"
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 412,
+                            lineNumber: 473,
                             columnNumber: 11
                         }, this)
                     ]
                 }, angle, true, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 410,
+                    lineNumber: 471,
                     columnNumber: 9
                 }, this)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -2543,26 +2688,26 @@ function WindBlades({ reducedMotion }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 416,
+                        lineNumber: 477,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: "#cbd5e1"
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 417,
+                        lineNumber: 478,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 415,
+                lineNumber: 476,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 408,
+        lineNumber: 469,
         columnNumber: 5
     }, this);
 }
@@ -2591,7 +2736,7 @@ function SunAndClouds({ challengeId, reducedMotion }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 434,
+                        lineNumber: 495,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
@@ -2600,26 +2745,26 @@ function SunAndClouds({ challengeId, reducedMotion }) {
                         emissiveIntensity: 0.33
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 435,
+                        lineNumber: 496,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 433,
+                lineNumber: 494,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CloudBank, {
                 reducedMotion: reducedMotion
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 437,
+                lineNumber: 498,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 432,
+        lineNumber: 493,
         columnNumber: 5
     }, this);
 }
@@ -2665,7 +2810,7 @@ function CloudBank({ reducedMotion }) {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 458,
+                        lineNumber: 519,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
@@ -2674,18 +2819,18 @@ function CloudBank({ reducedMotion }) {
                         opacity: 0.88
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 459,
+                        lineNumber: 520,
                         columnNumber: 11
                     }, this)
                 ]
             }, offsetX, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 457,
+                lineNumber: 518,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 455,
+        lineNumber: 516,
         columnNumber: 5
     }, this);
 }
@@ -2720,20 +2865,20 @@ function SensorFence() {
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 472,
+                                lineNumber: 533,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                                 color: "#0f766e"
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 473,
+                                lineNumber: 534,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 471,
+                        lineNumber: 532,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -2751,7 +2896,7 @@ function SensorFence() {
                                 ]
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 476,
+                                lineNumber: 537,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
@@ -2760,24 +2905,24 @@ function SensorFence() {
                                 emissiveIntensity: 0.4
                             }, void 0, false, {
                                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                                lineNumber: 477,
+                                lineNumber: 538,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 475,
+                        lineNumber: 536,
                         columnNumber: 11
                     }, this)
                 ]
             }, `${offsetX}-${index}`, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 470,
+                lineNumber: 531,
                 columnNumber: 9
             }, this))
     }, void 0, false, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 468,
+        lineNumber: 529,
         columnNumber: 5
     }, this);
 }
@@ -2802,12 +2947,12 @@ function SafetyFence() {
                     color: "#dbe4f2"
                 }, void 0, false, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 489,
+                    lineNumber: 550,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 488,
+                lineNumber: 549,
                 columnNumber: 7
             }, this),
             [
@@ -2829,26 +2974,26 @@ function SafetyFence() {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 493,
+                            lineNumber: 554,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                             color: "#64748b"
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 494,
+                            lineNumber: 555,
                             columnNumber: 11
                         }, this)
                     ]
                 }, offset, true, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 492,
+                    lineNumber: 553,
                     columnNumber: 9
                 }, this))
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 487,
+        lineNumber: 548,
         columnNumber: 5
     }, this);
 }
@@ -2876,20 +3021,20 @@ function PowerLines() {
                             ]
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 506,
+                            lineNumber: 567,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                             color: "#475569"
                         }, void 0, false, {
                             fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                            lineNumber: 507,
+                            lineNumber: 568,
                             columnNumber: 11
                         }, this)
                     ]
                 }, offsetX, true, {
                     fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                    lineNumber: 505,
+                    lineNumber: 566,
                     columnNumber: 9
                 }, this)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -2912,31 +3057,479 @@ function PowerLines() {
                         ]
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 511,
+                        lineNumber: 572,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
                         color: "#334155"
                     }, void 0, false, {
                         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                        lineNumber: 512,
+                        lineNumber: 573,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-                lineNumber: 510,
+                lineNumber: 571,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
-        lineNumber: 503,
+        lineNumber: 564,
         columnNumber: 5
     }, this);
 }
 _c12 = PowerLines;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12;
+function SensorOperationsField({ reducedMotion }) {
+    _s6();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$5a94e5eb$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__D__as__useFrame$3e$__["useFrame"])({
+        "SensorOperationsField.useFrame": (state)=>{
+            if (reducedMotion) {
+                return;
+            }
+            const beacon = state.scene.getObjectByName('sensor-data-beacon');
+            if (!beacon) {
+                return;
+            }
+            beacon.scale.y = 0.7 + (Math.sin(state.clock.elapsedTime * 2.2) + 1) * 0.2;
+        }
+    }["SensorOperationsField.useFrame"]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
+        position: [
+            -1.4,
+            -0.48,
+            -1.35
+        ],
+        "data-feature": "sim3d.challenge.sensor-field",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$RoundedBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoundedBox"], {
+                args: [
+                    3.5,
+                    0.02,
+                    2.6
+                ],
+                radius: 0.04,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                    color: "#cffafe"
+                }, void 0, false, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 594,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 593,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
+                position: [
+                    0,
+                    0.02,
+                    0
+                ],
+                children: [
+                    -1.2,
+                    -0.4,
+                    0.4,
+                    1.2
+                ].map((offsetX)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                        position: [
+                            offsetX,
+                            0.02,
+                            0
+                        ],
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("boxGeometry", {
+                                args: [
+                                    0.12,
+                                    0.02,
+                                    2.1
+                                ]
+                            }, void 0, false, {
+                                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                                lineNumber: 599,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                                color: "#67e8f9",
+                                emissive: "#0891b2",
+                                emissiveIntensity: 0.22
+                            }, void 0, false, {
+                                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                                lineNumber: 600,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, offsetX, true, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 598,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 596,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                name: "sensor-data-beacon",
+                position: [
+                    0,
+                    0.55,
+                    0
+                ],
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("cylinderGeometry", {
+                        args: [
+                            0.07,
+                            0.11,
+                            1.1,
+                            10
+                        ]
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 605,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                        color: "#0ea5e9",
+                        emissive: "#0369a1",
+                        emissiveIntensity: 0.42,
+                        transparent: true,
+                        opacity: 0.85
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 606,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 604,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+        lineNumber: 592,
+        columnNumber: 5
+    }, this);
+}
+_s6(SensorOperationsField, "xC67171NPRcCAzsbrenetil66NI=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$5a94e5eb$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__D__as__useFrame$3e$__["useFrame"]
+    ];
+});
+_c13 = SensorOperationsField;
+function SafetyCommandZone() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
+        position: [
+            1.8,
+            -0.5,
+            -1.2
+        ],
+        "data-feature": "sim3d.challenge.safety-zone",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$RoundedBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoundedBox"], {
+                args: [
+                    3.3,
+                    0.06,
+                    2.5
+                ],
+                radius: 0.07,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                    color: "#e5e7eb"
+                }, void 0, false, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 616,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 615,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$RoundedBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoundedBox"], {
+                args: [
+                    1.4,
+                    0.9,
+                    1
+                ],
+                radius: 0.06,
+                position: [
+                    -0.85,
+                    0.48,
+                    0.35
+                ],
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                    color: "#94a3b8"
+                }, void 0, false, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 619,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 618,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$RoundedBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoundedBox"], {
+                args: [
+                    1.2,
+                    0.55,
+                    0.55
+                ],
+                radius: 0.05,
+                position: [
+                    0.75,
+                    0.3,
+                    -0.35
+                ],
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                    color: "#ef4444",
+                    emissive: "#7f1d1d",
+                    emissiveIntensity: 0.18
+                }, void 0, false, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 622,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 621,
+                columnNumber: 7
+            }, this),
+            [
+                -1.4,
+                -0.5,
+                0.4,
+                1.3
+            ].map((offsetX)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                    position: [
+                        offsetX,
+                        0.13,
+                        1.15
+                    ],
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("boxGeometry", {
+                            args: [
+                                0.06,
+                                0.26,
+                                0.06
+                            ]
+                        }, void 0, false, {
+                            fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                            lineNumber: 626,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                            color: "#475569"
+                        }, void 0, false, {
+                            fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                            lineNumber: 627,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, offsetX, true, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 625,
+                    columnNumber: 9
+                }, this))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+        lineNumber: 614,
+        columnNumber: 5
+    }, this);
+}
+_c14 = SafetyCommandZone;
+function GridDistrict({ reducedMotion }) {
+    _s7();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$5a94e5eb$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__D__as__useFrame$3e$__["useFrame"])({
+        "GridDistrict.useFrame": (state)=>{
+            if (reducedMotion) {
+                return;
+            }
+            const district = state.scene.getObjectByName('grid-district-core');
+            if (!district) {
+                return;
+            }
+            district.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.04;
+        }
+    }["GridDistrict.useFrame"]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
+        position: [
+            0.9,
+            -0.5,
+            -1.65
+        ],
+        "data-feature": "sim3d.challenge.grid-district",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$drei$2f$core$2f$RoundedBox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoundedBox"], {
+                args: [
+                    4.6,
+                    0.04,
+                    3.2
+                ],
+                radius: 0.08,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                    color: "#dbeafe"
+                }, void 0, false, {
+                    fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                    lineNumber: 649,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 648,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("group", {
+                name: "grid-district-core",
+                position: [
+                    0,
+                    0.12,
+                    0
+                ],
+                children: [
+                    [
+                        -1.4,
+                        0.35,
+                        0.8,
+                        '#60a5fa'
+                    ],
+                    [
+                        -0.2,
+                        0.48,
+                        0.25,
+                        '#2563eb'
+                    ],
+                    [
+                        1.0,
+                        0.4,
+                        -0.6,
+                        '#3b82f6'
+                    ],
+                    [
+                        1.7,
+                        0.52,
+                        0.7,
+                        '#1d4ed8'
+                    ]
+                ].map(([x, h, z, color])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                        position: [
+                            Number(x),
+                            Number(h) / 2,
+                            Number(z)
+                        ],
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("boxGeometry", {
+                                args: [
+                                    0.6,
+                                    Number(h),
+                                    0.6
+                                ]
+                            }, void 0, false, {
+                                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                                lineNumber: 659,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                                color: String(color),
+                                emissive: String(color),
+                                emissiveIntensity: 0.22
+                            }, void 0, false, {
+                                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                                lineNumber: 660,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, `${x}-${z}`, true, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 658,
+                        columnNumber: 11
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 651,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                position: [
+                    0,
+                    0.1,
+                    -1.2
+                ],
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("boxGeometry", {
+                        args: [
+                            3.6,
+                            0.03,
+                            0.12
+                        ]
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 665,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                        color: "#0f172a"
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 666,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 664,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
+                position: [
+                    0,
+                    0.1,
+                    -1.15
+                ],
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("boxGeometry", {
+                        args: [
+                            3.6,
+                            0.02,
+                            0.03
+                        ]
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 669,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meshStandardMaterial", {
+                        color: "#fbbf24"
+                    }, void 0, false, {
+                        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                        lineNumber: 670,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+                lineNumber: 668,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/components/sim3d/SimulationScene3D.tsx",
+        lineNumber: 647,
+        columnNumber: 5
+    }, this);
+}
+_s7(GridDistrict, "xC67171NPRcCAzsbrenetil66NI=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$5a94e5eb$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__D__as__useFrame$3e$__["useFrame"]
+    ];
+});
+_c15 = GridDistrict;
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10, _c11, _c12, _c13, _c14, _c15;
 __turbopack_context__.k.register(_c, "SimulationScene3D");
 __turbopack_context__.k.register(_c1, "SceneContent");
 __turbopack_context__.k.register(_c2, "FramePulse");
@@ -2950,6 +3543,9 @@ __turbopack_context__.k.register(_c9, "CloudBank");
 __turbopack_context__.k.register(_c10, "SensorFence");
 __turbopack_context__.k.register(_c11, "SafetyFence");
 __turbopack_context__.k.register(_c12, "PowerLines");
+__turbopack_context__.k.register(_c13, "SensorOperationsField");
+__turbopack_context__.k.register(_c14, "SafetyCommandZone");
+__turbopack_context__.k.register(_c15, "GridDistrict");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

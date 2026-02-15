@@ -22,14 +22,16 @@ sihlhack:     Participants pay → Participants decide → Participants execute
 
 Next.js 16 (App Router, TS strict), Tailwind CSS 3, Vercel Postgres + Drizzle, Vercel Blob
 Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroicons
+3D sim stack: `three`, `@react-three/fiber`, `@react-three/drei`, `@react-three/postprocessing`
+Testing: Playwright smoke test for simulation dashboard
 
-**Env:** POSTGRES_URL, BLOB_READ_WRITE_TOKEN, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, RESEND_API_KEY, CRON_SECRET, NEXT_PUBLIC_SITE_URL
+**Env:** POSTGRES_URL, BLOB_READ_WRITE_TOKEN, STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY, RESEND_API_KEY, CRON_SECRET, NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_ENABLE_SIM_DASHBOARD, NEXT_PUBLIC_ENABLE_SIM_3D, SIM_RUNNER_URL, SIM_RUNNER_API_KEY, SIM_DEV_MODE_ALLOW_EMAILS
 
 ## Key Directories
 
 - `/app`: Next.js (api, auth, admin, challenges, dashboard, proposals, registration, team)
-- `/components`: React (auth, challenges, data, landing, proposals, registration, ui, visualizations)
-- `/lib`: Utilities (db/, auth.ts, stripe.ts, email.ts, funds.ts, refunds.ts, admin.ts, roles.ts)
+- `/components`: React (auth, challenges, data, landing, proposals, registration, sim, sim3d, ui, visualizations)
+- `/lib`: Utilities (db/, auth.ts, stripe.ts, email.ts, funds.ts, refunds.ts, admin.ts, roles.ts, sim/)
 - `/solutions`: Hackathon reference solutions (challenge1-sensor-integration, challenge2-safety, challenge3-grid-os, challenge4-legal, integration/)
 - `/future-comms`: Offline content (investor pitch, post-reg emails, detailed docs)
 
@@ -59,6 +61,16 @@ Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroico
 - `/challenges`: Main page with zwiebel visualization, thermal paths, all challenge details
 - `/snackathons`: Pilot events (April/Mai 2026) + Historik Hack (online, async, 2-4 weeks pre-event)
 - Historik Hack ONLY on /snackathons (removed from /challenges)
+
+## Simulation Dashboard
+
+- Route: `/dashboard/sim`, feature flagged by `NEXT_PUBLIC_ENABLE_SIM_DASHBOARD`
+- Tabs mirror website package names: Sensor Integration, Multi-Node Safety Coordination, Grid-OS Logic
+- Default mode: config-based sandbox runs
+- Dev mode: allowlisted users only, strict override path allowlist
+- 3D layer: challenge specific node composition, camera rails, props, palette
+- Live tuning panel: sensor values, LEG safety values, grid scenarios and limits
+- Run comments: optional per run note, max 500 chars, stored on `simulation_runs.comment`
 
 ## Content Strategy
 
@@ -115,7 +127,10 @@ Payment state in database, not reliant on Stripe API.
 npm run dev              # Start dev server (localhost:3000, hot reload)
 npm run build            # Build for production (checks TypeScript)
 npm run start            # Start production server (local)
-npm run lint             # Run Next.js ESLint
+npm run lint             # Focused lint for sim and 3D files
+npm run lint:all         # Full repo lint, legacy warnings/errors may exist
+npm run test:sim:smoke   # Playwright smoke test for /dashboard/sim
+npm run test:sim:smoke:install   # Install Playwright chromium browser
 
 # Database
 npm run db:push          # Push schema to database (⚠️ destructive)
@@ -183,6 +198,10 @@ npm run db:studio        # Open Drizzle Studio (localhost:3001)
 3. **Thermal params corrected:** Water 45–55°C (was 30–60°C), CPU setpoint 55°C (was 60°C)
 4. **Economics corrected:** Compute 0.35 CHF/kWh (was 0.15), heat 0.10 (was 0.05), Swiss HT/NT pricing
 5. **Cross-codebase coherence:** All thermal/economic values aligned across website, docs, legal templates, services
+6. **Simulation dashboard:** `/dashboard/sim` added with run APIs, history, logs, dev inspector
+7. **3D challenge layer:** low poly interactive scene, challenge specific composition, rural animated background
+8. **Live tuning controls:** challenge specific controls for sensor, safety, grid scenarios
+9. **Run comments:** optional run note persisted and shown in run history
 
 ## Timeline & Thresholds
 

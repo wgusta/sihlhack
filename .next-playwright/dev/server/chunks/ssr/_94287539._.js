@@ -1466,6 +1466,39 @@ const SIM_FEATURE_REGISTRY = [
                 matchString: 'data-feature="sim.controls.grid-scenarios"'
             }
         ]
+    },
+    {
+        featureId: 'sim3d.challenge.sensor-field',
+        label: 'Sensor challenge 3D field',
+        description: 'Sensor Integration specific data-field visualization.',
+        codeAnchors: [
+            {
+                path: 'components/sim3d/SimulationScene3D.tsx',
+                matchString: 'function SensorOperationsField'
+            }
+        ]
+    },
+    {
+        featureId: 'sim3d.challenge.safety-zone',
+        label: 'Safety challenge 3D zone',
+        description: 'Multi-Node Safety specific command/safety-zone layout.',
+        codeAnchors: [
+            {
+                path: 'components/sim3d/SimulationScene3D.tsx',
+                matchString: 'function SafetyCommandZone'
+            }
+        ]
+    },
+    {
+        featureId: 'sim3d.challenge.grid-district',
+        label: 'Grid challenge 3D district',
+        description: 'Grid-OS specific district and substation layout.',
+        codeAnchors: [
+            {
+                path: 'components/sim3d/SimulationScene3D.tsx',
+                matchString: 'function GridDistrict'
+            }
+        ]
     }
 ];
 function getFeatureById(featureId) {
@@ -1989,7 +2022,7 @@ function SceneShell({ frame, enabled }) {
                 children: [
                     show3d ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SimulationScene3D, {
                         frame: frame
-                    }, void 0, false, {
+                    }, frame.challengeId, false, {
                         fileName: "[project]/components/sim3d/SceneShell.tsx",
                         lineNumber: 40,
                         columnNumber: 11

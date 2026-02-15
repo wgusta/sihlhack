@@ -31,23 +31,38 @@ const BASE_NODE_POSITIONS: Record<SimSceneNodeId, [number, number, number]> = {
 
 const SCENE_THEME = {
   'sensor-logic': {
-    sky: '#c7e7ff',
-    fog: '#d9efff',
-    ground: '#dcefc8',
+    sky: '#b8f0ff',
+    fog: '#d3f7ff',
+    ground: '#cbeed8',
     environment: 'sunset' as const,
+    ambient: 0.68,
+    keyLight: 1.1,
+    fillLight: 0.4,
   },
   'safety-coordination': {
-    sky: '#c5d4f5',
-    fog: '#d7e2fb',
-    ground: '#d8e4d2',
+    sky: '#d3d7ea',
+    fog: '#e3e7f4',
+    ground: '#d6d9de',
     environment: 'city' as const,
+    ambient: 0.5,
+    keyLight: 0.85,
+    fillLight: 0.3,
   },
   'grid-os': {
-    sky: '#b6d9ff',
-    fog: '#d0e6ff',
-    ground: '#cee7bf',
+    sky: '#b7dcff',
+    fog: '#d3e8ff',
+    ground: '#c5e4b8',
     environment: 'dawn' as const,
+    ambient: 0.62,
+    keyLight: 1.02,
+    fillLight: 0.47,
   },
+}
+
+const CHALLENGE_VISIBLE_NODES: Record<SimSceneFrame['challengeId'], SimSceneNodeId[]> = {
+  'sensor-logic': ['solar', 'grid', 'compute', 'sensor'],
+  'safety-coordination': ['compute', 'house', 'heating', 'safety'],
+  'grid-os': ['solar', 'grid', 'compute', 'battery', 'house', 'heating'],
 }
 
 interface SimulationScene3DProps {
@@ -133,14 +148,17 @@ function SceneContent({
 
   const safety = frame.nodes.find((node) => node.id === 'safety')
   const sensor = frame.nodes.find((node) => node.id === 'sensor')
+  const visibleNodes = CHALLENGE_VISIBLE_NODES[frame.challengeId]
+  const visibleNodeSet = new Set(visibleNodes)
+  const visibleFlows = frame.flows.filter((flow) => visibleNodeSet.has(flow.from) && visibleNodeSet.has(flow.to))
 
   return (
     <>
       <color attach="background" args={[theme.sky]} />
       <fog attach="fog" args={[theme.fog, 7, 26]} />
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 9, 2]} intensity={1.05} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
-      <directionalLight position={[-6, 5, -2]} intensity={0.45} />
+      <ambientLight intensity={theme.ambient} />
+      <directionalLight position={[5, 9, 2]} intensity={theme.keyLight} castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
+      <directionalLight position={[-6, 5, -2]} intensity={theme.fillLight} />
       <Environment preset={theme.environment} />
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.85, 0]} receiveShadow>
@@ -150,58 +168,70 @@ function SceneContent({
 
       <RuralBackdrop challengeId={frame.challengeId} reducedMotion={reducedMotion} />
 
-      <Float speed={reducedMotion ? 0 : 0.6} rotationIntensity={0.03} floatIntensity={0.06}>
-        <SolarNode
-          node={findNode(frame.nodes, 'solar')}
-          position={nodePositions.solar}
-          selected={selectedNode === 'solar' || hoveredNode === 'solar'}
+      {visibleNodeSet.has('solar') ? (
+        <Float speed={reducedMotion ? 0 : 0.6} rotationIntensity={0.03} floatIntensity={0.06}>
+          <SolarNode
+            node={findNode(frame.nodes, 'solar')}
+            position={nodePositions.solar}
+            selected={selectedNode === 'solar' || hoveredNode === 'solar'}
+            onHover={onNodeHover}
+            onSelect={onNodeSelect}
+          />
+        </Float>
+      ) : null}
+
+      {visibleNodeSet.has('grid') ? (
+        <GridNode
+          node={findNode(frame.nodes, 'grid')}
+          position={nodePositions.grid}
+          selected={selectedNode === 'grid' || hoveredNode === 'grid'}
           onHover={onNodeHover}
           onSelect={onNodeSelect}
         />
-      </Float>
+      ) : null}
 
-      <GridNode
-        node={findNode(frame.nodes, 'grid')}
-        position={nodePositions.grid}
-        selected={selectedNode === 'grid' || hoveredNode === 'grid'}
-        onHover={onNodeHover}
-        onSelect={onNodeSelect}
-      />
+      {visibleNodeSet.has('compute') ? (
+        <ComputeNode
+          node={findNode(frame.nodes, 'compute')}
+          position={nodePositions.compute}
+          selected={selectedNode === 'compute' || hoveredNode === 'compute'}
+          onHover={onNodeHover}
+          onSelect={onNodeSelect}
+        />
+      ) : null}
 
-      <ComputeNode
-        node={findNode(frame.nodes, 'compute')}
-        position={nodePositions.compute}
-        selected={selectedNode === 'compute' || hoveredNode === 'compute'}
-        onHover={onNodeHover}
-        onSelect={onNodeSelect}
-      />
+      {visibleNodeSet.has('battery') ? (
+        <BatteryNode
+          node={findNode(frame.nodes, 'battery')}
+          position={nodePositions.battery}
+          selected={selectedNode === 'battery' || hoveredNode === 'battery'}
+          onHover={onNodeHover}
+          onSelect={onNodeSelect}
+        />
+      ) : null}
 
-      <BatteryNode
-        node={findNode(frame.nodes, 'battery')}
-        position={nodePositions.battery}
-        selected={selectedNode === 'battery' || hoveredNode === 'battery'}
-        onHover={onNodeHover}
-        onSelect={onNodeSelect}
-      />
+      {visibleNodeSet.has('house') ? (
+        <HouseNode
+          node={findNode(frame.nodes, 'house')}
+          position={nodePositions.house}
+          selected={selectedNode === 'house' || hoveredNode === 'house'}
+          onHover={onNodeHover}
+          onSelect={onNodeSelect}
+        />
+      ) : null}
 
-      <HouseNode
-        node={findNode(frame.nodes, 'house')}
-        position={nodePositions.house}
-        selected={selectedNode === 'house' || hoveredNode === 'house'}
-        onHover={onNodeHover}
-        onSelect={onNodeSelect}
-      />
+      {visibleNodeSet.has('heating') ? (
+        <HeatingNode
+          node={findNode(frame.nodes, 'heating')}
+          position={nodePositions.heating}
+          selected={selectedNode === 'heating' || hoveredNode === 'heating'}
+          onHover={onNodeHover}
+          onSelect={onNodeSelect}
+        />
+      ) : null}
 
-      <HeatingNode
-        node={findNode(frame.nodes, 'heating')}
-        position={nodePositions.heating}
-        selected={selectedNode === 'heating' || hoveredNode === 'heating'}
-        onHover={onNodeHover}
-        onSelect={onNodeSelect}
-      />
-
-      <FlowLinks flows={frame.flows} nodePositions={nodePositions} />
-      <StatusParticles nodes={frame.nodes} nodePositions={nodePositions} reducedMotion={reducedMotion} />
+      <FlowLinks flows={visibleFlows} nodePositions={nodePositions} />
+      <StatusParticles nodes={frame.nodes.filter((node) => visibleNodeSet.has(node.id))} nodePositions={nodePositions} reducedMotion={reducedMotion} />
 
       {frame.challengeId === 'sensor-logic' ? (
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.22, 0]}>
@@ -304,22 +334,38 @@ function getNodePositions(challengeId: SimSceneFrame['challengeId']): Record<Sim
   if (challengeId === 'sensor-logic') {
     return {
       ...BASE_NODE_POSITIONS,
-      sensor: [-1.3, 0.1, -2.35],
-      compute: [-0.2, 0.1, -0.25],
+      solar: [-4.8, 0.1, 1.95],
+      grid: [-4.9, 0.0, -1.95],
+      sensor: [-1.5, 0.1, -1.45],
+      compute: [1.15, 0.1, -0.2],
+      battery: [1.9, 0, 2.35],
+      house: [4.9, 0.1, 1.85],
+      heating: [4.6, 0, -1.45],
     }
   }
   if (challengeId === 'safety-coordination') {
     return {
       ...BASE_NODE_POSITIONS,
-      safety: [1.9, 0.1, -2.45],
-      house: [3.45, 0.1, 1.1],
-      heating: [3.2, 0, -1.95],
+      solar: [-5.1, 0.1, 2.1],
+      grid: [-4.95, 0.0, -2.2],
+      compute: [-0.25, 0.1, -0.35],
+      battery: [0.55, 0, 2.45],
+      safety: [2.8, 0.1, -1.5],
+      house: [3.1, 0.1, 0.75],
+      heating: [2.95, 0, -2.25],
+      sensor: [-0.95, 0.1, -2.35],
     }
   }
   return {
     ...BASE_NODE_POSITIONS,
-    grid: [-4.15, 0.0, -2.05],
-    battery: [0.45, 0, 2.35],
+    solar: [-4.25, 0.1, 2.2],
+    grid: [-4.15, 0.0, -2.2],
+    compute: [-0.05, 0.1, 0.35],
+    battery: [1.1, 0, 2.6],
+    house: [4.35, 0.1, 1.6],
+    heating: [4.1, 0, -1.95],
+    sensor: [-1.35, 0.1, -2.6],
+    safety: [1.75, 0.1, -2.5],
   }
 }
 
@@ -336,9 +382,24 @@ function RuralBackdrop({
       <MountainRange />
       <VillageEdge challengeId={challengeId} />
       <WindTurbine reducedMotion={reducedMotion} />
-      {challengeId === 'sensor-logic' ? <SensorFence /> : null}
-      {challengeId === 'safety-coordination' ? <SafetyFence /> : null}
-      {challengeId === 'grid-os' ? <PowerLines /> : null}
+      {challengeId === 'sensor-logic' ? (
+        <>
+          <SensorFence />
+          <SensorOperationsField reducedMotion={reducedMotion} />
+        </>
+      ) : null}
+      {challengeId === 'safety-coordination' ? (
+        <>
+          <SafetyFence />
+          <SafetyCommandZone />
+        </>
+      ) : null}
+      {challengeId === 'grid-os' ? (
+        <>
+          <PowerLines />
+          <GridDistrict reducedMotion={reducedMotion} />
+        </>
+      ) : null}
     </group>
   )
 }
@@ -510,6 +571,103 @@ function PowerLines() {
       <mesh position={[-2.2, 0.86, -2.65]} rotation={[0, 0, 0]}>
         <boxGeometry args={[2.6, 0.03, 0.03]} />
         <meshStandardMaterial color="#334155" />
+      </mesh>
+    </group>
+  )
+}
+
+function SensorOperationsField({ reducedMotion }: { reducedMotion: boolean }) {
+  useFrame((state) => {
+    if (reducedMotion) {
+      return
+    }
+    const beacon = state.scene.getObjectByName('sensor-data-beacon')
+    if (!beacon) {
+      return
+    }
+    beacon.scale.y = 0.7 + (Math.sin(state.clock.elapsedTime * 2.2) + 1) * 0.2
+  })
+
+  return (
+    <group position={[-1.4, -0.48, -1.35]} data-feature="sim3d.challenge.sensor-field">
+      <RoundedBox args={[3.5, 0.02, 2.6]} radius={0.04}>
+        <meshStandardMaterial color="#cffafe" />
+      </RoundedBox>
+      <group position={[0, 0.02, 0]}>
+        {[-1.2, -0.4, 0.4, 1.2].map((offsetX) => (
+          <mesh key={offsetX} position={[offsetX, 0.02, 0]}>
+            <boxGeometry args={[0.12, 0.02, 2.1]} />
+            <meshStandardMaterial color="#67e8f9" emissive="#0891b2" emissiveIntensity={0.22} />
+          </mesh>
+        ))}
+      </group>
+      <mesh name="sensor-data-beacon" position={[0, 0.55, 0]}>
+        <cylinderGeometry args={[0.07, 0.11, 1.1, 10]} />
+        <meshStandardMaterial color="#0ea5e9" emissive="#0369a1" emissiveIntensity={0.42} transparent opacity={0.85} />
+      </mesh>
+    </group>
+  )
+}
+
+function SafetyCommandZone() {
+  return (
+    <group position={[1.8, -0.5, -1.2]} data-feature="sim3d.challenge.safety-zone">
+      <RoundedBox args={[3.3, 0.06, 2.5]} radius={0.07}>
+        <meshStandardMaterial color="#e5e7eb" />
+      </RoundedBox>
+      <RoundedBox args={[1.4, 0.9, 1]} radius={0.06} position={[-0.85, 0.48, 0.35]}>
+        <meshStandardMaterial color="#94a3b8" />
+      </RoundedBox>
+      <RoundedBox args={[1.2, 0.55, 0.55]} radius={0.05} position={[0.75, 0.3, -0.35]}>
+        <meshStandardMaterial color="#ef4444" emissive="#7f1d1d" emissiveIntensity={0.18} />
+      </RoundedBox>
+      {[-1.4, -0.5, 0.4, 1.3].map((offsetX) => (
+        <mesh key={offsetX} position={[offsetX, 0.13, 1.15]}>
+          <boxGeometry args={[0.06, 0.26, 0.06]} />
+          <meshStandardMaterial color="#475569" />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+function GridDistrict({ reducedMotion }: { reducedMotion: boolean }) {
+  useFrame((state) => {
+    if (reducedMotion) {
+      return
+    }
+    const district = state.scene.getObjectByName('grid-district-core')
+    if (!district) {
+      return
+    }
+    district.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.04
+  })
+
+  return (
+    <group position={[0.9, -0.5, -1.65]} data-feature="sim3d.challenge.grid-district">
+      <RoundedBox args={[4.6, 0.04, 3.2]} radius={0.08}>
+        <meshStandardMaterial color="#dbeafe" />
+      </RoundedBox>
+      <group name="grid-district-core" position={[0, 0.12, 0]}>
+        {[
+          [-1.4, 0.35, 0.8, '#60a5fa'],
+          [-0.2, 0.48, 0.25, '#2563eb'],
+          [1.0, 0.4, -0.6, '#3b82f6'],
+          [1.7, 0.52, 0.7, '#1d4ed8'],
+        ].map(([x, h, z, color]) => (
+          <mesh key={`${x}-${z}`} position={[Number(x), Number(h) / 2, Number(z)]}>
+            <boxGeometry args={[0.6, Number(h), 0.6]} />
+            <meshStandardMaterial color={String(color)} emissive={String(color)} emissiveIntensity={0.22} />
+          </mesh>
+        ))}
+      </group>
+      <mesh position={[0, 0.1, -1.2]}>
+        <boxGeometry args={[3.6, 0.03, 0.12]} />
+        <meshStandardMaterial color="#0f172a" />
+      </mesh>
+      <mesh position={[0, 0.1, -1.15]}>
+        <boxGeometry args={[3.6, 0.02, 0.03]} />
+        <meshStandardMaterial color="#fbbf24" />
       </mesh>
     </group>
   )

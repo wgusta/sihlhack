@@ -208,6 +208,39 @@ export const SIM_FEATURE_REGISTRY: FeatureMapEntry[] = [
       },
     ],
   },
+  {
+    featureId: 'sim3d.challenge.sensor-field',
+    label: 'Sensor challenge 3D field',
+    description: 'Sensor Integration specific data-field visualization.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'function SensorOperationsField',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.challenge.safety-zone',
+    label: 'Safety challenge 3D zone',
+    description: 'Multi-Node Safety specific command/safety-zone layout.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'function SafetyCommandZone',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.challenge.grid-district',
+    label: 'Grid challenge 3D district',
+    description: 'Grid-OS specific district and substation layout.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'function GridDistrict',
+      },
+    ],
+  },
 ]
 
 export function getFeatureById(featureId: string): FeatureMapEntry | undefined {

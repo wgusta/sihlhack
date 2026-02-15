@@ -9,6 +9,7 @@ Participant-oriented hackathon building the **Sihlicon Hub**: an Active Energy N
 | [STRATEGY.md](./STRATEGY.md) | **Authoritative strategy: vision, principles, Swiss compliance** |
 | [CONCEPT.md](./CONCEPT.md) | The vision, heritage, and participant model |
 | [TECHNICAL-REQUIREMENTS.md](./TECHNICAL-REQUIREMENTS.md) | Tech stack, database schema, APIs |
+| [docs/simulation-dashboard.md](./docs/simulation-dashboard.md) | Simulation dashboard, 3D layer, live tuning, run comments |
 | [PAYMENT-SYSTEM.md](./PAYMENT-SYSTEM.md) | Stripe integration, fund holding, automatic refunds |
 | [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) | Colors, typography, historic transformation effects |
 | [SITE-STRUCTURE.md](./SITE-STRUCTURE.md) | Pages, routes, navigation |
@@ -65,8 +66,17 @@ Black and white historical photographs and data tables "develop" into colorful m
 - `/dashboard`: profile review/edit (same fields as registration)
 - `/dashboard`: organizer news feed
 - `/dashboard`: snackathon participation + signup (CHF 80 per snackathon)
+- `/dashboard/sim`: simulation runs, 3D challenge view, live tuning controls, run comments
 - `/dashboard/team-matching`: platform-only team matching (no chat; structured requests + email share on accept)
 - Notification bell (top right): inbox, team requests accept/decline
+
+## Simulation Dashboard (Feb 2026)
+
+- 3 challenge tabs aligned with website naming: Sensor Integration, Multi-Node Safety Coordination, Grid-OS Logic
+- challenge specific 3D composition: different node sets, camera rails, palettes, animated props
+- live tuning panel for sensor values, LEG count and safety settings, grid scenarios and limits
+- run comments field, saved per run for audit and team context
+- dev inspector remains available for allowlisted dev mode users
 
 ## Snackathons
 
@@ -191,6 +201,9 @@ The Sihlicon Hub is not a "water heater" - it's an Active Energy Node that:
 ```bash
 # Development
 npm run dev              # Start dev server (localhost:3000)
+npm run lint             # Focused lint for sim and 3D stack
+npm run lint:all         # Full repo lint (legacy issues may exist)
+npm run test:sim:smoke   # Playwright smoke test for /dashboard/sim
 
 # Database
 npm run db:push          # Push schema changes to database

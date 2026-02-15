@@ -389,3 +389,9 @@
 [ 1748992ms] [WARNING] [JavaScript Warning: "Loading failed for the <script> with source “https://analytics.sihlhack.ch/matomo.js”." {file: "http://localhost:3000/dashboard/sim" line: 1}] @ http://localhost:3000/dashboard/sim:1
 [ 1749937ms] [WARNING] [JavaScript Warning: "WebGL warning: texSubImage: Alpha-premult and y-flip are deprecated for non-DOM-Element uploads."] @ :0
 [ 1749941ms] [WARNING] [JavaScript Warning: "WebGL warning: texSubImage: Alpha-premult and y-flip are deprecated for non-DOM-Element uploads."] @ :0
+[ 2297632ms] [WARNING] [JavaScript Warning: "WebGL warning: texSubImage: Alpha-premult and y-flip are deprecated for non-DOM-Element uploads."] @ :0
+[ 2297975ms] [WARNING] [JavaScript Warning: "WebGL context was lost." {file: "http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js" line: 10811}] @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js:10811
+[ 2610601ms] [WARNING] [JavaScript Warning: "WebGL warning: texSubImage: Alpha-premult and y-flip are deprecated for non-DOM-Element uploads."] @ :0
+[ 2610913ms] [WARNING] [JavaScript Warning: "WebGL context was lost." {file: "http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js" line: 10811}] @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js:10811
+[ 2615926ms] [WARNING] [JavaScript Warning: "WebGL warning: texSubImage: Alpha-premult and y-flip are deprecated for non-DOM-Element uploads."] @ :0
+[ 2615943ms] [WARNING] [JavaScript Warning: "WebGL context was lost." {file: "http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js" line: 10811}] @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_module_0c59ee63.js:10811

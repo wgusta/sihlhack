@@ -23,12 +23,12 @@ export function useGuidedCamera({
 
   const viewPreset = useMemo(() => {
     if (challengeId === 'sensor-logic') {
-      return { center: new Vector3(-0.35, 0.5, 0), radius: 8.2, height: 3.4, speed: 0.16, angle: 0.2 }
+      return { center: new Vector3(-0.9, 0.5, -0.35), radius: 7.8, height: 3.25, speed: 0.12, angle: 0.55 }
     }
     if (challengeId === 'safety-coordination') {
-      return { center: new Vector3(0.8, 0.6, -0.8), radius: 6.4, height: 2.9, speed: 0.12, angle: -0.4 }
+      return { center: new Vector3(1.9, 0.55, -1.1), radius: 5.6, height: 2.7, speed: 0.08, angle: -0.95 }
     }
-    return { center: new Vector3(0, 0.45, -0.55), radius: 7.1, height: 2.8, speed: 0.2, angle: 0.55 }
+    return { center: new Vector3(0.4, 0.45, -0.65), radius: 7.4, height: 2.85, speed: 0.22, angle: 0.35 }
   }, [challengeId])
   const focusTarget = useMemo(
     () => (focusPosition ? new Vector3(...focusPosition) : null),
