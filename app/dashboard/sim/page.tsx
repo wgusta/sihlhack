@@ -6,12 +6,15 @@ import { RunPanel } from '@/components/sim/RunPanel'
 import { RunHistory } from '@/components/sim/RunHistory'
 import { EventLog } from '@/components/sim/EventLog'
 import { LineChart } from '@/components/sim/LineChart'
+import { SimulationTuningPanel } from '@/components/sim/SimulationTuningPanel'
 import { DevInspectorOverlay } from '@/components/sim/DevInspectorOverlay'
 import { CodeEditorPanel } from '@/components/sim/CodeEditorPanel'
+import { SceneShell } from '@/components/sim3d/SceneShell'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { GridOSVisualization } from '@/components/visualizations/GridOSVisualization'
 import { SIM_CHALLENGES } from '@/lib/sim/constants'
+import { buildSceneFrame } from '@/lib/sim/scene-mapper'
 import type {
   SimArtifacts,
   SimChallengeId,
@@ -36,6 +39,7 @@ export default function SimulationDashboardPage() {
   const [selectedRun, setSelectedRun] = useState<SimRunDetail | null>(null)
   const [isLoadingRuns, setIsLoadingRuns] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [runComment, setRunComment] = useState('')
 
   const [devModeAllowed, setDevModeAllowed] = useState(false)
   const [devModeEnabled, setDevModeEnabled] = useState(false)
@@ -44,6 +48,18 @@ export default function SimulationDashboardPage() {
 
   const activeRun = selectedRun || runs.find((run) => run.id === selectedRunId) || null
   const artifacts = (selectedRun?.artifacts || null) as SimArtifacts | null
+  const previewConfig = useMemo(() => {
+    try {
+      return JSON.parse(configText) as Record<string, unknown>
+    } catch {
+      return null
+    }
+  }, [configText])
+  const sceneFrame = useMemo(
+    () => buildSceneFrame(challengeId, activeRun, artifacts, previewConfig, scenarioId),
+    [activeRun, artifacts, challengeId, previewConfig, scenarioId]
+  )
+  const is3dEnabled = process.env.NEXT_PUBLIC_ENABLE_SIM_3D === 'true'
 
   useEffect(() => {
     setScenarioId(SIM_CHALLENGES[challengeId].scenarios[0])
@@ -52,6 +68,7 @@ export default function SimulationDashboardPage() {
     setSelectedRunId(null)
     setSelectedRun(null)
     setDevOverrides({})
+    setRunComment('')
   }, [challengeId])
 
   useEffect(() => {
@@ -142,6 +159,7 @@ export default function SimulationDashboardPage() {
           challengeId,
           scenarioId,
           config,
+          comment: runComment.trim() || undefined,
           devOverrides: devModeEnabled ? devOverrides : undefined,
         }),
       })
@@ -154,6 +172,7 @@ export default function SimulationDashboardPage() {
 
       await fetchRuns(challengeId)
       if (payload.runId) {
+        setRunComment('')
         setSelectedRunId(payload.runId)
         await fetchRunDetail(payload.runId)
       }
@@ -206,7 +225,15 @@ export default function SimulationDashboardPage() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
+          <SimulationTuningPanel
+            challengeId={challengeId}
+            scenarioId={scenarioId}
+            onScenarioChange={setScenarioId}
+            configText={configText}
+            onConfigTextChange={setConfigText}
+          />
           <ConfigEditor value={configText} onChange={setConfigText} error={configError} />
+          <SceneShell frame={sceneFrame} enabled={is3dEnabled} />
           <ChallengeView challengeId={challengeId} run={activeRun} artifacts={artifacts} />
           <LineChart series={artifacts?.series || []} title="Simulation Signals" />
           <EventLog events={artifacts?.events || []} />
@@ -217,6 +244,8 @@ export default function SimulationDashboardPage() {
             challengeId={challengeId}
             scenarioId={scenarioId}
             onScenarioChange={setScenarioId}
+            comment={runComment}
+            onCommentChange={setRunComment}
             onRun={submitRun}
             onCancel={cancelRun}
             currentRunStatus={activeRun?.status || null}

@@ -30,10 +30,17 @@ export function CodeEditorPanel({
   const [selectedPath, setSelectedPath] = useState<string>('')
   const [originalContent, setOriginalContent] = useState<string>('')
   const [content, setContent] = useState<string>('')
+  const [isReadOnlyFile, setIsReadOnlyFile] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const hasOverride = useMemo(() => !!selectedPath && Object.prototype.hasOwnProperty.call(overrides, selectedPath), [overrides, selectedPath])
+  const availablePaths = useMemo(() => {
+    if (!selectedPath || files.includes(selectedPath)) {
+      return files
+    }
+    return [selectedPath, ...files]
+  }, [files, selectedPath])
 
   useEffect(() => {
     if (!enabled) {
@@ -92,6 +99,7 @@ export function CodeEditorPanel({
           const loaded = payload.content || ''
           setOriginalContent(loaded)
           setContent(overrides[selectedPath] ?? loaded)
+          setIsReadOnlyFile(Boolean(payload.readOnly))
         }
       } finally {
         if (!cancelled) {
@@ -144,7 +152,7 @@ export function CodeEditorPanel({
             onChange={(event) => setSelectedPath(event.target.value)}
             className="flex-1 rounded-md border border-historic-sepia/30 px-2 py-2 font-mono text-xs"
           >
-            {files.map((filePath) => (
+            {availablePaths.map((filePath) => (
               <option key={filePath} value={filePath}>{filePath}</option>
             ))}
           </select>
@@ -172,7 +180,7 @@ export function CodeEditorPanel({
           onChange={(event) => {
             const nextContent = event.target.value
             setContent(nextContent)
-            if (!selectedPath) {
+            if (!selectedPath || isReadOnlyFile) {
               return
             }
             onOverridesChange({
@@ -182,10 +190,17 @@ export function CodeEditorPanel({
           }}
           className="w-full min-h-[260px] rounded-md border border-historic-sepia/30 bg-white p-3 font-mono text-xs text-brand-black"
           spellCheck={false}
+          readOnly={isReadOnlyFile}
         />
 
         <p className="text-xs font-mono text-historic-sepia">
-          {isLoading ? 'Loading...' : hasOverride ? 'Override staged for next run.' : 'No override applied.'}
+          {isLoading
+            ? 'Loading...'
+            : isReadOnlyFile
+              ? 'Read-only file (inspector view).'
+              : hasOverride
+                ? 'Override staged for next run.'
+                : 'No override applied.'}
         </p>
       </CardContent>
     </Card>

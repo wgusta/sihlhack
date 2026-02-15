@@ -1,0 +1,17 @@
+{
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Coordinator initialized",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 40,
+      "level": "info",
+      "message": "No critical anomalies detected",
+      "featureId": "safety.fail-closed"
+    }
+  ],
+  "finalState": "NORMAL"
+}

@@ -86,6 +86,128 @@ export const SIM_FEATURE_REGISTRY: FeatureMapEntry[] = [
       },
     ],
   },
+  {
+    featureId: 'sim3d.scene.canvas',
+    label: '3D simulation canvas',
+    description: 'Root 3D scene with guided camera and world layout.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'export function SimulationScene3D',
+      },
+      {
+        path: 'components/sim3d/hooks/useGuidedCamera.ts',
+        matchString: 'export function useGuidedCamera',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.node.solar',
+    label: 'Solar node (3D)',
+    description: 'Solar panel and sun emitter animation in the 3D layer.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/nodes/SolarNode.tsx',
+        matchString: 'export function SolarNode',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.node.compute',
+    label: 'Compute node (3D)',
+    description: 'Compute unit with fan rotation tied to load.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/nodes/ComputeNode.tsx',
+        matchString: 'export function ComputeNode',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.node.battery',
+    label: 'Battery node (3D)',
+    description: 'Battery fill/glow mapped to SOC and status.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/nodes/BatteryNode.tsx',
+        matchString: 'export function BatteryNode',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.node.heating',
+    label: 'Heating node (3D)',
+    description: 'Heating loop pulse mapped to thermal output.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/nodes/HeatingNode.tsx',
+        matchString: 'export function HeatingNode',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.flow.energy',
+    label: '3D energy flow links',
+    description: 'Animated flow links for energy/heat/data transfer.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/effects/FlowLinks.tsx',
+        matchString: 'export function FlowLinks',
+      },
+      {
+        path: 'lib/sim/scene-mapper.ts',
+        matchString: 'function buildFlows',
+      },
+    ],
+  },
+  {
+    featureId: 'sim3d.background.rural',
+    label: 'Rural animated background',
+    description: 'Challenge-specific rural scenery with animated clouds and turbine.',
+    codeAnchors: [
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'function RuralBackdrop',
+      },
+      {
+        path: 'components/sim3d/SimulationScene3D.tsx',
+        matchString: 'function SunAndClouds',
+      },
+    ],
+  },
+  {
+    featureId: 'sim.controls.sensor-values',
+    label: 'Sensor live tuning controls',
+    description: 'Quick sliders/inputs for sensor count and simulated readings.',
+    codeAnchors: [
+      {
+        path: 'components/sim/SimulationTuningPanel.tsx',
+        matchString: 'data-feature="sim.controls.sensor-values"',
+      },
+    ],
+  },
+  {
+    featureId: 'sim.controls.leg-values',
+    label: 'LEG live tuning controls',
+    description: 'Quick controls for LEG count and safety heartbeat behavior.',
+    codeAnchors: [
+      {
+        path: 'components/sim/SimulationTuningPanel.tsx',
+        matchString: 'data-feature="sim.controls.leg-values"',
+      },
+    ],
+  },
+  {
+    featureId: 'sim.controls.grid-scenarios',
+    label: 'Grid scenario controls',
+    description: 'Grid scenario and scheduler/shedding tuning controls.',
+    codeAnchors: [
+      {
+        path: 'components/sim/SimulationTuningPanel.tsx',
+        matchString: 'data-feature="sim.controls.grid-scenarios"',
+      },
+    ],
+  },
 ]
 
 export function getFeatureById(featureId: string): FeatureMapEntry | undefined {

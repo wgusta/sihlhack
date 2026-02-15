@@ -58,6 +58,7 @@ export interface SimRunRecord {
   participantId: string
   challengeId: SimChallengeId
   scenarioId: string
+  comment: string | null
   status: SimRunStatus
   configJson: string
   runnerRunId: string | null
@@ -75,6 +76,7 @@ export interface SimRunSummary {
   id: string
   challengeId: SimChallengeId
   scenarioId: string
+  comment: string | null
   status: SimRunStatus
   createdAt: string
   finishedAt: string | null
@@ -92,6 +94,7 @@ export type SimDevOverrides = Record<string, string>
 export interface CreateSimRunRequest {
   challengeId: SimChallengeId
   scenarioId: string
+  comment?: string
   config: Record<string, unknown>
   devOverrides?: SimDevOverrides
 }
@@ -121,4 +124,43 @@ export interface FeatureMapEntry {
   label: string
   description: string
   codeAnchors: FeatureCodeAnchor[]
+}
+
+export type SimSceneNodeId =
+  | 'solar'
+  | 'house'
+  | 'battery'
+  | 'compute'
+  | 'heating'
+  | 'grid'
+  | 'sensor'
+  | 'safety'
+
+export type SimSceneNodeStatus = 'idle' | 'active' | 'warning' | 'critical'
+
+export interface SimSceneNodeState {
+  id: SimSceneNodeId
+  label: string
+  health: number
+  value: number
+  unit?: string
+  status: SimSceneNodeStatus
+  pulse: number
+}
+
+export interface SimSceneFlow {
+  id: string
+  from: SimSceneNodeId
+  to: SimSceneNodeId
+  type: 'energy' | 'heat' | 'data'
+  intensity: number
+  active: boolean
+}
+
+export interface SimSceneFrame {
+  challengeId: SimChallengeId
+  mode: string
+  nodes: SimSceneNodeState[]
+  flows: SimSceneFlow[]
+  timestamp: number
 }

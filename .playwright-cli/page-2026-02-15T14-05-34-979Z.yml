@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e15]:
+      - generic [ref=e17]:
+        - link "sihl hack" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e19]:
+            - generic [ref=e21]: sihl
+            - generic [ref=e23]: hack
+        - generic [ref=e24]:
+          - button "Benachrichtigungen" [ref=e26]:
+            - img [ref=e27]
+          - generic [ref=e29]: gusta@sihlhack.ch
+          - button "Abmelden" [ref=e30]
+    - navigation [ref=e31]:
+      - generic [ref=e33]:
+        - link "Übersicht" [ref=e34] [cursor=pointer]:
+          - /url: /dashboard
+        - link "Team Matching" [ref=e35] [cursor=pointer]:
+          - /url: /dashboard/team-matching
+        - link "Simulation" [ref=e36] [cursor=pointer]:
+          - /url: /dashboard/sim
+    - main [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Simulation Dashboard" [level=1] [ref=e40]
+          - paragraph [ref=e41]: Run challenge scenarios in sandbox and inspect code-feature mapping.
+        - generic [ref=e42]:
+          - button "Sensor Logic MQTT validation, alerting, pipeline checks" [ref=e43]:
+            - paragraph [ref=e44]: Sensor Logic
+            - paragraph [ref=e45]: MQTT validation, alerting, pipeline checks
+          - button "Inter-LEG Safety Fail-closed safety coordination across hubs" [ref=e46]:
+            - paragraph [ref=e47]: Inter-LEG Safety
+            - paragraph [ref=e48]: Fail-closed safety coordination across hubs
+          - button "Grid-OS Scheduler, shedding, and simulator loop" [ref=e49]:
+            - paragraph [ref=e50]: Grid-OS
+            - paragraph [ref=e51]: Scheduler, shedding, and simulator loop
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - heading "Simulation Config (JSON)" [level=3] [ref=e56]
+              - generic [ref=e57]:
+                - textbox "Simulation configuration" [ref=e58]: "{ \"topicNamespace\": \"sihlhack\", \"enableLegacyTopicConsume\": true, \"thresholds\": { \"T_cpu_die\": { \"warn\": 80, \"crit\": 90, \"direction\": \"high\" }, \"Flow_water\": { \"warn\": 0.5, \"crit\": 0.2, \"direction\": \"low\" } } }"
+                - paragraph [ref=e59]: Config-only by default. Dev mode can attach file overrides.
+            - generic [ref=e60]:
+              - heading "3D Simulation Layer" [level=3] [ref=e62]
+              - generic [ref=e63]:
+                - generic [ref=e68]:
+                  - generic [ref=e69]:
+                    - paragraph [ref=e70]: Solar
+                    - paragraph [ref=e71]: 1.08kW
+                  - generic [ref=e72]:
+                    - paragraph [ref=e73]: Grid
+                    - paragraph [ref=e74]: 0.18kW
+                  - generic [ref=e75]:
+                    - paragraph [ref=e76]: Compute
+                    - paragraph [ref=e77]: 2.4kW
+                  - generic [ref=e78]:
+                    - paragraph [ref=e79]: Battery
+                    - paragraph [ref=e80]: 62%
+                  - generic [ref=e81]:
+                    - paragraph [ref=e82]: House
+                    - paragraph [ref=e83]: 0.92kW
+                  - generic [ref=e84]:
+                    - paragraph [ref=e85]: Heating
+                    - paragraph [ref=e86]: 43°C
+                  - generic [ref=e87]:
+                    - paragraph [ref=e88]: Sensor
+                    - paragraph [ref=e89]: 0events
+                  - generic [ref=e90]:
+                    - paragraph [ref=e91]: Safety
+                    - paragraph [ref=e92]: 1NORMAL
+                - generic [ref=e93]:
+                  - paragraph [ref=e94]: "Flows: 6"
+                  - paragraph [ref=e95]: Energy, heat and data links animate based on run metrics and event severity.
+            - generic [ref=e96]:
+              - heading "Sensor Pipeline" [level=3] [ref=e98]
+              - generic [ref=e100]:
+                - generic [ref=e101]:
+                  - paragraph [ref=e102]: Sensors
+                  - paragraph [ref=e103]: 13 sensors @1Hz
+                - generic [ref=e104]:
+                  - paragraph [ref=e105]: MQTT
+                  - paragraph [ref=e106]: dual namespace
+                - generic [ref=e107]:
+                  - paragraph [ref=e108]: Validation
+                  - paragraph [ref=e109]: threshold + z-score
+                - generic [ref=e110]:
+                  - paragraph [ref=e111]: Alerts
+                  - paragraph [ref=e112]: 0 events
+            - generic [ref=e113]:
+              - heading "Simulation Signals" [level=3] [ref=e115]
+              - paragraph [ref=e117]: No time-series data.
+            - generic [ref=e118]:
+              - heading "Events" [level=3] [ref=e120]
+              - paragraph [ref=e122]: No events in selected run.
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - heading "Run Control" [level=3] [ref=e126]
+              - generic [ref=e127]:
+                - generic [ref=e128]:
+                  - text: Scenario
+                  - combobox "Scenario" [ref=e129]:
+                    - option "normal-stream" [selected]
+                    - option "thermal-spike"
+                    - option "flow-drop"
+                    - option "gas-alert"
+                - generic [ref=e130]:
+                  - generic [ref=e131]: Dev mode
+                  - checkbox "Dev mode" [ref=e132]
+                - generic [ref=e133]:
+                  - button "Run" [ref=e134]
+                  - button "Cancel" [disabled] [ref=e135]
+                - paragraph [ref=e136]: "Status: idle"
+            - generic [ref=e137]:
+              - heading "Run History" [level=3] [ref=e139]
+              - paragraph [ref=e141]: No runs yet.
+  - button "Open Next.js Dev Tools" [ref=e9] [cursor=pointer]:
+    - img [ref=e10]
+  - alert [ref=e14]

@@ -9,6 +9,8 @@ interface RunPanelProps {
   challengeId: SimChallengeId
   scenarioId: string
   onScenarioChange: (scenarioId: string) => void
+  comment: string
+  onCommentChange: (comment: string) => void
   onRun: () => void
   onCancel: () => void
   currentRunStatus: SimRunStatus | null
@@ -23,6 +25,8 @@ export function RunPanel({
   challengeId,
   scenarioId,
   onScenarioChange,
+  comment,
+  onCommentChange,
   onRun,
   onCancel,
   currentRunStatus,
@@ -53,6 +57,19 @@ export function RunPanel({
               <option key={scenario} value={scenario}>{scenario}</option>
             ))}
           </select>
+        </label>
+
+        <label className="block space-y-2">
+          <span className="text-sm font-mono text-brand-black">Run comment</span>
+          <textarea
+            value={comment}
+            onChange={(event) => onCommentChange(event.target.value)}
+            className="min-h-[74px] w-full rounded-md border border-historic-sepia/30 px-3 py-2 font-mono text-sm"
+            placeholder="What did you change in this run?"
+            maxLength={500}
+            data-feature="sim.run-comment"
+          />
+          <p className="text-[11px] font-mono text-historic-sepia">{comment.length}/500</p>
         </label>
 
         {devModeAllowed ? (

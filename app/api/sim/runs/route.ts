@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { and, desc, eq, gt, inArray } from 'drizzle-orm'
 import { getSession } from '@/lib/auth'
 import { db, simulationRuns } from '@/lib/db'
+import { ensureSimulationRunColumns } from '@/lib/db/ensure'
 import { canUseSimDevMode, isSimDashboardEnabled } from '@/lib/sim/auth'
 import {
   SIM_CHALLENGES,
@@ -22,6 +23,7 @@ export async function POST(request: NextRequest) {
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+  await ensureSimulationRunColumns()
 
   let body: unknown
   try {
@@ -88,6 +90,7 @@ export async function POST(request: NextRequest) {
       participantId: session.id,
       challengeId: parsed.challengeId,
       scenarioId: parsed.scenarioId,
+      comment: parsed.comment || null,
       status: 'queued',
       configJson: JSON.stringify(parsed.config),
     })
@@ -144,6 +147,7 @@ export async function GET(request: NextRequest) {
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+  await ensureSimulationRunColumns()
 
   const challengeId = request.nextUrl.searchParams.get('challengeId')
   const limitRaw = Number.parseInt(request.nextUrl.searchParams.get('limit') || '30', 10)
@@ -159,6 +163,7 @@ export async function GET(request: NextRequest) {
       id: simulationRuns.id,
       challengeId: simulationRuns.challengeId,
       scenarioId: simulationRuns.scenarioId,
+      comment: simulationRuns.comment,
       status: simulationRuns.status,
       createdAt: simulationRuns.createdAt,
       finishedAt: simulationRuns.finishedAt,

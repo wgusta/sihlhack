@@ -1,0 +1,10 @@
+var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/auth/session/route.js")
+R.c("server/chunks/node_modules_next_b766490e._.js")
+R.c("server/chunks/bb545_@neondatabase_serverless_index_mjs_7d5302de._.js")
+R.c("server/chunks/node_modules_ws_570778bb._.js")
+R.c("server/chunks/node_modules_drizzle-orm_49a73032._.js")
+R.c("server/chunks/node_modules_79a7dd70._.js")
+R.c("server/chunks/[root-of-the-server]__cca6ad58._.js")
+R.c("server/chunks/_next-internal_server_app_api_auth_session_route_actions_7d838b51.js")
+R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/auth/session/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)")
+module.exports=R.m("[project]/node_modules/next/dist/esm/build/templates/app-route.js { INNER_APP_ROUTE => \"[project]/app/api/auth/session/route.ts [app-route] (ecmascript)\" } [app-route] (ecmascript)").exports

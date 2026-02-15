@@ -1,0 +1,20 @@
+{
+  "headline": "Safety coordination simulation: heartbeat-loss",
+  "checks": [
+    {
+      "key": "clearance.fail_closed",
+      "pass": true,
+      "message": "Fail-closed behavior triggered"
+    },
+    {
+      "key": "heartbeat.monitor",
+      "pass": true,
+      "message": "heartbeat timeout=5s, missed=2"
+    }
+  ],
+  "metrics": {
+    "scenario": "heartbeat-loss",
+    "final_state": "E_STOP",
+    "event_count": 3
+  }
+}

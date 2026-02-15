@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Coordinator initialized",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 12,
+      "level": "warning",
+      "message": "Hub heartbeat missed",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 18,
+      "level": "critical",
+      "message": "Fail-closed: clearance denied",
+      "featureId": "safety.fail-closed"
+    }
+  ],
+  "series": [
+    {
+      "key": "degradation_level",
+      "label": "Degradation Level",
+      "points": [
+        {
+          "t": 0,
+          "value": 0
+        },
+        {
+          "t": 10,
+          "value": 2
+        },
+        {
+          "t": 20,
+          "value": 3
+        },
+        {
+          "t": 30,
+          "value": 2
+        }
+      ]
+    }
+  ],
+  "raw": {
+    "finalState": "E_STOP"
+  },
+  "exports": [
+    {
+      "label": "clearance-log.json",
+      "url": "/Users/gusta/1_Projects/sihlhack/services/sim-runner/.artifacts/d168c697-704b-40a0-9c45-0924ec9896fd/clearance-log.json"
+    }
+  ]
+}

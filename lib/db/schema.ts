@@ -248,6 +248,7 @@ export const simulationRuns = pgTable('simulation_runs', {
   participantId: uuid('participant_id').references(() => participants.id).notNull(),
   challengeId: text('challenge_id').notNull(), // 'sensor-logic' | 'safety-coordination' | 'grid-os'
   scenarioId: text('scenario_id').notNull(),
+  comment: text('comment'),
   status: text('status').default('queued').notNull(), // 'queued' | 'running' | 'succeeded' | 'failed' | 'timeout' | 'cancelled'
   configJson: text('config_json').notNull(), // JSON serialized run config + optional dev overrides
   runnerRunId: text('runner_run_id'),

@@ -1,6 +1,7 @@
 import { sql } from '@vercel/postgres'
 
 let ensureNamesPromise: Promise<void> | null = null
+let ensureSimRunsPromise: Promise<void> | null = null
 
 export async function ensureNameSplitColumns() {
   if (!ensureNamesPromise) {
@@ -39,3 +40,12 @@ export async function ensureNameSplitColumns() {
   await ensureNamesPromise
 }
 
+export async function ensureSimulationRunColumns() {
+  if (!ensureSimRunsPromise) {
+    ensureSimRunsPromise = (async () => {
+      await sql`alter table simulation_runs add column if not exists comment text;`
+    })()
+  }
+
+  await ensureSimRunsPromise
+}

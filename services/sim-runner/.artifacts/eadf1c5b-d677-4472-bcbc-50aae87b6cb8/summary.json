@@ -1,0 +1,20 @@
+{
+  "headline": "Safety coordination simulation: sensor-drift",
+  "checks": [
+    {
+      "key": "clearance.fail_closed",
+      "pass": true,
+      "message": "No fail-closed transition required"
+    },
+    {
+      "key": "heartbeat.monitor",
+      "pass": true,
+      "message": "heartbeat timeout=2s, missed=2"
+    }
+  ],
+  "metrics": {
+    "scenario": "sensor-drift",
+    "final_state": "NORMAL",
+    "event_count": 2
+  }
+}

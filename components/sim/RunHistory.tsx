@@ -30,6 +30,9 @@ export function RunHistory({ runs, selectedRunId, onSelectRun }: RunHistoryProps
               onClick={() => onSelectRun(run.id)}
             >
               <p className="text-xs font-mono text-brand-black">{run.scenarioId}</p>
+              {run.comment ? (
+                <p className="mt-1 line-clamp-2 text-xs font-mono text-brand-black/85">{run.comment}</p>
+              ) : null}
               <p className="text-xs font-mono text-historic-sepia">{run.status} · {new Date(run.createdAt).toLocaleString()}</p>
             </button>
           ))

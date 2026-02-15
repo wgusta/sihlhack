@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Coordinator initialized",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 40,
+      "level": "info",
+      "message": "No critical anomalies detected",
+      "featureId": "safety.fail-closed"
+    }
+  ],
+  "series": [
+    {
+      "key": "degradation_level",
+      "label": "Degradation Level",
+      "points": [
+        {
+          "t": 0,
+          "value": 0
+        },
+        {
+          "t": 10,
+          "value": 1
+        },
+        {
+          "t": 20,
+          "value": 1
+        },
+        {
+          "t": 30,
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "raw": {
+    "finalState": "NORMAL"
+  },
+  "exports": [
+    {
+      "label": "clearance-log.json",
+      "url": "/Users/gusta/1_Projects/sihlhack/services/sim-runner/.artifacts/eadf1c5b-d677-4472-bcbc-50aae87b6cb8/clearance-log.json"
+    }
+  ]
+}

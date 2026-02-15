@@ -1,0 +1,3 @@
+scenario=heartbeat-loss
+final_state=E_STOP
+heartbeat_timeout=5

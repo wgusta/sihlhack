@@ -1,0 +1,3 @@
+scenario=sensor-drift
+final_state=NORMAL
+heartbeat_timeout=2

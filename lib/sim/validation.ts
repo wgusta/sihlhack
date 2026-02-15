@@ -2,6 +2,7 @@ import { z } from 'zod'
 import type { CreateSimRunRequest, SimChallengeId, SimDevOverrides } from '@/types/sim'
 import {
   SIM_CHALLENGES,
+  SIM_MAX_COMMENT_CHARS,
   SIM_MAX_CONFIG_BYTES,
   SIM_MAX_OVERRIDE_BYTES,
 } from '@/lib/sim/constants'
@@ -10,6 +11,7 @@ import { isValidChallengeId } from '@/lib/sim/auth'
 const createRunSchema = z.object({
   challengeId: z.string(),
   scenarioId: z.string().min(1).max(120),
+  comment: z.string().max(SIM_MAX_COMMENT_CHARS).optional(),
   config: z.record(z.string(), z.unknown()),
   devOverrides: z.record(z.string(), z.string()).optional(),
 })
@@ -36,6 +38,7 @@ export function parseCreateRunBody(body: unknown): CreateSimRunRequest {
   return {
     challengeId: parsed.data.challengeId,
     scenarioId: parsed.data.scenarioId,
+    comment: parsed.data.comment?.trim() ? parsed.data.comment.trim() : undefined,
     config: parsed.data.config,
     devOverrides: parsed.data.devOverrides,
   }

@@ -2,6 +2,7 @@ import { and, eq } from 'drizzle-orm'
 import { NextRequest, NextResponse } from 'next/server'
 import { getSession } from '@/lib/auth'
 import { db, simulationRuns } from '@/lib/db'
+import { ensureSimulationRunColumns } from '@/lib/db/ensure'
 import { isSimDashboardEnabled } from '@/lib/sim/auth'
 import { toRunDetail } from '@/lib/sim/serialization'
 
@@ -17,6 +18,7 @@ export async function GET(
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+  await ensureSimulationRunColumns()
 
   const { id } = await params
   const [row] = await db
@@ -24,6 +26,7 @@ export async function GET(
       id: simulationRuns.id,
       challengeId: simulationRuns.challengeId,
       scenarioId: simulationRuns.scenarioId,
+      comment: simulationRuns.comment,
       status: simulationRuns.status,
       createdAt: simulationRuns.createdAt,
       finishedAt: simulationRuns.finishedAt,

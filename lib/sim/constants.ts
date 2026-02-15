@@ -4,6 +4,7 @@ export const SIM_DAILY_RUN_LIMIT = 30
 export const SIM_MAX_CONCURRENT_RUNS = 1
 export const SIM_MAX_CONFIG_BYTES = 64_000
 export const SIM_MAX_OVERRIDE_BYTES = 160_000
+export const SIM_MAX_COMMENT_CHARS = 500
 
 export const SIM_TERMINAL_STATUSES: SimRunStatus[] = [
   'succeeded',
@@ -20,8 +21,8 @@ export const SIM_CHALLENGES: Record<SimChallengeId, {
   defaultConfig: Record<string, unknown>
 }> = {
   'sensor-logic': {
-    label: 'Sensor Logic',
-    description: 'MQTT validation, alerting, pipeline checks',
+    label: 'Sensor Integration',
+    description: 'Sensor data pipeline, monitoring, validation',
     scenarios: ['normal-stream', 'thermal-spike', 'flow-drop', 'gas-alert'],
     editablePaths: [
       'services/pipeline/pipeline_service.ts',
@@ -37,8 +38,8 @@ export const SIM_CHALLENGES: Record<SimChallengeId, {
     },
   },
   'safety-coordination': {
-    label: 'Inter-LEG Safety',
-    description: 'Fail-closed safety coordination across hubs',
+    label: 'Multi-Node Safety Coordination',
+    description: 'Safety interlocks, anomaly detection, fail-closed control',
     scenarios: ['heartbeat-loss', 'sensor-drift', 'thermal-runaway', 'partial-degrade'],
     editablePaths: [
       'src/coordinator/safety_coordinator.py',
@@ -54,8 +55,8 @@ export const SIM_CHALLENGES: Record<SimChallengeId, {
     },
   },
   'grid-os': {
-    label: 'Grid-OS',
-    description: 'Scheduler, shedding, and simulator loop',
+    label: 'Grid-OS Logic',
+    description: 'Scheduler, deferred compute, load shedding policies',
     scenarios: ['clear-sky-day', 'cloudy-volatility', 'grid-unstable', 'winter-heat-demand'],
     editablePaths: [
       'grid_os/scheduler/solar_budget.py',

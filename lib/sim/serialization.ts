@@ -15,6 +15,7 @@ export function toRunSummary(record: {
   id: string
   challengeId: string
   scenarioId: string
+  comment: string | null
   status: string
   createdAt: Date
   finishedAt: Date | null
@@ -24,6 +25,7 @@ export function toRunSummary(record: {
     id: record.id,
     challengeId: record.challengeId as SimRunSummary['challengeId'],
     scenarioId: record.scenarioId,
+    comment: record.comment,
     status: record.status as SimRunSummary['status'],
     createdAt: record.createdAt.toISOString(),
     finishedAt: record.finishedAt ? record.finishedAt.toISOString() : null,
@@ -35,6 +37,7 @@ export function toRunDetail(record: {
   id: string
   challengeId: string
   scenarioId: string
+  comment: string | null
   status: string
   createdAt: Date
   finishedAt: Date | null
