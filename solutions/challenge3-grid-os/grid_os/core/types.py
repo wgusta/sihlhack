@@ -14,9 +14,9 @@ class SensorState:
     battery_current: float = 0.0
     t_cpu: float = 50.0
     t_water_in: float = 25.0
-    t_water_out: float = 40.0
+    t_water_out: float = 25.0  # equals t_water_in at zero compute (conservation of energy)
     t_ambient: float = 20.0
-    flow_rate_lpm: float = 5.0
+    flow_rate_lpm: float = 2.5  # 50% pump duty default
     grid_freq: float = 50.0
     grid_voltage: float = 230.0
     grid_price: float = 0.20
@@ -38,18 +38,18 @@ class HubConfig:
     max_solar_w: float = 5000.0
     max_grid_import_w: float = 3500.0
     max_grid_export_w: float = 3500.0
-    t_water_setpoint: float = 60.0
+    t_water_setpoint: float = 55.0  # °C, physics limit: t_cpu = t_water + 24°C, must stay < 80°C
     t_cpu_limit: float = 85.0
     t_cpu_throttle: float = 80.0
     soc_min_pct: float = 10.0
     soc_max_pct: float = 95.0
     tick_hz: float = 10.0
-    compute_value_chf_kwh: float = 0.15
-    heat_value_chf_kwh: float = 0.08
+    compute_value_chf_kwh: float = 0.35  # viable only with AI inference workloads
+    heat_value_chf_kwh: float = 0.10  # Swiss heating oil displacement value
 
 @dataclass
 class MarketPrices:
-    compute_chf_kwh: float = 0.15
-    heat_chf_kwh: float = 0.08
-    grid_import_chf_kwh: float = 0.20
-    grid_export_chf_kwh: float = 0.14
+    compute_chf_kwh: float = 0.35  # AI inference / specialized compute
+    heat_chf_kwh: float = 0.10  # displaced heating cost (oil/gas equivalent)
+    grid_import_chf_kwh: float = 0.22  # Swiss avg incl. network fees
+    grid_export_chf_kwh: float = 0.12  # Swiss Rückliefertarif

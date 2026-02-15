@@ -23,11 +23,11 @@ def calculate_solar_budget(sensors: SensorState, config: HubConfig, mode: str) -
         heat_w = compute_w * 0.7
         return PowerBudget(compute_w=compute_w, battery_w=battery_w, grid_w=grid_w, heat_w=heat_w)
     elif mode == "ARBITRAGE":
-        if grid_price < 0.10:
+        if grid_price < 0.17:  # below Swiss NT rate, cheap import
             battery_w = min(config.battery_capacity_wh * 0.3, config.max_grid_import_w * 0.5)
             compute_w = config.max_compute_w * 0.9
             grid_w = compute_w + battery_w - solar
-        elif grid_price > 0.30:
+        elif grid_price > 0.24:  # above Swiss HT peak, export profitable
             battery_w = -min(config.battery_capacity_wh * 0.2, soc / 100 * config.battery_capacity_wh * 0.1)
             compute_w = max(0, solar) * 0.5
             grid_w = -(solar - compute_w + abs(battery_w))

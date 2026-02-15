@@ -1,4 +1,10 @@
-"""PID Controller for thermal management. Setpoint 60C water out, CPU override at 80C."""
+"""PID Controller for thermal management. Setpoint 55C water out, CPU override at 80C.
+
+Physics constraint: at 3kW compute with immersion cooling (R=0.008 °C/W),
+t_cpu = t_water_out + 24°C. For t_cpu < 80°C, t_water_out < 56°C.
+PID settles at ~54°C with 20% minimum pump duty.
+For 60°C water, use heat pump booster or reduce compute load.
+"""
 import time
 import logging
 from dataclasses import dataclass
@@ -10,7 +16,7 @@ class PIDConfig:
     kp: float = 2.0
     ki: float = 0.5
     kd: float = 0.1
-    setpoint: float = 60.0
+    setpoint: float = 55.0  # °C, achievable max with 3kW compute + immersion cooling
     output_min: float = 20.0
     output_max: float = 100.0
     integral_max: float = 50.0
