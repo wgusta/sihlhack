@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "seed": { "type": "number" },
+    "maxComputeW": { "type": "number", "minimum": 1 },
+    "cpuTempLimitC": { "type": "number", "minimum": 30 },
+    "waterOutSetpointC": { "type": "number", "minimum": 20 }
+  },
+  "additionalProperties": true
+}

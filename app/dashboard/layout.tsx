@@ -8,7 +8,7 @@ import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 import { NotificationBell } from '@/components/dashboard/NotificationBell'
 
-const navigation = [
+const baseNavigation = [
   { name: 'Übersicht', href: '/dashboard' },
   { name: 'Team Matching', href: '/dashboard/team-matching' },
 ]
@@ -20,6 +20,9 @@ export default function DashboardLayout({
 }) {
   const router = useRouter()
   const { user, isLoading, isAuthenticated } = useSession()
+  const navigation = process.env.NEXT_PUBLIC_ENABLE_SIM_DASHBOARD === 'true'
+    ? [...baseNavigation, { name: 'Simulation', href: '/dashboard/sim' }]
+    : baseNavigation
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {

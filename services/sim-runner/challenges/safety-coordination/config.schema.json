@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "heartbeatTimeoutSeconds": { "type": "number", "minimum": 0.1 },
+    "maxMissedHeartbeats": { "type": "number", "minimum": 1 },
+    "allowlistedCommands": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

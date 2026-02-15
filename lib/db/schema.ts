@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, timestamp, integer, boolean, unique, check } from 'drizzle-orm/pg-core'
+import { pgTable, uuid, text, timestamp, integer, boolean, unique, check, index } from 'drizzle-orm/pg-core'
 import { sql } from 'drizzle-orm'
 
 // Participants table
@@ -242,6 +242,28 @@ export const computeJobs = pgTable('compute_jobs', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
 
+// Simulation runs table - participant sandbox simulation attempts and artifacts
+export const simulationRuns = pgTable('simulation_runs', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  participantId: uuid('participant_id').references(() => participants.id).notNull(),
+  challengeId: text('challenge_id').notNull(), // 'sensor-logic' | 'safety-coordination' | 'grid-os'
+  scenarioId: text('scenario_id').notNull(),
+  status: text('status').default('queued').notNull(), // 'queued' | 'running' | 'succeeded' | 'failed' | 'timeout' | 'cancelled'
+  configJson: text('config_json').notNull(), // JSON serialized run config + optional dev overrides
+  runnerRunId: text('runner_run_id'),
+  runnerImageDigest: text('runner_image_digest'),
+  summaryJson: text('summary_json'), // JSON run summary
+  artifactsJson: text('artifacts_json'), // JSON artifact urls and metadata
+  logsUrl: text('logs_url'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  startedAt: timestamp('started_at'),
+  finishedAt: timestamp('finished_at'),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+}, (table) => [
+  index('simulation_runs_participant_created_idx').on(table.participantId, table.createdAt),
+  index('simulation_runs_challenge_created_idx').on(table.challengeId, table.createdAt),
+])
+
 // Storage manifests table - content-addressed storage with replication
 export const storageManifests = pgTable('storage_manifests', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -387,6 +409,9 @@ export type NewSihliconHub = typeof sihliconHubs.$inferInsert
 
 export type ComputeJob = typeof computeJobs.$inferSelect
 export type NewComputeJob = typeof computeJobs.$inferInsert
+
+export type SimulationRun = typeof simulationRuns.$inferSelect
+export type NewSimulationRun = typeof simulationRuns.$inferInsert
 
 export type StorageManifest = typeof storageManifests.$inferSelect
 export type NewStorageManifest = typeof storageManifests.$inferInsert
