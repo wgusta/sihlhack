@@ -349,7 +349,7 @@ export default function LEGPage() {
                 </CardHeader>
                 <CardContent className="text-xs font-mono">
                   <p className="mb-2"><strong>Mechanismus:</strong></p>
-                  <p>Server-Abwärme (40–50°C) geht in Warmwasser-Pufferspeicher.</p>
+                  <p>Server-Abwärme (45–55°C) geht in Warmwasser-Pufferspeicher.</p>
                   <p className="mt-3 text-grid-green"><strong>Effekt:</strong> Zeitliche Entkopplung von Produktion und Heizbedarf</p>
                 </CardContent>
               </Card>

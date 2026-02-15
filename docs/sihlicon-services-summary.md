@@ -46,7 +46,7 @@ This document summarizes the implementation of compute, storage, and services ar
 
 **Features**:
 - Track heat generation from compute and other sources
-- Calculate heat credits (CHF 0.05/kWh thermal)
+- Calculate heat credits (CHF 0.10/kWh thermal)
 - Settlement tracking
 - Statistics and reporting
 

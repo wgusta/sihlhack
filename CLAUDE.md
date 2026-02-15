@@ -30,6 +30,7 @@ Auth: Magic link (Resend), Payments: Stripe Connect (manual), SWR cache, Heroico
 - `/app`: Next.js (api, auth, admin, challenges, dashboard, proposals, registration, team)
 - `/components`: React (auth, challenges, data, landing, proposals, registration, ui, visualizations)
 - `/lib`: Utilities (db/, auth.ts, stripe.ts, email.ts, funds.ts, refunds.ts, admin.ts, roles.ts)
+- `/solutions`: Hackathon reference solutions (challenge1-sensor-integration, challenge2-safety, challenge3-grid-os, challenge4-legal, integration/)
 - `/future-comms`: Offline content (investor pitch, post-reg emails, detailed docs)
 
 ## Challenge Architecture (Critical)
@@ -156,15 +157,32 @@ npm run db:studio        # Open Drizzle Studio (localhost:3001)
 - `/app/api/stripe/webhook/route.ts` - Stripe webhook (critical)
 - `/app/api/cron/check-event-status/route.ts` - Refund trigger
 
-## Recent Changes (Jan 2026)
+## Physics & Economics Constraints
 
-1. **4 Equal Challenges:** LEG Legal & Hardware Compliance now mandatory (was optional)
-2. **Prize percentages removed:** No 35/35/25/5 display, only "Jury-Bewertung"
-3. **Zwiebel visualization:** Concentric rings showing architecture layers
-4. **1 Challenge per team:** Clear warning on /challenges page
-5. **Historik Hack:** Moved completely to /snackathons, removed from /challenges
-6. **Layer naming:** Einzelne LEG → LEG-Verbund → Netzanschluss → Rechtliche Grundlagen
-7. **Gendering:** Female forms first in all role descriptions
+**Thermal model (lumped capacitance):**
+- All compute power becomes heat (1st law thermodynamics)
+- THERMAL_MASS × dT/dt = Q_compute − Q_flow − Q_ambient
+- CPU_THERMAL_R = 0.008 °C/W (immersion cooling), t_cpu = t_water_out + R × P_compute
+- At 3kW compute: t_cpu = t_water + 24°C, max safe water output ~55°C (CPU < 80°C)
+- Water temp range: 45–55°C across all pages, docs, legal templates
+
+**Economics (Swiss market):**
+- Compute value: CHF 0.35/kWh (AI inference, only viable workload class)
+- Heat credit: CHF 0.10/kWh thermal (Swiss heating displacement)
+- Grid import: CHF 0.22/kWh avg, NT 0.16, HT peak 0.26
+- Grid export: CHF 0.12/kWh (feed-in)
+- Net margin ~0.23 CHF/kWh, payback 2.5–4 years
+- Solar: 2500W peak, 3.2 kWh/kWp/day Swiss average
+
+**tsconfig.json** excludes `solutions/` (solution Python/TS files lack project npm deps).
+
+## Recent Changes (Feb 2026)
+
+1. **Solutions directory:** Reference implementations for all 4 challenges + integration layer
+2. **Simulator physics rewrite:** Coupled lumped-capacitance thermal model replacing decorrelated sinusoidal sim
+3. **Thermal params corrected:** Water 45–55°C (was 30–60°C), CPU setpoint 55°C (was 60°C)
+4. **Economics corrected:** Compute 0.35 CHF/kWh (was 0.15), heat 0.10 (was 0.05), Swiss HT/NT pricing
+5. **Cross-codebase coherence:** All thermal/economic values aligned across website, docs, legal templates, services
 
 ## Timeline & Thresholds
 

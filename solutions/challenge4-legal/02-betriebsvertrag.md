@@ -12,7 +12,7 @@ Die LEG erbringt folgende Leistungen: a) Lieferung von lokal produziertem Strom.
 **Stromtarif:** CHF [X.XX] pro kWh (verbrauchsabhängig, jährlich durch die Vereinsversammlung festgelegt).
 **Leistungstarif:** CHF [X.XX] pro kW Anschlussleistung (jährlich).
 **Fixkostenbeitrag:** CHF [X.XX] pro Monat (gleichmässig auf alle Mitglieder).
-**Wärme-Gutschrift:** CHF 0.05 pro kWh genutzte Abwärme.
+**Wärme-Gutschrift:** CHF 0.10 pro kWh genutzte Abwärme.
 Alle Beträge in Schweizer Franken, exklusive MWST (soweit anwendbar).
 
 ### 4. Abrechnung

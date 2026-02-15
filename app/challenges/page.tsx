@@ -836,7 +836,7 @@ export default function ChallengesPage() {
                   <span className="text-3xl">♨️</span>
                 </div>
                 <p className="font-mono text-sm text-historic-sepia mb-4 leading-relaxed">
-                  Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen werden auf 70°C+ gehoben, 
+                  Server-Wärme (45-55°C) als Quelle für eine Wärmepumpe. Wird auf 70°C+ gehoben,
                   genug für Radiatoren. Aber: Komplexität und COP-Trade-offs.
                 </p>
                 <div className="grid grid-cols-2 gap-4 text-xs font-mono mb-4">
@@ -860,7 +860,7 @@ export default function ChallengesPage() {
                 <div className="space-y-2">
                   <Accordion id="path-c-what" title="Was bedeutet das?" icon="❓" color="grid-green">
                     <p className="font-mono text-sm text-historic-sepia leading-relaxed">
-                      Die niedrige Wärme vom Server (30-50°C) wird als Quelle für eine Wärmepumpe genutzt. 
+                      Die Abwärme vom Server (45-55°C) wird als Quelle für eine Wärmepumpe genutzt.
                       Die Pumpe "pumpt" die Temperatur auf 70°C+ hoch – genug für normale Radiatoren. 
                       Es ist wie eine umgekehrte Klimaanlage: Statt Kälte zu erzeugen, erzeugt sie höhere Wärme. 
                       Die höchste Nutzung der Server-Wärme, aber auch die komplexeste Lösung.

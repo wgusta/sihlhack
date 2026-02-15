@@ -58,7 +58,7 @@ The LEG (Lokale Elektrizitätsgemeinschaften) Marketplace enables inter-Hub trad
 ### Pricing Model
 
 **Dynamic Pricing**:
-- Base price: CHF 0.15/kWh compute
+- Base price: CHF 0.35/kWh compute
 - Adjusts based on:
   - Energy availability (solar forecast)
   - Grid conditions
@@ -303,12 +303,12 @@ Reputation affects:
 ### Scenario 1: Hub A Sells Compute to Hub B
 
 1. Hub B needs to process 100 pages of OCR
-2. Hub B submits order: 10 kWh compute, max CHF 0.20/kWh
-3. Marketplace matches with Hub A (has excess solar, CHF 0.15/kWh)
+2. Hub B submits order: 10 kWh compute, max CHF 0.40/kWh
+3. Marketplace matches with Hub A (has excess solar, CHF 0.35/kWh)
 4. Job runs on Hub A, generates heat
-5. Settlement: Hub B pays Hub A CHF 1.50 (10 × 0.15)
-6. Network fee: CHF 0.075 (5%)
-7. Hub A receives: CHF 1.425
+5. Settlement: Hub B pays Hub A CHF 3.50 (10 × 0.35)
+6. Network fee: CHF 0.175 (5%)
+7. Hub A receives: CHF 3.325
 8. Hub A also receives heat credits
 
 ### Scenario 2: Hub A Stores Archive for Company

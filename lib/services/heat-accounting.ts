@@ -38,8 +38,8 @@ export async function recordHeatGeneration(
   generation: HeatGeneration
 ): Promise<string> {
   // Calculate heat credit (if monetized)
-  // Default: CHF 0.05 per kWh thermal (CHF 0.00005 per Wh)
-  const heatCreditChf = Math.round(generation.heatGeneratedKwh * 0.00005)
+  // Default: CHF 0.10 per kWh thermal (CHF 0.0001 per Wh)
+  const heatCreditChf = Math.round(generation.heatGeneratedKwh * 0.0001)
 
   const [accounting] = await db
     .insert(heatAccounting)

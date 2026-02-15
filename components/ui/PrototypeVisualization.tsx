@@ -199,7 +199,7 @@ export function PrototypeVisualization() {
           />
           {/* Label for Heat */}
           <text x="380" y="240" textAnchor="middle" className="font-mono text-[12px] fill-thermal-orange font-bold">Wärme</text>
-          <text x="380" y="254" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange">45-60°C</text>
+          <text x="380" y="254" textAnchor="middle" className="font-mono text-[10px] fill-thermal-orange">45-55°C</text>
 
           {/* === 7. COMPUTE / AI OUTPUT === */}
           <g id="compute-section">
@@ -271,7 +271,7 @@ export function PrototypeVisualization() {
             </g>
             <g transform="translate(16, 78)">
               <line x1="0" y1="0" x2="28" y2="0" stroke="#FF6B35" strokeWidth="3" strokeDasharray="4 3" />
-              <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Abwärme (45-60°C)</text>
+              <text x="38" y="4" className="font-mono text-[10px] fill-gray-600">Abwärme (45-55°C)</text>
             </g>
             <g transform="translate(16, 96)">
               <line x1="0" y1="0" x2="28" y2="0" stroke="#A855F7" strokeWidth="3" strokeDasharray="4 3" />
@@ -509,7 +509,7 @@ export function PrototypeVisualization() {
             </div>
             <div className="flex items-center gap-1 justify-center">
               <div className="w-4 h-0.5 bg-thermal-orange" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #FF6B35 0, #FF6B35 3px, transparent 3px, transparent 6px)' }} />
-              <span className="font-mono text-[7px] text-gray-600">Abwärme (45-60°C)</span>
+              <span className="font-mono text-[7px] text-gray-600">Abwärme (45-55°C)</span>
             </div>
             <div className="flex items-center gap-1 justify-center">
               <div className="w-4 h-0.5 bg-purple-500" style={{ backgroundImage: 'repeating-linear-gradient(90deg, #A855F7 0, #A855F7 3px, transparent 3px, transparent 6px)' }} />

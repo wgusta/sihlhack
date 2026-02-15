@@ -175,7 +175,7 @@ export default function AboutPage() {
                   <div className="font-mono text-xs text-historic-sepia mt-1">der Elektrizität wird zu Wärme</div>
                 </div>
                 <div>
-                  <div className="font-mono text-3xl font-bold text-thermal-orange">60°C</div>
+                  <div className="font-mono text-3xl font-bold text-thermal-orange">55°C</div>
                   <div className="font-mono text-xs text-historic-sepia mt-1">Wassertemperatur aus Immersion</div>
                 </div>
                 <div>

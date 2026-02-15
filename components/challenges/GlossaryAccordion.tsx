@@ -33,7 +33,7 @@ const glossaryCategories: GlossaryCategory[] = [
       },
       {
         term: 'Heat Pump Integration / Wärmepumpe',
-        definition: 'Server-Wärme als Quelle für eine Wärmepumpe. Niedrige Temperaturen (30-50°C) werden auf 70°C+ gehoben, genug für Radiatoren. Komplexität und COP-Trade-offs müssen berücksichtigt werden.',
+        definition: 'Server-Wärme (45-55°C) als Quelle für eine Wärmepumpe. Wird auf 70°C+ gehoben, genug für Radiatoren. Komplexität und COP-Trade-offs müssen berücksichtigt werden.',
       },
       {
         term: 'COP (Coefficient of Performance)',
