@@ -1,0 +1,10 @@
+{
+  "node_id": "hub-001",
+  "sensors": [
+    {"sensor_id": "T_coolant_in", "offset": -0.3, "scale": 1.0, "last_cal": "2026-09-01", "method": "ice/boil"},
+    {"sensor_id": "T_coolant_out", "offset": 0.1, "scale": 1.0, "last_cal": "2026-09-01", "method": "ice/boil"},
+    {"sensor_id": "Flow_water", "pulses_per_liter": 450, "offset": 0.0, "last_cal": "2026-09-01", "method": "volume"},
+    {"sensor_id": "V_battery", "offset": 0.02, "scale": 1.001, "last_cal": "2026-09-01", "method": "multimeter"},
+    {"sensor_id": "I_battery", "offset": -0.01, "scale": 0.998, "last_cal": "2026-09-01", "method": "multimeter"}
+  ]
+}

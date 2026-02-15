@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    volumes: ["./config/mosquitto.conf:/mosquitto/config/mosquitto.conf"]
+    restart: unless-stopped
+  influxdb:
+    image: influxdb:2.7
+    ports: ["8086:8086"]
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: sihlhub2026
+      DOCKER_INFLUXDB_INIT_ORG: sihlhub
+      DOCKER_INFLUXDB_INIT_BUCKET: sihlhub
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-token
+    volumes: ["influxdb-data:/var/lib/influxdb2"]
+    restart: unless-stopped
+  pipeline:
+    build: { context: ./services/pipeline }
+    environment:
+      MQTT_URL: mqtt://mosquitto:1883
+      INFLUX_URL: http://influxdb:8086
+      INFLUX_TOKEN: my-token
+      WS_PORT: "8080"
+    ports: ["8080:8080"]
+    depends_on: [mosquitto, influxdb]
+    restart: unless-stopped
+volumes:
+  influxdb-data:
