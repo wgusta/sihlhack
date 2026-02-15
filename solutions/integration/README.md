@@ -21,7 +21,9 @@ Safety can override everything. No exceptions.
 
 ## Files
 - `shared/types.ts`: All TypeScript interfaces
-- `architecture.md`, `api-contracts.md`, `mqtt-topics.md`: Docs (in agent output)
+- `architecture.md`: Runtime topology + safety precedence
+- `api-contracts.md`: REST interfaces and fail-closed semantics
+- `mqtt-topics.md`: Topic contracts + QoS + migration policy
 
 ## Integration Checkpoints
 - IC#1 (Day 1 17:00): Sensor data flows on MQTT
@@ -31,5 +33,15 @@ Safety can override everything. No exceptions.
 
 ## Thermal Path: Water Loop (recommended)
 Fastest setup (1-2h), lowest risk, CHF 100-200 parts.
+
+## Topic Migration
+- Canonical: `sihlhack/*`
+- Transitional: `sihlhub/*` (dual publish/consume)
+- Deprecation date: 2026-07-01
+
+## Offene Risiken / Naechste Tasks
+- Legacy Topic Namespace `sihlhub/*` bis spaetestens 2026-07-01 vollstaendig entfernen.
+- Contract-Versionierung (`v1`, `v2`) und CI-Kompatibilitaetstests fuer API/MQTT absichern.
+- Repo-Hygiene: `__pycache__` Artefakte aus VCS entfernen und via `.gitignore` blockieren.
 
 Lizenz: Apache 2.0 | sihlhack.ch

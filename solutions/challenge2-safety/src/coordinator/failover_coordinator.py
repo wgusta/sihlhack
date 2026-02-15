@@ -73,11 +73,11 @@ class FailoverCoordinator:
 
     def _isolate_hub(self, hub_id: str):
         self.mqtt.publish(f"sihlhack/command/{hub_id}/isolate",
-            json.dumps({"command": "isolate", "hub_id": hub_id, "reason": "hub_failed", "timestamp": time.time()}), qos=1)
+            json.dumps({"command": "isolate", "hub_id": hub_id, "reason": "hub_failed", "timestamp": time.time()}), qos=2)
         partner = self._get_leg_partner(hub_id)
         if partner:
             self.mqtt.publish(f"sihlhack/command/{partner}/partner_failed",
-                json.dumps({"failed_hub": hub_id, "action": "defensive_mode", "reduce_compute_pct": 50}), qos=1)
+                json.dumps({"failed_hub": hub_id, "action": "defensive_mode", "reduce_compute_pct": 50}), qos=2)
 
     def _get_leg_partner(self, hub_id: str) -> Optional[str]:
         partners = {"hub_a": "hub_b", "hub_b": "hub_a", "hub_c": "hub_d", "hub_d": "hub_c"}
@@ -96,9 +96,9 @@ class FailoverCoordinator:
                 json.dumps({"level": self.degradation_level, "online_hubs": online_count,
                     "allowed_modes": DegradationLevel.ALLOWED_MODES[self.degradation_level],
                     "failed_hubs": list(self.failed_hubs), "timestamp": time.time()}),
-                qos=1, retain=True)
+                qos=2, retain=True)
 
     def _publish_failover_event(self, hub_id: str, event_type: str):
         self.mqtt.publish("sihlhack/safety/global/failover",
             json.dumps({"hub_id": hub_id, "event": event_type, "degradation_level": self.degradation_level,
-                "online_hubs": [h for h, c in self.capacities.items() if c.is_online], "timestamp": time.time()}), qos=1)
+                "online_hubs": [h for h, c in self.capacities.items() if c.is_online], "timestamp": time.time()}), qos=2)

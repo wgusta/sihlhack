@@ -48,7 +48,6 @@ class LoadSheddingController:
         if elapsed < self.thresholds.min_hold_s:
             return self.current_level
         t = self.thresholds
-        new_level = SheddingLevel.L0_NORMAL
         if t_cpu > t.l4_t_cpu_above or soc < t.l4_soc_below:
             new_level = SheddingLevel.L4_EMERGENCY
         elif soc < t.l3_soc_below:
@@ -57,11 +56,20 @@ class LoadSheddingController:
             new_level = SheddingLevel.L2_MODERATE
         elif soc < t.l1_soc_below:
             new_level = SheddingLevel.L1_LIGHT
-        # Hysteresis: require higher threshold for recovery
+        else:
+            new_level = SheddingLevel.L0_NORMAL
+
+        # Recovery hysteresis: only drop severity when SOC crosses a buffered threshold.
         if new_level.value < self.current_level.value:
-            recovery_soc = soc - t.recovery_hysteresis
-            if recovery_soc < t.l1_soc_below and self.current_level.value >= SheddingLevel.L1_LIGHT.value:
-                new_level = max(new_level, SheddingLevel.L1_LIGHT, key=lambda x: x.value)
+            recovery_thresholds = {
+                SheddingLevel.L0_NORMAL: t.l1_soc_below + t.recovery_hysteresis,
+                SheddingLevel.L1_LIGHT: t.l2_soc_below + t.recovery_hysteresis,
+                SheddingLevel.L2_MODERATE: t.l3_soc_below + t.recovery_hysteresis,
+                SheddingLevel.L3_HEAVY: t.l4_soc_below + t.recovery_hysteresis,
+            }
+            required_soc = recovery_thresholds.get(new_level, t.l1_soc_below + t.recovery_hysteresis)
+            if soc < required_soc:
+                new_level = self.current_level
         if new_level != self.current_level:
             self._transition(new_level)
         return self.current_level

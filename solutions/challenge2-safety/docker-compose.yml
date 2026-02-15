@@ -1,14 +1,27 @@
-version: "3.8"
 services:
   mosquitto:
     image: eclipse-mosquitto:2
     ports: ["1883:1883"]
     volumes: ["./config/mosquitto.conf:/mosquitto/config/mosquitto.conf"]
     restart: unless-stopped
+
   coordinator:
     build: .
     command: python -m src.coordinator.safety_coordinator
     depends_on: [mosquitto]
     environment:
       MQTT_BROKER: mosquitto
+      MQTT_PORT: "1883"
+      HUB_IDS: hub_a,hub_b,hub_c,hub_d
+    restart: unless-stopped
+
+  safety_api:
+    build: .
+    command: uvicorn src.api.server:app --host 0.0.0.0 --port 3002
+    depends_on: [coordinator]
+    environment:
+      MQTT_BROKER: mosquitto
+      MQTT_PORT: "1883"
+      HUB_IDS: hub_a,hub_b,hub_c,hub_d
+    ports: ["3002:3002"]
     restart: unless-stopped

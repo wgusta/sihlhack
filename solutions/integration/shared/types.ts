@@ -40,6 +40,22 @@ export interface SensorReading {
   };
 }
 
+// Transitional flat event from Challenge 1 edge/pipeline path.
+export interface SensorFlatEvent {
+  node_id: string;
+  sensor_id: string;
+  measurement: string;
+  value: number;
+  raw_value: number;
+  unit: string;
+  quality: number;
+  timestamp: string;
+  location?: string;
+}
+
+// During migration both schemas are supported. Canonical target is SensorReading.
+export type SensorEventContract = SensorFlatEvent | SensorReading;
+
 // === Challenge 2: Safety ===
 export type SafetySeverity = 'NORMAL' | 'WARNING' | 'CRITICAL' | 'EMERGENCY';
 
@@ -53,6 +69,15 @@ export interface SafetyState {
   batteryChargeAllowed: boolean;
   activeOverrides: SafetyOverride[];
   anomalies: Anomaly[];
+}
+
+export interface SafetyClearanceResponse {
+  clear: boolean;
+  clearance_id?: string;
+  reason: string;
+  ttl_ms: number;
+  safety_state: SafetySeverity | 'E_STOP' | 'LOCKOUT' | 'UNKNOWN';
+  timestamp: string;
 }
 
 export interface Anomaly {
@@ -100,6 +125,14 @@ export interface ControlDecision {
   batteryAction: 'CHARGE' | 'DISCHARGE' | 'IDLE';
   gridConnected: boolean;
   reasoning: string;
+}
+
+export interface ActuatorCommand {
+  hubId: HubId;
+  command: 'set_actuators' | 'apply_control' | 'compute_limit' | 'battery_cmd' | 'pump_pwm' | 'fan_pwm';
+  payload: Record<string, unknown>;
+  clearance_id: string;
+  timestamp: string;
 }
 
 export interface ComputeJob {

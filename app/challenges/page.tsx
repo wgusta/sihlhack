@@ -187,8 +187,8 @@ export default function ChallengesPage() {
                 color="grid-green"
               >
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">
-                  <strong className="text-brand-black">3 Tage, 3 Challenges:</strong> Jedes Team wählt eines von drei
-                  Pflicht-Paketen und programmiert daran. Hardware wird bereitgestellt – ihr schreibt die Grid-OS Logik.
+                  <strong className="text-brand-black">3 Tage, 4 Challenges:</strong> Jedes Team wählt ein Challenge-Paket
+                  und programmiert daran. Hardware wird bereitgestellt – ihr schreibt die Grid-OS Logik.
                   Mehrere Teams arbeiten parallel am gleichen Paket – die beste Lösung gewinnt.
                 </p>
                 <p className="font-mono text-sm text-historic-sepia leading-relaxed mb-4">

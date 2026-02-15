@@ -56,7 +56,7 @@ const challengeExplanations: Record<string, {
       whatYouBuild: 'Du programmierst Multi-Node-Sicherheitsverriegelungen: Netzwerkweite Anomalie-Erkennung, Emergency Stop Logik mit Failover, verteilte Sensor-Validierung, und Inter-Node Safety Interlocks. Alles API-basiert.',
     },
     technical: {
-      howItWorks: 'Multi-Node-Anomalie-Erkennungs-Algorithmen synchronisieren Safety-Checks über mehrere Nodes und erkennen verteilte Fehler. Emergency Stop Logik koordiniert Abschaltungen über Nodes mit Failover-Mechanismen. Netzwerkweite Sensor-Validierung erkennt ausgefallene Nodes. Inter-Node Safety Interlocks verhindern Kaskadenausfälle.',
+      howItWorks: 'Multi-Node-Anomalie-Erkennungs-Algorithmen synchronisieren Safety-Checks über mehrere Nodes und erkennen verteilte Fehler. Emergency-Stop-Logik koordiniert Abschaltungen über Nodes mit Failover-Mechanismen. Netzwerkweite Sensor-Validierung erkennt ausgefallene Nodes. Vor jeder Aktorik wird eine fail-closed Safety-Clearance geprüft.',
       architecture: 'Multi-Node Sensor Input → Distributed Anomaly Detection → Inter-Node Safety Interlocks (Zephyr RTOS/Python + Network Sync) → Coordinated Emergency Stop → API Integration (Multiple Nodes)',
       integration: 'Integriert mit Sensor Integration Package (alle Nodes), Grid-OS Logik (Scheduler-Koordination), und Reference Hardware über standardisierte APIs. Safety-Funktionen sind verteilt und netzwerkfähig.',
     },
@@ -68,9 +68,9 @@ const challengeExplanations: Record<string, {
       whatYouBuild: 'Du baust Sensor-Daten-Pipelines, die alle Sensoren (Temp, Flow, Power, Battery SOC) verbinden, ein Real-Time Monitoring Dashboard (nur echte Daten, kein Fake), ein Data Validation Framework, API-Integration mit Grid-OS, und CSV/JSON Export für alle Metriken.',
     },
     technical: {
-      howItWorks: 'Sensor-Daten werden über I2C/SPI gesammelt, über MQTT/Mosquitto übertragen, in einer Time-Series DB (VictoriaMetrics) gespeichert, und in Echtzeit visualisiert (WebSockets). Data Validation Framework stellt sicher, dass alle Sensordaten korrekt sind. Dashboard zeigt nur echte Metriken. Export-Funktion generiert CSV/JSON aus gespeicherten Daten.',
-      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT/Mosquitto) → Time-Series DB (VictoriaMetrics) → Data Validation → Real-Time Dashboard (WebSockets + React/Vue) → CSV/JSON Export → API Integration (Grid-OS)',
-      integration: 'Integriert mit Reference Hardware Sensoren, Grid-OS Logik (für Scheduling), Multi-Node Safety Koordination (für Anomalie-Erkennung), und Dashboard (Truth Layer mit echten Daten).',
+      howItWorks: 'Sensor-Daten werden über I2C/SPI gesammelt, über MQTT/Mosquitto übertragen, in InfluxDB gespeichert und in Echtzeit visualisiert (WebSockets). Während der Migration werden `sihlhack/*` (kanonisch) und `sihlhub/*` (legacy) verarbeitet. Das Data-Validation-Framework stellt sicher, dass alle Sensordaten korrekt sind.',
+      architecture: 'Sensor-Layer (I2C/SPI) → Data Pipeline (MQTT: `sihlhack/*` + `sihlhub/*`) → InfluxDB → Data Validation → Real-Time Dashboard (WebSockets + React/Vue) → CSV/JSON Export → API Integration (Grid-OS)',
+      integration: 'Integriert mit Reference-Hardware-Sensoren, Grid-OS-Logik (Scheduling), Multi-Node-Safety-Koordination (Anomalie-Erkennung) und Dashboard als Truth-Layer mit echten Daten.',
     },
   },
   'leg-starter': {

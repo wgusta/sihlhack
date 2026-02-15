@@ -25,7 +25,7 @@ export default function SafetyPage() {
             </h1>
             <p className="mt-6 text-lg font-mono text-gray-300 max-w-2xl mx-auto">
               Alle Hardware wird bereitgestellt und unter fachkundiger Aufsicht betrieben. 
-              Teams programmieren die Betriebssicherheitslogik – Software-Sicherheitsverriegelungen, die das System sicher betreiben.
+              Teams programmieren die Betriebssicherheitslogik – inklusive fail-closed Safety-Clearance vor jeder Aktorik.
             </p>
           </div>
         </section>

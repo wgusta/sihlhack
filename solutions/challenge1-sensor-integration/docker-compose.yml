@@ -1,9 +1,10 @@
-version: "3.8"
 services:
   mosquitto:
     image: eclipse-mosquitto:2
     ports: ["1883:1883"]
-    volumes: ["./config/mosquitto.conf:/mosquitto/config/mosquitto.conf"]
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./config/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
     restart: unless-stopped
   influxdb:
     image: influxdb:2.7
@@ -24,6 +25,10 @@ services:
       INFLUX_URL: http://influxdb:8086
       INFLUX_TOKEN: my-token
       WS_PORT: "8080"
+      CANONICAL_TOPIC_NAMESPACE: sihlhack
+      ENABLE_LEGACY_TOPIC_CONSUME: "true"
+      SECURE_MODE: "true"
+      ALLOW_INSECURE_LOCAL_DEV: "true"
     ports: ["8080:8080"]
     depends_on: [mosquitto, influxdb]
     restart: unless-stopped

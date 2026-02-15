@@ -4,6 +4,7 @@ import logging
 import threading
 from .core.types import HubConfig
 from .core.control_loop import GridOSControlLoop
+from .runtime import set_control_loop
 from .sim.client import SihlSimClient, SimConfig
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(levelname)s: %(message)s")
@@ -20,6 +21,7 @@ def main():
     sim = SihlSimClient(SimConfig(base_url=args.sim_url, hub_id=args.hub_id)) if args.sim_url else SihlSimClient()
     sim.connect()
     control = GridOSControlLoop(config, sim_client=sim)
+    set_control_loop(control)
     if args.api_only:
         import uvicorn
         uvicorn.run("grid_os.api.server:app", host="0.0.0.0", port=args.api_port)

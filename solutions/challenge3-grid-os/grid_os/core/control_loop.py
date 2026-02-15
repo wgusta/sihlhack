@@ -1,25 +1,51 @@
 """Grid-OS Control Loop: 10Hz tick pipeline."""
+import os
 import time
 import logging
+import requests
 from .types import SensorState, PowerBudget, HubConfig, MarketPrices
 from .state_machine import GridOSStateMachine, OperationalMode, TransitionCondition
-from .pid import PIDController
+from .pid import PIDConfig, PIDController
 from ..scheduler.solar_budget import calculate_solar_budget, utility
 from ..compute.deferred import DeferredComputeScheduler
 from ..shedding.policies import LoadSheddingController
 
 logger = logging.getLogger("grid_os.loop")
 
+
+class SafetyClearanceClient:
+    """Fail-closed clearance client for actuator dispatch."""
+
+    def __init__(self, base_url: str | None = None, timeout_s: float = 0.5):
+        self.base_url = (base_url or os.getenv("SAFETY_API_URL", "http://localhost:3002")).rstrip("/")
+        self.timeout_s = timeout_s
+
+    def request_clearance(self, hub_id: str, command: str) -> tuple[bool, dict]:
+        url = f"{self.base_url}/api/v1/safety/clearance"
+        try:
+            resp = requests.get(url, params={"hub_id": hub_id, "command": command}, timeout=self.timeout_s)
+            if resp.status_code != 200:
+                return False, {"reason": f"safety_api_status_{resp.status_code}"}
+            payload = resp.json()
+            return bool(payload.get("clear", False)), payload
+        except Exception as exc:
+            return False, {"reason": "safety_api_unreachable", "error": str(exc)}
+
+
 class GridOSControlLoop:
-    def __init__(self, config: HubConfig, sim_client=None):
+    def __init__(self, config: HubConfig, sim_client=None, safety_client: SafetyClearanceClient | None = None):
         self.config = config
         self.sim_client = sim_client
+        self.safety_client = safety_client or SafetyClearanceClient()
         self.state_machine = GridOSStateMachine(config)
-        self.pid = PIDController()
+        self.pid = PIDController(PIDConfig(setpoint=config.t_water_setpoint, cpu_override_c=config.t_cpu_limit))
         self.scheduler = DeferredComputeScheduler()
         self.shedding = LoadSheddingController()
         self.sensors = SensorState()
         self.budget = PowerBudget()
+        self.last_clearance: dict = {"clear": False, "reason": "uninitialized"}
+        self.last_actuators: dict = {}
+        self.manual_mode_override: OperationalMode | None = None
         self.running = False
         self.tick_count = 0
         self.tick_times: list[float] = []
@@ -58,6 +84,7 @@ class GridOSControlLoop:
             solar_available=self.sensors.p_solar_w > 100,
             grid_connected=abs(self.sensors.grid_freq - 50.0) < 0.5,
             safety_ok=self.sensors.t_cpu < self.config.t_cpu_limit,
+            manual_mode=self.manual_mode_override,
         )
         mode = self.state_machine.evaluate(cond)
         # 3. Calculate power budget
@@ -71,14 +98,24 @@ class GridOSControlLoop:
         self.scheduler.schedule(effective_compute, allowed)
         # 6. PID thermal control
         pump_duty = self.pid.update(self.sensors.t_water_out, self.sensors.t_cpu)
-        # 7. Send actuator commands
+        # 7. Safety clearance gate + actuator dispatch (fail-closed)
         if self.sim_client:
-            self.sim_client.set_actuators({
+            commands = {
                 "compute_limit_w": effective_compute,
                 "pump_pwm_pct": pump_duty,
                 "fan_pwm_pct": min(100, pump_duty * 1.2),
                 "battery_cmd_w": self.budget.battery_w,
-            })
+            }
+            clear, clearance = self.safety_client.request_clearance(self.config.hub_id, "set_actuators")
+            self.last_clearance = clearance
+            if clear:
+                if clearance.get("clearance_id"):
+                    commands["clearance_id"] = clearance["clearance_id"]
+                self.last_actuators = commands
+                self.sim_client.set_actuators(commands)
+            else:
+                logger.error("Actuation blocked by safety clearance: %s", clearance.get("reason"))
+                self.state_machine.force_emergency_stop("safety_clearance_denied")
         # 8. Compute heat output
         if self.sensors.flow_rate_lpm > 0:
             delta_t = self.sensors.t_water_out - self.sensors.t_water_in
@@ -102,4 +139,12 @@ class GridOSControlLoop:
             "utility_chf_h": utility(self.budget, self.sensors, prices),
             "scheduler": self.scheduler.get_status(),
             "pid": self.pid.get_status(),
+            "safety_clearance": self.last_clearance,
+            "manual_mode_override": self.manual_mode_override.value if self.manual_mode_override else None,
+            "last_actuators": self.last_actuators,
         }
+
+    def set_manual_mode(self, mode: OperationalMode | None):
+        self.manual_mode_override = mode
+        if mode == OperationalMode.EMERGENCY_STOP:
+            self.state_machine.force_emergency_stop("manual_api")

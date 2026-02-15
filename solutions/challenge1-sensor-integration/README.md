@@ -23,4 +23,9 @@ DS18B20 (temp x4), INA219 (V/I battery), ACS712 (I line), YF-S201 (flow), MQ-2 (
 - `POST /api/v1/actuators`: Receive Grid-OS commands
 - `GET /api/v1/sensors/history`: Time-series query
 
+## Offene Risiken / Naechste Tasks
+- `config/mosquitto.passwd` ist aktuell Demo-Setup; Produktivbetrieb braucht Secret-Management + Rotation.
+- Produktivbetrieb braucht TLS (`mqtts://`, `https://`) inkl. Zertifikats-Management.
+- Hardware-in-the-loop Langzeittest fuer Sensordrift/Kalibrierung fehlt.
+
 License: Apache 2.0 | sihlhack.ch

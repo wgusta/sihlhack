@@ -48,6 +48,9 @@ export default function LEGPage() {
                 <p className="text-sm font-mono leading-relaxed">
                   <strong className="text-compute-blue">Die Realität:</strong> LEGs funktionieren, aber unter engeren Grenzen als oft kommuniziert. Die grössten Hürden sind nicht technisch, sondern regulatorisch, finanziell und sozial.
                 </p>
+                <p className="text-sm font-mono leading-relaxed">
+                  Neu ist ein technischer Nachweispfad dokumentiert: Safety-API-Verträge, MQTT-QoS-Regeln und Migrationsfristen fuer Topic-Namensraeume.
+                </p>
               </CardContent>
             </Card>
           </div>

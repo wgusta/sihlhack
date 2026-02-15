@@ -47,8 +47,8 @@ export const HACKATHON_ROLES = [
     name: 'Sensor/Data Engineer',
     nameDE: 'Sensor/Data Engineer',
     icon: '📡',
-    description: 'Integrates sensors, builds data pipelines, creates logging infrastructure, and documents sensor maps.',
-    descriptionDE: 'Integriert Sensoren (Temp, Flow, Power), baut Daten-Pipelines, Logging-Infrastruktur und dokumentiert Sensor-Map mit Kalibrierhinweisen.',
+    description: 'Integrates sensors, validates calibration data, runs secure telemetry pipelines, and documents sensor maps.',
+    descriptionDE: 'Integriert Sensoren (Temp, Flow, Power), validiert `calibration.json`, betreibt sichere Telemetrie-Pipelines und dokumentiert die Sensor-Map.',
     skills: ['Messtechnik', 'InfluxDB/TimescaleDB', 'Grafana', 'Python', 'Raspberry Pi', 'I2C/SPI'],
     color: 'compute-blue',
     tracks: {
@@ -375,7 +375,7 @@ export const HACKATHON_PACKAGES = [
     type: 'mandatory' as const,
     teamSize: 5,
     description: 'Sensor data pipelines, real-time monitoring dashboard with live data, data validation, and API integration.',
-    descriptionDE: 'Sensor-Daten-Pipelines, Echtzeit-Monitoring-Dashboard mit Live-Daten, Daten-Validierung und API-Integration.',
+    descriptionDE: 'Sensor-Daten-Pipelines mit Live-Monitoring, Daten-Validierung, Dual-Topic-Migration (`sihlhack/*`/`sihlhub/*`) und API-Integration.',
     deliverables: [
       'Sensor Data Pipeline (Temp, Flow, Power, Battery SOC)',
       'Real-Time Monitoring Dashboard (nur echte Daten)',
@@ -403,10 +403,10 @@ export const HACKATHON_PACKAGES = [
         description: 'Metriken-Sammlung fuer P_solar, P_compute, Temperaturen',
       },
       {
-        name: 'VictoriaMetrics',
-        url: 'https://github.com/VictoriaMetrics/VictoriaMetrics',
+        name: 'InfluxDB',
+        url: 'https://github.com/influxdata/influxdb',
         license: 'Apache-2.0',
-        description: 'Time-Series DB fuer Sensor-Zeitreihen',
+        description: 'Time-Series DB fuer Sensor-Zeitreihen und Alert-Auswertung',
       },
       {
         name: 'Home Assistant',

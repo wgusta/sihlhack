@@ -39,6 +39,7 @@ class HeartbeatMonitor:
         for hub_id in hub_ids:
             self.hubs[hub_id] = HubState(hub_id=hub_id, last_heartbeat=time.monotonic())
         self.mqtt.message_callback_add("sihlhack/safety/+/heartbeat", self._on_heartbeat)
+        self.mqtt.message_callback_add("sihlhub/safety/+/heartbeat", self._on_heartbeat)
 
     def _on_heartbeat(self, client, userdata, msg):
         try:

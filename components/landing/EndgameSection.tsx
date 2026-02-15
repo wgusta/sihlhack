@@ -137,7 +137,7 @@ export function EndgameSection() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-600 mt-1">→</span>
-                  <span>Proof: Solar → Compute → Heat funktioniert</span>
+                  <span>Proof: Solar → Compute → Heat + fail-closed Safety-Clearance + Live-Runtime-API</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-gray-600 mt-1">→</span>

@@ -20,6 +20,7 @@ class PIDConfig:
     output_min: float = 20.0
     output_max: float = 100.0
     integral_max: float = 50.0
+    cpu_override_c: float = 80.0
 
 class PIDController:
     def __init__(self, config: PIDConfig = None):
@@ -36,9 +37,9 @@ class PIDController:
             return self.output
         self.last_time = now
         # CPU safety override: if CPU too hot, pump at max
-        if t_cpu > 80.0:
+        if t_cpu > self.config.cpu_override_c:
             self.output = self.config.output_max
-            logger.warning(f"CPU override: {t_cpu:.1f}C > 80C, pump at {self.output}%")
+            logger.warning(f"CPU override: {t_cpu:.1f}C > {self.config.cpu_override_c:.1f}C, pump at {self.output}%")
             return self.output
         # Inverted PID: we want t_water_out near setpoint
         # If water too cold, slow pump (less flow = more heat transfer time)

@@ -58,17 +58,27 @@ class DeferredComputeScheduler:
         self.running: dict[str, ComputeJob] = {}
         self.completed: list[ComputeJob] = []
         self.checkpointed: dict[str, ComputeJob] = {}
+        self._last_rerank = time.monotonic()
+        self.rerank_interval_s = 5.0
 
     def submit(self, job: ComputeJob) -> str:
         job.state = JobState.QUEUED
         self.queue.append(job)
-        self.queue.sort(key=lambda j: j.effective_priority())
+        self._rerank_queue(force=True)
         logger.info(f"Job {job.job_id} ({job.name}) queued, priority={job.priority}")
         return job.job_id
 
+    def _rerank_queue(self, force: bool = False):
+        now = time.monotonic()
+        if not force and now - self._last_rerank < self.rerank_interval_s:
+            return
+        self.queue.sort(key=lambda j: j.effective_priority())
+        self._last_rerank = now
+
     def schedule(self, available_watts: float, allowed_classes: list[JobClass]) -> list[ComputeJob]:
         started = []
-        remaining_watts = available_watts
+        self._rerank_queue()
+        remaining_watts = max(0.0, available_watts - self.get_total_watts())
         for job_id, job in list(self.checkpointed.items()):
             if job.job_class in allowed_classes and job.estimated_watts <= remaining_watts:
                 if len(self.running) < self.max_concurrent:
@@ -127,6 +137,25 @@ class DeferredComputeScheduler:
         job.state = JobState.COMPLETED if success else JobState.FAILED
         self.completed.append(job)
         del self.running[job_id]
+
+    def cancel_job(self, job_id: str) -> bool:
+        for idx, job in enumerate(self.queue):
+            if job.job_id == job_id:
+                job.state = JobState.CANCELLED
+                self.completed.append(job)
+                del self.queue[idx]
+                return True
+        if job_id in self.running:
+            job = self.running.pop(job_id)
+            job.state = JobState.CANCELLED
+            self.completed.append(job)
+            return True
+        if job_id in self.checkpointed:
+            job = self.checkpointed.pop(job_id)
+            job.state = JobState.CANCELLED
+            self.completed.append(job)
+            return True
+        return False
 
     def get_total_watts(self) -> float:
         return sum(j.estimated_watts for j in self.running.values())

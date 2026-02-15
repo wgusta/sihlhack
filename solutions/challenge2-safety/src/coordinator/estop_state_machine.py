@@ -85,7 +85,7 @@ class EStopStateMachine:
             f"sihlhack/safety/{self.entity_id}/status",
             json.dumps({"entity_id": self.entity_id, "state": new_state.value,
                 "reason": reason.value if reason else None, "timestamp": time.time()}),
-            qos=1, retain=True,
+            qos=2, retain=True,
         )
 
     def on_anomaly(self, severity, reason: EStopReason):

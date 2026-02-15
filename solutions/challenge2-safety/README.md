@@ -22,4 +22,9 @@ Hardware interlocks > Local safety > Anomaly detection > Coordinator > Operator
 ## Rule
 Safety has absolute veto over Grid-OS. No exceptions.
 
+## Offene Risiken / Naechste Tasks
+- Safety API hat noch kein AuthN/AuthZ; vor produktivem Einsatz absichern.
+- MQTT Client nutzt deprecated Callback API; auf neue Callback-Version migrieren.
+- Safety Events sollten zusaetzlich revisionssicher persistiert werden (Audit-Trail).
+
 License: Apache 2.0 | sihlhack.ch

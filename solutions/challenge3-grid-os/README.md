@@ -50,4 +50,9 @@ Default parameters (viable with AI inference workloads):
 - HT (peak): 0.26 CHF/kWh → discharge + export
 - Spread: 0.06-0.10 CHF/kWh (realistic Swiss tariff structure)
 
+## Offene Risiken / Naechste Tasks
+- Hardware-in-the-loop Dauerlauf fuer Scheduler-Fairness/Starvation unter Last fehlt.
+- Clearance-Latenz und Ausfallpfade gegen echte Safety API in End-to-End Tests absichern.
+- Manuelle Moduswechsel brauchen Betriebsrichtlinie (Operator SOP + Rollback-Regeln).
+
 License: Apache 2.0 | sihlhack.ch

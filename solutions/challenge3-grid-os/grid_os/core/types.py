@@ -38,8 +38,8 @@ class HubConfig:
     max_solar_w: float = 5000.0
     max_grid_import_w: float = 3500.0
     max_grid_export_w: float = 3500.0
-    t_water_setpoint: float = 55.0  # °C, physics limit: t_cpu = t_water + 24°C, must stay < 80°C
-    t_cpu_limit: float = 85.0
+    t_water_setpoint: float = 55.0  # °C, with 24°C node-to-coolant delta keeps CPU below 80°C.
+    t_cpu_limit: float = 80.0
     t_cpu_throttle: float = 80.0
     soc_min_pct: float = 10.0
     soc_max_pct: float = 95.0
