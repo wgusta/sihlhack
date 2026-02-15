@@ -1,0 +1,21 @@
+{
+  "headline": "Grid-OS simulation: clear-sky-day",
+  "checks": [
+    {
+      "key": "thermal.cpu_limit",
+      "pass": true,
+      "message": "max cpu 78.0C / limit 80.0C"
+    },
+    {
+      "key": "grid.shedding_response",
+      "pass": true,
+      "message": "Shedding transitions were emitted under unstable conditions"
+    }
+  ],
+  "metrics": {
+    "mode": "SUMMER_EARN",
+    "shedding": "L0",
+    "compute_w": 2460,
+    "grid_w": 180
+  }
+}

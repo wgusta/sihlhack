@@ -1,0 +1,13 @@
+{
+  "scenario": "clear-sky-day",
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Simulation seed 42",
+      "featureId": "gridos.scheduler-budget"
+    }
+  ],
+  "cpuMax": 78,
+  "computeBase": 2460
+}

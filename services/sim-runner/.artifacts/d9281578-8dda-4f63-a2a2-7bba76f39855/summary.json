@@ -1,0 +1,20 @@
+{
+  "headline": "Sensor pipeline simulation: normal-stream",
+  "checks": [
+    {
+      "key": "topic.compatibility",
+      "pass": true,
+      "message": "Legacy topic compatibility enabled"
+    },
+    {
+      "key": "alert.pipeline",
+      "pass": true,
+      "message": "No alerts generated"
+    }
+  ],
+  "metrics": {
+    "scenario": "normal-stream",
+    "max_cpu_c": 86,
+    "alert_count": 0
+  }
+}

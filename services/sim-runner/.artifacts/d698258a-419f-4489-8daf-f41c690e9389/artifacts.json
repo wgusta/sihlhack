@@ -1,0 +1,195 @@
+{
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Simulation seed 42",
+      "featureId": "gridos.scheduler-budget"
+    }
+  ],
+  "series": [
+    {
+      "key": "compute_w",
+      "label": "Compute (W)",
+      "unit": "W",
+      "points": [
+        {
+          "t": 0,
+          "value": 2460
+        },
+        {
+          "t": 5,
+          "value": 2507.94
+        },
+        {
+          "t": 10,
+          "value": 2544.15
+        },
+        {
+          "t": 15,
+          "value": 2559.75
+        },
+        {
+          "t": 20,
+          "value": 2550.93
+        },
+        {
+          "t": 25,
+          "value": 2519.85
+        },
+        {
+          "t": 30,
+          "value": 2474.11
+        },
+        {
+          "t": 35,
+          "value": 2424.92
+        },
+        {
+          "t": 40,
+          "value": 2384.32
+        },
+        {
+          "t": 45,
+          "value": 2362.25
+        },
+        {
+          "t": 50,
+          "value": 2364.11
+        },
+        {
+          "t": 55,
+          "value": 2389.45
+        },
+        {
+          "t": 60,
+          "value": 2432.06
+        }
+      ]
+    },
+    {
+      "key": "grid_w",
+      "label": "Grid (W)",
+      "unit": "W",
+      "points": [
+        {
+          "t": 0,
+          "value": 180
+        },
+        {
+          "t": 5,
+          "value": 213.56
+        },
+        {
+          "t": 10,
+          "value": 238.9
+        },
+        {
+          "t": 15,
+          "value": 249.82
+        },
+        {
+          "t": 20,
+          "value": 243.65
+        },
+        {
+          "t": 25,
+          "value": 221.89
+        },
+        {
+          "t": 30,
+          "value": 189.88
+        },
+        {
+          "t": 35,
+          "value": 155.45
+        },
+        {
+          "t": 40,
+          "value": 127.02
+        },
+        {
+          "t": 45,
+          "value": 111.57
+        },
+        {
+          "t": 50,
+          "value": 112.88
+        },
+        {
+          "t": 55,
+          "value": 130.61
+        },
+        {
+          "t": 60,
+          "value": 160.44
+        }
+      ]
+    },
+    {
+      "key": "cpu_temp",
+      "label": "CPU Temp",
+      "unit": "°C",
+      "points": [
+        {
+          "t": 0,
+          "value": 70
+        },
+        {
+          "t": 5,
+          "value": 71.44
+        },
+        {
+          "t": 10,
+          "value": 72.52
+        },
+        {
+          "t": 15,
+          "value": 72.99
+        },
+        {
+          "t": 20,
+          "value": 72.73
+        },
+        {
+          "t": 25,
+          "value": 71.8
+        },
+        {
+          "t": 30,
+          "value": 70.42
+        },
+        {
+          "t": 35,
+          "value": 68.95
+        },
+        {
+          "t": 40,
+          "value": 67.73
+        },
+        {
+          "t": 45,
+          "value": 67.07
+        },
+        {
+          "t": 50,
+          "value": 67.12
+        },
+        {
+          "t": 55,
+          "value": 67.88
+        },
+        {
+          "t": 60,
+          "value": 69.16
+        }
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "label": "scheduler-report.json",
+      "url": "/Users/gusta/1_Projects/sihlhack/services/sim-runner/.artifacts/d698258a-419f-4489-8daf-f41c690e9389/scheduler-report.json"
+    }
+  ]
+}

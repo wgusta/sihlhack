@@ -1,0 +1,136 @@
+{
+  "series": [
+    {
+      "key": "cpu_temp",
+      "label": "CPU Temp",
+      "unit": "°C",
+      "points": [
+        {
+          "t": 0,
+          "value": 62
+        },
+        {
+          "t": 5,
+          "value": 65.51
+        },
+        {
+          "t": 10,
+          "value": 67.69
+        },
+        {
+          "t": 15,
+          "value": 67.72
+        },
+        {
+          "t": 20,
+          "value": 65.59
+        },
+        {
+          "t": 25,
+          "value": 62.1
+        },
+        {
+          "t": 30,
+          "value": 58.57
+        },
+        {
+          "t": 35,
+          "value": 56.34
+        },
+        {
+          "t": 40,
+          "value": 56.25
+        },
+        {
+          "t": 45,
+          "value": 58.33
+        },
+        {
+          "t": 50,
+          "value": 61.8
+        },
+        {
+          "t": 55,
+          "value": 65.35
+        },
+        {
+          "t": 60,
+          "value": 67.63
+        }
+      ]
+    },
+    {
+      "key": "flow_rate",
+      "label": "Flow Rate",
+      "unit": "L/min",
+      "points": [
+        {
+          "t": 0,
+          "value": 3
+        },
+        {
+          "t": 5,
+          "value": 3.23
+        },
+        {
+          "t": 10,
+          "value": 3.38
+        },
+        {
+          "t": 15,
+          "value": 3.38
+        },
+        {
+          "t": 20,
+          "value": 3.24
+        },
+        {
+          "t": 25,
+          "value": 3.01
+        },
+        {
+          "t": 30,
+          "value": 2.77
+        },
+        {
+          "t": 35,
+          "value": 2.62
+        },
+        {
+          "t": 40,
+          "value": 2.62
+        },
+        {
+          "t": 45,
+          "value": 2.76
+        },
+        {
+          "t": 50,
+          "value": 2.99
+        },
+        {
+          "t": 55,
+          "value": 3.22
+        },
+        {
+          "t": 60,
+          "value": 3.38
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "raw": {
+    "topicNamespace": "sihlhack"
+  },
+  "exports": [
+    {
+      "label": "metrics.csv",
+      "url": "/Users/gusta/1_Projects/sihlhack/services/sim-runner/.artifacts/d9281578-8dda-4f63-a2a2-7bba76f39855/metrics.csv"
+    },
+    {
+      "label": "metrics.json",
+      "url": "/Users/gusta/1_Projects/sihlhack/services/sim-runner/.artifacts/d9281578-8dda-4f63-a2a2-7bba76f39855/metrics.json"
+    }
+  ]
+}

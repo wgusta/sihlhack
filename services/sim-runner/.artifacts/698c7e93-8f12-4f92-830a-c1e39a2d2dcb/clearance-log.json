@@ -1,0 +1,23 @@
+{
+  "events": [
+    {
+      "t": 0,
+      "level": "info",
+      "message": "Coordinator initialized",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 12,
+      "level": "warning",
+      "message": "Hub heartbeat missed",
+      "featureId": "safety.fail-closed"
+    },
+    {
+      "t": 18,
+      "level": "critical",
+      "message": "Fail-closed: clearance denied",
+      "featureId": "safety.fail-closed"
+    }
+  ],
+  "finalState": "E_STOP"
+}

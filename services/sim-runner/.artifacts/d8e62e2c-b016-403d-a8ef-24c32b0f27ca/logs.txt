@@ -1,0 +1,3 @@
+scenario=clear-sky-day
+mode=SUMMER_EARN
+max_compute=3000

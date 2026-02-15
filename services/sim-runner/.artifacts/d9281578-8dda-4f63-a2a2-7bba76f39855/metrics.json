@@ -1,0 +1,15 @@
+{
+  "scenario": "normal-stream",
+  "checks": [
+    {
+      "key": "topic.compatibility",
+      "pass": true,
+      "message": "Legacy topic compatibility enabled"
+    },
+    {
+      "key": "alert.pipeline",
+      "pass": true,
+      "message": "No alerts generated"
+    }
+  ]
+}
