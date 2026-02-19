@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
@@ -92,8 +93,17 @@ export default function SnackathonsPage() {
       <Header />
 
       <main className="flex-1">
-        <section className="bg-brand-black text-white py-16">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-brand-black text-white py-16 overflow-hidden">
+          <Image
+            src="/images/snackathon_night_action.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-40"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-brand-black/60" />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div className="inline-block px-4 py-2 bg-thermal-orange/20 border border-thermal-orange/40 rounded-full mb-6">
               <span className="font-mono text-sm text-thermal-orange uppercase tracking-wide">
                 CHF 80 Teilnahmegebühr (inkl. allfälliger MWST)

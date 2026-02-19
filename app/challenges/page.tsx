@@ -12,6 +12,7 @@ import { SafetyVisualization } from '@/components/visualizations/SafetyVisualiza
 import { GridOSVisualization } from '@/components/visualizations/GridOSVisualization'
 import { ComputeScenariosSection } from '@/components/landing/ComputeScenariosSection'
 import { PrototypeVisualization } from '@/components/ui/PrototypeVisualization'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Pakete & Competition | sihlhack',
@@ -108,6 +109,29 @@ export default function ChallengesPage() {
                 <div className="font-mono text-3xl font-bold text-grid-green">3</div>
                 <div className="font-mono text-xs text-gray-400">Tage</div>
               </div>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { title: 'Sensor Integration', src: '/images/pkg_sensor_integration_cover.webp' },
+                { title: 'Multi-Node Safety Coordination', src: '/images/pkg_multi_node_safety_cover.webp' },
+                { title: 'Grid-OS Logic', src: '/images/pkg_grid_os_logic_cover.webp' },
+              ].map((challengeImage) => (
+                <div key={challengeImage.title} className="relative aspect-[16/9] rounded-xl overflow-hidden border border-white/20">
+                  <Image
+                    src={challengeImage.src}
+                    alt=""
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-0 bg-brand-black/45" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <p className="font-mono text-xs text-white">{challengeImage.title}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

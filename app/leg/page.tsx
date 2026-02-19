@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { ButtonLink } from '@/components/ui/ButtonLink';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Lokale Elektrizitätsgemeinschaften (LEG) | sihlhack',
@@ -15,8 +16,17 @@ export default function LEGPage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-6">
-          <div className="max-w-4xl mx-auto">
+        <section className="relative pt-32 pb-16 px-6 overflow-hidden">
+          <Image
+            src="/images/panorama_sihltal_solar.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-25"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-white/80" />
+          <div className="relative max-w-4xl mx-auto">
             <div className="mb-6">
               <span className="inline-block px-4 py-1 bg-grid-green/10 text-grid-green text-xs font-mono uppercase tracking-widest rounded-full">
                 Schweizer Energiewende

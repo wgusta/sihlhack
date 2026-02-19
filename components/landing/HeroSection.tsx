@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Logo } from '@/components/ui/Logo'
 
@@ -30,10 +31,20 @@ export function HeroSection() {
       ref={heroRef}
       className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-brand-black"
     >
-      {/* Thermal gradient background effect */}
+      {/* Hero image + overlays */}
       <div className="absolute inset-0">
+        <Image
+          src="/images/hero_cover_motion.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-45"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-brand-black/55" />
         <div
-          className="absolute inset-0 thermal-gradient opacity-20"
+          className="absolute inset-0 thermal-gradient opacity-30"
           style={{ filter: 'blur(100px)' }}
         />
         {/* Grid pattern overlay */}

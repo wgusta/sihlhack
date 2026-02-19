@@ -2,6 +2,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Sicherheit | sihlhack',
@@ -15,8 +16,17 @@ export default function SafetyPage() {
       
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-brand-black text-white py-20">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative bg-brand-black text-white py-20 overflow-hidden">
+          <Image
+            src="/images/pkg_multi_node_safety_cover.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-35"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-brand-black/65" />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <span className="font-mono text-sm text-thermal-orange uppercase tracking-widest">
               Sicherheit zuerst
             </span>

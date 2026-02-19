@@ -1,4 +1,5 @@
 import { ButtonLink } from '@/components/ui/ButtonLink'
+import Image from 'next/image'
 
 export function WhyItMattersSection() {
   return (
@@ -74,6 +75,20 @@ export function WhyItMattersSection() {
                 Das designen wir.
               </p>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-16 max-w-6xl mx-auto">
+          <div className="relative aspect-[21/9] overflow-hidden rounded-2xl border border-brand-black/10">
+            <Image
+              src="/images/panorama_sihltal_solar.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-brand-black/30" />
           </div>
         </div>
 
