@@ -82,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className="scroll-smooth">
+    <html lang="de" className="scroll-smooth" data-brand="sihlhack">
       <head>
         {/* JSON-LD Structured Data */}
         <script

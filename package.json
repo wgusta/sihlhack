@@ -11,6 +11,9 @@
     "lint:all": "eslint .",
     "test:sim:smoke": "playwright test tests/e2e/sim-3d.smoke.spec.ts --project=chromium",
     "test:sim:smoke:install": "playwright install chromium",
+    "check:design-tokens": "node scripts/verify-design-tokens.mjs",
+    "lint:tokens": "node scripts/lint-token-colors.mjs",
+    "postinstall": "node scripts/sync-design-assets.mjs",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -33,6 +36,7 @@
   },
   "homepage": "https://github.com/wgusta/sihlhack#readme",
   "dependencies": {
+    "@sihliconvalley/design-tokens": "file:../sihliconvalley-design-tokens",
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",

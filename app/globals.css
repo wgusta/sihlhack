@@ -1,3 +1,5 @@
+@import "../design-system/base.css";
+@import "../design-system/sihlhack.css";
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Permanent+Marker&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
@@ -5,41 +7,41 @@
 /* REDESIGN: Sihlicon Valley - Sihlicon Hub Theme */
 @theme {
   /* Primary brand colors - Thermal/Energy Focus */
-  --color-sihl-red: #E62F2D;
-  --color-thermal-orange: #FF6B35;
-  --color-heat-amber: #F59E0B;
-  --color-brand-black: #1A1A1A;
-  --color-brand-white: #FFFFFF;
-  --color-off-white: #F5F3E8;
+  --color-sihl-red: rgb(var(--token-color-sun-red));
+  --color-thermal-orange: rgb(var(--token-color-thermal-orange));
+  --color-heat-amber: rgb(var(--token-color-heat-amber));
+  --color-brand-black: rgb(var(--token-color-brand-black));
+  --color-brand-white: rgb(var(--token-color-brand-white));
+  --color-off-white: rgb(var(--token-color-off-white));
 
   /* Energy/Compute Theme */
-  --color-compute-blue: #3B82F6;
-  --color-grid-green: #10B981;
-  --color-solar-yellow: #FBBF24;
-  --color-night-purple: #8B5CF6;
+  --color-compute-blue: rgb(var(--token-color-compute-blue));
+  --color-grid-green: rgb(var(--token-color-grid-green));
+  --color-solar-yellow: rgb(var(--token-color-solar-yellow));
+  --color-night-purple: rgb(var(--token-color-night-purple));
 
   /* Industrial/Hardware Theme */
-  --color-industrial-gold: #B5A642;
-  --color-steel-gray: #6B7280;
-  --color-copper-warm: #B87333;
-  --color-oil-dark: #1F2937;
+  --color-industrial-gold: rgb(var(--token-color-industrial-gold));
+  --color-steel-gray: rgb(var(--token-color-steel-gray));
+  --color-copper-warm: rgb(var(--token-color-copper-warm));
+  --color-oil-dark: rgb(var(--token-color-oil-dark));
 
   /* Status Colors */
-  --color-insight-cyan: #4ECDC4;
-  --color-fund-green: #22C55E;
-  --color-refund-amber: #F59E0B;
-  --color-historic-sepia: #8B7355;
-  --color-historic-cream: #F5F0E1;
+  --color-insight-cyan: rgb(var(--token-color-insight-cyan));
+  --color-fund-green: rgb(var(--token-color-fund-green));
+  --color-refund-amber: rgb(var(--token-color-refund-amber));
+  --color-historic-sepia: rgb(var(--token-color-historic-sepia));
+  --color-historic-cream: rgb(var(--token-color-historic-cream));
 
   /* Legacy aliases for compatibility */
-  --color-deep-pink: #E62F2D;
-  --color-teal: #B5A642;
+  --color-deep-pink: rgb(var(--token-color-sun-red));
+  --color-teal: rgb(var(--token-color-industrial-gold));
 
   /* Font families */
-  --font-display: 'Playfair Display', serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-accent: 'Permanent Marker', cursive;
-  --font-futuristic: 'Orbitron', sans-serif;
+  --font-display: var(--token-font-display);
+  --font-mono: var(--token-font-mono);
+  --font-accent: var(--token-font-accent);
+  --font-futuristic: var(--token-font-futuristic);
 
   /* Animations */
   --animate-fade-in: fade-in 0.5s ease-in-out;
