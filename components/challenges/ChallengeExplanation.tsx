@@ -40,7 +40,7 @@ const challengeExplanations: Record<string, {
   'grid-os-logic': {
     nonTechnical: {
       what: 'Grid-OS Logik ist das "Gehirn" des Systems. Es entscheidet intelligent, wann Computer-Aufgaben laufen, wann die Batterie geladen wird, und wann Wärme produziert wird. Du programmierst den Scheduler, der Solar-Budget berechnet und Compute-Jobs entsprechend plant.',
-      why: 'Ohne intelligente Steuerung wäre das System nur ein passives Heizsystem. Grid-OS Logik macht es intelligent: Es nutzt Sonnenenergie optimal, verschiebt Computer-Aufgaben auf Zeiten mit viel Solar (Deferred Compute), und kann bei Netzproblemen automatisch reagieren (Load Shedding).',
+      why: 'Ohne intelligente Steuerung wäre das System nur ein passives Heizsystem. Grid-OS Logik macht es intelligent: Es entscheidet WANN gerechnet wird. Im Sommer maximiert es Compute bei Solar-Überschuss, im Winter priorisiert es Wärme und nutzt günstige Netzfenster. Dieser Rhythmus ist kein Problem, sondern der Taktgeber eures Schedulers.',
       whatYouBuild: 'Du programmierst einen Scheduler mit Solar-Budget-Algorithmen, Deferred Compute Logik, und Load Shedding Policies. Dazu kommt inter-LEG Compute Credit Scheduling: Hubs inserieren verfügbare Rechenkapazität in kWh, andere Hubs können diese für Jobs beanspruchen. Das System entwickelt gegen den Sihl-Sim (Digital Twin), testet auf dem Safety Avatar, und deployt auf der supervised Reference Hardware.',
     },
     technical: {
@@ -52,7 +52,7 @@ const challengeExplanations: Record<string, {
   'operational-safety-logic': {
     nonTechnical: {
       what: 'Multi-Node Safety Koordination bedeutet: Du programmierst Software-Sicherheitsverriegelungen, die mehrere Nodes koordiniert sichern. Es ist wie ein verteilter Sicherheitswächter – die Software synchronisiert Safety-Checks über mehrere Nodes und erkennt Ausfälle im Netzwerk.',
-      why: 'Sicherheit ist nicht verhandelbar. Ein System aus mehreren verbundenen Nodes braucht koordinierte Safety-Massnahmen. Multi-Node Safety Koordination stellt sicher, dass Ausfälle einzelner Nodes keine Gefahr für das Gesamtnetz darstellen.',
+      why: 'Sicherheit ist nicht verhandelbar und hat immer Scheduling-Priorität 1. Egal wie das Energiebudget aussieht: Heartbeats laufen, Konsens-Checks laufen, Not-Aus reagiert in unter 100ms. Euer Safety-Scheduler definiert die Grenzen, die Grid-OS respektieren muss.',
       whatYouBuild: 'Du programmierst Multi-Node-Sicherheitsverriegelungen: Netzwerkweite Anomalie-Erkennung, Emergency Stop Logik mit Failover, verteilte Sensor-Validierung, und Inter-Node Safety Interlocks. Alles API-basiert.',
     },
     technical: {
@@ -64,7 +64,7 @@ const challengeExplanations: Record<string, {
   'sensor-integration': {
     nonTechnical: {
       what: 'Sensor Integration bedeutet: Du baust Daten-Pipelines, die alle Sensoren (Temperatur, Durchfluss, Leistung, Batterie) verbinden und die Daten in Echtzeit überwachen. Zusätzlich baust du ein Dashboard mit echten Live-Daten (keine Fake-Visualisierungen). Es ist wie das Nervensystem des Systems – es sammelt alle Informationen und zeigt sie transparent an.',
-      why: 'Ohne Sensor-Daten kann das System nicht intelligent reagieren. Sensor Integration ist die Grundlage für Grid-OS Logik und Multi-Node Safety Koordination – beide brauchen zuverlässige, validierte Sensordaten. Das Dashboard macht das System transparent und vertrauenswürdig.',
+      why: 'Ohne Sensor-Daten kann kein Scheduler intelligent entscheiden. Aber Sensor-Verarbeitung braucht selbst Energie. Eure Pipeline muss unter variablem Energiebudget funktionieren: Safety-Sensoren laufen immer auf voller Rate, Analytics-Sensoren werden gedrosselt wenn Solar fehlt. Ihr löst die zirkuläre Abhängigkeit: Sensoren füttern Grid-OS, Grid-OS bestimmt euer Energiebudget.',
       whatYouBuild: 'Du baust Sensor-Daten-Pipelines, die alle Sensoren (Temp, Flow, Power, Battery SOC) verbinden, ein Real-Time Monitoring Dashboard (nur echte Daten, kein Fake), ein Data Validation Framework, API-Integration mit Grid-OS, und CSV/JSON Export für alle Metriken.',
     },
     technical: {

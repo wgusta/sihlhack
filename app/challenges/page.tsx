@@ -556,8 +556,8 @@ export default function ChallengesPage() {
               </div>
 
               <p className="text-center font-mono text-[10px] text-gray-500 mt-6 max-w-xl mx-auto">
-                Jedes Team wählt eine Ebene. Die inneren Schichten (Sensoren) liefern Daten für die äußeren Schichten (Grid-OS).
-                Rechtliche Grundlagen (LEG) ermöglichen das Gesamtsystem.
+                Jedes Team wählt eine Ebene. Alle drei lösen Scheduling-Probleme, aber auf verschiedenen Layern:
+                Safety-Scheduling hat absolute Priorität, Grid-OS plant die Energie-Nutzung, Sensoren liefern Daten unter variablem Energiebudget.
               </p>
             </div>
 
@@ -642,6 +642,62 @@ export default function ChallengesPage() {
                   </span>
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Scheduling: The Unifying Thread */}
+        <section className="py-16 bg-brand-black text-white">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <span className="font-mono text-sm text-grid-green uppercase tracking-widest">
+                Der gemeinsame Nenner
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold mt-2">
+                Scheduling auf jeder Ebene
+              </h2>
+              <p className="mt-4 text-gray-300 font-mono max-w-2xl mx-auto">
+                Das Sihlicon Hub ist kein Rechenzentrum. Clouds optimieren, welche Jobs auf welche Maschinen passen.
+                Wir optimieren, WANN gerechnet wird: abhängig von Solar, Batterie, Netz und Wärmebedarf.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+              <div className="bg-white/5 border border-sihl-red/30 rounded-xl p-6">
+                <div className="font-mono text-xs text-sihl-red uppercase tracking-wider mb-2">Priorität 1</div>
+                <h3 className="font-mono text-lg font-bold text-sihl-red mb-3">Safety Scheduling</h3>
+                <p className="font-mono text-sm text-gray-300">
+                  Heartbeats, Konsens-Checks, Not-Aus: garantierte Latenz, egal wie das Energiebudget aussieht.
+                  Safety übersteuert alles. Immer.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-compute-blue/30 rounded-xl p-6">
+                <div className="font-mono text-xs text-compute-blue uppercase tracking-wider mb-2">Priorität 2</div>
+                <h3 className="font-mono text-lg font-bold text-compute-blue mb-3">Energie-Scheduling</h3>
+                <p className="font-mono text-sm text-gray-300">
+                  Der 10Hz-Regelkreis: WANN rechnen, WANN laden, WANN heizen. Solar-Kurven, Spot-Preise,
+                  Batterie-Zustand, Wärmebedarf. Fünf Ziele gleichzeitig optimieren.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-thermal-orange/30 rounded-xl p-6">
+                <div className="font-mono text-xs text-thermal-orange uppercase tracking-wider mb-2">Priorität 3</div>
+                <h3 className="font-mono text-lg font-bold text-thermal-orange mb-3">Daten-Scheduling</h3>
+                <p className="font-mono text-sm text-gray-300">
+                  Sensoren liefern kontinuierlich Daten. Aber wieviel darf verarbeitet werden, wenn die Energie knapp ist?
+                  Safety-Sensoren laufen immer. Analytics werden gedrosselt.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white/5 border border-grid-green/30 rounded-xl p-6 max-w-3xl mx-auto">
+              <h4 className="font-mono text-sm font-bold text-grid-green mb-3">Saisonalität ist kein Bug, sondern das Design.</h4>
+              <p className="font-mono text-sm text-gray-300">
+                Im Sommer: viel Solar, wenig Wärmebedarf. Der Scheduler maximiert Compute-Durchsatz und exportiert Überschuss.
+                Im Winter: wenig Solar, hoher Wärmebedarf. Der Scheduler priorisiert Wärmeerzeugung und nutzt günstige Netzfenster.
+                Der Jahresrhythmus ist kein Problem, das gelöst werden muss. Er ist der Taktgeber eures Schedulers.
+              </p>
             </div>
           </div>
         </section>
