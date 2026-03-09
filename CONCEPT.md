@@ -103,15 +103,17 @@ Existing "Server Heater" startups (Qarnot, Blockheating) treat the host as a pas
 ## The Three Engineering Packages
 
 ### Sensor Integration
-Build the sensor pipeline: ingestion, validation, and real-time monitoring that feeds Grid-OS.
+Build the data scheduling pipeline: decide WHEN to ingest, validate, and aggregate sensor data under variable energy budgets. Your pipeline feeds Grid-OS with real-time state while operating within the energy constraints that Grid-OS itself sets. Break the circular dependency.
 
 ### Multi-Node Safety Coordination
-Build safety logic across nodes: anomaly detection, fail-closed clearance, and emergency stop paths.
+Build the safety scheduling layer: heartbeats, consensus checks, and emergency stop propagation across distributed nodes. Your scheduler guarantees latency bounds regardless of energy state. Safety overrides economy; your constraints define the floor that Grid-OS must respect.
 
 ### Grid-OS Logic
-Build the control loop: scheduler, load shedding, and policy decisions based on grid signals and energy state.
+Build the energy-temporal scheduler: the 10Hz control loop that decides WHEN to compute given solar availability, battery state, grid price, heat demand, and compute queue. This is the "brain" of the Sihlicon Hub. You consume sensor state and respect safety constraints to maximize the utility function U(t).
 
 **Note:** Time-shift, thermal-path choice, and resilience are evaluation dimensions across all three packages, not separate tracks.
+
+**Scheduling is the unifying thread.** All three packages solve scheduling problems, but at different layers with different constraints. See `SCHEDULING-ARCHITECTURE.md` for the full technical framing, including the scheduling hierarchy (safety > grid-os > sensor) and the circular dependency teams must resolve.
 
 ## The Simulation Gap
 

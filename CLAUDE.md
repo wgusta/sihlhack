@@ -47,3 +47,11 @@ Repository guidance for code assistants.
 - `docs/service-apis.md`
 - `docs/simulation-dashboard.md`
 - `AGENTS.md`
+- `SCHEDULING-ARCHITECTURE.md`
+
+## Public/Private Split
+
+- `private/` directory is gitignored; contains strategy, financials, internal analysis
+- Root .md files and `docs/` are public (visible on GitHub)
+- When creating new docs, decide public vs private upfront
+- Never commit private analysis to root; always place in `private/`

@@ -68,6 +68,7 @@ npm run build
 ## Canonical Docs
 
 - `CONCEPT.md` for product model and package framing
+- `SCHEDULING-ARCHITECTURE.md` for the energy-temporal scheduling framing across all three packages
 - `docs/simulation-dashboard.md` for sim behavior and file map
 - `docs/service-apis.md` for active API surface
 - `AGENTS.md` and `CLAUDE.md` for contributor instructions

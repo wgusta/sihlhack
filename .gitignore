@@ -45,9 +45,8 @@ drizzle/meta/
 *.tmp
 *.temp
 
-# Private Analysis Documents
-SIHLICON-MANUFACTURING-ANALYSIS.md
-SIHLICON-FINANCIAL-SERVICES-ANALYSIS.md
+# Private (strategy, financials, internal analysis)
+private/
 
 # Future Communications Content (internal only)
 future-comms/
