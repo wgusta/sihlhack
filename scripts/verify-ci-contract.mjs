@@ -19,6 +19,10 @@ for (const command of [
 
 requireText(deploy, "types: [completed]")
 requireText(deploy, "conclusion == 'success'")
+requireText(deploy, "workflow_run.event == 'push'")
+requireText(deploy, "workflow_run.head_branch == 'main'")
+requireText(deploy, 'persist-credentials: false')
+requireText(deploy, '--connect-timeout 5 --max-time 15')
 requireText(deploy, '--prebuilt --prod --skip-domain')
 requireText(deploy, 'vercel@58.9.0 promote')
 

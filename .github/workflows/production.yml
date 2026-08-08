@@ -16,7 +16,10 @@ concurrency:
 jobs:
   deploy:
     name: Promote tested deployment
-    if: github.event.workflow_run.conclusion == 'success'
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
     environment: production
     env:
@@ -26,6 +29,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
@@ -55,7 +59,7 @@ jobs:
           CANDIDATE_URL: ${{ steps.candidate.outputs.url }}
         run: |
           for attempt in 1 2 3 4 5 6; do
-            curl -fsS "${CANDIDATE_URL}" >/dev/null && exit 0
+            curl --connect-timeout 5 --max-time 15 -fsS "${CANDIDATE_URL}" >/dev/null && exit 0
             sleep 5
           done
           exit 1
@@ -65,4 +69,3 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           CANDIDATE_URL: ${{ steps.candidate.outputs.url }}
         run: npx --yes vercel@58.9.0 promote "${CANDIDATE_URL}" --yes --token "${VERCEL_TOKEN}"
-
