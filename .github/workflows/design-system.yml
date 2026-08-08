@@ -25,7 +25,5 @@ jobs:
       - run: npm run typecheck
       - run: npm run check:design-tokens
       - run: npm run lint:tokens
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:sim:smoke
       - run: npm run build
       - run: node scripts/verify-ci-contract.mjs

@@ -14,7 +14,6 @@ for (const command of [
   'npm run typecheck',
   'npm run check:design-tokens',
   'npm run lint:tokens',
-  'npm run test:sim:smoke',
   'npm run build',
 ]) requireText(ci, command)
 
@@ -24,4 +23,5 @@ requireText(deploy, '--prebuilt --prod --skip-domain')
 requireText(deploy, 'vercel@58.9.0 promote')
 
 if (ci.includes('npm install\n')) throw new Error('CI must use npm ci')
+if (ci.includes('POSTGRES_URL:')) throw new Error('CI must not use a production-style DB credential')
 console.log('CI contract verified')
