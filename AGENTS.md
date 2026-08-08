@@ -30,10 +30,19 @@
 
 ## Validation Before Handoff
 
-- `npm run lint`
-- `npx tsc --noEmit`
+- `npm run lint:all`
+- `npm run typecheck`
+- `npm run check:design-tokens && npm run lint:tokens`
 - `npm run test:sim:smoke -- --reporter=line`
 - `npm run build`
+
+## Production
+
+- GitHub `ci` is required before production.
+- Automatic Vercel Git production deploys stay disabled.
+- `.github/workflows/production.yml` builds one production candidate with
+  `--skip-domain`, smokes that URL, then promotes the same deployment.
+- Failed CI or smoke leaves the current production domain untouched.
 
 ## Docs To Update When Sim Changes
 

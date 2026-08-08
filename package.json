@@ -9,11 +9,11 @@
     "start": "next start",
     "lint": "eslint app/dashboard/sim/page.tsx components/sim/SimulationTuningPanel.tsx components/sim3d lib/sim/constants.ts lib/sim/scene-mapper.ts lib/sim/featureRegistry.ts types/sim.ts tests/e2e/sim-3d.smoke.spec.ts playwright.config.ts",
     "lint:all": "eslint .",
+    "typecheck": "tsc --noEmit",
     "test:sim:smoke": "playwright test tests/e2e/sim-3d.smoke.spec.ts --project=chromium",
     "test:sim:smoke:install": "playwright install chromium",
     "check:design-tokens": "node scripts/verify-design-tokens.mjs",
     "lint:tokens": "node scripts/lint-token-colors.mjs",
-    "postinstall": "node scripts/sync-design-assets.mjs",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wgusta/sihlhack.git"
+    "url": "git+https://github.com/gustych/sihlhack.git"
   },
   "keywords": [
     "hackathon",
@@ -32,11 +32,10 @@
   "author": "sihlhack team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wgusta/sihlhack/issues"
+    "url": "https://github.com/gustych/sihlhack/issues"
   },
-  "homepage": "https://github.com/wgusta/sihlhack#readme",
+  "homepage": "https://github.com/gustych/sihlhack#readme",
   "dependencies": {
-    "@sihliconvalley/design-tokens": "file:../sihliconvalley-design-tokens",
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",

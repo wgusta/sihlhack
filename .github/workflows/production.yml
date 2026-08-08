@@ -1,0 +1,68 @@
+name: Production
+
+on:
+  workflow_run:
+    workflows: [CI]
+    branches: [main]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sihlhack-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Promote tested deployment
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build one production candidate
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          npx --yes vercel@58.9.0 pull --yes --environment=production --token "${VERCEL_TOKEN}"
+          npx --yes vercel@58.9.0 build --prod --token "${VERCEL_TOKEN}"
+
+      - name: Deploy without assigning the production domain
+        id: candidate
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          url="$(npx --yes vercel@58.9.0 deploy --prebuilt --prod --skip-domain \
+            --token "${VERCEL_TOKEN}")"
+          echo "url=${url}" >> "${GITHUB_OUTPUT}"
+
+      - name: Smoke candidate
+        env:
+          CANDIDATE_URL: ${{ steps.candidate.outputs.url }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            curl -fsS "${CANDIDATE_URL}" >/dev/null && exit 0
+            sleep 5
+          done
+          exit 1
+
+      - name: Promote the tested candidate
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          CANDIDATE_URL: ${{ steps.candidate.outputs.url }}
+        run: npx --yes vercel@58.9.0 promote "${CANDIDATE_URL}" --yes --token "${VERCEL_TOKEN}"
+
