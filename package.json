@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/gustych/sihlhack#readme",
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@heroicons/react": "^2.2.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
