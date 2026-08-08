@@ -20,6 +20,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm audit --omit=dev --audit-level=high
       - run: npm run lint:all
       - run: npm run typecheck
       - run: npm run check:design-tokens
@@ -28,4 +29,3 @@ jobs:
       - run: npm run test:sim:smoke
       - run: npm run build
       - run: node scripts/verify-ci-contract.mjs
-
