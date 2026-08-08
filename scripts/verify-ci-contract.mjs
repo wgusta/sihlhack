@@ -10,7 +10,7 @@ const requireText = (text, value) => {
 for (const command of [
   'npm ci',
   'npm audit --omit=dev --audit-level=high',
-  'npm run lint:all',
+  'npm run lint',
   'npm run typecheck',
   'npm run check:design-tokens',
   'npm run lint:tokens',

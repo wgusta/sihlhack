@@ -7,6 +7,7 @@ export default defineConfig([
   ...nextTypescript,
   globalIgnores([
     '.next/**',
+    '.next-playwright/**',
     'out/**',
     'build/**',
     'next-env.d.ts',
