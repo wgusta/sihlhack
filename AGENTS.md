@@ -30,7 +30,7 @@
 
 ## Validation Before Handoff
 
-- `npm run lint:all`
+- `npm run lint` (scoped clean baseline; `lint:all` still exposes legacy debt)
 - `npm run typecheck`
 - `npm run check:design-tokens && npm run lint:tokens`
 - `npm run test:sim:smoke -- --reporter=line`
@@ -39,10 +39,9 @@
 ## Production
 
 - GitHub `ci` is required before production.
-- Automatic Vercel Git production deploys stay disabled.
-- `.github/workflows/production.yml` builds one production candidate with
-  `--skip-domain`, smokes that URL, then promotes the same deployment.
-- Failed CI or smoke leaves the current production domain untouched.
+- Native Vercel Git deployment follows a protected merge to `main`; do not add
+  a second deployment workflow without first disabling the native integration.
+- Failed required CI blocks the merge and therefore blocks production.
 
 ## Docs To Update When Sim Changes
 
