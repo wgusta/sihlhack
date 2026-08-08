@@ -37,6 +37,8 @@ next-env.d.ts
 
 # Testing
 coverage/
+.next-playwright/
+test-results/
 
 # Drizzle
 drizzle/meta/
