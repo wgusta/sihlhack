@@ -13,6 +13,8 @@ for (const command of [
   'npm run typecheck',
   'npm run check:design-tokens',
   'npm run lint:tokens',
+  'npx --no-install playwright install --with-deps chromium',
+  'npm run test:sim:smoke -- --reporter=line',
   'npm run build',
 ]) requireText(ci, command)
 
