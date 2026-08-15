@@ -1,0 +1,51 @@
+{
+  "apiVersion": "hermes.delivery/v1",
+  "kind": "RepositoryDelivery",
+  "metadata": {
+    "id": "sihlhack",
+    "repository": "gustych/sihlhack"
+  },
+  "spec": {
+    "class": "vercel_git",
+    "provider": "vercel_git",
+    "productionMode": "merge",
+    "enabled": true,
+    "actions": {
+      "check": {
+        "workflow": ".github/workflows/design-system.yml",
+        "environment": null,
+        "approval": "none",
+        "inputs": []
+      },
+      "preview": {
+        "workflow": null,
+        "environment": "preview",
+        "approval": "merge",
+        "inputs": []
+      },
+      "health": {
+        "workflow": null,
+        "environment": "production",
+        "approval": "none",
+        "inputs": []
+      }
+    },
+    "standards": {
+      "immutableRelease": true,
+      "requiredChecks": [
+        "npm ci",
+        "high-severity production dependency audit",
+        "scoped lint",
+        "typecheck",
+        "design-token checks",
+        "Playwright simulation smoke when the isolated CI DB is configured",
+        "production build"
+      ],
+      "backup": "Not applicable to Vercel application delivery",
+      "migration": "Database changes remain a separate reviewed operation",
+      "health": "Vercel deployment and GitHub check status",
+      "rollback": "Use Vercel deployment rollback; never add a second production workflow",
+      "onboardingBlockers": []
+    }
+  }
+}
