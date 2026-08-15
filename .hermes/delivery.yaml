@@ -38,7 +38,7 @@
         "scoped lint",
         "typecheck",
         "design-token checks",
-        "Playwright simulation smoke",
+        "Playwright simulation smoke when the isolated CI DB is configured",
         "production build"
       ],
       "backup": "Not applicable to Vercel application delivery",

@@ -19,5 +19,11 @@ for (const command of [
 ]) requireText(ci, command)
 
 if (ci.includes('npm install\n')) throw new Error('CI must use npm ci')
-if (ci.includes('POSTGRES_URL:')) throw new Error('CI must not use a production-style DB credential')
+requireText(ci, 'POSTGRES_URL: ${{ secrets.SIHLHACK_CI_POSTGRES_URL }}')
+if ((ci.match(/if: env\.POSTGRES_URL != ''/g) ?? []).length !== 2) {
+  throw new Error('DB-backed smoke steps must require the isolated CI database')
+}
+if (ci.includes('secrets.POSTGRES_URL')) {
+  throw new Error('CI must not use a production-style DB credential')
+}
 console.log('CI contract verified')

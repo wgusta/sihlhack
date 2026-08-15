@@ -20,6 +20,8 @@ jobs:
   verify:
     name: ci
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_URL: ${{ secrets.SIHLHACK_CI_POSTGRES_URL }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -34,7 +36,11 @@ jobs:
       - run: npm run typecheck
       - run: npm run check:design-tokens
       - run: npm run lint:tokens
-      - run: npx --no-install playwright install --with-deps chromium
-      - run: npm run test:sim:smoke -- --reporter=line
+      - name: Install browser for DB-backed smoke
+        if: env.POSTGRES_URL != ''
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Run DB-backed simulation smoke
+        if: env.POSTGRES_URL != ''
+        run: npm run test:sim:smoke -- --reporter=line
       - run: npm run build
       - run: node scripts/verify-ci-contract.mjs
